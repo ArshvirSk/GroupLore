@@ -37,8 +37,21 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 - **Only engine games appear in the lobby.** During Phase 1 that means Most Likely To only; all fake mode pills are gone. Parked games will reappear as they are ported.
 - **Lore is untouched but unused.** `member_profiles`, the editor and the Hub stay in place; `LORE_MODE` (default off) is the only switch that may re-enable lore prompts later. No current game reads profiles.
 
+## Phase 2 games
+
+- **Original prompt banks replace profile-derived prompts.** Lore/profile prompts are deferred, so Impostor, 5 Second and Overrated use standalone original JSON banks. No game reads `member_profiles`.
+- **5 Second asks for one typed answer, then the group judges it.** The original asks a player to name three things out loud; requiring three typed items in five seconds is unfair on mobile. One answer plus a nailed/missed vote preserves the pressure and the social judging loop.
+- **Hot Seat was dropped.** The original repeated the same player for three turns; with a fixed nine-round count, players beyond the first few seats never got a turn. Shipping only modes that give every player a fair turn is better than a visible mode with a partial rotation.
+- **Impostor answers are clues, and all clues are anonymous until the reveal.** The prompt is secret, so the answer phase is a clue, not the full answer. Showing authors during discussion would make the deduction trivial.
+- **A leaving impostor ends the game.** The round no longer has a secret role to deduce; continuing would leak or corrupt the result. A non-impostor leaving is handled by removing their answer/vote and continuing.
+- **Overrated ties award every voter a point.** A tie has no majority to reward; giving both sides a point avoids punishing a legitimate split.
+- **TV is a spectator, not a player.** Spectators use their own socket and `room:spectate`, are tracked separately from seats, cannot act, and receive `publicFor` instead of a player view. The TV therefore cannot change readiness, take a host slot, or see the Impostor prompt early.
+- **Game modules own public-view redaction.** The engine does not guess which fields are safe. Each module implements `publicFor`; the TV never receives `viewFor` output.
+
 ## Known limitations
 
 - Rooms are in-memory and single-process. A server restart loses live state; a reconnect after restart starts a fresh room from the session row (or is rejected if the session is finished). Horizontal scaling needs a Redis adapter and shared room storage, which is out of Phase 1.
 - The 30s grace means a closed tab can hold a lobby seat for up to 30 seconds.
 - The Hub's other stat columns and badges remain driven by the old event types; only games played/won are written so far.
+- The TV route requires a signed-in group member to authenticate the spectator socket; it is not an unauthenticated public display URL yet.
+- A game screen is compiled but has not been visually exercised at 375px or on a TV-sized viewport.
