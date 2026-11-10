@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 
 interface MemberProfile {
   id: string;
+  user_id?: string | null;
   display_name: string;
   nickname?: string;
   traits: string[];
@@ -85,6 +86,7 @@ export default function GroupDashboard() {
     mostLikelyTo: "",
   });
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [editingUserId, setEditingUserId] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
   // Determine host info from group_members
@@ -168,6 +170,7 @@ export default function GroupDashboard() {
     setSaving(true);
     try {
       await api.upsertMember(id, {
+        userId: editingUserId || undefined,
         displayName: form.displayName.trim(),
         nickname: form.nickname.trim() || null,
         traits: form.traits
@@ -193,6 +196,7 @@ export default function GroupDashboard() {
       });
       setShowAdd(false);
       setEditingId(null);
+      setEditingUserId(null);
       setForm({
         displayName: "",
         nickname: "",
@@ -203,13 +207,17 @@ export default function GroupDashboard() {
         mostLikelyTo: "",
       });
       await loadData();
-    } catch {
+    } catch (err) {
+      alert(err instanceof Error ? err.message : "Failed to save member");
     } finally {
       setSaving(false);
     }
   };
 
   const startEditing = (m: MemberProfile) => {
+    const canEdit = isHost || (m.user_id && m.user_id === dbUserId);
+    if (!canEdit) return;
+    setEditingUserId(m.user_id || null);
     setForm({
       displayName: m.display_name,
       nickname: m.nickname || "",
@@ -268,7 +276,7 @@ export default function GroupDashboard() {
     try {
       const session = await api.createGame({
         groupId: id,
-        gameType: "overrated-underrated",
+        gameType: "most-likely-to",
       });
       router.push(`/lobby/${session.id}?groupId=${id}`);
     } catch {}
@@ -427,6 +435,7 @@ export default function GroupDashboard() {
               onClick={() => {
                 setShowAdd(!showAdd);
                 setEditingId(null);
+                setEditingUserId(null);
                 setForm({
                   displayName: "",
                   nickname: "",
@@ -525,6 +534,7 @@ export default function GroupDashboard() {
                     onClick={() => {
                       setShowAdd(false);
                       setEditingId(null);
+                      setEditingUserId(null);
                     }}
                     className="neon-btn neon-btn-outline text-xs"
                   >
@@ -551,7 +561,11 @@ export default function GroupDashboard() {
                 return (
                   <motion.div
                     key={m.id}
-                    className="glass-card p-4 cursor-pointer"
+                    className={`glass-card p-4 ${
+                      isHost || m.user_id === dbUserId
+                        ? "cursor-pointer"
+                        : "cursor-default"
+                    }`}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.05 }}
