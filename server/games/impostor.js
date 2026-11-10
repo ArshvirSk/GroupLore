@@ -183,7 +183,7 @@ const impostor = {
   name: "Guess the Impostor",
   description: "Everyone gets a secret prompt except one player. Blend in, then find the fake.",
   emoji: "🕵️",
-  accent: "dark",
+  accent: "teal",
   minPlayers: 3,
   maxPlayers: 12,
   modes: MODES,
