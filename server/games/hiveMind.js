@@ -220,9 +220,13 @@ const hiveMind = {
       round: state.round,
       rounds: state.rounds,
       prompt: state.prompt?.text || "",
-      groups: state.groups,
+      groups: state.groups.map((group) => ({
+        id: group.id,
+        answer: group.answer,
+        names: group.names,
+        points: group.points,
+      })),
       roundPoints: Object.entries(state.roundPoints).map(([playerId, points]) => ({
-        playerId,
         name: room.players.get(playerId)?.name || "Player",
         points,
       })),
