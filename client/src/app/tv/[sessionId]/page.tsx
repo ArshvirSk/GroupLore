@@ -23,7 +23,12 @@ type TvReveal = {
   majority?: string | null;
   tie?: boolean;
   noVotes?: boolean;
+  agreePct?: number;
+  disagreePct?: number;
   roundWinners?: { name: string }[];
+  realAnswer?: string;
+  oddName?: string;
+  oddPrompt?: string;
 };
 
 type TvGame = {
@@ -38,6 +43,8 @@ type TvGame = {
   totalVoters?: number;
   currentPlayerName?: string;
   answer?: string | null;
+  question?: string;
+  groups?: { id: string; answer: string; names: string[]; points: number }[];
   reveal?: TvReveal | null;
 };
 
@@ -295,6 +302,59 @@ export default function TvPage() {
                     </div>
                   )}
                 </>
+              )}
+
+            {room.phase === "playing" &&
+              ["hive-mind", "odd-one-out", "bluff", "hot-takes"].includes(
+                room.gameId || "",
+              ) && (
+                <div className="party-card p-8 text-center">
+                  <PhaseLabel game={game} />
+                  <p className="mt-3 font-display text-2xl font-semibold text-ink sm:text-3xl">
+                    {game?.prompt ||
+                      game?.question ||
+                      "The game is in progress"}
+                  </p>
+                  <p className="mt-3 text-sm font-bold text-ink-soft">
+                    {reveal?.realAnswer
+                      ? `Real answer: ${reveal.realAnswer}`
+                      : reveal?.oddName
+                        ? `The odd one was ${reveal.oddName}`
+                        : `${game?.submitted || 0}/${game?.total || 0} in`}
+                  </p>
+                  {game?.groups && game.groups.length > 0 && (
+                    <div className="mx-auto mt-4 grid max-w-xl gap-2 text-left">
+                      {game.groups.slice(0, 4).map((group) => (
+                        <div
+                          key={group.id}
+                          className="flex items-center justify-between rounded-2xl bg-cream px-4 py-2"
+                        >
+                          <span className="font-display text-base font-semibold text-ink">
+                            {group.answer}
+                          </span>
+                          <span className="text-xs font-bold text-ink-soft">
+                            {group.points > 0 ? `+${group.points}` : "alone"}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {reveal?.agreePct !== undefined && (
+                    <div className="mx-auto mt-4 max-w-md">
+                      <div className="flex justify-between text-sm font-bold text-ink">
+                        <span>Agree {reveal.agreePct}%</span>
+                        <span>Disagree {reveal.disagreePct}%</span>
+                      </div>
+                      <div className="mt-2 flex h-3 overflow-hidden rounded-full bg-ink/5">
+                        <div
+                          className="h-full bg-mint"
+                          style={{ width: `${reveal.agreePct}%` }}
+                        />
+                        <div className="h-full flex-1 bg-coral" />
+                      </div>
+                    </div>
+                  )}
+                </div>
               )}
 
             {results && room.result && (
