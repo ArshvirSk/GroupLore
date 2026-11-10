@@ -45,6 +45,7 @@ GroupLore/
 
 - Create a Supabase project at [supabase.com](https://supabase.com)
 - Run `supabase-schema.sql` in the SQL Editor
+- Upgrading an existing project: also run `supabase-migration-phase3-games.sql` to allow the Phase 3 game ids
 
 ### 2. Environment
 

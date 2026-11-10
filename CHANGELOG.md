@@ -13,19 +13,20 @@ All phase work is recorded here with what was verified and what was deferred.
 - **Screens and routing:** four new game components are routed by `room.gameId`; the lobby catalogue now exposes eight playable games and all exposed modes have a real behaviour.
 - **TV coverage:** all four new modules implement `publicFor`; the TV shows their prompt/question, progress and public reveal data. Odd One Out never sends either prompt to the TV before the reveal.
 - **Prompt banks:** one shared 150-pair bank (`hive.json`) powers Hive Mind's `text` prompts and Odd One Out's crew/odd prompts; 60 original Bluff question/answer pairs; 80 original Hot Takes statements.
-- **Database migration:** `supabase-migration-phase3-games.sql` adds the four ids to the `game_sessions.game_type` CHECK; `supabase-schema.sql` is updated for fresh installs.
+- **Database migration:** `supabase-migration-phase3-games.sql` adds the four ids to the `game_sessions.game_type` CHECK; `supabase-schema.sql` is updated for fresh installs. The migration was applied to the hosted Supabase project on 2026-11-10.
 
 ### Verified
 
 - `server npm test` — **19/19 passing**: the Phase 1/2 suites plus Hive Mind fuzzy grouping and group-size scoring, a three-client socket playthrough of Hive Mind through the reveal, Odd One Out prompt privacy and catch scoring, Bluff real/self-vote/bluff scoring, Hot Takes minority/tie scoring, and the Phase 3 bank sizes.
 - `client npm run build` — success; all game routes still compile.
 - `client npx eslint src` — 0 errors, 7 pre-existing warnings.
+- Hosted Supabase constraint — the four new ids and a legacy id (`most-likely-to`) all inserted into `game_sessions`; the temporary rows were deleted.
+- Hosted persistence adapter — a temporary `hive-mind` session moved from `lobby` to `active` on `onStart` and to `finished` on `onEnd`, with `scores` and `current_round` stored; the row was deleted.
 
 ### Not verified / deferred
 
 - No live browser playthrough at 375px or TV size; the four screens compile but were not visually inspected.
-- The Phase 3 SQL migration was not run against the hosted Supabase database. Until it is, new game types may fail the session `game_type` update while gameplay itself continues (persistence is best-effort).
-- Live Supabase persistence and a real two-browser Clerk session remain unverified.
+- A full socket game against the hosted database and a real two-browser Clerk session remain unverified; persistence was checked by invoking the adapter directly.
 - Phase 4 games (Liars Bar, Higher/Lower, Avoid the Answer, Caption This, Would You Rather, Wavelength, Category Rush) are not started.
 
 ## Phase 2 — first four games and the TV display

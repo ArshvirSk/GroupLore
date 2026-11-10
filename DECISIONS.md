@@ -57,7 +57,7 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 - **Bluff scoring rewards both fooling and detecting.** Real-answer voters get 2, bluff authors get 1 per vote their bluff receives, and exact real answers get 1. Self-votes are rejected rather than silently discarded.
 - **Hot Takes rewards the minority.** The minority side gets 2 and the majority 1; ties and unanimous votes give everyone 1. The game is about backing the less popular take without making consensus worthless.
 - **All exposed modes have a real timer or behavior difference.** No placeholder mode pills were added; Bluff Quick changes both round count and timings, and Hot Takes Slow Burn changes the voting window.
-- **Phase 3 game ids require a database migration.** The original CHECK constraint only knew the eight legacy ids; `supabase-migration-phase3-games.sql` must be run before hosted sessions can persist the new game type.
+- **Phase 3 game ids required a database migration.** The original CHECK constraint only knew the eight legacy ids; `supabase-migration-phase3-games.sql` has been applied to the hosted project and is included for other environments.
 
 ## Known limitations
 
@@ -66,4 +66,4 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 - The Hub's other stat columns and badges remain driven by the old event types; only games played/won are written so far.
 - The TV route requires a signed-in group member to authenticate the spectator socket; it is not an unauthenticated public display URL yet.
 - A game screen is compiled but has not been visually exercised at 375px or on a TV-sized viewport.
-- The Phase 3 sessions migration has not been applied to the hosted database yet; local gameplay and tests use the in-memory engine.
+- A full socket game against the hosted database has not been run; persistence is verified through the adapter and direct hosted-table checks.
