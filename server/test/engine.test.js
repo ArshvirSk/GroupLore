@@ -1,0 +1,431 @@
+import assert from "node:assert/strict";
+import { randomUUID } from "node:crypto";
+import { createServer } from "node:http";
+import { after, test } from "node:test";
+import { Server } from "socket.io";
+import { io as createClient } from "socket.io-client";
+import { GameEngine } from "../engine/engine.js";
+import { createIdentityResolver, signGuestToken } from "../engine/auth.js";
+
+const sessions = new Map();
+const sockets = [];
+const persistence = {
+  starts: [],
+  ends: [],
+  empties: [],
+  lobbies: [],
+  async onStart(payload) {
+    this.starts.push(payload);
+  },
+  async onLobby(payload) {
+    this.lobbies.push(payload);
+  },
+  async onEnd(payload) {
+    this.ends.push(payload);
+  },
+  async onEmpty(payload) {
+    this.empties.push(payload);
+  },
+};
+
+const httpServer = createServer();
+const ioServer = new Server(httpServer);
+const engine = new GameEngine({
+  io: ioServer,
+  resolveIdentity: createIdentityResolver({
+    clerkEnabled: false,
+    allowGuests: true,
+  }),
+  authorize: async ({ identity }) => ({
+    allowed: true,
+    userId: null,
+    name: identity.name,
+    avatarUrl: null,
+  }),
+  loadSession: async (sessionId) => sessions.get(sessionId) || null,
+  persistence,
+  disconnectGraceMs: 500,
+}).attach();
+
+await new Promise((resolve) => httpServer.listen(0, resolve));
+const port = httpServer.address().port;
+
+function makeSession() {
+  const id = randomUUID();
+  sessions.set(id, { id, group_id: "00000000-0000-4000-8000-000000000001", status: "lobby" });
+  return id;
+}
+
+function waitFor(socket, event, predicate = () => true, timeout = 4000) {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => {
+      socket.off(event, onEvent);
+      reject(new Error(`Timed out waiting for ${event}`));
+    }, timeout);
+    function onEvent(payload) {
+      if (!predicate(payload)) return;
+      clearTimeout(timer);
+      socket.off(event, onEvent);
+      resolve(payload);
+    }
+    socket.on(event, onEvent);
+  });
+}
+
+function makeTracker(socket) {
+  const tracker = { latest: null, waiters: [] };
+  socket.on("room:sync", (view) => {
+    tracker.latest = view;
+    tracker.waiters = tracker.waiters.filter((waiter) => {
+      if (!waiter.predicate(view)) return true;
+      waiter.resolve(view);
+      return false;
+    });
+  });
+  return tracker;
+}
+
+function waitSync(tracker, predicate = () => true, timeout = 4000) {
+  if (tracker.latest && predicate(tracker.latest)) {
+    return Promise.resolve(tracker.latest);
+  }
+  return new Promise((resolve, reject) => {
+    const waiter = { predicate, resolve };
+    tracker.waiters.push(waiter);
+    setTimeout(() => {
+      tracker.waiters = tracker.waiters.filter((item) => item !== waiter);
+      reject(new Error("Timed out waiting for room sync"));
+    }, timeout);
+  });
+}
+
+async function makeClient(name, guestToken) {
+  const token =
+    guestToken ||
+    signGuestToken({ guestId: randomUUID(), name });
+  const socket = createClient(`http://localhost:${port}`, {
+    transports: ["websocket"],
+    reconnection: false,
+    forceNew: true,
+    auth: { guestToken: token, displayName: name },
+  });
+  sockets.push(socket);
+  const tracker = makeTracker(socket);
+  await new Promise((resolve, reject) => {
+    socket.once("connect", resolve);
+    socket.once("connect_error", reject);
+  });
+  return { name, socket, tracker, guestToken: token };
+}
+
+async function join(client, sessionId, reconnectToken) {
+  const joined = waitFor(client.socket, "room:joined");
+  client.socket.emit("room:join", { sessionId, reconnectToken });
+  const payload = await joined;
+  const view = await waitSync(
+    client.tracker,
+    (state) => state.players.some((player) => player.id === payload.playerId),
+  );
+  return { ...payload, view };
+}
+
+async function act(client, action, data = {}, predicate = () => true) {
+  const before = client.tracker.latest?.version || 0;
+  client.socket.emit("room:action", {
+    action,
+    data,
+    eventId: randomUUID(),
+  });
+  return waitSync(
+    client.tracker,
+    (view) => view.version > before && predicate(view),
+  );
+}
+
+async function send(client, type, data = {}, predicate = () => true) {
+  const before = client.tracker.latest?.version || 0;
+  client.socket.emit("game:event", {
+    type,
+    ...data,
+    eventId: randomUUID(),
+  });
+  return waitSync(
+    client.tracker,
+    (view) => view.version > before && predicate(view),
+  );
+}
+
+async function expectError(client, emit) {
+  const error = waitFor(client.socket, "room:error");
+  emit();
+  return error;
+}
+
+async function readyAll(...clients) {
+  for (const client of clients) {
+    await act(client, "ready", { ready: true });
+  }
+}
+
+async function startStub(sessionId, mode, count) {
+  const clients = [];
+  for (let index = 0; index < count; index += 1) {
+    clients.push(await makeClient(`P${index + 1}`));
+  }
+  const joined = [];
+  for (const client of clients) {
+    joined.push(await join(client, sessionId));
+  }
+  const [host, ...rest] = clients;
+  await readyAll(...rest);
+  await act(
+    host,
+    "selectGame",
+    { gameId: "engine-stub", mode },
+    (view) => view.gameId === "engine-stub",
+  );
+  await act(host, "start", {}, (view) => view.phase === "playing");
+  return { clients, joined, host, rest };
+}
+
+after(async () => {
+  for (const socket of sockets) socket.disconnect();
+  engine.close();
+  ioServer.close();
+  await new Promise((resolve) => httpServer.close(resolve));
+});
+
+test("rejects a socket without a valid credential", async () => {
+  const socket = createClient(`http://localhost:${port}`, {
+    transports: ["websocket"],
+    reconnection: false,
+    forceNew: true,
+    auth: {},
+  });
+  sockets.push(socket);
+  const error = await waitFor(socket, "connect_error", () => true, 2000);
+  assert.equal(error.data?.code, "unauthorized");
+  socket.disconnect();
+});
+
+test("lobby gating, host-only actions, idempotent answers and results", async () => {
+  const sessionId = makeSession();
+  const a = await makeClient("A");
+  const b = await makeClient("B");
+  const c = await makeClient("C");
+
+  const aJoined = await join(a, sessionId);
+  const bJoined = await join(b, sessionId);
+  await join(c, sessionId);
+
+  const view = await waitSync(a.tracker, (state) => state.players.length === 3);
+  assert.equal(view.players.length, 3);
+  assert.equal(view.hostId, aJoined.playerId);
+  assert.equal(view.phase, "lobby");
+
+  // Non-host cannot start.
+  const forbidden = await expectError(b, () => {
+    b.socket.emit("room:action", {
+      action: "start",
+      data: {},
+      eventId: randomUUID(),
+    });
+  });
+  assert.equal(forbidden.code, "host_only");
+
+  await act(a, "selectGame", { gameId: "engine-stub", mode: "classic" });
+
+  // Host cannot start before everyone else is ready.
+  const notReady = await expectError(a, () => {
+    a.socket.emit("room:action", {
+      action: "start",
+      data: {},
+      eventId: randomUUID(),
+    });
+  });
+  assert.equal(notReady.code, "players_not_ready");
+
+  await readyAll(b, c);
+
+  const started = await act(a, "start", {}, (state) => state.phase === "playing");
+  assert.equal(started.phase, "playing");
+  assert.ok(started.endsAt > Date.now());
+  assert.equal(persistence.starts.length, 1);
+
+  // Duplicate eventId must not count twice.
+  const firstId = randomUUID();
+  a.socket.emit("game:event", {
+    type: "answer",
+    value: "one",
+    eventId: firstId,
+  });
+  a.socket.emit("game:event", {
+    type: "answer",
+    value: "two",
+    eventId: firstId,
+  });
+  await send(b, "answer", { value: "two" }, (view) => view.phase === "playing");
+  c.socket.emit("game:event", {
+    type: "answer",
+    value: "three",
+    eventId: randomUUID(),
+  });
+  const reveal = await waitSync(
+    c.tracker,
+    (view) => view.game?.phase === "reveal",
+  );
+  assert.equal(reveal.game.phase, "reveal");
+  assert.equal(reveal.game.reveal.answers.length, 3);
+  const aAnswer = reveal.game.reveal.answers.find(
+    (answer) => answer.playerId === aJoined.playerId,
+  );
+  assert.equal(aAnswer.value, "one");
+
+  // Non-host cannot end the game.
+  const endForbidden = await expectError(b, () => {
+    b.socket.emit("room:action", {
+      action: "end",
+      data: {},
+      eventId: randomUUID(),
+    });
+  });
+  assert.equal(endForbidden.code, "host_only");
+
+  const results = await act(a, "end", {}, (state) => state.phase === "results");
+  assert.equal(results.phase, "results");
+  assert.equal(results.result.ranking.length, 3);
+  assert.equal(results.result.ranking[0].score, 1);
+  assert.equal(persistence.ends.length, 1);
+
+  const lobby = await act(a, "restart", {}, (state) => state.phase === "lobby");
+  assert.equal(lobby.phase, "lobby");
+  assert.equal(lobby.players.every((player) => !player.ready), true);
+  assert.equal(persistence.lobbies.length, 1);
+});
+
+test("a refreshed player reclaims the same seat and private state", async () => {
+  const sessionId = makeSession();
+  const { clients, joined, host } = await startStub(sessionId, "classic", 3);
+  const [a, b, c] = clients;
+
+  await send(a, "answer", { value: "alpha" });
+  await send(b, "answer", { value: "beta" });
+
+  const rejoined = await makeClient("B", b.guestToken);
+  const seat = await join(rejoined, sessionId, joined[1].reconnectToken);
+
+  assert.equal(seat.playerId, joined[1].playerId);
+  assert.equal(seat.view.players.length, 3);
+  assert.equal(seat.view.game.answeredByMe, true);
+
+  c.socket.emit("game:event", {
+    type: "answer",
+    value: "gamma",
+    eventId: randomUUID(),
+  });
+  const reveal = await waitSync(
+    c.tracker,
+    (view) => view.game?.phase === "reveal",
+  );
+  assert.equal(reveal.game.reveal.answers.length, 3);
+  await act(host, "end");
+  rejoined.socket.disconnect();
+});
+
+test("server timers advance a round without any client action", async () => {
+  const sessionId = makeSession();
+  const { host } = await startStub(sessionId, "timer", 2);
+
+  const reveal = await waitSync(
+    host.tracker,
+    (view) => view.game?.phase === "reveal",
+    3000,
+  );
+  assert.equal(reveal.phase, "playing");
+
+  const results = await waitSync(
+    host.tracker,
+    (view) => view.phase === "results",
+    3000,
+  );
+  assert.ok(results.result);
+});
+
+test("most likely to scores the plurality and hides voters in anonymous mode", async () => {
+  const sessionId = makeSession();
+  const a = await makeClient("A");
+  const b = await makeClient("B");
+  const c = await makeClient("C");
+  const aJoined = await join(a, sessionId);
+  const bJoined = await join(b, sessionId);
+  await join(c, sessionId);
+
+  await readyAll(b, c);
+  await act(a, "selectGame", { gameId: "most-likely-to", mode: "classic" });
+  await act(a, "start", {}, (view) => view.phase === "playing");
+
+  // Self-votes are rejected.
+  const selfVote = await expectError(a, () => {
+    a.socket.emit("game:event", {
+      type: "vote",
+      targetPlayerId: aJoined.playerId,
+      eventId: randomUUID(),
+    });
+  });
+  assert.equal(selfVote.code, "cannot_vote_self");
+
+  await send(a, "vote", { targetPlayerId: bJoined.playerId });
+  await send(c, "vote", { targetPlayerId: bJoined.playerId });
+  b.socket.emit("game:event", {
+    type: "vote",
+    targetPlayerId: aJoined.playerId,
+    eventId: randomUUID(),
+  });
+  const reveal = await waitSync(
+    b.tracker,
+    (view) => view.game?.phase === "reveal",
+  );
+
+  assert.equal(reveal.game.phase, "reveal");
+  assert.deepEqual(reveal.game.reveal.topPlayerIds, [bJoined.playerId]);
+  assert.equal(reveal.game.reveal.voters.length, 3);
+  const scores = Object.fromEntries(
+    reveal.scores.map((entry) => [entry.playerId, entry.score]),
+  );
+  assert.equal(scores[aJoined.playerId], 1);
+  assert.equal(scores[c.tracker.latest.you.id], 1);
+  assert.equal(scores[bJoined.playerId], 0);
+
+  await act(a, "end", {}, (view) => view.phase === "results");
+  await act(a, "restart", {}, (view) => view.phase === "lobby");
+  await readyAll(b, c);
+  await act(a, "selectGame", { gameId: "most-likely-to", mode: "anonymous" });
+  await act(a, "start", {}, (view) => view.phase === "playing");
+  await send(a, "vote", { targetPlayerId: bJoined.playerId });
+  await send(c, "vote", { targetPlayerId: bJoined.playerId });
+  b.socket.emit("game:event", {
+    type: "vote",
+    targetPlayerId: aJoined.playerId,
+    eventId: randomUUID(),
+  });
+  const anonymousReveal = await waitSync(
+    b.tracker,
+    (view) => view.game?.phase === "reveal",
+  );
+  assert.equal(anonymousReveal.game.reveal.voters, null);
+});
+
+test("disconnecting beyond the grace period frees the room", async () => {
+  const sessionId = makeSession();
+  const a = await makeClient("A");
+  const b = await makeClient("B");
+  await join(a, sessionId);
+  await join(b, sessionId);
+
+  a.socket.disconnect();
+  b.socket.disconnect();
+  await new Promise((resolve) => setTimeout(resolve, 800));
+
+  assert.equal(engine.rooms.has(sessionId), false);
+  assert.ok(persistence.empties.some((entry) => entry.room.id === sessionId));
+});
