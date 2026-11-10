@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { createRequire } from "node:module";
 import { allVoted, publicTally, topTargets, tally, votesByVoter } from "../engine/primitives/vote.js";
 import { allSubmitted } from "../engine/primitives/textSubmit.js";
@@ -80,6 +81,7 @@ function beginRound(room, state) {
   state.prompt = choosePrompt(state);
   state.answers = {};
   state.clues = [];
+  state.clueAuthors = {};
   state.votes = {};
   state.reveal = null;
   state.roundPoints = {};
@@ -88,11 +90,15 @@ function beginRound(room, state) {
 }
 
 function buildClues(room, state) {
+  // The public/discussion clue id must not be a player id, otherwise a client
+  // could read the raw payload and deanonymise the clue authors.
+  state.clueAuthors = {};
   state.clues = shuffle(
-    Object.entries(state.answers).map(([playerId, answer]) => ({
-      id: playerId,
-      answer,
-    })),
+    Object.entries(state.answers).map(([playerId, answer]) => {
+      const clueId = randomUUID();
+      state.clueAuthors[clueId] = playerId;
+      return { id: clueId, answer };
+    }),
   );
 }
 
@@ -153,11 +159,14 @@ function resolveVote(room, state) {
     noConsensus: top.length !== 1,
     tally: publicTally(room, counts),
     voters: votesByVoter(room, validVotes),
-    clues: state.clues.map((clue) => ({
-      playerId: clue.id,
-      name: room.players.get(clue.id)?.name || "Player",
-      answer: clue.answer,
-    })),
+    clues: state.clues.map((clue) => {
+      const playerId = state.clueAuthors[clue.id];
+      return {
+        playerId,
+        name: room.players.get(playerId)?.name || "Player",
+        answer: clue.answer,
+      };
+    }),
     roundPoints: Object.entries(roundPoints).map(([playerId, points]) => ({
       playerId,
       name: room.players.get(playerId)?.name || "Player",
@@ -189,6 +198,7 @@ const impostor = {
       impostorIds: [],
       answers: {},
       clues: [],
+      clueAuthors: {},
       votes: {},
       reveal: null,
       roundPoints: {},

@@ -58,6 +58,7 @@ test("impostor keeps the prompt secret and awards the crew when caught", () => {
   assert.equal(state.phase, "discussion");
   assert.equal(state.clues.length, 4);
   assert.equal("playerId" in state.clues[0], false);
+  assert.equal(state.clues.some((clue) => room.players.has(clue.id)), false);
 
   impostor.onPhaseEnd(room);
   assert.equal(state.phase, "vote");
