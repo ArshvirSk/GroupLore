@@ -168,6 +168,31 @@ const mostLikelyTo = {
     }
   },
 
+  publicFor(room) {
+    const state = room.state;
+    const config = configFor(room.mode);
+    const activePlayers = [...room.players.values()].filter(
+      (player) => player.connected,
+    );
+    const base = {
+      phase: state.phase,
+      round: state.round,
+      rounds: state.rounds,
+      prompt: state.prompt?.text || "",
+      submitted: Object.keys(state.votes).length,
+      total: activePlayers.length,
+      myVote: null,
+      mode: room.mode,
+    };
+
+    if (state.phase === "vote") return base;
+    return {
+      ...base,
+      reveal: state.reveal,
+      showVoters: config.showVoters,
+    };
+  },
+
   viewFor(room, viewerId) {
     const state = room.state;
     const config = configFor(room.mode);

@@ -118,6 +118,16 @@ async function makeClient(name, guestToken) {
   return { name, socket, tracker, guestToken: token };
 }
 
+async function spectate(client, sessionId) {
+  const joined = waitFor(client.socket, "room:spectate-joined");
+  client.socket.emit("room:spectate", { sessionId });
+  await joined;
+  return waitSync(
+    client.tracker,
+    (view) => view.sessionId === sessionId && view.you === null,
+  );
+}
+
 async function join(client, sessionId, reconnectToken) {
   const joined = waitFor(client.socket, "room:joined");
   client.socket.emit("room:join", { sessionId, reconnectToken });
@@ -413,6 +423,43 @@ test("most likely to scores the plurality and hides voters in anonymous mode", a
     (view) => view.game?.phase === "reveal",
   );
   assert.equal(anonymousReveal.game.reveal.voters, null);
+});
+
+test("a TV spectator never takes a seat and cannot act", async () => {
+  const sessionId = makeSession();
+  const a = await makeClient("A");
+  const b = await makeClient("B");
+  await join(a, sessionId);
+  await join(b, sessionId);
+  await readyAll(b);
+  await act(a, "selectGame", { gameId: "engine-stub", mode: "classic" });
+
+  const tv = await makeClient("TV");
+  const lobby = await spectate(tv, sessionId);
+  assert.equal(lobby.you, null);
+  assert.equal(lobby.players.length, 2);
+
+  const started = await act(a, "start", {}, (view) => view.phase === "playing");
+  assert.equal(started.phase, "playing");
+  const tvView = await waitSync(
+    tv.tracker,
+    (view) => view.phase === "playing",
+  );
+  assert.equal(tvView.you, null);
+  assert.equal(tvView.game.phase, "answer");
+  assert.equal(engine.rooms.get(sessionId).players.size, 2);
+  assert.equal(engine.rooms.get(sessionId).spectators.size, 1);
+
+  const forbidden = await expectError(tv, () => {
+    tv.socket.emit("room:action", {
+      action: "end",
+      data: {},
+      eventId: randomUUID(),
+    });
+  });
+  assert.equal(forbidden.code, "not_in_room");
+
+  await act(a, "end");
 });
 
 test("disconnecting beyond the grace period frees the room", async () => {

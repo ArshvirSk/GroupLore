@@ -102,6 +102,18 @@ const stub = {
     }
   },
 
+  publicFor(room) {
+    const state = room.state;
+    return {
+      phase: state.phase,
+      round: state.round,
+      rounds: state.rounds,
+      answered: Object.keys(state.answers).length,
+      total: room.players.size,
+      reveal: state.reveal,
+    };
+  },
+
   viewFor(room, viewerId) {
     const state = room.state;
     return {

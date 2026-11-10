@@ -33,6 +33,7 @@ function publicError(err) {
  *   onPhaseEnd(room, { reason }) -> void | "results"
  *   onPlayerLeave?(room, playerId)
  *   viewFor(room, viewerId) -> JSON
+ *   publicFor?(room) -> JSON shown to read-only TV spectators
  *
  * Phase timing is expressed as an absolute `state.endsAt` epoch-ms. The engine
  * arms a single timeout per room and clears it whenever the room is destroyed.
@@ -88,6 +89,9 @@ export class GameEngine {
     socket.on("room:join", (payload) => {
       this.safe(socket, () => this.join(socket, payload));
     });
+    socket.on("room:spectate", (payload) => {
+      this.safe(socket, () => this.spectate(socket, payload));
+    });
     socket.on("room:leave", () => {
       this.safe(socket, () => this.leave(socket));
     });
@@ -98,6 +102,11 @@ export class GameEngine {
       this.safe(socket, () => this.gameEvent(socket, payload));
     });
     socket.on("room:sync-request", () => {
+      const spectatorRoom = this.spectatorContext(socket);
+      if (spectatorRoom) {
+        socket.emit("room:sync", this.publicView(spectatorRoom));
+        return;
+      }
       const ctx = this.context(socket);
       if (ctx) socket.emit("room:sync", this.view(ctx.room, ctx.player.id));
     });
@@ -121,6 +130,12 @@ export class GameEngine {
     const player = room.players.get(socket.data.playerId);
     if (!player || player.socketId !== socket.id) return null;
     return { room, player };
+  }
+
+  spectatorContext(socket) {
+    const room = this.rooms.get(socket.data.roomId);
+    if (!room || !socket.data.spectating) return null;
+    return room.spectators.has(socket.id) ? room : null;
   }
 
   hostOnly(room, player) {
@@ -195,6 +210,7 @@ export class GameEngine {
       groupId,
       session,
       players: new Map(),
+      spectators: new Set(),
       hostId: null,
       phase: "lobby",
       gameId: null,
@@ -214,6 +230,9 @@ export class GameEngine {
   }
 
   async join(socket, payload = {}) {
+    if (socket.data.spectating) {
+      throw failure("already_spectating", "Open the game in a separate tab");
+    }
     const sessionId = String(payload.sessionId || "");
     if (!sessionId) throw failure("session_required", "Missing room id");
 
@@ -310,6 +329,7 @@ export class GameEngine {
   bindSocket(socket, room, player) {
     socket.data.roomId = room.id;
     socket.data.playerId = player.id;
+    socket.data.spectating = false;
     socket.join(room.id);
   }
 
@@ -327,7 +347,51 @@ export class GameEngine {
     socket.emit("room:sync", this.view(room, player.id));
   }
 
+  async spectate(socket, payload = {}) {
+    const sessionId = String(payload.sessionId || "");
+    if (!sessionId) throw failure("session_required", "Missing room id");
+    if (socket.data.playerId) {
+      throw failure("already_playing", "A player cannot spectate the same room");
+    }
+
+    const existing = this.spectatorContext(socket);
+    if (existing && existing.id === sessionId) {
+      socket.emit("room:sync", this.publicView(existing));
+      return;
+    }
+
+    const room = await this.getRoom(sessionId);
+    const auth = await this.authorize({
+      identity: socket.data.identity,
+      groupId: room.groupId,
+    });
+    if (!auth?.allowed) {
+      throw failure("not_a_member", "You are not a member of this group");
+    }
+
+    socket.data.roomId = room.id;
+    socket.data.spectating = true;
+    socket.data.playerId = null;
+    socket.join(room.id);
+    room.spectators.add(socket.id);
+    socket.emit("room:spectate-joined", {
+      sessionId: room.id,
+      serverNow: Date.now(),
+    });
+    socket.emit("room:sync", this.publicView(room));
+  }
+
   async leave(socket) {
+    const spectatorRoom = this.spectatorContext(socket);
+    if (spectatorRoom) {
+      spectatorRoom.spectators.delete(socket.id);
+      socket.leave(spectatorRoom.id);
+      socket.data.roomId = null;
+      socket.data.spectating = false;
+      socket.emit("room:left", {});
+      return;
+    }
+
     const ctx = this.context(socket);
     if (!ctx) return;
     socket.leave(ctx.room.id);
@@ -340,6 +404,12 @@ export class GameEngine {
   onDisconnect(socket) {
     const room = this.rooms.get(socket.data.roomId);
     if (!room) return;
+    if (socket.data.spectating) {
+      room.spectators.delete(socket.id);
+      socket.data.roomId = null;
+      socket.data.spectating = false;
+      return;
+    }
     const player = room.players.get(socket.data.playerId);
     if (!player || player.socketId !== socket.id) return;
 
@@ -406,6 +476,13 @@ export class GameEngine {
     for (const player of room.players.values()) {
       if (player.graceTimer) clearTimeout(player.graceTimer);
     }
+    for (const socketId of room.spectators) {
+      const socket = this.io.sockets.sockets.get(socketId);
+      socket?.emit("room:closed", {
+        message: "The room has ended",
+      });
+    }
+    room.spectators.clear();
     this.rooms.delete(room.id);
     if (room.phase !== "results" || !room.endPersisted) {
       void Promise.resolve(
@@ -744,6 +821,47 @@ export class GameEngine {
     };
   }
 
+  publicView(room) {
+    const players = [...room.players.values()]
+      .sort((a, b) => a.joinedAt - b.joinedAt)
+      .map((player) => ({
+        id: player.id,
+        name: player.name,
+        avatarUrl: player.avatarUrl,
+        isHost: player.id === room.hostId,
+        ready: player.isReady,
+        connected: player.connected,
+        score: Number(room.scores[player.id] || 0),
+      }));
+
+    const game =
+      room.module && room.phase !== "lobby"
+        ? room.module.publicFor?.(room) || null
+        : null;
+
+    return {
+      version: room.version,
+      sessionId: room.id,
+      groupId: room.groupId,
+      phase: room.phase,
+      hostId: room.hostId,
+      gameId: room.gameId,
+      mode: room.mode,
+      endsAt: room.endsAt,
+      serverNow: Date.now(),
+      players,
+      you: null,
+      scores: players.map((player) => ({
+        playerId: player.id,
+        name: player.name,
+        score: player.score,
+      })),
+      result: room.result ? this.publicResult(room) : null,
+      game,
+      catalog: this.catalog(),
+    };
+  }
+
   publicResult(room) {
     if (!room.result) return null;
     return {
@@ -778,6 +896,10 @@ export class GameEngine {
       if (!player.socketId) continue;
       const socket = this.io.sockets.sockets.get(player.socketId);
       if (socket) socket.emit("room:sync", this.view(room, player.id));
+    }
+    for (const socketId of room.spectators) {
+      const socket = this.io.sockets.sockets.get(socketId);
+      if (socket) socket.emit("room:sync", this.publicView(room));
     }
   }
 
