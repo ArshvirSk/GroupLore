@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -26,11 +26,27 @@
   --color-danger: #ef4444;
   --color-warning: #f59e0b;
 
+  /* ── Party pastel palette (game surfaces) ── */
+  --color-cream: #fff9f4;
+  --color-lavender: #dcc6ff;
+  --color-babyblue: #c6e7ff;
+  --color-blush: #ffd6e8;
+  --color-mint: #cfffe5;
+  --color-coral: #ff6b6b;
+  --color-grape: #8b5cf6;
+  --color-lime: #a3e635;
+  --color-sky: #38bdf8;
+  --color-ink: #2b2140;
+  --color-ink-soft: #6b5e7d;
+  --color-honey: #ffcf5c;
+
   /* ── Shadows ── */
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.6);
   --shadow-accent: 0 4px 24px rgba(37, 99, 235, 0.25);
   --shadow-accent-lg: 0 8px 40px rgba(37, 99, 235, 0.35);
+  --shadow-soft: 0 12px 36px rgba(80, 54, 120, 0.12);
+  --shadow-pop: 0 18px 48px rgba(80, 54, 120, 0.2);
 
   /* ── Radii ── */
   --radius-card: 16px;
@@ -42,6 +58,25 @@
   --font-heading: "Inter", sans-serif;
   --font-body: "Inter", sans-serif;
   --font-accent: "Playfair Display", serif;
+  --font-display: "Fredoka", "Baloo 2", "Trebuchet MS", sans-serif;
+  --font-party: "Nunito", "Segoe UI", sans-serif;
+}
+
+.party-surface {
+  font-family: var(--font-party);
+  color: var(--color-ink);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.party-card {
+  background: #ffffff;
+  border: 1px solid rgba(110, 82, 150, 0.1);
+  border-radius: 24px;
+  box-shadow: var(--shadow-soft);
 }
 
 /* ── Base Styles ── */
