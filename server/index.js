@@ -4,52 +4,98 @@ import "dotenv/config";
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
+import { GameEngine } from "./engine/engine.js";
+import { createIdentityResolver } from "./engine/auth.js";
+import { createSupabasePersistence } from "./engine/persistence.js";
+import { incrementStats, logActivity } from "./lib/activity.js";
+import { authorizePlayer } from "./lib/membership.js";
+import { supabase } from "./lib/supabase.js";
+import authRoutes from "./routes/auth.js";
 import feedRoutes from "./routes/feed.js";
 import gameRoutes from "./routes/games.js";
 import groupRoutes from "./routes/groups.js";
 import memberRoutes from "./routes/members.js";
 import userRoutes from "./routes/users.js";
-import { initSocketHandlers } from "./sockets/index.js";
 
 const app = express();
 const httpServer = createServer(app);
 
+const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:3000";
+const allowedOrigins = [...new Set([CLIENT_URL, "http://localhost:3000"])];
+const allowGuests =
+  process.env.ALLOW_GUESTS === "true" ||
+  (process.env.NODE_ENV !== "production" && process.env.ALLOW_GUESTS !== "false");
+
 const io = new Server(httpServer, {
   cors: {
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    origin: allowedOrigins,
     methods: ["GET", "POST"],
   },
 });
 
-// Middleware
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    origin: allowedOrigins,
     credentials: true,
   }),
 );
-app.use(express.json());
+app.use(express.json({ limit: "64kb" }));
 app.use(clerkMiddleware());
 
-// Health check
-app.get("/api/health", (req, res) => {
-  res.json({ status: "ok", timestamp: new Date().toISOString() });
-});
-
-// Routes
+app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/groups", groupRoutes);
 app.use("/api/members", memberRoutes);
 app.use("/api/games", gameRoutes);
 app.use("/api/feed", feedRoutes);
 
-// Socket.io
-initSocketHandlers(io);
+const engine = new GameEngine({
+  io,
+  resolveIdentity: createIdentityResolver({
+    clerkEnabled: Boolean(process.env.CLERK_SECRET_KEY),
+    allowGuests,
+  }),
+  authorize: ({ identity, groupId }) =>
+    authorizePlayer({ identity, groupId, allowGuests }),
+  loadSession: async (sessionId) => {
+    const { data } = await supabase
+      .from("game_sessions")
+      .select("id, group_id, status")
+      .eq("id", sessionId)
+      .maybeSingle();
+    return data || null;
+  },
+  persistence: createSupabasePersistence({
+    supabase,
+    logActivity,
+    incrementStats,
+  }),
+});
+
+engine.attach();
+
+app.get("/api/health", (req, res) => {
+  res.json({
+    status: "ok",
+    timestamp: new Date().toISOString(),
+    engine: { rooms: engine.rooms.size },
+  });
+});
 
 const PORT = process.env.PORT || 3001;
 httpServer.listen(PORT, () => {
   console.log(`🚀 GroupLore server running on port ${PORT}`);
 });
 
-export { io };
+function shutdown(signal) {
+  console.log(`\n${signal} received — closing rooms`);
+  engine.close();
+  io.close();
+  httpServer.close(() => process.exit(0));
+  setTimeout(() => process.exit(0), 3_000).unref();
+}
 
+process.on("SIGINT", () => shutdown("SIGINT"));
+process.on("SIGTERM", () => shutdown("SIGTERM"));
+
+export { engine, io };

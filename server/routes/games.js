@@ -1,14 +1,21 @@
 import { Router } from "express";
+import { listGames } from "../games/index.js";
+import { requireAuth } from "../lib/auth.js";
+import {
+  requireGroupMember,
+  requireSessionMember,
+} from "../lib/membership.js";
 import { supabase } from "../lib/supabase.js";
 
 const router = Router();
+
+router.use(requireAuth);
 
 // ── Helper: clean up all stale sessions for a group ──
 async function cleanupStaleSessions(groupId) {
   const thirtyMinAgo = new Date(Date.now() - 30 * 60 * 1000).toISOString();
   const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
 
-  // Mark stale "lobby" sessions (>30 min) as finished
   await supabase
     .from("game_sessions")
     .update({ status: "finished" })
@@ -16,7 +23,6 @@ async function cleanupStaleSessions(groupId) {
     .eq("status", "lobby")
     .lt("created_at", thirtyMinAgo);
 
-  // Mark stale "active" sessions (>1 hour) as finished
   await supabase
     .from("game_sessions")
     .update({ status: "finished" })
@@ -25,11 +31,29 @@ async function cleanupStaleSessions(groupId) {
     .lt("created_at", oneHourAgo);
 }
 
-// Check for active lobby session (read-only, no creation)
-// Only returns "lobby" sessions — NOT "active" (in-progress) games
-router.get("/active/:groupId", async (req, res) => {
+// Public game catalogue metadata (id, name, modes, player limits).
+router.get("/catalog", (req, res) => {
+  res.json(
+    listGames().map((game) => ({
+      id: game.id,
+      name: game.name,
+      description: game.description,
+      emoji: game.emoji || "🎮",
+      accent: game.accent || "grape",
+      minPlayers: game.minPlayers,
+      maxPlayers: game.maxPlayers,
+      modes: Object.entries(game.modes).map(([id, config]) => ({
+        id,
+        label: config.label || id,
+        description: config.description || "",
+      })),
+    })),
+  );
+});
+
+// Check for an open lobby session (read-only, no creation).
+router.get("/active/:groupId", requireGroupMember("groupId"), async (req, res) => {
   try {
-    // Clean up stale sessions first
     await cleanupStaleSessions(req.params.groupId);
 
     const { data } = await supabase
@@ -39,7 +63,7 @@ router.get("/active/:groupId", async (req, res) => {
       .eq("status", "lobby")
       .order("created_at", { ascending: false })
       .limit(1)
-      .single();
+      .maybeSingle();
 
     res.json(data || null);
   } catch {
@@ -47,19 +71,13 @@ router.get("/active/:groupId", async (req, res) => {
   }
 });
 
-// Find or create a game session for a group
-router.post("/", async (req, res) => {
+// Find or create a lobby session for a group the caller belongs to.
+router.post("/", requireGroupMember("groupId"), async (req, res) => {
   try {
-    const { groupId, gameType } = req.body;
+    const { groupId } = req.body;
 
-    if (!groupId) {
-      return res.status(400).json({ error: "groupId required" });
-    }
-
-    // Clean up stale sessions first
     await cleanupStaleSessions(groupId);
 
-    // Check for an existing lobby session for this group
     const { data: existing } = await supabase
       .from("game_sessions")
       .select("*")
@@ -67,18 +85,17 @@ router.post("/", async (req, res) => {
       .eq("status", "lobby")
       .order("created_at", { ascending: false })
       .limit(1)
-      .single();
+      .maybeSingle();
 
     if (existing) {
       return res.json(existing);
     }
 
-    // No active lobby — create a new session
     const { data, error } = await supabase
       .from("game_sessions")
       .insert({
         group_id: groupId,
-        game_type: gameType || "overrated-underrated",
+        game_type: "most-likely-to",
         status: "lobby",
         current_round: 0,
         round_data: {},
@@ -95,8 +112,8 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Get game session
-router.get("/:id", async (req, res) => {
+// Get a single session (members only).
+router.get("/:id", requireSessionMember, async (req, res) => {
   try {
     const { data, error } = await supabase
       .from("game_sessions")
@@ -105,30 +122,10 @@ router.get("/:id", async (req, res) => {
       .single();
 
     if (error) throw error;
-    if (!data) return res.status(404).json({ error: "Session not found" });
-
     res.json(data);
   } catch (err) {
     console.error("Get game session error:", err);
     res.status(500).json({ error: "Failed to fetch game session" });
-  }
-});
-
-// Update game session
-router.patch("/:id", async (req, res) => {
-  try {
-    const { data, error } = await supabase
-      .from("game_sessions")
-      .update(req.body)
-      .eq("id", req.params.id)
-      .select()
-      .single();
-
-    if (error) throw error;
-    res.json(data);
-  } catch (err) {
-    console.error("Update game session error:", err);
-    res.status(500).json({ error: "Failed to update game session" });
   }
 });
 

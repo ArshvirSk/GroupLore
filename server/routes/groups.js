@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { logActivity } from "../lib/activity.js";
 import { requireAuth } from "../lib/auth.js";
+import { requireGroupHost, requireGroupMember } from "../lib/membership.js";
 import { supabase } from "../lib/supabase.js";
 import { generateJoinCode } from "../utils/helpers.js";
 
@@ -121,7 +122,7 @@ router.get("/my", requireAuth, async (req, res) => {
 });
 
 // Get group by ID
-router.get("/:id", requireAuth, async (req, res) => {
+router.get("/:id", requireAuth, requireGroupMember("id"), async (req, res) => {
   try {
     const { data: group, error } = await supabase
       .from("groups")
@@ -341,9 +342,9 @@ const NUDGE_MESSAGES = [
   "WAKE UP. START. THE. GAME.",
 ];
 
-// Send a nudge to the group's host
-router.post("/:id/nudge", (req, res) => {
-  const { from } = req.body;
+// Send a nudge to the group's host (members only; sender comes from auth)
+router.post("/:id/nudge", requireAuth, requireGroupMember("id"), (req, res) => {
+  const from = req.dbUser?.name || "A member";
   const groupId = req.params.id;
 
   if (!nudges.has(groupId)) nudges.set(groupId, []);
@@ -363,8 +364,8 @@ router.post("/:id/nudge", (req, res) => {
   res.json({ sent: true, message: msg });
 });
 
-// Poll for nudges (host calls this)
-router.get("/:id/nudges", (req, res) => {
+// Poll for nudges (host only)
+router.get("/:id/nudges", requireAuth, requireGroupHost("id"), (req, res) => {
   const groupId = req.params.id;
   const pending = nudges.get(groupId) || [];
 
