@@ -17,12 +17,24 @@ interface GroupItem {
   role: string;
 }
 
+interface ActivityPayload {
+  gameType?: string;
+  winner?: string | null;
+  displayName?: string;
+  prompt?: string;
+  overrated?: number;
+  underrated?: number;
+  streak?: number;
+  score?: number;
+  [key: string]: unknown;
+}
+
 interface ActivityItem {
   id: string;
   group_id: string;
   user_id: string | null;
   event_type: string;
-  payload: Record<string, any>;
+  payload: ActivityPayload;
   created_at: string;
   groups?: { name: string };
   users?: { name: string; avatar_url: string | null };
@@ -65,19 +77,19 @@ const EVENT_CONFIG: Record<
   string,
   {
     emoji: string;
-    describe: (p: Record<string, any>, userName: string) => string;
+    describe: (p: ActivityPayload, userName: string) => string;
   }
 > = {
   game_started: {
     emoji: "🎮",
-    describe: (p, u) => `${u} started a ${formatGameType(p.gameType)} game`,
+    describe: (p, u) => `${u} started a ${formatGameType(p.gameType || "")} game`,
   },
   game_finished: {
     emoji: "🏁",
     describe: (p) =>
       p.winner
-        ? `${p.winner} won ${formatGameType(p.gameType)}!`
-        : `${formatGameType(p.gameType)} finished`,
+        ? `${p.winner} won ${formatGameType(p.gameType || "")}!`
+        : `${formatGameType(p.gameType || "")} finished`,
   },
   member_joined: {
     emoji: "👋",
@@ -520,7 +532,10 @@ export default function DashboardPage() {
                           <span className="text-lg mt-0.5">{config.emoji}</span>
                           <div className="flex-1 min-w-0">
                             <p className="text-sm text-text-primary leading-snug">
-                              {config.describe(item.payload, userName)}
+                              {config.describe(
+                                item.payload,
+                                String(userName),
+                              )}
                             </p>
                             <div className="flex items-center gap-2 mt-1">
                               <span className="text-[10px] text-accent font-medium">

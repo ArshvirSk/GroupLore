@@ -9,13 +9,19 @@ interface ConfettiExplosionProps {
 export default function ConfettiExplosion({ trigger }: ConfettiExplosionProps) {
   if (!trigger) return null;
 
+  // Deterministic jitter keeps the render pure while still looking scattered.
+  const jitter = (index: number, salt: number) => {
+    const value = Math.sin(index * 12.9898 + salt) * 43758.5453;
+    return value - Math.floor(value);
+  };
+
   const particles = Array.from({ length: 30 }, (_, i) => ({
     id: i,
-    x: (Math.random() - 0.5) * 400,
-    y: -(Math.random() * 300 + 100),
-    rotation: Math.random() * 720,
+    x: (jitter(i, 1) - 0.5) * 400,
+    y: -(jitter(i, 2) * 300 + 100),
+    rotation: jitter(i, 3) * 720,
     color: ["#2563eb", "#7c3aed", "#ffffff", "#a1a1a1", "#3b82f6"][i % 5],
-    size: Math.random() * 4 + 2,
+    size: jitter(i, 4) * 4 + 2,
   }));
 
   return (

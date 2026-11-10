@@ -48,7 +48,7 @@ export const api = {
   // Members
   getMembers: (groupId: string) => apiRequest(`/api/members/group/${groupId}`),
 
-  upsertMember: (groupId: string, data: any) =>
+  upsertMember: (groupId: string, data: Record<string, unknown>) =>
     apiRequest(`/api/members/group/${groupId}`, {
       method: "POST",
       body: JSON.stringify(data),

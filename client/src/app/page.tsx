@@ -125,8 +125,8 @@ export default function LandingPage() {
         name: groupName.trim(),
       });
       router.push(`/group/${group.id}`);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not create the group");
     } finally {
       setLoading(false);
     }
@@ -144,8 +144,8 @@ export default function LandingPage() {
         joinCode: joinCode.trim().toUpperCase(),
       });
       router.push(`/group/${group.id}`);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not join the group");
     } finally {
       setLoading(false);
     }
@@ -601,7 +601,7 @@ export default function LandingPage() {
               <span className="bg-gradient-to-r from-violet-400 to-indigo-300 bg-clip-text text-transparent">THE CHAOS CYCLE</span>
             </h2>
             <p className="text-zinc-500 text-sm tracking-tight leading-relaxed">
-              GroupLore dynamically translates your squad's memories into custom multiplayer party activities.
+              GroupLore dynamically translates your squad&apos;s memories into custom multiplayer party activities.
             </p>
           </div>
 
