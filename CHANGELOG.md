@@ -17,7 +17,7 @@ All phase work is recorded here with what was verified and what was deferred.
 
 ### Verified
 
-- `server npm test` — **18/18 passing**: the Phase 1/2 suites plus Hive Mind fuzzy grouping and group-size scoring, Odd One Out prompt privacy and catch scoring, Bluff real/self-vote/bluff scoring, Hot Takes minority/tie scoring, and the Phase 3 bank sizes.
+- `server npm test` — **19/19 passing**: the Phase 1/2 suites plus Hive Mind fuzzy grouping and group-size scoring, a three-client socket playthrough of Hive Mind through the reveal, Odd One Out prompt privacy and catch scoring, Bluff real/self-vote/bluff scoring, Hot Takes minority/tie scoring, and the Phase 3 bank sizes.
 - `client npm run build` — success; all game routes still compile.
 - `client npx eslint src` — 0 errors, 7 pre-existing warnings.
 
