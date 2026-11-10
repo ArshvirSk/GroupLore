@@ -1,9 +1,16 @@
 "use client";
 
+import BluffGame, { type BluffView } from "@/components/game/BluffGame";
 import FiveSecondGame, {
   type FiveSecondView,
 } from "@/components/game/FiveSecondGame";
 import GameShell from "@/components/game/GameShell";
+import HiveMindGame, {
+  type HiveMindView,
+} from "@/components/game/HiveMindGame";
+import HotTakesGame, {
+  type HotTakesView,
+} from "@/components/game/HotTakesGame";
 import ImpostorGame, {
   type ImpostorView,
 } from "@/components/game/ImpostorGame";
@@ -11,6 +18,9 @@ import Leaderboard from "@/components/game/Leaderboard";
 import MostLikelyToGame, {
   type MltView,
 } from "@/components/game/MostLikelyToGame";
+import OddOneOutGame, {
+  type OddOneOutView,
+} from "@/components/game/OddOneOutGame";
 import OverratedGame, {
   type OverratedView,
 } from "@/components/game/OverratedGame";
@@ -166,12 +176,48 @@ export default function GamePage() {
         />
       )}
 
+      {activeView && room.gameId === "hive-mind" && (
+        <HiveMindGame
+          room={room}
+          view={room.game as unknown as HiveMindView}
+          send={send}
+        />
+      )}
+
+      {activeView && room.gameId === "odd-one-out" && (
+        <OddOneOutGame
+          room={room}
+          view={room.game as unknown as OddOneOutView}
+          send={send}
+        />
+      )}
+
+      {activeView && room.gameId === "bluff" && (
+        <BluffGame
+          room={room}
+          view={room.game as unknown as BluffView}
+          send={send}
+        />
+      )}
+
+      {activeView && room.gameId === "hot-takes" && (
+        <HotTakesGame
+          room={room}
+          view={room.game as unknown as HotTakesView}
+          send={send}
+        />
+      )}
+
       {activeView &&
         ![
           "most-likely-to",
           "guess-impostor",
           "five-second",
           "overrated-underrated",
+          "hive-mind",
+          "odd-one-out",
+          "bluff",
+          "hot-takes",
         ].includes(room.gameId || "") && (
           <div className="party-card p-8 text-center">
             <p className="text-3xl">🚧</p>
