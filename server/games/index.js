@@ -1,4 +1,7 @@
+import fiveSecond from "./fiveSecond.js";
+import impostor from "./impostor.js";
 import mostLikelyTo from "./mostLikelyTo.js";
+import overrated from "./overrated.js";
 import stub from "./stub.js";
 
 const registry = new Map();
@@ -21,6 +24,9 @@ export function listGames() {
 }
 
 registerGame(mostLikelyTo);
+registerGame(impostor);
+registerGame(fiveSecond);
+registerGame(overrated);
 registerGame(stub);
 
 export default registry;
