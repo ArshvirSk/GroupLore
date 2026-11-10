@@ -48,6 +48,17 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 - **TV is a spectator, not a player.** Spectators use their own socket and `room:spectate`, are tracked separately from seats, cannot act, and receive `publicFor` instead of a player view. The TV therefore cannot change readiness, take a host slot, or see the Impostor prompt early.
 - **Game modules own public-view redaction.** The engine does not guess which fields are safe. Each module implements `publicFor`; the TV never receives `viewFor` output.
 
+## Phase 3 games
+
+- **Hive Mind and Odd One Out share one 150-pair bank.** Each entry has a crew `text` and a related `odd` prompt. Hive Mind uses `text`; Odd One Out gives `odd` to one player. This keeps the two games' content consistent without shipping two near-duplicate banks.
+- **Odd One Out is a social-deduction game, not a trivia quiz.** One player gets a related prompt instead of the same one, answers are anonymous, and the room votes for the odd player. A four-player minimum gives the odd player enough cover.
+- **Odd One Out prompts are private per player and hidden on the TV.** The private view returns only the viewer's prompt; `publicFor` returns neither prompt until the reveal. A TV in the room must not reveal the odd prompt to the odd player.
+- **Bluff's real answer is server-owned.** Players never receive it during the writing phase, so the only way to vote correctly is knowledge or a good read. Duplicate normalized bluffs are merged; a bluff that exactly matches the real answer is removed and scores 1.
+- **Bluff scoring rewards both fooling and detecting.** Real-answer voters get 2, bluff authors get 1 per vote their bluff receives, and exact real answers get 1. Self-votes are rejected rather than silently discarded.
+- **Hot Takes rewards the minority.** The minority side gets 2 and the majority 1; ties and unanimous votes give everyone 1. The game is about backing the less popular take without making consensus worthless.
+- **All exposed modes have a real timer or behavior difference.** No placeholder mode pills were added; Bluff Quick changes both round count and timings, and Hot Takes Slow Burn changes the voting window.
+- **Phase 3 game ids require a database migration.** The original CHECK constraint only knew the eight legacy ids; `supabase-migration-phase3-games.sql` must be run before hosted sessions can persist the new game type.
+
 ## Known limitations
 
 - Rooms are in-memory and single-process. A server restart loses live state; a reconnect after restart starts a fresh room from the session row (or is rejected if the session is finished). Horizontal scaling needs a Redis adapter and shared room storage, which is out of Phase 1.
@@ -55,3 +66,4 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 - The Hub's other stat columns and badges remain driven by the old event types; only games played/won are written so far.
 - The TV route requires a signed-in group member to authenticate the spectator socket; it is not an unauthenticated public display URL yet.
 - A game screen is compiled but has not been visually exercised at 375px or on a TV-sized viewport.
+- The Phase 3 sessions migration has not been applied to the hosted database yet; local gameplay and tests use the in-memory engine.

@@ -2,6 +2,32 @@
 
 All phase work is recorded here with what was verified and what was deferred.
 
+## Phase 3 — Hive Mind, Odd One Out, Bluff and Hot Takes
+
+### Shipped
+
+- **Hive Mind** (`hive-mind`): everyone answers the same prompt, answers are grouped with the existing fuzzy text matcher, and each matching group scores its size. Unique answers score nothing. Five rounds; Classic (20s) and Speed (10s) modes.
+- **Odd One Out** (`odd-one-out`): one player secretly receives a related-but-different prompt. All answers are anonymous, the room discusses, then votes for the odd player. Four-player minimum; Classic and Blind modes. Crew score when the odd player is caught, the odd player scores 2 when they escape.
+- **Bluff** (`bluff`): an obscure word/definition question; everyone writes a fake definition, the real answer is mixed into the choices, and players vote for the real one. Self-votes are rejected server-side. Real-answer voters score 2, bluff authors score 1 per player fooled, and exact real answers score 1. Five rounds; Quick mode is three rounds.
+- **Hot Takes** (`hot-takes`): agree/disagree on an opinion statement. The minority side scores 2, the majority scores 1; ties and unanimous votes give every voter 1. Six rounds; Classic and Slow Burn modes.
+- **Screens and routing:** four new game components are routed by `room.gameId`; the lobby catalogue now exposes eight playable games and all exposed modes have a real behaviour.
+- **TV coverage:** all four new modules implement `publicFor`; the TV shows their prompt/question, progress and public reveal data. Odd One Out never sends either prompt to the TV before the reveal.
+- **Prompt banks:** one shared 150-pair bank (`hive.json`) powers Hive Mind's `text` prompts and Odd One Out's crew/odd prompts; 60 original Bluff question/answer pairs; 80 original Hot Takes statements.
+- **Database migration:** `supabase-migration-phase3-games.sql` adds the four ids to the `game_sessions.game_type` CHECK; `supabase-schema.sql` is updated for fresh installs.
+
+### Verified
+
+- `server npm test` — **18/18 passing**: the Phase 1/2 suites plus Hive Mind fuzzy grouping and group-size scoring, Odd One Out prompt privacy and catch scoring, Bluff real/self-vote/bluff scoring, Hot Takes minority/tie scoring, and the Phase 3 bank sizes.
+- `client npm run build` — success; all game routes still compile.
+- `client npx eslint src` — 0 errors, 7 pre-existing warnings.
+
+### Not verified / deferred
+
+- No live browser playthrough at 375px or TV size; the four screens compile but were not visually inspected.
+- The Phase 3 SQL migration was not run against the hosted Supabase database. Until it is, new game types may fail the session `game_type` update while gameplay itself continues (persistence is best-effort).
+- Live Supabase persistence and a real two-browser Clerk session remain unverified.
+- Phase 4 games (Liars Bar, Higher/Lower, Avoid the Answer, Caption This, Would You Rather, Wavelength, Category Rush) are not started.
+
 ## Phase 2 — first four games and the TV display
 
 ### Shipped
