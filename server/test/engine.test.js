@@ -476,3 +476,61 @@ test("disconnecting beyond the grace period frees the room", async () => {
   assert.equal(engine.rooms.has(sessionId), false);
   assert.ok(persistence.empties.some((entry) => entry.room.id === sessionId));
 });
+
+test("hive mind plays over sockets with private answers until the reveal", async () => {
+  const sessionId = makeSession();
+  const a = await makeClient("A");
+  const b = await makeClient("B");
+  const c = await makeClient("C");
+  const aJoined = await join(a, sessionId);
+  const bJoined = await join(b, sessionId);
+  const cJoined = await join(c, sessionId);
+  const joined = [aJoined, bJoined, cJoined];
+
+  await readyAll(b, c);
+  await act(
+    a,
+    "selectGame",
+    { gameId: "hive-mind", mode: "classic" },
+    (view) => view.gameId === "hive-mind",
+  );
+  await act(a, "start", {}, (view) => view.game?.phase === "answer");
+
+  // Each player only sees their own answer during the answering phase.
+  const before = await waitSync(
+    b.tracker,
+    (view) => view.game?.phase === "answer",
+  );
+  assert.equal(before.game.youSubmitted, false);
+  assert.equal("groups" in before.game, false);
+
+  const sent = await Promise.all(
+    [a, b, c].map((client, index) =>
+      send(
+        client,
+        "answer",
+        { value: index === 2 ? "burger" : "Pizza" },
+        (view) => view.game?.phase === "reveal",
+      ),
+    ),
+  );
+  const latest = sent[sent.length - 1];
+
+  assert.equal(latest.game.groups.length, 2);
+  const pizza = latest.game.groups.find(
+    (group) => group.answer.trim().toLowerCase() === "pizza",
+  );
+  assert.equal(pizza.points, 2);
+  assert.equal(latest.scores.find((entry) => entry.playerId === aJoined.playerId).score, 2);
+  assert.equal(latest.scores.find((entry) => entry.playerId === cJoined.playerId).score, 0);
+
+  // The TV sees the reveal but never a player's private answer identity.
+  const tv = await makeClient("TV");
+  const tvView = await spectate(tv, sessionId);
+  assert.equal(tvView.you, null);
+  assert.equal(tvView.game.phase, "reveal");
+  assert.equal(JSON.stringify(tvView.game).includes(cJoined.playerId), false);
+  assert.equal(joined.length, 3);
+
+  await act(a, "end");
+});
