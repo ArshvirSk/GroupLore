@@ -37,21 +37,25 @@ GroupLore/
 
 All games below are playable through the server-authoritative engine. Every game reads only its own prompt bank, not `member_profiles`.
 
-1. **Most Likely To** — Vote for the player who fits the prompt
-2. **Guess the Impostor** — One player doesn't know the prompt
-3. **5 Second Challenge** — Answer before time runs out
-4. **Overrated / Underrated** — Vote on group habits and moments
-5. **Liars Bar** — The storyteller picks a truth or a lie; the group calls it
-6. **Higher / Lower** — Rate the room, then call the next ranking
-7. **Avoid the Answer** — Describe the secret word without its banned words
-8. **Would You Rather** — Pick a side and see how the group splits
-9. **Caption This** — Write the funniest caption, then vote anonymously
-10. **Wavelength** — Give a clue that lands on the hidden point of a spectrum
-11. **Category Rush** — One category, one letter, one answer
-12. **Hive Mind** — Match the group's answers to score
-13. **Odd One Out** — One player has a different prompt
-14. **Bluff** — Write a fake definition and spot the real one
-15. **Hot Takes** — Back the unpopular opinion
+Most games support **3–12 players**. **Odd One Out** requires **4–12**. Modes are selected in the lobby.
+
+| Game | Players | Modes |
+| ---- | ------- | ----- |
+| 👑 **Most Likely To** | 3–12 | **Classic** — secret votes until the reveal; **Anonymous** — tally only, voter names hidden |
+| 🕵️ **Guess the Impostor** | 3–12 | **Classic** — one impostor, 30 seconds of clues; **Double Agent** — two impostors with 4+ players; **Blind** — no discussion, straight to the vote |
+| ⚡ **5 Second Challenge** | 3–12 | **Classic** — five seconds, then the group judges; **Lightning** — three seconds; **Marathon** — ten seconds, six turns |
+| ⚖️ **Overrated / Underrated** | 3–12 | **Classic** — five items, twelve seconds to pick a side |
+| 🍸 **Liars Bar** | 3–12 | **Classic** — five statements, twenty seconds to choose and vote; **Quick** — three faster rounds |
+| 📈 **Higher / Lower** | 3–12 | **Classic** — rate the room, then six calls; **Quick** — faster poll and four calls |
+| 🚫 **Avoid the Answer** | 3–12 | **Classic** — forty-five seconds without the banned words; **Blitz** — three fast rounds |
+| 🔀 **Would You Rather** | 3–12 | **Classic** — majority takes the point; **Minority Rules** — the smaller side scores two |
+| 📸 **Caption This** | 3–12 | **Classic** — four scenarios, thirty seconds each; **Quick** — three faster rounds |
+| 🌊 **Wavelength** | 3–12 | **Classic** — one clue giver and a secret point on the spectrum; **Quick** — three faster rounds |
+| 💡 **Category Rush** | 3–12 | **Classic** — five categories, twenty seconds; **Speed** — ten seconds |
+| 🐝 **Hive Mind** | 3–12 | **Classic** — five prompts, twenty seconds to agree; **Speed** — ten seconds |
+| 🎭 **Odd One Out** | 4–12 | **Classic** — one related prompt to find through discussion and voting; **Blind** — straight to the vote |
+| 🎩 **Bluff** | 3–12 | **Classic** — write a fake, then spot the real answer; **Quick** — three faster rounds |
+| 🌶️ **Hot Takes** | 3–12 | **Classic** — six takes, twelve seconds to pick a side; **Slow Burn** — twenty seconds |
 
 ## Start a Game
 
