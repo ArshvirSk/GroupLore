@@ -7,6 +7,7 @@ All phase work is recorded here with what was verified and what was deferred.
 ### Shipped
 
 - **Creating a group opens its first lobby.** The dashboard and landing-page create forms now create the group and immediately open its active lobby, so there is no separate group-page stop before playing.
+- **The Hub accepts room codes directly.** Signed-in players can enter a 6-character code from the dashboard and land in its active lobby (or the group page when no lobby is open), without going back to the landing page.
 - **The lobby keeps the group context.** The lobby now uses the dark dashboard shell and shows the group name, player list, game picker and room actions in one place.
 - **Every active room exposes a room code.** The code is shown in the lobby header and copies the existing `/join/CODE` invite link. Guests see the same code and invite action instead of relying on group-only API access.
 - **Room state carries the context.** The session loader joins `groups(name, join_code)`, and the engine includes `groupName` and `joinCode` in each player's room view.
@@ -21,7 +22,7 @@ All phase work is recorded here with what was verified and what was deferred.
 
 ### Not verified / deferred
 
-- The restyled lobby was compiled but not visually inspected in a browser after the change.
+- The restyled lobby and the dashboard room-code field were compiled but not visually inspected in a browser after the change.
 - A live Supabase room load was not re-run; the nested group relation is covered by the existing session schema.
 
 ## Start flow simplification

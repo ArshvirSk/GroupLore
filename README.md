@@ -61,7 +61,7 @@ Most games support **3–12 players**. **Odd One Out** requires **4–12**. Mode
 
 1. Sign in, then create a group from the dashboard or landing page. Its first lobby opens immediately.
 2. To reopen a room, press **Open Lobby** or **Play** on an existing group. Any group member can open the lobby.
-3. Share the room code and invite link shown in the lobby header. The code opens `/join/CODE` and is the same code guests enter at `/guest`.
+3. Share the room code and invite link shown in the lobby header. The code opens `/join/CODE` and is the same code guests enter at `/guest`. Signed-in players can also type the code into **Join with a room code** on the dashboard.
 4. Pick a game. Each card shows how many more players it needs.
 5. Once enough players are connected, anyone in the lobby can press **Start game**.
 

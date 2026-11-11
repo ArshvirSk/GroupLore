@@ -5,7 +5,7 @@ import { useAuth } from "@/components/AuthProvider";
 import FloatingBlobs from "@/components/FloatingBlobs";
 import UserMenu from "@/components/UserMenu";
 import { api } from "@/lib/api";
-import { ensureLobby } from "@/lib/play";
+import { ensureLobby, groupEntryPath } from "@/lib/play";
 import { useUserStore } from "@/stores/userStore";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
@@ -202,6 +202,9 @@ export default function DashboardPage() {
   const [creatingGroup, setCreatingGroup] = useState(false);
   const [launchingGroupId, setLaunchingGroupId] = useState<string | null>(null);
   const [playError, setPlayError] = useState("");
+  const [joinRoomCode, setJoinRoomCode] = useState("");
+  const [joiningRoom, setJoiningRoom] = useState(false);
+  const [joinRoomError, setJoinRoomError] = useState("");
 
   const feedEndRef = useRef<HTMLDivElement>(null);
 
@@ -295,6 +298,27 @@ export default function DashboardPage() {
       );
     } finally {
       setLaunchingGroupId(null);
+    }
+  };
+
+  const handleJoinRoom = async () => {
+    if (joiningRoom) return;
+    const code = joinRoomCode.trim().toUpperCase();
+    if (code.length !== 6) {
+      setJoinRoomError("Enter the 6-character room code.");
+      return;
+    }
+    setJoiningRoom(true);
+    setJoinRoomError("");
+    try {
+      const group = await api.joinGroup({ joinCode: code });
+      router.push(await groupEntryPath(group.id));
+    } catch (err) {
+      setJoinRoomError(
+        err instanceof Error ? err.message : "Could not join that room",
+      );
+    } finally {
+      setJoiningRoom(false);
     }
   };
 
@@ -457,6 +481,57 @@ export default function DashboardPage() {
                 </button>
               </div>
             )}
+
+            <div className="glass-card p-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-text-secondary">
+                    Join with a room code
+                  </p>
+                  <p className="mt-0.5 text-[10px] text-text-muted">
+                    Enter the 6-character code from the host.
+                  </p>
+                </div>
+                <div className="flex gap-2">
+                  <div className="w-32 shrink-0">
+                    <input
+                      value={joinRoomCode}
+                      onChange={(event) => {
+                        setJoinRoomCode(
+                          event.target.value
+                            .toUpperCase()
+                            .replace(/[^A-Z0-9]/g, "")
+                            .slice(0, 6),
+                        );
+                        setJoinRoomError("");
+                      }}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter") void handleJoinRoom();
+                      }}
+                      maxLength={6}
+                      autoComplete="off"
+                      autoCapitalize="characters"
+                      spellCheck={false}
+                      placeholder="ABC123"
+                      aria-label="Room code"
+                      className="neon-input w-full text-center font-mono text-sm uppercase tracking-[0.2em]"
+                    />
+                  </div>
+                  <button
+                    onClick={() => void handleJoinRoom()}
+                    disabled={joiningRoom || joinRoomCode.length !== 6}
+                    className="neon-btn neon-btn-purple shrink-0 px-5 py-3 text-xs disabled:opacity-40"
+                  >
+                    {joiningRoom ? "Joining…" : "Join →"}
+                  </button>
+                </div>
+              </div>
+              {joinRoomError && (
+                <p className="mt-2 text-xs font-semibold text-red-300">
+                  {joinRoomError}
+                </p>
+              )}
+            </div>
 
             {playError && (
               <p className="rounded-xl bg-red-500/10 px-3 py-2 text-xs font-semibold text-red-300">
