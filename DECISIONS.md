@@ -84,6 +84,9 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 
 ## Start flow
 
+- **Creating a group opens its first lobby immediately.** The group still exists as the persistent container for membership, history and stats, but the user no longer has to visit the group page and press Open Lobby as a second setup step. A group is created for its first room and the room opens in the same action.
+- **The lobby is a dark-shell room, not a separate pastel app.** The dashboard, group page and lobby now share the same shell and typography; game screens keep their own play surfaces. This removes the visual context switch when entering a room.
+- **The active room code is the group join code.** A group can have only one open lobby, so adding `game_sessions.join_code` would duplicate a value that already resolves the room. `/join/CODE`, `/guest` and the lobby invite all point at the same code; a rotating per-session code would need a migration if rooms ever become concurrent.
 - **Invite URLs are `/join/:code`.** The route joins an existing member idempotently, sends signed-out visitors through auth with a safe `next` path, then opens the live lobby if one exists or the group page otherwise.
 - **The dashboard owns group creation.** Sending a signed-in user back to the marketing page to create a group was an unnecessary loop; the dashboard now expands an inline form and group cards can open a lobby directly.
 - **A session's default game is selected when its room loads.** New sessions are created with `most-likely-to`, so a fresh lobby has a valid selected game and a startable default instead of making every room begin with an empty game picker.

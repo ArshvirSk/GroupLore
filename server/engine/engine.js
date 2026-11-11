@@ -209,6 +209,8 @@ export class GameEngine {
     return {
       id,
       groupId,
+      groupName: session?.groups?.name || null,
+      joinCode: session?.groups?.join_code || null,
       session,
       players: new Map(),
       spectators: new Set(),
@@ -786,6 +788,8 @@ export class GameEngine {
       version: room.version,
       sessionId: room.id,
       groupId: room.groupId,
+      groupName: room.groupName,
+      joinCode: room.joinCode,
       phase: room.phase,
       hostId: room.hostId,
       gameId: room.gameId,

@@ -2,6 +2,28 @@
 
 All phase work is recorded here with what was verified and what was deferred.
 
+## Lobby context and room entry
+
+### Shipped
+
+- **Creating a group opens its first lobby.** The dashboard and landing-page create forms now create the group and immediately open its active lobby, so there is no separate group-page stop before playing.
+- **The lobby keeps the group context.** The lobby now uses the dark dashboard shell and shows the group name, player list, game picker and room actions in one place.
+- **Every active room exposes a room code.** The code is shown in the lobby header and copies the existing `/join/CODE` invite link. Guests see the same code and invite action instead of relying on group-only API access.
+- **Room state carries the context.** The session loader joins `groups(name, join_code)`, and the engine includes `groupName` and `joinCode` in each player's room view.
+- **The room code is the group join code.** Only one lobby can be open per group, so the active room uses the group's existing 6-character `join_code`; no schema migration or rotating per-session code is required.
+- **Code entry still works through the existing paths.** `/join/:code`, `/guest`, and the landing-page Join Group form all resolve the group code and open its active lobby.
+
+### Verified
+
+- `server npm test` — **28/28 passing**.
+- `client npm run build` — success.
+- `client npm run lint` — 0 errors, 4 pre-existing warnings.
+
+### Not verified / deferred
+
+- The restyled lobby was compiled but not visually inspected in a browser after the change.
+- A live Supabase room load was not re-run; the nested group relation is covered by the existing session schema.
+
 ## Start flow simplification
 
 ### Shipped

@@ -59,15 +59,15 @@ Most games support **3–12 players**. **Odd One Out** requires **4–12**. Mode
 
 ## Start a Game
 
-1. Sign in, then create a group from the dashboard or open an existing one.
-2. Press **Open Lobby** or **Play**. Any group member can open the lobby.
-3. Share the group's invite link (`/join/CODE`) from the group page or lobby.
+1. Sign in, then create a group from the dashboard or landing page. Its first lobby opens immediately.
+2. To reopen a room, press **Open Lobby** or **Play** on an existing group. Any group member can open the lobby.
+3. Share the room code and invite link shown in the lobby header. The code opens `/join/CODE` and is the same code guests enter at `/guest`.
 4. Pick a game. Each card shows how many more players it needs.
 5. Once enough players are connected, anyone in the lobby can press **Start game**.
 
-The normal flow is dashboard → lobby → game. Invitees go from invite link → choose guest or account → lobby or group.
+The normal flow is dashboard → lobby → game. Invitees go from invite link → choose guest or account → lobby or group. The active lobby keeps its group name and room code visible so the context does not disappear when play starts.
 
-**Guest entry:** a guest needs only a display name and the group's 6-character code. Guests can join an **already-open lobby** but cannot create groups or lobbies, and cannot see group history. Use `/guest` directly, or choose **Continue as guest** on the invite, home, or sign-in screens. Set `ALLOW_GUESTS=false` to require an account for every player.
+**Guest entry:** a guest needs only a display name and the room's 6-character code. Guests can join an **already-open lobby** but cannot create groups or lobbies, and cannot see group history. Use `/guest` directly, or choose **Continue as guest** on the invite, home, or sign-in screens. Set `ALLOW_GUESTS=false` to require an account for every player.
 
 ## Setup
 

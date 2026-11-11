@@ -53,6 +53,8 @@ export interface RoomView {
   version: number;
   sessionId: string;
   groupId: string | null;
+  groupName: string | null;
+  joinCode: string | null;
   phase: RoomPhase;
   hostId: string | null;
   gameId: string | null;

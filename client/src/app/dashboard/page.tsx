@@ -271,7 +271,8 @@ export default function DashboardPage() {
     setGroupError("");
     try {
       const group = await api.createGroup({ name });
-      router.push(`/group/${group.id}`);
+      const session = await ensureLobby(group.id);
+      router.push(`/lobby/${session.id}?groupId=${group.id}`);
     } catch (err) {
       setGroupError(
         err instanceof Error ? err.message : "Could not create the group",

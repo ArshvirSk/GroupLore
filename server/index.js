@@ -63,7 +63,7 @@ const engine = new GameEngine({
   loadSession: async (sessionId) => {
     const { data } = await supabase
       .from("game_sessions")
-      .select("id, group_id, status, game_type")
+      .select("id, group_id, status, game_type, groups(name, join_code)")
       .eq("id", sessionId)
       .maybeSingle();
     return data || null;
