@@ -11,7 +11,7 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 ## Engine semantics
 
 - **Room is created from the persisted game session on first join.** The session row already knows the group, so this avoids coupling Express routes to an engine singleton and makes the engine testable with an injected `loadSession`.
-- **Player identity is stable per user/guest, not per socket.** A second join with the same Clerk user (or guest token) rebinds the existing seat. Opening a second tab replaces the old socket instead of creating a second player.
+- **Player identity is stable per user/guest, not per socket.** A second join with the same Supabase user (or guest token) rebinds the existing seat. Opening a second tab replaces the old socket instead of creating a second player.
 - **Reconnect token is signed and scoped to one session + player.** It is stored in localStorage per room. Identity fallback also allows a refresh without the token while the server still has the room.
 - **30-second disconnect grace.** Long enough for a refresh or tunnel, short enough that a dead seat does not stall the lobby. Grace is configurable for tests.
 - **All phases are timed.** A module must set `state.endsAt`; the engine calls `onPhaseEnd` at that absolute time. If a module forgets, the engine adds a 3-second fallback so a room cannot hang. There is no client-driven advance.
@@ -23,10 +23,10 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 
 ## Auth / policy
 
-- **Guests are signed tokens, not anonymous sockets.** `ALLOW_GUESTS=false` disables them. They default to on outside production so local play and the socket tests work without Clerk.
+- **Guests are signed tokens, not anonymous sockets.** `ALLOW_GUESTS=false` disables them. They default to on outside production so local play and the socket tests work without an account.
 - **Guest tokens do not prove group membership.** In production guests should be disabled; with guests enabled, a guest can join a room whose session exists. This is documented rather than silently pretending guests are members.
-- **Clerk display names come from the database row** when available; the client-supplied name is only a fallback. This prevents a signed-in user from impersonating another member by editing the handshake payload.
-- **Nudge polling is host-only.** Sending a nudge requires group membership and the sender name is taken from Clerk, not `req.body.from`.
+- **Supabase display names come from the database row** when available; the client-supplied name is only a fallback. This prevents a signed-in user from impersonating another member by editing the handshake payload.
+- **Nudge polling is host-only.** Sending a nudge requires group membership and the sender name is taken from the Supabase-authenticated user, not `req.body.from`.
 - **Removed `PATCH /api/games/:id`.** It let any authenticated user write arbitrary columns on any session and had no client caller.
 
 ## Client
@@ -58,6 +58,14 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 - **Hot Takes rewards the minority.** The minority side gets 2 and the majority 1; ties and unanimous votes give everyone 1. The game is about backing the less popular take without making consensus worthless.
 - **All exposed modes have a real timer or behavior difference.** No placeholder mode pills were added; Bluff Quick changes both round count and timings, and Hot Takes Slow Burn changes the voting window.
 - **Phase 3 game ids required a database migration.** The original CHECK constraint only knew the eight legacy ids; `supabase-migration-phase3-games.sql` has been applied to the hosted project and is included for other environments.
+
+## Supabase Auth
+
+- **Supabase Auth replaces Clerk; there is no parallel identity provider.** The browser owns the Supabase session, REST calls carry its access token as a bearer token, and the socket handshake carries the same token. The server verifies every token with `supabase.auth.getUser`.
+- **`users.auth_user_id` is the app-side link to `auth.users.id`.** It is not a password hash or a second auth system; it exists so app rows keep stable UUIDs while auth identities can be replaced.
+- **Existing users are linked by email on first sync.** `supabase-migration-supabase-auth.sql` copies the old external id into `auth_user_id`; the first sign-in updates that row to the Supabase user id, preserving groups and stats.
+- **Page protection is client-side; data protection is server-side.** There is no auth middleware. The dashboard and group pages redirect signed-out visitors, while every REST route and socket handshake verifies the Supabase token authoritatively.
+- **Email confirmation is controlled by Supabase.** If the project enables it, sign-up returns no session and the UI asks the user to confirm; if disabled, sign-up signs the user in immediately.
 
 ## Known limitations
 

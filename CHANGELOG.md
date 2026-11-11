@@ -2,6 +2,27 @@
 
 All phase work is recorded here with what was verified and what was deferred.
 
+## Supabase Auth migration
+
+### Shipped
+
+- **Clerk removed end to end.** The client no longer depends on `@clerk/nextjs` or `@clerk/themes`, there is no `ClerkProvider` or middleware, and the server no longer reads `CLERK_SECRET_KEY`. Sign-in and sign-up are Supabase email/password forms.
+- **Supabase sessions drive both transports.** `AuthProvider` owns the browser session, REST calls send `Authorization: Bearer <access token>`, and the room/TV socket handshakes send the same token. Express and Socket.io both verify it with `supabase.auth.getUser`.
+- **App rows link through `users.auth_user_id`.** `/api/users/sync` creates or links the app row on sign-in, matching an existing row by email so groups and stats survive the provider change. Group membership, feed, members and seed routes now use the Supabase user id.
+- **Schema migration.** `supabase-schema.sql` uses `auth_user_id` for fresh installs; `supabase-migration-supabase-auth.sql` adds the column, copies the old id, drops `clerk_id` and adds a unique index for existing projects.
+- **Guest and reconnect paths preserved.** Signed guest tokens, reconnect tokens, the 30-second handshake refresh and server-authoritative room membership are unchanged.
+
+### Verified
+
+- `server npm test` — **20/20 passing**, including the new Supabase identity resolution test.
+- `client npm run build` — success; `/sign-in`, `/sign-up`, `/dashboard`, `/group`, `/lobby`, `/game` and `/tv` compile.
+- `client npx eslint src` — 0 errors, 4 warnings (hook dependency and unused-variable warnings in existing screens).
+
+### Not verified / deferred
+
+- The hosted Supabase SQL migration and a real browser sign-up/sign-in match still need to be run against the project; until the migration is applied, `/api/users/sync` cannot write `auth_user_id`.
+- Email confirmation depends on the project's Supabase Auth settings; both the confirmation-required and immediate-session paths are implemented but were not exercised against the hosted project.
+
 ## Phase 3 — Hive Mind, Odd One Out, Bluff and Hot Takes
 
 ### Shipped
@@ -26,7 +47,7 @@ All phase work is recorded here with what was verified and what was deferred.
 ### Not verified / deferred
 
 - No live browser playthrough at 375px or TV size; the four screens compile but were not visually inspected.
-- A full socket game against the hosted database and a real two-browser Clerk session remain unverified; persistence was checked by invoking the adapter directly.
+- A full socket game against the hosted database and a real two-browser session with the previous auth provider remain unverified; persistence was checked by invoking the adapter directly.
 - Phase 4 games (Liars Bar, Higher/Lower, Avoid the Answer, Caption This, Would You Rather, Wavelength, Category Rush) are not started.
 
 ## Phase 2 — first four games and the TV display
@@ -58,7 +79,7 @@ All phase work is recorded here with what was verified and what was deferred.
 
 ### Not verified / deferred
 
-- Real two-browser Clerk play and visual review at 375px/TV sizes were not performed; the screens compile but were not opened in a browser.
+- Real two-browser authenticated play and visual review at 375px/TV sizes were not performed; the screens compile but were not opened in a browser.
 - Live Supabase persistence is still exercised only with spies.
 - Best Friend Test, Liars Bar, Higher/Lower, Avoid the Answer remain parked for Phase 4; Hive Mind, Odd One Out, Bluff and Hot Takes remain Phase 3.
 
@@ -73,7 +94,7 @@ All phase work is recorded here with what was verified and what was deferred.
   - Per-player event ids (last 50) make duplicate clicks and retries no-ops.
   - Private views (`viewFor`) are computed per player; MLT anonymous mode hides voter names server-side.
 - **Identity and reconnect**
-  - Socket handshake verifies the Clerk session JWT with `@clerk/backend` when `CLERK_SECRET_KEY` is present.
+  - Socket handshake verifies the previous auth provider's session JWT on the server when its secret is present.
   - Guests get an HMAC-signed guest token from `POST /api/auth/guest`; guest join is gated by `ALLOW_GUESTS` (default on outside production).
   - Players receive a signed reconnect token (24h) and a stable player id. Refreshing a tab reclaims the same seat and receives a full `room:sync` with private state.
   - Disconnects keep the seat for 30 seconds (configurable); only an explicit leave, kick, or grace expiry removes a player. Navigation never leaves a room.
@@ -85,10 +106,10 @@ All phase work is recorded here with what was verified and what was deferred.
 - **REST hardening**
   - Game routes require auth + group/session membership; the public `PATCH /api/games/:id` endpoint was removed (unused by the client).
   - Member profiles: members may edit themselves; only the host may edit another member. Target ids are checked against group membership.
-  - Group reads require membership; nudges require auth + membership, and polling nudges is host-only. The sender name comes from Clerk, not the request body.
+  - Group reads require membership; nudges require auth + membership, and polling nudges is host-only. The sender name comes from the authenticated session, not the request body.
 - **Client room layer**
   - `useRoom(sessionId)` + `roomStore` + an app-wide socket that survives route changes.
-  - Reconnect token stored per session; Clerk token refreshed every 30s so socket reconnects keep working in long games.
+  - Reconnect token stored per session; the auth token is refreshed every 30s so socket reconnects keep working in long games.
   - Lobby and game pages no longer join/leave per page; lobby redirects to the game on start, game redirects back on restart.
 - **UI**
   - Pastel party tokens (cream/lavender/baby blue/blush/mint/coral/grape/lime/sky) plus display/body fonts in `globals.css`.
@@ -106,7 +127,7 @@ All phase work is recorded here with what was verified and what was deferred.
 
 ### Not verified / deferred
 
-- A real Clerk sign-in match between two browsers (no interactive sign-in was performed); the socket tests use signed guest identities.
+- A real authenticated match between two browsers (no interactive sign-in was performed); the socket tests use signed guest identities.
 - Live Supabase writes (the persistence adapter is injected and exercised with spies; no game was played against the hosted database).
 - Mobile visual review at 375px and `/tv/[sessionId]` — deferred to the game UI phases.
 - Bot/load-test script and the final README/plugin guide — final deliverables.

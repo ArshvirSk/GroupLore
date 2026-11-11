@@ -4,10 +4,10 @@
 -- Enable UUID generation
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
--- Users table (synced from Clerk)
+-- Users table (one row per Supabase Auth user)
 CREATE TABLE IF NOT EXISTS users (
   id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-  clerk_id TEXT UNIQUE,
+  auth_user_id TEXT UNIQUE,
   name TEXT NOT NULL,
   email TEXT,
   avatar_url TEXT,

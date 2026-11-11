@@ -30,7 +30,7 @@ GroupLore/
 | Frontend  | Next.js 15, Tailwind CSS v4, Framer Motion, Zustand |
 | Backend   | Express, Socket.io                                  |
 | Database  | Supabase (PostgreSQL)                               |
-| Auth      | Clerk (ready to integrate)                          |
+| Auth      | Supabase Auth (email + password)                    |
 | Real-time | Socket.io (WebSockets)                              |
 
 ## Games
@@ -45,13 +45,14 @@ GroupLore/
 
 - Create a Supabase project at [supabase.com](https://supabase.com)
 - Run `supabase-schema.sql` in the SQL Editor
-- Upgrading an existing project: also run `supabase-migration-phase3-games.sql` to allow the Phase 3 game ids
+- Upgrading an existing project: run `supabase-migration-phase3-games.sql` for the Phase 3 game ids and `supabase-migration-supabase-auth.sql` to move users onto Supabase Auth ids
+- Enable the **Email** provider under Supabase → Authentication → Providers
 
 ### 2. Environment
 
 ```bash
 cp .env.example .env
-# Fill in your Supabase and Clerk credentials
+# Fill in your Supabase URL, anon key and service-role key
 ```
 
 ### 3. Server
