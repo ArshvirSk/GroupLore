@@ -12,6 +12,7 @@ All phase work is recorded here with what was verified and what was deferred.
 - **Fewer setup screens.** The normal path is now dashboard → lobby → game. Invitees go from invite link → auth (if needed) → lobby/group.
 - **Ready gate removed.** Players no longer need to tap Ready up; a lobby starts when the selected game has enough connected players. The engine no longer checks readiness.
 - **Player minimums are visible before selection.** Every game card shows how many more players it needs, and the lobby shows a targeted invite prompt for the selected game. New lobbies preselect the session's default game.
+- **Mode descriptions are visible in the lobby.** Each mode renders as a selectable card with its rule summary instead of hiding the description in a hover tooltip.
 
 ### Verified
 
