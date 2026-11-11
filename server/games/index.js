@@ -1,3 +1,4 @@
+import acronymWars from "./acronymWars.js";
 import avoidTheAnswer from "./avoidTheAnswer.js";
 import bluff from "./bluff.js";
 import captionThis from "./captionThis.js";
@@ -51,6 +52,7 @@ registerGame(oddOneOut);
 registerGame(bluff);
 registerGame(hotTakes);
 registerGame(roastBattle);
+registerGame(acronymWars);
 registerGame(stub);
 
 export default registry;

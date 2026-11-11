@@ -22,5 +22,6 @@ ALTER TABLE game_sessions ADD CONSTRAINT game_sessions_game_type_check
     'caption-this',
     'wavelength',
     'category-rush',
-    'roast-battle'
+    'roast-battle',
+    'acronym-wars'
   ));

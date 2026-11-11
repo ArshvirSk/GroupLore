@@ -1,5 +1,8 @@
 "use client";
 
+import AcronymWarsGame, {
+  type AcronymView,
+} from "@/components/game/AcronymWarsGame";
 import AvoidTheAnswerGame, {
   type AvoidView,
 } from "@/components/game/AvoidTheAnswerGame";
@@ -308,6 +311,14 @@ export default function GamePage() {
         />
       )}
 
+      {activeView && room.gameId === "acronym-wars" && (
+        <AcronymWarsGame
+          room={room}
+          view={room.game as unknown as AcronymView}
+          send={send}
+        />
+      )}
+
       {activeView &&
         ![
           "most-likely-to",
@@ -326,6 +337,7 @@ export default function GamePage() {
           "wavelength",
           "category-rush",
           "roast-battle",
+          "acronym-wars",
         ].includes(room.gameId || "") && (
           <div className="party-card p-8 text-center">
             <p className="text-3xl">🚧</p>

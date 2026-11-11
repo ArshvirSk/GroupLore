@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { createRequire } from "node:module";
 import test from "node:test";
+import acronymWars from "../games/acronymWars.js";
 import roastBattle from "../games/roastBattle.js";
 
 const require = createRequire(import.meta.url);
@@ -110,9 +111,76 @@ test("roast battle forfeits unanswered duels and cannot deadlock on a leave", ()
   assert.equal(state.done, true);
 });
 
+test("acronym wars validates every word and hides authors until the reveal", () => {
+  const room = makeRoom(3);
+  const state = acronymWars.init(room, "classic");
+  const acronym = (letters, suffix) =>
+    letters.map((letter) => `${letter}${suffix}`).join(" ");
+
+  assert.equal(state.phase, "write");
+  assert.ok(state.letters.length >= 3 && state.letters.length <= 5);
+  assert.throws(
+    () => acronymWars.onEvent(room, "p1", { type: "answer", value: "onlyoneword" }),
+    /exactly/i,
+  );
+
+  acronymWars.onEvent(room, "p1", {
+    type: "answer",
+    value: acronym(state.letters, "alpha"),
+  });
+  acronymWars.onEvent(room, "p2", {
+    type: "answer",
+    value: acronym(state.letters, "bravo"),
+  });
+  acronymWars.onEvent(room, "p3", {
+    type: "answer",
+    value: acronym(state.letters, "charlie"),
+  });
+
+  assert.equal(state.phase, "vote");
+  assert.equal("playerId" in acronymWars.viewFor(room, "p1").choices[0], false);
+  assert.equal(JSON.stringify(acronymWars.publicFor(room)).includes("p2"), false);
+
+  const p2Choice = state.choices.find((choice) => choice.playerId === "p2");
+  const p3Choice = state.choices.find((choice) => choice.playerId === "p3");
+  assert.throws(
+    () => acronymWars.onEvent(room, "p2", { type: "vote", choiceId: p2Choice.id }),
+    /own/i,
+  );
+
+  acronymWars.onEvent(room, "p1", { type: "vote", choiceId: p2Choice.id });
+  acronymWars.onEvent(room, "p2", { type: "vote", choiceId: p3Choice.id });
+  acronymWars.onEvent(room, "p3", { type: "vote", choiceId: p2Choice.id });
+
+  assert.equal(state.phase, "reveal");
+  assert.equal(state.reveal.choices[0].votes, 2);
+  assert.equal(room.scores.p2, 425);
+  assert.equal(room.scores.p1, 25);
+  assert.equal(room.scores.p3, 125);
+
+  acronymWars.onPhaseEnd(room);
+  assert.equal(state.phase, "write");
+  assert.equal(state.round, 2);
+});
+
+test("acronym wars ends cleanly when a player leaves", () => {
+  const room = makeRoom(3);
+  const state = acronymWars.init(room, "speed");
+  room.players.delete("p1");
+  assert.equal(acronymWars.onPlayerLeave(room, "p1"), "results");
+  assert.equal(state.done, true);
+});
+
 test("roast battle prompt bank meets its minimum and has unique ids", () => {
   const prompts = require("../data/prompts/roastBattle.json");
   assert.ok(prompts.length >= 150);
+  assert.equal(new Set(prompts.map((prompt) => prompt.id)).size, prompts.length);
+  assert.ok(prompts.every((prompt) => prompt.text.trim().length > 0));
+});
+
+test("acronym wars prompt bank meets its minimum and has unique ids", () => {
+  const prompts = require("../data/prompts/acronymWars.json");
+  assert.ok(prompts.length >= 60);
   assert.equal(new Set(prompts.map((prompt) => prompt.id)).size, prompts.length);
   assert.ok(prompts.every((prompt) => prompt.text.trim().length > 0));
 });

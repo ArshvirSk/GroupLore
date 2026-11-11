@@ -57,6 +57,7 @@ Most games support **3–12 players**. **Odd One Out** requires **4–12**. Mode
 | 🎩 **Bluff** | 3–12 | **Classic** — write a fake, then spot the real answer; **Quick** — three faster rounds |
 | 🌶️ **Hot Takes** | 3–12 | **Classic** — six takes, twelve seconds to pick a side; **Slow Burn** — twenty seconds |
 | 🔥 **Roast Battle** | 3–12 | **Classic** — three rounds of anonymous head-to-head answers; **Quick** — two faster rounds |
+| 🔤 **Acronym Wars** | 3–12 | **Classic** — five rounds, 40 seconds to expand the letters; **Speed** — 20 seconds |
 
 ## Start a Game
 
