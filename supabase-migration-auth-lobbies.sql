@@ -58,13 +58,23 @@ REVOKE ALL ON profiles FROM anon, authenticated;
 
 ALTER TABLE groups ADD COLUMN IF NOT EXISTS owner_id UUID;
 
-UPDATE groups g
-SET owner_id = u.auth_user_id::uuid
-FROM users u
-WHERE g.created_by = u.id
-  AND g.owner_id IS NULL
-  AND u.auth_user_id IS NOT NULL
-  AND u.auth_user_id ~* '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$';
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM information_schema.columns
+    WHERE table_schema = 'public'
+      AND table_name = 'groups'
+      AND column_name = 'created_by'
+  ) THEN
+    UPDATE groups g
+    SET owner_id = u.auth_user_id::uuid
+    FROM users u
+    WHERE g.created_by = u.id
+      AND g.owner_id IS NULL
+      AND u.auth_user_id IS NOT NULL
+      AND u.auth_user_id ~* '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$';
+  END IF;
+END $$;
 
 -- If a group's creator no longer exists, promote its first member.
 UPDATE groups g
@@ -179,23 +189,33 @@ REVOKE ALL ON lobby_players FROM anon, authenticated;
 
 ALTER TABLE game_sessions ADD COLUMN IF NOT EXISTS lobby_id UUID;
 
-INSERT INTO lobbies (id, code, group_id, host_id, status, created_at, closed_at)
-SELECT
-  gs.id,
-  translate(upper(substr(md5(gs.id::text), 1, 6)), '01OI', 'ABCD'),
-  gs.group_id,
-  g.owner_id,
-  CASE
-    WHEN gs.status = 'lobby' THEN 'open'
-    WHEN gs.status = 'active' THEN 'in_game'
-    ELSE 'closed'
-  END,
-  COALESCE(gs.created_at, NOW()),
-  CASE WHEN gs.status = 'finished' THEN NOW() ELSE NULL END
-FROM game_sessions gs
-LEFT JOIN groups g ON g.id = gs.group_id
-WHERE gs.lobby_id IS NULL
-ON CONFLICT (id) DO NOTHING;
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM information_schema.columns
+    WHERE table_schema = 'public'
+      AND table_name = 'game_sessions'
+      AND column_name = 'group_id'
+  ) THEN
+    INSERT INTO lobbies (id, code, group_id, host_id, status, created_at, closed_at)
+    SELECT
+      gs.id,
+      translate(upper(substr(md5(gs.id::text), 1, 6)), '01OI', 'ABCD'),
+      gs.group_id,
+      g.owner_id,
+      CASE
+        WHEN gs.status = 'lobby' THEN 'open'
+        WHEN gs.status = 'active' THEN 'in_game'
+        ELSE 'closed'
+      END,
+      COALESCE(gs.created_at, NOW()),
+      CASE WHEN gs.status = 'finished' THEN NOW() ELSE NULL END
+    FROM game_sessions gs
+    LEFT JOIN groups g ON g.id = gs.group_id
+    WHERE gs.lobby_id IS NULL
+    ON CONFLICT (id) DO NOTHING;
+  END IF;
+END $$;
 
 UPDATE game_sessions SET lobby_id = id WHERE lobby_id IS NULL;
 
