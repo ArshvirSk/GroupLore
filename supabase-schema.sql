@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS member_profiles (
 CREATE TABLE IF NOT EXISTS game_sessions (
   id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
   group_id UUID REFERENCES groups(id) ON DELETE CASCADE,
-  game_type TEXT NOT NULL CHECK (game_type IN ('overrated-underrated', 'guess-impostor', 'five-second', 'best-friend-test', 'most-likely-to', 'liars-bar', 'higher-or-lower', 'avoid-the-answer', 'hive-mind', 'odd-one-out', 'bluff', 'hot-takes', 'would-you-rather', 'caption-this', 'wavelength', 'category-rush', 'roast-battle', 'acronym-wars', 'pitch-perfect', 'mad-libs')),
+  game_type TEXT NOT NULL CHECK (game_type IN ('overrated-underrated', 'guess-impostor', 'five-second', 'best-friend-test', 'most-likely-to', 'liars-bar', 'higher-or-lower', 'avoid-the-answer', 'hive-mind', 'odd-one-out', 'bluff', 'hot-takes', 'would-you-rather', 'caption-this', 'wavelength', 'category-rush', 'roast-battle', 'acronym-wars', 'pitch-perfect', 'mad-libs', 'two-truths')),
   status TEXT DEFAULT 'lobby' CHECK (status IN ('lobby', 'active', 'finished')),
   current_round INTEGER DEFAULT 0,
   round_data JSONB DEFAULT '{}',

@@ -5,6 +5,7 @@ import acronymWars from "../games/acronymWars.js";
 import madLibs from "../games/madLibs.js";
 import pitchPerfect from "../games/pitchPerfect.js";
 import roastBattle from "../games/roastBattle.js";
+import twoTruths from "../games/twoTruths.js";
 
 const require = createRequire(import.meta.url);
 
@@ -269,6 +270,54 @@ test("mad libs ends cleanly when a player leaves", () => {
   assert.equal(state.done, true);
 });
 
+test("two truths hides the lie until the reveal and scores both sides", () => {
+  const room = makeRoom(3);
+  const state = twoTruths.init(room, "classic");
+  state.order = ["p1", "p2", "p3"];
+
+  for (const playerId of room.players.keys()) {
+    twoTruths.onEvent(room, playerId, {
+      type: "submit",
+      statements: [`${playerId} truth one`, `${playerId} truth two`, `${playerId} lie`],
+      lieIndex: 2,
+    });
+  }
+
+  assert.equal(state.phase, "vote");
+  assert.equal(state.subjectId, "p1");
+  assert.equal("isLie" in twoTruths.viewFor(room, "p2").statements[0], false);
+  assert.equal(JSON.stringify(twoTruths.publicFor(room)).includes("isLie"), false);
+  assert.equal("lieIndex" in twoTruths.viewFor(room, "p1"), false);
+
+  const truth = state.statements.find((statement) => !statement.isLie);
+  const lie = state.statements.find((statement) => statement.isLie);
+  assert.throws(
+    () => twoTruths.onEvent(room, "p1", { type: "vote", statementId: lie.id }),
+    /own/i,
+  );
+  twoTruths.onEvent(room, "p2", { type: "vote", statementId: truth.id });
+  twoTruths.onEvent(room, "p3", { type: "vote", statementId: lie.id });
+
+  assert.equal(state.phase, "reveal");
+  assert.equal(room.scores.p1, 100);
+  assert.equal(room.scores.p3, 100);
+  assert.equal(room.scores.p2, 0);
+  assert.equal(state.reveal.fooled.length, 1);
+  assert.equal(state.reveal.correctGuessers.length, 1);
+
+  twoTruths.onPhaseEnd(room);
+  assert.equal(state.phase, "vote");
+  assert.equal(state.subjectId, "p2");
+});
+
+test("two truths ends cleanly when a player leaves", () => {
+  const room = makeRoom(3);
+  const state = twoTruths.init(room, "classic");
+  room.players.delete("p1");
+  assert.equal(twoTruths.onPlayerLeave(room, "p1"), "results");
+  assert.equal(state.done, true);
+});
+
 test("roast battle prompt bank meets its minimum and has unique ids", () => {
   const prompts = require("../data/prompts/roastBattle.json");
   assert.ok(prompts.length >= 150);
@@ -299,6 +348,13 @@ test("mad libs bank has 25 stories with nine unique placeholders each", () => {
       blankIds.add(blank.id);
     }
   }
+});
+
+test("two truths hint bank meets its minimum and has unique ids", () => {
+  const prompts = require("../data/prompts/twoTruths.json");
+  assert.ok(prompts.length >= 40);
+  assert.equal(new Set(prompts.map((prompt) => prompt.id)).size, prompts.length);
+  assert.ok(prompts.every((prompt) => prompt.text.trim().length > 0));
 });
 
 test("acronym wars prompt bank meets its minimum and has unique ids", () => {

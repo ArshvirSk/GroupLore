@@ -25,5 +25,6 @@ ALTER TABLE game_sessions ADD CONSTRAINT game_sessions_game_type_check
     'roast-battle',
     'acronym-wars',
     'pitch-perfect',
-    'mad-libs'
+    'mad-libs',
+    'two-truths'
   ));

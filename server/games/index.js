@@ -16,6 +16,7 @@ import overrated from "./overrated.js";
 import pitchPerfect from "./pitchPerfect.js";
 import roastBattle from "./roastBattle.js";
 import stub from "./stub.js";
+import twoTruths from "./twoTruths.js";
 import wavelength from "./wavelength.js";
 import wouldYouRather from "./wouldYouRather.js";
 
@@ -57,6 +58,7 @@ registerGame(roastBattle);
 registerGame(acronymWars);
 registerGame(pitchPerfect);
 registerGame(madLibs);
+registerGame(twoTruths);
 registerGame(stub);
 
 export default registry;

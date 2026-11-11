@@ -13,6 +13,9 @@ import CaptionThisGame, {
 import CategoryRushGame, {
   type CategoryRushView,
 } from "@/components/game/CategoryRushGame";
+import TwoTruthsGame, {
+  type TwoTruthsView,
+} from "@/components/game/TwoTruthsGame";
 import FiveSecondGame, {
   type FiveSecondView,
 } from "@/components/game/FiveSecondGame";
@@ -341,6 +344,14 @@ export default function GamePage() {
         />
       )}
 
+      {activeView && room.gameId === "two-truths" && (
+        <TwoTruthsGame
+          room={room}
+          view={room.game as unknown as TwoTruthsView}
+          send={send}
+        />
+      )}
+
       {activeView &&
         ![
           "most-likely-to",
@@ -362,6 +373,7 @@ export default function GamePage() {
           "acronym-wars",
           "pitch-perfect",
           "mad-libs",
+          "two-truths",
         ].includes(room.gameId || "") && (
           <div className="party-card p-8 text-center">
             <p className="text-3xl">🚧</p>
