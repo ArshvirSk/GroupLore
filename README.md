@@ -37,7 +37,7 @@ GroupLore/
 
 All games below are playable through the server-authoritative engine. Every game reads only its own prompt bank, not `member_profiles`.
 
-Most games support **3–12 players**. **Odd One Out** requires **4–12**. Modes are selected in the lobby.
+Most games support **3–12 players**. **Odd One Out** requires **4–12**; **Mad Libs Chaos** supports **3–9**. Modes are selected in the lobby.
 
 | Game | Players | Modes |
 | ---- | ------- | ----- |
@@ -59,6 +59,7 @@ Most games support **3–12 players**. **Odd One Out** requires **4–12**. Mode
 | 🔥 **Roast Battle** | 3–12 | **Classic** — three rounds of anonymous head-to-head answers; **Quick** — two faster rounds |
 | 🔤 **Acronym Wars** | 3–12 | **Classic** — five rounds, 40 seconds to expand the letters; **Speed** — 20 seconds |
 | 🦈 **Pitch Perfect** | 3–12 | **Classic** — four product pitches; **Quick** — three faster rounds; final-round votes count double |
+| 📝 **Mad Libs Chaos** | 3–9 | **Classic** — three stories, blind blanks, then rate everyone else's words |
 
 ## Start a Game
 

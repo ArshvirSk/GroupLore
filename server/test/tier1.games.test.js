@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { createRequire } from "node:module";
 import test from "node:test";
 import acronymWars from "../games/acronymWars.js";
+import madLibs from "../games/madLibs.js";
 import pitchPerfect from "../games/pitchPerfect.js";
 import roastBattle from "../games/roastBattle.js";
 
@@ -211,6 +212,63 @@ test("pitch perfect ends cleanly when a player leaves", () => {
   assert.equal(state.done, true);
 });
 
+test("mad libs fills blind blanks, rates them, and hides ratings", () => {
+  const room = makeRoom(3);
+  const state = madLibs.init(room, "classic");
+
+  assert.equal(state.phase, "fill");
+  assert.equal(state.blanks.length, 9);
+  for (const playerId of room.players.keys()) {
+    assert.equal(state.blanks.filter((blank) => blank.playerId === playerId).length, 3);
+  }
+
+  state.blanks.forEach((blank, index) => {
+    madLibs.onEvent(room, blank.playerId, {
+      type: "fill",
+      blankId: blank.id,
+      value: `word${index}`,
+    });
+  });
+  assert.equal(state.phase, "read");
+  assert.ok(
+    madLibs
+      .viewFor(room, "p1")
+      .segments.some((segment) => segment.type === "blank" && segment.value === "word0"),
+  );
+
+  madLibs.onPhaseEnd(room);
+  assert.equal(state.phase, "rate");
+  assert.equal("playerId" in madLibs.publicFor(room).segments[0], false);
+  assert.equal(JSON.stringify(madLibs.publicFor(room)).includes("ratings"), false);
+
+  for (const playerId of room.players.keys()) {
+    for (const blank of state.blanks.filter((item) => item.playerId !== playerId)) {
+      madLibs.onEvent(room, playerId, {
+        type: "rate",
+        blankId: blank.id,
+        value: 4,
+      });
+    }
+  }
+
+  assert.equal(state.phase, "reveal");
+  for (const playerId of room.players.keys()) assert.equal(room.scores[playerId], 400);
+  assert.equal(state.reveal.blanks.length, 9);
+  assert.equal(state.reveal.blanks[0].average, 4);
+
+  madLibs.onPhaseEnd(room);
+  assert.equal(state.phase, "fill");
+  assert.equal(state.round, 2);
+});
+
+test("mad libs ends cleanly when a player leaves", () => {
+  const room = makeRoom(3);
+  const state = madLibs.init(room, "classic");
+  room.players.delete("p1");
+  assert.equal(madLibs.onPlayerLeave(room, "p1"), "results");
+  assert.equal(state.done, true);
+});
+
 test("roast battle prompt bank meets its minimum and has unique ids", () => {
   const prompts = require("../data/prompts/roastBattle.json");
   assert.ok(prompts.length >= 150);
@@ -223,6 +281,24 @@ test("pitch perfect prompt bank meets its minimum and has unique ids", () => {
   assert.ok(prompts.length >= 100);
   assert.equal(new Set(prompts.map((prompt) => prompt.id)).size, prompts.length);
   assert.ok(prompts.every((prompt) => prompt.text.trim().length > 0));
+});
+
+test("mad libs bank has 25 stories with nine unique placeholders each", () => {
+  const stories = require("../data/prompts/madLibs.json");
+  assert.ok(stories.length >= 25);
+  assert.equal(new Set(stories.map((story) => story.id)).size, stories.length);
+  const blankIds = new Set();
+  for (const story of stories) {
+    assert.equal(story.blanks.length, 9);
+    for (let index = 0; index < 9; index += 1) {
+      assert.ok(story.template.includes(`{${index}}`), `${story.id} missing {${index}}`);
+    }
+    for (const blank of story.blanks) {
+      assert.ok(blank.hint.trim().length > 0);
+      assert.equal(blankIds.has(blank.id), false);
+      blankIds.add(blank.id);
+    }
+  }
 });
 
 test("acronym wars prompt bank meets its minimum and has unique ids", () => {

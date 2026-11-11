@@ -9,6 +9,7 @@ import hiveMind from "./hiveMind.js";
 import hotTakes from "./hotTakes.js";
 import impostor from "./impostor.js";
 import liarsBar from "./liarsBar.js";
+import madLibs from "./madLibs.js";
 import mostLikelyTo from "./mostLikelyTo.js";
 import oddOneOut from "./oddOneOut.js";
 import overrated from "./overrated.js";
@@ -55,6 +56,7 @@ registerGame(hotTakes);
 registerGame(roastBattle);
 registerGame(acronymWars);
 registerGame(pitchPerfect);
+registerGame(madLibs);
 registerGame(stub);
 
 export default registry;

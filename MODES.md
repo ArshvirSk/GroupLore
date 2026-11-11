@@ -292,4 +292,7 @@ Observed from the current engine, modules, migrations, tests and client screens 
 
 ## DECISIONS
 
-_(agent appends here)_
+- **Mad Libs player cap (3–9, not 3–12):** the spec requires one fixed story template, 1–3 blanks per player, and support for 12 players. Those constraints cannot all hold: 12 players need at least 12 blanks, while 3 players may fill at most 9. The bank uses nine blanks per story and the module caps the room at nine so every player always gets 1–3 blanks. Lobby metadata reflects the real 3–9 range.
+- **Tier migrations:** one migration file per tier (`supabase-migration-tier1-games.sql`) follows the existing phase-migration pattern; ids are added to it as each game lands rather than creating one migration per game.
+- **Pitch Perfect final round:** the final-round multiplier applies to both vote points and the unanimous bonus, so every scoring event in that round is doubled.
+

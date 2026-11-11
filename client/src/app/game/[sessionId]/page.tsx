@@ -34,6 +34,9 @@ import Leaderboard from "@/components/game/Leaderboard";
 import LiarsBarGame, {
   type LiarsView,
 } from "@/components/game/LiarsBarGame";
+import MadLibsGame, {
+  type MadLibsView,
+} from "@/components/game/MadLibsGame";
 import MostLikelyToGame, {
   type MltView,
 } from "@/components/game/MostLikelyToGame";
@@ -330,6 +333,14 @@ export default function GamePage() {
         />
       )}
 
+      {activeView && room.gameId === "mad-libs" && (
+        <MadLibsGame
+          room={room}
+          view={room.game as unknown as MadLibsView}
+          send={send}
+        />
+      )}
+
       {activeView &&
         ![
           "most-likely-to",
@@ -350,6 +361,7 @@ export default function GamePage() {
           "roast-battle",
           "acronym-wars",
           "pitch-perfect",
+          "mad-libs",
         ].includes(room.gameId || "") && (
           <div className="party-card p-8 text-center">
             <p className="text-3xl">🚧</p>
