@@ -8,13 +8,15 @@ import { createIdentityResolver } from "./engine/auth.js";
 import { createSupabasePersistence } from "./engine/persistence.js";
 import { incrementStats, logActivity } from "./lib/activity.js";
 import { guestsAllowed } from "./lib/guestAccess.js";
-import { authorizePlayer } from "./lib/membership.js";
+import { findOpenSessionForUser } from "./lib/lobby.js";
+import { authorizeLobbyPlayer } from "./lib/membership.js";
 import { supabase } from "./lib/supabase.js";
 import authRoutes from "./routes/auth.js";
 import feedRoutes from "./routes/feed.js";
 import gameRoutes from "./routes/games.js";
 import groupRoutes from "./routes/groups.js";
 import inviteRoutes from "./routes/invites.js";
+import lobbyRoutes from "./routes/lobbies.js";
 import memberRoutes from "./routes/members.js";
 import userRoutes from "./routes/users.js";
 
@@ -43,6 +45,7 @@ app.use(express.json({ limit: "64kb" }));
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/groups", groupRoutes);
+app.use("/api/lobbies", lobbyRoutes);
 app.use("/api/invites", inviteRoutes);
 app.use("/api/members", memberRoutes);
 app.use("/api/games", gameRoutes);
@@ -58,16 +61,20 @@ const engine = new GameEngine({
       return data?.user || null;
     },
   }),
-  authorize: ({ identity, groupId }) =>
-    authorizePlayer({ identity, groupId, allowGuests }),
+  authorize: ({ identity, lobbyId }) =>
+    authorizeLobbyPlayer({ identity, lobbyId, allowGuests }),
   loadSession: async (sessionId) => {
     const { data } = await supabase
       .from("game_sessions")
-      .select("id, group_id, status, game_type, groups(name, join_code)")
+      .select(
+        "id, lobby_id, status, game_type, lobbies(id, code, group_id, status, groups(name))",
+      )
       .eq("id", sessionId)
       .maybeSingle();
     return data || null;
   },
+  findOpenSession: (socket) =>
+    findOpenSessionForUser(socket.data.identity?.authUserId),
   persistence: createSupabasePersistence({
     supabase,
     logActivity,
@@ -76,6 +83,7 @@ const engine = new GameEngine({
 });
 
 engine.attach();
+app.locals.engine = engine;
 
 app.get("/api/health", (req, res) => {
   res.json({

@@ -1,13 +1,16 @@
 import { Router } from "express";
-import { requireAuth } from "../lib/auth.js";
+import { requireNonGuest, requireUser } from "../lib/auth.js";
+import { fail, notFound, serverError } from "../lib/http.js";
 import {
+  ensureLegacyUser,
   isGroupMember,
+  legacyUserId,
   requireGroupMember,
-  resolveDbUser,
 } from "../lib/membership.js";
 import { supabase } from "../lib/supabase.js";
 
 const router = Router();
+router.use(requireUser, requireNonGuest);
 
 function sanitizeList(value) {
   if (!Array.isArray(value)) return [];
@@ -18,27 +21,25 @@ function sanitizeList(value) {
     .slice(0, 20);
 }
 
-// Get all member profiles for a group (members only).
-router.get("/group/:groupId", requireAuth, requireGroupMember("groupId"), async (req, res) => {
+// Get the legacy member-profile rows for a group (members only).
+router.get("/group/:groupId", requireGroupMember("groupId"), async (req, res) => {
   try {
     const { data, error } = await supabase
       .from("member_profiles")
       .select("*")
       .eq("group_id", req.params.groupId);
-
     if (error) throw error;
-    res.json(data);
+    res.json(data || []);
   } catch (err) {
-    console.error("Get members error:", err);
-    res.status(500).json({ error: "Failed to fetch members" });
+    console.error("Get members error:", err?.message || err);
+    return serverError(res, "Failed to fetch members");
   }
 });
 
-// Create or update a member profile.
-// Members may edit their own profile; only the host may edit someone else's.
+// Create or update a member profile. Members edit their own; group owners edit
+// anyone. member_profiles stays on its legacy users.id bridge.
 router.post(
   "/group/:groupId",
-  requireAuth,
   requireGroupMember("groupId"),
   async (req, res) => {
     try {
@@ -56,20 +57,31 @@ router.post(
       } = req.body;
 
       if (!displayName || typeof displayName !== "string") {
-        return res.status(400).json({ error: "displayName is required" });
+        return fail(res, 400, "display_name_required", "displayName is required");
       }
 
-      const targetUserId = requestedUserId || req.dbUserId;
-      if (targetUserId !== req.dbUserId) {
-        if (req.groupMembership.role !== "host") {
-          return res
-            .status(403)
-            .json({ error: "Only the host can edit another member's profile" });
-        }
-        const targetMembership = await isGroupMember(targetUserId, groupId);
+      const targetAuthId = requestedUserId || req.user.id;
+      if (targetAuthId !== req.user.id) {
+        const targetMembership = await isGroupMember(targetAuthId, groupId);
         if (!targetMembership) {
-          return res.status(400).json({ error: "That user is not in this group" });
+          return fail(res, 400, "not_group_member", "That user is not in this group");
         }
+        if (req.groupMembership.role !== "owner") {
+          return fail(
+            res,
+            403,
+            "owner_only",
+            "Only the group owner can edit another member's profile",
+          );
+        }
+      }
+
+      const targetUserId =
+        targetAuthId === req.user.id
+          ? await ensureLegacyUser(req.user)
+          : await legacyUserId(targetAuthId);
+      if (!targetUserId) {
+        return fail(res, 400, "user_not_found", "That user has no legacy profile row");
       }
 
       const { data: existing } = await supabase
@@ -95,7 +107,6 @@ router.post(
             : null,
       };
 
-      let result;
       if (existing) {
         const { data, error } = await supabase
           .from("member_profiles")
@@ -104,61 +115,57 @@ router.post(
           .select()
           .single();
         if (error) throw error;
-        result = data;
-      } else {
-        const { data, error } = await supabase
-          .from("member_profiles")
-          .insert(profileData)
-          .select()
-          .single();
-        if (error) throw error;
-        result = data;
+        return res.json(data);
       }
 
-      res.json(result);
+      const { data, error } = await supabase
+        .from("member_profiles")
+        .insert(profileData)
+        .select()
+        .single();
+      if (error) throw error;
+      return res.status(201).json(data);
     } catch (err) {
-      console.error("Upsert member error:", err);
-      res.status(500).json({ error: "Failed to save member profile" });
+      console.error("Upsert member error:", err?.message || err);
+      return serverError(res, "Failed to save member profile");
     }
   },
 );
 
-// Delete a member profile (self or group host only).
-router.delete("/:id", requireAuth, async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const { data: profile } = await supabase
       .from("member_profiles")
       .select("id, group_id, user_id")
       .eq("id", req.params.id)
       .maybeSingle();
+    if (!profile) return notFound(res, "Profile not found");
 
-    if (!profile) return res.status(404).json({ error: "Profile not found" });
-
-    const user = await resolveDbUser(req.authUserId);
-    if (!user) return res.status(404).json({ error: "User not synced" });
-
-    const membership = await isGroupMember(user.id, profile.group_id);
+    const membership = await isGroupMember(req.user.id, profile.group_id);
     if (!membership) {
-      return res.status(403).json({ error: "Not a member of this group" });
+      return fail(res, 403, "not_group_member", "You are not in this group");
     }
 
-    const isSelf = profile.user_id === user.id;
-    if (!isSelf && membership.role !== "host") {
-      return res
-        .status(403)
-        .json({ error: "Only the host can remove another member's profile" });
+    const ownLegacyId = await legacyUserId(req.user.id);
+    const isSelf = ownLegacyId && profile.user_id === ownLegacyId;
+    if (!isSelf && membership.role !== "owner") {
+      return fail(
+        res,
+        403,
+        "owner_only",
+        "Only the group owner can remove another member's profile",
+      );
     }
 
     const { error } = await supabase
       .from("member_profiles")
       .delete()
       .eq("id", req.params.id);
-
     if (error) throw error;
-    res.json({ success: true });
+    return res.json({ success: true });
   } catch (err) {
-    console.error("Delete member error:", err);
-    res.status(500).json({ error: "Failed to delete member profile" });
+    console.error("Delete member error:", err?.message || err);
+    return serverError(res, "Failed to delete member profile");
   }
 });
 

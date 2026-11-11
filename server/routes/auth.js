@@ -1,27 +1,26 @@
-import { randomUUID } from "node:crypto";
 import { Router } from "express";
-import { cleanName, signGuestToken } from "../engine/auth.js";
 import { guestsAllowed } from "../lib/guestAccess.js";
 
 const router = Router();
 
 /**
- * POST /api/auth/guest
- * Exchanges a display name for a signed guest identity.
- * Guests are only accepted by the socket layer when ALLOW_GUESTS is enabled.
+ * Public auth configuration. The client uses this only to decide which entry
+ * points to show; the server still rejects anonymous tokens when disabled.
+ */
+router.get("/config", (req, res) => {
+  res.json({ guestsEnabled: guestsAllowed() });
+});
+
+/**
+ * The old custom guest-token exchange is intentionally gone. Guests now use
+ * Supabase Anonymous sign-in and receive a normal Supabase access token.
  */
 router.post("/guest", (req, res) => {
-  if (!guestsAllowed()) {
-    return res.status(403).json({ error: "Guest play is disabled" });
-  }
-
-  const name = cleanName(req.body?.name, "Guest");
-  const guestId = randomUUID();
-
-  res.json({
-    guestId,
-    name,
-    guestToken: signGuestToken({ guestId, name }),
+  res.status(410).json({
+    error: {
+      code: "guest_endpoint_removed",
+      message: "Use Supabase anonymous sign-in for guest play.",
+    },
   });
 });
 

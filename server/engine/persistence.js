@@ -1,8 +1,7 @@
 /**
  * Persistence adapter for the engine.
  *
- * The engine never talks to Supabase directly. This adapter is deliberately
- * best-effort: a failed write is logged, it never blocks or rolls back a game.
+ * Best-effort: a failed write is logged, it never blocks or rolls back a game.
  */
 export function createSupabasePersistence({
   supabase,
@@ -18,9 +17,19 @@ export function createSupabasePersistence({
     }
   }
 
+  async function markLobby(lobbyId, patch) {
+    if (!lobbyId) return;
+    try {
+      await supabase.from("lobbies").update(patch).eq("id", lobbyId);
+    } catch (err) {
+      logger.error("[persistence] lobby update failed", err.message);
+    }
+  }
+
   return {
     async onStart({ room, gameId, mode, sessionId, groupId }) {
       await markSession(sessionId, { status: "active", game_type: gameId });
+      await markLobby(room.lobbyId, { status: "in_game" });
 
       if (!groupId) return;
       const host = room.players.get(room.hostId);
@@ -70,8 +79,6 @@ export function createSupabasePersistence({
       for (const player of room.players.values()) {
         if (!player.userId) continue;
         const won = winners.some((entry) => entry.playerId === player.id);
-        // One read-modify-write per player: two concurrent calls would race and
-        // one increment could overwrite the other.
         tasks.push(
           incrementStats(player.userId, {
             games_played: 1,
@@ -84,16 +91,24 @@ export function createSupabasePersistence({
 
     async onEmpty({ room }) {
       await markSession(room.id, { status: "finished" });
+      await markLobby(room.lobbyId, {
+        status: "closed",
+        closed_at: new Date().toISOString(),
+      });
     },
 
     async onLobby({ room }) {
-      // Restart returns the same session row to the joinable lobby state.
       await markSession(room.id, {
         status: "lobby",
         scores: {},
         current_round: 0,
         round_data: {},
       });
+      await markLobby(room.lobbyId, { status: "open" });
+    },
+
+    async onHostChange({ room, hostId }) {
+      await markLobby(room.lobbyId, { host_id: hostId });
     },
   };
 }

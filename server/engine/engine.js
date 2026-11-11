@@ -1,5 +1,5 @@
-import { randomUUID } from "node:crypto";
 import { getGame, listGames } from "../games/index.js";
+import { socketRateLimit } from "../lib/rateLimit.js";
 import { signReconnectToken, verifySignedToken } from "./auth.js";
 
 const MAX_EVENT_ID_LENGTH = 64;
@@ -44,6 +44,7 @@ export class GameEngine {
     resolveIdentity,
     authorize,
     loadSession,
+    findOpenSession = null,
     persistence = null,
     disconnectGraceMs = 30_000,
     logger = console,
@@ -52,6 +53,7 @@ export class GameEngine {
     this.resolveIdentity = resolveIdentity;
     this.authorize = authorize;
     this.loadSession = loadSession;
+    this.findOpenSession = findOpenSession;
     this.persistence = persistence;
     this.disconnectGraceMs = disconnectGraceMs;
     this.logger = logger;
@@ -86,6 +88,19 @@ export class GameEngine {
   onConnection(socket) {
     socket.emit("room:hello", { serverNow: Date.now() });
 
+    // Resume an in-progress room after a refresh. The client may also emit
+    // room:join explicitly; join is idempotent for the same identity.
+    if (typeof this.findOpenSession === "function") {
+      void Promise.resolve(this.findOpenSession(socket))
+        .then((sessionId) => {
+          if (!sessionId || !socket.connected) return;
+          return this.join(socket, { sessionId });
+        })
+        .catch((err) =>
+          this.logger.error("[engine] auto-rejoin failed", err?.message || err),
+        );
+    }
+
     socket.on("room:join", (payload) => {
       this.safe(socket, () => this.join(socket, payload));
     });
@@ -114,6 +129,13 @@ export class GameEngine {
   }
 
   async safe(socket, fn) {
+    if (!socketRateLimit(socket)) {
+      socket.emit("room:error", {
+        code: "rate_limited",
+        message: "Too many actions. Slow down for a moment.",
+      });
+      return;
+    }
     try {
       await fn();
     } catch (err) {
@@ -189,7 +211,9 @@ export class GameEngine {
 
       const room = this.createRoom({
         id: session.id || sessionId,
-        groupId: session.group_id || session.groupId || null,
+        groupId:
+          session.lobbies?.group_id || session.group_id || session.groupId || null,
+        lobbyId: session.lobby_id || session.lobbies?.id || null,
         session,
       });
       this.rooms.set(room.id, room);
@@ -204,13 +228,14 @@ export class GameEngine {
     }
   }
 
-  createRoom({ id, groupId, session = null }) {
+  createRoom({ id, groupId, lobbyId, session = null }) {
     const sessionGame = session?.game_type ? getGame(session.game_type) : null;
     return {
       id,
       groupId,
-      groupName: session?.groups?.name || null,
-      joinCode: session?.groups?.join_code || null,
+      lobbyId: lobbyId || null,
+      groupName: session?.lobbies?.groups?.name || session?.groups?.name || null,
+      joinCode: session?.lobbies?.code || session?.groups?.join_code || null,
       session,
       players: new Map(),
       spectators: new Set(),
@@ -251,14 +276,18 @@ export class GameEngine {
 
     const room = await this.getRoom(sessionId);
     const identity = socket.data.identity;
-    const auth = await this.authorize({ identity, groupId: room.groupId });
-    if (!auth?.allowed) {
-      throw failure("not_a_member", "You are not a member of this group");
+    const auth = await this.authorize({
+      identity,
+      groupId: room.groupId,
+      lobbyId: room.lobbyId,
+      session: room.session,
+    });
+    if (!auth?.allowed || !(auth.userId || identity.authUserId)) {
+      throw failure("not_in_lobby", "Join this lobby first");
     }
 
-    const identityKey = auth.userId
-      ? `u:${auth.userId}`
-      : `g:${identity.guestId || identity.authUserId}`;
+    const stableId = auth.userId || identity.authUserId;
+    const identityKey = `u:${stableId}`;
     const reconnect = payload.reconnectToken
       ? verifySignedToken(payload.reconnectToken)
       : null;
@@ -310,12 +339,13 @@ export class GameEngine {
     }
 
     player = {
-      id: randomUUID(),
+      id: stableId,
       identityKey,
       kind: identity.kind,
-      guestId: identity.guestId || null,
+      guestId: null,
       authUserId: identity.authUserId || null,
-      userId: auth.userId || null,
+      userId: auth.userId || identity.authUserId || null,
+      isGuest: Boolean(identity.isGuest),
       name: auth.name || identity.name || "Player",
       avatarUrl: auth.avatarUrl || identity.avatarUrl || null,
       isReady: false,
@@ -371,9 +401,11 @@ export class GameEngine {
     const auth = await this.authorize({
       identity: socket.data.identity,
       groupId: room.groupId,
+      lobbyId: room.lobbyId,
+      session: room.session,
     });
     if (!auth?.allowed) {
-      throw failure("not_a_member", "You are not a member of this group");
+      throw failure("not_in_lobby", "Join this lobby first");
     }
 
     socket.data.roomId = room.id;
@@ -450,10 +482,15 @@ export class GameEngine {
 
     if (room.hostId === playerId) {
       const next =
-        [...room.players.values()].find((candidate) => candidate.connected) ||
+        [...room.players.values()]
+          .filter((candidate) => candidate.connected)
+          .sort((a, b) => a.joinedAt - b.joinedAt)[0] ||
         room.players.values().next().value ||
         null;
       room.hostId = next?.id || null;
+      void Promise.resolve(
+        this.persistence?.onHostChange?.({ room, hostId: room.hostId }),
+      ).catch((err) => this.logger.error("[engine] onHostChange failed", err));
     }
 
     if (room.phase === "playing" && room.module?.onPlayerLeave) {
@@ -526,6 +563,7 @@ export class GameEngine {
         break;
       }
       case "start": {
+        this.hostOnly(room, player);
         this.start(room);
         return;
       }

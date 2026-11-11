@@ -1,15 +1,10 @@
 import crypto from "node:crypto";
 
 /**
- * Token + identity helpers for the game engine.
+ * Identity + reconnect helpers.
  *
- * Two kinds of players are supported:
- *  - Supabase users: the client sends its Supabase access token in the socket
- *    handshake. The server verifies it with Supabase Auth.
- *  - Guests: the client exchanges a display name for a short signed guest token.
- *
- * Reconnect tokens are separate: they prove "I am the player who was in seat X",
- * so a refreshed tab can reclaim the same seat without trusting a client-supplied id.
+ * The only identity source is a verified Supabase access token. Anonymous
+ * Supabase users are guests; there is no custom guest-token branch.
  */
 
 const DEFAULT_DEV_SECRET = "grouplore-local-dev-secret-do-not-use-in-production";
@@ -52,10 +47,6 @@ export function verifySignedToken(token, secret = tokenSecret()) {
   }
 }
 
-export function signGuestToken({ guestId, name }, ttlMs = 7 * 24 * 60 * 60 * 1000) {
-  return signToken({ kind: "guest", sub: guestId, name }, ttlMs);
-}
-
 export function signReconnectToken({ sessionId, playerId }, ttlMs = 24 * 60 * 60 * 1000) {
   return signToken({ kind: "reconnect", sid: sessionId, pid: playerId }, ttlMs);
 }
@@ -72,9 +63,9 @@ function nameFromSupabaseUser(user, fallback) {
   const meta = user?.user_metadata || {};
   const fullName = [meta.first_name, meta.last_name].filter(Boolean).join(" ");
   return cleanName(
-    meta.full_name ||
+    meta.display_name ||
+      meta.full_name ||
       meta.name ||
-      meta.display_name ||
       fullName ||
       user?.email?.split("@")[0] ||
       fallback,
@@ -83,50 +74,43 @@ function nameFromSupabaseUser(user, fallback) {
 }
 
 /**
- * Resolve a socket handshake into an identity.
- * Throws an error with `code = "unauthorized"` when no valid credential is present.
- *
- * `verifyAccessToken` is injected by the server so this module stays usable in
- * tests and never creates its own Supabase client.
+ * Resolve a socket handshake into a verified identity. `verifyAccessToken` is
+ * injected so this module has no Supabase dependency in tests.
  */
 export function createIdentityResolver({ allowGuests, verifyAccessToken } = {}) {
   return async function resolveIdentity(socket) {
     const auth = socket.handshake.auth || {};
-
-    if (auth.token && typeof verifyAccessToken === "function") {
-      try {
-        const user = await verifyAccessToken(String(auth.token));
-        if (user?.id) {
-          const meta = user.user_metadata || {};
-          return {
-            kind: "supabase",
-            authUserId: user.id,
-            name: nameFromSupabaseUser(user, auth.displayName),
-            avatarUrl:
-              meta.avatar_url ||
-              meta.picture ||
-              (typeof auth.avatarUrl === "string" ? auth.avatarUrl : null),
-          };
-        }
-      } catch {
-        // Fall through to the guest token / unauthorized error.
-      }
+    if (!auth.token || typeof verifyAccessToken !== "function") {
+      const err = new Error("Sign in to play");
+      err.code = "unauthorized";
+      throw err;
     }
 
-    if (auth.guestToken && allowGuests) {
-      const guest = verifySignedToken(auth.guestToken);
-      if (guest?.kind === "guest" && guest.sub) {
-        return {
-          kind: "guest",
-          guestId: String(guest.sub),
-          name: cleanName(auth.displayName || guest.name, "Guest"),
-          avatarUrl: null,
-        };
-      }
+    let user = null;
+    try {
+      user = await verifyAccessToken(String(auth.token));
+    } catch {
+      user = null;
+    }
+    if (!user?.id) {
+      const err = new Error("Sign in to play");
+      err.code = "unauthorized";
+      throw err;
     }
 
-    const err = new Error("Sign in to play");
-    err.code = "unauthorized";
-    throw err;
+    if (user.is_anonymous && !allowGuests) {
+      const err = new Error("Guest play is disabled");
+      err.code = "guests_disabled";
+      throw err;
+    }
+
+    const meta = user.user_metadata || {};
+    return {
+      kind: "supabase",
+      authUserId: user.id,
+      isGuest: Boolean(user.is_anonymous),
+      name: nameFromSupabaseUser(user, auth.displayName),
+      avatarUrl: meta.avatar_url || meta.picture || null,
+    };
   };
 }

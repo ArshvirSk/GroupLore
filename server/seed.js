@@ -6,52 +6,99 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY || "",
 );
 
+const DEMO_EMAIL = "demo@grouplore.app";
+const DEMO_PASSWORD = "grouplore-demo";
+
+async function demoAuthUser() {
+  const { data, error } = await supabase.auth.admin.createUser({
+    email: DEMO_EMAIL,
+    password: DEMO_PASSWORD,
+    email_confirm: true,
+    user_metadata: { display_name: "Demo Host" },
+  });
+  if (!error && data.user) return data.user;
+
+  const { data: list } = await supabase.auth.admin.listUsers({ perPage: 1000 });
+  return list?.users?.find((user) => user.email === DEMO_EMAIL) || null;
+}
+
 async function seed() {
   console.log("🌱 Seeding GroupLore demo data...\n");
 
-  // Create demo user
-  const { data: user, error: userErr } = await supabase
-    .from("users")
+  const authUser = await demoAuthUser();
+  if (!authUser) {
+    console.error("Could not create or find the demo auth user");
+    return;
+  }
+
+  const { data: profile, error: profileErr } = await supabase
+    .from("profiles")
     .upsert(
       {
-        auth_user_id: "demo_user_001",
-        name: "Demo Host",
-        email: "demo@grouplore.app",
+        id: authUser.id,
+        display_name: "Demo Host",
+        is_guest: false,
       },
-      { onConflict: "auth_user_id" },
+      { onConflict: "id" },
     )
     .select()
     .single();
-
-  if (userErr) {
-    console.error("User creation failed:", userErr);
+  if (profileErr) {
+    console.error("Profile creation failed:", profileErr);
     return;
   }
-  console.log("✅ Demo user created:", user.name);
 
-  // Create demo group
-  const { data: group, error: groupErr } = await supabase
-    .from("groups")
-    .insert({
-      name: "The Chaos Crew 🔥",
-      created_by: user.id,
-      join_code: "CHAOS1",
-    })
-    .select()
+  // Legacy bridge row for member_profiles (kept intentionally).
+  const { data: legacyUser } = await supabase
+    .from("users")
+    .upsert(
+      {
+        auth_user_id: authUser.id,
+        name: profile.display_name,
+        email: DEMO_EMAIL,
+      },
+      { onConflict: "auth_user_id" },
+    )
+    .select("id")
     .single();
 
+  const { data: group, error: groupErr } = await supabase
+    .from("groups")
+    .insert({ name: "The Chaos Crew 🔥", owner_id: authUser.id })
+    .select()
+    .single();
   if (groupErr) {
     console.error("Group creation failed:", groupErr);
     return;
   }
-  console.log("✅ Group created:", group.name, "| Join Code:", group.join_code);
+  console.log("✅ Group created:", group.name);
 
-  // Add host as member
   await supabase.from("group_members").insert({
     group_id: group.id,
-    user_id: user.id,
-    role: "host",
+    user_id: authUser.id,
+    role: "owner",
   });
+
+  const { data: lobby } = await supabase
+    .from("lobbies")
+    .insert({
+      code: "CHAOS1",
+      group_id: group.id,
+      host_id: authUser.id,
+      status: "open",
+    })
+    .select("id, code")
+    .single();
+  if (lobby) {
+    await supabase.from("lobby_players").insert({
+      lobby_id: lobby.id,
+      user_id: authUser.id,
+      display_name: "Demo Host",
+      is_guest: false,
+      connected: true,
+    });
+    console.log("✅ Lobby created:", lobby.code);
+  }
 
   // Create member profiles
   const members = [
@@ -207,6 +254,7 @@ async function seed() {
   for (const m of members) {
     const { error: mErr } = await supabase.from("member_profiles").insert({
       group_id: group.id,
+      user_id: legacyUser?.id || null,
       display_name: m.display_name,
       nickname: m.nickname,
       traits: m.traits,
@@ -222,7 +270,7 @@ async function seed() {
   }
 
   console.log(
-    "\n🎉 Seed complete! Use join code CHAOS1 to join the demo group.",
+    `\n🎉 Seed complete! Sign in as ${DEMO_EMAIL} / ${DEMO_PASSWORD} or join room CHAOS1.`,
   );
 }
 

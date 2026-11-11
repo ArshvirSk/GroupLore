@@ -9,9 +9,12 @@ if (!supabaseUrl || !supabaseServiceKey) {
   );
 }
 
+// A syntactically valid local fallback keeps module imports and unit tests
+// working when no live project is configured. Real requests still require the
+// env vars above and fail clearly against the fallback.
 export const supabase = createClient(
-  supabaseUrl || "",
-  supabaseServiceKey || "",
+  supabaseUrl || "http://127.0.0.1:54321",
+  supabaseServiceKey || "test-service-role-key",
   {
     auth: { persistSession: false },
   },
