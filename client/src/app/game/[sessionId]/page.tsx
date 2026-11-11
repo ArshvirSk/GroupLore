@@ -1,10 +1,22 @@
 "use client";
 
+import AvoidTheAnswerGame, {
+  type AvoidView,
+} from "@/components/game/AvoidTheAnswerGame";
 import BluffGame, { type BluffView } from "@/components/game/BluffGame";
+import CaptionThisGame, {
+  type CaptionThisView,
+} from "@/components/game/CaptionThisGame";
+import CategoryRushGame, {
+  type CategoryRushView,
+} from "@/components/game/CategoryRushGame";
 import FiveSecondGame, {
   type FiveSecondView,
 } from "@/components/game/FiveSecondGame";
 import GameShell from "@/components/game/GameShell";
+import HigherLowerGame, {
+  type HigherLowerView,
+} from "@/components/game/HigherLowerGame";
 import HiveMindGame, {
   type HiveMindView,
 } from "@/components/game/HiveMindGame";
@@ -15,6 +27,9 @@ import ImpostorGame, {
   type ImpostorView,
 } from "@/components/game/ImpostorGame";
 import Leaderboard from "@/components/game/Leaderboard";
+import LiarsBarGame, {
+  type LiarsView,
+} from "@/components/game/LiarsBarGame";
 import MostLikelyToGame, {
   type MltView,
 } from "@/components/game/MostLikelyToGame";
@@ -24,6 +39,12 @@ import OddOneOutGame, {
 import OverratedGame, {
   type OverratedView,
 } from "@/components/game/OverratedGame";
+import WavelengthGame, {
+  type WavelengthView,
+} from "@/components/game/WavelengthGame";
+import WouldYouRatherGame, {
+  type WouldYouRatherView,
+} from "@/components/game/WouldYouRatherGame";
 import { useRoom } from "@/hooks/useRoom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useParams, useRouter } from "next/navigation";
@@ -208,6 +229,62 @@ export default function GamePage() {
         />
       )}
 
+      {activeView && room.gameId === "liars-bar" && (
+        <LiarsBarGame
+          room={room}
+          view={room.game as unknown as LiarsView}
+          send={send}
+        />
+      )}
+
+      {activeView && room.gameId === "higher-or-lower" && (
+        <HigherLowerGame
+          room={room}
+          view={room.game as unknown as HigherLowerView}
+          send={send}
+        />
+      )}
+
+      {activeView && room.gameId === "avoid-the-answer" && (
+        <AvoidTheAnswerGame
+          room={room}
+          view={room.game as unknown as AvoidView}
+          send={send}
+        />
+      )}
+
+      {activeView && room.gameId === "would-you-rather" && (
+        <WouldYouRatherGame
+          room={room}
+          view={room.game as unknown as WouldYouRatherView}
+          send={send}
+        />
+      )}
+
+      {activeView && room.gameId === "caption-this" && (
+        <CaptionThisGame
+          room={room}
+          view={room.game as unknown as CaptionThisView}
+          send={send}
+        />
+      )}
+
+      {activeView && room.gameId === "wavelength" && (
+        <WavelengthGame
+          room={room}
+          view={room.game as unknown as WavelengthView}
+          send={send}
+        />
+      )}
+
+      {activeView && room.gameId === "category-rush" && (
+        <CategoryRushGame
+          room={room}
+          view={room.game as unknown as CategoryRushView}
+          send={send}
+        />
+      )}
+
       {activeView &&
         ![
           "most-likely-to",
@@ -218,6 +295,13 @@ export default function GamePage() {
           "odd-one-out",
           "bluff",
           "hot-takes",
+          "liars-bar",
+          "higher-or-lower",
+          "avoid-the-answer",
+          "would-you-rather",
+          "caption-this",
+          "wavelength",
+          "category-rush",
         ].includes(room.gameId || "") && (
           <div className="party-card p-8 text-center">
             <p className="text-3xl">🚧</p>
