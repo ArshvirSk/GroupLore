@@ -4,6 +4,7 @@ import bluff from "./bluff.js";
 import captionThis from "./captionThis.js";
 import categoryRush from "./categoryRush.js";
 import fiveSecond from "./fiveSecond.js";
+import factOrFiction from "./factOrFiction.js";
 import higherLower from "./higherLower.js";
 import hiveMind from "./hiveMind.js";
 import hotTakes from "./hotTakes.js";
@@ -59,6 +60,7 @@ registerGame(acronymWars);
 registerGame(pitchPerfect);
 registerGame(madLibs);
 registerGame(twoTruths);
+registerGame(factOrFiction);
 registerGame(stub);
 
 export default registry;

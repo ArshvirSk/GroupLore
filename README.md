@@ -61,6 +61,7 @@ Most games support **3–12 players**. **Odd One Out** requires **4–12**; **Ma
 | 🦈 **Pitch Perfect** | 3–12 | **Classic** — four product pitches; **Quick** — three faster rounds; final-round votes count double |
 | 📝 **Mad Libs Chaos** | 3–9 | **Classic** — three stories, blind blanks, then rate everyone else's words |
 | 🤥 **Two Truths, One Lie** | 3–12 | **Classic** — sixty seconds to write, twenty to vote; **Rapid** — fifteen-second votes |
+| ✅ **Fact or Fiction** | 3–12 | **Classic** — ten statements with speed and streak bonuses; **Sudden Death** — a wrong answer eliminates you |
 
 ## Start a Game
 

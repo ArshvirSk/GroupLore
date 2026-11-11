@@ -16,6 +16,9 @@ import CategoryRushGame, {
 import TwoTruthsGame, {
   type TwoTruthsView,
 } from "@/components/game/TwoTruthsGame";
+import FactOrFictionGame, {
+  type FactView,
+} from "@/components/game/FactOrFictionGame";
 import FiveSecondGame, {
   type FiveSecondView,
 } from "@/components/game/FiveSecondGame";
@@ -352,6 +355,14 @@ export default function GamePage() {
         />
       )}
 
+      {activeView && room.gameId === "fact-or-fiction" && (
+        <FactOrFictionGame
+          room={room}
+          view={room.game as unknown as FactView}
+          send={send}
+        />
+      )}
+
       {activeView &&
         ![
           "most-likely-to",
@@ -374,6 +385,7 @@ export default function GamePage() {
           "pitch-perfect",
           "mad-libs",
           "two-truths",
+          "fact-or-fiction",
         ].includes(room.gameId || "") && (
           <div className="party-card p-8 text-center">
             <p className="text-3xl">🚧</p>

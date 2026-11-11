@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { createRequire } from "node:module";
 import test from "node:test";
 import acronymWars from "../games/acronymWars.js";
+import factOrFiction from "../games/factOrFiction.js";
 import madLibs from "../games/madLibs.js";
 import pitchPerfect from "../games/pitchPerfect.js";
 import roastBattle from "../games/roastBattle.js";
@@ -362,4 +363,69 @@ test("acronym wars prompt bank meets its minimum and has unique ids", () => {
   assert.ok(prompts.length >= 60);
   assert.equal(new Set(prompts.map((prompt) => prompt.id)).size, prompts.length);
   assert.ok(prompts.every((prompt) => prompt.text.trim().length > 0));
+});
+
+test("fact or fiction hides the answer until reveal and scores correct answers", () => {
+  const room = makeRoom(3);
+  const state = factOrFiction.init(room, "classic");
+
+  assert.equal(state.phase, "question");
+  assert.equal("isTrue" in factOrFiction.publicFor(room), false);
+  assert.equal("isTrue" in factOrFiction.viewFor(room, "p1"), false);
+
+  const answer = state.current.isTrue;
+  for (const playerId of room.players.keys()) {
+    factOrFiction.onEvent(room, playerId, { type: "answer", value: answer });
+  }
+
+  assert.equal(state.phase, "reveal");
+  assert.equal(state.reveal.isTrue, answer);
+  for (const playerId of room.players.keys()) {
+    assert.ok(room.scores[playerId] >= 100);
+  }
+  factOrFiction.onPhaseEnd(room);
+  assert.equal(state.phase, "question");
+  assert.equal(state.questionCount, 2);
+});
+
+test("fact or fiction sudden death eliminates wrong answers", () => {
+  const room = makeRoom(3);
+  const state = factOrFiction.init(room, "sudden-death");
+  const first = state.current.isTrue;
+
+  factOrFiction.onEvent(room, "p1", { type: "answer", value: !first });
+  factOrFiction.onEvent(room, "p2", { type: "answer", value: first });
+  factOrFiction.onEvent(room, "p3", { type: "answer", value: first });
+
+  assert.equal(state.phase, "reveal");
+  assert.deepEqual(state.alive, ["p2", "p3"]);
+  assert.deepEqual(state.reveal.eliminated.map((entry) => entry.playerId), ["p1"]);
+
+  factOrFiction.onPhaseEnd(room);
+  const second = state.current.isTrue;
+  factOrFiction.onEvent(room, "p2", { type: "answer", value: !second });
+  factOrFiction.onEvent(room, "p3", { type: "answer", value: second });
+
+  assert.equal(state.reveal.alive.length, 1);
+  assert.equal(factOrFiction.onPhaseEnd(room), "results");
+  assert.equal(state.done, true);
+});
+
+test("fact or fiction ends cleanly when players leave", () => {
+  const room = makeRoom(3);
+  const state = factOrFiction.init(room, "classic");
+  room.players.delete("p1");
+  room.players.delete("p2");
+  assert.equal(factOrFiction.onPlayerLeave(room, "p1"), "results");
+  assert.equal(state.done, true);
+});
+
+test("fact or fiction bank has 300 balanced, unique statements", () => {
+  const statements = require("../data/prompts/factOrFiction.json");
+  assert.ok(statements.length >= 300);
+  assert.equal(new Set(statements.map((item) => item.id)).size, statements.length);
+  assert.equal(new Set(statements.map((item) => item.text.toLowerCase())).size, statements.length);
+  assert.equal(statements.filter((item) => item.isTrue).length, 150);
+  assert.equal(statements.filter((item) => !item.isTrue).length, 150);
+  assert.ok(statements.every((item) => item.explanation.trim().length > 0));
 });
