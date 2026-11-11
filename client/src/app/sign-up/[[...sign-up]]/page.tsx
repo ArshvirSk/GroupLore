@@ -30,7 +30,6 @@ export default function SignUpPage() {
         password,
         options: {
           data: { full_name: name.trim() || email.split("@")[0] },
-          emailRedirectTo: `${window.location.origin}/dashboard`,
         },
       });
       if (signUpError) throw signUpError;
@@ -40,9 +39,7 @@ export default function SignUpPage() {
         return;
       }
 
-      setMessage(
-        "Account created. Check your email for the confirmation link, then sign in.",
-      );
+      setMessage("Account created. Sign in to continue.");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not create account");
     } finally {

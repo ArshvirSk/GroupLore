@@ -40,6 +40,7 @@ All phase work is recorded here with what was verified and what was deferred.
 - **Schema migration.** `supabase-schema.sql` uses `auth_user_id` for fresh installs; `supabase-migration-supabase-auth.sql` adds the column, copies the old id, drops `clerk_id` and adds a unique index for existing projects.
 - **App tables are server-only.** RLS is enabled on all app tables, the old `USING (true)` policies are removed, and direct grants to `anon`/`authenticated` are revoked. The browser anon key is used only for auth; the Express API keeps the service role.
 - **Guest and reconnect paths preserved.** Signed guest tokens, reconnect tokens, the 30-second handshake refresh and server-authoritative room membership are unchanged.
+- **Email confirmation links are removed from the normal sign-up flow.** The hosted Supabase project has **Confirm email** off, so a new account receives a session immediately and goes straight to the dashboard. The client no longer sends an `emailRedirectTo` or asks the user to find a confirmation link.
 
 ### Verified
 
@@ -54,7 +55,7 @@ All phase work is recorded here with what was verified and what was deferred.
 ### Not verified / deferred
 
 - The browser sign-in form itself was compiled but not clicked through in this run; the REST and socket paths it calls were verified end to end.
-- Email confirmation depends on the project's Supabase Auth settings; both the confirmation-required and immediate-session paths are implemented but were not exercised against the hosted project.
+- The immediate-session sign-up path was verified against the hosted project after disabling **Confirm email**. The fallback confirmation-required path remains implemented but was not exercised in this configuration.
 
 ## Phase 3 — Hive Mind, Odd One Out, Bluff and Hot Takes
 
