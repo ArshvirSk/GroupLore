@@ -8,6 +8,7 @@ All phase work is recorded here with what was verified and what was deferred.
 
 - **Creating a group opens its first lobby.** The dashboard and landing-page create forms now create the group and immediately open its active lobby, so there is no separate group-page stop before playing.
 - **The Hub accepts room codes directly.** Signed-in players can enter a 6-character code from the dashboard and land in its active lobby (or the group page when no lobby is open), without going back to the landing page.
+- **Room-code edge cases are explicit.** Invalid codes get a friendly inline error, a valid group code with no open lobby opens the group page with a closed-room notice, and the field locks while the join request is in flight. The six-character limit is applied after paste normalization so spaced, lowercase, or hyphenated codes still work.
 - **The lobby keeps the group context.** The lobby now uses the dark dashboard shell and shows the group name, player list, game picker and room actions in one place.
 - **Every active room exposes a room code.** The code is shown in the lobby header and copies the existing `/join/CODE` invite link. Guests see the same code and invite action instead of relying on group-only API access.
 - **Room state carries the context.** The session loader joins `groups(name, join_code)`, and the engine includes `groupName` and `joinCode` in each player's room view.
@@ -21,6 +22,7 @@ All phase work is recorded here with what was verified and what was deferred.
 - `client npm run lint` — 0 errors, 4 pre-existing warnings.
 - Visual check — the dashboard room-code form was inspected at 390px and 1440px. The mobile layout stacks cleanly; the desktop layout keeps the label on the left and the code field and Join action on the right.
 - Live code-entry check — a disposable room was created with code `TR6XMR`; entering the code from the dashboard reached the expected lobby with the group name and room code present. The temporary group, sessions, activity, app user, and auth user were deleted afterwards (all counts are back to zero).
+- Edge-case check — `ZZZZZZ` returned a clear “That code doesn't match a room” alert with `aria-invalid`; pasting `"  g37-sjg  "` normalized to `G37SJG` and reached the open lobby; after closing the session, the same code opened the group page with “That room isn't currently open.” The raw paste cap was removed to fix the initial `G37` truncation found during this test. Temporary data and the auth user were deleted afterwards.
 
 ### Not verified / deferred
 

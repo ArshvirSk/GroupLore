@@ -7,7 +7,7 @@ import { api } from "@/lib/api";
 import { copyInviteLink, ensureLobby } from "@/lib/play";
 import { useUserStore } from "@/stores/userStore";
 import { AnimatePresence, motion } from "framer-motion";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 interface MemberProfile {
@@ -40,6 +40,8 @@ interface Group {
 export default function GroupDashboard() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const roomClosed = searchParams.get("roomClosed") === "1";
   const { isLoaded, isSignedIn } = useAuth();
   const { dbUserId } = useUserStore();
   const [group, setGroup] = useState<Group | null>(null);
@@ -314,6 +316,17 @@ export default function GroupDashboard() {
             </motion.button>
           </div>
         </motion.div>
+
+        {roomClosed && !activeSession && (
+          <motion.div
+            role="status"
+            className="mb-6 rounded-xl border border-amber-500/20 bg-amber-500/10 px-4 py-3 text-sm text-amber-200"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            That room isn&apos;t currently open. Start a new lobby below to play.
+          </motion.div>
+        )}
 
         {/* Start Game */}
         <motion.div

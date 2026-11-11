@@ -5,7 +5,7 @@ import { useAuth } from "@/components/AuthProvider";
 import FloatingBlobs from "@/components/FloatingBlobs";
 import UserMenu from "@/components/UserMenu";
 import { api } from "@/lib/api";
-import { ensureLobby, groupEntryPath } from "@/lib/play";
+import { ensureLobby } from "@/lib/play";
 import { useUserStore } from "@/stores/userStore";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
@@ -154,6 +154,17 @@ function timeAgo(dateStr: string) {
   const days = Math.floor(hrs / 24);
   if (days < 7) return `${days}d ago`;
   return new Date(dateStr).toLocaleDateString();
+}
+
+function joinErrorMessage(message: string) {
+  const normalized = message.toLowerCase();
+  if (normalized.includes("invalid join code")) {
+    return "That code doesn't match a room. Check the 6 characters and try again.";
+  }
+  if (normalized.includes("user not synced")) {
+    return "Your account isn't ready yet. Refresh the page and try again.";
+  }
+  return "Could not join that room. Check your connection and try again.";
 }
 
 /* ── Stat card helper ── */
@@ -312,10 +323,15 @@ export default function DashboardPage() {
     setJoinRoomError("");
     try {
       const group = await api.joinGroup({ joinCode: code });
-      router.push(await groupEntryPath(group.id));
+      const session = await api.getActiveSession(group.id).catch(() => null);
+      if (!session) {
+        router.push(`/group/${group.id}?roomClosed=1`);
+        return;
+      }
+      router.push(`/lobby/${session.id}?groupId=${group.id}`);
     } catch (err) {
       setJoinRoomError(
-        err instanceof Error ? err.message : "Could not join that room",
+        joinErrorMessage(err instanceof Error ? err.message : ""),
       );
     } finally {
       setJoiningRoom(false);
@@ -508,18 +524,20 @@ export default function DashboardPage() {
                       onKeyDown={(event) => {
                         if (event.key === "Enter") void handleJoinRoom();
                       }}
-                      maxLength={6}
+                      disabled={joiningRoom}
                       autoComplete="off"
                       autoCapitalize="characters"
                       spellCheck={false}
                       placeholder="ABC123"
                       aria-label="Room code"
-                      className="neon-input w-full text-center font-mono text-sm uppercase tracking-[0.2em]"
+                      aria-invalid={Boolean(joinRoomError)}
+                      className="neon-input w-full text-center font-mono text-sm uppercase tracking-[0.2em] disabled:opacity-50"
                     />
                   </div>
                   <button
                     onClick={() => void handleJoinRoom()}
                     disabled={joiningRoom || joinRoomCode.length !== 6}
+                    aria-busy={joiningRoom}
                     className="neon-btn neon-btn-purple shrink-0 px-5 py-3 text-xs disabled:opacity-40"
                   >
                     {joiningRoom ? "Joining…" : "Join →"}
@@ -527,7 +545,10 @@ export default function DashboardPage() {
                 </div>
               </div>
               {joinRoomError && (
-                <p className="mt-2 text-xs font-semibold text-red-300">
+                <p
+                  role="alert"
+                  className="mt-2 text-xs font-semibold text-red-300"
+                >
                   {joinRoomError}
                 </p>
               )}
