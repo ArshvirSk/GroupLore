@@ -59,6 +59,18 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 - **All exposed modes have a real timer or behavior difference.** No placeholder mode pills were added; Bluff Quick changes both round count and timings, and Hot Takes Slow Burn changes the voting window.
 - **Phase 3 game ids required a database migration.** The original CHECK constraint only knew the eight legacy ids; `supabase-migration-phase3-games.sql` has been applied to the hosted project and is included for other environments.
 
+## Phase 4 games
+
+- **Best Friend Test is retired.** It depends on `member_profiles`, and current games deliberately do not read lore. Porting it would either revive profile coupling or leave a game that cannot start for most groups. The legacy `best-friend-test` id remains in the database CHECK so old rows are still valid.
+- **Liars Bar uses a standalone truth/lie bank.** The storyteller gets both statements, chooses one, and the group votes. The group scores when its majority reads the choice correctly; the storyteller scores 2 when it does not. The choice is hidden until the reveal.
+- **Higher/Lower derives its ranking from in-room ratings.** The old version used profile stats that current games no longer read. Every player rates every other player 1–10, the server averages those ratings, and the room then calls higher/lower. This keeps the mechanic social and independent of stored profiles.
+- **Avoid the Answer uses a secret-word/banned-word bank.** The describer sees the target and the banned words; everyone else sees only options. The server rejects clues containing the target or any banned word rather than trusting the client. A correct guess scores the guesser 2 and the describer 1.
+- **Caption This hides authorship until the vote.** Captions are shuffled into anonymous choices, and voting for your own caption is rejected. Authors score 1 per vote received; the reveal shows authorship and voters.
+- **Wavelength scores the group average, not only individual guesses.** Each guesser scores 2 within 10 points and 1 within 20. The clue giver is scored against the average guess, so one wild guess cannot erase an otherwise good clue. The target is private to the clue giver and omitted from `publicFor`.
+- **Category Rush merges normalized duplicates.** Answers are grouped with the shared text normalizer, unique groups score 2 and shared groups 1, and the server enforces the required starting letter. This makes matching the group safe but less rewarding than a unique valid answer.
+- **All seven Phase 4 games implement `publicFor`.** The TV gets only public phases and reveal data; Liars Bar's unchosen statement, Wavelength's target, Avoid the Answer's target and Caption This's authors are never sent early.
+- **Phase 4 needs a database migration.** `supabase-migration-phase4-games.sql` expands the `game_sessions.game_type` CHECK. It has not yet been applied to the hosted project; fresh installs use the updated `supabase-schema.sql`.
+
 ## Supabase Auth
 
 - **Supabase Auth replaces Clerk; there is no parallel identity provider.** The browser owns the Supabase session, REST calls carry its access token as a bearer token, and the socket handshake carries the same token. The server verifies every token with `supabase.auth.getUser`.

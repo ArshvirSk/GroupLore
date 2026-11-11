@@ -2,6 +2,33 @@
 
 All phase work is recorded here with what was verified and what was deferred.
 
+## Phase 4 — seven more games
+
+### Shipped
+
+- **Liars Bar** (`liars-bar`): the rotating storyteller gets a true statement and a matching lie, picks one, and the group votes truth or lie. Non-liars score 1 each when the group reads it correctly; the storyteller scores 2 when the group is fooled. Five Classic rounds and three Quick rounds.
+- **Higher / Lower** (`higher-or-lower`): players rate every other player from 1 to 10 on a category, the server averages those ratings into a hidden ranking, and the room calls whether the next player ranks higher or lower. Ratings replace the old profile-derived stats. Six Classic calls and four Quick calls.
+- **Avoid the Answer** (`avoid-the-answer`): one player sees a secret word and its banned words and must describe it without using any of them; everyone else guesses from the word options. The guesser scores 2, the describer 1. Banned words are rejected server-side.
+- **Would You Rather** (`would-you-rather`): two options, one vote each, majority scoring and a full split at the reveal. Ties award every voter 1.
+- **Caption This** (`caption-this`): everyone writes an anonymous caption for the same scenario, then votes for someone else's. Captions score 1 per vote and authors stay hidden until the reveal.
+- **Wavelength** (`wavelength`): a rotating clue giver sees a hidden target on a labelled spectrum and sends one clue; the group guesses 0–100. Each guesser scores 2 within 10 points and 1 within 20; the clue giver is scored against the group average.
+- **Category Rush** (`category-rush`): one category and one required starting letter per round. Unique valid answers score 2 and matching answers score 1; the server enforces the letter.
+- **Screens and routing:** seven new game components are routed by `room.gameId`, and the fallback no longer catches any Phase 4 id. Every module implements private `viewFor` and redacted `publicFor` for the TV.
+- **Prompt banks:** 24 Liars Bar truth/lie pairs, 30 Higher/Lower categories, 30 Avoid the Answer secret/banned sets, 30 Would You Rather pairs, 25 Caption This scenarios, 25 Wavelength spectra and 30 Category Rush category/letter prompts.
+- **Database migration:** `supabase-migration-phase4-games.sql` adds the seven ids to the `game_sessions.game_type` CHECK; `supabase-schema.sql` is updated for fresh installs.
+- **Best Friend Test is retired rather than ported.** Its mechanic depends on `member_profiles` and would break the rule that current games are independent of lore. The legacy id stays in the CHECK constraint for old rows only.
+
+### Verified
+
+- `server npm test` — **28/28 passing**: the existing suites plus Liars Bar secrecy and group scoring, Higher/Lower ranking and calls, Avoid the Answer banned-word validation and scoring, Would You Rather majority/tie scoring, Caption This author privacy and vote scoring, Wavelength target secrecy and closeness scoring, Category Rush letter enforcement and unique-answer scoring, and all Phase 4 bank sizes/id uniqueness.
+- `client npm run build` — success; all game routes still compile.
+- `client npx eslint src` — 0 errors, 4 pre-existing warnings.
+
+### Not verified / deferred
+
+- The hosted Phase 4 migration has **not** been applied. The user must run `supabase-migration-phase4-games.sql` in the Supabase SQL editor before creating these game sessions against the hosted database; the schema file is current for fresh installs.
+- No live browser playthrough of the seven screens was performed; they compile but were not clicked through.
+
 ## Supabase Auth migration
 
 ### Shipped
@@ -53,7 +80,7 @@ All phase work is recorded here with what was verified and what was deferred.
 
 - No live browser playthrough at 375px or TV size; the four screens compile but were not visually inspected.
 - A full socket game against the hosted database and a real two-browser session with the previous auth provider remain unverified; persistence was checked by invoking the adapter directly.
-- Phase 4 games (Liars Bar, Higher/Lower, Avoid the Answer, Caption This, Would You Rather, Wavelength, Category Rush) are not started.
+- Phase 4 games were not started at that point; they are recorded in the Phase 4 section above.
 
 ## Phase 2 — first four games and the TV display
 
@@ -86,7 +113,7 @@ All phase work is recorded here with what was verified and what was deferred.
 
 - Real two-browser authenticated play and visual review at 375px/TV sizes were not performed; the screens compile but were not opened in a browser.
 - Live Supabase persistence is still exercised only with spies.
-- Best Friend Test, Liars Bar, Higher/Lower, Avoid the Answer remain parked for Phase 4; Hive Mind, Odd One Out, Bluff and Hot Takes remain Phase 3.
+- Best Friend Test was later retired; Liars Bar, Higher/Lower, Avoid the Answer and the rest of Phase 4 were ported in the Phase 4 section above.
 
 ## Phase 1 — server-authoritative engine core
 

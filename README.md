@@ -35,9 +35,23 @@ GroupLore/
 
 ## Games
 
-1. **🔥 Overrated / Underrated** — Vote on group habits and moments
-2. **🕵️ Guess the Impostor** — One player doesn't know the prompt
-3. **⚡ 5 Second Challenge** — Answer before time runs out
+All games below are playable through the server-authoritative engine. Every game reads only its own prompt bank, not `member_profiles`.
+
+1. **Most Likely To** — Vote for the player who fits the prompt
+2. **Guess the Impostor** — One player doesn't know the prompt
+3. **5 Second Challenge** — Answer before time runs out
+4. **Overrated / Underrated** — Vote on group habits and moments
+5. **Liars Bar** — The storyteller picks a truth or a lie; the group calls it
+6. **Higher / Lower** — Rate the room, then call the next ranking
+7. **Avoid the Answer** — Describe the secret word without its banned words
+8. **Would You Rather** — Pick a side and see how the group splits
+9. **Caption This** — Write the funniest caption, then vote anonymously
+10. **Wavelength** — Give a clue that lands on the hidden point of a spectrum
+11. **Category Rush** — One category, one letter, one answer
+12. **Hive Mind** — Match the group's answers to score
+13. **Odd One Out** — One player has a different prompt
+14. **Bluff** — Write a fake definition and spot the real one
+15. **Hot Takes** — Back the unpopular opinion
 
 ## Setup
 
@@ -45,7 +59,7 @@ GroupLore/
 
 - Create a Supabase project at [supabase.com](https://supabase.com)
 - Run `supabase-schema.sql` in the SQL Editor
-- Upgrading an existing project: run `supabase-migration-phase3-games.sql` for the Phase 3 game ids, `supabase-migration-supabase-auth.sql` to move users onto Supabase Auth ids, and `supabase-migration-auth-rls.sql` to make app tables server-only
+- Upgrading an existing project: run `supabase-migration-phase3-games.sql` and `supabase-migration-phase4-games.sql` for the Phase 3/4 game ids, `supabase-migration-supabase-auth.sql` to move users onto Supabase Auth ids, and `supabase-migration-auth-rls.sql` to make app tables server-only
 - Enable the **Email** provider under Supabase → Authentication → Providers
 - All app tables are server-only. The browser anon key is used for Supabase Auth only; the Express API uses the service-role key.
 
@@ -92,7 +106,7 @@ Neon gaming UI with futuristic dark-mode and glassmorphism:
 
 ## Adding New Games
 
-1. Create `server/sockets/games/newGame.js` with `nextRound`, `submitVote`/`submitAnswer`
-2. Register in `server/sockets/gameHandler.js`
-3. Add UI component in `client/src/app/game/[sessionId]/page.tsx`
-4. Add game card in `client/src/app/lobby/[sessionId]/page.tsx`
+1. Add a module in `server/games/` that implements the engine contract: `id`, `name`, `minPlayers`, `maxPlayers`, `modes`, `init`, `onEvent`, `onPhaseEnd`, `onPlayerLeave`, `viewFor` and `publicFor`.
+2. Register it in `server/games/index.js` and add its id to the `game_sessions.game_type` CHECK in a migration. The lobby catalogue is generated from the registry.
+3. Add a screen in `client/src/components/game/` and route it by `room.gameId` in `client/src/app/game/[sessionId]/page.tsx`.
+4. Put its prompt bank in `server/data/prompts/` and test both the mechanics and the bank size/id uniqueness.
