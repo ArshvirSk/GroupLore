@@ -116,16 +116,16 @@ CREATE INDEX IF NOT EXISTS idx_activity_log_created ON activity_log(created_at D
 CREATE INDEX IF NOT EXISTS idx_activity_log_group_created ON activity_log(group_id, created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_player_stats_user ON player_stats(user_id);
 
--- RLS Policies (basic - allow all for service role)
+-- RLS: app data is server-only. The service role bypasses RLS; browser roles
+-- must not read or write these tables directly with the public anon key.
 ALTER TABLE users ENABLE ROW LEVEL SECURITY;
 ALTER TABLE groups ENABLE ROW LEVEL SECURITY;
 ALTER TABLE group_members ENABLE ROW LEVEL SECURITY;
 ALTER TABLE member_profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE game_sessions ENABLE ROW LEVEL SECURITY;
+ALTER TABLE activity_log ENABLE ROW LEVEL SECURITY;
+ALTER TABLE player_stats ENABLE ROW LEVEL SECURITY;
 
--- Allow service role full access (used by backend)
-CREATE POLICY "Service role access" ON users FOR ALL USING (true);
-CREATE POLICY "Service role access" ON groups FOR ALL USING (true);
-CREATE POLICY "Service role access" ON group_members FOR ALL USING (true);
-CREATE POLICY "Service role access" ON member_profiles FOR ALL USING (true);
-CREATE POLICY "Service role access" ON game_sessions FOR ALL USING (true);
+REVOKE ALL ON ALL TABLES IN SCHEMA public FROM anon, authenticated;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public REVOKE ALL ON TABLES FROM anon, authenticated;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public REVOKE ALL ON SEQUENCES FROM anon, authenticated;

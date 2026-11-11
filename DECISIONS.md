@@ -66,6 +66,7 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 - **Existing users are linked by email on first sync.** `supabase-migration-supabase-auth.sql` copies the old external id into `auth_user_id`; the first sign-in updates that row to the Supabase user id, preserving groups and stats.
 - **Page protection is client-side; data protection is server-side.** There is no auth middleware. The dashboard and group pages redirect signed-out visitors, while every REST route and socket handshake verifies the Supabase token authoritatively.
 - **Email confirmation is controlled by Supabase.** If the project enables it, sign-up returns no session and the UI asks the user to confirm; if disabled, sign-up signs the user in immediately.
+- **App tables are server-only.** RLS is enabled on every app table and direct grants to `anon` and `authenticated` are revoked. The browser's anon key is only for Supabase Auth; the Express API uses the service role, which bypasses RLS.
 
 ## Known limitations
 

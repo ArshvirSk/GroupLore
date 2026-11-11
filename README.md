@@ -45,8 +45,9 @@ GroupLore/
 
 - Create a Supabase project at [supabase.com](https://supabase.com)
 - Run `supabase-schema.sql` in the SQL Editor
-- Upgrading an existing project: run `supabase-migration-phase3-games.sql` for the Phase 3 game ids and `supabase-migration-supabase-auth.sql` to move users onto Supabase Auth ids
+- Upgrading an existing project: run `supabase-migration-phase3-games.sql` for the Phase 3 game ids, `supabase-migration-supabase-auth.sql` to move users onto Supabase Auth ids, and `supabase-migration-auth-rls.sql` to make app tables server-only
 - Enable the **Email** provider under Supabase → Authentication → Providers
+- All app tables are server-only. The browser anon key is used for Supabase Auth only; the Express API uses the service-role key.
 
 ### 2. Environment
 

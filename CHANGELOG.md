@@ -10,6 +10,7 @@ All phase work is recorded here with what was verified and what was deferred.
 - **Supabase sessions drive both transports.** `AuthProvider` owns the browser session, REST calls send `Authorization: Bearer <access token>`, and the room/TV socket handshakes send the same token. Express and Socket.io both verify it with `supabase.auth.getUser`.
 - **App rows link through `users.auth_user_id`.** `/api/users/sync` creates or links the app row on sign-in, matching an existing row by email so groups and stats survive the provider change. Group membership, feed, members and seed routes now use the Supabase user id.
 - **Schema migration.** `supabase-schema.sql` uses `auth_user_id` for fresh installs; `supabase-migration-supabase-auth.sql` adds the column, copies the old id, drops `clerk_id` and adds a unique index for existing projects.
+- **App tables are server-only.** RLS is enabled on all app tables, the old `USING (true)` policies are removed, and direct grants to `anon`/`authenticated` are revoked. The browser anon key is used only for auth; the Express API keeps the service role.
 - **Guest and reconnect paths preserved.** Signed guest tokens, reconnect tokens, the 30-second handshake refresh and server-authoritative room membership are unchanged.
 
 ### Verified
@@ -20,6 +21,7 @@ All phase work is recorded here with what was verified and what was deferred.
 - Supabase email/password — a temporary confirmed user was created, signed in through the anon client, and its access token was accepted by `supabase.auth.getUser`; the temporary user was deleted.
 - Hosted schema — `supabase-migration-supabase-auth.sql` left `users.auth_user_id` present, dropped `clerk_id`, and created the unique index.
 - Live end-to-end — a temporary auth user with a pre-existing app row (matched by email) synced to the same `dbUserId`, created and listed a group, opened a lobby session, and joined the room socket with the database display name rather than the spoofed handshake name. All temporary rows and the auth user were deleted.
+- RLS lock-down — an anonymous client received `42501` for both `SELECT` and `INSERT` on `users`; a service-role read and `/api/users/sync` write both succeeded. The temporary auth user and app row were deleted.
 
 ### Not verified / deferred
 
