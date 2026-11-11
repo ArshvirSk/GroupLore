@@ -19,10 +19,12 @@ All phase work is recorded here with what was verified and what was deferred.
 - `server npm test` — **28/28 passing**.
 - `client npm run build` — success.
 - `client npm run lint` — 0 errors, 4 pre-existing warnings.
+- Visual check — the dashboard room-code form was inspected at 390px and 1440px. The mobile layout stacks cleanly; the desktop layout keeps the label on the left and the code field and Join action on the right.
+- Live code-entry check — a disposable room was created with code `TR6XMR`; entering the code from the dashboard reached the expected lobby with the group name and room code present. The temporary group, sessions, activity, app user, and auth user were deleted afterwards (all counts are back to zero).
 
 ### Not verified / deferred
 
-- The restyled lobby and the dashboard room-code field were compiled but not visually inspected in a browser after the change.
+- The restyled lobby was not visually inspected at game-screen sizes after the change.
 - A live Supabase room load was not re-run; the nested group relation is covered by the existing session schema.
 
 ## Start flow simplification
