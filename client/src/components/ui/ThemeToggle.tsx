@@ -31,16 +31,13 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
       onClick={() => setTheme(NEXT[theme])}
       aria-label={`${LABEL[theme]}. Switch to ${LABEL[NEXT[theme]]}.`}
       title={`${LABEL[theme]} — click for ${LABEL[NEXT[theme]]}`}
-      whileHover={reduced ? undefined : { x: -2, y: -2 }}
-      whileTap={reduced ? undefined : { x: 3, y: 3 }}
-      transition={{ type: "spring", stiffness: 500, damping: 30 }}
-      className={`inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-full border-[3px] border-border bg-surface px-3 font-display text-sm font-bold text-ink shadow-hard-sm ${className}`}
+      whileHover={reduced ? undefined : { y: -1 }}
+      whileTap={reduced ? undefined : { scale: 0.98 }}
+      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+      className={`inline-flex h-10 min-h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-ink transition-colors hover:bg-surface-2 ${className}`}
     >
-      <span aria-hidden className="text-lg leading-none">
+      <span aria-hidden className="text-base leading-none">
         {ICON[theme]}
-      </span>
-      <span className="hidden text-[12px] font-bold uppercase tracking-[0.08em] sm:inline">
-        {theme}
       </span>
     </motion.button>
   );

@@ -1,19 +1,27 @@
 import AuthProvider from "@/components/AuthProvider";
 import ThemeProvider from "@/components/ThemeProvider";
 import type { Metadata } from "next";
-import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import {
+  Bricolage_Grotesque,
+  Inter,
+  JetBrains_Mono,
+} from "next/font/google";
 import "./globals.css";
 
-const display = Space_Grotesk({
+const display = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["500", "700"],
-  variable: "--font-space-grotesk",
+  variable: "--font-bricolage",
+  display: "swap",
+});
+
+const body = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
   display: "swap",
 });
 
 const mono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["500", "700"],
   variable: "--font-jetbrains-mono",
   display: "swap",
 });
@@ -55,7 +63,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body
-        className={`${display.variable} ${mono.variable} min-h-screen antialiased`}
+        className={`${display.variable} ${body.variable} ${mono.variable} min-h-screen antialiased`}
       >
         <ThemeProvider>
           <AuthProvider>{children}</AuthProvider>

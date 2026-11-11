@@ -1,11 +1,19 @@
 "use client";
 
-import AvatarBubble from "@/components/AvatarBubble";
 import { useAuth } from "@/components/AuthProvider";
-import FloatingBlobs from "@/components/FloatingBlobs";
+import AppHeader from "@/components/ui/AppHeader";
+import {
+  Avatar,
+  AvatarStack,
+  Badge,
+  Button,
+  Card,
+  EmptyState,
+  Input,
+  Modal,
+} from "@/components/ui";
 import { api } from "@/lib/api";
 import { copyInviteLink, ensureLobby, lobbyPath } from "@/lib/play";
-import { AnimatePresence, motion } from "framer-motion";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -33,6 +41,16 @@ interface Group {
   lobby?: { id: string; code: string; status: string } | null;
 }
 
+const EMPTY_FORM = {
+  displayName: "",
+  nickname: "",
+  traits: "",
+  habits: "",
+  iconicMoments: "",
+  catchphrases: "",
+  mostLikelyTo: "",
+};
+
 export default function GroupDashboard() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
@@ -48,16 +66,7 @@ export default function GroupDashboard() {
   const [launching, setLaunching] = useState(false);
   const [launchError, setLaunchError] = useState("");
   const [activeLobby, setActiveLobby] = useState<{ id: string; code: string } | null>(null);
-
-  const [form, setForm] = useState({
-    displayName: "",
-    nickname: "",
-    traits: "",
-    habits: "",
-    iconicMoments: "",
-    catchphrases: "",
-    mostLikelyTo: "",
-  });
+  const [form, setForm] = useState(EMPTY_FORM);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editingUserId, setEditingUserId] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
@@ -72,27 +81,26 @@ export default function GroupDashboard() {
     if (!isSignedIn) router.replace("/sign-in");
   }, [isLoaded, isSignedIn, router]);
 
-  // Main data polling
   useEffect(() => {
     if (!isLoaded || !isSignedIn) return;
     loadData();
-    const interval = setInterval(async () => {
+    const interval = window.setInterval(async () => {
       try {
-        const g = await api.getGroup(id);
-        setGroup(g);
-        if (g.members) setMembers(g.members);
-        setActiveLobby(g.lobby || null);
+        const next = await api.getGroup(id);
+        setGroup(next);
+        if (next.members) setMembers(next.members);
+        setActiveLobby(next.lobby || null);
       } catch {}
     }, 3000);
-    return () => clearInterval(interval);
+    return () => window.clearInterval(interval);
   }, [id, isLoaded, isSignedIn]);
 
   const loadData = async () => {
     try {
-      const g = await api.getGroup(id);
-      setGroup(g);
-      if (g.members) setMembers(g.members);
-      setActiveLobby(g.lobby || null);
+      const next = await api.getGroup(id);
+      setGroup(next);
+      if (next.members) setMembers(next.members);
+      setActiveLobby(next.lobby || null);
     } catch {
     } finally {
       setLoading(false);
@@ -100,11 +108,10 @@ export default function GroupDashboard() {
   };
 
   const copyCode = () => {
-    if (joinCode) {
-      navigator.clipboard.writeText(joinCode);
-      setCodeCopied(true);
-      setTimeout(() => setCodeCopied(false), 2000);
-    }
+    if (!joinCode) return;
+    void navigator.clipboard.writeText(joinCode);
+    setCodeCopied(true);
+    window.setTimeout(() => setCodeCopied(false), 2000);
   };
 
   const copyInvite = async () => {
@@ -112,13 +119,13 @@ export default function GroupDashboard() {
     try {
       await copyInviteLink(joinCode);
       setInviteCopied(true);
-      setTimeout(() => setInviteCopied(false), 2000);
+      window.setTimeout(() => setInviteCopied(false), 2000);
     } catch {
       alert("Could not copy the invite link");
     }
   };
 
-  const handleSaveMember = async () => {
+  const saveMember = async () => {
     if (!form.displayName.trim()) return;
     setSaving(true);
     try {
@@ -126,39 +133,16 @@ export default function GroupDashboard() {
         userId: editingUserId || undefined,
         displayName: form.displayName.trim(),
         nickname: form.nickname.trim() || null,
-        traits: form.traits
-          .split(",")
-          .map((s) => s.trim())
-          .filter(Boolean),
-        habits: form.habits
-          .split(",")
-          .map((s) => s.trim())
-          .filter(Boolean),
-        iconicMoments: form.iconicMoments
-          .split(",")
-          .map((s) => s.trim())
-          .filter(Boolean),
-        catchphrases: form.catchphrases
-          .split(",")
-          .map((s) => s.trim())
-          .filter(Boolean),
-        mostLikelyTo: form.mostLikelyTo
-          .split(",")
-          .map((s) => s.trim())
-          .filter(Boolean),
+        traits: form.traits.split(",").map((value) => value.trim()).filter(Boolean),
+        habits: form.habits.split(",").map((value) => value.trim()).filter(Boolean),
+        iconicMoments: form.iconicMoments.split(",").map((value) => value.trim()).filter(Boolean),
+        catchphrases: form.catchphrases.split(",").map((value) => value.trim()).filter(Boolean),
+        mostLikelyTo: form.mostLikelyTo.split(",").map((value) => value.trim()).filter(Boolean),
       });
       setShowAdd(false);
       setEditingId(null);
       setEditingUserId(null);
-      setForm({
-        displayName: "",
-        nickname: "",
-        traits: "",
-        habits: "",
-        iconicMoments: "",
-        catchphrases: "",
-        mostLikelyTo: "",
-      });
+      setForm(EMPTY_FORM);
       await loadData();
     } catch (err) {
       alert(err instanceof Error ? err.message : "Failed to save member");
@@ -167,25 +151,25 @@ export default function GroupDashboard() {
     }
   };
 
-  const startEditing = (m: MemberProfile) => {
-    const canEdit = isHost || (m.user_id && m.user_id === user?.id);
+  const startEditing = (member: MemberProfile) => {
+    const canEdit = isHost || (member.user_id && member.user_id === user?.id);
     if (!canEdit) return;
-    setEditingUserId(m.user_id || null);
+    setEditingUserId(member.user_id || null);
     setForm({
-      displayName: m.display_name,
-      nickname: m.nickname || "",
-      traits: (m.traits || []).join(", "),
-      habits: (m.habits || []).join(", "),
-      iconicMoments: (m.iconic_moments || []).join(", "),
-      catchphrases: (m.catchphrases || []).join(", "),
-      mostLikelyTo: (m.most_likely_to || []).join(", "),
+      displayName: member.display_name,
+      nickname: member.nickname || "",
+      traits: (member.traits || []).join(", "),
+      habits: (member.habits || []).join(", "),
+      iconicMoments: (member.iconic_moments || []).join(", "),
+      catchphrases: (member.catchphrases || []).join(", "),
+      mostLikelyTo: (member.most_likely_to || []).join(", "),
     });
-    setEditingId(m.id);
+    setEditingId(member.id);
     setShowAdd(true);
   };
 
-  const handleLeaveGroup = async () => {
-    if (!confirm("Are you sure you want to leave this group?")) return;
+  const leaveGroup = async () => {
+    if (!confirm("Leave this group?")) return;
     try {
       await api.leaveGroup(id);
       router.push("/dashboard");
@@ -194,7 +178,7 @@ export default function GroupDashboard() {
     }
   };
 
-  const handleRemoveMember = async (targetUserId: string, name: string) => {
+  const removeMember = async (targetUserId: string, name: string) => {
     if (!confirm(`Remove ${name} from the group?`)) return;
     try {
       await api.removeMember(id, targetUserId);
@@ -204,7 +188,7 @@ export default function GroupDashboard() {
     }
   };
 
-  const handleStartGame = async () => {
+  const startGame = async () => {
     if (launching) return;
     setLaunching(true);
     setLaunchError("");
@@ -212,9 +196,7 @@ export default function GroupDashboard() {
       const lobby = await ensureLobby(id);
       router.push(lobbyPath(lobby));
     } catch (err) {
-      setLaunchError(
-        err instanceof Error ? err.message : "Could not open the lobby",
-      );
+      setLaunchError(err instanceof Error ? err.message : "Could not open the lobby");
     } finally {
       setLaunching(false);
     }
@@ -222,321 +204,116 @@ export default function GroupDashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-text-muted text-sm">Loading...</div>
-      </div>
+      <main className="min-h-screen">
+        <AppHeader backHref="/dashboard" backLabel="Hub" />
+        <div className="mx-auto max-w-[1120px] px-4 py-8 sm:px-6">
+          <div className="h-24 animate-pulse rounded-[20px] bg-surface-2" />
+        </div>
+      </main>
     );
   }
 
   return (
-    <main className="min-h-screen px-4 py-12 relative">
-      <FloatingBlobs />
-
-      <div className="max-w-2xl mx-auto relative z-10">
-        {/* Header */}
-        <motion.div
-          className="mb-12"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          <button
-            onClick={() => router.push("/dashboard")}
-            className="text-text-muted hover:text-text-secondary text-xs uppercase tracking-wider mb-6 inline-block transition-colors"
-          >
-            ← Back
-          </button>
-
-          <h1 className="text-4xl md:text-5xl font-black tracking-tighter uppercase">
-            {group?.name || "Group"}
-          </h1>
-
-          {/* Host Badge + Join Code */}
-          <div className="flex items-center gap-3 mt-3 flex-wrap">
-            <motion.div
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-muted border border-accent/20 text-xs"
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-            >
-              <span className="text-accent">👑</span>
-              <span className="text-text-secondary">Owner:</span>
-              <span className="text-accent font-semibold">{hostName}</span>
-            </motion.div>
-
-            <motion.button
-              onClick={copyCode}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-bg-card border border-border hover:border-border-hover transition-all text-xs"
-              whileTap={{ scale: 0.97 }}
-            >
-              <span className="text-text-muted">Code:</span>
-              <span className="text-accent font-mono font-bold tracking-widest">
-                {joinCode || "—"}
-              </span>
-              <span className="text-text-muted">{codeCopied ? "✓" : "⎘"}</span>
-            </motion.button>
-
-            <motion.button
-              onClick={() => void copyInvite()}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 hover:border-accent/40 transition-all text-xs text-accent"
-              whileTap={{ scale: 0.97 }}
-            >
-              {inviteCopied ? "Invite copied ✓" : "Copy invite link 🔗"}
-            </motion.button>
-
-            <motion.button
-              onClick={handleLeaveGroup}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 hover:border-red-500/40 transition-all text-xs text-red-400 hover:text-red-300"
-              whileTap={{ scale: 0.97 }}
-            >
-              Leave Group ✕
-            </motion.button>
-          </div>
-        </motion.div>
-
-        {roomClosed && !activeLobby && (
-          <motion.div
-            role="status"
-            className="mb-6 rounded-xl border border-amber-500/20 bg-amber-500/10 px-4 py-3 text-sm text-amber-200"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            That room isn&apos;t currently open. Start a new lobby below to play.
-          </motion.div>
-        )}
-
-        {/* Start Game */}
-        <motion.div
-          className="mb-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          <motion.button
-            onClick={() => void handleStartGame()}
-            disabled={launching}
-            className="neon-btn neon-btn-purple text-sm px-10 py-4 disabled:opacity-50"
-            whileTap={{ scale: 0.98 }}
-          >
-            {launching
-              ? "Opening lobby…"
-              : activeLobby
-                ? "Join Game →"
-                : "Open Game Lobby →"}
-          </motion.button>
-          <p className="mt-3 max-w-md text-xs text-text-muted">
-            Anyone in the group can open the lobby; only the lobby host can
-            start. Most games need at least 3 players, so share the room code
-            before you begin.
-          </p>
-          {launchError && (
-            <p className="mt-3 max-w-md rounded-xl bg-red-500/10 px-3 py-2 text-xs font-semibold text-red-300">
-              {launchError}
-            </p>
-          )}
-        </motion.div>
-
-        {/* Members */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          <div className="flex items-center justify-between mb-5">
-            <h2 className="text-lg font-bold tracking-tight uppercase text-text-secondary">
-              Members{" "}
-              <span className="text-text-muted">({members.length})</span>
-            </h2>
-            <button
-              onClick={() => {
-                setShowAdd(!showAdd);
-                setEditingId(null);
-                setEditingUserId(null);
-                setForm({
-                  displayName: "",
-                  nickname: "",
-                  traits: "",
-                  habits: "",
-                  iconicMoments: "",
-                  catchphrases: "",
-                  mostLikelyTo: "",
-                });
-              }}
-              className="neon-btn neon-btn-outline text-xs px-4 py-2"
-            >
-              + Add
-            </button>
-          </div>
-
-          {/* Form */}
-          <AnimatePresence>
-            {showAdd && (
-              <motion.div
-                className="glass-card p-6 mb-5"
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-              >
-                <h3 className="font-bold text-sm tracking-tight uppercase text-text-secondary mb-4">
-                  {editingId ? "Edit Member" : "New Member"}
-                </h3>
-                <div className="grid gap-2.5">
-                  <input
-                    className="neon-input"
-                    placeholder="Display Name *"
-                    value={form.displayName}
-                    onChange={(e) =>
-                      setForm({ ...form, displayName: e.target.value })
-                    }
-                  />
-                  <input
-                    className="neon-input"
-                    placeholder="Nickname"
-                    value={form.nickname}
-                    onChange={(e) =>
-                      setForm({ ...form, nickname: e.target.value })
-                    }
-                  />
-                  <input
-                    className="neon-input"
-                    placeholder="Traits (comma-separated)"
-                    value={form.traits}
-                    onChange={(e) =>
-                      setForm({ ...form, traits: e.target.value })
-                    }
-                  />
-                  <input
-                    className="neon-input"
-                    placeholder="Habits (comma-separated)"
-                    value={form.habits}
-                    onChange={(e) =>
-                      setForm({ ...form, habits: e.target.value })
-                    }
-                  />
-                  <input
-                    className="neon-input"
-                    placeholder="Iconic Moments (comma-separated)"
-                    value={form.iconicMoments}
-                    onChange={(e) =>
-                      setForm({ ...form, iconicMoments: e.target.value })
-                    }
-                  />
-                  <input
-                    className="neon-input"
-                    placeholder="Catchphrases (comma-separated)"
-                    value={form.catchphrases}
-                    onChange={(e) =>
-                      setForm({ ...form, catchphrases: e.target.value })
-                    }
-                  />
-                  <input
-                    className="neon-input"
-                    placeholder="Most Likely To (comma-separated)"
-                    value={form.mostLikelyTo}
-                    onChange={(e) =>
-                      setForm({ ...form, mostLikelyTo: e.target.value })
-                    }
-                  />
-                </div>
-                <div className="flex gap-2 mt-4">
-                  <button
-                    onClick={handleSaveMember}
-                    className="neon-btn neon-btn-purple flex-1 text-xs"
-                    disabled={saving}
-                  >
-                    {saving ? "Saving…" : "Save"}
-                  </button>
-                  <button
-                    onClick={() => {
-                      setShowAdd(false);
-                      setEditingId(null);
-                      setEditingUserId(null);
-                    }}
-                    className="neon-btn neon-btn-outline text-xs"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Members List */}
-          {members.length === 0 ? (
-            <div className="glass-card p-10 text-center text-text-muted text-sm">
-              No members yet. Add profiles to personalize your games.
+    <main className="min-h-screen">
+      <AppHeader backHref="/dashboard" backLabel="Hub" onLeaveGroup={() => void leaveGroup()} />
+      <div className="mx-auto w-full max-w-[1120px] px-4 py-8 sm:px-6">
+        <header className="flex flex-wrap items-start justify-between gap-5">
+          <div>
+            <p className="eyebrow">Group</p>
+            <h1 className="mt-2 font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl">{group?.name || "Group"}</h1>
+            <div className="mt-3 flex flex-wrap items-center gap-3">
+              <AvatarStack people={members.map((member) => ({ name: member.display_name, src: member.avatar_url }))} />
+              <span className="text-sm text-muted">{members.length} member{members.length === 1 ? "" : "s"} · Owner {hostName}</span>
             </div>
-          ) : (
-            <div className="grid gap-2">
-              {members.map((m, i) => {
-                const memberIsHost = m.role === "owner";
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Button onClick={() => void startGame()} loading={launching}>{activeLobby ? "Open lobby" : "Open lobby"}</Button>
+            <Button variant="secondary" disabled={!joinCode} onClick={() => void copyInvite()}>{inviteCopied ? "Invite copied" : "Invite"}</Button>
+          </div>
+        </header>
 
+        {roomClosed && !activeLobby ? (
+          <p role="status" className="mt-5 rounded-[12px] bg-warning/10 px-4 py-3 text-sm font-medium text-warning">That room isn’t open anymore. Start a new lobby to play.</p>
+        ) : null}
+        {launchError ? <p role="alert" className="mt-5 rounded-[12px] bg-danger/10 px-4 py-3 text-sm font-medium text-danger">{launchError}</p> : null}
+
+        <div className="mt-6 grid gap-4 sm:grid-cols-[1fr_auto]">
+          <Card className="flex flex-wrap items-center justify-between gap-3 p-4">
+            <div>
+              <p className="text-sm font-medium text-muted">Room code</p>
+              <p className="font-mono text-2xl font-bold tracking-[0.12em]">{joinCode || "—"}</p>
+            </div>
+            <Button variant="ghost" size="sm" disabled={!joinCode} onClick={copyCode}>{codeCopied ? "Copied" : "Copy code"}</Button>
+          </Card>
+          <Card className="flex items-center gap-3 p-4">
+            <Badge tone={activeLobby ? "success" : "neutral"}>{activeLobby ? "Live now" : "No open room"}</Badge>
+          </Card>
+        </div>
+
+        <section className="mt-8" aria-labelledby="members-title">
+          <div className="flex items-center justify-between gap-3">
+            <h2 id="members-title" className="font-display text-2xl font-semibold">Members</h2>
+            <Button size="sm" variant="secondary" onClick={() => { setShowAdd(true); setEditingId(null); setEditingUserId(null); setForm(EMPTY_FORM); }}>Add member</Button>
+          </div>
+          {members.length === 0 ? (
+            <div className="mt-4"><EmptyState emoji="👋" title="Nobody here yet" description="Add a profile to start personalizing your games." action={<Button size="sm" onClick={() => setShowAdd(true)}>Add the first member</Button>} /></div>
+          ) : (
+            <div className="mt-4 divide-y divide-border rounded-[20px] border border-border bg-surface shadow-soft">
+              {members.map((member) => {
+                const memberIsHost = member.role === "owner";
                 return (
-                  <motion.div
-                    key={m.id}
-                    className={`glass-card p-4 ${
-                      isHost || m.user_id === user?.id
-                        ? "cursor-pointer"
-                        : "cursor-default"
-                    }`}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                    onClick={() => startEditing(m)}
+                  <button
+                    key={member.id}
+                    type="button"
+                    onClick={() => startEditing(member)}
+                    className="flex min-h-16 w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-surface-2 sm:px-5"
                   >
-                    <div className="flex items-center gap-3">
-                      <AvatarBubble
-                        name={m.display_name}
-                        size="sm"
-                        isHost={memberIsHost}
-                      />
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-sm tracking-tight flex items-center gap-1.5">
-                          {m.display_name}
-                          {m.nickname && (
-                            <span className="text-text-muted font-normal">
-                              &quot;{m.nickname}&quot;
-                            </span>
-                          )}
-                          {memberIsHost && (
-                            <span className="px-1.5 py-0.5 text-[9px] rounded-full bg-accent-muted text-accent border border-accent/20 uppercase tracking-wider font-medium">
-                              Owner
-                            </span>
-                          )}
-                        </h3>
-                        <div className="flex flex-wrap gap-1 mt-1">
-                          {m.traits?.slice(0, 3).map((t, j) => (
-                            <span
-                              key={j}
-                              className="px-2 py-0.5 text-[10px] rounded-full bg-accent-muted text-accent border border-accent/20"
-                            >
-                              {t}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        {isHost && !memberIsHost && (
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              if (m.user_id) handleRemoveMember(m.user_id, m.display_name);
-                            }}
-                            className="text-red-400/60 hover:text-red-400 text-xs transition-colors"
-                            title="Remove from group"
-                          >
-                            ✕
-                          </button>
-                        )}
-                        <span className="text-text-muted text-xs">Edit →</span>
-                      </div>
+                    <Avatar name={member.display_name} src={member.avatar_url} host={memberIsHost} />
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-semibold text-ink">{member.display_name}{member.nickname ? <span className="font-normal text-muted"> “{member.nickname}”</span> : null}</p>
+                      <p className="mt-0.5 text-xs text-muted">{[...member.traits].slice(0, 3).join(" · ") || "No traits yet"}</p>
                     </div>
-                  </motion.div>
+                    <Badge tone={memberIsHost ? "accent" : "neutral"}>{memberIsHost ? "Owner" : "Member"}</Badge>
+                    {isHost && !memberIsHost ? (
+                      <span
+                        role="button"
+                        tabIndex={0}
+                        onClick={(event) => { event.stopPropagation(); if (member.user_id) void removeMember(member.user_id, member.display_name); }}
+                        onKeyDown={(event) => { if (event.key === "Enter") { event.stopPropagation(); if (member.user_id) void removeMember(member.user_id, member.display_name); } }}
+                        className="flex min-h-11 min-w-11 items-center justify-center rounded-full text-muted hover:bg-surface-2 hover:text-danger"
+                        aria-label={`Remove ${member.display_name}`}
+                      >
+                        ✕
+                      </span>
+                    ) : null}
+                  </button>
                 );
               })}
             </div>
           )}
-        </motion.div>
+        </section>
+
+        <section className="mt-8" aria-labelledby="recent-title">
+          <h2 id="recent-title" className="font-display text-2xl font-semibold">Recent games</h2>
+          <div className="mt-4"><EmptyState emoji="🎲" title="No games yet" description="Your recent sessions will appear here after your first game night." action={<Button size="sm" onClick={() => void startGame()}>Open a lobby</Button>} /></div>
+        </section>
       </div>
+
+      <Modal open={showAdd} onClose={() => setShowAdd(false)} title={editingId ? "Edit member" : "Add member"}>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <Input label="Display name" value={form.displayName} onChange={(event) => setForm({ ...form, displayName: event.target.value })} placeholder="Alex" />
+          <Input label="Nickname" value={form.nickname} onChange={(event) => setForm({ ...form, nickname: event.target.value })} placeholder="Optional" />
+          <Input label="Traits" value={form.traits} onChange={(event) => setForm({ ...form, traits: event.target.value })} placeholder="Funny, competitive" hint="Comma separated" />
+          <Input label="Habits" value={form.habits} onChange={(event) => setForm({ ...form, habits: event.target.value })} placeholder="Always late" hint="Comma separated" />
+          <Input label="Iconic moments" value={form.iconicMoments} onChange={(event) => setForm({ ...form, iconicMoments: event.target.value })} placeholder="The karaoke night" />
+          <Input label="Catchphrases" value={form.catchphrases} onChange={(event) => setForm({ ...form, catchphrases: event.target.value })} placeholder="Trust me" />
+          <div className="sm:col-span-2"><Input label="Most likely to" value={form.mostLikelyTo} onChange={(event) => setForm({ ...form, mostLikelyTo: event.target.value })} placeholder="Start a group chat at 2am" /></div>
+        </div>
+        <div className="mt-5 flex gap-2">
+          <Button className="flex-1" loading={saving} onClick={() => void saveMember()} disabled={!form.displayName.trim()}>Save member</Button>
+          <Button variant="ghost" onClick={() => setShowAdd(false)}>Cancel</Button>
+        </div>
+      </Modal>
     </main>
   );
 }

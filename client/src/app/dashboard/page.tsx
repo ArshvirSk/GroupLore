@@ -4,6 +4,7 @@ import { useAuth } from "@/components/AuthProvider";
 import AppHeader from "@/components/ui/AppHeader";
 import {
   Avatar,
+  AvatarStack,
   Badge,
   Button,
   Card,
@@ -259,7 +260,7 @@ export default function DashboardPage() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="label text-primary">Your hub</p>
-            <h1 className="mt-1 font-display text-4xl font-bold uppercase tracking-[-0.04em] sm:text-6xl">Your hub</h1>
+            <h1 className="mt-1 font-display text-4xl font-bold tracking-[-0.04em] sm:text-6xl">Your hub</h1>
             <p className="mt-2 text-base text-muted">Pick up a live room or start something new.</p>
           </div>
           {badges.length > 0 ? (
@@ -273,14 +274,17 @@ export default function DashboardPage() {
           <section className="mt-8" aria-labelledby="live-title">
             <div className="mb-3 flex items-center gap-2">
               <span className="h-3 w-3 rounded-full bg-success" />
-              <h2 id="live-title" className="font-display text-xl font-bold uppercase">Live now</h2>
+              <h2 id="live-title" className="font-display text-xl font-semibold">Live now</h2>
             </div>
             <div className="grid gap-4 md:grid-cols-2">
               {activeLobbies.map((lobby) => (
                 <Card key={lobby.id} className="flex flex-wrap items-center justify-between gap-3 p-4">
-                  <div>
+                  <div className="flex items-center gap-3">
+                    <AvatarStack people={[{ name: lobby.groups?.name || "Quick play" }]} max={1} />
+                    <div>
                     <p className="font-display text-lg font-bold">{lobby.groups?.name || "Quick play"}</p>
                     <p className="mt-1 font-mono text-sm font-bold text-muted">{lobby.code} · {timeAgo(lobby.created_at)}</p>
+                    </div>
                   </div>
                   <Button size="sm" onClick={() => router.push(`/lobby/${lobby.code}`)}>Join now</Button>
                 </Card>
@@ -371,7 +375,7 @@ export default function DashboardPage() {
                       <Avatar name={name} src={item.profiles?.avatar_url} size="sm" />
                       <div className="min-w-0 flex-1">
                         <p className="text-sm font-bold leading-snug"><span className="mr-2" aria-hidden>{config.emoji}</span>{config.text(item.payload, String(name))}</p>
-                        <p className="mt-1 text-xs font-bold uppercase tracking-[0.08em] text-muted">{item.groups?.name || "Group"} · {timeAgo(item.created_at)}</p>
+                        <p className="mt-1 text-xs font-medium text-muted">{item.groups?.name || "Group"} · {timeAgo(item.created_at)}</p>
                       </div>
                     </Card>
                   );

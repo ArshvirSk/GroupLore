@@ -1,43 +1,41 @@
 # GroupLore UI decisions
 
-Visual and UX only. No server routes, socket events, stores, data shapes or game rules were changed.
+Visual and copy changes only. Server routes, socket events, stores and data shapes are unchanged.
 
-## Foundation
+## Direction
 
-- **Direction:** playful neo-brutalism: flat blocks, hard offset shadows, heavy type, generous space.
-- **Theme:** light / dark / system, persisted as `grouplore-theme` in localStorage. The inline script in `app/layout.tsx` applies `data-theme` before paint. All storage access is guarded with try/catch.
-- **Fonts:** Space Grotesk for display and body, JetBrains Mono for codes, numbers and timers, loaded with `next/font` and `display: swap`.
-- **Tokens:** the supplied light and dark palettes are CSS variables in `globals.css`, mapped through Tailwind v4 `@theme inline`. Coloured controls use `--on-accent` (#111) so text on bright fills passes AA in both themes.
-- **Texture:** one 24px dot grid on the page background at 6% ink opacity. No orbs, gradients, blur, glass or glow.
-- **Geometry:** 8px cards and inputs; 999px only for pills, chips and avatars. 3px borders on desktop, 2px on mobile. Hard shadows are 3/6/10px with no blur.
-- **Motion:** buttons and cards lift 2px on hover and press to the shadow offset on active with a 500/30 spring. Reduced motion disables translation and looping decoration.
-- **Accessibility:** 44px minimum targets, visible 3px accent focus rings, labels 12px/700/0.08em, and a repeatable token contrast check.
+- **Game night, grown-up.** Warm neutral surfaces, one violet signature colour, amber only for wins/host/accent, sentence case throughout.
+- Removed thick borders, hard offset shadows, press-down translations, cream/yellow/pink blocks, dot grid, blobs, backdrop blur, surface gradients and neon glow.
+- The only playful touches are game emoji tiles, deterministic avatar tints, waiting-friend dashes, win confetti/ribbon and short warm microcopy.
+- **Fonts:** Bricolage Grotesque for headings, Inter for UI, JetBrains Mono for room codes and timers. Loaded with `next/font` and `display: swap`.
+- **Theme:** light / dark / system, persisted in `grouplore-theme`; inline script applies `data-theme` before paint. Theme control is icon-only.
+- **Shape:** 12px controls, 20px cards, 999px chips/avatars/pills; 1px `--border`. Light theme has two soft shadows; dark theme uses surface steps with no shadow.
+- **Type:** 12/14/16/18/24/32/48. Body 16px. Labels are sentence-case 13-14px at 500-600. Only room codes are allowed to be uppercase.
+- **Motion:** 400/30 springs; hover rises 1px, press scales 0.98, short fade/slide for phase changes. Reduced motion is respected.
 
-## Game identity
+## Tokens
 
-- `client/src/lib/gameMeta.ts` is the single map for emoji, category, accent index and short card copy.
-- Categories: Write, Draw, Trivia, Social, Real-time, Strategy.
-- Unknown ids use the neutral fallback card and the `Social` category, so a newly added server game still renders.
-- Game identity supplements the server catalog; names, player ranges and modes still come from the API.
+The supplied light and dark values are mapped to CSS variables and Tailwind v4 `@theme inline`. Semantic foregrounds (`--primary-ink`, `--on-accent`, `--on-success`, `--on-danger`, `--on-warning`) are included so every filled control can meet AA in both themes. `npm run check:contrast` covers all text/background token pairs.
 
-## Screens
+## Structure
 
-- **Landing:** one primary action, secondary join/guest actions, a static game strip, and three numbered how-it-works blocks.
-- **Auth and join:** centred 720px-max card, 48px inputs, inline validation, explicit danger blocks, and a 6-slot mono room code.
-- **Dashboard:** title is “Your hub”. The user lives in the avatar menu. Order is Live now, primary actions, then Groups / Activity tabs. Empty states always offer an action.
-- **Group:** name, avatar stack, Open Lobby, invite, members and recent sessions.
-- **Lobby:** 720px content, code block, player grid with waiting seats, searchable/filterable 3-column game grid, labelled mode control, and a sticky bottom bar whose measured height reserves page padding.
-- **Game shells:** shared top bar, horizontal timer, heavy phase banner, stamped winner cards, ranked scoreboard, theme-coloured confetti. Individual games keep their existing event props and only inherit shared styling.
-- **TV:** read-only display uses the same tokens, timer bar and ranked rows.
+- **Header:** tilted logo mark, GroupLore wordmark, Hub link, icon-only theme toggle, avatar with full name. The dev UI link is compiled out in production.
+- **Dashboard:** Live now (only when occupied), a compact Start playing card, compact code join, Groups/Activity tabs, actionable empty states.
+- **Group:** member stack, Open lobby primary, Invite secondary, Leave group in the avatar overflow, member list with owner/member pills.
+- **Lobby:** two-column desktop, 340px sticky room/player column, searchable + category-filtered game grid on the right, labelled mode control, safe-area action bar with reserved space.
+- **Game shell:** slim timer, round context, no per-game rewrite; games inherit the new tokens through shared classes.
+- **Auth/landing:** centred auth card and a single radial primary tint behind the landing hero only.
 
-## Component policy
+## Known implementation choices
 
-- New surfaces use `components/ui` primitives. Legacy `.party-card`, `.glass-card`, `.neon-input` and `.neon-btn` remain only as compatibility shims for untouched game internals.
-- `/dev/ui` is the kitchen sink for every primitive and both themes.
-- No new runtime dependencies were added.
+- Live-now lobby cards show the group/room identity because the active-lobby API does not include player profiles; a real connected-player stack needs a data change.
+- Recent games is rendered as an empty state because the current group payload does not expose recent sessions.
+- Legacy game-specific class names remain as compatibility shims while their internals inherit the new variables. They are tracked in the final report.
 
 ## Verification
 
-- `npm run check:contrast` checks every token text pair at 4.5:1.
-- Typecheck, lint and production build run after each implementation step.
-- Screenshot targets are 390×844 and 1280×800 in both themes. Auth-gated states require a live Supabase session; any blocked capture is recorded rather than replaced with a fabricated screen.
+- `npm run check:contrast`
+- `npx tsc --noEmit`
+- `npm run lint`
+- `npm run build`
+- Playwright screenshots at 390×844 and 1280×800, both themes, for dashboard, group, lobby and one game when an authenticated session is available.

@@ -35,21 +35,21 @@ function Frame({ children, backHref, backLabel }: { children: ReactNode; backHre
   return (
     <main className="min-h-screen pb-[calc(8rem+env(safe-area-inset-bottom))]">
       <AppHeader backHref={backHref} backLabel={backLabel} />
-      <div className="mx-auto w-full max-w-[720px] px-4 py-6 sm:px-6">{children}</div>
+      <div className="mx-auto w-full max-w-[1120px] px-4 py-6 sm:px-6">{children}</div>
     </main>
   );
 }
 
 function PlayerTile({ player, host, canKick, onKick }: { player: LobbyPlayer; host: boolean; canKick: boolean; onKick: () => void }) {
   return (
-    <div className="relative flex min-w-[132px] flex-1 flex-col items-center gap-2 rounded-[8px] border-[3px] border-border bg-surface p-3 text-center shadow-hard-sm max-md:border-2">
+    <div className="relative flex min-w-[132px] flex-1 flex-col items-center gap-2 rounded-[20px] border border-border bg-surface p-3 text-center">
       <Avatar name={player.display_name} host={host} connected={player.connected} size="lg" />
       <p className="w-full truncate font-display text-sm font-bold">{player.display_name}</p>
       <div className="flex flex-wrap justify-center gap-1">
         <Badge tone={player.connected ? "success" : "neutral"}>{player.connected ? "Ready" : "Offline"}</Badge>
         {player.is_guest ? <Badge>Guest</Badge> : null}
       </div>
-      {canKick ? <button type="button" onClick={onKick} className="min-h-11 rounded-full px-3 text-xs font-bold uppercase tracking-[0.08em] text-danger underline">Kick</button> : null}
+      {canKick ? <button type="button" onClick={onKick} className="min-h-11 rounded-full px-3 text-xs font-semibold text-danger underline">Kick</button> : null}
     </div>
   );
 }
@@ -225,10 +225,10 @@ export default function LobbyPage() {
     <Frame backHref={exitPath} backLabel={groupId ? "Group" : "Home"}>
       <header>
         <p className="label text-primary">{groupId ? "Group lobby" : "Quick play lobby"}</p>
-        <h1 className="mt-1 font-display text-3xl font-bold uppercase tracking-[-0.04em] sm:text-5xl">{groupName}</h1>
+        <h1 className="mt-1 font-display text-3xl font-bold tracking-[-0.04em] sm:text-5xl">{groupName}</h1>
         <div className="mt-4 grid gap-3 sm:grid-cols-[1fr_auto]">
-          <div className="rounded-[8px] border-[3px] border-border bg-accent p-4 text-on-accent shadow-hard-md max-md:border-2">
-            <p className="label opacity-80">Room code</p>
+          <div className="rounded-[20px] border border-border bg-accent-soft p-4 text-ink">
+            <p className="label">Room code</p>
             <p className="mt-1 font-mono text-3xl font-bold tracking-[0.18em] sm:text-4xl">{lobby.code}</p>
           </div>
           <div className="flex flex-wrap gap-2 sm:flex-col">
@@ -250,11 +250,12 @@ export default function LobbyPage() {
         </Card>
       ) : null}
 
-      {error ? <p role="alert" className="mt-4 rounded-[8px] border-[3px] border-danger bg-danger px-4 py-3 text-sm font-bold text-on-accent">{error}</p> : null}
+      {error ? <p role="alert" className="mt-4 rounded-[12px] bg-danger/10 px-4 py-3 text-sm font-semibold text-danger">{error}</p> : null}
 
-      <section className="mt-6" aria-labelledby="players-title">
+      <div className="mt-6 grid gap-6 lg:grid-cols-[340px_1fr] lg:items-start">
+      <section className="lg:sticky lg:top-24" aria-labelledby="players-title">
         <div className="mb-3 flex items-center justify-between gap-3">
-          <h2 id="players-title" className="font-display text-xl font-bold uppercase">Players</h2>
+          <h2 id="players-title" className="font-display text-xl font-semibold">Players</h2>
           <span className="font-mono text-sm font-bold">{players.length}/{selectedGame?.maxPlayers || "—"}</span>
         </div>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -262,9 +263,9 @@ export default function LobbyPage() {
             <PlayerTile key={player.user_id} player={player} host={player.user_id === lobby.host_id} canKick={isHost && player.user_id !== user?.id} onKick={() => void handleKick(player.user_id)} />
           ))}
           {Array.from({ length: emptySeats }).map((_, index) => (
-            <div key={`waiting-${index}`} className="flex min-h-32 flex-col items-center justify-center rounded-[8px] border-[3px] border-dashed border-border bg-surface p-3 text-center max-md:border-2">
-              <span className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-dashed border-border font-display text-2xl text-muted">+</span>
-              <p className="mt-2 text-xs font-bold uppercase tracking-[0.08em] text-muted">Waiting</p>
+            <div key={`waiting-${index}`} className="flex min-h-32 flex-col items-center justify-center rounded-[20px] border border-dashed border-border bg-surface p-3 text-center">
+              <span className="flex h-16 w-16 animate-pulse items-center justify-center rounded-full border border-dashed border-border font-display text-2xl text-muted">+</span>
+              <p className="mt-2 text-center text-xs font-medium text-muted">Waiting for friends</p>
             </div>
           ))}
         </div>
@@ -274,7 +275,7 @@ export default function LobbyPage() {
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <p className="label text-primary">Game library</p>
-            <h2 id="games-title" className="font-display text-2xl font-bold uppercase">Pick a game</h2>
+            <h2 id="games-title" className="font-display text-2xl font-semibold">Pick a game</h2>
           </div>
           <span className="text-sm font-bold text-muted">{filteredGames.length} games</span>
         </div>
@@ -301,17 +302,17 @@ export default function LobbyPage() {
                   type="button"
                   aria-pressed={selected}
                   onClick={() => { setSelectedGameId(game.id); setSelectedModeId(game.modes[0]?.id || "classic"); }}
-                  className={`overflow-hidden rounded-[8px] border-[3px] bg-surface text-left shadow-hard-sm transition hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-md active:translate-x-1 active:translate-y-1 active:shadow-none max-md:border-2 ${selected ? "border-ink shadow-hard-md" : "border-border"}`}
+                  className={`overflow-hidden rounded-[20px] border bg-surface text-left shadow-soft transition-transform hover:-translate-y-px active:scale-[0.98] ${selected ? "border-2 border-primary ring-2 ring-primary/15" : "border-border"}`}
                 >
                   <span className="block h-3" style={{ background: meta.color }} />
                   <span className="block p-4">
                     <span className="flex items-start justify-between gap-2">
                       <span className="text-3xl" aria-hidden>{meta.emoji}</span>
-                      <span className="rounded-full border-2 border-border bg-surface-2 px-2 py-1 text-[11px] font-bold uppercase tracking-[0.08em]">{meta.category}</span>
+                      <span className="rounded-full bg-surface-2 px-2 py-1 text-[11px] font-semibold">{meta.category}</span>
                     </span>
                     <span className="mt-3 block font-display text-lg font-bold">{game.name}</span>
                     <span className="mt-1 line-clamp-2 block text-sm text-muted">{game.description}</span>
-                    <span className="mt-3 flex items-center justify-between gap-2 border-t-2 border-border pt-2 text-xs font-bold uppercase tracking-[0.08em]">
+                    <span className="mt-3 flex items-center justify-between gap-2 border-t border-border pt-2 text-xs font-medium text-muted">
                       <span>{game.minPlayers}–{game.maxPlayers} players</span>
                       <span>{selected ? "Selected" : "Pick"}</span>
                     </span>
@@ -335,21 +336,22 @@ export default function LobbyPage() {
               ) : (
                 <div>
                   <p className="label text-ink">Mode</p>
-                  <p className="mt-1 rounded-[8px] border-[3px] border-border bg-accent px-4 py-3 text-sm font-bold text-on-accent max-md:border-2">{selectedGame.modes[0]?.label || "Classic"} — {selectedGame.modes[0]?.description || "The standard rules."}</p>
+                  <p className="mt-1 rounded-[12px] border border-border bg-surface-2 px-4 py-3 text-sm font-medium text-ink">{selectedGame.modes[0]?.label || "Classic"} — {selectedGame.modes[0]?.description || "The standard rules."}</p>
                 </div>
               )}
             </div>
           </Card>
         ) : null}
       </section>
+      </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t-[3px] border-border bg-bg px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 max-md:border-t-2">
-        <div className="mx-auto flex max-w-[720px] items-center gap-3">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-bg/95 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3">
+        <div className="mx-auto flex max-w-[1120px] items-center gap-3">
           <Button variant="ghost" size="sm" onClick={() => void handleLeave()} loading={leaving}>Leave</Button>
           {isHost ? (
             <Button className="flex-1" size="lg" loading={starting} disabled={Boolean(disabledReason)} onClick={() => void handleStart()}>{disabledReason || "Start game"}</Button>
           ) : (
-            <div className="flex min-h-14 flex-1 items-center justify-center rounded-[8px] border-[3px] border-border bg-surface px-4 text-center text-sm font-bold text-muted max-md:border-2">Waiting for the host to start…</div>
+            <div className="flex min-h-12 flex-1 items-center justify-center rounded-[12px] bg-surface-2 px-4 text-center text-sm font-medium text-muted">Waiting for the host to start…</div>
           )}
         </div>
       </div>

@@ -39,25 +39,26 @@ export function Button({
 }) {
   const reduced = useReducedMotion();
   const variants = {
-    primary: "bg-primary text-on-accent",
-    secondary: "bg-secondary text-on-secondary",
-    ghost: "bg-surface text-ink",
-    danger: "bg-danger text-on-accent",
+    primary:
+      "border-primary bg-primary text-primary-ink shadow-[inset_0_1px_0_rgba(255,255,255,.22)] hover:bg-primary/92",
+    secondary: "border-border bg-surface text-ink hover:bg-surface-2",
+    ghost: "border-transparent bg-transparent text-ink hover:bg-surface-2",
+    danger: "border-danger bg-danger text-on-danger hover:bg-danger/92",
   };
   const sizes = {
-    sm: "min-h-11 px-4 text-[12px]",
+    sm: "min-h-10 px-4 text-sm",
     md: "min-h-12 px-5 text-sm",
-    lg: "min-h-14 px-7 text-base",
+    lg: "min-h-12 px-6 text-base",
   };
   return (
     <motion.button
       type={type}
       disabled={disabled || loading}
-      whileHover={reduced || disabled ? undefined : { x: -2, y: -2 }}
-      whileTap={reduced || disabled ? undefined : { x: 3, y: 3 }}
-      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+      whileHover={reduced || disabled ? undefined : { y: -1 }}
+      whileTap={reduced || disabled ? undefined : { scale: 0.98 }}
+      transition={{ type: "spring", stiffness: 400, damping: 30 }}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-[8px] border-[3px] border-border font-display font-bold uppercase tracking-[0.04em] shadow-hard-sm transition-shadow hover:shadow-hard-md active:shadow-none disabled:opacity-45 max-md:border-2",
+        "inline-flex items-center justify-center gap-2 rounded-[12px] border font-semibold transition-colors disabled:border-transparent disabled:bg-surface-2 disabled:text-muted disabled:shadow-none",
         variants[variant],
         sizes[size],
         className,
@@ -90,11 +91,11 @@ export function IconButton({
       type="button"
       aria-label={label}
       title={label}
-      whileHover={reduced ? undefined : { x: -2, y: -2 }}
-      whileTap={reduced ? undefined : { x: 3, y: 3 }}
-      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+      whileHover={reduced ? undefined : { y: -1 }}
+      whileTap={reduced ? undefined : { scale: 0.98 }}
+      transition={{ type: "spring", stiffness: 400, damping: 30 }}
       className={cn(
-        "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-[3px] border-border bg-surface text-ink shadow-hard-sm hover:shadow-hard-md active:shadow-none max-md:border-2",
+        "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border bg-surface text-ink transition-colors hover:bg-surface-2",
         className,
       )}
       {...props}
@@ -116,16 +117,16 @@ export function Card({
   const reduced = useReducedMotion();
   return (
     <motion.div
-      whileHover={variant === "interactive" && !reduced ? { x: -2, y: -2 } : undefined}
-      whileTap={variant === "interactive" && !reduced ? { x: 3, y: 3 } : undefined}
-      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+      whileHover={variant === "interactive" && !reduced ? { y: -1 } : undefined}
+      whileTap={variant === "interactive" && !reduced ? { scale: 0.98 } : undefined}
+      transition={{ type: "spring", stiffness: 400, damping: 30 }}
       {...props}
       className={cn(
-        "rounded-[8px] border-[3px] border-border bg-surface max-md:border-2",
-        variant === "flat" && "shadow-hard-sm",
-        variant === "raised" && "shadow-hard-md",
+        "rounded-[20px] border border-border bg-surface",
+        variant === "flat" && "shadow-soft",
+        variant === "raised" && "shadow-soft",
         variant === "interactive" &&
-          "cursor-pointer shadow-hard-sm transition-shadow hover:shadow-hard-md active:shadow-none",
+          "cursor-pointer shadow-soft transition-colors hover:bg-surface",
         className,
       )}
     >
@@ -156,7 +157,7 @@ export function Input({
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${inputId}-error` : hint ? `${inputId}-hint` : undefined}
         className={cn(
-          "h-12 w-full rounded-[8px] border-[3px] border-border bg-surface px-4 text-base font-medium text-ink placeholder:text-muted max-md:border-2",
+          "h-12 w-full rounded-[12px] border border-border bg-surface px-4 text-base font-normal text-ink placeholder:text-muted",
           error && "border-danger",
           className,
         )}
@@ -206,8 +207,8 @@ export function CodeInput({
             <span
               key={index}
               className={cn(
-                "flex h-12 items-center justify-center rounded-[8px] border-[3px] border-border bg-surface font-mono text-xl font-bold text-ink max-md:border-2",
-                char.trim() && "bg-accent text-on-accent",
+                "flex h-12 items-center justify-center rounded-[12px] border border-border bg-surface font-mono text-xl font-semibold text-ink",
+                char.trim() && "border-primary/40 bg-primary-soft text-primary",
                 error && "border-danger",
               )}
             >
@@ -260,8 +261,8 @@ export function Chip({
       type="button"
       aria-pressed={active}
       className={cn(
-        "inline-flex min-h-11 items-center gap-1.5 rounded-full border-2 border-border px-3 text-[12px] font-bold uppercase tracking-[0.08em]",
-        active ? "bg-accent text-on-accent" : "bg-surface text-ink",
+        "inline-flex min-h-11 items-center gap-1.5 rounded-full border border-border px-4 text-[13px] font-semibold transition-colors",
+        active ? "border-primary bg-primary text-primary-ink" : "bg-surface text-ink hover:bg-surface-2",
         className,
       )}
       {...props}
@@ -293,8 +294,10 @@ export function SegmentedControl<T extends string>({
             aria-pressed={value === option.value}
             onClick={() => onChange(option.value)}
             className={cn(
-              "min-h-11 rounded-[8px] border-[3px] border-border px-4 py-3 text-left shadow-hard-sm max-md:border-2",
-              value === option.value ? "bg-accent text-on-accent" : "bg-surface text-ink",
+              "min-h-11 rounded-[16px] border px-4 py-3 text-left transition-colors",
+              value === option.value
+                ? "border-primary bg-primary-soft text-ink"
+                : "border-border bg-surface text-ink hover:bg-surface-2",
             )}
           >
             <span className="block font-display text-sm font-bold">{option.label}</span>
@@ -327,8 +330,10 @@ export function Tabs<T extends string>({
           aria-selected={value === tab.value}
           onClick={() => onChange(tab.value)}
           className={cn(
-            "min-h-11 rounded-full border-[3px] border-border px-4 font-display text-sm font-bold shadow-hard-sm max-md:border-2",
-            value === tab.value ? "bg-ink text-bg" : "bg-surface text-ink",
+            "min-h-11 rounded-full border px-4 font-display text-sm font-semibold transition-colors",
+            value === tab.value
+              ? "border-primary bg-primary text-primary-ink"
+              : "border-border bg-surface text-ink hover:bg-surface-2",
           )}
         >
           {tab.label}
@@ -336,6 +341,15 @@ export function Tabs<T extends string>({
       ))}
     </div>
   );
+}
+
+function avatarTint(name: string) {
+  const hues = [262, 198, 338, 28, 152, 218, 48, 308];
+  let hash = 0;
+  for (let index = 0; index < name.length; index += 1) {
+    hash = (hash * 31 + name.charCodeAt(index)) >>> 0;
+  }
+  return `hsl(${hues[hash % hues.length]} 52% 84% / 0.5)`;
 }
 
 const AVATAR_SIZES = {
@@ -366,12 +380,12 @@ export function Avatar({
     .toUpperCase();
   return (
     <span className="relative inline-flex shrink-0">
-      <span
-        className={cn(
-          "flex items-center justify-center overflow-hidden rounded-full border-[3px] border-border bg-surface-2 font-display font-bold text-ink max-md:border-2",
+      <    span className={cn(
+          "flex items-center justify-center overflow-hidden rounded-full border border-border font-semibold text-ink",
           AVATAR_SIZES[size],
           !connected && "opacity-50",
         )}
+        style={{ background: avatarTint(name) }}
       >
         {src ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -381,7 +395,7 @@ export function Avatar({
         )}
       </span>
       {host ? (
-        <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full border-2 border-border bg-accent text-[10px] text-on-accent" aria-label="Host">
+        <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[10px] text-on-accent" aria-label="Host">
           ★
         </span>
       ) : null}
@@ -406,7 +420,7 @@ export function AvatarStack({
         </span>
       ))}
       {rest > 0 ? (
-        <span className="-ml-2 flex h-9 min-w-9 items-center justify-center rounded-full border-2 border-border bg-surface px-1 font-mono text-xs font-bold text-ink">
+        <span className="-ml-2 flex h-9 min-w-9 items-center justify-center rounded-full border border-border bg-surface px-1 font-mono text-xs font-semibold text-ink">
           +{rest}
         </span>
       ) : null}
@@ -423,13 +437,13 @@ export function Badge({
 }) {
   const tones = {
     neutral: "bg-surface-2 text-ink",
-    primary: "bg-primary text-on-accent",
-    success: "bg-success text-on-accent",
-    accent: "bg-accent text-on-accent",
-    danger: "bg-danger text-on-accent",
+    primary: "bg-primary-soft text-primary",
+    success: "bg-success/10 text-success",
+    accent: "bg-accent-soft text-ink",
+    danger: "bg-danger/10 text-danger",
   };
   return (
-    <span className={cn("inline-flex min-h-7 items-center rounded-full border-2 border-border px-2.5 text-[12px] font-bold uppercase tracking-[0.08em]", tones[tone])}>
+    <span className={cn("inline-flex min-h-7 items-center rounded-full px-2.5 text-[12px] font-semibold", tones[tone])}>
       {children}
     </span>
   );
@@ -443,7 +457,7 @@ export function Sticker({
   className?: string;
 }) {
   return (
-    <span className={cn("inline-block -rotate-3 rounded-[8px] border-[3px] border-border bg-accent px-3 py-1 font-display text-sm font-bold uppercase tracking-[0.08em] text-on-accent shadow-hard-sm", className)}>
+    <span className={cn("inline-block -rotate-3 rounded-full bg-accent px-3 py-1 font-display text-sm font-semibold text-on-accent", className)}>
       {children}
     </span>
   );
@@ -488,7 +502,7 @@ export function Modal({
             exit={{ y: 24, opacity: 0 }}
             transition={{ type: "spring", stiffness: 500, damping: 30 }}
             onClick={(event) => event.stopPropagation()}
-            className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-t-[8px] border-[3px] border-border bg-surface p-5 shadow-hard-lg sm:rounded-[8px] sm:p-6"
+            className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-t-[20px] border border-border bg-surface p-5 shadow-soft sm:rounded-[20px] sm:p-6"
           >
             <div className="mb-4 flex items-center justify-between gap-3">
               <h2 className="font-display text-xl font-bold text-ink">{title}</h2>
@@ -518,7 +532,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
       {children}
       <div aria-live="polite" className="pointer-events-none fixed bottom-4 left-1/2 z-[90] -translate-x-1/2">
         {message ? (
-          <div className="rounded-[8px] border-[3px] border-border bg-accent px-5 py-3 font-display text-sm font-bold text-on-accent shadow-hard-md">
+          <div className="rounded-[14px] border border-border bg-surface px-5 py-3 font-medium text-ink shadow-soft">
             {message}
           </div>
         ) : null}
@@ -558,7 +572,7 @@ export function TimerBar({
         <span className="label text-ink">{label}</span>
         <span className="font-mono text-xs font-bold text-ink">{Math.ceil(remaining / 1000)}s</span>
       </div>
-      <div className="h-5 overflow-hidden rounded-[8px] border-[3px] border-border bg-surface-2 max-md:border-2" role="timer" aria-label={`${Math.ceil(remaining / 1000)} seconds remaining`}>
+      <div className="h-2 overflow-hidden rounded-full bg-surface-2" role="timer" aria-label={`${Math.ceil(remaining / 1000)} seconds remaining`}>
         <div
           className={cn("h-full transition-[width] duration-200", warning ? "bg-danger" : "bg-success")}
           style={{ width: `${percent}%` }}
@@ -569,7 +583,7 @@ export function TimerBar({
 }
 
 export function Skeleton({ className = "" }: { className?: string }) {
-  return <div className={cn("animate-pulse rounded-[8px] border-2 border-border bg-surface-2", className)} />;
+  return <div className={cn("animate-pulse rounded-[12px] bg-surface-2", className)} />;
 }
 
 export function EmptyState({
@@ -584,7 +598,7 @@ export function EmptyState({
   action?: ReactNode;
 }) {
   return (
-    <div className="rounded-[8px] border-[3px] border-dashed border-border bg-surface p-8 text-center shadow-hard-sm max-md:border-2">
+    <div className="rounded-[20px] border border-border bg-surface p-8 text-center shadow-soft">
       <span className="text-4xl" aria-hidden>{emoji}</span>
       <h3 className="mt-3 font-display text-xl font-bold text-ink">{title}</h3>
       <p className="mx-auto mt-1 max-w-sm text-sm text-muted">{description}</p>
