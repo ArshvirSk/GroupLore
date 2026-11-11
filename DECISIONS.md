@@ -69,7 +69,7 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 - **Wavelength scores the group average, not only individual guesses.** Each guesser scores 2 within 10 points and 1 within 20. The clue giver is scored against the average guess, so one wild guess cannot erase an otherwise good clue. The target is private to the clue giver and omitted from `publicFor`.
 - **Category Rush merges normalized duplicates.** Answers are grouped with the shared text normalizer, unique groups score 2 and shared groups 1, and the server enforces the required starting letter. This makes matching the group safe but less rewarding than a unique valid answer.
 - **All seven Phase 4 games implement `publicFor`.** The TV gets only public phases and reveal data; Liars Bar's unchosen statement, Wavelength's target, Avoid the Answer's target and Caption This's authors are never sent early.
-- **Phase 4 needs a database migration.** `supabase-migration-phase4-games.sql` expands the `game_sessions.game_type` CHECK. It has not yet been applied to the hosted project; fresh installs use the updated `supabase-schema.sql`.
+- **Phase 4 needs a database migration.** `supabase-migration-phase4-games.sql` expands the `game_sessions.game_type` CHECK. It was applied to the hosted project on 2026-11-11 and verified with a three-user hosted start of every game; fresh installs use the updated `supabase-schema.sql`.
 
 ## Supabase Auth
 

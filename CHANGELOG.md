@@ -15,7 +15,7 @@ All phase work is recorded here with what was verified and what was deferred.
 - **Category Rush** (`category-rush`): one category and one required starting letter per round. Unique valid answers score 2 and matching answers score 1; the server enforces the letter.
 - **Screens and routing:** seven new game components are routed by `room.gameId`, and the fallback no longer catches any Phase 4 id. Every module implements private `viewFor` and redacted `publicFor` for the TV.
 - **Prompt banks:** 24 Liars Bar truth/lie pairs, 30 Higher/Lower categories, 30 Avoid the Answer secret/banned sets, 30 Would You Rather pairs, 25 Caption This scenarios, 25 Wavelength spectra and 30 Category Rush category/letter prompts.
-- **Database migration:** `supabase-migration-phase4-games.sql` adds the seven ids to the `game_sessions.game_type` CHECK; `supabase-schema.sql` is updated for fresh installs.
+- **Database migration:** `supabase-migration-phase4-games.sql` adds the seven ids to the `game_sessions.game_type` CHECK; `supabase-schema.sql` is updated for fresh installs. The migration was applied to the hosted Supabase project on 2026-11-11.
 - **Best Friend Test is retired rather than ported.** Its mechanic depends on `member_profiles` and would break the rule that current games are independent of lore. The legacy id stays in the CHECK constraint for old rows only.
 
 ### Verified
@@ -23,10 +23,11 @@ All phase work is recorded here with what was verified and what was deferred.
 - `server npm test` — **28/28 passing**: the existing suites plus Liars Bar secrecy and group scoring, Higher/Lower ranking and calls, Avoid the Answer banned-word validation and scoring, Would You Rather majority/tie scoring, Caption This author privacy and vote scoring, Wavelength target secrecy and closeness scoring, Category Rush letter enforcement and unique-answer scoring, and all Phase 4 bank sizes/id uniqueness.
 - `client npm run build` — success; all game routes still compile.
 - `client npx eslint src` — 0 errors, 4 pre-existing warnings.
+- Hosted Phase 4 migration — the `game_sessions_game_type_check` constraint now contains all 16 ids.
+- Hosted end-to-end start — three disposable Supabase users created a group and started a Classic session for each of the seven games through the real REST and Socket.io paths. Each session row became `active` with the matching `game_type`. All temporary auth users, app users, group, sessions, members, profiles, stats and activity rows were deleted afterwards (verified counts: 0 remaining).
 
 ### Not verified / deferred
 
-- The hosted Phase 4 migration has **not** been applied. The user must run `supabase-migration-phase4-games.sql` in the Supabase SQL editor before creating these game sessions against the hosted database; the schema file is current for fresh installs.
 - No live browser playthrough of the seven screens was performed; they compile but were not clicked through.
 
 ## Supabase Auth migration
