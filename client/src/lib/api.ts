@@ -76,6 +76,10 @@ export const api = {
   getActiveSession: (groupId: string) =>
     apiRequest(`/api/games/active/${groupId}`),
 
+  // Public invite lookup — only a join code is required
+  getInvite: (code: string) =>
+    apiRequest(`/api/invites/${encodeURIComponent(code)}`),
+
   // Nudges
   sendNudge: (groupId: string, from: string) =>
     apiRequest(`/api/groups/${groupId}/nudge`, {

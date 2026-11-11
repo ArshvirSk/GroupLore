@@ -10,6 +10,7 @@ export default function SignInPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const nextPath = safeNextPath(searchParams.get("next"));
+  const guestPath = nextPath.startsWith("/join/") ? nextPath : "/guest";
   const { isLoaded, isSignedIn } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -95,6 +96,25 @@ export default function SignInPage() {
             {loading ? "Signing in…" : "Sign in →"}
           </button>
         </form>
+
+        <div className="my-6 flex items-center gap-3">
+          <span className="h-px flex-1 bg-white/10" />
+          <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-600">
+            or
+          </span>
+          <span className="h-px flex-1 bg-white/10" />
+        </div>
+
+        <button
+          type="button"
+          onClick={() => router.push(guestPath)}
+          className="min-h-12 w-full rounded-xl border border-white/10 bg-white/5 px-6 text-xs font-bold uppercase tracking-wider text-zinc-200 transition hover:border-violet-500/30 hover:bg-violet-500/10 hover:text-white"
+        >
+          Continue as guest →
+        </button>
+        <p className="mt-2 text-center text-[11px] text-zinc-600">
+          No account needed to join an open lobby.
+        </p>
 
         <p className="mt-6 text-center text-xs text-zinc-500">
           New here?{" "}

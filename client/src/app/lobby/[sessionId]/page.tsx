@@ -2,6 +2,7 @@
 
 import AvatarBubble from "@/components/game/AvatarBubble";
 import GameShell from "@/components/game/GameShell";
+import { useAuth } from "@/components/AuthProvider";
 import { useRoom } from "@/hooks/useRoom";
 import { api } from "@/lib/api";
 import { copyInviteLink } from "@/lib/play";
@@ -99,6 +100,7 @@ export default function LobbyPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const reduced = useReducedMotion();
+  const { isSignedIn } = useAuth();
   const [joinCode, setJoinCode] = useState("");
   const [inviteCopied, setInviteCopied] = useState(false);
 
@@ -127,7 +129,7 @@ export default function LobbyPage() {
   }, [error, clearError]);
 
   useEffect(() => {
-    if (!groupId) return;
+    if (!groupId || !isSignedIn) return;
     let active = true;
     api
       .getGroup(groupId)
@@ -138,7 +140,7 @@ export default function LobbyPage() {
     return () => {
       active = false;
     };
-  }, [groupId]);
+  }, [groupId, isSignedIn]);
 
   const copyInvite = async () => {
     if (!joinCode) return;
@@ -218,8 +220,8 @@ export default function LobbyPage() {
       emoji="🎉"
       accent="grape"
       status={status}
-      onExit={() => router.push(groupId ? `/group/${groupId}` : "/dashboard")}
-      exitLabel="Group"
+      onExit={() => router.push(isSignedIn && groupId ? `/group/${groupId}` : "/")}
+      exitLabel={isSignedIn ? "Group" : "Home"}
     >
       <AnimatePresence>
         {error && (
@@ -246,14 +248,16 @@ export default function LobbyPage() {
             <span className="rounded-full bg-mint px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-ink">
               {players.length} in room
             </span>
-            <button
-              type="button"
-              onClick={() => void copyInvite()}
-              disabled={!joinCode}
-              className="rounded-full bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-grape shadow-soft disabled:opacity-40"
-            >
-              {inviteCopied ? "Copied ✓" : "Invite 🔗"}
-            </button>
+            {isSignedIn && (
+              <button
+                type="button"
+                onClick={() => void copyInvite()}
+                disabled={!joinCode}
+                className="rounded-full bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-grape shadow-soft disabled:opacity-40"
+              >
+                {inviteCopied ? "Copied ✓" : "Invite 🔗"}
+              </button>
+            )}
           </div>
         </div>
 
@@ -284,14 +288,20 @@ export default function LobbyPage() {
               {selectedGame.minPlayers - players.length === 1 ? "" : "s"} for{" "}
               {selectedGame.name}.
             </p>
-            <button
-              type="button"
-              onClick={() => void copyInvite()}
-              disabled={!joinCode}
-              className="mt-2 text-xs font-bold uppercase tracking-wide text-[#8A5A00] underline underline-offset-4 disabled:opacity-40"
-            >
-              {inviteCopied ? "Invite link copied" : "Copy invite link"}
-            </button>
+            {isSignedIn ? (
+              <button
+                type="button"
+                onClick={() => void copyInvite()}
+                disabled={!joinCode}
+                className="mt-2 text-xs font-bold uppercase tracking-wide text-[#8A5A00] underline underline-offset-4 disabled:opacity-40"
+              >
+                {inviteCopied ? "Invite link copied" : "Copy invite link"}
+              </button>
+            ) : (
+              <p className="mt-2 text-xs font-bold uppercase tracking-wide text-[#8A5A00]">
+                Ask the host to invite more players
+              </p>
+            )}
           </div>
         )}
       </section>
@@ -376,7 +386,7 @@ export default function LobbyPage() {
       <button
         onClick={() => {
           leave();
-          router.push(groupId ? `/group/${groupId}` : "/dashboard");
+          router.push(isSignedIn && groupId ? `/group/${groupId}` : "/");
         }}
         className="mx-auto mt-4 block min-h-11 rounded-full px-4 text-xs font-bold uppercase tracking-wide text-ink-soft underline-offset-4 hover:underline"
       >

@@ -1,4 +1,29 @@
 import { api } from "@/lib/api";
+import { createGuestIdentity } from "@/lib/guest";
+
+export type InviteInfo = {
+  group: { id: string; name: string };
+  lobby: { id: string; game_type: string; created_at: string } | null;
+  guestsEnabled: boolean;
+};
+
+export async function getInvite(code: string): Promise<InviteInfo> {
+  return api.getInvite(code) as Promise<InviteInfo>;
+}
+
+/** Guests can only enter an already-open lobby; they never join the group. */
+export async function joinOpenLobbyAsGuest(name: string, code: string) {
+  const invite = await getInvite(code);
+  if (!invite.guestsEnabled) {
+    throw new Error("Guest play is disabled on this server");
+  }
+  if (!invite.lobby) {
+    throw new Error("No lobby is open for that code. Ask the host to open one.");
+  }
+
+  await createGuestIdentity(name);
+  return invite.lobby.id;
+}
 
 /** Returns the existing lobby for a group or creates one. */
 export async function ensureLobby(groupId: string) {

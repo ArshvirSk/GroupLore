@@ -14,6 +14,7 @@ import FiveSecondGame, {
   type FiveSecondView,
 } from "@/components/game/FiveSecondGame";
 import GameShell from "@/components/game/GameShell";
+import { useAuth } from "@/components/AuthProvider";
 import HigherLowerGame, {
   type HigherLowerView,
 } from "@/components/game/HigherLowerGame";
@@ -54,10 +55,21 @@ export default function GamePage() {
   const { sessionId } = useParams<{ sessionId: string }>();
   const router = useRouter();
   const reduced = useReducedMotion();
+  const { isSignedIn } = useAuth();
   const { room, status, error, kicked, act, send, leave, clearError } =
     useRoom(sessionId);
 
   const groupId = room?.groupId || "";
+  const exitPath = isSignedIn
+    ? groupId
+      ? `/group/${groupId}`
+      : "/dashboard"
+    : "/";
+  const backLabel = isSignedIn
+    ? groupId
+      ? "Back to group"
+      : "Back to dashboard"
+    : "Back to home";
   const gameMeta = room?.catalog.find((game) => game.id === room.gameId);
   const gameView = (room?.game || null) as {
     round?: number;
@@ -84,7 +96,7 @@ export default function GamePage() {
       return;
     }
     leave();
-    router.push(groupId ? `/group/${groupId}` : "/dashboard");
+    router.push(exitPath);
   };
 
   if (kicked) {
@@ -96,10 +108,10 @@ export default function GamePage() {
             {error?.message || "You were removed from this room."}
           </p>
           <button
-            onClick={() => router.push(groupId ? `/group/${groupId}` : "/dashboard")}
+            onClick={() => router.push(exitPath)}
             className="mt-5 min-h-11 rounded-full bg-grape px-6 font-display text-sm font-semibold text-white"
           >
-            Back to group
+            {backLabel}
           </button>
         </div>
       </GameShell>
@@ -355,11 +367,11 @@ export default function GamePage() {
           <button
             onClick={() => {
               leave();
-              router.push(groupId ? `/group/${groupId}` : "/dashboard");
+              router.push(exitPath);
             }}
             className="mx-auto block min-h-11 rounded-full px-4 text-xs font-bold uppercase tracking-wide text-ink-soft underline-offset-4 hover:underline"
           >
-            Back to group
+            {backLabel}
           </button>
         </div>
       )}

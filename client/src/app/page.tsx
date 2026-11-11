@@ -248,7 +248,7 @@ export default function LandingPage() {
             
             {/* Not Signed In Deck */}
             {!isSignedIn && (
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <button
                   onClick={() => router.push("/sign-up")}
                   className="w-full sm:w-auto px-8 py-4 rounded-full bg-violet-600 hover:bg-violet-500 text-white font-bold uppercase tracking-wider text-xs border border-violet-500/40 shadow-[0_0_25px_rgba(139,92,246,0.25)] hover:shadow-[0_0_35px_rgba(139,92,246,0.4)] transition-all duration-300"
@@ -260,6 +260,12 @@ export default function LandingPage() {
                   className="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent text-zinc-300 hover:text-white font-bold uppercase tracking-wider text-xs border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all duration-300"
                 >
                   Sign In
+                </button>
+                <button
+                  onClick={() => router.push("/guest")}
+                  className="w-full px-8 py-4 rounded-full bg-transparent text-zinc-400 hover:text-white font-bold uppercase tracking-wider text-xs border border-dashed border-white/15 hover:border-white/30 hover:bg-white/5 transition-all duration-300 sm:w-auto"
+                >
+                  Continue as guest →
                 </button>
               </div>
             )}
