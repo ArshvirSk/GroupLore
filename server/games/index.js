@@ -1,12 +1,19 @@
+import avoidTheAnswer from "./avoidTheAnswer.js";
 import bluff from "./bluff.js";
+import captionThis from "./captionThis.js";
+import categoryRush from "./categoryRush.js";
 import fiveSecond from "./fiveSecond.js";
+import higherLower from "./higherLower.js";
 import hiveMind from "./hiveMind.js";
 import hotTakes from "./hotTakes.js";
 import impostor from "./impostor.js";
+import liarsBar from "./liarsBar.js";
 import mostLikelyTo from "./mostLikelyTo.js";
 import oddOneOut from "./oddOneOut.js";
 import overrated from "./overrated.js";
 import stub from "./stub.js";
+import wavelength from "./wavelength.js";
+import wouldYouRather from "./wouldYouRather.js";
 
 const registry = new Map();
 
@@ -31,6 +38,13 @@ registerGame(mostLikelyTo);
 registerGame(impostor);
 registerGame(fiveSecond);
 registerGame(overrated);
+registerGame(liarsBar);
+registerGame(higherLower);
+registerGame(avoidTheAnswer);
+registerGame(wouldYouRather);
+registerGame(captionThis);
+registerGame(wavelength);
+registerGame(categoryRush);
 registerGame(hiveMind);
 registerGame(oddOneOut);
 registerGame(bluff);
