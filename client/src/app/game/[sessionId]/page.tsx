@@ -43,6 +43,9 @@ import OddOneOutGame, {
 import OverratedGame, {
   type OverratedView,
 } from "@/components/game/OverratedGame";
+import PitchPerfectGame, {
+  type PitchView,
+} from "@/components/game/PitchPerfectGame";
 import RoastBattleGame, {
   type RoastView,
 } from "@/components/game/RoastBattleGame";
@@ -319,6 +322,14 @@ export default function GamePage() {
         />
       )}
 
+      {activeView && room.gameId === "pitch-perfect" && (
+        <PitchPerfectGame
+          room={room}
+          view={room.game as unknown as PitchView}
+          send={send}
+        />
+      )}
+
       {activeView &&
         ![
           "most-likely-to",
@@ -338,6 +349,7 @@ export default function GamePage() {
           "category-rush",
           "roast-battle",
           "acronym-wars",
+          "pitch-perfect",
         ].includes(room.gameId || "") && (
           <div className="party-card p-8 text-center">
             <p className="text-3xl">🚧</p>

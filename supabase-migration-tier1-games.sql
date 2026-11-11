@@ -23,5 +23,6 @@ ALTER TABLE game_sessions ADD CONSTRAINT game_sessions_game_type_check
     'wavelength',
     'category-rush',
     'roast-battle',
-    'acronym-wars'
+    'acronym-wars',
+    'pitch-perfect'
   ));

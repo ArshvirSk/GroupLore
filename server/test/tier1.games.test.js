@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { createRequire } from "node:module";
 import test from "node:test";
 import acronymWars from "../games/acronymWars.js";
+import pitchPerfect from "../games/pitchPerfect.js";
 import roastBattle from "../games/roastBattle.js";
 
 const require = createRequire(import.meta.url);
@@ -171,9 +172,55 @@ test("acronym wars ends cleanly when a player leaves", () => {
   assert.equal(state.done, true);
 });
 
+test("pitch perfect hides authors and doubles the final round", () => {
+  const room = makeRoom(3);
+  const state = pitchPerfect.init(room, "quick");
+  state.round = state.rounds;
+
+  pitchPerfect.onEvent(room, "p1", { type: "pitch", value: "It solves everything." });
+  pitchPerfect.onEvent(room, "p2", { type: "pitch", value: "Buy it for your enemy." });
+  pitchPerfect.onEvent(room, "p3", { type: "pitch", value: "It is slightly less bad." });
+
+  assert.equal(state.phase, "vote");
+  assert.equal("playerId" in pitchPerfect.viewFor(room, "p1").choices[0], false);
+  assert.equal(JSON.stringify(pitchPerfect.publicFor(room)).includes("p2"), false);
+
+  const p2Choice = state.choices.find((choice) => choice.playerId === "p2");
+  const p3Choice = state.choices.find((choice) => choice.playerId === "p3");
+  assert.throws(
+    () => pitchPerfect.onEvent(room, "p2", { type: "vote", choiceId: p2Choice.id }),
+    /own/i,
+  );
+
+  pitchPerfect.onEvent(room, "p1", { type: "vote", choiceId: p2Choice.id });
+  pitchPerfect.onEvent(room, "p2", { type: "vote", choiceId: p3Choice.id });
+  pitchPerfect.onEvent(room, "p3", { type: "vote", choiceId: p2Choice.id });
+
+  assert.equal(state.phase, "reveal");
+  assert.equal(state.reveal.multiplier, 2);
+  assert.equal(room.scores.p2, 1000);
+  assert.equal(room.scores.p3, 200);
+  assert.equal(pitchPerfect.onPhaseEnd(room), "results");
+});
+
+test("pitch perfect ends cleanly when a player leaves", () => {
+  const room = makeRoom(3);
+  const state = pitchPerfect.init(room, "classic");
+  room.players.delete("p1");
+  assert.equal(pitchPerfect.onPlayerLeave(room, "p1"), "results");
+  assert.equal(state.done, true);
+});
+
 test("roast battle prompt bank meets its minimum and has unique ids", () => {
   const prompts = require("../data/prompts/roastBattle.json");
   assert.ok(prompts.length >= 150);
+  assert.equal(new Set(prompts.map((prompt) => prompt.id)).size, prompts.length);
+  assert.ok(prompts.every((prompt) => prompt.text.trim().length > 0));
+});
+
+test("pitch perfect prompt bank meets its minimum and has unique ids", () => {
+  const prompts = require("../data/prompts/pitchPerfect.json");
+  assert.ok(prompts.length >= 100);
   assert.equal(new Set(prompts.map((prompt) => prompt.id)).size, prompts.length);
   assert.ok(prompts.every((prompt) => prompt.text.trim().length > 0));
 });
