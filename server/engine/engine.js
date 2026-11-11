@@ -251,7 +251,7 @@ export class GameEngine {
 
     const identityKey = auth.userId
       ? `u:${auth.userId}`
-      : `g:${identity.guestId || identity.clerkId}`;
+      : `g:${identity.guestId || identity.authUserId}`;
     const reconnect = payload.reconnectToken
       ? verifySignedToken(payload.reconnectToken)
       : null;
@@ -307,7 +307,7 @@ export class GameEngine {
       identityKey,
       kind: identity.kind,
       guestId: identity.guestId || null,
-      clerkId: identity.clerkId || null,
+      authUserId: identity.authUserId || null,
       userId: auth.userId || null,
       name: auth.name || identity.name || "Player",
       avatarUrl: auth.avatarUrl || identity.avatarUrl || null,

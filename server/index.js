@@ -1,4 +1,3 @@
-import { clerkMiddleware } from "@clerk/express";
 import cors from "cors";
 import "dotenv/config";
 import express from "express";
@@ -40,7 +39,6 @@ app.use(
   }),
 );
 app.use(express.json({ limit: "64kb" }));
-app.use(clerkMiddleware());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
@@ -52,8 +50,12 @@ app.use("/api/feed", feedRoutes);
 const engine = new GameEngine({
   io,
   resolveIdentity: createIdentityResolver({
-    clerkEnabled: Boolean(process.env.CLERK_SECRET_KEY),
     allowGuests,
+    verifyAccessToken: async (token) => {
+      const { data, error } = await supabase.auth.getUser(token);
+      if (error) return null;
+      return data?.user || null;
+    },
   }),
   authorize: ({ identity, groupId }) =>
     authorizePlayer({ identity, groupId, allowGuests }),

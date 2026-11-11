@@ -8,14 +8,14 @@ import { generateJoinCode } from "../utils/helpers.js";
 const router = Router();
 
 /**
- * Helper: resolve Clerk userId → Supabase UUID.
+ * Helper: resolve the Supabase auth user id to the app users UUID.
  * Returns the existing UUID or null if not found.
  */
-async function resolveUserId(clerkUserId) {
+async function resolveUserId(authUserId) {
   const { data } = await supabase
     .from("users")
     .select("id")
-    .eq("clerk_id", clerkUserId)
+    .eq("auth_user_id", authUserId)
     .single();
   return data?.id || null;
 }
@@ -24,13 +24,13 @@ async function resolveUserId(clerkUserId) {
 router.post("/", requireAuth, async (req, res) => {
   try {
     const { name, avatarUrl } = req.body;
-    const clerkUserId = req.clerkUserId;
+    const authUserId = req.authUserId;
 
     if (!name) {
       return res.status(400).json({ error: "Name is required" });
     }
 
-    const dbUserId = await resolveUserId(clerkUserId);
+    const dbUserId = await resolveUserId(authUserId);
     if (!dbUserId) {
       return res.status(400).json({ error: "User not synced — call /api/users/sync first" });
     }
@@ -99,7 +99,7 @@ router.post("/", requireAuth, async (req, res) => {
 // Get current user's groups
 router.get("/my", requireAuth, async (req, res) => {
   try {
-    const dbUserId = await resolveUserId(req.clerkUserId);
+    const dbUserId = await resolveUserId(req.authUserId);
     if (!dbUserId) return res.json([]);
 
     const { data: memberships, error } = await supabase
@@ -149,7 +149,7 @@ router.post("/join", requireAuth, async (req, res) => {
       return res.status(400).json({ error: "joinCode is required" });
     }
 
-    const dbUserId = await resolveUserId(req.clerkUserId);
+    const dbUserId = await resolveUserId(req.authUserId);
     if (!dbUserId) {
       return res.status(400).json({ error: "User not synced" });
     }
@@ -221,7 +221,7 @@ router.post("/join", requireAuth, async (req, res) => {
 router.delete("/:groupId/leave", requireAuth, async (req, res) => {
   try {
     const { groupId } = req.params;
-    const dbUserId = await resolveUserId(req.clerkUserId);
+    const dbUserId = await resolveUserId(req.authUserId);
     if (!dbUserId) return res.status(400).json({ error: "User not synced" });
 
     // Get the group with members
@@ -288,7 +288,7 @@ router.delete("/:groupId/leave", requireAuth, async (req, res) => {
 router.delete("/:groupId/members/:targetUserId", requireAuth, async (req, res) => {
   try {
     const { groupId, targetUserId } = req.params;
-    const dbUserId = await resolveUserId(req.clerkUserId);
+    const dbUserId = await resolveUserId(req.authUserId);
     if (!dbUserId) return res.status(400).json({ error: "User not synced" });
 
     // Verify requesting user is the host

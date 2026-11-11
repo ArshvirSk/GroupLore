@@ -1,11 +1,11 @@
 import { supabase } from "./supabase.js";
 
-export async function resolveDbUser(clerkId) {
-  if (!clerkId) return null;
+export async function resolveDbUser(authUserId) {
+  if (!authUserId) return null;
   const { data } = await supabase
     .from("users")
-    .select("id, clerk_id, name, avatar_url")
-    .eq("clerk_id", clerkId)
+    .select("id, auth_user_id, name, avatar_url")
+    .eq("auth_user_id", authUserId)
     .maybeSingle();
   return data || null;
 }
@@ -28,8 +28,8 @@ export async function isGroupMember(userId, groupId) {
 export async function authorizePlayer({ identity, groupId, allowGuests }) {
   if (!identity) return { allowed: false };
 
-  if (identity.kind === "clerk") {
-    const user = await resolveDbUser(identity.clerkId);
+  if (identity.kind === "supabase") {
+    const user = await resolveDbUser(identity.authUserId);
     if (!user) return { allowed: false };
     const membership = await isGroupMember(user.id, groupId);
     if (!membership) return { allowed: false };
@@ -55,7 +55,7 @@ export async function authorizePlayer({ identity, groupId, allowGuests }) {
 
 /**
  * Express middleware. Must run after requireAuth.
- * Resolves the Clerk user to its DB row and checks membership of the group.
+ * Resolves the Supabase user to its DB row and checks membership of the group.
  */
 export function requireGroupMember(paramName = "groupId") {
   return async (req, res, next) => {
@@ -66,7 +66,7 @@ export function requireGroupMember(paramName = "groupId") {
         return res.status(400).json({ error: "groupId required" });
       }
 
-      const user = await resolveDbUser(req.clerkUserId);
+      const user = await resolveDbUser(req.authUserId);
       if (!user) {
         return res.status(404).json({ error: "User not synced" });
       }
@@ -92,7 +92,7 @@ export function requireGroupHost(paramName = "groupId") {
     try {
       const groupId =
         req.params?.[paramName] || req.body?.groupId || req.query?.groupId;
-      const user = await resolveDbUser(req.clerkUserId);
+      const user = await resolveDbUser(req.authUserId);
       if (!user) return res.status(404).json({ error: "User not synced" });
 
       const membership = await isGroupMember(user.id, groupId);
@@ -131,7 +131,7 @@ export async function requireSessionMember(req, res, next) {
 
     if (!session) return res.status(404).json({ error: "Session not found" });
 
-    const user = await resolveDbUser(req.clerkUserId);
+    const user = await resolveDbUser(req.authUserId);
     if (!user) return res.status(404).json({ error: "User not synced" });
 
     const membership = await isGroupMember(user.id, session.group_id);

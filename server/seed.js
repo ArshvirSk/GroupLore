@@ -14,11 +14,11 @@ async function seed() {
     .from("users")
     .upsert(
       {
-        clerk_id: "demo_user_001",
+        auth_user_id: "demo_user_001",
         name: "Demo Host",
         email: "demo@grouplore.app",
       },
-      { onConflict: "clerk_id" },
+      { onConflict: "auth_user_id" },
     )
     .select()
     .single();

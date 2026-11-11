@@ -1,11 +1,11 @@
 import crypto from "node:crypto";
-import { verifyToken } from "@clerk/backend";
 
 /**
  * Token + identity helpers for the game engine.
  *
  * Two kinds of players are supported:
- *  - Clerk users: the client sends its Clerk session JWT in the socket handshake.
+ *  - Supabase users: the client sends its Supabase access token in the socket
+ *    handshake. The server verifies it with Supabase Auth.
  *  - Guests: the client exchanges a display name for a short signed guest token.
  *
  * Reconnect tokens are separate: they prove "I am the player who was in seat X",
@@ -15,15 +15,7 @@ import { verifyToken } from "@clerk/backend";
 const DEFAULT_DEV_SECRET = "grouplore-local-dev-secret-do-not-use-in-production";
 
 export function tokenSecret() {
-  return (
-    process.env.SESSION_SECRET ||
-    (process.env.CLERK_SECRET_KEY
-      ? crypto
-          .createHash("sha256")
-          .update(`grouplore:${process.env.CLERK_SECRET_KEY}`)
-          .digest("hex")
-      : DEFAULT_DEV_SECRET)
-  );
+  return process.env.SESSION_SECRET || DEFAULT_DEV_SECRET;
 }
 
 function b64url(value) {
@@ -76,25 +68,44 @@ export function cleanName(value, fallback = "Player") {
   return name || fallback;
 }
 
+function nameFromSupabaseUser(user, fallback) {
+  const meta = user?.user_metadata || {};
+  const fullName = [meta.first_name, meta.last_name].filter(Boolean).join(" ");
+  return cleanName(
+    meta.full_name ||
+      meta.name ||
+      meta.display_name ||
+      fullName ||
+      user?.email?.split("@")[0] ||
+      fallback,
+    "Player",
+  );
+}
+
 /**
  * Resolve a socket handshake into an identity.
  * Throws an error with `code = "unauthorized"` when no valid credential is present.
+ *
+ * `verifyAccessToken` is injected by the server so this module stays usable in
+ * tests and never creates its own Supabase client.
  */
-export function createIdentityResolver({ clerkEnabled, allowGuests }) {
-  const secretKey = process.env.CLERK_SECRET_KEY;
-
+export function createIdentityResolver({ allowGuests, verifyAccessToken } = {}) {
   return async function resolveIdentity(socket) {
     const auth = socket.handshake.auth || {};
 
-    if (auth.token && clerkEnabled && secretKey) {
+    if (auth.token && typeof verifyAccessToken === "function") {
       try {
-        const payload = await verifyToken(auth.token, { secretKey });
-        if (payload?.sub) {
+        const user = await verifyAccessToken(String(auth.token));
+        if (user?.id) {
+          const meta = user.user_metadata || {};
           return {
-            kind: "clerk",
-            clerkId: payload.sub,
-            name: cleanName(auth.displayName || payload.name, "Player"),
-            avatarUrl: typeof auth.avatarUrl === "string" ? auth.avatarUrl : null,
+            kind: "supabase",
+            authUserId: user.id,
+            name: nameFromSupabaseUser(user, auth.displayName),
+            avatarUrl:
+              meta.avatar_url ||
+              meta.picture ||
+              (typeof auth.avatarUrl === "string" ? auth.avatarUrl : null),
           };
         }
       } catch {

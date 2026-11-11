@@ -5,11 +5,11 @@ import { supabase } from "../lib/supabase.js";
 
 const router = Router();
 
-async function resolveUserId(clerkUserId) {
+async function resolveUserId(authUserId) {
     const { data } = await supabase
         .from("users")
         .select("id")
-        .eq("clerk_id", clerkUserId)
+        .eq("auth_user_id", authUserId)
         .single();
     return data?.id || null;
 }
@@ -21,7 +21,7 @@ async function resolveUserId(clerkUserId) {
  */
 router.get("/", requireAuth, async (req, res) => {
     try {
-        const dbUserId = await resolveUserId(req.clerkUserId);
+        const dbUserId = await resolveUserId(req.authUserId);
         if (!dbUserId) return res.json([]);
 
         const limit = Math.min(parseInt(req.query.limit) || 20, 50);
@@ -61,7 +61,7 @@ router.get("/", requireAuth, async (req, res) => {
  */
 router.get("/stats", requireAuth, async (req, res) => {
     try {
-        const dbUserId = await resolveUserId(req.clerkUserId);
+        const dbUserId = await resolveUserId(req.authUserId);
         if (!dbUserId) return res.json({ stats: null, badges: [] });
 
         const { data: stats } = await supabase
@@ -101,7 +101,7 @@ router.get("/stats", requireAuth, async (req, res) => {
  */
 router.get("/active-lobbies", requireAuth, async (req, res) => {
     try {
-        const dbUserId = await resolveUserId(req.clerkUserId);
+        const dbUserId = await resolveUserId(req.authUserId);
         if (!dbUserId) return res.json([]);
 
         // Get all groups the user belongs to

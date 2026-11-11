@@ -134,7 +134,7 @@ router.delete("/:id", requireAuth, async (req, res) => {
 
     if (!profile) return res.status(404).json({ error: "Profile not found" });
 
-    const user = await resolveDbUser(req.clerkUserId);
+    const user = await resolveDbUser(req.authUserId);
     if (!user) return res.status(404).json({ error: "User not synced" });
 
     const membership = await isGroupMember(user.id, profile.group_id);

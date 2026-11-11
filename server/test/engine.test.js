@@ -5,7 +5,10 @@ import { after, test } from "node:test";
 import { Server } from "socket.io";
 import { io as createClient } from "socket.io-client";
 import { GameEngine } from "../engine/engine.js";
-import { createIdentityResolver, signGuestToken } from "../engine/auth.js";
+import {
+  createIdentityResolver,
+  signGuestToken,
+} from "../engine/auth.js";
 
 const sessions = new Map();
 const sockets = [];
@@ -33,7 +36,14 @@ const ioServer = new Server(httpServer);
 const engine = new GameEngine({
   io: ioServer,
   resolveIdentity: createIdentityResolver({
-    clerkEnabled: false,
+    verifyAccessToken: async (token) =>
+      token === "supabase-test-token"
+        ? {
+            id: "auth-user-1",
+            email: "ada@example.com",
+            user_metadata: { full_name: "Ada Lovelace" },
+          }
+        : null,
     allowGuests: true,
   }),
   authorize: async ({ identity }) => ({
@@ -203,6 +213,30 @@ after(async () => {
   engine.close();
   ioServer.close();
   await new Promise((resolve) => httpServer.close(resolve));
+});
+
+test("a Supabase access token resolves to the verified auth identity", async () => {
+  const sessionId = makeSession();
+  const socket = createClient(`http://localhost:${port}`, {
+    transports: ["websocket"],
+    reconnection: false,
+    forceNew: true,
+    auth: { token: "supabase-test-token", displayName: "Spoofed Name" },
+  });
+  sockets.push(socket);
+  await new Promise((resolve, reject) => {
+    socket.once("connect", resolve);
+    socket.once("connect_error", reject);
+  });
+
+  const tracker = makeTracker(socket);
+  const joined = await join({ socket, tracker }, sessionId);
+  const player = joined.view.players.find(
+    (entry) => entry.id === joined.playerId,
+  );
+
+  assert.equal(player.name, "Ada Lovelace");
+  socket.disconnect();
 });
 
 test("rejects a socket without a valid credential", async () => {
