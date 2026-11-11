@@ -11,6 +11,7 @@ import liarsBar from "./liarsBar.js";
 import mostLikelyTo from "./mostLikelyTo.js";
 import oddOneOut from "./oddOneOut.js";
 import overrated from "./overrated.js";
+import roastBattle from "./roastBattle.js";
 import stub from "./stub.js";
 import wavelength from "./wavelength.js";
 import wouldYouRather from "./wouldYouRather.js";
@@ -49,6 +50,7 @@ registerGame(hiveMind);
 registerGame(oddOneOut);
 registerGame(bluff);
 registerGame(hotTakes);
+registerGame(roastBattle);
 registerGame(stub);
 
 export default registry;

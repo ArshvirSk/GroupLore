@@ -104,7 +104,12 @@ function GameOption({
         <div>
           <p className="text-sm font-bold text-white">{game.name}</p>
           <p className="mt-0.5 text-xs text-text-secondary">{game.description}</p>
-          <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.14em] text-text-muted">
+          <p className="mt-2 flex flex-wrap gap-x-2 text-[10px] font-bold uppercase tracking-[0.14em] text-text-muted">
+            <span>{game.tag}</span>
+            <span>·</span>
+            <span>{game.modes.map((mode) => mode.label).join(" / ")}</span>
+          </p>
+          <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.14em] text-text-muted">
             {game.minPlayers}–{game.maxPlayers} players
             {playersNeeded > 0 ? ` · Need ${playersNeeded} more` : " · Ready"}
           </p>

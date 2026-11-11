@@ -56,6 +56,7 @@ Most games support **3–12 players**. **Odd One Out** requires **4–12**. Mode
 | 🎭 **Odd One Out** | 4–12 | **Classic** — one related prompt to find through discussion and voting; **Blind** — straight to the vote |
 | 🎩 **Bluff** | 3–12 | **Classic** — write a fake, then spot the real answer; **Quick** — three faster rounds |
 | 🌶️ **Hot Takes** | 3–12 | **Classic** — six takes, twelve seconds to pick a side; **Slow Burn** — twenty seconds |
+| 🔥 **Roast Battle** | 3–12 | **Classic** — three rounds of anonymous head-to-head answers; **Quick** — two faster rounds |
 
 ## Start a Game
 
@@ -75,7 +76,7 @@ The normal flow is dashboard → lobby → game. Invitees go from invite link �
 
 - Create a Supabase project at [supabase.com](https://supabase.com)
 - Run `supabase-schema.sql` in the SQL Editor
-- Upgrading an existing project: run `supabase-migration-phase3-games.sql` and `supabase-migration-phase4-games.sql` for the Phase 3/4 game ids, `supabase-migration-supabase-auth.sql` to move users onto Supabase Auth ids, and `supabase-migration-auth-rls.sql` to make app tables server-only
+- Upgrading an existing project: run `supabase-migration-phase3-games.sql` and `supabase-migration-phase4-games.sql` for the Phase 3/4 game ids, `supabase-migration-tier1-games.sql` for the current game expansion, `supabase-migration-supabase-auth.sql` to move users onto Supabase Auth ids, and `supabase-migration-auth-rls.sql` to make app tables server-only
 - Enable the **Email** provider under Supabase → Authentication → Providers
 - All app tables are server-only. The browser anon key is used for Supabase Auth only; the Express API uses the service-role key.
 

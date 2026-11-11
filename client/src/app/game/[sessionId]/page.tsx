@@ -40,6 +40,9 @@ import OddOneOutGame, {
 import OverratedGame, {
   type OverratedView,
 } from "@/components/game/OverratedGame";
+import RoastBattleGame, {
+  type RoastView,
+} from "@/components/game/RoastBattleGame";
 import WavelengthGame, {
   type WavelengthView,
 } from "@/components/game/WavelengthGame";
@@ -297,6 +300,14 @@ export default function GamePage() {
         />
       )}
 
+      {activeView && room.gameId === "roast-battle" && (
+        <RoastBattleGame
+          room={room}
+          view={room.game as unknown as RoastView}
+          send={send}
+        />
+      )}
+
       {activeView &&
         ![
           "most-likely-to",
@@ -314,6 +325,7 @@ export default function GamePage() {
           "caption-this",
           "wavelength",
           "category-rush",
+          "roast-battle",
         ].includes(room.gameId || "") && (
           <div className="party-card p-8 text-center">
             <p className="text-3xl">🚧</p>

@@ -875,6 +875,7 @@ export class GameEngine {
       description: game.description,
       emoji: game.emoji || "🎮",
       accent: game.accent || "grape",
+      tag: game.tag || "Party game",
       minPlayers: game.minPlayers,
       maxPlayers: game.maxPlayers,
       modes: Object.entries(game.modes).map(([id, config]) => ({

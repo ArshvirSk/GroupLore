@@ -33,6 +33,7 @@ export interface CatalogGame {
   description: string;
   emoji: string;
   accent: string;
+  tag: string;
   minPlayers: number;
   maxPlayers: number;
   modes: CatalogMode[];
