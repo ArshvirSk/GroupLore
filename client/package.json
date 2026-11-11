@@ -9,8 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.39.0",
-    "@clerk/themes": "^2.4.57",
     "@supabase/supabase-js": "^2.98.0",
     "@uploadthing/react": "^7.3.3",
     "framer-motion": "^12.34.3",

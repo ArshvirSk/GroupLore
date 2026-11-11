@@ -1,5 +1,6 @@
 "use client";
 
+import { useAuth } from "@/components/AuthProvider";
 import { getGuestIdentity } from "@/lib/guest";
 import {
   connectRoomSocket,
@@ -11,7 +12,6 @@ import {
   setRoomAuthFactory,
 } from "@/lib/roomSocket";
 import { useRoomStore } from "@/stores/roomStore";
-import { useAuth, useUser } from "@clerk/nextjs";
 import { useCallback, useEffect } from "react";
 
 function reconnectKey(sessionId: string) {
@@ -26,16 +26,6 @@ function readReconnectToken(sessionId: string): string | null {
   }
 }
 
-function displayNameFor(
-  user: ReturnType<typeof useUser>["user"],
-): string {
-  return (
-    [user?.firstName, user?.lastName].filter(Boolean).join(" ") ||
-    user?.username ||
-    "Guest"
-  );
-}
-
 /**
  * Single room connection hook.
  *
@@ -45,9 +35,8 @@ function displayNameFor(
  * disconnect grace period.
  */
 export function useRoom(sessionId: string) {
-  const { getToken, isSignedIn, isLoaded } = useAuth();
-  const { user } = useUser();
-  const displayName = displayNameFor(user);
+  const { isLoaded, isSignedIn, displayName, avatarUrl, getAccessToken } =
+    useAuth();
 
   const room = useRoomStore((state) => state.room);
   const status = useRoomStore((state) => state.status);
@@ -66,12 +55,12 @@ export function useRoom(sessionId: string) {
 
     setRoomAuthFactory(async () => {
       if (isSignedIn) {
-        const token = await getToken({ skipCache: true });
+        const token = await getAccessToken();
         if (token) {
           return {
             token,
             displayName,
-            avatarUrl: user?.imageUrl || null,
+            avatarUrl,
           };
         }
       }
@@ -165,11 +154,11 @@ export function useRoom(sessionId: string) {
     socket.on("room:kicked", onKicked);
     socket.on("disconnect", onDisconnect);
 
-    // Clerk session tokens are short lived. Keep the handshake credential fresh
-    // so an automatic socket reconnect does not fail after a long match.
+    // Supabase access tokens are short lived. Keep the handshake credential
+    // fresh so an automatic socket reconnect does not fail after a long match.
     const tokenTimer = setInterval(async () => {
       if (!active || !isSignedIn) return;
-      const token = await getToken();
+      const token = await getAccessToken();
       if (token) socket.auth = { ...socket.auth, token, displayName };
     }, 30_000);
 
@@ -202,8 +191,8 @@ export function useRoom(sessionId: string) {
     isLoaded,
     isSignedIn,
     displayName,
-    getToken,
-    user?.imageUrl,
+    avatarUrl,
+    getAccessToken,
     setRoom,
     setStatus,
     setError,

@@ -1,10 +1,10 @@
 "use client";
 
 import AvatarBubble from "@/components/AvatarBubble";
+import { useAuth } from "@/components/AuthProvider";
 import FloatingBlobs from "@/components/FloatingBlobs";
 import { api } from "@/lib/api";
 import { useUserStore } from "@/stores/userStore";
-import { useUser } from "@clerk/nextjs";
 import { AnimatePresence, motion } from "framer-motion";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -25,7 +25,7 @@ interface MemberProfile {
 interface GroupMember {
   user_id: string;
   role: string;
-  users: { id: string; name: string; clerk_id?: string };
+  users: { id: string; name: string };
 }
 
 interface Group {
@@ -54,13 +54,8 @@ const ROAST_MESSAGES = [
 export default function GroupDashboard() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
-  const { user } = useUser();
+  const { isLoaded, isSignedIn, displayName } = useAuth();
   const { dbUserId } = useUserStore();
-
-  const displayName =
-    [user?.firstName, user?.lastName].filter(Boolean).join(" ") ||
-    user?.username ||
-    "Player";
   const [group, setGroup] = useState<Group | null>(null);
   const [members, setMembers] = useState<MemberProfile[]>([]);
   const [showAdd, setShowAdd] = useState(false);
@@ -99,8 +94,14 @@ export default function GroupDashboard() {
       (m) => m.role === "host" && m.user_id === dbUserId,
     ) ?? false;
 
+  useEffect(() => {
+    if (!isLoaded) return;
+    if (!isSignedIn) router.replace("/sign-in");
+  }, [isLoaded, isSignedIn, router]);
+
   // Main data polling
   useEffect(() => {
+    if (!isLoaded || !isSignedIn) return;
     loadData();
     const interval = setInterval(async () => {
       try {
@@ -124,7 +125,7 @@ export default function GroupDashboard() {
       }
     }, 3000);
     return () => clearInterval(interval);
-  }, [id]);
+  }, [id, isLoaded, isSignedIn]);
 
   // Host polls for nudges
   useEffect(() => {

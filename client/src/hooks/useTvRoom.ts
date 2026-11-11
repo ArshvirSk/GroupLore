@@ -1,30 +1,20 @@
 "use client";
 
+import { useAuth } from "@/components/AuthProvider";
 import { getGuestIdentity } from "@/lib/guest";
 import type { RoomStatus, RoomView } from "@/stores/roomStore";
-import { useAuth, useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
 const SERVER_URL =
   process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3001";
 
-function displayNameFor(user: ReturnType<typeof useUser>["user"]): string {
-  return (
-    [user?.firstName, user?.lastName].filter(Boolean).join(" ") ||
-    user?.username ||
-    "Guest"
-  );
-}
-
 /**
  * The TV is a spectator, not a player. It uses its own socket so opening the
  * display never takes a seat, affects readiness, or receives private views.
  */
 export function useTvRoom(sessionId: string) {
-  const { getToken, isSignedIn, isLoaded } = useAuth();
-  const { user } = useUser();
-  const displayName = displayNameFor(user);
+  const { isLoaded, isSignedIn, displayName, getAccessToken } = useAuth();
 
   const [room, setRoom] = useState<RoomView | null>(null);
   const [status, setStatus] = useState<RoomStatus>("idle");
@@ -47,7 +37,7 @@ export function useTvRoom(sessionId: string) {
 
     const auth = async () => {
       if (isSignedIn) {
-        const token = await getToken({ skipCache: true });
+        const token = await getAccessToken();
         if (token) return { token, displayName };
       }
       const guest = await getGuestIdentity(displayName);
@@ -104,7 +94,7 @@ export function useTvRoom(sessionId: string) {
 
     const tokenTimer = setInterval(async () => {
       if (!isSignedIn) return;
-      const token = await getToken();
+      const token = await getAccessToken();
       if (token) socket.auth = { ...socket.auth, token, displayName };
     }, 30_000);
 
@@ -119,8 +109,7 @@ export function useTvRoom(sessionId: string) {
     isLoaded,
     isSignedIn,
     displayName,
-    getToken,
-    user?.imageUrl,
+    getAccessToken,
   ]);
 
   return { room, status, error, closed };

@@ -1,10 +1,11 @@
 "use client";
 
 import AvatarBubble from "@/components/AvatarBubble";
+import { useAuth } from "@/components/AuthProvider";
 import FloatingBlobs from "@/components/FloatingBlobs";
+import UserMenu from "@/components/UserMenu";
 import { api } from "@/lib/api";
 import { useUserStore } from "@/stores/userStore";
-import { SignedIn, UserButton, useUser } from "@clerk/nextjs";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -180,7 +181,7 @@ function StatBox({
 /* ═══════════════════════════════════════════ */
 export default function DashboardPage() {
   const router = useRouter();
-  const { isSignedIn, user } = useUser();
+  const { isLoaded, isSignedIn, displayName } = useAuth();
   const { dbUserId } = useUserStore();
 
   const [groups, setGroups] = useState<GroupItem[]>([]);
@@ -197,13 +198,9 @@ export default function DashboardPage() {
 
   const feedEndRef = useRef<HTMLDivElement>(null);
 
-  const displayName =
-    [user?.firstName, user?.lastName].filter(Boolean).join(" ") ||
-    user?.username ||
-    "Player";
-
   /* ── Initial load ── */
   useEffect(() => {
+    if (!isLoaded) return;
     if (!isSignedIn) {
       router.push("/sign-in");
       return;
@@ -227,11 +224,11 @@ export default function DashboardPage() {
         setPersonality(s.personalityByGroup || []);
       })
       .finally(() => setLoading(false));
-  }, [isSignedIn, dbUserId]);
+  }, [isLoaded, isSignedIn, dbUserId]);
 
   /* ── Poll active lobbies every 10s ── */
   useEffect(() => {
-    if (!isSignedIn) return;
+    if (!isLoaded || !isSignedIn) return;
     const interval = setInterval(() => {
       api
         .getActiveLobbies()
@@ -239,7 +236,7 @@ export default function DashboardPage() {
         .catch(() => {});
     }, 10000);
     return () => clearInterval(interval);
-  }, [isSignedIn]);
+  }, [isLoaded, isSignedIn]);
 
   /* ── Infinite scroll for feed ── */
   const loadMore = useCallback(() => {
@@ -291,9 +288,7 @@ export default function DashboardPage() {
             <p className="text-text-muted text-[10px] uppercase tracking-[0.2em]">
               The Hub
             </p>
-            <SignedIn>
-              <UserButton appearance={{ elements: { avatarBox: "w-8 h-8" } }} />
-            </SignedIn>
+            <UserMenu />
           </div>
           <h1 className="text-3xl font-black tracking-tighter uppercase">
             {displayName}

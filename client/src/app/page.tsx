@@ -1,9 +1,10 @@
 "use client";
 
+import { useAuth } from "@/components/AuthProvider";
 import FloatingBlobs from "@/components/FloatingBlobs";
+import UserMenu from "@/components/UserMenu";
 import { api } from "@/lib/api";
 import { useUserStore } from "@/stores/userStore";
-import { SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -57,7 +58,7 @@ const MOCK_CARDS: MockCard[] = [
 
 export default function LandingPage() {
   const router = useRouter();
-  const { isSignedIn, user } = useUser();
+  const { isSignedIn, displayName } = useAuth();
   const { dbUserId } = useUserStore();
   
   const [mode, setMode] = useState<"home" | "create" | "join">("home");
@@ -107,11 +108,6 @@ export default function LandingPage() {
       setIsLobbyJoining(false);
     }, 1200);
   };
-
-  const displayName =
-    [user?.firstName, user?.lastName].filter(Boolean).join(" ") ||
-    user?.username ||
-    "Player";
 
   const handleCreate = async () => {
     if (!groupName.trim()) {
@@ -200,28 +196,21 @@ export default function LandingPage() {
           </LinkButton>
           
           <div className="flex items-center gap-4">
-            <SignedIn>
+            {isSignedIn ? (
               <div className="flex items-center gap-3">
                 <span className="text-xs text-zinc-400 hidden sm:inline-block font-medium">
                   {displayName}
                 </span>
-                <UserButton
-                  appearance={{
-                    elements: {
-                      avatarBox: "w-8 h-8 ring-2 ring-violet-500/20 hover:ring-violet-500/50 transition-all duration-300",
-                    },
-                  }}
-                />
+                <UserMenu />
               </div>
-            </SignedIn>
-            <SignedOut>
+            ) : (
               <button
                 onClick={() => router.push("/sign-in")}
                 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-white transition-colors duration-200"
               >
                 Sign In
               </button>
-            </SignedOut>
+            )}
           </div>
         </div>
       </header>
@@ -257,7 +246,7 @@ export default function LandingPage() {
           <div className="relative max-w-md">
             
             {/* Not Signed In Deck */}
-            <SignedOut>
+            {!isSignedIn && (
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   onClick={() => router.push("/sign-up")}
@@ -272,10 +261,10 @@ export default function LandingPage() {
                   Sign In
                 </button>
               </div>
-            </SignedOut>
+            )}
 
             {/* Signed In Deck */}
-            <SignedIn>
+            {isSignedIn && (
               <AnimatePresence mode="wait">
                 {mode === "home" && (
                   <motion.div
@@ -411,7 +400,7 @@ export default function LandingPage() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </SignedIn>
+            )}
           </div>
         </motion.div>
 

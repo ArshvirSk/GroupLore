@@ -2,7 +2,7 @@ const API_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3001";
 
 let getTokenFn: (() => Promise<string | null>) | null = null;
 
-/** Call this once from a component that has access to Clerk's useAuth */
+/** Called once by AuthProvider with the current Supabase access token. */
 export function setAuthTokenGetter(fn: () => Promise<string | null>) {
   getTokenFn = fn;
 }
@@ -28,7 +28,7 @@ async function apiRequest(path: string, options: RequestInit = {}) {
 }
 
 export const api = {
-  // Users — sync Clerk user to Supabase, returns { dbUserId }
+  // Users — sync the Supabase Auth user into the app users table
   syncUser: () => apiRequest("/api/users/sync", { method: "POST" }),
 
   // Groups
