@@ -108,20 +108,18 @@ export function Card({
   children,
   variant = "flat",
   className = "",
-  as = "div",
-}: {
+  ...props
+}: Omit<HTMLMotionProps<"div">, "children"> & {
   children: ReactNode;
   variant?: "flat" | "raised" | "interactive";
-  className?: string;
-  as?: "div" | "section" | "article";
 }) {
   const reduced = useReducedMotion();
-  const Comp = as === "section" ? motion.section : motion.div;
   return (
-    <Comp
+    <motion.div
       whileHover={variant === "interactive" && !reduced ? { x: -2, y: -2 } : undefined}
       whileTap={variant === "interactive" && !reduced ? { x: 3, y: 3 } : undefined}
       transition={{ type: "spring", stiffness: 500, damping: 30 }}
+      {...props}
       className={cn(
         "rounded-[8px] border-[3px] border-border bg-surface max-md:border-2",
         variant === "flat" && "shadow-hard-sm",
@@ -132,7 +130,7 @@ export function Card({
       )}
     >
       {children}
-    </Comp>
+    </motion.div>
   );
 }
 
