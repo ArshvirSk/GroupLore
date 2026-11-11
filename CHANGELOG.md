@@ -2,6 +2,28 @@
 
 All phase work is recorded here with what was verified and what was deferred.
 
+## Start flow simplification
+
+### Shipped
+
+- **Any group member can open a lobby and start.** The host is no longer a gatekeeper for game selection or start; the host still owns kick, end and restart. The group page's poke/roast flow is gone.
+- **Shareable invite links.** Every group has a `/join/:code` URL. It sends signed-out visitors through sign-in/sign-up, joins the group, and lands them in an open lobby or the group page. The group page and lobby both expose a copy-link action.
+- **Dashboard creation without the landing-page loop.** **New Group** expands an inline name form on the dashboard and creates the group there. Group cards and the quick-play bar can open a lobby directly.
+- **Fewer setup screens.** The normal path is now dashboard → lobby → game. Invitees go from invite link → auth (if needed) → lobby/group.
+- **Ready gate removed.** Players no longer need to tap Ready up; a lobby starts when the selected game has enough connected players. The engine no longer checks readiness.
+- **Player minimums are visible before selection.** Every game card shows how many more players it needs, and the lobby shows a targeted invite prompt for the selected game. New lobbies preselect the session's default game.
+
+### Verified
+
+- `server npm test` — **28/28 passing**, including a non-host selecting and starting a game without readying up.
+- Hosted three-user smoke test — a non-host opened the lobby, a second non-host selected **Would You Rather**, and the lobby opener started it; the session row became `active` with the correct `game_type`. Temporary users and group data were deleted afterwards.
+- `client npm run build` — success; `/join/[code]` is in the route manifest.
+- `client npx eslint src` — 0 errors, 4 pre-existing warnings.
+
+### Not verified / deferred
+
+- The invite and dashboard forms compile but were not clicked through in a visual browser run.
+
 ## Phase 4 — seven more games
 
 ### Shipped
@@ -99,7 +121,7 @@ All phase work is recorded here with what was verified and what was deferred.
 - **Most Likely To** extracted into its own screen component; classic/anonymous modes unchanged.
 - **Game routing:** the game page now selects a screen by `room.gameId`; the lobby catalogue contains only the four playable games. Parked games and their old modes remain hidden.
 - **Read-only TV view (`/tv/[sessionId]`)**
-  - A separate spectator socket calls `room:spectate`; it never takes a player seat, cannot act, and does not affect readiness or host assignment.
+  - A separate spectator socket calls `room:spectate`; it never takes a player seat, cannot act, and does not affect room state or host assignment.
   - Game modules expose `publicFor(room)`, so the TV never receives private state. In particular, the Impostor prompt is hidden on the TV until the reveal.
   - The display shows the lobby, round/timer, public clues and answers, live public results, and a scoreboard.
 - **Prompt banks:** 70 original Impostor prompts, 80 original 5 Second prompts and 65 original Overrated prompts. No lore/profile data is read.
@@ -124,7 +146,7 @@ All phase work is recorded here with what was verified and what was deferred.
 - **New engine (`server/engine/`)** with one `Room` per session that survives lobby → game → results → lobby.
   - Engine owns all phase transitions. Clients send intents only; they can no longer emit `next-round`.
   - One timer per room, armed from the game module's absolute `state.endsAt`, cleared on game end, restart and room delete.
-  - Host-only actions: select game/mode, start, end, kick, restart. Every action validates sender, phase and (optionally) idempotency key.
+  - Any member in the lobby can select game/mode and start; end, kick and restart remain host-only. Every action validates sender, phase and (optionally) idempotency key.
   - Per-player event ids (last 50) make duplicate clicks and retries no-ops.
   - Private views (`viewFor`) are computed per player; MLT anonymous mode hides voter names server-side.
 - **Identity and reconnect**
@@ -148,13 +170,13 @@ All phase work is recorded here with what was verified and what was deferred.
 - **UI**
   - Pastel party tokens (cream/lavender/baby blue/blush/mint/coral/grape/lime/sky) plus display/body fonts in `globals.css`.
   - Shared kit in `components/game/`: GameShell, PromptCard, TimerRing, AnswerInput, VoteButton, AvatarBubble, AnimatedResultBar, TierBadge, Leaderboard, RevealStack, ReactionBar, ConnectionBanner.
-  - Rebuilt lobby: real player limits, host-only picker, only modes that change behaviour, ready gate enforced on the server, disabled Start with a concrete reason, kick, explicit leave.
+  - Rebuilt lobby: real player limits, any-member picker and start, only modes that change behaviour, concrete start-blocking reasons, kick, explicit leave.
   - New Most Likely To screens with vote → reveal → results, hidden votes during voting, classic voter reveal vs anonymous tally.
   - Loading, reconnecting and kicked states.
 
 ### Verified
 
-- `server npm test` — 6/6 socket integration tests: 3 clients join; host gating; ready gating; non-host start/end rejected; duplicate event id ignored; refresh reclaims the same seat and private state; server timer advances without client input; MLT plurality + anonymous voter masking; grace-period cleanup frees the room; unauthenticated socket rejected.
+- `server npm test` — 6/6 socket integration tests: 3 clients join; any-member start; host-only end; duplicate event id ignored; refresh reclaims the same seat and private state; server timer advances without client input; MLT plurality + anonymous voter masking; grace-period cleanup frees the room; unauthenticated socket rejected.
 - `client npm run build` — success (Next.js 16.1.6, TypeScript).
 - `client npx eslint src` — 0 errors, 7 pre-existing warnings.
 - Server boot check on port 3999: `/api/health` returned `{status:"ok", engine:{rooms:0}}`.

@@ -53,6 +53,16 @@ All games below are playable through the server-authoritative engine. Every game
 14. **Bluff** — Write a fake definition and spot the real one
 15. **Hot Takes** — Back the unpopular opinion
 
+## Start a Game
+
+1. Sign in, then create a group from the dashboard or open an existing one.
+2. Press **Open Lobby** or **Play**. Any group member can open the lobby.
+3. Share the group's invite link (`/join/CODE`) from the group page or lobby.
+4. Pick a game. Each card shows how many more players it needs.
+5. Once enough players are connected, anyone in the lobby can press **Start game**.
+
+The normal flow is dashboard → lobby → game. Invitees go from invite link → sign-in/sign-up (if needed) → lobby or group.
+
 ## Setup
 
 ### 1. Database

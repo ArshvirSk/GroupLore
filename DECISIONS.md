@@ -15,7 +15,8 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 - **Reconnect token is signed and scoped to one session + player.** It is stored in localStorage per room. Identity fallback also allows a refresh without the token while the server still has the room.
 - **30-second disconnect grace.** Long enough for a refresh or tunnel, short enough that a dead seat does not stall the lobby. Grace is configurable for tests.
 - **All phases are timed.** A module must set `state.endsAt`; the engine calls `onPhaseEnd` at that absolute time. If a module forgets, the engine adds a 3-second fallback so a room cannot hang. There is no client-driven advance.
-- **Start gate is stricter than the old app:** game selected, player count within the module's min/max, all players connected, and every non-host ready. The host does not ready up. The lobby shows the exact blocking reason.
+- **Any member in the lobby can start.** Game selection and start are no longer host-only; a party game should not stall because the host is in another tab. End, kick and restart remain host-only moderation actions.
+- **There is no ready gate.** Requiring every non-host to tap Ready added a collective pause without protecting anything; the connected-player and game-minimum checks are enough. Readiness fields remain in the room view for compatibility but are no longer enforced.
 - **Anonymous MLT means the tally is public but voter names are not.** Classic reveals voter → target pairs at the end. This is a real behavioural difference rather than a renamed classic mode.
 - **MLT requires 3 players.** With two players a plurality vote is trivial; three is the minimum for the mechanic to mean anything.
 - **Scores live in room state keyed by playerId, and are persisted keyed by display name.** The database column and the Hub were built around display names; keying room state by id avoids duplicate-name collisions during play.
@@ -79,6 +80,13 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 - **Page protection is client-side; data protection is server-side.** There is no auth middleware. The dashboard and group pages redirect signed-out visitors, while every REST route and socket handshake verifies the Supabase token authoritatively.
 - **Email confirmation is disabled for the hosted project.** Sign-up returns a session immediately, so there is no confirmation-link step in the normal flow. The client still handles a no-session response instead of assuming success if another environment enables confirmation.
 - **App tables are server-only.** RLS is enabled on every app table and direct grants to `anon` and `authenticated` are revoked. The browser's anon key is only for Supabase Auth; the Express API uses the service role, which bypasses RLS.
+
+## Start flow
+
+- **Invite URLs are `/join/:code`.** The route joins an existing member idempotently, sends signed-out visitors through auth with a safe `next` path, then opens the live lobby if one exists or the group page otherwise.
+- **The dashboard owns group creation.** Sending a signed-in user back to the marketing page to create a group was an unnecessary loop; the dashboard now expands an inline form and group cards can open a lobby directly.
+- **A session's default game is selected when its room loads.** New sessions are created with `most-likely-to`, so a fresh lobby has a valid selected game and a startable default instead of making every room begin with an empty game picker.
+- **Minimum-player information is shown before selection.** Game cards display how many more players are needed, and the selected game's invite prompt makes the gap explicit. Lobby invites copy the shareable join URL.
 
 ## Known limitations
 
