@@ -24,6 +24,29 @@ All phase work is recorded here with what was verified and what was deferred.
 
 - The invite and dashboard forms compile but were not clicked through in a visual browser run.
 
+## Guest entry
+
+### Shipped
+
+- **Invite links now offer a choice.** A signed-out visitor sees the group, whether a lobby is open, and two paths: continue as a named guest or sign in/create an account.
+- **Guests can enter an open lobby without an account.** A new `/guest` page takes a display name and 6-character lobby code. The home page and sign-in page both link to it.
+- **Public invite lookup.** `GET /api/invites/:code` resolves only the group name and its open lobby; it does not require auth or expose members, history, or private game data. Guest tokens are issued by the existing signed-token flow and accepted only for room joins.
+- **Guest limits are explicit.** Guests cannot create or join groups, open lobbies, view group history, or access the dashboard. They can play an already-open lobby and use the normal room/game controls.
+- **Guest navigation returns home.** Lobby and game exits send guests to `/` rather than a protected group page, and group-only invite controls are hidden.
+- **`ALLOW_GUESTS` is enabled in the example configuration.** Set it to `false` to require an account for every player. `/api/health` now reports the effective guest setting.
+
+### Verified
+
+- `server npm test` — **28/28 passing**.
+- `client npm run build` — success; `/guest` is in the route manifest.
+- `client npx eslint src` — 0 errors, 4 pre-existing warnings.
+- Hosted three-player smoke test — a signed-in host plus two guests joined a lobby resolved through the public invite endpoint; a guest started the preselected game and the session became active. Temporary data was deleted.
+
+### Not verified / deferred
+
+- The guest invite and `/guest` forms compile but were not clicked through in a visual browser run.
+- Guests are intentionally limited to an **already-open lobby**; they cannot create a lobby or join a group. Fully account-free groups are not supported.
+
 ## Phase 4 — seven more games
 
 ### Shipped

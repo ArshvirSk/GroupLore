@@ -61,7 +61,9 @@ All games below are playable through the server-authoritative engine. Every game
 4. Pick a game. Each card shows how many more players it needs.
 5. Once enough players are connected, anyone in the lobby can press **Start game**.
 
-The normal flow is dashboard → lobby → game. Invitees go from invite link → sign-in/sign-up (if needed) → lobby or group.
+The normal flow is dashboard → lobby → game. Invitees go from invite link → choose guest or account → lobby or group.
+
+**Guest entry:** a guest needs only a display name and the group's 6-character code. Guests can join an **already-open lobby** but cannot create groups or lobbies, and cannot see group history. Use `/guest` directly, or choose **Continue as guest** on the invite, home, or sign-in screens. Set `ALLOW_GUESTS=false` to require an account for every player.
 
 ## Setup
 

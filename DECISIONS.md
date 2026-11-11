@@ -24,8 +24,9 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 
 ## Auth / policy
 
-- **Guests are signed tokens, not anonymous sockets.** `ALLOW_GUESTS=false` disables them. They default to on outside production so local play and the socket tests work without an account.
-- **Guest tokens do not prove group membership.** In production guests should be disabled; with guests enabled, a guest can join a room whose session exists. This is documented rather than silently pretending guests are members.
+- **Guests are signed tokens, not anonymous sockets.** `ALLOW_GUESTS` enables them. Guests choose a display name and receive a server-signed identity; the socket layer never trusts a client-supplied id.
+- **Guest entry is limited to existing open lobbies.** A 6-character invite code resolves only the group name and lobby; guests cannot create or join groups, open lobbies, see group history, or access the dashboard. This keeps anonymous identity out of the persistent membership model while still letting a friend fill a seat.
+- **Guest play is a deployment choice.** `ALLOW_GUESTS=false` disables the guest-token endpoint and the invite screen shows the sign-in path instead. Guest joins are allowed by the engine only when the deployment opts in.
 - **Supabase display names come from the database row** when available; the client-supplied name is only a fallback. This prevents a signed-in user from impersonating another member by editing the handshake payload.
 - **Nudge polling is host-only.** Sending a nudge requires group membership and the sender name is taken from the Supabase-authenticated user, not `req.body.from`.
 - **Removed `PATCH /api/games/:id`.** It let any authenticated user write arbitrary columns on any session and had no client caller.
