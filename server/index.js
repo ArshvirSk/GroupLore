@@ -7,12 +7,14 @@ import { GameEngine } from "./engine/engine.js";
 import { createIdentityResolver } from "./engine/auth.js";
 import { createSupabasePersistence } from "./engine/persistence.js";
 import { incrementStats, logActivity } from "./lib/activity.js";
+import { guestsAllowed } from "./lib/guestAccess.js";
 import { authorizePlayer } from "./lib/membership.js";
 import { supabase } from "./lib/supabase.js";
 import authRoutes from "./routes/auth.js";
 import feedRoutes from "./routes/feed.js";
 import gameRoutes from "./routes/games.js";
 import groupRoutes from "./routes/groups.js";
+import inviteRoutes from "./routes/invites.js";
 import memberRoutes from "./routes/members.js";
 import userRoutes from "./routes/users.js";
 
@@ -21,9 +23,7 @@ const httpServer = createServer(app);
 
 const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:3000";
 const allowedOrigins = [...new Set([CLIENT_URL, "http://localhost:3000"])];
-const allowGuests =
-  process.env.ALLOW_GUESTS === "true" ||
-  (process.env.NODE_ENV !== "production" && process.env.ALLOW_GUESTS !== "false");
+const allowGuests = guestsAllowed();
 
 const io = new Server(httpServer, {
   cors: {
@@ -43,6 +43,7 @@ app.use(express.json({ limit: "64kb" }));
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/groups", groupRoutes);
+app.use("/api/invites", inviteRoutes);
 app.use("/api/members", memberRoutes);
 app.use("/api/games", gameRoutes);
 app.use("/api/feed", feedRoutes);
@@ -81,6 +82,7 @@ app.get("/api/health", (req, res) => {
     status: "ok",
     timestamp: new Date().toISOString(),
     engine: { rooms: engine.rooms.size },
+    guests: allowGuests,
   });
 });
 

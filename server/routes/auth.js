@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { cleanName, signGuestToken } from "../engine/auth.js";
+import { guestsAllowed } from "../lib/guestAccess.js";
 
 const router = Router();
 
@@ -10,7 +11,7 @@ const router = Router();
  * Guests are only accepted by the socket layer when ALLOW_GUESTS is enabled.
  */
 router.post("/guest", (req, res) => {
-  if (process.env.ALLOW_GUESTS === "false") {
+  if (!guestsAllowed()) {
     return res.status(403).json({ error: "Guest play is disabled" });
   }
 
