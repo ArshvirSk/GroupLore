@@ -17,10 +17,13 @@ All phase work is recorded here with what was verified and what was deferred.
 - `server npm test` — **20/20 passing**, including the new Supabase identity resolution test.
 - `client npm run build` — success; `/sign-in`, `/sign-up`, `/dashboard`, `/group`, `/lobby`, `/game` and `/tv` compile.
 - `client npx eslint src` — 0 errors, 4 warnings (hook dependency and unused-variable warnings in existing screens).
+- Supabase email/password — a temporary confirmed user was created, signed in through the anon client, and its access token was accepted by `supabase.auth.getUser`; the temporary user was deleted.
+- Hosted schema — `supabase-migration-supabase-auth.sql` left `users.auth_user_id` present, dropped `clerk_id`, and created the unique index.
+- Live end-to-end — a temporary auth user with a pre-existing app row (matched by email) synced to the same `dbUserId`, created and listed a group, opened a lobby session, and joined the room socket with the database display name rather than the spoofed handshake name. All temporary rows and the auth user were deleted.
 
 ### Not verified / deferred
 
-- The hosted Supabase SQL migration and a real browser sign-up/sign-in match still need to be run against the project; until the migration is applied, `/api/users/sync` cannot write `auth_user_id`.
+- The browser sign-in form itself was compiled but not clicked through in this run; the REST and socket paths it calls were verified end to end.
 - Email confirmation depends on the project's Supabase Auth settings; both the confirmation-required and immediate-session paths are implemented but were not exercised against the hosted project.
 
 ## Phase 3 — Hive Mind, Odd One Out, Bluff and Hot Takes
