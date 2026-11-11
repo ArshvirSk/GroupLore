@@ -4,6 +4,7 @@ import AvatarBubble from "@/components/AvatarBubble";
 import { useAuth } from "@/components/AuthProvider";
 import FloatingBlobs from "@/components/FloatingBlobs";
 import { api } from "@/lib/api";
+import { copyInviteLink, ensureLobby } from "@/lib/play";
 import { useUserStore } from "@/stores/userStore";
 import { AnimatePresence, motion } from "framer-motion";
 import { useParams, useRouter } from "next/navigation";
@@ -36,37 +37,19 @@ interface Group {
   group_members?: GroupMember[];
 }
 
-const ROAST_MESSAGES = [
-  "Nice try, but you're not the boss here 😏",
-  "Only the host has that power. Beg them.",
-  "You? Start a game? That's adorable 🤭",
-  "Access denied. Go pester the host.",
-  "Skill issue: you're not the host 💀",
-  "That button's just for decoration for you.",
-  "The host controls the chaos, not you 👑",
-  "Plot twist: you can't start games.",
-  "Maybe ask the host nicely? With snacks? 🍕",
-  "Host privileges required. You have none.",
-  "L + ratio + not the host 💅",
-  "Error 403: Insufficient vibes to start game.",
-];
-
 export default function GroupDashboard() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
-  const { isLoaded, isSignedIn, displayName } = useAuth();
+  const { isLoaded, isSignedIn } = useAuth();
   const { dbUserId } = useUserStore();
   const [group, setGroup] = useState<Group | null>(null);
   const [members, setMembers] = useState<MemberProfile[]>([]);
   const [showAdd, setShowAdd] = useState(false);
   const [codeCopied, setCodeCopied] = useState(false);
+  const [inviteCopied, setInviteCopied] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [roastMessage, setRoastMessage] = useState<string | null>(null);
-  const [roastShake, setRoastShake] = useState(false);
-  const [nudgeToasts, setNudgeToasts] = useState<
-    { message: string; from: string; id: number }[]
-  >([]);
-  const [pokeCooldown, setPokeCooldown] = useState(false);
+  const [launching, setLaunching] = useState(false);
+  const [launchError, setLaunchError] = useState("");
   const [activeSession, setActiveSession] = useState<{ id: string } | null>(
     null,
   );
@@ -127,26 +110,6 @@ export default function GroupDashboard() {
     return () => clearInterval(interval);
   }, [id, isLoaded, isSignedIn]);
 
-  // Host polls for nudges
-  useEffect(() => {
-    if (!isHost || !group) return;
-    const nudgeInterval = setInterval(async () => {
-      try {
-        const nudges = await api.getNudges(id);
-        if (nudges && nudges.length > 0) {
-          nudges.forEach((n: { message: string; from: string }) => {
-            const toastId = Date.now() + Math.random();
-            setNudgeToasts((prev) => [...prev, { ...n, id: toastId }]);
-            setTimeout(() => {
-              setNudgeToasts((prev) => prev.filter((t) => t.id !== toastId));
-            }, 5000);
-          });
-        }
-      } catch {}
-    }, 3000);
-    return () => clearInterval(nudgeInterval);
-  }, [isHost, group, id]);
-
   const loadData = async () => {
     try {
       const [g, m] = await Promise.all([api.getGroup(id), api.getMembers(id)]);
@@ -163,6 +126,17 @@ export default function GroupDashboard() {
       navigator.clipboard.writeText(group.join_code);
       setCodeCopied(true);
       setTimeout(() => setCodeCopied(false), 2000);
+    }
+  };
+
+  const copyInvite = async () => {
+    if (!group?.join_code) return;
+    try {
+      await copyInviteLink(group.join_code);
+      setInviteCopied(true);
+      setTimeout(() => setInviteCopied(false), 2000);
+    } catch {
+      alert("Could not copy the invite link");
     }
   };
 
@@ -236,7 +210,7 @@ export default function GroupDashboard() {
     if (!confirm("Are you sure you want to leave this group?")) return;
     try {
       await api.leaveGroup(id);
-      router.push("/");
+      router.push("/dashboard");
     } catch {
       alert("Failed to leave group");
     }
@@ -253,34 +227,19 @@ export default function GroupDashboard() {
   };
 
   const handleStartGame = async () => {
-    // If there's an active session, anyone can join it
-    if (activeSession) {
-      router.push(`/lobby/${activeSession.id}?groupId=${id}`);
-      return;
-    }
-    if (!isHost) {
-      if (pokeCooldown) return;
-      // Send nudge to host AND show roast to self
-      const msg =
-        ROAST_MESSAGES[Math.floor(Math.random() * ROAST_MESSAGES.length)];
-      setRoastMessage(msg);
-      setRoastShake(true);
-      setPokeCooldown(true);
-      setTimeout(() => setRoastShake(false), 500);
-      setTimeout(() => setRoastMessage(null), 3000);
-      setTimeout(() => setPokeCooldown(false), 3000);
-      try {
-        await api.sendNudge(id, displayName || "Someone");
-      } catch {}
-      return;
-    }
+    if (launching) return;
+    setLaunching(true);
+    setLaunchError("");
     try {
-      const session = await api.createGame({
-        groupId: id,
-        gameType: "most-likely-to",
-      });
+      const session = await ensureLobby(id);
       router.push(`/lobby/${session.id}?groupId=${id}`);
-    } catch {}
+    } catch (err) {
+      setLaunchError(
+        err instanceof Error ? err.message : "Could not open the lobby",
+      );
+    } finally {
+      setLaunching(false);
+    }
   };
 
   if (loading) {
@@ -295,40 +254,6 @@ export default function GroupDashboard() {
     <main className="min-h-screen px-4 py-12 relative">
       <FloatingBlobs />
 
-      {/* ── Nudge Toasts (Host sees these) ── */}
-      <div className="fixed top-4 right-4 z-50 flex flex-col gap-2 max-w-sm">
-        <AnimatePresence>
-          {nudgeToasts.map((toast) => (
-            <motion.div
-              key={toast.id}
-              className="bg-bg-elevated border border-accent/30 rounded-2xl p-4 shadow-[0_8px_32px_rgba(37,99,235,0.2)]"
-              initial={{ opacity: 0, x: 100, scale: 0.9 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: 100, scale: 0.9 }}
-              transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            >
-              <div className="flex items-start gap-3">
-                <motion.span
-                  className="text-2xl"
-                  animate={{ rotate: [0, -15, 15, -15, 15, 0] }}
-                  transition={{ duration: 0.5 }}
-                >
-                  👉
-                </motion.span>
-                <div>
-                  <p className="text-xs text-accent font-semibold uppercase tracking-wider">
-                    {toast.from} poked you
-                  </p>
-                  <p className="text-sm text-text-secondary mt-0.5">
-                    &quot;{toast.message}&quot;
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </div>
-
       <div className="max-w-2xl mx-auto relative z-10">
         {/* Header */}
         <motion.div
@@ -337,7 +262,7 @@ export default function GroupDashboard() {
           animate={{ opacity: 1, y: 0 }}
         >
           <button
-            onClick={() => router.push("/")}
+            onClick={() => router.push("/dashboard")}
             className="text-text-muted hover:text-text-secondary text-xs uppercase tracking-wider mb-6 inline-block transition-colors"
           >
             ← Back
@@ -373,6 +298,14 @@ export default function GroupDashboard() {
             </motion.button>
 
             <motion.button
+              onClick={() => void copyInvite()}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 hover:border-accent/40 transition-all text-xs text-accent"
+              whileTap={{ scale: 0.97 }}
+            >
+              {inviteCopied ? "Invite copied ✓" : "Copy invite link 🔗"}
+            </motion.button>
+
+            <motion.button
               onClick={handleLeaveGroup}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 hover:border-red-500/40 transition-all text-xs text-red-400 hover:text-red-300"
               whileTap={{ scale: 0.97 }}
@@ -390,35 +323,26 @@ export default function GroupDashboard() {
           transition={{ delay: 0.2 }}
         >
           <motion.button
-            onClick={handleStartGame}
-            className={`neon-btn text-sm px-10 py-4 ${activeSession ? "neon-btn-purple" : isHost ? "neon-btn-purple" : "neon-btn-outline"} ${pokeCooldown && !activeSession ? "opacity-50 cursor-wait" : ""}`}
-            animate={roastShake ? { x: [-8, 8, -6, 6, -3, 3, 0] } : {}}
-            transition={{ duration: 0.5 }}
+            onClick={() => void handleStartGame()}
+            disabled={launching}
+            className="neon-btn neon-btn-purple text-sm px-10 py-4 disabled:opacity-50"
+            whileTap={{ scale: 0.98 }}
           >
-            {activeSession
-              ? "Join Game →"
-              : isHost
-                ? "Start Game →"
-                : `Poke ${hostName} to Start 👉`}
+            {launching
+              ? "Opening lobby…"
+              : activeSession
+                ? "Join Game →"
+                : "Open Game Lobby →"}
           </motion.button>
-
-          {/* Roast message (non-host sees this) */}
-          <AnimatePresence>
-            {roastMessage && (
-              <motion.div
-                className="mt-3 px-4 py-2.5 rounded-xl bg-bg-elevated border border-border text-sm text-center max-w-md"
-                initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <span className="text-text-secondary">{roastMessage}</span>
-                <p className="text-text-muted text-xs mt-1">
-                  Nudge sent to {hostName}!
-                </p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <p className="mt-3 max-w-md text-xs text-text-muted">
+            Anyone in the group can open the lobby and start. Most games need at
+            least 3 players, so share the invite link before you begin.
+          </p>
+          {launchError && (
+            <p className="mt-3 max-w-md rounded-xl bg-red-500/10 px-3 py-2 text-xs font-semibold text-red-300">
+              {launchError}
+            </p>
+          )}
         </motion.div>
 
         {/* Members */}

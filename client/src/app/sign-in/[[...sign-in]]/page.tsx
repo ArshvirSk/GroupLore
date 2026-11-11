@@ -1,12 +1,15 @@
 "use client";
 
 import { useAuth } from "@/components/AuthProvider";
+import { safeNextPath, withNext } from "@/lib/authRedirect";
 import { supabase } from "@/lib/supabase";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function SignInPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const nextPath = safeNextPath(searchParams.get("next"));
   const { isLoaded, isSignedIn } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,8 +17,8 @@ export default function SignInPage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (isLoaded && isSignedIn) router.replace("/dashboard");
-  }, [isLoaded, isSignedIn, router]);
+    if (isLoaded && isSignedIn) router.replace(nextPath);
+  }, [isLoaded, isSignedIn, nextPath, router]);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -27,7 +30,7 @@ export default function SignInPage() {
         password,
       });
       if (signInError) throw signInError;
-      router.replace("/dashboard");
+      router.replace(nextPath);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not sign in");
     } finally {
@@ -97,7 +100,7 @@ export default function SignInPage() {
           New here?{" "}
           <button
             type="button"
-            onClick={() => router.push("/sign-up")}
+            onClick={() => router.push(withNext("/sign-up", nextPath))}
             className="font-semibold text-violet-400 hover:text-violet-300"
           >
             Create an account

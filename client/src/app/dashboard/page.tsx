@@ -5,6 +5,7 @@ import { useAuth } from "@/components/AuthProvider";
 import FloatingBlobs from "@/components/FloatingBlobs";
 import UserMenu from "@/components/UserMenu";
 import { api } from "@/lib/api";
+import { ensureLobby } from "@/lib/play";
 import { useUserStore } from "@/stores/userStore";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
@@ -195,6 +196,12 @@ export default function DashboardPage() {
   const [hasMore, setHasMore] = useState(true);
   const [showIdentity, setShowIdentity] = useState(false);
   const [activeTab, setActiveTab] = useState<"feed" | "groups">("feed");
+  const [showCreateGroup, setShowCreateGroup] = useState(false);
+  const [newGroupName, setNewGroupName] = useState("");
+  const [groupError, setGroupError] = useState("");
+  const [creatingGroup, setCreatingGroup] = useState(false);
+  const [launchingGroupId, setLaunchingGroupId] = useState<string | null>(null);
+  const [playError, setPlayError] = useState("");
 
   const feedEndRef = useRef<HTMLDivElement>(null);
 
@@ -252,6 +259,43 @@ export default function DashboardPage() {
       .catch(() => {})
       .finally(() => setFeedLoading(false));
   }, [feed, feedLoading, hasMore]);
+
+  const handleCreateGroup = async () => {
+    if (creatingGroup) return;
+    const name = newGroupName.trim();
+    if (!name) {
+      setGroupError("Give your group a name first.");
+      return;
+    }
+    setCreatingGroup(true);
+    setGroupError("");
+    try {
+      const group = await api.createGroup({ name });
+      router.push(`/group/${group.id}`);
+    } catch (err) {
+      setGroupError(
+        err instanceof Error ? err.message : "Could not create the group",
+      );
+    } finally {
+      setCreatingGroup(false);
+    }
+  };
+
+  const handleOpenLobby = async (groupId: string) => {
+    if (launchingGroupId) return;
+    setLaunchingGroupId(groupId);
+    setPlayError("");
+    try {
+      const session = await ensureLobby(groupId);
+      router.push(`/lobby/${session.id}?groupId=${groupId}`);
+    } catch (err) {
+      setPlayError(
+        err instanceof Error ? err.message : "Could not open the lobby",
+      );
+    } finally {
+      setLaunchingGroupId(null);
+    }
+  };
 
   /* ── Render ── */
   if (loading) {
@@ -319,60 +363,106 @@ export default function DashboardPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          {activeLobbies.length > 0 ? (
-            <div className="glass-card p-4 border-accent/20">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
-                <span className="text-xs font-bold uppercase tracking-wider text-success">
-                  Live Now
-                </span>
+          <div className="space-y-2">
+            {activeLobbies.length > 0 && (
+              <div className="glass-card p-4 border-accent/20">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-success">
+                    Live Now
+                  </span>
+                </div>
+                <div className="grid gap-2">
+                  {activeLobbies.map((lobby) => (
+                    <motion.button
+                      key={lobby.id}
+                      className="w-full flex items-center justify-between p-3 rounded-xl bg-bg-elevated/60 border border-border hover:border-accent/30 transition-all text-left"
+                      onClick={() =>
+                        router.push(
+                          `/lobby/${lobby.id}?groupId=${lobby.group_id}`,
+                        )
+                      }
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <div>
+                        <p className="text-sm font-semibold tracking-tight">
+                          {lobby.groups?.name || "Group"}
+                        </p>
+                        <p className="text-[10px] text-text-muted mt-0.5">
+                          {formatGameType(lobby.game_type)} •{" "}
+                          {timeAgo(lobby.created_at)}
+                        </p>
+                      </div>
+                      <span className="neon-btn neon-btn-purple text-[10px] px-4 py-1.5">
+                        Join →
+                      </span>
+                    </motion.button>
+                  ))}
+                </div>
               </div>
-              <div className="grid gap-2">
-                {activeLobbies.map((lobby) => (
-                  <motion.button
-                    key={lobby.id}
-                    className="w-full flex items-center justify-between p-3 rounded-xl bg-bg-elevated/60 border border-border hover:border-accent/30 transition-all text-left"
-                    onClick={() =>
-                      router.push(
-                        `/lobby/${lobby.id}?groupId=${lobby.group_id}`,
-                      )
-                    }
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div>
-                      <p className="text-sm font-semibold tracking-tight">
-                        {lobby.groups?.name || "Group"}
-                      </p>
-                      <p className="text-[10px] text-text-muted mt-0.5">
-                        {formatGameType(lobby.game_type)} •{" "}
-                        {timeAgo(lobby.created_at)}
-                      </p>
-                    </div>
-                    <span className="neon-btn neon-btn-purple text-[10px] px-4 py-1.5">
-                      Join →
-                    </span>
-                  </motion.button>
-                ))}
-              </div>
-            </div>
-          ) : (
+            )}
+
             <div className="flex gap-2">
               <button
-                onClick={() => router.push("/")}
+                onClick={() => {
+                  setShowCreateGroup((open) => !open);
+                  setGroupError("");
+                }}
                 className="neon-btn neon-btn-purple text-xs px-6 py-3 flex-1"
               >
-                + New Group
+                {showCreateGroup ? "Cancel" : "+ New Group"}
               </button>
               {groups.length > 0 && (
                 <button
-                  onClick={() => router.push(`/group/${groups[0].id}`)}
-                  className="neon-btn neon-btn-outline text-xs px-6 py-3"
+                  onClick={() => void handleOpenLobby(groups[0].id)}
+                  disabled={Boolean(launchingGroupId)}
+                  className="neon-btn neon-btn-outline text-xs px-6 py-3 disabled:opacity-50"
                 >
-                  Start Game →
+                  {launchingGroupId ? "Opening…" : "Open Lobby →"}
                 </button>
               )}
             </div>
-          )}
+
+            {showCreateGroup && (
+              <div className="glass-card p-4">
+                <label className="block text-[10px] font-bold uppercase tracking-wider text-text-muted">
+                  Group name
+                </label>
+                <input
+                  autoFocus
+                  value={newGroupName}
+                  onChange={(event) => {
+                    setNewGroupName(event.target.value);
+                    setGroupError("");
+                  }}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") void handleCreateGroup();
+                  }}
+                  maxLength={60}
+                  placeholder="The Chaos Crew"
+                  className="neon-input mt-2 w-full"
+                />
+                {groupError && (
+                  <p className="mt-2 text-xs font-semibold text-red-400">
+                    {groupError}
+                  </p>
+                )}
+                <button
+                  onClick={() => void handleCreateGroup()}
+                  disabled={creatingGroup}
+                  className="neon-btn neon-btn-purple mt-3 w-full text-xs disabled:opacity-50"
+                >
+                  {creatingGroup ? "Creating…" : "Create group →"}
+                </button>
+              </div>
+            )}
+
+            {playError && (
+              <p className="rounded-xl bg-red-500/10 px-3 py-2 text-xs font-semibold text-red-300">
+                {playError}
+              </p>
+            )}
+          </div>
         </motion.div>
 
         {/* ═══ Stats Row ═══ */}
@@ -593,8 +683,8 @@ export default function DashboardPage() {
                       transition={{ delay: i * 0.05 }}
                       onClick={() => router.push(`/group/${g.id}`)}
                     >
-                      <div className="flex items-center justify-between">
-                        <div>
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="min-w-0">
                           <h3 className="font-bold text-base tracking-tight">
                             {g.name}
                           </h3>
@@ -609,7 +699,17 @@ export default function DashboardPage() {
                             )}
                           </p>
                         </div>
-                        <span className="text-text-muted text-sm">→</span>
+                        <button
+                          type="button"
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            void handleOpenLobby(g.id);
+                          }}
+                          disabled={Boolean(launchingGroupId)}
+                          className="neon-btn neon-btn-purple shrink-0 text-[10px] px-4 py-1.5 disabled:opacity-50"
+                        >
+                          {launchingGroupId === g.id ? "Opening…" : "Play →"}
+                        </button>
                       </div>
                     </motion.div>
                   ))}

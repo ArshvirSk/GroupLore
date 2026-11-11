@@ -3,16 +3,17 @@
 import AvatarBubble from "@/components/game/AvatarBubble";
 import GameShell from "@/components/game/GameShell";
 import { useRoom } from "@/hooks/useRoom";
+import { api } from "@/lib/api";
+import { copyInviteLink } from "@/lib/play";
 import type { CatalogGame } from "@/stores/roomStore";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function PlayerTile({
   name,
   avatarUrl,
   isHost,
-  ready,
   connected,
   canKick,
   onKick,
@@ -20,7 +21,6 @@ function PlayerTile({
   name: string;
   avatarUrl?: string | null;
   isHost: boolean;
-  ready: boolean;
   connected: boolean;
   canKick: boolean;
   onKick: () => void;
@@ -32,12 +32,11 @@ function PlayerTile({
         src={avatarUrl}
         size="lg"
         isHost={isHost}
-        ready={ready}
         connected={connected}
       />
       <p className="w-full truncate text-xs font-bold text-ink">{name}</p>
       <p className="text-[10px] font-bold uppercase tracking-wide text-ink-soft">
-        {!connected ? "away" : isHost ? "host" : ready ? "ready" : "waiting"}
+        {!connected ? "away" : isHost ? "host" : "here"}
       </p>
       {canKick && (
         <button
@@ -55,10 +54,12 @@ function PlayerTile({
 function GameOption({
   game,
   selected,
+  playersNeeded,
   onSelect,
 }: {
   game: CatalogGame;
   selected: boolean;
+  playersNeeded: number;
   onSelect: () => void;
 }) {
   return (
@@ -81,6 +82,11 @@ function GameOption({
           <p className="mt-1 text-[11px] font-bold uppercase tracking-wide text-ink-soft">
             {game.minPlayers}–{game.maxPlayers} players
           </p>
+          {playersNeeded > 0 && (
+            <p className="mt-1 text-[11px] font-bold text-[#B83232]">
+              Need {playersNeeded} more player{playersNeeded === 1 ? "" : "s"}
+            </p>
+          )}
         </div>
         {selected && <span className="text-grape">●</span>}
       </div>
@@ -93,13 +99,14 @@ export default function LobbyPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const reduced = useReducedMotion();
+  const [joinCode, setJoinCode] = useState("");
+  const [inviteCopied, setInviteCopied] = useState(false);
 
   const { room, status, error, kicked, act, leave, clearError } =
     useRoom(sessionId);
 
   const groupId = room?.groupId || searchParams.get("groupId") || "";
   const players = room?.players || [];
-  const me = room?.players.find((player) => player.id === room.you?.id);
   const isHost = Boolean(room?.you?.isHost);
   const selectedGame =
     room?.catalog.find((game) => game.id === room.gameId) || null;
@@ -118,6 +125,31 @@ export default function LobbyPage() {
     const timer = setTimeout(clearError, 4000);
     return () => clearTimeout(timer);
   }, [error, clearError]);
+
+  useEffect(() => {
+    if (!groupId) return;
+    let active = true;
+    api
+      .getGroup(groupId)
+      .then((group: { join_code?: string }) => {
+        if (active && group.join_code) setJoinCode(group.join_code);
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
+  }, [groupId]);
+
+  const copyInvite = async () => {
+    if (!joinCode) return;
+    try {
+      await copyInviteLink(joinCode);
+      setInviteCopied(true);
+      setTimeout(() => setInviteCopied(false), 2000);
+    } catch {
+      alert("Could not copy the invite link");
+    }
+  };
 
   if (kicked) {
     return (
@@ -168,9 +200,6 @@ export default function LobbyPage() {
     );
   }
 
-  const notReady = players.filter(
-    (player) => player.id !== room.hostId && !player.ready,
-  );
   const offline = players.filter((player) => !player.connected);
 
   let disabledReason = "";
@@ -181,8 +210,6 @@ export default function LobbyPage() {
     disabledReason = `This game allows ${selectedGame.maxPlayers} players`;
   else if (offline.length > 0)
     disabledReason = `Waiting for ${offline.map((player) => player.name).join(", ")}`;
-  else if (notReady.length > 0)
-    disabledReason = `Waiting for ${notReady.map((player) => player.name).join(", ")} to ready up`;
   else if (status !== "ready") disabledReason = "Reconnecting…";
 
   return (
@@ -215,10 +242,19 @@ export default function LobbyPage() {
               {players.length}
             </span>
           </h2>
-          <span className="rounded-full bg-mint px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-ink">
-            {players.filter((player) => player.ready || player.isHost).length}/
-            {players.length} set
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="rounded-full bg-mint px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-ink">
+              {players.length} in room
+            </span>
+            <button
+              type="button"
+              onClick={() => void copyInvite()}
+              disabled={!joinCode}
+              className="rounded-full bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-grape shadow-soft disabled:opacity-40"
+            >
+              {inviteCopied ? "Copied ✓" : "Invite 🔗"}
+            </button>
+          </div>
         </div>
 
         <div className="flex flex-wrap gap-4">
@@ -233,7 +269,6 @@ export default function LobbyPage() {
                 name={player.name}
                 avatarUrl={player.avatarUrl}
                 isHost={player.isHost}
-                ready={player.ready}
                 connected={player.connected}
                 canKick={isHost && player.id !== room.you?.id}
                 onKick={() => act("kick", { playerId: player.id })}
@@ -242,24 +277,29 @@ export default function LobbyPage() {
           ))}
         </div>
 
-        {!isHost && (
-          <button
-            onClick={() => act("ready", { ready: !me?.ready })}
-            className={`mt-5 min-h-12 w-full rounded-2xl font-display text-sm font-semibold transition ${
-              me?.ready
-                ? "border-2 border-lime bg-mint text-ink"
-                : "bg-grape text-white shadow-soft hover:bg-[#7C4DEB]"
-            }`}
-          >
-            {me?.ready ? "✓ You're ready" : "Ready up"}
-          </button>
+        {selectedGame && players.length < selectedGame.minPlayers && (
+          <div className="mt-5 rounded-2xl bg-honey/35 px-4 py-3 text-center">
+            <p className="text-sm font-bold text-[#8A5A00]">
+              Need {selectedGame.minPlayers - players.length} more player
+              {selectedGame.minPlayers - players.length === 1 ? "" : "s"} for{" "}
+              {selectedGame.name}.
+            </p>
+            <button
+              type="button"
+              onClick={() => void copyInvite()}
+              disabled={!joinCode}
+              className="mt-2 text-xs font-bold uppercase tracking-wide text-[#8A5A00] underline underline-offset-4 disabled:opacity-40"
+            >
+              {inviteCopied ? "Invite link copied" : "Copy invite link"}
+            </button>
+          </div>
         )}
       </section>
 
       <section className="mb-5">
         <div className="mb-3 flex items-baseline justify-between">
           <h2 className="font-display text-lg font-semibold text-ink">
-            {isHost ? "Pick a game" : "Host's pick"}
+            Pick a game
           </h2>
           {selectedMode && selectedMode.id !== "classic" && (
             <span className="rounded-full bg-lavender/50 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-ink">
@@ -268,70 +308,53 @@ export default function LobbyPage() {
           )}
         </div>
 
-        {isHost ? (
-          <div className="grid gap-2 sm:grid-cols-2">
-            {room.catalog.map((game) => (
-              <div key={game.id}>
-                <GameOption
-                  game={game}
-                  selected={game.id === room.gameId}
-                  onSelect={() =>
-                    act("selectGame", {
-                      gameId: game.id,
-                      mode: game.modes[0]?.id || "classic",
-                    })
-                  }
-                />
-                <AnimatePresence>
-                  {game.id === room.gameId && game.modes.length > 1 && (
-                    <motion.div
-                      initial={reduced ? false : { opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="flex flex-wrap gap-2 overflow-hidden pt-2"
-                    >
-                      {game.modes.map((mode) => (
-                        <button
-                          key={mode.id}
-                          onClick={() =>
-                            act("selectGame", {
-                              gameId: game.id,
-                              mode: mode.id,
-                            })
-                          }
-                          title={mode.description}
-                          className={`min-h-9 rounded-full px-3 text-[11px] font-bold transition ${
-                            room.mode === mode.id
-                              ? "bg-grape text-white"
-                              : "bg-white text-ink-soft shadow-soft hover:text-ink"
-                          }`}
-                        >
-                          {mode.label}
-                        </button>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
-          </div>
-        ) : selectedGame ? (
-          <div className="party-card flex items-center gap-3 p-4">
-            <span className="text-2xl">{selectedGame.emoji}</span>
-            <div>
-              <p className="font-display font-semibold text-ink">
-                {selectedGame.name}
-              </p>
-              <p className="text-xs font-semibold text-ink-soft">
-                {selectedMode?.label || "Classic"}
-              </p>
+        <div className="grid gap-2 sm:grid-cols-2">
+          {room.catalog.map((game) => (
+            <div key={game.id}>
+              <GameOption
+                game={game}
+                selected={game.id === room.gameId}
+                playersNeeded={Math.max(0, game.minPlayers - players.length)}
+                onSelect={() =>
+                  act("selectGame", {
+                    gameId: game.id,
+                    mode: game.modes[0]?.id || "classic",
+                  })
+                }
+              />
+              <AnimatePresence>
+                {game.id === room.gameId && game.modes.length > 1 && (
+                  <motion.div
+                    initial={reduced ? false : { opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="flex flex-wrap gap-2 overflow-hidden pt-2"
+                  >
+                    {game.modes.map((mode) => (
+                      <button
+                        key={mode.id}
+                        onClick={() =>
+                          act("selectGame", {
+                            gameId: game.id,
+                            mode: mode.id,
+                          })
+                        }
+                        title={mode.description}
+                        className={`min-h-9 rounded-full px-3 text-[11px] font-bold transition ${
+                          room.mode === mode.id
+                            ? "bg-grape text-white"
+                            : "bg-white text-ink-soft shadow-soft hover:text-ink"
+                        }`}
+                      >
+                        {mode.label}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-          </div>
-        ) : (
-          <div className="party-card p-5 text-center text-sm font-semibold text-ink-soft">
-            The host is choosing a game…
-          </div>
-        )}
+          ))}
+        </div>
 
         {room.catalog.length === 0 && (
           <p className="mt-3 text-center text-sm font-semibold text-ink-soft">
@@ -340,21 +363,15 @@ export default function LobbyPage() {
         )}
       </section>
 
-      {isHost ? (
-        <div className="sticky bottom-4">
-          <button
-            onClick={() => act("start")}
-            disabled={Boolean(disabledReason)}
-            className="min-h-14 w-full rounded-2xl bg-grape px-6 font-display text-base font-semibold text-white shadow-pop transition enabled:hover:bg-[#7C4DEB] disabled:cursor-not-allowed disabled:bg-ink/15 disabled:text-ink-soft disabled:shadow-none"
-          >
-            {disabledReason || "Start game →"}
-          </button>
-        </div>
-      ) : (
-        <p className="pb-4 text-center text-sm font-semibold text-ink-soft">
-          {disabledReason || "Waiting for the host to start"}
-        </p>
-      )}
+      <div className="sticky bottom-4">
+        <button
+          onClick={() => act("start")}
+          disabled={Boolean(disabledReason)}
+          className="min-h-14 w-full rounded-2xl bg-grape px-6 font-display text-base font-semibold text-white shadow-pop transition enabled:hover:bg-[#7C4DEB] disabled:cursor-not-allowed disabled:bg-ink/15 disabled:text-ink-soft disabled:shadow-none"
+        >
+          {disabledReason || "Start game →"}
+        </button>
+      </div>
 
       <button
         onClick={() => {

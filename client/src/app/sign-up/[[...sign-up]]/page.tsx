@@ -1,12 +1,15 @@
 "use client";
 
 import { useAuth } from "@/components/AuthProvider";
+import { safeNextPath, withNext } from "@/lib/authRedirect";
 import { supabase } from "@/lib/supabase";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function SignUpPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const nextPath = safeNextPath(searchParams.get("next"));
   const { isLoaded, isSignedIn } = useAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -16,8 +19,8 @@ export default function SignUpPage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (isLoaded && isSignedIn) router.replace("/dashboard");
-  }, [isLoaded, isSignedIn, router]);
+    if (isLoaded && isSignedIn) router.replace(nextPath);
+  }, [isLoaded, isSignedIn, nextPath, router]);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -35,7 +38,7 @@ export default function SignUpPage() {
       if (signUpError) throw signUpError;
 
       if (data.session) {
-        router.replace("/dashboard");
+        router.replace(nextPath);
         return;
       }
 
@@ -130,7 +133,7 @@ export default function SignUpPage() {
           Already have an account?{" "}
           <button
             type="button"
-            onClick={() => router.push("/sign-in")}
+            onClick={() => router.push(withNext("/sign-in", nextPath))}
             className="font-semibold text-violet-400 hover:text-violet-300"
           >
             Sign in

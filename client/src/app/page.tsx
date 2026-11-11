@@ -4,6 +4,7 @@ import { useAuth } from "@/components/AuthProvider";
 import FloatingBlobs from "@/components/FloatingBlobs";
 import UserMenu from "@/components/UserMenu";
 import { api } from "@/lib/api";
+import { groupEntryPath } from "@/lib/play";
 import { useUserStore } from "@/stores/userStore";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
@@ -139,7 +140,7 @@ export default function LandingPage() {
       const group = await api.joinGroup({
         joinCode: joinCode.trim().toUpperCase(),
       });
-      router.push(`/group/${group.id}`);
+      router.push(await groupEntryPath(group.id));
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not join the group");
     } finally {
