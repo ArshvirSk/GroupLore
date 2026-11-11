@@ -1,9 +1,14 @@
-import { api } from "@/lib/api";
-import { createGuestIdentity } from "@/lib/guest";
+import { api, type Lobby } from "@/lib/api";
+import { ensureGuestSession } from "@/lib/guest";
 
 export type InviteInfo = {
-  group: { id: string; name: string };
-  lobby: { id: string; game_type: string; created_at: string } | null;
+  group: { id: string; name: string } | null;
+  lobby: {
+    id: string;
+    code: string;
+    status: "open" | "in_game" | "closed";
+    group_id: string | null;
+  };
   guestsEnabled: boolean;
 };
 
@@ -11,36 +16,40 @@ export async function getInvite(code: string): Promise<InviteInfo> {
   return api.getInvite(code) as Promise<InviteInfo>;
 }
 
-/** Guests can only enter an already-open lobby; they never join the group. */
-export async function joinOpenLobbyAsGuest(name: string, code: string) {
-  const invite = await getInvite(code);
-  if (!invite.guestsEnabled) {
-    throw new Error("Guest play is disabled on this server");
-  }
-  if (!invite.lobby) {
-    throw new Error("No lobby is open for that code. Ask the host to open one.");
-  }
-
-  await createGuestIdentity(name);
-  return invite.lobby.id;
+export function lobbyPath(lobby: Pick<Lobby, "code">) {
+  return `/lobby/${lobby.code}`;
 }
 
-/** Returns the existing lobby for a group or creates one. */
-export async function ensureLobby(groupId: string) {
-  return api.createGame({ groupId, gameType: "most-likely-to" });
+export async function joinLobby(code: string): Promise<Lobby> {
+  return api.joinLobby(code) as Promise<Lobby>;
 }
 
-/** Lobby when one is open, otherwise the group page. */
+/** Creates an anonymous Supabase session and joins only the lobby. */
+export async function joinLobbyAsGuest(
+  name: string,
+  code: string,
+): Promise<Lobby> {
+  await ensureGuestSession(name);
+  return joinLobby(code);
+}
+
+/** Returns the existing open lobby for a group or creates one. */
+export async function ensureLobby(groupId: string): Promise<Lobby> {
+  return api.openGroupLobby(groupId) as Promise<Lobby>;
+}
+
 export async function groupEntryPath(groupId: string) {
-  const lobby = await api.getActiveSession(groupId).catch(() => null);
-  return lobby
-    ? `/lobby/${lobby.id}?groupId=${groupId}`
-    : `/group/${groupId}`;
+  try {
+    const group = await api.getGroup(groupId);
+    if (group?.lobby?.code) return `/lobby/${group.lobby.code}`;
+  } catch {
+    // Fall through to the group page.
+  }
+  return `/group/${groupId}`;
 }
 
 export function inviteUrl(joinCode: string) {
-  const origin =
-    typeof window !== "undefined" ? window.location.origin : "";
+  const origin = typeof window !== "undefined" ? window.location.origin : "";
   return `${origin}/join/${encodeURIComponent(joinCode)}`;
 }
 

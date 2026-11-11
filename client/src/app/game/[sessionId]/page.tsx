@@ -23,6 +23,7 @@ import FiveSecondGame, {
   type FiveSecondView,
 } from "@/components/game/FiveSecondGame";
 import GameShell from "@/components/game/GameShell";
+import GuestUpgradePrompt from "@/components/GuestUpgradePrompt";
 import { useAuth } from "@/components/AuthProvider";
 import HigherLowerGame, {
   type HigherLowerView,
@@ -67,13 +68,14 @@ import WouldYouRatherGame, {
 import { useRoom } from "@/hooks/useRoom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useParams, useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function GamePage() {
   const { sessionId } = useParams<{ sessionId: string }>();
   const router = useRouter();
   const reduced = useReducedMotion();
-  const { isSignedIn } = useAuth();
+  const { isSignedIn, isGuest } = useAuth();
+  const autoStartRef = useRef(false);
   const { room, status, error, kicked, act, send, leave, clearError } =
     useRoom(sessionId);
 
@@ -94,11 +96,21 @@ export default function GamePage() {
     rounds?: number;
   } | null;
 
+  // The lobby API has already authorized the start. Once every seated player
+  // has a socket, the host starts the engine room automatically.
   useEffect(() => {
-    if (room?.phase === "lobby") {
-      router.replace(`/lobby/${sessionId}${groupId ? `?groupId=${groupId}` : ""}`);
+    if (autoStartRef.current || !room || room.phase !== "lobby") return;
+    if (!room.you?.isHost || !room.gameId) return;
+    const game = room.catalog.find((entry) => entry.id === room.gameId);
+    if (!game || room.players.length !== room.players.filter((p) => p.connected).length) {
+      return;
     }
-  }, [room?.phase, router, sessionId, groupId]);
+    if (room.players.length < game.minPlayers || room.players.length > game.maxPlayers) {
+      return;
+    }
+    autoStartRef.current = true;
+    act("start");
+  }, [room, act]);
 
   useEffect(() => {
     if (!error) return;
@@ -422,6 +434,8 @@ export default function GamePage() {
           </div>
 
           <Leaderboard entries={room.result.ranking} youId={room.you?.id} />
+
+          {isGuest && <GuestUpgradePrompt />}
 
           {room.you?.isHost ? (
             <button

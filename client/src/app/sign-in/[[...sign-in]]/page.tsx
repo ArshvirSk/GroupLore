@@ -11,15 +11,15 @@ export default function SignInPage() {
   const searchParams = useSearchParams();
   const nextPath = safeNextPath(searchParams.get("next"));
   const guestPath = nextPath.startsWith("/join/") ? nextPath : "/guest";
-  const { isLoaded, isSignedIn } = useAuth();
+  const { isLoaded, isSignedIn, isGuest } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (isLoaded && isSignedIn) router.replace(nextPath);
-  }, [isLoaded, isSignedIn, nextPath, router]);
+    if (isLoaded && isSignedIn && !isGuest) router.replace(nextPath);
+  }, [isLoaded, isSignedIn, isGuest, nextPath, router]);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();

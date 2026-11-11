@@ -4,8 +4,7 @@ import { useAuth } from "@/components/AuthProvider";
 import FloatingBlobs from "@/components/FloatingBlobs";
 import UserMenu from "@/components/UserMenu";
 import { api } from "@/lib/api";
-import { ensureLobby, groupEntryPath } from "@/lib/play";
-import { useUserStore } from "@/stores/userStore";
+import { ensureLobby, lobbyPath } from "@/lib/play";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -60,7 +59,6 @@ const MOCK_CARDS: MockCard[] = [
 export default function LandingPage() {
   const router = useRouter();
   const { isSignedIn, displayName } = useAuth();
-  const { dbUserId } = useUserStore();
   
   const [mode, setMode] = useState<"home" | "create" | "join">("home");
   const [groupName, setGroupName] = useState("");
@@ -121,8 +119,8 @@ export default function LandingPage() {
       const group = await api.createGroup({
         name: groupName.trim(),
       });
-      const session = await ensureLobby(group.id);
-      router.push(`/lobby/${session.id}?groupId=${group.id}`);
+      const lobby = await ensureLobby(group.id);
+      router.push(lobbyPath(lobby));
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not create the group");
     } finally {
@@ -138,10 +136,8 @@ export default function LandingPage() {
     setLoading(true);
     setError("");
     try {
-      const group = await api.joinGroup({
-        joinCode: joinCode.trim().toUpperCase(),
-      });
-      router.push(await groupEntryPath(group.id));
+      const lobby = await api.joinLobby(joinCode.trim().toUpperCase());
+      router.push(lobbyPath(lobby));
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not join the group");
     } finally {
@@ -294,14 +290,12 @@ export default function LandingPage() {
                     >
                       Join Group
                     </button>
-                    {dbUserId && (
-                      <button
-                        onClick={() => router.push("/dashboard")}
-                        className="px-8 py-4 rounded-full bg-transparent text-violet-400 hover:text-violet-300 font-bold uppercase tracking-wider text-xs border border-violet-500/10 hover:border-violet-500/30 hover:bg-violet-500/5 transition-all duration-300 cursor-pointer"
-                      >
-                        My Groups
-                      </button>
-                    )}
+                    <button
+                      onClick={() => router.push("/dashboard")}
+                      className="px-8 py-4 rounded-full bg-transparent text-violet-400 hover:text-violet-300 font-bold uppercase tracking-wider text-xs border border-violet-500/10 hover:border-violet-500/30 hover:bg-violet-500/5 transition-all duration-300 cursor-pointer"
+                    >
+                      My Groups
+                    </button>
                   </motion.div>
                 )}
 

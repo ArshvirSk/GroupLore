@@ -4,14 +4,23 @@ import AvatarBubble from "@/components/game/AvatarBubble";
 import FloatingBlobs from "@/components/FloatingBlobs";
 import UserMenu from "@/components/UserMenu";
 import { useAuth } from "@/components/AuthProvider";
-import { useRoom } from "@/hooks/useRoom";
+import { api, type Lobby, type LobbyPlayer } from "@/lib/api";
 import { copyInviteLink } from "@/lib/play";
-import type { CatalogGame, RoomView } from "@/stores/roomStore";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState, type ReactNode } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useParams, useRouter } from "next/navigation";
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 
-type Player = RoomView["players"][number];
+type CatalogMode = { id: string; label: string; description: string };
+type CatalogGame = {
+  id: string;
+  name: string;
+  description: string;
+  emoji: string;
+  tag?: string;
+  minPlayers: number;
+  maxPlayers: number;
+  modes: CatalogMode[];
+};
 
 function LobbyFrame({
   children,
@@ -44,200 +53,209 @@ function LobbyFrame({
 
 function PlayerTile({
   player,
-  kickLabel,
+  isHost,
+  canKick,
   onKick,
 }: {
-  player: Player;
-  kickLabel?: string;
-  onKick?: () => void;
+  player: LobbyPlayer;
+  isHost: boolean;
+  canKick: boolean;
+  onKick: () => void;
 }) {
   return (
-    <div className="flex w-[76px] flex-col items-center gap-1.5 text-center">
-      <div className="relative">
-        <AvatarBubble
-          name={player.name}
-          src={player.avatarUrl}
-          size="md"
-          isHost={player.isHost}
-          connected={player.connected}
-        />
-      </div>
-      <p className="w-full truncate text-xs font-bold text-white">{player.name}</p>
-      <p className="text-[10px] font-semibold text-text-muted">
-        {player.connected ? "Ready" : "Reconnecting"}
+    <div className="flex w-[82px] flex-col items-center gap-1.5 text-center">
+      <AvatarBubble
+        name={player.display_name}
+        size="md"
+        isHost={isHost}
+        connected={player.connected}
+      />
+      <p className="w-full truncate text-xs font-bold text-white">
+        {player.display_name}
       </p>
-      {onKick && (
+      <p className="text-[10px] font-semibold text-text-muted">
+        {player.is_guest ? "Guest" : player.connected ? "Ready" : "Offline"}
+      </p>
+      {canKick && (
         <button
           type="button"
           onClick={onKick}
           className="rounded-md bg-danger/10 px-1.5 py-0.5 text-[9px] font-bold text-red-300 transition hover:bg-danger/20"
         >
-          {kickLabel}
+          Kick
         </button>
       )}
     </div>
   );
 }
 
-function GameOption({
-  game,
-  selected,
-  playersNeeded,
-  onClick,
-}: {
-  game: CatalogGame;
-  selected: boolean;
-  playersNeeded: number;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`w-full rounded-xl border p-4 text-left transition ${
-        selected
-          ? "border-accent bg-accent/10"
-          : "border-border bg-bg-card hover:border-border-hover"
-      }`}
-    >
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <p className="text-sm font-bold text-white">{game.name}</p>
-          <p className="mt-0.5 text-xs text-text-secondary">{game.description}</p>
-          <p className="mt-2 flex flex-wrap gap-x-2 text-[10px] font-bold uppercase tracking-[0.14em] text-text-muted">
-            <span>{game.tag}</span>
-            <span>·</span>
-            <span>{game.modes.map((mode) => mode.label).join(" / ")}</span>
-          </p>
-          <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.14em] text-text-muted">
-            {game.minPlayers}–{game.maxPlayers} players
-            {playersNeeded > 0 ? ` · Need ${playersNeeded} more` : " · Ready"}
-          </p>
-        </div>
-        <span className={`text-sm font-black ${selected ? "text-accent" : "text-text-muted"}`}>
-          {selected ? "●" : "○"}
-        </span>
-      </div>
-    </button>
-  );
-}
-
 export default function LobbyPage() {
-  const { sessionId } = useParams<{ sessionId: string }>();
-  const searchParams = useSearchParams();
+  const { sessionId: codeParam } = useParams<{ sessionId: string }>();
+  const code = String(codeParam || "").toUpperCase();
   const router = useRouter();
-  const reducedMotion = useReducedMotion();
-  const { isSignedIn } = useAuth();
+  const { user, isGuest, isLoaded } = useAuth();
 
+  const [lobby, setLobby] = useState<Lobby | null>(null);
+  const [catalog, setCatalog] = useState<CatalogGame[]>([]);
+  const [selectedGameId, setSelectedGameId] = useState("");
+  const [selectedModeId, setSelectedModeId] = useState("classic");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [starting, setStarting] = useState(false);
+  const [leaving, setLeaving] = useState(false);
   const [inviteCopied, setInviteCopied] = useState(false);
 
-  const { room, status, error, kicked, act, leave, clearError } = useRoom(
-    sessionId as string
-  );
-
-  const groupId = room?.groupId || searchParams.get("groupId") || "";
-  const exitPath = isSignedIn
-    ? groupId
-      ? `/group/${groupId}`
-      : "/dashboard"
-    : "/";
-  const exitLabel = isSignedIn && groupId ? "Group" : "Home";
-
-  const players = room?.players ?? [];
-  const isHost = !!room?.you?.isHost;
-  const selectedGame =
-    room?.catalog.find((game) => game.id === room.gameId) ?? null;
-  const selectedMode =
-    selectedGame?.modes.find((mode) => mode.id === room?.mode) ?? null;
-  const joinCode = room?.joinCode || "";
-  const groupName = room?.groupName || "Game room";
+  const load = useCallback(async () => {
+    try {
+      const next = (await api.getLobby(code)) as Lobby;
+      setLobby(next);
+      setError("");
+      if (next.status === "in_game" && next.active_session_id) {
+        router.replace(`/game/${next.active_session_id}`);
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not load the lobby");
+    } finally {
+      setLoading(false);
+    }
+  }, [code, router]);
 
   useEffect(() => {
-    if (room && room.phase !== "lobby") {
-      router.replace(`/game/${sessionId}`);
+    if (!isLoaded || !code) return;
+    if (!user) {
+      router.replace(`/sign-in?next=${encodeURIComponent(`/lobby/${code}`)}`);
+      return;
     }
-  }, [room, room?.phase, router, sessionId]);
+    void load();
+    const timer = setInterval(() => void load(), 2000);
+    return () => clearInterval(timer);
+  }, [isLoaded, user, code, load, router]);
+
+  useEffect(() => {
+    api.getCatalog().then(setCatalog).catch(() => {});
+  }, []);
+
+  const selectedGame = useMemo(
+    () => catalog.find((game) => game.id === selectedGameId) || null,
+    [catalog, selectedGameId],
+  );
+
+  useEffect(() => {
+    if (!selectedGame && catalog.length > 0) {
+      setSelectedGameId(catalog[0].id);
+      setSelectedModeId(catalog[0].modes[0]?.id || "classic");
+    }
+  }, [catalog, selectedGame]);
 
   useEffect(() => {
     if (!error) return;
-    const timer = window.setTimeout(clearError, 4000);
+    const timer = window.setTimeout(() => setError(""), 5000);
     return () => window.clearTimeout(timer);
-  }, [error, clearError]);
+  }, [error]);
 
-  async function handleCopyInvite() {
-    if (!joinCode) return;
+  const players = lobby?.lobby_players || [];
+  const isHost = Boolean(lobby && user && lobby.host_id === user.id);
+  const groupId = lobby?.group_id || "";
+  const groupName = lobby?.groups?.name || "Quick play";
+  const exitPath = groupId ? `/group/${groupId}` : "/dashboard";
+
+  const handleCopy = async () => {
+    if (!lobby) return;
     try {
-      await copyInviteLink(joinCode);
+      await copyInviteLink(lobby.code);
       setInviteCopied(true);
       window.setTimeout(() => setInviteCopied(false), 2000);
     } catch {
-      alert("Could not copy the invite link");
+      setError("Could not copy the invite link");
     }
+  };
+
+  const handleStart = async () => {
+    if (!lobby || !selectedGame || starting) return;
+    setStarting(true);
+    setError("");
+    try {
+      const result = (await api.startLobby(lobby.id, {
+        gameId: selectedGame.id,
+        mode: selectedModeId,
+      })) as { sessionId: string };
+      router.push(`/game/${result.sessionId}`);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not start the game");
+    } finally {
+      setStarting(false);
+    }
+  };
+
+  const handleLeave = async () => {
+    if (!lobby || leaving) return;
+    setLeaving(true);
+    try {
+      await api.leaveLobby(lobby.id);
+      router.push(exitPath);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not leave the lobby");
+      setLeaving(false);
+    }
+  };
+
+  const handleKick = async (userId: string) => {
+    if (!lobby) return;
+    try {
+      await api.kickLobbyPlayer(lobby.id, userId);
+      await load();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not kick that player");
+    }
+  };
+
+  if (loading && !lobby) {
+    return (
+      <LobbyFrame onBack={() => router.push("/dashboard")} backLabel="Home">
+        <div className="glass-card mx-auto max-w-md p-8 text-center">
+          <div className="mx-auto h-8 w-8 animate-spin rounded-full border-2 border-border border-t-accent" />
+          <h1 className="mt-4 text-lg font-bold text-white">Finding your room</h1>
+          <p className="mt-2 text-sm text-text-secondary">Checking the code…</p>
+        </div>
+      </LobbyFrame>
+    );
   }
 
-  if (kicked) {
+  if (!lobby) {
     return (
-      <LobbyFrame onBack={() => router.push(exitPath)} backLabel={exitLabel}>
+      <LobbyFrame onBack={() => router.push("/dashboard")} backLabel="Home">
         <div className="glass-card mx-auto max-w-md p-8 text-center">
-          <h1 className="text-2xl font-black tracking-tight text-white">
-            Removed from the room
-          </h1>
+          <p className="text-4xl">🙈</p>
+          <h1 className="mt-3 text-2xl font-black text-white">Room unavailable</h1>
           <p className="mt-2 text-sm text-text-secondary">
-            {error?.message || "The host removed you from this room."}
+            {error || "That room code is not open."}
           </p>
           <button
             type="button"
-            onClick={() => router.push(exitPath)}
+            onClick={() => router.push("/dashboard")}
             className="neon-btn neon-btn-purple mt-6 w-full"
           >
-            Back to {exitLabel.toLowerCase()}
+            Back to dashboard
           </button>
         </div>
       </LobbyFrame>
     );
   }
 
-  if (!room) {
-    return (
-      <LobbyFrame onBack={() => router.push(exitPath)} backLabel={exitLabel}>
-        <div className="glass-card mx-auto max-w-md p-8 text-center">
-          <div className="mx-auto h-8 w-8 animate-spin rounded-full border-2 border-border border-t-accent" />
-          <h1 className="mt-4 text-lg font-bold text-white">
-            {status === "error" ? "Room unavailable" : "Finding your seat"}
-          </h1>
-          <p className="mt-2 text-sm text-text-secondary">
-            {error?.message || "Connecting to the lobby…"}
-          </p>
-          {status === "error" && (
-            <button
-              type="button"
-              onClick={() => router.push(exitPath)}
-              className="neon-btn neon-btn-purple mt-6 w-full"
-            >
-              Back to {exitLabel.toLowerCase()}
-            </button>
-          )}
-        </div>
-      </LobbyFrame>
-    );
-  }
-
-  const offline = players.filter((player) => !player.connected);
+  const connected = players.filter((player) => player.connected).length;
   let disabledReason = "";
   if (!selectedGame) disabledReason = "Pick a game first";
-  else if (players.length < selectedGame.minPlayers)
-    disabledReason = `Need ${selectedGame.minPlayers} players — ${players.length} in the room`;
-  else if (players.length > selectedGame.maxPlayers)
+  else if (connected < selectedGame.minPlayers)
+    disabledReason = `Need ${selectedGame.minPlayers} players — ${connected} in the room`;
+  else if (connected > selectedGame.maxPlayers)
     disabledReason = `This game allows ${selectedGame.maxPlayers} players`;
-  else if (offline.length > 0)
-    disabledReason = `Waiting for ${offline.map((player) => player.name).join(", ")}`;
-  else if (status !== "ready") disabledReason = "Reconnecting…";
+  else if (starting) disabledReason = "Starting…";
 
   return (
-    <LobbyFrame onBack={() => router.push(exitPath)} backLabel={exitLabel}>
+    <LobbyFrame onBack={() => router.push(exitPath)} backLabel={groupId ? "Group" : "Home"}>
       <header className="mb-6">
         <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-muted">
-          Game room
+          {groupId ? "Group lobby" : "Quick play lobby"}
         </p>
         <h1 className="mt-1 text-3xl font-black tracking-tight text-white">
           {groupName}
@@ -246,19 +264,17 @@ export default function LobbyPage() {
           <span className="inline-flex items-center gap-2 rounded-lg border border-border bg-bg-card px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-text-muted">
             Room code
             <span className="font-mono text-sm tracking-[0.25em] text-accent">
-              {joinCode || "—"}
+              {lobby.code}
             </span>
           </span>
-          {joinCode && (
-            <button
-              type="button"
-              onClick={handleCopyInvite}
-              className="rounded-lg border border-border bg-bg-card px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-text-secondary transition hover:border-border-hover hover:text-white"
-            >
-              {inviteCopied ? "Invite copied" : "Copy invite"}
-            </button>
-          )}
-          {isSignedIn && groupId && (
+          <button
+            type="button"
+            onClick={handleCopy}
+            className="rounded-lg border border-border bg-bg-card px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-text-secondary transition hover:border-border-hover hover:text-white"
+          >
+            {inviteCopied ? "Invite copied" : "Copy invite"}
+          </button>
+          {groupId && (
             <button
               type="button"
               onClick={() => router.push(`/group/${groupId}`)}
@@ -267,33 +283,32 @@ export default function LobbyPage() {
               Group page
             </button>
           )}
+          {isHost && <span className="text-[10px] font-bold uppercase tracking-wider text-accent">★ Host</span>}
         </div>
       </header>
 
-      {status !== "ready" && (
-        <p className="mb-4 rounded-xl border border-accent/20 bg-accent/10 px-4 py-2 text-center text-xs font-semibold text-text-secondary">
-          {status === "reconnecting"
-            ? "Connection lost — reconnecting. Your seat is held for 30s."
-            : "Connecting to the room…"}
-        </p>
+      {isGuest && (
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-violet-500/20 bg-violet-500/10 px-4 py-3 text-xs text-violet-200">
+          <span>You&apos;re playing as a guest. Your lobby seat works, but groups and history need an account.</span>
+          <button
+            type="button"
+            onClick={() => router.push(`/upgrade?next=${encodeURIComponent(`/lobby/${lobby.code}`)}`)}
+            className="font-bold underline underline-offset-4"
+          >
+            Save your progress
+          </button>
+        </div>
       )}
 
       <AnimatePresence>
         {error && (
           <motion.div
-            initial={reducedMotion ? false : { opacity: 0, y: -6 }}
+            initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
-            className="mb-4 flex items-center justify-between gap-3 rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-300"
+            className="mb-4 rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-300"
           >
-            <span>{error.message}</span>
-            <button
-              type="button"
-              onClick={clearError}
-              className="text-[10px] font-bold uppercase tracking-wider text-red-200/70 hover:text-white"
-            >
-              Dismiss
-            </button>
+            {error}
           </motion.div>
         )}
       </AnimatePresence>
@@ -304,50 +319,20 @@ export default function LobbyPage() {
             Players <span className="text-text-muted">{players.length}</span>
           </h2>
           <span className="rounded-full border border-success/20 bg-success/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-success">
-            In room
+            {connected} connected
           </span>
         </div>
         <div className="flex flex-wrap gap-4">
-          <AnimatePresence>
-            {players.map((player) => (
-              <motion.div
-                key={player.id}
-                layout
-                initial={reducedMotion ? false : { opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-              >
-                <PlayerTile
-                  player={player}
-                  kickLabel={isHost && player.id !== room.you?.id ? "Kick" : undefined}
-                  onKick={
-                    isHost && player.id !== room.you?.id
-                      ? () => act("kick", { playerId: player.id })
-                      : undefined
-                  }
-                />
-              </motion.div>
-            ))}
-          </AnimatePresence>
+          {players.map((player) => (
+            <PlayerTile
+              key={player.user_id}
+              player={player}
+              isHost={player.user_id === lobby.host_id}
+              canKick={isHost && player.user_id !== user?.id}
+              onKick={() => void handleKick(player.user_id)}
+            />
+          ))}
         </div>
-        {selectedGame && players.length < selectedGame.minPlayers && (
-          <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-amber-500/20 bg-amber-500/10 px-4 py-3">
-            <p className="text-xs font-semibold text-amber-200">
-              Need {selectedGame.minPlayers - players.length} more player
-              {selectedGame.minPlayers - players.length === 1 ? "" : "s"} for{" "}
-              {selectedGame.name}.
-            </p>
-            {joinCode && (
-              <button
-                type="button"
-                onClick={handleCopyInvite}
-                className="text-[10px] font-bold uppercase tracking-[0.12em] text-amber-200 underline decoration-amber-200/40 underline-offset-4 hover:text-white"
-              >
-                {inviteCopied ? "Invite copied" : "Copy invite"}
-              </button>
-            )}
-          </div>
-        )}
       </section>
 
       <section className="mb-5">
@@ -355,102 +340,94 @@ export default function LobbyPage() {
           <h2 className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-muted">
             Pick a game
           </h2>
-          {selectedMode && (
+          {selectedModeId && (
             <span className="rounded-full border border-border bg-bg-card px-2.5 py-1 text-[10px] font-bold text-text-secondary">
-              {selectedMode.label}
+              {selectedGame?.modes.find((mode) => mode.id === selectedModeId)?.label || selectedModeId}
             </span>
           )}
         </div>
-
         <div className="grid gap-2">
-          {room.catalog.map((game) => (
-            <GameOption
-              key={game.id}
-              game={game}
-              selected={room.gameId === game.id}
-              playersNeeded={Math.max(0, game.minPlayers - players.length)}
-              onClick={() =>
-                act("selectGame", {
-                  gameId: game.id,
-                  mode: game.modes[0]?.id || "classic",
-                })
-              }
-            />
-          ))}
-          {room.catalog.length === 0 && (
-            <p className="glass-card p-5 text-sm text-text-secondary">
-              No games are available yet.
-            </p>
-          )}
+          {catalog.map((game) => {
+            const selected = selectedGameId === game.id;
+            return (
+              <button
+                key={game.id}
+                type="button"
+                onClick={() => {
+                  setSelectedGameId(game.id);
+                  setSelectedModeId(game.modes[0]?.id || "classic");
+                }}
+                className={`w-full rounded-xl border p-4 text-left transition ${
+                  selected
+                    ? "border-accent bg-accent/10"
+                    : "border-border bg-bg-card hover:border-border-hover"
+                }`}
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-bold text-white">
+                      {game.emoji} {game.name}
+                    </p>
+                    <p className="mt-0.5 text-xs text-text-secondary">{game.description}</p>
+                    <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.14em] text-text-muted">
+                      {game.minPlayers}–{game.maxPlayers} players
+                    </p>
+                  </div>
+                  <span className={`text-sm font-black ${selected ? "text-accent" : "text-text-muted"}`}>
+                    {selected ? "●" : "○"}
+                  </span>
+                </div>
+              </button>
+            );
+          })}
         </div>
 
-        <AnimatePresence initial={false}>
-          {selectedGame && (
-            <motion.div
-              key={`modes-${selectedGame.id}`}
-              initial={reducedMotion ? false : { height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              className="overflow-hidden"
-            >
-              <p className="mb-2 mt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-text-muted">
-                Mode
-              </p>
-              <div className="grid gap-2 sm:grid-cols-2">
-                {selectedGame.modes.map((mode) => {
-                  const active = room.mode === mode.id;
-                  return (
-                    <button
-                      key={mode.id}
-                      type="button"
-                      aria-pressed={active}
-                      onClick={() =>
-                        act("selectGame", {
-                          gameId: selectedGame.id,
-                          mode: mode.id,
-                        })
-                      }
-                      className={`rounded-xl border p-3 text-left transition ${
-                        active
-                          ? "border-accent bg-accent/10"
-                          : "border-border bg-bg-card hover:border-border-hover"
-                      }`}
-                    >
-                      <p className={`text-xs font-bold ${active ? "text-white" : "text-text-secondary"}`}>
-                        {mode.label}
-                      </p>
-                      <p className={`mt-0.5 text-[11px] ${active ? "text-white/70" : "text-text-muted"}`}>
-                        {mode.description}
-                      </p>
-                    </button>
-                  );
-                })}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {selectedGame && selectedGame.modes.length > 1 && (
+          <div className="mt-3 grid gap-2 sm:grid-cols-2">
+            {selectedGame.modes.map((mode) => (
+              <button
+                key={mode.id}
+                type="button"
+                aria-pressed={selectedModeId === mode.id}
+                onClick={() => setSelectedModeId(mode.id)}
+                className={`rounded-xl border p-3 text-left transition ${
+                  selectedModeId === mode.id
+                    ? "border-accent bg-accent/10"
+                    : "border-border bg-bg-card hover:border-border-hover"
+                }`}
+              >
+                <p className="text-xs font-bold text-white">{mode.label}</p>
+                <p className="mt-0.5 text-[11px] text-text-muted">{mode.description}</p>
+              </button>
+            ))}
+          </div>
+        )}
       </section>
 
-      <div className="sticky bottom-4">
-        <button
-          type="button"
-          onClick={() => act("start")}
-          disabled={Boolean(disabledReason)}
-          className="neon-btn neon-btn-purple min-h-14 w-full py-4 text-sm disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          {disabledReason || "Start game →"}
-        </button>
-      </div>
+      {isHost ? (
+        <div className="sticky bottom-4">
+          <button
+            type="button"
+            onClick={() => void handleStart()}
+            disabled={Boolean(disabledReason)}
+            className="neon-btn neon-btn-purple min-h-14 w-full py-4 text-sm disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            {disabledReason || "Start game →"}
+          </button>
+        </div>
+      ) : (
+        <p className="rounded-xl border border-border bg-bg-card px-4 py-3 text-center text-xs font-semibold text-text-secondary">
+          Waiting for the host to start the game…
+        </p>
+      )}
 
       <button
         type="button"
-        onClick={() => {
-          leave();
-          router.push(exitPath);
-        }}
-        className="mx-auto mt-4 block py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-text-muted transition hover:text-white"
+        onClick={() => void handleLeave()}
+        disabled={leaving}
+        className="mx-auto mt-4 block py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-text-muted transition hover:text-white disabled:opacity-50"
       >
-        Leave room
+        {leaving ? "Leaving…" : "Leave room"}
       </button>
     </LobbyFrame>
   );

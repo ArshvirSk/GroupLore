@@ -2,14 +2,8 @@
 
 import { useAuth } from "@/components/AuthProvider";
 import FloatingBlobs from "@/components/FloatingBlobs";
-import { api } from "@/lib/api";
 import { withNext } from "@/lib/authRedirect";
-import {
-  getInvite,
-  groupEntryPath,
-  joinOpenLobbyAsGuest,
-  type InviteInfo,
-} from "@/lib/play";
+import { getInvite, joinLobby, joinLobbyAsGuest, type InviteInfo } from "@/lib/play";
 import { motion } from "framer-motion";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -18,9 +12,7 @@ export default function JoinPage() {
   const { code } = useParams<{ code: string }>();
   const router = useRouter();
   const { isLoaded, isSignedIn } = useAuth();
-  const inviteCode = String(code || "")
-    .trim()
-    .toUpperCase();
+  const inviteCode = String(code || "").trim().toUpperCase();
   const nextPath = `/join/${inviteCode}`;
 
   const [invite, setInvite] = useState<InviteInfo | null>(null);
@@ -28,62 +20,52 @@ export default function JoinPage() {
   const [lookupError, setLookupError] = useState("");
   const [joinError, setJoinError] = useState("");
   const [guestName, setGuestName] = useState("");
-  const [guestError, setGuestError] = useState("");
   const [guestJoining, setGuestJoining] = useState(false);
 
   useEffect(() => {
     let active = true;
     getInvite(inviteCode)
-      .then((data) => {
-        if (active) setInvite(data);
-      })
+      .then((data) => active && setInvite(data))
       .catch((err) => {
-        if (!active) return;
-        setLookupError(
-          err instanceof Error ? err.message : "This invite could not be found",
-        );
+        if (active) {
+          setLookupError(
+            err instanceof Error ? err.message : "This invite could not be found",
+          );
+        }
       })
-      .finally(() => {
-        if (active) setLookupDone(true);
-      });
-
+      .finally(() => active && setLookupDone(true));
     return () => {
       active = false;
     };
   }, [inviteCode]);
 
+  // A signed-in user (account or anonymous guest) converges on the same join.
   useEffect(() => {
     if (!isLoaded || !isSignedIn || !invite || joinError) return;
-
     let active = true;
-    void (async () => {
-      try {
-        await api.syncUser().catch(() => null);
-        const group = await api.joinGroup({ joinCode: inviteCode });
-        const destination = await groupEntryPath(group.id);
-        if (active) router.replace(destination);
-      } catch (err) {
-        if (!active) return;
-        setJoinError(
-          err instanceof Error ? err.message : "Could not join this group",
-        );
-      }
-    })();
-
+    void joinLobby(inviteCode)
+      .then((lobby) => {
+        if (active) router.replace(`/lobby/${lobby.code}`);
+      })
+      .catch((err) => {
+        if (active) {
+          setJoinError(err instanceof Error ? err.message : "Could not join");
+        }
+      });
     return () => {
       active = false;
     };
-  }, [invite, inviteCode, isLoaded, isSignedIn, joinError, router]);
+  }, [isLoaded, isSignedIn, invite, inviteCode, joinError, router]);
 
   const handleGuest = async () => {
     if (!invite?.lobby || !guestName.trim()) return;
     setGuestJoining(true);
-    setGuestError("");
+    setJoinError("");
     try {
-      const lobbyId = await joinOpenLobbyAsGuest(guestName, inviteCode);
-      router.replace(`/lobby/${lobbyId}`);
+      const lobby = await joinLobbyAsGuest(guestName, inviteCode);
+      router.replace(`/lobby/${lobby.code}`);
     } catch (err) {
-      setGuestError(
+      setJoinError(
         err instanceof Error ? err.message : "Could not join as a guest",
       );
     } finally {
@@ -134,25 +116,6 @@ export default function JoinPage() {
     );
   }
 
-  if (joinError) {
-    return card(
-      <div className="text-center">
-        <p className="text-4xl">😵</p>
-        <h1 className="mt-3 font-display text-2xl font-semibold text-ink">
-          Could not join this group
-        </h1>
-        <p className="mt-2 text-sm font-semibold text-ink-soft">{joinError}</p>
-        <button
-          type="button"
-          onClick={() => router.replace("/dashboard")}
-          className="mt-6 min-h-12 w-full rounded-2xl bg-grape px-5 font-display text-sm font-semibold text-white shadow-soft"
-        >
-          Go to dashboard
-        </button>
-      </div>,
-    );
-  }
-
   if (!invite) return null;
 
   if (isSignedIn) {
@@ -160,16 +123,17 @@ export default function JoinPage() {
       <div className="text-center">
         <div className="mx-auto h-10 w-10 animate-spin rounded-full border-4 border-lavender border-t-grape" />
         <h1 className="mt-4 font-display text-2xl font-semibold text-ink">
-          Joining {invite.group.name}…
+          Joining {invite.group?.name || "the room"}…
         </h1>
-        <p className="mt-2 text-sm font-semibold text-ink-soft">
-          We&apos;ll take you to the lobby if one is open.
-        </p>
+        {joinError && (
+          <p className="mt-3 text-sm font-semibold text-[#B83232]">{joinError}</p>
+        )}
       </div>,
     );
   }
 
-  const guestAvailable = invite.guestsEnabled && Boolean(invite.lobby);
+  const guestAvailable =
+    invite.guestsEnabled && invite.lobby.status === "open";
 
   return card(
     <div>
@@ -177,12 +141,12 @@ export default function JoinPage() {
         You&apos;re invited
       </p>
       <h1 className="mt-1 font-display text-3xl font-semibold text-ink">
-        {invite.group.name}
+        {invite.group?.name || "Quick play room"}
       </h1>
       <p className="mt-2 text-sm font-semibold text-ink-soft">
-        {invite.lobby
+        {invite.lobby.status === "open"
           ? "A lobby is open now. Choose how you want to join."
-          : "No lobby is open yet. Sign in to join the group, or ask the host to open a lobby."}
+          : "This game has already started. Sign in to see the room."}
       </p>
 
       <section className="mt-6 rounded-2xl border border-ink/10 bg-white/70 p-4">
@@ -192,23 +156,17 @@ export default function JoinPage() {
         {guestAvailable ? (
           <>
             <p className="mt-1 text-xs font-semibold text-ink-soft">
-              No account needed. Guests can play this open lobby but cannot see
-              group history or open lobbies.
+              No account needed. Guests join only this lobby, never the group.
             </p>
             <input
               value={guestName}
-              onChange={(event) => {
-                setGuestName(event.target.value);
-                setGuestError("");
-              }}
+              onChange={(event) => setGuestName(event.target.value)}
               maxLength={30}
               placeholder="Your display name"
               className="mt-3 min-h-11 w-full rounded-xl border border-ink/10 bg-white px-3 text-sm font-semibold text-ink outline-none focus:border-grape"
             />
-            {guestError && (
-              <p className="mt-2 text-xs font-bold text-[#B83232]">
-                {guestError}
-              </p>
+            {joinError && (
+              <p className="mt-2 text-xs font-bold text-[#B83232]">{joinError}</p>
             )}
             <button
               type="button"
@@ -223,7 +181,7 @@ export default function JoinPage() {
           <p className="mt-2 text-xs font-semibold text-ink-soft">
             {!invite.guestsEnabled
               ? "Guest play is disabled on this server."
-              : "The host needs to open a lobby before a guest can join."}
+              : "That room is no longer open to new players."}
           </p>
         )}
       </section>
@@ -238,12 +196,10 @@ export default function JoinPage() {
 
       <button
         type="button"
-        onClick={() =>
-          router.push(`/sign-in?next=${encodeURIComponent(nextPath)}`)
-        }
+        onClick={() => router.push(`/sign-in?next=${encodeURIComponent(nextPath)}`)}
         className="min-h-12 w-full rounded-xl border-2 border-grape px-5 font-display text-sm font-semibold text-grape transition hover:bg-lavender/30"
       >
-        Sign in to join the group
+        Sign in to join
       </button>
       <button
         type="button"

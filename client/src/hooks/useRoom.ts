@@ -1,7 +1,6 @@
 "use client";
 
 import { useAuth } from "@/components/AuthProvider";
-import { getGuestIdentity } from "@/lib/guest";
 import {
   connectRoomSocket,
   eventId,
@@ -9,7 +8,6 @@ import {
   noteSocketAuthRetry,
   refreshRoomAuth,
   resetSocketAuthRetry,
-  setRoomAuthFactory,
 } from "@/lib/roomSocket";
 import { useRoomStore } from "@/stores/roomStore";
 import { useCallback, useEffect } from "react";
@@ -27,16 +25,11 @@ function readReconnectToken(sessionId: string): string | null {
 }
 
 /**
- * Single room connection hook.
- *
- * The socket is app-wide and survives lobby -> game navigation. Unmounting a
- * page only detaches listeners; it never leaves the room or disconnects. The
- * only ways out are the explicit leave action, a kick, or the server's
- * disconnect grace period.
+ * Single room connection hook. The socket credential is always the current
+ * Supabase access token; there is no guest-token fallback.
  */
 export function useRoom(sessionId: string) {
-  const { isLoaded, isSignedIn, displayName, avatarUrl, getAccessToken } =
-    useAuth();
+  const { isLoaded, isSignedIn, getAccessToken } = useAuth();
 
   const room = useRoomStore((state) => state.room);
   const status = useRoomStore((state) => state.status);
@@ -50,23 +43,14 @@ export function useRoom(sessionId: string) {
 
   useEffect(() => {
     if (!sessionId || !isLoaded) return;
+    if (!isSignedIn) {
+      setStatus("error");
+      setError({ code: "unauthorized", message: "Sign in to join this room" });
+      return;
+    }
+
     let active = true;
     let joinedSocketId: string | null = null;
-
-    setRoomAuthFactory(async () => {
-      if (isSignedIn) {
-        const token = await getAccessToken();
-        if (token) {
-          return {
-            token,
-            displayName,
-            avatarUrl,
-          };
-        }
-      }
-      const guest = await getGuestIdentity(displayName);
-      return { guestToken: guest.guestToken, displayName: guest.name };
-    });
 
     const socket = getRoomSocket();
 
@@ -94,16 +78,17 @@ export function useRoom(sessionId: string) {
         }, 300);
         return;
       }
-      if (active) {
-        setStatus("error");
-        setError({
-          code: err.data?.code || "connection_failed",
-          message:
-            err.data?.code === "unauthorized"
+      if (!active) return;
+      setStatus("error");
+      setError({
+        code: err.data?.code || "connection_failed",
+        message:
+          err.data?.code === "guests_disabled"
+            ? "Guest play is disabled. Sign in with an account."
+            : err.data?.code === "unauthorized"
               ? "Sign in to join this room"
               : "Could not connect to the game server",
-        });
-      }
+      });
     };
 
     const onJoined = (payload: { reconnectToken: string }) => {
@@ -112,8 +97,7 @@ export function useRoom(sessionId: string) {
       try {
         localStorage.setItem(reconnectKey(sessionId), payload.reconnectToken);
       } catch {
-        // Storage can be unavailable in private mode; reconnect still works
-        // while the tab stays open.
+        // Private mode can block storage; the seat still works this tab.
       }
     };
 
@@ -126,9 +110,7 @@ export function useRoom(sessionId: string) {
 
     const onError = (payload: { code: string; message: string }) => {
       if (!active) return;
-      if (payload.code === "session_replaced") {
-        setKicked(true);
-      }
+      if (payload.code === "session_replaced") setKicked(true);
       setError(payload);
     };
 
@@ -142,8 +124,7 @@ export function useRoom(sessionId: string) {
     };
 
     const onDisconnect = () => {
-      if (!active) return;
-      setStatus("reconnecting");
+      if (active) setStatus("reconnecting");
     };
 
     socket.on("connect", onConnect);
@@ -154,24 +135,24 @@ export function useRoom(sessionId: string) {
     socket.on("room:kicked", onKicked);
     socket.on("disconnect", onDisconnect);
 
-    // Supabase access tokens are short lived. Keep the handshake credential
-    // fresh so an automatic socket reconnect does not fail after a long match.
+    // Keep the handshake token fresh for long matches. AuthProvider owns the
+    // token-refresh logic; this only copies the fresh token onto the socket.
     const tokenTimer = setInterval(async () => {
-      if (!active || !isSignedIn) return;
+      if (!active) return;
       const token = await getAccessToken();
-      if (token) socket.auth = { ...socket.auth, token, displayName };
+      if (token) socket.auth = { ...socket.auth, token };
     }, 30_000);
 
     void connectRoomSocket()
       .then(() => {
         if (active && socket.connected) join();
       })
-      .catch(() => {
+      .catch((err) => {
         if (!active) return;
         setStatus("error");
         setError({
           code: "connection_failed",
-          message: "Could not connect to the game server",
+          message: err instanceof Error ? err.message : "Could not connect",
         });
       });
 
@@ -190,8 +171,6 @@ export function useRoom(sessionId: string) {
     sessionId,
     isLoaded,
     isSignedIn,
-    displayName,
-    avatarUrl,
     getAccessToken,
     setRoom,
     setStatus,

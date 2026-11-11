@@ -4,8 +4,7 @@ import AvatarBubble from "@/components/AvatarBubble";
 import { useAuth } from "@/components/AuthProvider";
 import FloatingBlobs from "@/components/FloatingBlobs";
 import { api } from "@/lib/api";
-import { copyInviteLink, ensureLobby } from "@/lib/play";
-import { useUserStore } from "@/stores/userStore";
+import { copyInviteLink, ensureLobby, lobbyPath } from "@/lib/play";
 import { AnimatePresence, motion } from "framer-motion";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -13,6 +12,7 @@ import { useEffect, useState } from "react";
 interface MemberProfile {
   id: string;
   user_id?: string | null;
+  role?: "owner" | "member";
   display_name: string;
   nickname?: string;
   traits: string[];
@@ -23,18 +23,14 @@ interface MemberProfile {
   avatar_url?: string;
 }
 
-interface GroupMember {
-  user_id: string;
-  role: string;
-  users: { id: string; name: string };
-}
-
 interface Group {
   id: string;
   name: string;
-  join_code: string;
+  role: "owner" | "member";
+  owner_id?: string | null;
   avatar_url?: string;
-  group_members?: GroupMember[];
+  members?: MemberProfile[];
+  lobby?: { id: string; code: string; status: string } | null;
 }
 
 export default function GroupDashboard() {
@@ -42,8 +38,7 @@ export default function GroupDashboard() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const roomClosed = searchParams.get("roomClosed") === "1";
-  const { isLoaded, isSignedIn } = useAuth();
-  const { dbUserId } = useUserStore();
+  const { isLoaded, isSignedIn, user } = useAuth();
   const [group, setGroup] = useState<Group | null>(null);
   const [members, setMembers] = useState<MemberProfile[]>([]);
   const [showAdd, setShowAdd] = useState(false);
@@ -52,9 +47,7 @@ export default function GroupDashboard() {
   const [loading, setLoading] = useState(true);
   const [launching, setLaunching] = useState(false);
   const [launchError, setLaunchError] = useState("");
-  const [activeSession, setActiveSession] = useState<{ id: string } | null>(
-    null,
-  );
+  const [activeLobby, setActiveLobby] = useState<{ id: string; code: string } | null>(null);
 
   const [form, setForm] = useState({
     displayName: "",
@@ -69,15 +62,10 @@ export default function GroupDashboard() {
   const [editingUserId, setEditingUserId] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
-  // Determine host info from group_members
-  const hostMember = group?.group_members?.find((m) => m.role === "host");
-  const hostName = hostMember?.users?.name || "the host";
-
-  // Check if current user is the host
-  const isHost =
-    group?.group_members?.some(
-      (m) => m.role === "host" && m.user_id === dbUserId,
-    ) ?? false;
+  const owner = group?.members?.find((member) => member.role === "owner");
+  const hostName = owner?.display_name || "the owner";
+  const isHost = group?.role === "owner";
+  const joinCode = group?.lobby?.code || "";
 
   useEffect(() => {
     if (!isLoaded) return;
@@ -90,33 +78,21 @@ export default function GroupDashboard() {
     loadData();
     const interval = setInterval(async () => {
       try {
-        const [g, m] = await Promise.all([
-          api.getGroup(id),
-          api.getMembers(id),
-        ]);
+        const g = await api.getGroup(id);
         setGroup(g);
-        setMembers(m);
+        if (g.members) setMembers(g.members);
+        setActiveLobby(g.lobby || null);
       } catch {}
-      // Check for active lobby session (read-only)
-      try {
-        const session = await api.getActiveSession(id);
-        if (session && session.status === "lobby") {
-          setActiveSession(session);
-        } else {
-          setActiveSession(null);
-        }
-      } catch {
-        setActiveSession(null);
-      }
     }, 3000);
     return () => clearInterval(interval);
   }, [id, isLoaded, isSignedIn]);
 
   const loadData = async () => {
     try {
-      const [g, m] = await Promise.all([api.getGroup(id), api.getMembers(id)]);
+      const g = await api.getGroup(id);
       setGroup(g);
-      setMembers(m);
+      if (g.members) setMembers(g.members);
+      setActiveLobby(g.lobby || null);
     } catch {
     } finally {
       setLoading(false);
@@ -124,17 +100,17 @@ export default function GroupDashboard() {
   };
 
   const copyCode = () => {
-    if (group?.join_code) {
-      navigator.clipboard.writeText(group.join_code);
+    if (joinCode) {
+      navigator.clipboard.writeText(joinCode);
       setCodeCopied(true);
       setTimeout(() => setCodeCopied(false), 2000);
     }
   };
 
   const copyInvite = async () => {
-    if (!group?.join_code) return;
+    if (!joinCode) return;
     try {
-      await copyInviteLink(group.join_code);
+      await copyInviteLink(joinCode);
       setInviteCopied(true);
       setTimeout(() => setInviteCopied(false), 2000);
     } catch {
@@ -192,17 +168,17 @@ export default function GroupDashboard() {
   };
 
   const startEditing = (m: MemberProfile) => {
-    const canEdit = isHost || (m.user_id && m.user_id === dbUserId);
+    const canEdit = isHost || (m.user_id && m.user_id === user?.id);
     if (!canEdit) return;
     setEditingUserId(m.user_id || null);
     setForm({
       displayName: m.display_name,
       nickname: m.nickname || "",
-      traits: m.traits.join(", "),
-      habits: m.habits.join(", "),
-      iconicMoments: m.iconic_moments.join(", "),
-      catchphrases: m.catchphrases.join(", "),
-      mostLikelyTo: m.most_likely_to.join(", "),
+      traits: (m.traits || []).join(", "),
+      habits: (m.habits || []).join(", "),
+      iconicMoments: (m.iconic_moments || []).join(", "),
+      catchphrases: (m.catchphrases || []).join(", "),
+      mostLikelyTo: (m.most_likely_to || []).join(", "),
     });
     setEditingId(m.id);
     setShowAdd(true);
@@ -233,8 +209,8 @@ export default function GroupDashboard() {
     setLaunching(true);
     setLaunchError("");
     try {
-      const session = await ensureLobby(id);
-      router.push(`/lobby/${session.id}?groupId=${id}`);
+      const lobby = await ensureLobby(id);
+      router.push(lobbyPath(lobby));
     } catch (err) {
       setLaunchError(
         err instanceof Error ? err.message : "Could not open the lobby",
@@ -283,7 +259,7 @@ export default function GroupDashboard() {
               transition={{ delay: 0.3 }}
             >
               <span className="text-accent">👑</span>
-              <span className="text-text-secondary">Host:</span>
+              <span className="text-text-secondary">Owner:</span>
               <span className="text-accent font-semibold">{hostName}</span>
             </motion.div>
 
@@ -294,7 +270,7 @@ export default function GroupDashboard() {
             >
               <span className="text-text-muted">Code:</span>
               <span className="text-accent font-mono font-bold tracking-widest">
-                {group?.join_code}
+                {joinCode || "—"}
               </span>
               <span className="text-text-muted">{codeCopied ? "✓" : "⎘"}</span>
             </motion.button>
@@ -317,7 +293,7 @@ export default function GroupDashboard() {
           </div>
         </motion.div>
 
-        {roomClosed && !activeSession && (
+        {roomClosed && !activeLobby && (
           <motion.div
             role="status"
             className="mb-6 rounded-xl border border-amber-500/20 bg-amber-500/10 px-4 py-3 text-sm text-amber-200"
@@ -343,13 +319,14 @@ export default function GroupDashboard() {
           >
             {launching
               ? "Opening lobby…"
-              : activeSession
+              : activeLobby
                 ? "Join Game →"
                 : "Open Game Lobby →"}
           </motion.button>
           <p className="mt-3 max-w-md text-xs text-text-muted">
-            Anyone in the group can open the lobby and start. Most games need at
-            least 3 players, so share the invite link before you begin.
+            Anyone in the group can open the lobby; only the lobby host can
+            start. Most games need at least 3 players, so share the room code
+            before you begin.
           </p>
           {launchError && (
             <p className="mt-3 max-w-md rounded-xl bg-red-500/10 px-3 py-2 text-xs font-semibold text-red-300">
@@ -491,16 +468,13 @@ export default function GroupDashboard() {
           ) : (
             <div className="grid gap-2">
               {members.map((m, i) => {
-                const memberIsHost =
-                  group?.group_members?.some(
-                    (gm) => gm.role === "host" && gm.user_id === m.id,
-                  ) || hostMember?.users?.name === m.display_name;
+                const memberIsHost = m.role === "owner";
 
                 return (
                   <motion.div
                     key={m.id}
                     className={`glass-card p-4 ${
-                      isHost || m.user_id === dbUserId
+                      isHost || m.user_id === user?.id
                         ? "cursor-pointer"
                         : "cursor-default"
                     }`}
@@ -525,7 +499,7 @@ export default function GroupDashboard() {
                           )}
                           {memberIsHost && (
                             <span className="px-1.5 py-0.5 text-[9px] rounded-full bg-accent-muted text-accent border border-accent/20 uppercase tracking-wider font-medium">
-                              Host
+                              Owner
                             </span>
                           )}
                         </h3>
@@ -545,11 +519,7 @@ export default function GroupDashboard() {
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
-                              const gm = group?.group_members?.find(
-                                (gm) => gm.users?.name === m.display_name,
-                              );
-                              if (gm)
-                                handleRemoveMember(gm.user_id, m.display_name);
+                              if (m.user_id) handleRemoveMember(m.user_id, m.display_name);
                             }}
                             className="text-red-400/60 hover:text-red-400 text-xs transition-colors"
                             title="Remove from group"

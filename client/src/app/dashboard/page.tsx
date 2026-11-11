@@ -5,8 +5,7 @@ import { useAuth } from "@/components/AuthProvider";
 import FloatingBlobs from "@/components/FloatingBlobs";
 import UserMenu from "@/components/UserMenu";
 import { api } from "@/lib/api";
-import { ensureLobby } from "@/lib/play";
-import { useUserStore } from "@/stores/userStore";
+import { ensureLobby, lobbyPath } from "@/lib/play";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -15,8 +14,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 interface GroupItem {
   id: string;
   name: string;
-  join_code: string;
-  role: string;
+  role: "owner" | "member";
+  lobby?: { id: string; code: string } | null;
 }
 
 interface ActivityPayload {
@@ -39,15 +38,15 @@ interface ActivityItem {
   payload: ActivityPayload;
   created_at: string;
   groups?: { name: string };
-  users?: { name: string; avatar_url: string | null };
+  profiles?: { display_name: string; avatar_url: string | null };
 }
 
 interface ActiveLobby {
   id: string;
-  group_id: string;
-  game_type: string;
+  code: string;
+  group_id: string | null;
   created_at: string;
-  groups?: { name: string };
+  groups?: { name: string } | null;
 }
 
 interface Badge {
@@ -193,8 +192,7 @@ function StatBox({
 /* ═══════════════════════════════════════════ */
 export default function DashboardPage() {
   const router = useRouter();
-  const { isLoaded, isSignedIn, displayName } = useAuth();
-  const { dbUserId } = useUserStore();
+  const { isLoaded, isSignedIn, displayName, isGuest } = useAuth();
 
   const [groups, setGroups] = useState<GroupItem[]>([]);
   const [feed, setFeed] = useState<ActivityItem[]>([]);
@@ -245,7 +243,7 @@ export default function DashboardPage() {
         setPersonality(s.personalityByGroup || []);
       })
       .finally(() => setLoading(false));
-  }, [isLoaded, isSignedIn, dbUserId]);
+  }, [isLoaded, isSignedIn]);
 
   /* ── Poll active lobbies every 10s ── */
   useEffect(() => {
@@ -285,8 +283,8 @@ export default function DashboardPage() {
     setGroupError("");
     try {
       const group = await api.createGroup({ name });
-      const session = await ensureLobby(group.id);
-      router.push(`/lobby/${session.id}?groupId=${group.id}`);
+      const lobby = await ensureLobby(group.id);
+      router.push(lobbyPath(lobby));
     } catch (err) {
       setGroupError(
         err instanceof Error ? err.message : "Could not create the group",
@@ -301,14 +299,30 @@ export default function DashboardPage() {
     setLaunchingGroupId(groupId);
     setPlayError("");
     try {
-      const session = await ensureLobby(groupId);
-      router.push(`/lobby/${session.id}?groupId=${groupId}`);
+      const lobby = await ensureLobby(groupId);
+      router.push(lobbyPath(lobby));
     } catch (err) {
       setPlayError(
         err instanceof Error ? err.message : "Could not open the lobby",
       );
     } finally {
       setLaunchingGroupId(null);
+    }
+  };
+
+  const handleQuickPlay = async () => {
+    if (joiningRoom) return;
+    setJoiningRoom(true);
+    setJoinRoomError("");
+    try {
+      const lobby = await api.createQuickLobby();
+      router.push(lobbyPath(lobby));
+    } catch (err) {
+      setJoinRoomError(
+        err instanceof Error ? err.message : "Could not start quick play",
+      );
+    } finally {
+      setJoiningRoom(false);
     }
   };
 
@@ -322,13 +336,8 @@ export default function DashboardPage() {
     setJoiningRoom(true);
     setJoinRoomError("");
     try {
-      const group = await api.joinGroup({ joinCode: code });
-      const session = await api.getActiveSession(group.id).catch(() => null);
-      if (!session) {
-        router.push(`/group/${group.id}?roomClosed=1`);
-        return;
-      }
-      router.push(`/lobby/${session.id}?groupId=${group.id}`);
+      const lobby = await api.joinLobby(code);
+      router.push(lobbyPath(lobby));
     } catch (err) {
       setJoinRoomError(
         joinErrorMessage(err instanceof Error ? err.message : ""),
@@ -418,20 +427,15 @@ export default function DashboardPage() {
                     <motion.button
                       key={lobby.id}
                       className="w-full flex items-center justify-between p-3 rounded-xl bg-bg-elevated/60 border border-border hover:border-accent/30 transition-all text-left"
-                      onClick={() =>
-                        router.push(
-                          `/lobby/${lobby.id}?groupId=${lobby.group_id}`,
-                        )
-                      }
+                      onClick={() => router.push(`/lobby/${lobby.code}`)}
                       whileTap={{ scale: 0.98 }}
                     >
                       <div>
                         <p className="text-sm font-semibold tracking-tight">
-                          {lobby.groups?.name || "Group"}
+                          {lobby.groups?.name || "Quick play"}
                         </p>
                         <p className="text-[10px] text-text-muted mt-0.5">
-                          {formatGameType(lobby.game_type)} •{" "}
-                          {timeAgo(lobby.created_at)}
+                          Code {lobby.code} • {timeAgo(lobby.created_at)}
                         </p>
                       </div>
                       <span className="neon-btn neon-btn-purple text-[10px] px-4 py-1.5">
@@ -449,9 +453,17 @@ export default function DashboardPage() {
                   setShowCreateGroup((open) => !open);
                   setGroupError("");
                 }}
-                className="neon-btn neon-btn-purple text-xs px-6 py-3 flex-1"
+                disabled={isGuest}
+                className="neon-btn neon-btn-purple text-xs px-6 py-3 flex-1 disabled:opacity-40"
               >
                 {showCreateGroup ? "Cancel" : "+ New Group"}
+              </button>
+              <button
+                onClick={() => void handleQuickPlay()}
+                disabled={isGuest || joiningRoom}
+                className="neon-btn neon-btn-outline text-xs px-5 py-3 disabled:opacity-40"
+              >
+                Quick play
               </button>
               {groups.length > 0 && (
                 <button
@@ -697,7 +709,7 @@ export default function DashboardPage() {
                       describe: () => item.event_type,
                     };
                     const userName =
-                      item.users?.name ||
+                      item.profiles?.display_name ||
                       item.payload?.displayName ||
                       "Someone";
 
@@ -728,10 +740,10 @@ export default function DashboardPage() {
                               </span>
                             </div>
                           </div>
-                          {item.users?.avatar_url && (
+                          {item.profiles?.avatar_url && (
                             <AvatarBubble
                               name={userName}
-                              avatarUrl={item.users.avatar_url}
+                              avatarUrl={item.profiles.avatar_url}
                               size="sm"
                             />
                           )}
@@ -787,11 +799,11 @@ export default function DashboardPage() {
                           </h3>
                           <p className="text-xs text-text-muted mt-0.5">
                             <span className="font-mono text-accent">
-                              {g.join_code}
+                              {g.lobby?.code || "No open room"}
                             </span>
-                            {g.role === "host" && (
+                            {g.role === "owner" && (
                               <span className="ml-2 text-text-secondary">
-                                ★ Host
+                                ★ Owner
                               </span>
                             )}
                           </p>

@@ -6,8 +6,7 @@ const SERVER_URL =
   process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3001";
 
 export type RoomAuth = {
-  token?: string | null;
-  guestToken?: string | null;
+  token: string | null;
   displayName?: string;
   avatarUrl?: string | null;
 };
@@ -44,7 +43,8 @@ export async function refreshRoomAuth(): Promise<RoomAuth | null> {
 
 export async function connectRoomSocket(): Promise<Socket> {
   const current = getRoomSocket();
-  await refreshRoomAuth();
+  const auth = await refreshRoomAuth();
+  if (!auth?.token) throw new Error("Sign in to join this room");
   if (!current.connected) current.connect();
   return current;
 }
@@ -54,10 +54,6 @@ export function disconnectRoomSocket() {
   socket = null;
 }
 
-/**
- * Event ids make every socket action idempotent on the server. A retry or a
- * double click with the same id is ignored.
- */
 export function eventId(): string {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
     return crypto.randomUUID();
@@ -67,8 +63,7 @@ export function eventId(): string {
 
 export function noteSocketAuthRetry(max = 3) {
   authRetries += 1;
-  if (authRetries > max) return false;
-  return true;
+  return authRetries <= max;
 }
 
 export function resetSocketAuthRetry() {

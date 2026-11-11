@@ -10,7 +10,7 @@ export default function SignUpPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const nextPath = safeNextPath(searchParams.get("next"));
-  const { isLoaded, isSignedIn } = useAuth();
+  const { isLoaded, isSignedIn, isGuest } = useAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,8 +19,8 @@ export default function SignUpPage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (isLoaded && isSignedIn) router.replace(nextPath);
-  }, [isLoaded, isSignedIn, nextPath, router]);
+    if (isLoaded && isSignedIn && !isGuest) router.replace(nextPath);
+  }, [isLoaded, isSignedIn, isGuest, nextPath, router]);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();

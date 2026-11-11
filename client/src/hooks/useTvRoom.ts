@@ -1,7 +1,6 @@
 "use client";
 
 import { useAuth } from "@/components/AuthProvider";
-import { getGuestIdentity } from "@/lib/guest";
 import type { RoomStatus, RoomView } from "@/stores/roomStore";
 import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
@@ -10,11 +9,11 @@ const SERVER_URL =
   process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3001";
 
 /**
- * The TV is a spectator, not a player. It uses its own socket so opening the
- * display never takes a seat, affects readiness, or receives private views.
+ * The TV is a spectator, not a player. It uses the signed-in Supabase token and
+ * never takes a seat. The viewer must already be a member of the room.
  */
 export function useTvRoom(sessionId: string) {
-  const { isLoaded, isSignedIn, displayName, getAccessToken } = useAuth();
+  const { isLoaded, isSignedIn, getAccessToken } = useAuth();
 
   const [room, setRoom] = useState<RoomView | null>(null);
   const [status, setStatus] = useState<RoomStatus>("idle");
@@ -25,6 +24,13 @@ export function useTvRoom(sessionId: string) {
 
   useEffect(() => {
     if (!sessionId || !isLoaded) return;
+    if (!isSignedIn) {
+      const timer = setTimeout(() => {
+        setStatus("error");
+        setError({ code: "unauthorized", message: "Sign in to watch this room" });
+      }, 0);
+      return () => clearTimeout(timer);
+    }
 
     const socket = io(SERVER_URL, {
       autoConnect: false,
@@ -35,24 +41,13 @@ export function useTvRoom(sessionId: string) {
       timeout: 10000,
     });
 
-    const auth = async () => {
-      if (isSignedIn) {
-        const token = await getAccessToken();
-        if (token) return { token, displayName };
-      }
-      const guest = await getGuestIdentity(displayName);
-      return { guestToken: guest.guestToken, displayName: guest.name };
-    };
-
     const spectate = () => {
       setStatus("joining");
       socket.emit("room:spectate", { sessionId });
     };
 
     socket.on("connect", spectate);
-    socket.on("room:spectate-joined", () => {
-      setStatus("ready");
-    });
+    socket.on("room:spectate-joined", () => setStatus("ready"));
     socket.on("room:sync", (view: RoomView) => {
       setRoom(view);
       setClosed(false);
@@ -68,9 +63,7 @@ export function useTvRoom(sessionId: string) {
       setStatus("error");
       setError({ code: "room_closed", message: "The room has ended" });
     });
-    socket.on("disconnect", () => {
-      setStatus("reconnecting");
-    });
+    socket.on("disconnect", () => setStatus("reconnecting"));
     socket.on("connect_error", () => {
       setStatus("error");
       setError({
@@ -79,23 +72,23 @@ export function useTvRoom(sessionId: string) {
       });
     });
 
-    void auth()
-      .then((credentials) => {
-        socket.auth = credentials;
+    void getAccessToken()
+      .then((token) => {
+        if (!token) throw new Error("Sign in to watch this room");
+        socket.auth = { token };
         socket.connect();
       })
-      .catch(() => {
+      .catch((err) => {
         setStatus("error");
         setError({
           code: "connection_failed",
-          message: "Could not authenticate the TV",
+          message: err instanceof Error ? err.message : "Could not authenticate",
         });
       });
 
     const tokenTimer = setInterval(async () => {
-      if (!isSignedIn) return;
       const token = await getAccessToken();
-      if (token) socket.auth = { ...socket.auth, token, displayName };
+      if (token) socket.auth = { ...socket.auth, token };
     }, 30_000);
 
     return () => {
@@ -104,13 +97,7 @@ export function useTvRoom(sessionId: string) {
       socket.removeAllListeners();
       socket.disconnect();
     };
-  }, [
-    sessionId,
-    isLoaded,
-    isSignedIn,
-    displayName,
-    getAccessToken,
-  ]);
+  }, [sessionId, isLoaded, isSignedIn, getAccessToken]);
 
   return { room, status, error, closed };
 }
