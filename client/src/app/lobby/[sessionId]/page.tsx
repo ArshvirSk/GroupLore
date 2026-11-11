@@ -333,32 +333,45 @@ export default function LobbyPage() {
                 }
               />
               <AnimatePresence>
-                {game.id === room.gameId && game.modes.length > 1 && (
+                {game.id === room.gameId && (
                   <motion.div
                     initial={reduced ? false : { opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
-                    className="flex flex-wrap gap-2 overflow-hidden pt-2"
+                    className="grid gap-2 overflow-hidden pt-2 sm:grid-cols-2"
                   >
-                    {game.modes.map((mode) => (
-                      <button
-                        key={mode.id}
-                        onClick={() =>
-                          act("selectGame", {
-                            gameId: game.id,
-                            mode: mode.id,
-                          })
-                        }
-                        title={mode.description}
-                        className={`min-h-9 rounded-full px-3 text-[11px] font-bold transition ${
-                          room.mode === mode.id
-                            ? "bg-grape text-white"
-                            : "bg-white text-ink-soft shadow-soft hover:text-ink"
-                        }`}
-                      >
-                        {mode.label}
-                      </button>
-                    ))}
+                    {game.modes.map((mode) => {
+                      const selected = room.mode === mode.id;
+                      return (
+                        <button
+                          key={mode.id}
+                          type="button"
+                          aria-pressed={selected}
+                          onClick={() =>
+                            act("selectGame", {
+                              gameId: game.id,
+                              mode: mode.id,
+                            })
+                          }
+                          className={`min-h-11 rounded-xl border-2 px-3 py-2 text-left transition ${
+                            selected
+                              ? "border-grape bg-grape text-white"
+                              : "border-transparent bg-white text-ink shadow-soft hover:border-lavender"
+                          }`}
+                        >
+                          <span className="block text-[11px] font-bold uppercase tracking-wide">
+                            {mode.label}
+                          </span>
+                          <span
+                            className={`mt-0.5 block text-[10px] font-semibold leading-snug ${
+                              selected ? "text-white/75" : "text-ink-soft"
+                            }`}
+                          >
+                            {mode.description}
+                          </span>
+                        </button>
+                      );
+                    })}
                   </motion.div>
                 )}
               </AnimatePresence>
