@@ -235,6 +235,28 @@ WHERE p.user_id = u.id
   AND u.auth_user_id IS NOT NULL
   AND u.auth_user_id ~* '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$';
 
+-- Rows whose legacy user never linked an auth uid cannot satisfy the new
+-- profile foreign key; clear/remove them before adding the constraints.
+UPDATE activity_log a
+SET user_id = NULL
+WHERE a.user_id IS NOT NULL
+  AND NOT EXISTS (SELECT 1 FROM profiles p WHERE p.id = a.user_id);
+
+DELETE FROM player_stats p
+WHERE p.user_id IS NOT NULL
+  AND NOT EXISTS (SELECT 1 FROM profiles profile WHERE profile.id = p.user_id);
+
+ALTER TABLE activity_log
+  DROP CONSTRAINT IF EXISTS activity_log_user_id_fkey;
+ALTER TABLE activity_log
+  ADD CONSTRAINT activity_log_user_id_fkey
+  FOREIGN KEY (user_id) REFERENCES profiles(id) ON DELETE SET NULL;
+ALTER TABLE player_stats
+  DROP CONSTRAINT IF EXISTS player_stats_user_id_fkey;
+ALTER TABLE player_stats
+  ADD CONSTRAINT player_stats_user_id_fkey
+  FOREIGN KEY (user_id) REFERENCES profiles(id) ON DELETE CASCADE;
+
 -- New app tables are server-only, matching the existing RLS posture.
 REVOKE ALL ON ALL TABLES IN SCHEMA public FROM anon, authenticated;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public REVOKE ALL ON TABLES FROM anon, authenticated;

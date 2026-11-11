@@ -10,17 +10,17 @@ Inside jokes, embarrassing habits, iconic moments — turned into multiplayer ch
 
 ```
 GroupLore/
-├── client/                 # Next.js 15 (App Router)
-│   ├── src/app/           # Pages (landing, dashboard, group, lobby, game)
-│   ├── src/components/    # 9 reusable UI components
-│   ├── src/stores/        # Zustand state management
-│   └── src/lib/           # Socket.io client, API client
+├── client/                 # Next.js (App Router)
+│   ├── src/app/           # Landing, dashboard, group, lobby, game, guest
+│   ├── src/components/    # Shared UI + game screens
+│   ├── src/stores/        # Zustand auth and room stores
+│   └── src/lib/           # Supabase, API, socket, lobby helpers
 ├── server/                # Express + Socket.io
-│   ├── routes/            # REST API (groups, members, games)
-│   ├── sockets/           # Real-time event handlers
-│   │   └── games/         # Game-specific logic (modular)
-│   └── lib/               # Supabase client
-└── supabase-schema.sql    # Database schema
+│   ├── routes/            # REST API (auth, users, groups, lobbies, games)
+│   ├── engine/            # Server-authoritative room/game engine
+│   ├── games/             # Modular game rules and registry
+│   └── lib/               # Auth, membership, lobby, activity, Supabase
+└── supabase-*.sql         # Base schema + ordered migrations
 ```
 
 ## Tech Stack
@@ -30,7 +30,7 @@ GroupLore/
 | Frontend  | Next.js 15, Tailwind CSS v4, Framer Motion, Zustand |
 | Backend   | Express, Socket.io                                  |
 | Database  | Supabase (PostgreSQL)                               |
-| Auth      | Supabase Auth (email + password)                    |
+| Auth      | Supabase Auth (email/password + anonymous guests)   |
 | Real-time | Socket.io (WebSockets)                              |
 
 ## Games
@@ -63,17 +63,46 @@ Most games support **3–12 players**. **Odd One Out** requires **4–12**; **Ma
 | 🤥 **Two Truths, One Lie** | 3–12 | **Classic** — sixty seconds to write, twenty to vote; **Rapid** — fifteen-second votes |
 | ✅ **Fact or Fiction** | 3–12 | **Classic** — ten statements with speed and streak bonuses; **Sudden Death** — a wrong answer eliminates you |
 
+## Auth and Lobby Model
+
+```
+User     permanent   Supabase auth uid; account or anonymous guest
+Group    permanent   owner/member roles, history
+Lobby    ephemeral   room code, host, nullable group, players
+Session  one run     game id, mode, results, belongs to a lobby
+```
+
+- Every player has a Supabase auth uid. Guests use `signInAnonymously` and are identified by `is_anonymous`; there is no custom guest token or separate guest player id.
+- `profiles.id` is the auth uid. `groups.owner_id`, `group_members.user_id`, `lobbies.host_id`, `lobby_players.user_id`, `game_sessions.lobby_id` and socket player ids all use the same uid.
+- Guests may join an open lobby but cannot create groups, quick-play lobbies, or group lobbies. Joining by code creates a `lobby_players` row only; it never adds a `group_members` row.
+- Any member may open or reopen a group lobby. Opening returns the existing open lobby if one exists. Quick play creates a lobby with `group_id NULL`.
+- The creator is the lobby host. Only the host starts or kicks. A host who leaves or disconnects past 30 seconds transfers host to the longest-connected remaining player. An empty lobby closes and its code becomes reusable.
+- A game session is created by `POST /api/lobbies/:id/start`; the socket room then seats `lobby_players` and the host starts the engine automatically once everyone is connected.
+- Supabase Auth owns guest policy in the dashboard. The app server enforces `ALLOW_GUESTS=false` by rejecting anonymous tokens on both HTTP and Socket.io.
+
+### Join flow
+
+```
+/join/CODE ─┬─ guest  -> Supabase anonymous session -> POST /lobbies/join -> /lobby/CODE -> /game/SESSION
+            └─ account -> sign in/up -----------------> POST /lobbies/join -> /lobby/CODE -> /game/SESSION
+
+/guest + code -> anonymous session -> POST /lobbies/join -> /lobby/CODE
+
+/dashboard -> group -> POST /groups/:id/lobby (open-or-get) -> /lobby/CODE
+/dashboard -> Quick play -> POST /lobbies -> /lobby/CODE
+```
+
+Guests can upgrade after a game with an email and password. Supabase `updateUser` keeps the same auth uid, so their lobby and session history stay attached.
+
 ## Start a Game
 
-1. Sign in, then create a group from the dashboard or landing page. Its first lobby opens immediately.
-2. To reopen a room, press **Open Lobby** or **Play** on an existing group. Any group member can open the lobby.
-3. Share the room code and invite link shown in the lobby header. The code opens `/join/CODE` and is the same code guests enter at `/guest`. Signed-in players can also type the code into **Join with a room code** on the dashboard.
-4. Pick a game. Each card shows how many more players it needs.
-5. Once enough players are connected, anyone in the lobby can press **Start game**.
+1. Sign in, then create a group from the dashboard or landing page. Opening its lobby creates a room code.
+2. Press **Open Lobby** or **Play** on any group; any member can open or reopen the room.
+3. Share the room code or invite link. Signed-in players can enter the code in **Join with a room code**; guests use `/guest` or the invite page.
+4. Pick a game and mode. Each card shows the connected-player requirement.
+5. Only the host can start. The lobby marks the room `in_game` and creates the session; connected clients move to the game screen.
 
-The normal flow is dashboard → lobby → game. Invitees go from invite link → choose guest or account → lobby or group. The active lobby keeps its group name and room code visible so the context does not disappear when play starts.
-
-**Guest entry:** a guest needs only a display name and the room's 6-character code. Guests can join an **already-open lobby** but cannot create groups or lobbies, and cannot see group history. Use `/guest` directly, or choose **Continue as guest** on the invite, home, or sign-in screens. Set `ALLOW_GUESTS=false` to require an account for every player.
+**Guest entry:** a guest needs a display name and the room's 6-character code. Guests can join an open lobby but cannot create groups/lobbies or see group history. Set `ALLOW_GUESTS=false` to reject guest auth server-side.
 
 ## Setup
 
@@ -81,9 +110,16 @@ The normal flow is dashboard → lobby → game. Invitees go from invite link �
 
 - Create a Supabase project at [supabase.com](https://supabase.com)
 - Run `supabase-schema.sql` in the SQL Editor
-- Upgrading an existing project: run `supabase-migration-phase3-games.sql` and `supabase-migration-phase4-games.sql` for the Phase 3/4 game ids, `supabase-migration-tier1-games.sql` for the current game expansion, `supabase-migration-supabase-auth.sql` to move users onto Supabase Auth ids, and `supabase-migration-auth-rls.sql` to make app tables server-only
-- Enable the **Email** provider under Supabase → Authentication → Providers
-- All app tables are server-only. The browser anon key is used for Supabase Auth only; the Express API uses the service-role key.
+- Upgrading an existing project, run in order:
+  1. `supabase-migration-phase3-games.sql`
+  2. `supabase-migration-phase4-games.sql`
+  3. `supabase-migration-tier1-games.sql`
+  4. `supabase-migration-supabase-auth.sql`
+  5. `supabase-migration-auth-rls.sql`
+  6. `supabase-migration-auth-lobbies.sql`
+- Enable the **Email** provider under Supabase → Authentication → Providers.
+- Enable **Anonymous sign-ins** under Authentication → Providers when `ALLOW_GUESTS=true`. Disable it when `ALLOW_GUESTS=false`; app middleware rejects anonymous tokens either way, but the dashboard switch is the provider-level control.
+- All app tables are server-only (RLS on, no anon policies). The browser anon key is used for Supabase Auth only; the Express API uses the service-role key.
 
 ### 2. Environment
 

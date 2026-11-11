@@ -33,3 +33,17 @@
 - Supabase must have **Anonymous sign-ins** enabled in the dashboard for guest play. `ALLOW_GUESTS=false` blocks them at the app server but cannot disable the Supabase provider itself.
 - `member_profiles` migration is intentionally out of scope; its `user_id` values still point at the legacy `users.id` space.
 - Visual/manual browser verification was not part of the automated test run.
+
+## Verification status
+
+- `cd server && npm test`: 60 tests, 59 pass, 1 skipped (live RLS probe needs Supabase credentials).
+- `cd client && npx tsc --noEmit`: clean.
+- `cd client && npm run lint`: 0 errors; four pre-existing/effect-dependency warnings.
+- `cd client && npm run build`: successful (including `/guest` and `/upgrade`).
+
+## Remaining limitations
+
+- The live RLS check is skipped unless `SUPABASE_URL` and `SUPABASE_ANON_KEY` are set; the static migration test still asserts RLS/revokes and no anon policies.
+- DB-backed route integration tests (guest join/open-lobby, code reuse, one-open-lobby race) require a live Supabase project. The migration's partial unique indexes enforce the code and per-group rules, and middleware policy tests cover guest creation denial and non-member lobby denial.
+- `member_profiles.user_id` intentionally remains in the legacy `users.id` space. New users get a bridge `users` row on demand, but a future migration should collapse that table.
+- Lobby player `connected` is maintained by join/leave; socket disconnect presence for pre-game lobby screens is not streamed because the lobby uses REST polling.

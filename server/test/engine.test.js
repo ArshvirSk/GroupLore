@@ -5,12 +5,15 @@ import { after, test } from "node:test";
 import { Server } from "socket.io";
 import { io as createClient } from "socket.io-client";
 import { GameEngine } from "../engine/engine.js";
-import {
-  createIdentityResolver,
-  signGuestToken,
-} from "../engine/auth.js";
+import { createIdentityResolver } from "../engine/auth.js";
 
 const sessions = new Map();
+const tokenUsers = new Map();
+tokenUsers.set("supabase-test-token", {
+  id: "auth-user-1",
+  email: "ada@example.com",
+  user_metadata: { full_name: "Ada Lovelace" },
+});
 const sockets = [];
 const persistence = {
   starts: [],
@@ -36,19 +39,12 @@ const ioServer = new Server(httpServer);
 const engine = new GameEngine({
   io: ioServer,
   resolveIdentity: createIdentityResolver({
-    verifyAccessToken: async (token) =>
-      token === "supabase-test-token"
-        ? {
-            id: "auth-user-1",
-            email: "ada@example.com",
-            user_metadata: { full_name: "Ada Lovelace" },
-          }
-        : null,
+    verifyAccessToken: async (token) => tokenUsers.get(token) || null,
     allowGuests: true,
   }),
   authorize: async ({ identity }) => ({
     allowed: true,
-    userId: null,
+    userId: identity.authUserId,
     name: identity.name,
     avatarUrl: null,
   }),
@@ -109,15 +105,20 @@ function waitSync(tracker, predicate = () => true, timeout = 4000) {
   });
 }
 
-async function makeClient(name, guestToken) {
-  const token =
-    guestToken ||
-    signGuestToken({ guestId: randomUUID(), name });
+async function makeClient(name, existingToken) {
+  const token = existingToken || `token-${randomUUID()}`;
+  if (!tokenUsers.has(token)) {
+    tokenUsers.set(token, {
+      id: randomUUID(),
+      is_anonymous: true,
+      user_metadata: { display_name: name },
+    });
+  }
   const socket = createClient(`http://localhost:${port}`, {
     transports: ["websocket"],
     reconnection: false,
     forceNew: true,
-    auth: { guestToken: token, displayName: name },
+    auth: { token, displayName: name },
   });
   sockets.push(socket);
   const tracker = makeTracker(socket);
@@ -125,7 +126,7 @@ async function makeClient(name, guestToken) {
     socket.once("connect", resolve);
     socket.once("connect_error", reject);
   });
-  return { name, socket, tracker, guestToken: token };
+  return { name, socket, tracker, token };
 }
 
 async function spectate(client, sessionId) {
@@ -252,7 +253,7 @@ test("rejects a socket without a valid credential", async () => {
   socket.disconnect();
 });
 
-test("any player can start, host-only end, idempotent answers and results", async () => {
+test("host starts, host-only end, idempotent answers and results", async () => {
   const sessionId = makeSession();
   const a = await makeClient("A");
   const b = await makeClient("B");
@@ -267,9 +268,17 @@ test("any player can start, host-only end, idempotent answers and results", asyn
   assert.equal(view.hostId, aJoined.playerId);
   assert.equal(view.phase, "lobby");
 
-  // Any member can choose the game and start without a ready-up gate.
+  // Any member can choose the game, but only the host may start it.
   await act(b, "selectGame", { gameId: "engine-stub", mode: "classic" });
-  const started = await act(c, "start", {}, (state) => state.phase === "playing");
+  const startForbidden = await expectError(c, () => {
+    c.socket.emit("room:action", {
+      action: "start",
+      data: {},
+      eventId: randomUUID(),
+    });
+  });
+  assert.equal(startForbidden.code, "host_only");
+  const started = await act(a, "start", {}, (state) => state.phase === "playing");
   assert.equal(started.phase, "playing");
   assert.ok(started.endsAt > Date.now());
   assert.equal(persistence.starts.length, 1);
@@ -333,7 +342,7 @@ test("a refreshed player reclaims the same seat and private state", async () => 
   await send(a, "answer", { value: "alpha" });
   await send(b, "answer", { value: "beta" });
 
-  const rejoined = await makeClient("B", b.guestToken);
+  const rejoined = await makeClient("B", b.token);
   const seat = await join(rejoined, sessionId, joined[1].reconnectToken);
 
   assert.equal(seat.playerId, joined[1].playerId);
@@ -545,4 +554,51 @@ test("hive mind plays over sockets with private answers until the reveal", async
   assert.equal(joined.length, 3);
 
   await act(a, "end");
+});
+
+test("host transfer goes to the longest-connected remaining player", async () => {
+  const sessionId = makeSession();
+  const a = await makeClient("A");
+  const b = await makeClient("B");
+  const c = await makeClient("C");
+  await join(a, sessionId);
+  const bJoined = await join(b, sessionId);
+  await join(c, sessionId);
+
+  a.socket.disconnect();
+  const view = await waitSync(
+    b.tracker,
+    (state) => state.hostId === bJoined.playerId,
+    2000,
+  );
+  assert.equal(view.hostId, bJoined.playerId);
+  b.socket.disconnect();
+  c.socket.disconnect();
+});
+
+test("a client-supplied playerId cannot spoof a game event author", async () => {
+  const sessionId = makeSession();
+  const { clients, joined } = await startStub(sessionId, "classic", 3);
+  const [a, b, c] = clients;
+  const [aJoined, bJoined, cJoined] = joined;
+
+  a.socket.emit("game:event", {
+    type: "answer",
+    value: "spoofed",
+    playerId: bJoined.playerId,
+    eventId: randomUUID(),
+  });
+  await send(b, "answer", { value: "bravo" });
+  await send(c, "answer", { value: "charlie" });
+
+  const reveal = await waitSync(
+    a.tracker,
+    (view) => view.game?.phase === "reveal",
+  );
+  const spoof = reveal.game.reveal.answers.find(
+    (answer) => answer.value === "spoofed",
+  );
+  assert.equal(spoof.playerId, aJoined.playerId);
+  assert.notEqual(spoof.playerId, bJoined.playerId);
+  assert.equal(cJoined.playerId.length > 0, true);
 });
