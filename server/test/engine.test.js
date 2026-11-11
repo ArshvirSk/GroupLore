@@ -252,7 +252,7 @@ test("rejects a socket without a valid credential", async () => {
   socket.disconnect();
 });
 
-test("lobby gating, host-only actions, idempotent answers and results", async () => {
+test("any player can start, host-only end, idempotent answers and results", async () => {
   const sessionId = makeSession();
   const a = await makeClient("A");
   const b = await makeClient("B");
@@ -267,31 +267,9 @@ test("lobby gating, host-only actions, idempotent answers and results", async ()
   assert.equal(view.hostId, aJoined.playerId);
   assert.equal(view.phase, "lobby");
 
-  // Non-host cannot start.
-  const forbidden = await expectError(b, () => {
-    b.socket.emit("room:action", {
-      action: "start",
-      data: {},
-      eventId: randomUUID(),
-    });
-  });
-  assert.equal(forbidden.code, "host_only");
-
-  await act(a, "selectGame", { gameId: "engine-stub", mode: "classic" });
-
-  // Host cannot start before everyone else is ready.
-  const notReady = await expectError(a, () => {
-    a.socket.emit("room:action", {
-      action: "start",
-      data: {},
-      eventId: randomUUID(),
-    });
-  });
-  assert.equal(notReady.code, "players_not_ready");
-
-  await readyAll(b, c);
-
-  const started = await act(a, "start", {}, (state) => state.phase === "playing");
+  // Any member can choose the game and start without a ready-up gate.
+  await act(b, "selectGame", { gameId: "engine-stub", mode: "classic" });
+  const started = await act(c, "start", {}, (state) => state.phase === "playing");
   assert.equal(started.phase, "playing");
   assert.ok(started.endsAt > Date.now());
   assert.equal(persistence.starts.length, 1);

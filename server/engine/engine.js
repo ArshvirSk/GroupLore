@@ -205,6 +205,7 @@ export class GameEngine {
   }
 
   createRoom({ id, groupId, session = null }) {
+    const sessionGame = session?.game_type ? getGame(session.game_type) : null;
     return {
       id,
       groupId,
@@ -213,8 +214,12 @@ export class GameEngine {
       spectators: new Set(),
       hostId: null,
       phase: "lobby",
-      gameId: null,
-      mode: null,
+      gameId: sessionGame?.id || null,
+      mode: sessionGame
+        ? sessionGame.modes.classic
+          ? "classic"
+          : Object.keys(sessionGame.modes)[0]
+        : null,
       module: null,
       state: null,
       scores: {},
@@ -507,7 +512,6 @@ export class GameEngine {
         break;
       }
       case "selectGame": {
-        this.hostOnly(room, player);
         this.inPhase(room, "lobby", "The game has already started");
         const game = getGame(String(data.gameId || ""));
         if (!game) throw failure("unknown_game", "That game does not exist");
@@ -520,7 +524,6 @@ export class GameEngine {
         break;
       }
       case "start": {
-        this.hostOnly(room, player);
         this.start(room);
         return;
       }
@@ -593,18 +596,6 @@ export class GameEngine {
       throw failure(
         "players_offline",
         `Waiting for ${offline.map((candidate) => candidate.name).join(", ")}`,
-      );
-    }
-
-    const notReady = players.filter(
-      (candidate) => candidate.id !== room.hostId && !candidate.isReady,
-    );
-    if (notReady.length > 0) {
-      throw failure(
-        "players_not_ready",
-        `Waiting for ${notReady
-          .map((candidate) => candidate.name)
-          .join(", ")} to ready up`,
       );
     }
 
