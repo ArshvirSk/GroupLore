@@ -40,7 +40,7 @@ export function Button({
   const reduced = useReducedMotion();
   const variants = {
     primary:
-      "border-primary bg-primary text-primary-ink shadow-[inset_0_1px_0_rgba(255,255,255,.22)] hover:bg-primary/92",
+      "border-ink bg-accent text-on-accent shadow-[0_3px_0_var(--ink)] hover:brightness-[.97]",
     secondary: "border-border bg-surface text-ink hover:bg-surface-2",
     ghost: "border-transparent bg-transparent text-ink hover:bg-surface-2",
     danger: "border-danger bg-danger text-on-danger hover:bg-danger/92",
@@ -58,7 +58,7 @@ export function Button({
       whileTap={reduced || disabled ? undefined : { scale: 0.98 }}
       transition={{ type: "spring", stiffness: 400, damping: 30 }}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-[12px] border font-semibold transition-colors disabled:border-transparent disabled:bg-surface-2 disabled:text-muted disabled:shadow-none",
+        "editorial-button inline-flex items-center justify-center gap-2 rounded-[12px] border font-semibold transition-colors disabled:border-transparent disabled:bg-surface-2 disabled:text-muted disabled:shadow-none",
         variants[variant],
         sizes[size],
         className,
@@ -122,7 +122,7 @@ export function Card({
       transition={{ type: "spring", stiffness: 400, damping: 30 }}
       {...props}
       className={cn(
-        "rounded-[20px] border border-border bg-surface",
+        "editorial-card rounded-[20px] border border-border bg-surface",
         variant === "flat" && "shadow-soft",
         variant === "raised" && "shadow-soft",
         variant === "interactive" &&

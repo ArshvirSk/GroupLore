@@ -1,41 +1,73 @@
-# GroupLore UI decisions
+# UI Decisions — GroupLore Re-theme
 
-Visual and copy changes only. Server routes, socket events, stores and data shapes are unchanged.
+## Why It Felt Industrial (Root Cause Analysis)
 
-## Direction
+The first pass applied the correct tokens and typography but left several specific patterns that read as "SaaS dashboard":
 
-- **Game night, grown-up.** Warm neutral surfaces, one violet signature colour, amber only for wins/host/accent, sentence case throughout.
-- Removed thick borders, hard offset shadows, press-down translations, cream/yellow/pink blocks, dot grid, blobs, backdrop blur, surface gradients and neon glow.
-- The only playful touches are game emoji tiles, deterministic avatar tints, waiting-friend dashes, win confetti/ribbon and short warm microcopy.
-- **Fonts:** Bricolage Grotesque for headings, Inter for UI, JetBrains Mono for room codes and timers. Loaded with `next/font` and `display: swap`.
-- **Theme:** light / dark / system, persisted in `grouplore-theme`; inline script applies `data-theme` before paint. Theme control is icon-only.
-- **Shape:** 12px controls, 20px cards, 999px chips/avatars/pills; 1px `--border`. Light theme has two soft shadows; dark theme uses surface steps with no shadow.
-- **Type:** 12/14/16/18/24/32/48. Body 16px. Labels are sentence-case 13-14px at 500-600. Only room codes are allowed to be uppercase.
-- **Motion:** 400/30 springs; hover rises 1px, press scales 0.98, short fade/slide for phase changes. Reduced motion is respected.
+| Pattern | Where | Fix |
+|---|---|---|
+| `"Primary actions"` dev label | Dashboard hero card | Removed; h2 becomes `"Start playing"` |
+| `"Your hub"` eyebrow + identical `h1` | Dashboard | Collapsed to single `h1`, no redundant eyebrow |
+| `"Jump into the lobby"` filler | Group cards | → `"Room is open"` / `"No open room"` |
+| `border-t-[2px]` / `border-t-[3px]` thick dividers | Dashboard cards | → `border-t` (1px) |
+| Flat solid-color stripe on game cards | Lobby game library | → Emoji on tinted rounded tile (tilts -3deg, group-hover:rotate-0) |
+| `border-2 border-danger bg-danger text-on-accent` error alerts | Dashboard | → `bg-danger/10 text-danger` (soft inline alert) |
+| `"Got an invite?"` heading with separate eyebrow | Dashboard join card | → Single `"Join with a code"` heading |
+| `bg-accent-soft` on room code block | Lobby header | → `bg-primary-soft border-primary/15` (on-brand, not orange) |
+| `"Open lobby"` button text shown twice (same for both states) | Group page | → `"Join lobby"` when open, `"Open lobby"` when closed |
+| Waiting slot shows `+` with thin dashed ring | Lobby players | → `·` pulse with 2px dashed border |
+| Hero tint at 12% | globals.css | → 15% |
 
-## Tokens
+## Token Decisions
 
-The supplied light and dark values are mapped to CSS variables and Tailwind v4 `@theme inline`. Semantic foregrounds (`--primary-ink`, `--on-accent`, `--on-success`, `--on-danger`, `--on-warning`) are included so every filled control can meet AA in both themes. `npm run check:contrast` covers all text/background token pairs.
+- **`--primary: #5B3DF5`** — violet-purple reads "creative/playful" not "enterprise blue"
+- **`--accent: #E8920B`** — amber for wins/host feels game-night, not status/warning
+- **`--bg: #F7F6F3`** — slightly warm white (not pure #FFFFFF) avoids clinical feel
+- **Surface shadows at 6% opacity** — barely visible; depth without brutalist borders
 
-## Structure
+## Shape & Motion Decisions
 
-- **Header:** tilted logo mark, GroupLore wordmark, Hub link, icon-only theme toggle, avatar with full name. The dev UI link is compiled out in production.
-- **Dashboard:** Live now (only when occupied), a compact Start playing card, compact code join, Groups/Activity tabs, actionable empty states.
-- **Group:** member stack, Open lobby primary, Invite secondary, Leave group in the avatar overflow, member list with owner/member pills.
-- **Lobby:** two-column desktop, 340px sticky room/player column, searchable + category-filtered game grid on the right, labelled mode control, safe-area action bar with reserved space.
-- **Game shell:** slim timer, round context, no per-game rewrite; games inherit the new tokens through shared classes.
-- **Auth/landing:** centred auth card and a single radial primary tint behind the landing hero only.
+| Element | Radius |
+|---|---|
+| Buttons, inputs | 12px |
+| Cards | 20px |
+| Chips, avatars, pills | 999px |
 
-## Known implementation choices
+Springs: `stiffness: 400, damping: 30`. Hover `y: -1`, press `scale: 0.98`. Game tile tilts `-3deg` → `0` on hover. `prefers-reduced-motion` respected globally.
 
-- Live-now lobby cards show the group/room identity because the active-lobby API does not include player profiles; a real connected-player stack needs a data change.
-- Recent games is rendered as an empty state because the current group payload does not expose recent sessions.
-- Legacy game-specific class names remain as compatibility shims while their internals inherit the new variables. They are tracked in the final report.
+## Fun Budget
 
-## Verification
+| Element | Touch |
+|---|---|
+| Game tiles | Emoji on tinted tile, tilts on card hover |
+| Avatars | Deterministic soft hue + initials + ★ host crown |
+| Waiting slots | Dashed pulsing ring + "Waiting for friends" |
+| Hero | Very soft radial primary tint (15%) |
+| Room code | Large JetBrains Mono, `tracking-[0.18em]` |
 
-- `npm run check:contrast`
-- `npx tsc --noEmit`
-- `npm run lint`
-- `npm run build`
-- Playwright screenshots at 390×844 and 1280×800, both themes, for dashboard, group, lobby and one game when an authenticated session is available.
+Confetti only in win reveals (ConfettiExplosion, not changed).
+
+## Copy Decisions
+
+| Old | New |
+|---|---|
+| "Primary actions" | Removed (dev label) |
+| "Jump into the lobby" | "Room is open" |
+| "Got an invite?" + eyebrow | "Join with a code" (single heading) |
+| "Play with your people" | "Start playing" |
+| "Your hub" label + "Your hub" h1 | h1 only |
+| "Open lobby" (both states) | "Join lobby" / "Open lobby" |
+
+## Files Changed
+
+1. `client/src/app/globals.css` — hero-tint 12%→15%, scrollbar warmth
+2. `client/src/app/dashboard/page.tsx` — dev labels, copy, borders, error style
+3. `client/src/app/lobby/[sessionId]/page.tsx` — game card emoji-tile, room code card, waiting slot
+4. `client/src/app/group/[id]/page.tsx` — button label state fix
+
+## Known Gaps
+
+- Game screens inherit tokens; individual shell restyle is a future step.
+- `/dev/ui` already behind `NODE_ENV !== 'production'` in AppHeader.
+- Recent games on group page is EmptyState-only (backend not yet implemented).
+- Playwright screenshots pending.

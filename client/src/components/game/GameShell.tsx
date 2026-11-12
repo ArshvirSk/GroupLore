@@ -33,7 +33,7 @@ export default function GameShell({
   const reduced = useReducedMotion();
 
   return (
-    <main className="min-h-screen bg-bg">
+    <main className="game-route min-h-screen bg-bg">
       <div className="mx-auto flex min-h-screen max-w-4xl flex-col px-4 pb-10 pt-5 sm:px-6">
         <header className="rounded-[20px] border border-border bg-surface px-4 py-3 shadow-soft">
           <div className="flex items-center justify-between gap-3">

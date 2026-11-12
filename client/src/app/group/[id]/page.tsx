@@ -227,7 +227,7 @@ export default function GroupDashboard() {
             </div>
           </div>
           <div className="flex flex-wrap gap-2">
-            <Button onClick={() => void startGame()} loading={launching}>{activeLobby ? "Open lobby" : "Open lobby"}</Button>
+            <Button onClick={() => void startGame()} loading={launching}>{activeLobby ? "Join lobby" : "Open lobby"}</Button>
             <Button variant="secondary" disabled={!joinCode} onClick={() => void copyInvite()}>{inviteCopied ? "Invite copied" : "Invite"}</Button>
           </div>
         </header>
@@ -271,7 +271,7 @@ export default function GroupDashboard() {
                     <Avatar name={member.display_name} src={member.avatar_url} host={memberIsHost} />
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-semibold text-ink">{member.display_name}{member.nickname ? <span className="font-normal text-muted"> “{member.nickname}”</span> : null}</p>
-                      <p className="mt-0.5 text-xs text-muted">{[...member.traits].slice(0, 3).join(" · ") || "No traits yet"}</p>
+                      <p className="mt-0.5 text-xs text-muted">{[...(member.traits ?? [])].slice(0, 3).join(" · ") || "No traits yet"}</p>
                     </div>
                     <Badge tone={memberIsHost ? "accent" : "neutral"}>{memberIsHost ? "Owner" : "Member"}</Badge>
                     {isHost && !memberIsHost ? (

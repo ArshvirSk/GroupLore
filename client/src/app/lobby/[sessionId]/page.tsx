@@ -99,7 +99,15 @@ export default function LobbyPage() {
   }, [isLoaded, user, code, load, router]);
 
   useEffect(() => {
-    api.getCatalog().then(setCatalog).catch(() => {});
+    api.getCatalog().then((games: CatalogGame[]) => {
+      setCatalog(games);
+      const requestedId = new URLSearchParams(window.location.search).get("game");
+      const requested = games.find((game) => game.id === requestedId);
+      if (requested) {
+        setSelectedGameId(requested.id);
+        setSelectedModeId(requested.modes[0]?.id || "classic");
+      }
+    }).catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -227,7 +235,7 @@ export default function LobbyPage() {
         <p className="label text-primary">{groupId ? "Group lobby" : "Quick play lobby"}</p>
         <h1 className="mt-1 font-display text-3xl font-bold tracking-[-0.04em] sm:text-5xl">{groupName}</h1>
         <div className="mt-4 grid gap-3 sm:grid-cols-[1fr_auto]">
-          <div className="rounded-[20px] border border-border bg-accent-soft p-4 text-ink">
+          <div className="rounded-[20px] border border-primary/15 bg-primary-soft p-4 text-ink">
             <p className="label">Room code</p>
             <p className="mt-1 font-mono text-3xl font-bold tracking-[0.18em] sm:text-4xl">{lobby.code}</p>
           </div>
@@ -264,7 +272,7 @@ export default function LobbyPage() {
           ))}
           {Array.from({ length: emptySeats }).map((_, index) => (
             <div key={`waiting-${index}`} className="flex min-h-32 flex-col items-center justify-center rounded-[20px] border border-dashed border-border bg-surface p-3 text-center">
-              <span className="flex h-16 w-16 animate-pulse items-center justify-center rounded-full border border-dashed border-border font-display text-2xl text-muted">+</span>
+              <span className="flex h-16 w-16 animate-pulse items-center justify-center rounded-full border-2 border-dashed border-border text-xl text-muted" aria-hidden>·</span>
               <p className="mt-2 text-center text-xs font-medium text-muted">Waiting for friends</p>
             </div>
           ))}
@@ -302,19 +310,22 @@ export default function LobbyPage() {
                   type="button"
                   aria-pressed={selected}
                   onClick={() => { setSelectedGameId(game.id); setSelectedModeId(game.modes[0]?.id || "classic"); }}
-                  className={`overflow-hidden rounded-[20px] border bg-surface text-left shadow-soft transition-transform hover:-translate-y-px active:scale-[0.98] ${selected ? "border-2 border-primary ring-2 ring-primary/15" : "border-border"}`}
+                  className={`group overflow-hidden rounded-[20px] border bg-surface text-left shadow-soft transition-transform hover:-translate-y-px active:scale-[0.98] ${selected ? "border-2 border-primary ring-2 ring-primary/15" : "border-border"}`}
                 >
-                  <span className="block h-3" style={{ background: meta.color }} />
                   <span className="block p-4">
                     <span className="flex items-start justify-between gap-2">
-                      <span className="text-3xl" aria-hidden>{meta.emoji}</span>
+                      <span
+                        className="flex h-11 w-11 -rotate-3 items-center justify-center rounded-[12px] text-2xl transition-transform group-hover:rotate-0"
+                        style={{ background: `color-mix(in srgb, ${meta.color} 14%, var(--surface-2))` }}
+                        aria-hidden
+                      >{meta.emoji}</span>
                       <span className="rounded-full bg-surface-2 px-2 py-1 text-[11px] font-semibold">{meta.category}</span>
                     </span>
-                    <span className="mt-3 block font-display text-lg font-bold">{game.name}</span>
-                    <span className="mt-1 line-clamp-2 block text-sm text-muted">{game.description}</span>
+                    <span className="mt-3 block font-display text-base font-bold">{game.name}</span>
+                    <span className="mt-1 line-clamp-2 block text-sm leading-relaxed text-muted">{game.description}</span>
                     <span className="mt-3 flex items-center justify-between gap-2 border-t border-border pt-2 text-xs font-medium text-muted">
                       <span>{game.minPlayers}–{game.maxPlayers} players</span>
-                      <span>{selected ? "Selected" : "Pick"}</span>
+                      <span>{selected ? "✓ Selected" : "Pick"}</span>
                     </span>
                   </span>
                 </button>

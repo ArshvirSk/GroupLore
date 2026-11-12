@@ -21,19 +21,17 @@ export default function GameCard({
   return (
     <motion.button
       onClick={onClick}
-      className={`w-full text-left p-5 rounded-2xl border transition-all duration-300 ${
-        selected
+      className={`w-full text-left p-5 rounded-2xl border transition-all duration-300 ${selected
           ? "bg-accent/10 border-accent/40 shadow-[0_0_24px_rgba(37,99,235,0.15)]"
           : "bg-bg-card border-border hover:border-border-hover hover:bg-bg-card-hover"
-      }`}
+        }`}
       whileHover={{ scale: 1.01 }}
       whileTap={{ scale: 0.99 }}
     >
       <div className="flex items-center gap-4">
         <div
-          className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl ${
-            selected ? "bg-accent/20" : "bg-bg-elevated"
-          }`}
+          className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl ${selected ? "bg-accent/20" : "bg-bg-elevated"
+            }`}
         >
           {emoji}
         </div>

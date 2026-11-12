@@ -21,11 +21,9 @@ export default function AppHeader({
       <div className="mx-auto flex min-h-16 w-full max-w-[1120px] items-center justify-between gap-3 px-4 py-2 sm:px-6">
         <Link
           href="/"
-          className="group flex min-h-11 items-center gap-2 font-display text-lg font-semibold tracking-[-0.03em] text-ink"
+          className="group flex min-h-11 items-center gap-2 font-display text-xl font-black italic tracking-[-0.06em] text-ink"
         >
-          <span className="flex h-9 w-9 -rotate-3 items-center justify-center rounded-[12px] bg-primary-soft font-bold text-primary transition-transform group-hover:rotate-0">
-            G
-          </span>
+          <span className="relative flex h-9 w-9 items-center justify-center rounded-full border border-ink bg-primary text-lg not-italic shadow-[2px_2px_0_var(--ink)] transition-transform group-hover:rotate-12">✳</span>
           <span>GroupLore</span>
         </Link>
         <nav className="hidden items-center gap-1 sm:flex" aria-label="Primary">
