@@ -44,7 +44,7 @@ export default function CategoryRushGame({
       <div className="space-y-4">
         <PromptCard
           kicker={`Starts with ${view.letter}`}
-          emoji="💡"
+          icon="zap"
         >
           {view.category}
         </PromptCard>
@@ -85,7 +85,7 @@ export default function CategoryRushGame({
     <div className="space-y-4">
       <PromptCard
         kicker={`The category was ${view.category}`}
-        emoji="💡"
+        icon="zap"
         compact
       >
         Starts with {view.letter}

@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import AnswerInput from "@/components/game/AnswerInput";
 import PromptCard from "@/components/game/PromptCard";
 import type { RoomView } from "@/stores/roomStore";
@@ -102,7 +104,7 @@ export default function MadLibsGame({
   if (view.phase === "fill") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Blind story fill" emoji="📝">
+        <PromptCard kicker="Blind story fill" icon="book">
           {view.title}
           <span className="mt-2 block text-sm text-ink-soft">
             Fill your blanks without seeing the story. Chaos comes later.
@@ -123,7 +125,7 @@ export default function MadLibsGame({
               <p className="font-display text-lg font-semibold text-ink">{blank.hint}</p>
             </div>
             {blank.submitted ? (
-              <p className="text-sm font-bold text-[#0F7F6C]">“{blank.value}” locked in ✓</p>
+              <p className="text-sm font-bold text-[#0F7F6C]">“{blank.value}” locked in <Icon name="check" className="inline h-4 w-4" /></p>
             ) : (
               <AnswerInput
                 maxLength={40}
@@ -141,7 +143,7 @@ export default function MadLibsGame({
   if (view.phase === "read") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Your ridiculous story" emoji="📖" compact>
+        <PromptCard kicker="Your ridiculous story" icon="book" compact>
           {view.title}
         </PromptCard>
         <motion.div
@@ -161,7 +163,7 @@ export default function MadLibsGame({
   if (view.phase === "rate") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Rate the blanks" emoji="⭐" compact>
+        <PromptCard kicker="Rate the blanks" icon="star" compact>
           {view.title}
         </PromptCard>
         <div className="party-card p-5">

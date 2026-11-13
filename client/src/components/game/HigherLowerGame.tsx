@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import PromptCard from "@/components/game/PromptCard";
 import type { RoomView } from "@/stores/roomStore";
 import { motion, useReducedMotion } from "framer-motion";
@@ -48,7 +50,7 @@ export default function HigherLowerGame({
   if (view.phase === "poll") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Rate the room" emoji="📈">
+        <PromptCard kicker="Rate the room" icon="trending">
           {view.category}
         </PromptCard>
         <RatingForm
@@ -64,7 +66,7 @@ export default function HigherLowerGame({
   if (view.phase === "guess") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Make the call" emoji="📈">
+        <PromptCard kicker="Make the call" icon="trending">
           Does <span className="text-grape">{view.nextName}</span> score higher or
           lower than <span className="text-grape">{view.currentName}</span>?
         </PromptCard>
@@ -128,7 +130,7 @@ export default function HigherLowerGame({
         animate={{ opacity: 1, scale: 1 }}
         className="party-card bg-mint/35 p-6 text-center"
       >
-        <p className="text-4xl">📊</p>
+        <Icon name="chart" className="mx-auto h-10 w-10" />
         <p className="mt-2 text-xs font-bold uppercase tracking-[0.16em] text-ink-soft">
           {reveal.category}
         </p>

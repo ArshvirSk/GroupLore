@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import AnswerInput from "@/components/game/AnswerInput";
 import PromptCard from "@/components/game/PromptCard";
 import type { RoomView } from "@/stores/roomStore";
@@ -62,7 +64,7 @@ export default function PitchPerfectGame({
   if (view.phase === "write") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Sell this product" emoji="🦈">
+        <PromptCard kicker="Sell this product" icon="rocket">
           {view.product}
           {view.finalRound && (
             <span className="mt-2 block text-xs font-bold uppercase tracking-wide text-[#B8720A]">
@@ -95,7 +97,7 @@ export default function PitchPerfectGame({
   if (view.phase === "vote") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Which pitch wins?" emoji="🦈" compact>
+        <PromptCard kicker="Which pitch wins?" icon="rocket" compact>
           {view.product}
           {view.finalRound && (
             <span className="mt-2 block text-xs font-bold uppercase tracking-wide text-[#B8720A]">
@@ -131,7 +133,7 @@ export default function PitchPerfectGame({
                     yours
                   </span>
                 )}
-                {selected && <span className="text-lg">✓</span>}
+                {selected && <Icon name="check" className="h-5 w-5" />}
               </button>
             );
           })}

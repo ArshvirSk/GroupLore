@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import AnswerInput from "@/components/game/AnswerInput";
 import PromptCard from "@/components/game/PromptCard";
 import VoteButton from "@/components/game/VoteButton";
@@ -81,7 +83,7 @@ export default function OddOneOutGame({
       <div className="space-y-4">
         <PromptCard
           kicker={view.isOdd ? "You are the odd one out" : "Your prompt"}
-          emoji={view.isOdd ? "🎭" : "🗝️"}
+          icon={view.isOdd ? "mask" : "key"}
         >
           {view.prompt}
         </PromptCard>
@@ -125,7 +127,7 @@ export default function OddOneOutGame({
   if (view.phase === "discussion") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Your prompt" emoji="🗣️" compact>
+        <PromptCard kicker="Your prompt" icon="megaphone" compact>
           {view.prompt}
         </PromptCard>
         <div className="flex items-center justify-between px-1 text-xs font-bold uppercase tracking-wide text-ink-soft">
@@ -143,7 +145,7 @@ export default function OddOneOutGame({
   if (view.phase === "vote") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Find the odd one" emoji="🎭" compact>
+        <PromptCard kicker="Find the odd one" icon="mask" compact>
           {view.prompt}
         </PromptCard>
         <Clues clues={clues} />
@@ -189,7 +191,7 @@ export default function OddOneOutGame({
           reveal.caught ? "bg-mint/50" : "bg-coral/15"
         }`}
       >
-        <p className="text-4xl">{reveal.caught ? "🎉" : "🎭"}</p>
+        <p className="text-4xl">{reveal.caught ? <Icon name="sparkles" className="mx-auto h-10 w-10" /> : <Icon name="mask" className="mx-auto h-10 w-10" />}</p>
         <p className="mt-2 text-xs font-bold uppercase tracking-[0.16em] text-ink-soft">
           {reveal.noConsensus
             ? "No consensus"

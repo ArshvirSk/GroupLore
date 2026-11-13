@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import AnswerInput from "@/components/game/AnswerInput";
 import PromptCard from "@/components/game/PromptCard";
 import type { RoomView } from "@/stores/roomStore";
@@ -54,7 +56,7 @@ export default function AvoidTheAnswerGame({
       <div className="space-y-4">
         {view.isDescriber ? (
           <>
-            <PromptCard kicker="Describe this word" emoji="🚫">
+            <PromptCard kicker="Describe this word" icon="ban">
               {view.target}
             </PromptCard>
             <div className="party-card border-coral/20 bg-blush/20 p-5">
@@ -87,7 +89,7 @@ export default function AvoidTheAnswerGame({
           </>
         ) : (
           <>
-            <PromptCard kicker={`${view.describerName} is describing`} emoji="🕵️">
+            <PromptCard kicker={`${view.describerName} is describing`} icon="search">
               Which word are they avoiding?
             </PromptCard>
             <div className="grid gap-2 sm:grid-cols-2">
@@ -173,7 +175,7 @@ export default function AvoidTheAnswerGame({
           reveal.winnerId ? "bg-mint/40" : "bg-blush/40"
         }`}
       >
-        <p className="text-4xl">{reveal.winnerId ? "🎉" : "⏰"}</p>
+        <p className="text-4xl">{reveal.winnerId ? <Icon name="sparkles" className="mx-auto h-10 w-10" /> : <Icon name="clock" className="mx-auto h-10 w-10" />}</p>
         <p className="mt-2 text-xs font-bold uppercase tracking-[0.16em] text-ink-soft">
           {reveal.winnerName
             ? `${reveal.winnerName} guessed it`

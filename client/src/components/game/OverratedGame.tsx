@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import PromptCard from "@/components/game/PromptCard";
 import type { RoomView } from "@/stores/roomStore";
 import { motion, useReducedMotion } from "framer-motion";
@@ -43,7 +45,7 @@ export default function OverratedGame({
   if (view.phase === "vote") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Overrated or underrated?" emoji="⚖️">
+        <PromptCard kicker="Overrated or underrated?" icon="scale">
           {view.prompt}
         </PromptCard>
 
@@ -65,7 +67,7 @@ export default function OverratedGame({
                 : "border-transparent bg-white enabled:hover:border-blush"
             } disabled:cursor-default`}
           >
-            <span className="text-3xl">📉</span>
+            <Icon name="trending" className="mx-auto h-8 w-8 -scale-y-100" />
             <span className="mt-2 block font-display text-xl font-semibold text-ink">
               Overrated
             </span>
@@ -84,7 +86,7 @@ export default function OverratedGame({
                 : "border-transparent bg-white enabled:hover:border-babyblue"
             } disabled:cursor-default`}
           >
-            <span className="text-3xl">📈</span>
+            <Icon name="trending" className="mx-auto h-8 w-8" />
             <span className="mt-2 block font-display text-xl font-semibold text-ink">
               Underrated
             </span>
@@ -112,7 +114,7 @@ export default function OverratedGame({
 
   return (
     <div className="space-y-4">
-      <PromptCard kicker="The verdict" emoji="⚖️" compact>
+      <PromptCard kicker="The verdict" icon="scale" compact>
         {reveal.prompt.text}
       </PromptCard>
 

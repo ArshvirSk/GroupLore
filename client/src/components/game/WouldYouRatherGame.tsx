@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import PromptCard from "@/components/game/PromptCard";
 import type { RoomView } from "@/stores/roomStore";
 import { motion, useReducedMotion } from "framer-motion";
@@ -46,7 +48,7 @@ export default function WouldYouRatherGame({
   if (view.phase === "vote") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Would you rather…" emoji="🔀">
+        <PromptCard kicker="Would you rather…" icon="shuffle">
           Pick the life you could actually live with.
         </PromptCard>
 
@@ -76,7 +78,7 @@ export default function WouldYouRatherGame({
               </span>
               {view.myVote === value && (
                 <span className="mt-4 block text-sm font-bold text-grape">
-                  Locked in ✓
+                  Locked in <Icon name="check" className="inline h-4 w-4" />
                 </span>
               )}
             </button>
@@ -96,7 +98,7 @@ export default function WouldYouRatherGame({
 
   return (
     <div className="space-y-4">
-      <PromptCard kicker="The group chose" emoji="🔀" compact>
+      <PromptCard kicker="The group chose" icon="shuffle" compact>
         {reveal.tie
           ? "A perfect split."
           : reveal.majority === "a"

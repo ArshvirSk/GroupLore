@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import PromptCard from "@/components/game/PromptCard";
 import type { RoomView } from "@/stores/roomStore";
 import { motion, useReducedMotion } from "framer-motion";
@@ -44,7 +46,7 @@ export default function HotTakesGame({
   if (view.phase === "vote") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Hot take" emoji="🌶️">
+        <PromptCard kicker="Hot take" icon="flame">
           {view.prompt}
         </PromptCard>
 
@@ -66,7 +68,7 @@ export default function HotTakesGame({
                 : "border-transparent bg-white enabled:hover:border-mint"
             } disabled:cursor-default`}
           >
-            <span className="text-3xl">🔥</span>
+            <Icon name="flame" className="mx-auto h-8 w-8" />
             <span className="mt-2 block font-display text-2xl font-semibold text-ink">
               Agree
             </span>
@@ -85,7 +87,7 @@ export default function HotTakesGame({
                 : "border-transparent bg-white enabled:hover:border-blush"
             } disabled:cursor-default`}
           >
-            <span className="text-3xl">🧊</span>
+            <Icon name="dice" className="mx-auto h-8 w-8" />
             <span className="mt-2 block font-display text-2xl font-semibold text-ink">
               Disagree
             </span>
@@ -109,7 +111,7 @@ export default function HotTakesGame({
 
   return (
     <div className="space-y-4">
-      <PromptCard kicker="The room has spoken" emoji="🌶️" compact>
+      <PromptCard kicker="The room has spoken" icon="flame" compact>
         {reveal.prompt}
       </PromptCard>
 

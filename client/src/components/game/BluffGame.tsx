@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import AnswerInput from "@/components/game/AnswerInput";
 import PromptCard from "@/components/game/PromptCard";
 import type { RoomView } from "@/stores/roomStore";
@@ -51,7 +53,7 @@ export default function BluffGame({
   if (view.phase === "write") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Write a bluff" emoji="🎩">
+        <PromptCard kicker="Write a bluff" icon="mask">
           {view.question}
         </PromptCard>
 
@@ -81,7 +83,7 @@ export default function BluffGame({
   if (view.phase === "vote") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Which one is real?" emoji="🔎" compact>
+        <PromptCard kicker="Which one is real?" icon="search" compact>
           {view.question}
         </PromptCard>
 
@@ -116,7 +118,7 @@ export default function BluffGame({
                     your bluff
                   </span>
                 )}
-                {selected && <span className="text-lg">✓</span>}
+                {selected && <Icon name="check" className="h-5 w-5" />}
               </button>
             );
           })}

@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import PromptCard from "@/components/game/PromptCard";
 import type { RoomView } from "@/stores/roomStore";
 import { motion, useReducedMotion } from "framer-motion";
@@ -47,7 +49,7 @@ export default function LiarsBarGame({
     if (!view.isStoryteller) {
       return (
         <div className="party-card p-8 text-center">
-          <p className="text-4xl">🍸</p>
+          <Icon name="glass" className="mx-auto h-10 w-10" />
           <p className="mt-3 font-display text-xl font-semibold text-ink">
             The storyteller is choosing a statement…
           </p>
@@ -62,7 +64,7 @@ export default function LiarsBarGame({
 
     return (
       <div className="space-y-4">
-        <PromptCard kicker="You are the storyteller" emoji="🍸">
+        <PromptCard kicker="You are the storyteller" icon="glass">
           Pick one statement to present. The group votes on whether it is true.
         </PromptCard>
 
@@ -99,13 +101,13 @@ export default function LiarsBarGame({
     const isStoryteller = view.isStoryteller;
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Truth or lie?" emoji="🤔" compact>
+        <PromptCard kicker="Truth or lie?" icon="brain" compact>
           {view.statement}
         </PromptCard>
 
         {isStoryteller ? (
           <div className="party-card p-6 text-center">
-            <p className="text-3xl">👀</p>
+            <Icon name="eye" className="mx-auto h-8 w-8" />
             <p className="mt-2 font-display text-lg font-semibold text-ink">
               Now let the group decide.
             </p>
@@ -126,7 +128,7 @@ export default function LiarsBarGame({
                     : "border-transparent bg-white enabled:hover:border-mint"
                 } disabled:cursor-default`}
               >
-                <span className="text-3xl">✅</span>
+                <Icon name="check" className="mx-auto h-8 w-8" />
                 <span className="mt-2 block font-display text-xl font-semibold text-ink">
                   Truth
                 </span>
@@ -144,7 +146,7 @@ export default function LiarsBarGame({
                     : "border-transparent bg-white enabled:hover:border-blush"
                 } disabled:cursor-default`}
               >
-                <span className="text-3xl">🤥</span>
+                <Icon name="mask" className="mx-auto h-8 w-8" />
                 <span className="mt-2 block font-display text-xl font-semibold text-ink">
                   Lie
                 </span>
@@ -174,7 +176,7 @@ export default function LiarsBarGame({
           reveal.groupCorrect ? "bg-mint/40" : "bg-blush/50"
         }`}
       >
-        <p className="text-4xl">{reveal.groupCorrect ? "🎯" : "🤥"}</p>
+        <p className="text-4xl">{reveal.groupCorrect ? <Icon name="target" className="mx-auto h-10 w-10" /> : <Icon name="mask" className="mx-auto h-10 w-10" />}</p>
         <p className="mt-2 text-xs font-bold uppercase tracking-[0.16em] text-ink-soft">
           {reveal.groupCorrect ? "The group caught it" : "The group got fooled"}
         </p>
@@ -212,10 +214,10 @@ export default function LiarsBarGame({
         </p>
         <div className="mt-3 space-y-2 text-sm font-semibold text-ink">
           <p className="rounded-xl bg-mint/25 px-3 py-2">
-            ✅ {reveal.truth}
+            <Icon name="check" className="inline h-4 w-4" /> {reveal.truth}
           </p>
           <p className="rounded-xl bg-blush/35 px-3 py-2">
-            🤥 {reveal.lie}
+            <Icon name="mask" className="inline h-4 w-4" /> {reveal.lie}
           </p>
         </div>
       </div>

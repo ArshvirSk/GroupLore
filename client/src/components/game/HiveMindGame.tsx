@@ -40,7 +40,7 @@ export default function HiveMindGame({
   if (view.phase === "answer") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Everyone answers the same prompt" emoji="🐝">
+        <PromptCard kicker="Everyone answers the same prompt" icon="heart">
           {view.prompt}
         </PromptCard>
 
@@ -78,7 +78,7 @@ export default function HiveMindGame({
 
   return (
     <div className="space-y-4">
-      <PromptCard kicker="The group answered" emoji="🍯" compact>
+      <PromptCard kicker="The group answered" icon="star" compact>
         {view.prompt}
       </PromptCard>
 

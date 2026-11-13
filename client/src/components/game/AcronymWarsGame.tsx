@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import AnswerInput from "@/components/game/AnswerInput";
 import PromptCard from "@/components/game/PromptCard";
 import type { RoomView } from "@/stores/roomStore";
@@ -62,7 +64,7 @@ export default function AcronymWarsGame({
   if (view.phase === "write") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Expand the acronym" emoji="🔤">
+        <PromptCard kicker="Expand the acronym" icon="type">
           <span className="block text-5xl font-black tracking-[0.24em] text-grape">
             {view.letters.join("")}
           </span>
@@ -93,7 +95,7 @@ export default function AcronymWarsGame({
   if (view.phase === "vote") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker={`Vote for the best ${view.letters.join("")}`} emoji="🔤" compact>
+        <PromptCard kicker={`Vote for the best ${view.letters.join("")}`} icon="type" compact>
           {view.topic || "No topic — make it memorable."}
         </PromptCard>
 
@@ -124,7 +126,7 @@ export default function AcronymWarsGame({
                     yours
                   </span>
                 )}
-                {selected && <span className="text-lg">✓</span>}
+                {selected && <Icon name="check" className="h-5 w-5" />}
               </button>
             );
           })}

@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import PromptCard from "@/components/game/PromptCard";
 import type { RoomView } from "@/stores/roomStore";
 import { motion, useReducedMotion } from "framer-motion";
@@ -55,7 +57,7 @@ function WriteSet({ view, send }: { view: Extract<TwoTruthsView, { phase: "write
 
   return (
     <div className="space-y-4">
-      <PromptCard kicker="Two truths, one lie" emoji="🤥">
+      <PromptCard kicker="Two truths, one lie" icon="mask">
         {view.hint || "Tell the room something surprising."}
         <span className="mt-2 block text-sm text-ink-soft">
           Two statements must be true. One must be a lie.
@@ -64,7 +66,7 @@ function WriteSet({ view, send }: { view: Extract<TwoTruthsView, { phase: "write
 
       {view.youSubmitted ? (
         <div className="party-card p-6 text-center">
-          <p className="text-3xl">🔒</p>
+          <Icon name="key" className="mx-auto h-8 w-8" />
           <p className="mt-2 font-display text-lg font-semibold text-ink">Your set is locked in</p>
           <p className="mt-1 text-sm font-bold text-ink-soft">
             {view.submitted}/{view.total} players ready
@@ -130,7 +132,7 @@ export default function TwoTruthsGame({
   if (view.phase === "vote") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker={`${view.subjectName}'s statements`} emoji="🕵️" compact>
+        <PromptCard kicker={`${view.subjectName}'s statements`} icon="search" compact>
           Which one is the lie?
         </PromptCard>
 
@@ -158,7 +160,7 @@ export default function TwoTruthsGame({
                 <span className="flex-1 font-display text-base font-semibold text-ink">
                   {statement.text}
                 </span>
-                {selected && <span className="text-lg">✓</span>}
+                {selected && <Icon name="check" className="h-5 w-5" />}
               </button>
             );
           })}

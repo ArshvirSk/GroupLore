@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import AnswerInput from "@/components/game/AnswerInput";
 import PromptCard from "@/components/game/PromptCard";
 import type { RoomView } from "@/stores/roomStore";
@@ -53,7 +55,7 @@ export default function FiveSecondGame({
               ? "You are on the clock"
               : `${view.currentPlayerName} is on the clock`
           }
-          emoji="⚡"
+          icon="zap"
         >
           {view.prompt}
         </PromptCard>
@@ -76,7 +78,7 @@ export default function FiveSecondGame({
           </div>
         ) : (
           <div className="party-card p-8 text-center">
-            <p className="text-4xl">👀</p>
+            <Icon name="eye" className="mx-auto h-10 w-10" />
             <p className="mt-2 font-display text-xl font-semibold text-ink">
               No helping from the crowd.
             </p>
@@ -92,7 +94,7 @@ export default function FiveSecondGame({
   if (view.phase === "judge") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Did it count?" emoji="🤔" compact>
+        <PromptCard kicker="Did it count?" icon="brain" compact>
           {view.prompt}
         </PromptCard>
 
@@ -121,7 +123,7 @@ export default function FiveSecondGame({
                   : "border-transparent bg-white text-ink enabled:hover:border-mint"
               } disabled:opacity-50`}
             >
-              Nailed it ✅
+              Nailed it <Icon name="check" className="inline h-5 w-5" />
             </button>
             <button
               type="button"
@@ -133,7 +135,7 @@ export default function FiveSecondGame({
                   : "border-transparent bg-white text-ink enabled:hover:border-blush"
               } disabled:opacity-50`}
             >
-              Not quite ❌
+              Not quite <Icon name="close" className="inline h-5 w-5" />
             </button>
           </div>
         ) : (
@@ -161,7 +163,7 @@ export default function FiveSecondGame({
           reveal.success ? "bg-mint/50" : "bg-coral/15"
         }`}
       >
-        <p className="text-4xl">{reveal.success ? "⚡" : "💨"}</p>
+        <p className="text-4xl">{reveal.success ? <Icon name="zap" className="mx-auto h-10 w-10" /> : <Icon name="wind" className="mx-auto h-10 w-10" />}</p>
         <p className="mt-2 text-xs font-bold uppercase tracking-[0.16em] text-ink-soft">
           {reveal.reason === "timeout"
             ? "Time ran out"

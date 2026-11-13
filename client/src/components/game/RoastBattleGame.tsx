@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import AnswerInput from "@/components/game/AnswerInput";
 import PromptCard from "@/components/game/PromptCard";
 import type { RoomView } from "@/stores/roomStore";
@@ -76,7 +78,7 @@ export default function RoastBattleGame({
   if (view.phase === "write") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Write your roast" emoji="🔥">
+        <PromptCard kicker="Write your roast" icon="flame">
           Answer the prompt you were dealt. Keep it sharp and under 80 characters.
         </PromptCard>
 
@@ -93,7 +95,7 @@ export default function RoastBattleGame({
               {assignment.prompt}
             </p>
             {assignment.submitted ? (
-              <p className="text-sm font-bold text-[#0F7F6C]">Answer locked in ✓</p>
+              <p className="text-sm font-bold text-[#0F7F6C]">Answer locked in <Icon name="check" className="inline h-4 w-4" /></p>
             ) : (
               <AnswerInput
                 maxLength={80}
@@ -111,7 +113,7 @@ export default function RoastBattleGame({
   if (view.phase === "duel") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker={`Duel ${view.index} of ${view.total}`} emoji="🔥" compact>
+        <PromptCard kicker={`Duel ${view.index} of ${view.total}`} icon="flame" compact>
           {view.matchup.prompt}
         </PromptCard>
 
@@ -144,7 +146,7 @@ export default function RoastBattleGame({
                 <span className="mt-2 block font-display text-lg font-semibold text-ink">
                   {answer.text || "No answer submitted"}
                 </span>
-                {selected && <span className="mt-2 block text-sm font-bold text-grape">Your vote ✓</span>}
+                {selected && <span className="mt-2 block text-sm font-bold text-grape">Your vote <Icon name="check" className="inline h-4 w-4" /></span>}
               </button>
             );
           })}

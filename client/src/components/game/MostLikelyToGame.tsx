@@ -59,7 +59,7 @@ export default function MostLikelyToGame({
   if (voting) {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Most likely to…" emoji="👑">
+        <PromptCard kicker="Most likely to…" icon="crown">
           {view.prompt}
         </PromptCard>
 
@@ -108,7 +108,7 @@ export default function MostLikelyToGame({
 
   return (
     <div className="space-y-4">
-      <PromptCard kicker="The group has spoken" emoji="🥁" compact>
+      <PromptCard kicker="The group has spoken" icon="megaphone" compact>
         {view.prompt}
       </PromptCard>
 

@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import PromptCard from "@/components/game/PromptCard";
 import type { RoomView } from "@/stores/roomStore";
 import { motion, useReducedMotion } from "framer-motion";
@@ -54,7 +56,7 @@ export default function FactOrFictionGame({
   if (view.phase === "question") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Fact or fiction?" emoji="✅">
+        <PromptCard kicker="Fact or fiction?" icon="check">
           {view.statement}
         </PromptCard>
 
@@ -76,7 +78,7 @@ export default function FactOrFictionGame({
                 : "border-transparent bg-white enabled:hover:border-mint"
             } disabled:cursor-default`}
           >
-            <span className="text-3xl">✅</span>
+            <Icon name="check" className="mx-auto h-8 w-8" />
             <span className="mt-2 block font-display text-2xl font-semibold text-ink">True</span>
             <span className="mt-1 block text-xs font-semibold text-ink-soft">That really happened</span>
           </button>
@@ -91,7 +93,7 @@ export default function FactOrFictionGame({
                 : "border-transparent bg-white enabled:hover:border-blush"
             } disabled:cursor-default`}
           >
-            <span className="text-3xl">❌</span>
+            <Icon name="close" className="mx-auto h-8 w-8" />
             <span className="mt-2 block font-display text-2xl font-semibold text-ink">Fiction</span>
             <span className="mt-1 block text-xs font-semibold text-ink-soft">Made up</span>
           </button>
@@ -148,7 +150,7 @@ export default function FactOrFictionGame({
           >
             <span className="text-sm font-semibold text-ink">{result.name}</span>
             <span className="text-xs font-bold text-ink-soft">
-              {result.correct ? "✓" : "✗"} {result.points > 0 ? `+${result.points}` : "0"} · streak {result.streak}
+              {result.correct ? <Icon name="check" className="inline h-4 w-4" /> : <Icon name="close" className="inline h-4 w-4" />} {result.points > 0 ? `+${result.points}` : "0"} · streak {result.streak}
             </span>
           </div>
         ))}

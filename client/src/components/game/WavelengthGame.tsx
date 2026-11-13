@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import AnswerInput from "@/components/game/AnswerInput";
 import PromptCard from "@/components/game/PromptCard";
 import type { RoomView } from "@/stores/roomStore";
@@ -57,7 +59,7 @@ export default function WavelengthGame({
   if (view.phase === "clue") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Set the wavelength" emoji="🌊">
+        <PromptCard kicker="Set the wavelength" icon="signal">
           {view.isClueGiver
             ? `Give a clue that lands near ${target ?? "the hidden point"} on the spectrum.`
             : `${view.clueGiverName} is finding the wavelength…`}
@@ -80,7 +82,7 @@ export default function WavelengthGame({
           </div>
         ) : (
           <div className="party-card p-6 text-center">
-            <p className="text-3xl">👀</p>
+            <Icon name="eye" className="mx-auto h-8 w-8" />
             <p className="mt-2 font-display text-lg font-semibold text-ink">
               Wait for the clue.
             </p>
@@ -93,7 +95,7 @@ export default function WavelengthGame({
   if (view.phase === "guess") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Where does it land?" emoji="🌊" compact>
+        <PromptCard kicker="Where does it land?" icon="signal" compact>
           {view.clue}
         </PromptCard>
 
@@ -101,7 +103,7 @@ export default function WavelengthGame({
 
         {view.isClueGiver ? (
           <div className="party-card p-6 text-center">
-            <p className="text-3xl">🤐</p>
+            <Icon name="mask" className="mx-auto h-8 w-8" />
             <p className="mt-2 font-display text-lg font-semibold text-ink">
               The group is guessing.
             </p>
@@ -130,7 +132,7 @@ export default function WavelengthGame({
         animate={{ opacity: 1, scale: 1 }}
         className="party-card bg-mint/35 p-6 text-center"
       >
-        <p className="text-4xl">🌊</p>
+        <Icon name="signal" className="mx-auto h-10 w-10" />
         <p className="mt-2 text-xs font-bold uppercase tracking-[0.16em] text-ink-soft">
           The wavelength was {reveal.target}
         </p>

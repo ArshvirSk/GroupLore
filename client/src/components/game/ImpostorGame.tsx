@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import AnimatedResultBar from "@/components/game/AnimatedResultBar";
 import AnswerInput from "@/components/game/AnswerInput";
 import AvatarBubble from "@/components/game/AvatarBubble";
@@ -89,7 +91,7 @@ export default function ImpostorGame({
       <div className="space-y-4">
         <PromptCard
           kicker={view.isImpostor ? "You are the impostor" : "The secret prompt"}
-          emoji={view.isImpostor ? "🎭" : "🗝️"}
+          icon={view.isImpostor ? "mask" : "key"}
         >
           {view.prompt || "You do not get the prompt. Read the room and blend in."}
         </PromptCard>
@@ -136,7 +138,7 @@ export default function ImpostorGame({
   if (view.phase === "discussion") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Discussion" emoji="🗣️" compact>
+        <PromptCard kicker="Discussion" icon="megaphone" compact>
           {view.prompt || "You are still in the dark. Use the clues."}
         </PromptCard>
 
@@ -157,7 +159,7 @@ export default function ImpostorGame({
   if (view.phase === "vote") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Vote for the impostor" emoji="🕵️" compact>
+        <PromptCard kicker="Vote for the impostor" icon="search" compact>
           {view.prompt || "Trust the clues, not the confidence."}
         </PromptCard>
 
@@ -208,7 +210,7 @@ export default function ImpostorGame({
           reveal.caught ? "bg-mint/50" : "bg-coral/15"
         }`}
       >
-        <p className="text-4xl">{reveal.caught ? "🎉" : "🎭"}</p>
+        <p className="text-4xl">{reveal.caught ? <Icon name="sparkles" className="mx-auto h-10 w-10" /> : <Icon name="mask" className="mx-auto h-10 w-10" />}</p>
         <p className="mt-2 text-xs font-bold uppercase tracking-[0.16em] text-ink-soft">
           {reveal.noConsensus
             ? "No consensus"
@@ -226,7 +228,7 @@ export default function ImpostorGame({
         </p>
       </motion.div>
 
-      <PromptCard kicker="The real prompt" emoji="🗝️" compact>
+      <PromptCard kicker="The real prompt" icon="key" compact>
         {reveal.prompt.text}
       </PromptCard>
 

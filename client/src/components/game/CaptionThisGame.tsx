@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import AnswerInput from "@/components/game/AnswerInput";
 import PromptCard from "@/components/game/PromptCard";
 import type { RoomView } from "@/stores/roomStore";
@@ -49,7 +51,7 @@ export default function CaptionThisGame({
   if (view.phase === "write") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Caption this" emoji="📸">
+        <PromptCard kicker="Caption this" icon="image">
           {view.scenario}
         </PromptCard>
         <div className="party-card p-5">
@@ -78,7 +80,7 @@ export default function CaptionThisGame({
   if (view.phase === "vote") {
     return (
       <div className="space-y-4">
-        <PromptCard kicker="Pick the funniest" emoji="🏆" compact>
+        <PromptCard kicker="Pick the funniest" icon="trophy" compact>
           {view.scenario}
         </PromptCard>
         <div className="flex items-center justify-between px-1 text-xs font-bold uppercase tracking-wide text-ink-soft">
@@ -111,7 +113,7 @@ export default function CaptionThisGame({
                     yours
                   </span>
                 )}
-                {selected && <span className="text-lg">✓</span>}
+                {selected && <Icon name="check" className="h-5 w-5" />}
               </button>
             );
           })}
@@ -125,7 +127,7 @@ export default function CaptionThisGame({
 
   return (
     <div className="space-y-4">
-      <PromptCard kicker="The winning caption" emoji="🏆" compact>
+      <PromptCard kicker="The winning caption" icon="trophy" compact>
         {reveal.scenario}
       </PromptCard>
 
