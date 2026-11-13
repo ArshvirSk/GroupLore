@@ -1,15 +1,14 @@
 "use client";
 
+import AppShell from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
-import AppHeader from "@/components/ui/AppHeader";
-import UserMenu from "@/components/UserMenu";
+import { EmojiIcon, Icon, type IconName } from "@/components/ui/Icon";
 import {
   Avatar,
   AvatarStack,
   Badge,
   Button,
   Card,
-  Chip,
   CodeInput,
   EmptyState,
   Input,
@@ -22,7 +21,7 @@ import { ensureLobby, lobbyPath } from "@/lib/play";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 interface GroupItem {
   id: string;
@@ -74,19 +73,35 @@ interface PlayerStats {
   streak_best: number;
 }
 
-const EVENT_CONFIG: Record<string, { emoji: string; text: (p: ActivityPayload, user: string) => string }> = {
-  game_started: { emoji: "🎮", text: (p, u) => `${u} started ${gameName(p.gameType)}` },
-  game_finished: { emoji: "🏁", text: (p) => (p.winner ? `${p.winner} won ${gameName(p.gameType)}` : `${gameName(p.gameType)} finished`) },
-  member_joined: { emoji: "👋", text: (_p, u) => `${u} joined the group` },
-  member_left: { emoji: "💨", text: (_p, u) => `${u} left the group` },
-  vote_result: { emoji: "📊", text: (p) => `“${p.prompt}” split the room` },
-  impostor_caught: { emoji: "🔍", text: (_p, u) => `${u} was caught as the impostor` },
-  impostor_survived: { emoji: "🕵️", text: (_p, u) => `${u} survived as the impostor` },
-  streak_achieved: { emoji: "⚡", text: (p, u) => `${u} hit a ${p.streak}-answer streak` },
-  high_score: { emoji: "🏆", text: (p, u) => `${u} scored ${p.score} points` },
-  bluff_success: { emoji: "🎭", text: (_p, u) => `${u}'s bluff fooled everyone` },
-  bluff_caught: { emoji: "🤥", text: (_p, u) => `${u}'s bluff was exposed` },
-  most_likely_winner: { emoji: "👑", text: (p, u) => `${u} was voted most likely to “${p.prompt}”` },
+interface CatalogGame {
+  id: string;
+  name: string;
+  description: string;
+  minPlayers: number;
+  maxPlayers: number;
+  modes: { id: string; label: string; description: string }[];
+}
+
+const FEATURED_LIBRARY = [
+  { id: "most-likely-to", color: "purple" },
+  { id: "guess-impostor", color: "lime" },
+  { id: "five-second", color: "pink" },
+  { id: "wavelength", color: "cyan" },
+] as const;
+
+const EVENT_CONFIG: Record<string, { icon: IconName; text: (p: ActivityPayload, user: string) => string }> = {
+  game_started: { icon: "gamepad", text: (p, u) => `${u} started ${gameName(p.gameType)}` },
+  game_finished: { icon: "flag", text: (p) => (p.winner ? `${p.winner} won ${gameName(p.gameType)}` : `${gameName(p.gameType)} finished`) },
+  member_joined: { icon: "hand", text: (_p, u) => `${u} joined the group` },
+  member_left: { icon: "wind", text: (_p, u) => `${u} left the group` },
+  vote_result: { icon: "chart", text: (p) => `“${p.prompt}” split the room` },
+  impostor_caught: { icon: "search", text: (_p, u) => `${u} was caught as the impostor` },
+  impostor_survived: { icon: "mask", text: (_p, u) => `${u} survived as the impostor` },
+  streak_achieved: { icon: "zap", text: (p, u) => `${u} hit a ${p.streak}-answer streak` },
+  high_score: { icon: "trophy", text: (p, u) => `${u} scored ${p.score} points` },
+  bluff_success: { icon: "mask", text: (_p, u) => `${u}'s bluff fooled everyone` },
+  bluff_caught: { icon: "eye", text: (_p, u) => `${u}'s bluff was exposed` },
+  most_likely_winner: { icon: "crown", text: (p, u) => `${u} was voted most likely to “${p.prompt}”` },
 };
 
 function gameName(type?: string) {
@@ -118,6 +133,7 @@ export default function DashboardPage() {
   const [activeLobbies, setActiveLobbies] = useState<ActiveLobby[]>([]);
   const [stats, setStats] = useState<PlayerStats | null>(null);
   const [badges, setBadges] = useState<BadgeItem[]>([]);
+  const [catalog, setCatalog] = useState<CatalogGame[]>([]);
   const [loading, setLoading] = useState(true);
   const [feedLoading, setFeedLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
@@ -132,7 +148,6 @@ export default function DashboardPage() {
   const [joining, setJoining] = useState(false);
   const [codeError, setCodeError] = useState("");
   const [showJoinCode, setShowJoinCode] = useState(false);
-  const gameScroller = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isLoaded) return;
@@ -145,14 +160,16 @@ export default function DashboardPage() {
       api.getFeed(20).catch(() => []),
       api.getActiveLobbies().catch(() => []),
       api.getMyStats().catch(() => ({ stats: null, badges: [] })),
+      api.getCatalog().catch(() => [] as CatalogGame[]),
     ])
-      .then(([groupData, feedData, lobbies, summary]) => {
+      .then(([groupData, feedData, lobbies, summary, gameCatalog]) => {
         setGroups(groupData);
         setFeed(feedData);
         setHasMore(feedData.length >= 20);
         setActiveLobbies(lobbies);
         setStats(summary.stats);
         setBadges(summary.badges || []);
+        setCatalog(gameCatalog);
       })
       .finally(() => setLoading(false));
   }, [isLoaded, isSignedIn, router]);
@@ -245,84 +262,137 @@ export default function DashboardPage() {
 
   if (loading) {
     return (
-      <main className="min-h-screen">
-        <AppHeader />
-        <div className="mx-auto max-w-[1120px] space-y-4 px-4 py-8 sm:px-6">
-          <Skeleton className="h-16 w-2/3" />
-          <Skeleton className="h-40 w-full" />
-          <div className="grid gap-4 md:grid-cols-3">
-            <Skeleton className="h-48" />
-            <Skeleton className="h-48" />
-            <Skeleton className="h-48" />
+      <AppShell active="home" search>
+        <div className="space-y-4">
+          <Skeleton className="h-24 w-full" />
+          <Skeleton className="h-80 w-full" />
+          <div className="grid gap-4 md:grid-cols-4">
+            <Skeleton className="h-52" />
+            <Skeleton className="h-52" />
+            <Skeleton className="h-52" />
+            <Skeleton className="h-52" />
           </div>
         </div>
-      </main>
+      </AppShell>
     );
   }
 
+  const groupIcons: IconName[] = ["globe", "sparkles", "smile"];
+
   return (
-    <main className="min-h-screen">
-      <div className="dashboard-layout">
-        <aside className="dashboard-sidebar" aria-label="Dashboard navigation">
-          <Link href="/dashboard" className="dashboard-brand"><Image src="/assets/grouplore/wordmark-transparent.png" alt="GroupLore" width={401} height={158} priority /></Link>
-          <nav className="dashboard-nav">
-            <a className="active" href="#home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z" /></svg><span>Home</span></a>
-            <a href="#groups"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20v-1.3A5.2 5.2 0 0 1 7.7 13h2.6a5.2 5.2 0 0 1 5.2 5.2V20zM16 4.8a3.4 3.4 0 0 1 0 6.4M17 14h.5a4 4 0 0 1 4 4v2h-4"/></svg><span>My Groups</span></a>
-            <a href="#featured-title"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8.5h10a4.5 4.5 0 0 1 4.3 5.8l-1 3a2.4 2.4 0 0 1-3.8 1.1l-2.2-1.7H9.7l-2.2 1.7a2.4 2.4 0 0 1-3.8-1.1l-1-3A4.5 4.5 0 0 1 7 8.5Z"/><path d="M7 12v4m-2-2h4m7-1h.01M18 15h.01"/></svg><span>Browse Games</span></a>
-            <a href="#stats"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v3a4 4 0 0 1-8 0zM8 6H4v1a4 4 0 0 0 4 4m8-5h4v1a4 4 0 0 1-4 4m-4 0v5m-4 4h8m-7-4h6v4H9z"/></svg><span>Leaderboard</span></a>
-            <a href="#activity"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h4l3-7 5 14 3-7h5"/></svg><span>Activity</span></a>
-          </nav>
-          <button className="dashboard-create" onClick={() => setShowCreate(true)}><span><b>Create a Group</b><small>Start a new crew!</small></span><i>+</i></button>
-        </aside>
-        <div className="dashboard-content" id="home">
-          <div className="dashboard-tools">
-            <div className="dashboard-toolbar">
-              <Input label="Search games" aria-label="Search games" placeholder="⌕  Search games…" className="dashboard-search-input" />
-              <a className="dashboard-notifications" href="#activity" aria-label="View recent activity">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" /></svg>
-                {feed.length > 0 && <span aria-hidden="true" />}
-              </a>
-              <UserMenu />
+    <AppShell active="home" search>
+      <div className="dashboard-content" id="home">
+        <section className="dashboard-hero-row" aria-label="Start playing">
+          <div className="reference-hero">
+            <div className="reference-hero-copy">
+              <Image className="reference-wordmark" src="/assets/grouplore/wordmark-transparent.png" alt="GroupLore" width={401} height={158} priority />
+              <p>Real-time multiplayer<br />party games, personalized<br />for your friend group.</p>
+              <Button size="lg" loading={joining} disabled={isGuest} onClick={() => void quickPlay()}>Play Now <Icon name="arrow-right" className="h-4 w-4" /></Button>
+              <button className="reference-join-toggle" onClick={() => setShowJoinCode((open) => !open)}>{showJoinCode ? "Hide room code" : "Have a code? Join a room"}</button>
+              {showJoinCode && <div className="reference-join-form"><CodeInput value={code} onChange={(value) => { setCode(value); setCodeError(""); }} onEnter={() => void joinRoom()} error={codeError} /><Button size="sm" disabled={joining || code.length !== 6} loading={joining} onClick={() => void joinRoom()}>Join</Button></div>}
             </div>
-          </div>
-          <div className="dashboard-heading">
-            <div><p className="eyebrow mb-1">The friend group edition</p><h1 className="font-display text-3xl font-bold sm:text-4xl">Your GroupLore</h1><p className="mt-1 text-sm italic text-muted">Pick up where you left off, or make a new story.</p></div>
-            {badges.length > 0 ? <div className="flex flex-wrap gap-2">{badges.slice(0, 3).map((badge) => <Badge key={badge.label} tone="accent">{badge.emoji} {badge.label}</Badge>)}</div> : null}
+            <Image className="reference-checker" src="/assets/grouplore/library-checker.png" alt="" aria-hidden width={178} height={45} priority />
+            <Image className="reference-star" src="/assets/grouplore/chrome-star-clean.png" alt="" aria-hidden width={249} height={216} priority />
+            <Image className="reference-burst" src="/assets/grouplore/library-starburst.png" alt="" aria-hidden width={137} height={120} priority />
           </div>
 
-          <section className="dashboard-hero-row" aria-label="Start playing">
-            <div className="reference-hero">
-              <div className="reference-hero-copy"><Image className="reference-wordmark" src="/assets/grouplore/wordmark-transparent.png" alt="GroupLore" width={401} height={158} priority /><p>Real-time multiplayer<br />party games, personalized<br />for your friend group.</p><Button size="lg" loading={joining} disabled={isGuest} onClick={() => void quickPlay()}>Play Now <span aria-hidden>➜</span></Button><button className="reference-join-toggle" onClick={() => setShowJoinCode((open) => !open)}>{showJoinCode ? "Hide room code" : "Have a code? Join a room"}</button>{showJoinCode && <div className="reference-join-form"><CodeInput value={code} onChange={(value) => { setCode(value); setCodeError(""); }} onEnter={() => void joinRoom()} error={codeError} /><Button size="sm" disabled={joining || code.length !== 6} loading={joining} onClick={() => void joinRoom()}>Join</Button></div>}</div>
-              <Image className="reference-checker" src="/assets/grouplore/library-checker.png" alt="" aria-hidden width={178} height={45} priority />
-              <Image className="reference-star" src="/assets/grouplore/chrome-star-clean.png" alt="" aria-hidden width={249} height={216} priority />
-              <Image className="reference-burst" src="/assets/grouplore/library-starburst.png" alt="" aria-hidden width={137} height={120} priority />
+          <Card className="your-groups-panel" id="groups">
+            <div className="flex items-center justify-between border-b border-border pb-3">
+              <h2 className="font-display text-lg font-bold">Your Groups</h2>
+              <Link className="inline-flex items-center gap-1 text-sm font-semibold text-primary" href="/groups">See all <Icon name="arrow-right" className="h-3.5 w-3.5" /></Link>
             </div>
-            <Card className="your-groups-panel" id="groups">
-              <div className="flex items-center justify-between border-b border-border pb-3"><h2 className="font-display text-lg font-bold">Your Groups</h2><a className="text-sm font-semibold text-primary" href="#all-groups">See all →</a></div>
-              {groups.length ? <div className="divide-y divide-border">{groups.slice(0, 3).map((group, index) => <Link key={group.id} href={`/group/${group.id}`} className="group-row"><span className={`group-stamp stamp-${index % 3}`} aria-hidden>{["◎", "✦", "☺"][index % 3]}</span><span className="min-w-0 flex-1"><b className="block truncate">{group.name}</b><small>{group.role === "owner" ? "Your group" : "Member"}{group.lobby ? " · Room open" : ""}</small></span><span className="text-xl">›</span></Link>)}</div> : <div className="py-5 text-sm text-muted">Your crew starts here. Create a group and invite your friends.</div>}
-              <Button size="sm" variant="secondary" className="mt-3 w-full" disabled={isGuest} onClick={() => setShowCreate((value) => !value)}>{showCreate ? "Cancel" : "＋ Create a group"}</Button>
-            </Card>
-          </section>
+            {groups.length ? (
+              <div className="divide-y divide-border">
+                {groups.slice(0, 3).map((group, index) => (
+                  <Link key={group.id} href={`/group/${group.id}`} className="group-row">
+                    <span className={`group-stamp stamp-${index % 3}`} aria-hidden><Icon name={groupIcons[index % 3]} className="h-5 w-5" /></span>
+                    <span className="min-w-0 flex-1"><b className="block truncate">{group.name}</b><small>{group.role === "owner" ? "Your group" : "Member"}{group.lobby ? " · Room open" : ""}</small></span>
+                    <Icon name="chevron-right" className="h-4 w-4" />
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <div className="py-5 text-sm text-muted">Your crew starts here. Create a group and invite your friends.</div>
+            )}
+            <Button size="sm" variant="secondary" className="mt-3 w-full" disabled={isGuest} onClick={() => setShowCreate((value) => !value)}>
+              <Icon name={showCreate ? "close" : "plus"} className="h-4 w-4" /> {showCreate ? "Cancel" : "Create a group"}
+            </Button>
+          </Card>
+        </section>
 
-          {showCreate && <Card className="mt-4 max-w-xl p-5"><Input label="Group name" value={newGroupName} onChange={(event) => { setNewGroupName(event.target.value); setGroupError(""); }} placeholder="The Chaos Crew" maxLength={60} error={groupError} /><Button className="mt-3" loading={creating} onClick={() => void createGroup()}>Create group</Button></Card>}
-          {playError && <p role="alert" className="mt-3 rounded-[12px] bg-danger/10 px-3 py-2 text-sm font-medium text-danger">{playError}</p>}
-        <section className="mt-6" aria-labelledby="featured-title">
-          <div className="mb-4 flex items-end gap-4"><h2 id="featured-title" className="font-display text-3xl font-bold">Featured Games</h2><div className="mb-2 hidden flex-1 border-t border-border sm:block" /></div>
-          <div className="game-carousel">
-            <button className="carousel-arrow carousel-prev" aria-label="Previous games" onClick={() => gameScroller.current?.scrollBy({ left: -460, behavior: "smooth" })}>‹</button>
-            <div className="dashboard-games" ref={gameScroller}>
-              {["most-likely-to", "guess-impostor", "five-second", "wavelength"].map((id) => {
-                const meta = gameMeta(id);
-                return <button key={id} type="button" className="dashboard-game-card editorial-card group relative overflow-hidden p-0 text-left transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-70" aria-label={`Start ${meta.name}`} disabled={joining || isGuest} onClick={() => void quickPlay(id)}><Image src={`/assets/grouplore/${id}.png`} alt="" aria-hidden fill sizes="(max-width: 640px) 185px, (max-width: 900px) 195px, (max-width: 1100px) 220px, 266px" /></button>;
-              })}
-            </div>
-            <button className="carousel-arrow carousel-next" aria-label="Next games" onClick={() => gameScroller.current?.scrollBy({ left: 460, behavior: "smooth" })}>›</button>
+        {badges.length > 0 ? (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {badges.slice(0, 3).map((badge) => <Badge key={badge.label} tone="accent"><EmojiIcon value={badge.emoji} className="mr-1 h-3.5 w-3.5" /> {badge.label}</Badge>)}
+          </div>
+        ) : null}
+        {showCreate ? (
+          <Card className="mt-4 max-w-xl p-5">
+            <Input label="Group name" value={newGroupName} onChange={(event) => { setNewGroupName(event.target.value); setGroupError(""); }} placeholder="The Chaos Crew" maxLength={60} error={groupError} />
+            <Button className="mt-3" loading={creating} onClick={() => void createGroup()}>Create group</Button>
+          </Card>
+        ) : null}
+        {playError ? <p role="alert" className="mt-3 rounded-[12px] bg-danger/10 px-3 py-2 text-sm font-medium text-danger">{playError}</p> : null}
+
+        <section className="mt-8" aria-labelledby="featured-title">
+          <div className="mb-4 flex items-end gap-4">
+            <h2 id="featured-title" className="font-display text-3xl font-bold italic">Featured Games</h2>
+            <div className="mb-2 hidden flex-1 border-t border-border sm:block" />
+            <Link href="/games" className="mb-1 hidden items-center gap-1 text-sm font-semibold text-primary sm:flex">Browse all <Icon name="arrow-right" className="h-3.5 w-3.5" /></Link>
+          </div>
+          <div className="dashboard-library-grid">
+            {FEATURED_LIBRARY.map(({ id, color }) => {
+              const meta = gameMeta(id);
+              const live = catalog.find((game) => game.id === id);
+              const modes = live?.modes.length ?? 0;
+              return (
+                <button
+                  key={id}
+                  type="button"
+                  aria-label={`Start ${live?.name || meta.name}`}
+                  disabled={joining || isGuest}
+                  onClick={() => void quickPlay(id)}
+                  className={`game-library-card ${color} text-left disabled:cursor-not-allowed disabled:opacity-60`}
+                >
+                  <span className="flex items-start justify-between gap-2">
+                    <span className="library-mark" aria-hidden><Icon name={meta.icon} /></span>
+                    <span className="rounded-full border border-ink/15 bg-surface/60 px-2 py-1 text-[10px] font-bold">{meta.category}</span>
+                  </span>
+                  <span className="mt-4 block">
+                    <span className="library-name block">{live?.name || meta.name}</span>
+                    <span className="library-desc line-clamp-2 block">{live?.description || meta.description}</span>
+                  </span>
+                  <span className="library-foot">
+                    <small>{live ? `${live.minPlayers}–${live.maxPlayers} players` : "3–12 players"}{modes ? ` · ${modes} mode${modes === 1 ? "" : "s"}` : ""}</small>
+                    <span className="library-arrow"><Icon name="arrow-right" /></span>
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </section>
 
-        <section id="activity" className="mt-7" aria-labelledby="activity-title">
-          <div className="mb-3 flex items-end justify-between border-b border-border pb-3"><h2 id="activity-title" className="font-display text-2xl font-bold">Your Activity</h2><button className="text-sm font-semibold text-primary" onClick={() => { setTab("activity"); document.getElementById("all-groups")?.scrollIntoView({ behavior: "smooth" }); }}>See all →</button></div>
-          {feed.length ? <div className="activity-strip">{feed.slice(0, 4).map((item) => { const config = EVENT_CONFIG[item.event_type] || { emoji: "📌", text: () => item.event_type }; const name = item.profiles?.display_name || item.payload.displayName || "Someone"; return <Card key={item.id} className="activity-pill"><span className="activity-icon" aria-hidden>{config.emoji}</span><span className="min-w-0 flex-1 truncate text-xs font-medium">{config.text(item.payload, String(name))}</span><small>{timeAgo(item.created_at)}</small></Card>; })}</div> : <p className="rounded-xl border border-border bg-surface px-4 py-5 text-sm text-muted">Your group moments will show up here after your first game.</p>}
+        <section id="activity" className="mt-8" aria-labelledby="activity-title">
+          <div className="mb-3 flex items-end justify-between border-b border-border pb-3">
+            <h2 id="activity-title" className="font-display text-2xl font-bold italic">Your Activity</h2>
+            <Link className="inline-flex items-center gap-1 text-sm font-semibold text-primary" href="/activity">See all <Icon name="arrow-right" className="h-3.5 w-3.5" /></Link>
+          </div>
+          {feed.length ? (
+            <div className="activity-strip">
+              {feed.slice(0, 4).map((item) => {
+                const config = EVENT_CONFIG[item.event_type] || { icon: "pin" as IconName, text: () => item.event_type };
+                const name = item.profiles?.display_name || item.payload.displayName || "Someone";
+                return (
+                  <Card key={item.id} className="activity-pill">
+                    <span className="activity-icon" aria-hidden><Icon name={config.icon} className="h-4 w-4" /></span>
+                    <span className="min-w-0 flex-1 truncate text-xs font-medium">{config.text(item.payload, String(name))}</span>
+                    <small>{timeAgo(item.created_at)}</small>
+                  </Card>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="rounded-xl border border-border bg-surface px-4 py-5 text-sm text-muted">Your group moments will show up here after your first game.</p>
+          )}
         </section>
 
         {stats && stats.games_played > 0 ? (
@@ -346,39 +416,39 @@ export default function DashboardPage() {
           <div className="mt-4">
             {tab === "groups" ? (
               groups.length === 0 ? (
-                <EmptyState emoji="👥" title="No groups yet" description="Create a group, invite your friends, and your shared lore starts here." action={<Button onClick={() => setShowCreate(true)}>Create a group</Button>} />
+                <EmptyState icon="users" title="No groups yet" description="Create a group, invite your friends, and your shared lore starts here." action={<Button onClick={() => setShowCreate(true)}>Create a group</Button>} />
               ) : (
                 <div className="grid gap-4 md:grid-cols-2">
-                  {groups.map((group) => (
-                    <Card key={group.id} variant="interactive" className="p-5" onClick={() => router.push(`/group/${group.id}`)}>
+                  {groups.map((group, index) => (
+                    <div key={group.id} role="button" tabIndex={0} className={`color-card ${["purple", "lime", "pink", "cyan"][index % 4]} cursor-pointer p-5 text-left`} onClick={() => router.push(`/group/${group.id}`)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") router.push(`/group/${group.id}`); }}>
                       <div className="flex items-start justify-between gap-3">
                         <div className="min-w-0">
-                          <h3 className="truncate font-display text-xl font-bold">{group.name}</h3>
-                          <p className="mt-1 text-sm text-muted">{group.role === "owner" ? "You own this group" : "You’re a member"}</p>
-                          <p className="mt-3 font-mono text-sm font-bold">{group.lobby?.code ? `Open room: ${group.lobby.code}` : "No open room"}</p>
+                          <h3 className="truncate font-display text-2xl font-extrabold italic">{group.name}</h3>
+                          <p className="mt-1 text-sm font-medium opacity-70">{group.role === "owner" ? "You own this group" : "You’re a member"}</p>
+                          <p className="mt-3 font-mono text-sm font-bold">{group.lobby?.code ? `Room ${group.lobby.code}` : "No open room"}</p>
                         </div>
-                        <Chip>{group.lobby ? "Live" : "Idle"}</Chip>
+                        <span className="round-icon"><Icon name="arrow-right" /></span>
                       </div>
-                      <div className="mt-5 flex items-center justify-between border-t border-border pt-3">
-                        <span className="text-sm font-medium text-muted">{group.lobby ? "Room is open" : "No open room"}</span>
+                      <div className="mt-5 flex items-center justify-between border-t border-ink/15 pt-3">
+                        <span className="text-sm font-medium opacity-70">{group.lobby ? "Room is open" : "No open room"}</span>
                         <Button size="sm" variant={group.lobby ? "primary" : "secondary"} loading={launching === group.id} onClick={(event) => { event.stopPropagation(); void openLobby(group.id); }}>{group.lobby ? "Join" : "Open lobby"}</Button>
                       </div>
-                    </Card>
+                    </div>
                   ))}
                 </div>
               )
             ) : feed.length === 0 ? (
-              <EmptyState emoji="📜" title="Your lore feed is waiting" description="Play a game and the best moments will land here." action={<Button onClick={() => setTab("groups")}>Find a group</Button>} />
+              <EmptyState icon="book" title="Your lore feed is waiting" description="Play a game and the best moments will land here." action={<Button onClick={() => setTab("groups")}>Find a group</Button>} />
             ) : (
               <div id="activity-feed" className="grid gap-3">
                 {feed.map((item) => {
-                  const config = EVENT_CONFIG[item.event_type] || { emoji: "📌", text: () => item.event_type };
+                  const config = EVENT_CONFIG[item.event_type] || { icon: "pin" as IconName, text: () => item.event_type };
                   const name = item.profiles?.display_name || item.payload.displayName || "Someone";
                   return (
                     <Card key={item.id} className="flex items-start gap-3 p-4" onClick={() => router.push(`/group/${item.group_id}`)}>
                       <Avatar name={name} src={item.profiles?.avatar_url} size="sm" />
                       <div className="min-w-0 flex-1">
-                        <p className="text-sm font-bold leading-snug"><span className="mr-2" aria-hidden>{config.emoji}</span>{config.text(item.payload, String(name))}</p>
+                        <p className="flex items-center gap-2 text-sm font-bold leading-snug"><Icon name={config.icon} className="h-4 w-4 shrink-0" />{config.text(item.payload, String(name))}</p>
                         <p className="mt-1 text-xs font-medium text-muted">{item.groups?.name || "Group"} · {timeAgo(item.created_at)}</p>
                       </div>
                     </Card>
@@ -389,9 +459,21 @@ export default function DashboardPage() {
             )}
           </div>
         </section>
-        {activeLobbies.length > 0 && <section className="dashboard-live mt-8" aria-labelledby="live-title"><div className="mb-3 flex items-center gap-2"><span className="h-3 w-3 rounded-full bg-success" /><h2 id="live-title" className="font-display text-lg font-semibold">Live now</h2></div><div className="flex gap-3 overflow-x-auto pb-1">{activeLobbies.map((lobby) => <Card key={lobby.id} className="flex min-w-[300px] items-center justify-between gap-3 p-3"><div className="flex items-center gap-3"><AvatarStack people={[{ name: lobby.groups?.name || "Quick play" }]} max={1} /><div><p className="font-display font-bold">{lobby.groups?.name || "Quick play"}</p><p className="font-mono text-xs text-muted">{lobby.code} · {timeAgo(lobby.created_at)}</p></div></div><Button size="sm" onClick={() => router.push(`/lobby/${lobby.code}`)}>Join now</Button></Card>)}</div></section>}
-        </div>
+
+        {activeLobbies.length > 0 ? (
+          <section className="dashboard-live mt-8" aria-labelledby="live-title">
+            <div className="mb-3 flex items-center gap-2"><span className="h-3 w-3 rounded-full bg-success" /><h2 id="live-title" className="font-display text-lg font-semibold">Live now</h2></div>
+            <div className="flex gap-3 overflow-x-auto pb-1">
+              {activeLobbies.map((lobby) => (
+                <Card key={lobby.id} className="flex min-w-[300px] items-center justify-between gap-3 p-3">
+                  <div className="flex items-center gap-3"><AvatarStack people={[{ name: lobby.groups?.name || "Quick play" }]} max={1} /><div><p className="font-display font-bold">{lobby.groups?.name || "Quick play"}</p><p className="font-mono text-xs text-muted">{lobby.code} · {timeAgo(lobby.created_at)}</p></div></div>
+                  <Button size="sm" onClick={() => router.push(`/lobby/${lobby.code}`)}>Join now</Button>
+                </Card>
+              ))}
+            </div>
+          </section>
+        ) : null}
       </div>
-    </main>
+    </AppShell>
   );
 }

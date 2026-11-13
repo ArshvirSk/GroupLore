@@ -9,10 +9,11 @@ import {
   CodeInput,
   Input,
 } from "@/components/ui";
+import { Icon, type IconName } from "@/components/ui/Icon";
 import { api } from "@/lib/api";
 import { gameMeta } from "@/lib/gameMeta";
 import { ensureLobby, lobbyPath } from "@/lib/play";
-import { motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -33,9 +34,14 @@ const STEPS = [
   { title: "Leave with the lore", body: "Every round adds another story your group will bring up later." },
 ];
 
+const START_ACTIONS: { key: "create" | "join" | "guest"; icon: IconName; title: string; body: string }[] = [
+  { key: "create", icon: "users", title: "Create a group", body: "Open a room for your crew" },
+  { key: "join", icon: "key", title: "Join a room", body: "Use a six-character code" },
+  { key: "guest", icon: "user", title: "Try as a guest", body: "Jump in without an account" },
+];
+
 export default function LandingPage() {
   const router = useRouter();
-  const reduced = useReducedMotion();
   const { isSignedIn } = useAuth();
   const [mode, setMode] = useState<"home" | "create" | "join">("home");
   const [groupName, setGroupName] = useState("");
@@ -66,6 +72,10 @@ export default function LandingPage() {
       setError("Enter the full six-character code.");
       return;
     }
+    if (!isSignedIn) {
+      router.push("/sign-in");
+      return;
+    }
     setLoading(true);
     setError("");
     try {
@@ -78,107 +88,127 @@ export default function LandingPage() {
     }
   };
 
+  const chooseMode = (next: "create" | "join") => {
+    if (!isSignedIn) {
+      router.push(next === "create" ? "/sign-up" : "/sign-in");
+      return;
+    }
+    setError("");
+    setMode(next);
+  };
+
   return (
     <main className="min-h-screen">
       <AppHeader />
-      <section className="hero-tint">
-        <div className="mx-auto w-full max-w-[1120px] px-4 pb-14 pt-12 sm:px-6 sm:pb-20 sm:pt-20">
-          <motion.div
-            initial={reduced ? false : { opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 400, damping: 30 }}
-            className="max-w-3xl"
-          >
-            <p className="eyebrow">Game night, sorted</p>
-            <h1 className="mt-4 max-w-2xl font-display text-4xl font-bold leading-[1.05] tracking-[-0.05em] sm:text-6xl">
-              The games your group will still be talking about next week.
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
-              Fast, social party games built around the people you already know.
-              Pick a room, share the code, and play from your phone.
-            </p>
-
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Button
-                size="lg"
-                onClick={() => {
-                  if (!isSignedIn) {
-                    router.push("/sign-up");
-                    return;
-                  }
-                  setMode(mode === "create" ? "home" : "create");
-                }}
-              >
-                Create a group
-              </Button>
-              <Button
-                size="lg"
-                variant="secondary"
-                onClick={() => setMode(mode === "join" ? "home" : "join")}
-              >
-                Join with a code
-              </Button>
-              {!isSignedIn ? (
-                <Button size="lg" variant="ghost" onClick={() => router.push("/guest")}>
-                  Continue as guest
-                </Button>
-              ) : (
-                <Button size="lg" variant="ghost" onClick={() => router.push("/dashboard")}>
-                  My hub
-                </Button>
-              )}
+      <section className="border-b border-border">
+        <div className="mx-auto w-full max-w-[1220px] px-4 py-4 sm:px-6 sm:py-5">
+          <div className="dashboard-hero-row home-hero-row">
+            <div className="reference-hero home-reference-hero">
+              <div className="reference-hero-copy">
+                <Image className="reference-wordmark" src="/assets/grouplore/wordmark-transparent.png" alt="GroupLore" width={401} height={158} priority />
+                <h1 className="sr-only">GroupLore — real-time multiplayer party games, personalized for your friend group</h1>
+                <p>Real-time multiplayer<br />party games, personalized<br />for your friend group.</p>
+                <div className="home-hero-actions">
+                  <Button size="lg" onClick={() => router.push(isSignedIn ? "/dashboard" : "/sign-up")}>
+                    Play Now <Icon name="arrow-right" className="h-4 w-4" />
+                  </Button>
+                  <button type="button" className="reference-join-toggle" onClick={() => chooseMode("join")}>
+                    Have a code? Join a room
+                  </button>
+                </div>
+              </div>
+              <Image className="reference-checker" src="/assets/grouplore/library-checker.png" alt="" aria-hidden width={178} height={45} priority />
+              <Image className="reference-star" src="/assets/grouplore/chrome-star-clean.png" alt="" aria-hidden width={249} height={216} priority />
+              <Image className="reference-burst" src="/assets/grouplore/library-starburst.png" alt="" aria-hidden width={137} height={120} priority />
             </div>
 
-            {mode !== "home" ? (
-              <Card className="mt-6 max-w-lg p-5">
-                {mode === "create" ? (
-                  <>
-                    <h2 className="font-display text-xl font-semibold">Name your group</h2>
-                    <p className="mt-1 text-sm text-muted">You can invite everyone after the room opens.</p>
-                    <div className="mt-4">
-                      <Input
-                        label="Group name"
-                        value={groupName}
-                        maxLength={60}
-                        autoFocus
-                        placeholder="Sunday dinner crew"
-                        onChange={(event) => {
-                          setGroupName(event.target.value);
-                          setError("");
-                        }}
-                      />
-                    </div>
-                    <Button className="mt-4 w-full" loading={loading} onClick={() => void handleCreate()}>
-                      Create and open lobby
+            <Card className="your-groups-panel home-start-panel">
+              <div className="flex items-center justify-between gap-3 border-b border-border pb-3">
+                <h2 className="font-display text-lg font-bold">
+                  {mode === "home" ? "Game night starts here" : mode === "create" ? "Create a group" : "Join a room"}
+                </h2>
+                {mode === "home" ? <Badge tone="primary">Free</Badge> : null}
+              </div>
+
+              {mode === "home" ? (
+                <div className="home-start-list">
+                  {START_ACTIONS.map((action) => (
+                    <button
+                      key={action.key}
+                      type="button"
+                      className="home-start-row"
+                      onClick={() => {
+                        if (action.key === "guest") {
+                          router.push("/guest");
+                          return;
+                        }
+                        chooseMode(action.key);
+                      }}
+                    >
+                      <span className="home-start-icon" aria-hidden><Icon name={action.icon} className="h-4 w-4" /></span>
+                      <span className="min-w-0 flex-1"><b>{action.title}</b><small>{action.body}</small></span>
+                      <Icon name="chevron-right" className="h-4 w-4" />
+                    </button>
+                  ))}
+                  {isSignedIn ? (
+                    <Button className="mt-2 w-full" variant="secondary" onClick={() => router.push("/dashboard")}>
+                      <Icon name="home" className="h-4 w-4" /> Open my hub
                     </Button>
-                  </>
-                ) : (
-                  <>
-                    <h2 className="font-display text-xl font-semibold">Join a room</h2>
-                    <p className="mt-1 text-sm text-muted">Enter the code your host shared with you.</p>
-                    <div className="mt-4">
-                      <CodeInput
-                        value={joinCode}
-                        onChange={(value) => {
-                          setJoinCode(value);
-                          setError("");
-                        }}
-                        onEnter={() => void handleJoin()}
-                      />
-                    </div>
-                    <Button className="mt-4 w-full" disabled={joinCode.length !== 6} loading={loading} onClick={() => void handleJoin()}>
-                      Join room
-                    </Button>
-                  </>
-                )}
-                {error ? <p role="alert" className="mt-3 text-sm font-medium text-danger">{error}</p> : null}
-              </Card>
-            ) : null}
-          </motion.div>
+                  ) : null}
+                  <p className="home-start-note">No downloads. Everyone plays on their phone.</p>
+                </div>
+              ) : (
+                <div className="pt-4">
+                  {mode === "create" ? (
+                    <>
+                      <p className="text-sm text-muted">You can invite everyone after the room opens.</p>
+                      <div className="mt-4">
+                        <Input
+                          label="Group name"
+                          value={groupName}
+                          maxLength={60}
+                          autoFocus
+                          placeholder="Sunday dinner crew"
+                          onChange={(event) => {
+                            setGroupName(event.target.value);
+                            setError("");
+                          }}
+                        />
+                      </div>
+                      <Button className="mt-3 w-full" loading={loading} onClick={() => void handleCreate()}>
+                        Create and open lobby
+                      </Button>
+                    </>
+                  ) : (
+                    <>
+                      <p className="text-sm text-muted">Enter the code your host shared with you.</p>
+                      <div className="mt-4">
+                        <CodeInput
+                          value={joinCode}
+                          onChange={(value) => {
+                            setJoinCode(value);
+                            setError("");
+                          }}
+                          onEnter={() => void handleJoin()}
+                        />
+                      </div>
+                      <Button className="mt-3 w-full" disabled={joinCode.length !== 6} loading={loading} onClick={() => void handleJoin()}>
+                        Join room
+                      </Button>
+                    </>
+                  )}
+                  {error ? <p role="alert" className="mt-3 text-sm font-medium text-danger">{error}</p> : null}
+                  <Button className="mt-2 w-full" variant="ghost" onClick={() => { setMode("home"); setError(""); }}>
+                    <Icon name="arrow-left" className="h-4 w-4" /> Back to start
+                  </Button>
+                </div>
+              )}
+            </Card>
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[1120px] px-4 py-14 sm:px-6">
+      <section className="mx-auto w-full max-w-[1220px] px-4 py-12 sm:px-6">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <p className="label">A little something for everyone</p>
@@ -190,25 +220,19 @@ export default function LandingPage() {
           {FEATURED.map((id) => {
             const meta = gameMeta(id);
             return (
-              <Card key={id} className="group p-4">
-                <span
-                  className="flex h-12 w-12 -rotate-3 items-center justify-center rounded-[14px] text-2xl transition-transform group-hover:rotate-0"
-                  style={{ background: `color-mix(in srgb, ${meta.color} 16%, var(--surface))` }}
-                  aria-hidden
-                >
-                  {meta.emoji}
-                </span>
-                <h3 className="mt-4 font-display text-lg font-semibold">{meta.name}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-muted">{meta.description}</p>
-                <p className="mt-3 text-xs font-medium text-muted">{meta.category}</p>
-              </Card>
+              <div key={id} className={`color-card ${["purple", "lime", "pink", "cyan"][FEATURED.indexOf(id) % 4]} p-5`}>
+                <span className="library-mark -rotate-3" aria-hidden><Icon name={meta.icon} /></span>
+                <h3 className="mt-5 font-display text-2xl font-extrabold italic leading-none">{meta.name}</h3>
+                <p className="mt-2 text-sm font-medium leading-relaxed opacity-70">{meta.description}</p>
+                <span className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-surface/65 px-2.5 py-1 text-[10px] font-bold">{meta.category}</span>
+              </div>
             );
           })}
         </div>
       </section>
 
       <section className="border-t border-border bg-surface">
-        <div className="mx-auto w-full max-w-[1120px] px-4 py-14 sm:px-6">
+        <div className="mx-auto w-full max-w-[1220px] px-4 py-12 sm:px-6">
           <p className="label">How it works</p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {STEPS.map((step, index) => (
