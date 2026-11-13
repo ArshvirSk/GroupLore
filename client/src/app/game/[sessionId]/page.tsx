@@ -23,6 +23,7 @@ import FiveSecondGame, {
   type FiveSecondView,
 } from "@/components/game/FiveSecondGame";
 import GameShell from "@/components/game/GameShell";
+import { Icon } from "@/components/ui/Icon";
 import GuestUpgradePrompt from "@/components/GuestUpgradePrompt";
 import { useAuth } from "@/components/AuthProvider";
 import HigherLowerGame, {
@@ -133,7 +134,7 @@ export default function GamePage() {
     return (
       <GameShell title="Removed from game" accent="grape">
         <div className="party-card p-6 text-center">
-          <p className="text-4xl">👋</p>
+          <Icon name="hand" className="mx-auto h-10 w-10" />
           <p className="mt-3 font-display text-xl font-semibold text-ink">
             {error?.message || "You were removed from this room."}
           </p>
@@ -154,7 +155,7 @@ export default function GamePage() {
         <div className="party-card p-8 text-center">
           {status === "error" ? (
             <>
-              <p className="text-3xl">📡</p>
+              <Icon name="signal" className="mx-auto h-8 w-8" />
               <p className="mt-3 font-display text-lg font-semibold text-ink">
                 {error?.message || "Could not join the game"}
               </p>
@@ -400,7 +401,7 @@ export default function GamePage() {
           "fact-or-fiction",
         ].includes(room.gameId || "") && (
           <div className="party-card p-8 text-center">
-            <p className="text-3xl">🚧</p>
+            <Icon name="settings" className="mx-auto h-8 w-8" />
             <p className="mt-3 font-display text-lg font-semibold text-ink">
               This game is not available yet.
             </p>
@@ -421,7 +422,7 @@ export default function GamePage() {
       {results && room.result && (
         <div className="space-y-4">
           <div className="party-card bg-honey/30 p-6 text-center">
-            <p className="text-4xl">🏆</p>
+            <Icon name="trophy" className="mx-auto h-10 w-10" />
             <p className="mt-2 text-xs font-bold uppercase tracking-[0.16em] text-ink-soft">
               Final scores
             </p>

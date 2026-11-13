@@ -1,6 +1,7 @@
 "use client";
 
 import TimerRing from "@/components/game/TimerRing";
+import { EmojiIcon, Icon } from "@/components/ui/Icon";
 import { useTvRoom } from "@/hooks/useTvRoom";
 import { useParams } from "next/navigation";
 
@@ -78,7 +79,7 @@ export default function TvPage() {
     return (
       <main className="party-surface flex min-h-screen items-center justify-center bg-cream px-6">
         <div className="party-card max-w-md p-10 text-center">
-          <p className="text-5xl">{closed ? "🌙" : "📺"}</p>
+          <Icon name={closed ? "moon" : "monitor"} className="mx-auto h-12 w-12" />
           <p className="mt-4 font-display text-2xl font-semibold text-ink">
             {closed ? "This room has ended" : "Connecting the TV"}
           </p>
@@ -108,7 +109,7 @@ export default function TvPage() {
               GroupLore TV
             </p>
             <h1 className="mt-1 font-display text-3xl font-semibold text-ink sm:text-5xl">
-              {gameMeta?.emoji} {gameMeta?.name || "Game room"}
+              <EmojiIcon value={gameMeta?.emoji} className="mr-2 inline h-8 w-8" /> {gameMeta?.name || "Game room"}
             </h1>
             <p className="mt-1 text-sm font-bold text-ink-soft">
               {room.phase === "lobby"
@@ -134,7 +135,7 @@ export default function TvPage() {
           <section className="space-y-5">
             {room.phase === "lobby" && (
               <div className="party-card bg-lavender/30 p-10 text-center">
-                <p className="text-6xl">🎉</p>
+                <Icon name="sparkles" className="mx-auto h-14 w-14" />
                 <p className="mt-4 font-display text-3xl font-semibold text-ink">
                   The room is filling up
                 </p>
@@ -359,7 +360,7 @@ export default function TvPage() {
 
             {results && room.result && (
               <div className="party-card bg-honey/30 p-10 text-center">
-                <p className="text-6xl">🏆</p>
+                <Icon name="trophy" className="mx-auto h-14 w-14" />
                 <p className="mt-4 text-xs font-bold uppercase tracking-[0.18em] text-ink-soft">
                   Winner
                 </p>
@@ -386,7 +387,7 @@ export default function TvPage() {
                   >
                     <span className="truncate font-display text-base font-semibold text-ink">
                       {player.name}
-                      {player.isHost ? " 👑" : ""}
+                      {player.isHost ? <Icon name="crown" className="ml-1 inline h-4 w-4" /> : null}
                     </span>
                     <span className="font-display text-lg font-semibold text-grape">
                       {player.score}
