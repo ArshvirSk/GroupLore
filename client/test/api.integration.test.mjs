@@ -365,6 +365,17 @@ test(
       await call("/api/games/catalog", { status: 401, code: "unauthorized" });
       await call("/api/groups", { status: 401, code: "unauthorized" });
       await call("/api/lobbies/BAD", { status: 401, code: "unauthorized" });
+      await call("/api/users/me", {
+        token: "not-a-token",
+        status: 401,
+        code: "unauthorized",
+      });
+      await call("/api/groups", {
+        token:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjEsInN1YiI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCJ9.invalid",
+        status: 401,
+        code: "unauthorized",
+      });
       await call("/api/invites/BAD", { status: 400, code: "invalid_code" });
       await call("/api/invites/ZZZZZZ", { status: 404, code: "not_found" });
     });
@@ -419,6 +430,30 @@ test(
         status: 400,
         code: "name_required",
       });
+      await call("/api/groups", {
+        method: "POST",
+        token: host.token,
+        body: { name: "x".repeat(70_000) },
+        status: 413,
+        code: "payload_too_large",
+      });
+
+      for (let attempt = 0; attempt < 10; attempt += 1) {
+        await call("/api/lobbies/join", {
+          method: "POST",
+          token: spectator.token,
+          body: { code: "ZZZZZZ" },
+          status: 404,
+          code: "not_found",
+        });
+      }
+      await call("/api/lobbies/join", {
+        method: "POST",
+        token: spectator.token,
+        body: { code: "ZZZZZZ" },
+        status: 429,
+        code: "rate_limited",
+      });
     });
 
     await t.test("group routes, membership checks, nudges, and profiles", async () => {
@@ -463,17 +498,24 @@ test(
         code: "owner_only",
       });
 
-      await call(`/api/groups/${group.id}/nudge`, {
-        method: "POST",
-        token: member.token,
-        status: 200,
-      });
+      for (let index = 0; index < 12; index += 1) {
+        await call(`/api/groups/${group.id}/nudge`, {
+          method: "POST",
+          token: member.token,
+          status: 200,
+        });
+      }
       const nudges = await call(`/api/groups/${group.id}/nudges`, {
         token: host.token,
         status: 200,
       });
       assert.ok(Array.isArray(nudges.data));
-      assert.equal(nudges.data.length, 1);
+      assert.equal(nudges.data.length, 10);
+      const drained = await call(`/api/groups/${group.id}/nudges`, {
+        token: host.token,
+        status: 200,
+      });
+      assert.deepEqual(drained.data, []);
 
       const profiles = await call(`/api/members/group/${group.id}`, {
         token: host.token,
