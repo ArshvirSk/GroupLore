@@ -22,6 +22,8 @@ npm start
 
 `npm start` is not a serverless deployment. The app needs a persistent Node
 process for Socket.io. Vercel/serverless functions cannot host it as-is.
+See `../docs/DEPLOYMENT.md` for the production process, reverse-proxy
+WebSocket configuration, and rollback steps.
 
 ## Layout
 

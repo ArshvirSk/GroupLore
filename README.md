@@ -145,6 +145,9 @@ npm run build
 npm start
 ```
 
+See `docs/DEPLOYMENT.md` for the systemd unit, nginx WebSocket proxy, health
+checks, and rollback runbook.
+
 ### 4. Tests
 
 ```bash

@@ -1,0 +1,23 @@
+[Unit]
+Description=GroupLore Next.js and Socket.io server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=grouplore
+Group=grouplore
+WorkingDirectory=/srv/grouplore/current/client
+EnvironmentFile=/etc/grouplore.env
+ExecStart=/usr/bin/node server.mjs
+Restart=always
+RestartSec=5
+KillSignal=SIGTERM
+TimeoutStopSec=20
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

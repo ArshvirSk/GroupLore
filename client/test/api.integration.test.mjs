@@ -189,11 +189,16 @@ async function connectSocket(account) {
     auth: { token: account.token },
   });
   sockets.push(socket);
+  const hello = waitFor(socket, "room:hello");
   await new Promise((resolve, reject) => {
     socket.once("connect", resolve);
     socket.once("connect_error", reject);
   });
-  return { socket, tracker: trackRoom(socket) };
+  return {
+    socket,
+    tracker: trackRoom(socket),
+    hello: await hello,
+  };
 }
 
 async function joinRoom(client, sessionId, label) {
@@ -267,7 +272,12 @@ before(async () => {
 
   server = spawn(process.execPath, ["server.mjs"], {
     cwd: fileURLToPath(new URL("..", import.meta.url)),
-    env: { ...process.env, PORT: "3199", ALLOW_GUESTS: "true" },
+    env: {
+      ...process.env,
+      PORT: "3199",
+      ALLOW_GUESTS: "true",
+      DISCONNECT_GRACE_MS: "500",
+    },
     stdio: ["ignore", "pipe", "pipe"],
     windowsHide: true,
   });
@@ -679,8 +689,9 @@ test(
       // Seat the host before opening the other sockets: the engine assigns
       // host to the first player that joins the room.
       const hostClient = await connectSocket(host);
+      assert.equal(typeof hostClient.hello.serverNow, "number");
       const hostSeat = await joinRoom(hostClient, sessionId, "host");
-      const memberClient = await connectSocket(member);
+      let memberClient = await connectSocket(member);
       const memberSeat = await joinRoom(memberClient, sessionId, "member");
       const outsiderClient = await connectSocket(outsider);
       const outsiderSeat = await joinRoom(outsiderClient, sessionId, "outsider");
@@ -702,6 +713,24 @@ test(
         (view) => view.phase === "playing",
       );
       assert.equal(playing.game.phase, "vote");
+
+      const syncRequest = waitFor(hostClient.socket, "room:sync");
+      hostClient.socket.emit("room:sync-request");
+      const requestedView = await syncRequest;
+      assert.equal(requestedView.sessionId, sessionId);
+      assert.equal(requestedView.you.id, hostSeat.playerId);
+
+      // Drop a player's transport during play and reconnect with the same
+      // account. The refreshed socket must reclaim the original seat.
+      memberClient.socket.disconnect();
+      const reconnectedMember = await connectSocket(member);
+      const reconnectedSeat = await joinRoom(
+        reconnectedMember,
+        sessionId,
+        "member-reconnect",
+      );
+      assert.equal(reconnectedSeat.playerId, memberSeat.playerId);
+      memberClient = reconnectedMember;
 
       const reveal = waitSync(
         hostClient.tracker,
@@ -743,6 +772,21 @@ test(
       );
       assert.equal(tvView.players.length, 3);
       assert.equal(tvView.you, null);
+
+      const tvLeft = waitFor(tvClient.socket, "room:left");
+      tvClient.socket.emit("room:leave");
+      await tvLeft;
+
+      // The production server uses the same 30s grace by default; this test
+      // server shortens it so host transfer is observable.
+      hostClient.socket.disconnect();
+      const transferred = await waitSync(
+        memberClient.tracker,
+        (view) => view.hostId === memberSeat.playerId,
+        3000,
+        "host transfer",
+      );
+      assert.equal(transferred.hostId, memberSeat.playerId);
     });
 
     await t.test("kick, leave, remove-member, and leave-group rules", async () => {

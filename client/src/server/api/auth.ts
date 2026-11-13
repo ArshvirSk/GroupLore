@@ -1,3 +1,4 @@
+import "server-only";
 import type { NextRequest } from "next/server";
 import { guestsAllowed } from "../lib/guestAccess.js";
 import { ensureProfile } from "../lib/auth.js";

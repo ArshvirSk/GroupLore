@@ -44,6 +44,9 @@ const allowGuests = guestsAllowed();
 
 const engine = new GameEngine({
   io,
+  disconnectGraceMs: process.env.DISCONNECT_GRACE_MS
+    ? Number(process.env.DISCONNECT_GRACE_MS)
+    : undefined,
   resolveIdentity: createIdentityResolver({
     allowGuests,
     verifyAccessToken: async (token) => {

@@ -1,3 +1,4 @@
+import "server-only";
 import type { NextRequest } from "next/server";
 import { ApiFailure } from "./http";
 import { requestIp } from "./auth";

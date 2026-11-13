@@ -2,7 +2,7 @@
 
 **Status: complete.** All **31** REST routes now live under
 `client/src/app/api/**/route.ts`. The Express server was removed after the
-contract/auth and multi-client game tests passed. The final suite is 62
+contract/auth and multi-client game tests passed. The final suite is 63
 unit tests plus 8 live API/game-flow tests; CI runs lint, unit tests, and the
 production build.
 
@@ -18,6 +18,10 @@ The target is:
 
 Engine/game/auth tests now live in `client/src/server/test/`. The live REST
 contract and multi-client game test is `client/test/api.integration.test.mjs`.
+
+The server boundary is explicit: API helpers import `server-only`, and ESLint
+rejects `@/server/*` imports from client components, hooks, stores, and
+non-API app files.
 
 ---
 
@@ -559,3 +563,6 @@ Although these are REST routes, verify the surrounding flow after migration:
 - [x] REST contract tests and the multi-client socket test pass against the configured Supabase project.
 - [x] A production custom Next server serves the app, API, and Socket.io on one origin.
 - [x] Secret scan confirms the service-role key is not present in the client bundle.
+- [x] Every public game module has an initialization/view smoke test.
+- [x] The live suite covers `room:hello`, `room:sync-request`, `room:leave`, reconnect, and host transfer against the production server.
+- [x] Deployment, reverse-proxy WebSocket, and rollback procedures are documented in `docs/DEPLOYMENT.md`.

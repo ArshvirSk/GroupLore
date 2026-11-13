@@ -1,3 +1,4 @@
+import "server-only";
 import { logActivity } from "../lib/activity.js";
 import { ensureLegacyUser } from "../lib/membership.js";
 import { openGroupLobby } from "../lib/lobby.js";
