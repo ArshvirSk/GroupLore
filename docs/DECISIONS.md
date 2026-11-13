@@ -4,7 +4,7 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 
 ## Project / tooling
 
-- **Initialised a git repository in the project root.** The repo had no git metadata, and the phase plan requires one commit per phase. The original client folder was its own single-commit Create Next App repository with no remote; its `.git` was moved to `.git-archive-client/` (gitignored) instead of deleted, so its history is preserved on disk.
+- **Initialised a git repository in the project root.** The repo had no git metadata, and the phase plan requires one commit per phase. The original client folder was its own single-commit Create Next App repository with no remote; its `.git` was moved to `.git-archive-` (gitignored) instead of deleted, so its history is preserved on disk.
 - **Server stays JavaScript with JSDoc contracts.** The existing server is ESM JavaScript; changing the runtime to TypeScript would be a large, unrelated migration. The `GameModule` contract is documented in `server/engine/engine.js` and enforced at registration.
 - **Tests use `node:test` + a small SSE/POST harness.** No test framework or Socket.io dependency is used.
 
@@ -35,7 +35,7 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 
 - **One app-wide realtime connection, no disconnect on unmount.** `useRoom` only detaches listeners. This is the direct fix for the original `leave-lobby` navigation bug.
 - **Lobby and game are separate routes that redirect based on `room.phase`.** This keeps the URL shareable without duplicating room state or creating a provider that spans route groups.
-- **Deleted `client/src/lib/socket.ts` and `client/src/stores/gameStore.ts`.** They encoded the old per-page realtime contract and had no remaining importers.
+- **Deleted `src/lib/socket.ts` and `src/stores/gameStore.ts`.** They encoded the old per-page realtime contract and had no remaining importers.
 - **Only engine games appear in the lobby.** During Phase 1 that means Most Likely To only; all fake mode pills are gone. Parked games will reappear as they are ported.
 - **Lore is untouched but unused.** `member_profiles`, the editor and the Hub stay in place; `LORE_MODE` (default off) is the only switch that may re-enable lore prompts later. No current game reads profiles.
 
@@ -59,7 +59,7 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 - **Bluff scoring rewards both fooling and detecting.** Real-answer voters get 2, bluff authors get 1 per vote their bluff receives, and exact real answers get 1. Self-votes are rejected rather than silently discarded.
 - **Hot Takes rewards the minority.** The minority side gets 2 and the majority 1; ties and unanimous votes give everyone 1. The game is about backing the less popular take without making consensus worthless.
 - **All exposed modes have a real timer or behavior difference.** No placeholder mode pills were added; Bluff Quick changes both round count and timings, and Hot Takes Slow Burn changes the voting window.
-- **Phase 3 game ids required a database migration.** The original CHECK constraint only knew the eight legacy ids; `supabase-migration-phase3-games.sql` has been applied to the hosted project and is included for other environments.
+- **Phase 3 game ids required a database migration.** The original CHECK constraint only knew the eight legacy ids; `supabase/migrations/supabase-migration-phase3-games.sql` has been applied to the hosted project and is included for other environments.
 
 ## Phase 4 games
 
@@ -71,13 +71,13 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 - **Wavelength scores the group average, not only individual guesses.** Each guesser scores 2 within 10 points and 1 within 20. The clue giver is scored against the average guess, so one wild guess cannot erase an otherwise good clue. The target is private to the clue giver and omitted from `publicFor`.
 - **Category Rush merges normalized duplicates.** Answers are grouped with the shared text normalizer, unique groups score 2 and shared groups 1, and the server enforces the required starting letter. This makes matching the group safe but less rewarding than a unique valid answer.
 - **All seven Phase 4 games implement `publicFor`.** The TV gets only public phases and reveal data; Liars Bar's unchosen statement, Wavelength's target, Avoid the Answer's target and Caption This's authors are never sent early.
-- **Phase 4 needs a database migration.** `supabase-migration-phase4-games.sql` expands the `game_sessions.game_type` CHECK. It was applied to the hosted project on 2026-11-11 and verified with a three-user hosted start of every game; fresh installs use the updated `supabase-schema.sql`.
+- **Phase 4 needs a database migration.** `supabase/migrations/supabase-migration-phase4-games.sql` expands the `game_sessions.game_type` CHECK. It was applied to the hosted project on 2026-11-11 and verified with a three-user hosted start of every game; fresh installs use the updated `supabase/schema.sql`.
 
 ## Supabase Auth
 
 - **Supabase Auth replaces Clerk; there is no parallel identity provider.** The browser owns the Supabase session, REST calls carry its access token as a bearer token, and the realtime SSE stream carries the same token. The server verifies every token with `supabase.auth.getUser`.
 - **`users.auth_user_id` is the app-side link to `auth.users.id`.** It is not a password hash or a second auth system; it exists so app rows keep stable UUIDs while auth identities can be replaced.
-- **Existing users are linked by email on first sync.** `supabase-migration-supabase-auth.sql` copies the old external id into `auth_user_id`; the first sign-in updates that row to the Supabase user id, preserving groups and stats.
+- **Existing users are linked by email on first sync.** `supabase/migrations/supabase-migration-supabase-auth.sql` copies the old external id into `auth_user_id`; the first sign-in updates that row to the Supabase user id, preserving groups and stats.
 - **Page protection is client-side; data protection is server-side.** There is no auth middleware. The dashboard and group pages redirect signed-out visitors, while every REST route and realtime stream verifies the Supabase token authoritatively.
 - **Email confirmation is disabled for the hosted project.** Sign-up returns a session immediately, so there is no confirmation-link step in the normal flow. The client still handles a no-session response instead of assuming success if another environment enables confirmation.
 - **App tables are server-only.** RLS is enabled on every app table and direct grants to `anon` and `authenticated` are revoked. The browser's anon key is only for Supabase Auth; the Next.js server uses the service role, which bypasses RLS.

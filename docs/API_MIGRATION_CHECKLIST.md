@@ -1,7 +1,7 @@
 # API Migration Checklist — Express to Next.js Route Handlers
 
 **Status: complete.** All **31** REST routes now live under
-`client/src/app/api/**/route.ts`. The Express server was removed after the
+`src/app/api/**/route.ts`. The Express server was removed after the
 contract/auth and multi-client game tests passed. The final suite is 63
 unit tests plus 8 live API/game-flow tests; CI runs lint, unit tests, and the
 production build.
@@ -10,14 +10,14 @@ This checklist documents the migration from the retired `server/index.js`.
 
 The target is:
 
-- Same URL paths under `client/src/app/api/**/route.ts`
+- Same URL paths under `src/app/api/**/route.ts`
 - Same response envelopes and status codes
 - Same auth and membership rules
 - Same client-visible field names
 - No CORS or `NEXT_PUBLIC_SERVER_URL` once the client and API are same-origin
 
-Engine/game/auth tests now live in `client/src/server/test/`. The live REST
-contract and multi-client game test is `client/test/api.integration.test.mjs`.
+Engine/game/auth tests now live in `src/server/test/`. The live REST
+contract and multi-client game test is `test/api.integration.test.mjs`.
 
 The server boundary is explicit: API helpers import `server-only`, and ESLint
 rejects `@/server/*` imports from client components, hooks, stores, and
@@ -104,7 +104,7 @@ The static-first layout preserves the retired Express route precedence.
 
 ### Shared response types
 
-Define these once in `client/src/server/api/types.ts`:
+Define these once in `src/server/api/types.ts`:
 
 ```ts
 type UserPayload = {
@@ -177,7 +177,7 @@ Other success bodies reference the existing database row shape for `member_profi
 
 - [x] Parse JSON bodies with `await request.json()`, then validate before using fields.
 - [x] Preserve UUID and 6-character room-code validation.
-- [x] Preserve the 64 KB body limit (`readJson` in `client/src/server/api/http.ts`).
+- [x] Preserve the 64 KB body limit (`readJson` in `src/server/api/http.ts`).
 - [x] Remove `cors` once API and client share an origin.
 - [x] Change client `API_URL` to `""` so requests go to `/api/...`.
 - [x] Keep the Supabase service-role client server-only.
@@ -195,7 +195,7 @@ Other success bodies reference the existing database row shape for `member_profi
 
 #### [x] A01 — `GET /api/auth/config`
 
-- **File:** `client/src/app/api/auth/config/route.ts`
+- **File:** `src/app/api/auth/config/route.ts`
 - **Auth:** Public
 - **Input:** none
 - **Success:** `200 { guestsEnabled: boolean }`
@@ -204,7 +204,7 @@ Other success bodies reference the existing database row shape for `member_profi
 
 #### [x] A02 — `POST /api/auth/guest`
 
-- **File:** `client/src/app/api/auth/guest/route.ts`
+- **File:** `src/app/api/auth/guest/route.ts`
 - **Auth:** Public
 - **Input:** none
 - **Success:** none; this endpoint is intentionally removed
@@ -215,7 +215,7 @@ Other success bodies reference the existing database row shape for `member_profi
 
 #### [x] U01 — `POST /api/users/sync`
 
-- **File:** `client/src/app/api/users/sync/route.ts`
+- **File:** `src/app/api/users/sync/route.ts`
 - **Auth:** `requireUser`; creates/updates the profile row as a side effect
 - **Input:** none
 - **Success:** `200 UserPayload`
@@ -224,7 +224,7 @@ Other success bodies reference the existing database row shape for `member_profi
 
 #### [x] U02 — `GET /api/users/me`
 
-- **File:** `client/src/app/api/users/me/route.ts`
+- **File:** `src/app/api/users/me/route.ts`
 - **Auth:** `requireUser`
 - **Input:** none
 - **Success:** `200 UserPayload`
@@ -235,7 +235,7 @@ Other success bodies reference the existing database row shape for `member_profi
 
 #### [x] G01 — `POST /api/groups`
 
-- **File:** `client/src/app/api/groups/route.ts`
+- **File:** `src/app/api/groups/route.ts`
 - **Auth:** `requireUser` + `requireNonGuest`
 - **Input:** `{ name: string }`, trimmed to 60 chars; control characters removed
 - **Success:** `201 { ...group, role: "owner", lobby: null }`
@@ -244,7 +244,7 @@ Other success bodies reference the existing database row shape for `member_profi
 
 #### [x] G02 — `GET /api/groups`
 
-- **File:** `client/src/app/api/groups/route.ts`
+- **File:** `src/app/api/groups/route.ts`
 - **Auth:** `requireUser` + `requireNonGuest`
 - **Input:** none
 - **Success:** `200 GroupSummary[]`, sorted as returned by Supabase; each group has `role`, `joined_at`, and current open `lobby` or `null`
@@ -253,7 +253,7 @@ Other success bodies reference the existing database row shape for `member_profi
 
 #### [x] G03 — `GET /api/groups/my`
 
-- **File:** `client/src/app/api/groups/my/route.ts`
+- **File:** `src/app/api/groups/my/route.ts`
 - **Auth:** `requireUser` + `requireNonGuest`
 - **Input:** none
 - **Success:** same `GroupSummary[]` as G02
@@ -262,7 +262,7 @@ Other success bodies reference the existing database row shape for `member_profi
 
 #### [x] G04 — `GET /api/groups/[id]`
 
-- **File:** `client/src/app/api/groups/[id]/route.ts`
+- **File:** `src/app/api/groups/[id]/route.ts`
 - **Auth:** `requireUser` + `requireNonGuest` + `requireGroupMember("id")`
 - **Input:** dynamic `id`
 - **Success:** `200 GroupDetail` with all group columns, current `role`, mapped `members`, and open `lobby` or `null`
@@ -271,7 +271,7 @@ Other success bodies reference the existing database row shape for `member_profi
 
 #### [x] G05 — `POST /api/groups/[id]/lobby`
 
-- **File:** `client/src/app/api/groups/[id]/lobby/route.ts`
+- **File:** `src/app/api/groups/[id]/lobby/route.ts`
 - **Auth:** `requireUser` + `requireNonGuest` + `requireGroupMember("id")`
 - **Input:** dynamic `id`; no body
 - **Success:** `201 Lobby` when created; `200 Lobby` when an open lobby already existed
@@ -280,7 +280,7 @@ Other success bodies reference the existing database row shape for `member_profi
 
 #### [x] G06 — `DELETE /api/groups/[groupId]/leave`
 
-- **File:** `client/src/app/api/groups/[groupId]/leave/route.ts`
+- **File:** `src/app/api/groups/[groupId]/leave/route.ts`
 - **Auth:** `requireUser` + `requireNonGuest`; manual membership check inside the handler
 - **Input:** dynamic `groupId`
 - **Success:** `200 { success: true, groupDeleted: false }` after leaving a non-empty group; `200 { success: true, groupDeleted: true }` when the last member leaves and the group is deleted
@@ -289,7 +289,7 @@ Other success bodies reference the existing database row shape for `member_profi
 
 #### [x] G07 — `DELETE /api/groups/[groupId]/members/[targetUserId]`
 
-- **File:** `client/src/app/api/groups/[groupId]/members/[targetUserId]/route.ts`
+- **File:** `src/app/api/groups/[groupId]/members/[targetUserId]/route.ts`
 - **Auth:** `requireUser` + `requireNonGuest` + `requireGroupOwner("groupId")`
 - **Input:** dynamic `groupId`, `targetUserId`
 - **Success:** `200 { success: true }`
@@ -298,7 +298,7 @@ Other success bodies reference the existing database row shape for `member_profi
 
 #### [x] G08 — `POST /api/groups/[id]/nudge`
 
-- **File:** `client/src/app/api/groups/[id]/nudge/route.ts`
+- **File:** `src/app/api/groups/[id]/nudge/route.ts`
 - **Auth:** `requireUser` + `requireNonGuest` + `requireGroupMember("id")`
 - **Input:** dynamic `id`; no body
 - **Success:** `200 { sent: true, message: string }`
@@ -307,7 +307,7 @@ Other success bodies reference the existing database row shape for `member_profi
 
 #### [x] G09 — `GET /api/groups/[id]/nudges`
 
-- **File:** `client/src/app/api/groups/[id]/nudges/route.ts`
+- **File:** `src/app/api/groups/[id]/nudges/route.ts`
 - **Auth:** `requireUser` + `requireNonGuest` + `requireGroupOwner("id")`
 - **Input:** dynamic `id`
 - **Success:** `200 Array<{ message: string; from: string; timestamp: number }>`; queue is drained after read
@@ -318,7 +318,7 @@ Other success bodies reference the existing database row shape for `member_profi
 
 #### [x] I01 — `GET /api/invites/[code]`
 
-- **File:** `client/src/app/api/invites/[code]/route.ts`
+- **File:** `src/app/api/invites/[code]/route.ts`
 - **Auth:** Public
 - **Input:** dynamic `code`, normalized uppercase; must match `^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{6}$`
 - **Success:** `200 { lobby: { id, code, status, group_id }, group: { id, name } | null, guestsEnabled: boolean }`
@@ -331,7 +331,7 @@ All lobby routes run `requireUser` at the router level.
 
 #### [x] L01 — `POST /api/lobbies`
 
-- **File:** `client/src/app/api/lobbies/route.ts`
+- **File:** `src/app/api/lobbies/route.ts`
 - **Auth:** `requireUser` + `requireNonGuest`
 - **Input:** none
 - **Success:** `201 Lobby` for a new quick-play room
@@ -340,7 +340,7 @@ All lobby routes run `requireUser` at the router level.
 
 #### [x] L02 — `POST /api/lobbies/join`
 
-- **File:** `client/src/app/api/lobbies/join/route.ts`
+- **File:** `src/app/api/lobbies/join/route.ts`
 - **Auth:** `requireUser`; guests are allowed; `joinLimiter` after user resolution
 - **Input:** `{ code: string }`, normalized
 - **Success:** `200 Lobby` with the joining player upserted
@@ -349,7 +349,7 @@ All lobby routes run `requireUser` at the router level.
 
 #### [x] L03 — `GET /api/lobbies/id/[id]`
 
-- **File:** `client/src/app/api/lobbies/id/[id]/route.ts`
+- **File:** `src/app/api/lobbies/id/[id]/route.ts`
 - **Auth:** `requireUser` + `requireLobbyMember`
 - **Input:** dynamic `id`
 - **Success:** `200 Lobby` with `groups` and `lobby_players`
@@ -358,7 +358,7 @@ All lobby routes run `requireUser` at the router level.
 
 #### [x] L04 — `GET /api/lobbies/[code]`
 
-- **File:** `client/src/app/api/lobbies/[code]/route.ts`
+- **File:** `src/app/api/lobbies/[code]/route.ts`
 - **Auth:** `requireUser`; any authenticated user may look up a code
 - **Input:** dynamic `code`, normalized and validated
 - **Success:** `200 Lobby` plus `active_session_id: string | null` for the latest non-finished session
@@ -367,7 +367,7 @@ All lobby routes run `requireUser` at the router level.
 
 #### [x] L05 — `POST /api/lobbies/[id]/leave`
 
-- **File:** `client/src/app/api/lobbies/[id]/leave/route.ts`
+- **File:** `src/app/api/lobbies/[id]/leave/route.ts`
 - **Auth:** `requireUser` + `requireLobbyMember`
 - **Input:** dynamic `id`
 - **Success:** `200 { success: true, closed: boolean, hostId: string | null }`
@@ -376,7 +376,7 @@ All lobby routes run `requireUser` at the router level.
 
 #### [x] L06 — `POST /api/lobbies/[id]/kick`
 
-- **File:** `client/src/app/api/lobbies/[id]/kick/route.ts`
+- **File:** `src/app/api/lobbies/[id]/kick/route.ts`
 - **Auth:** `requireUser` + `requireHost`
 - **Input:** dynamic `id`; body `{ userId: string }`
 - **Success:** `200 { success: true }`
@@ -385,7 +385,7 @@ All lobby routes run `requireUser` at the router level.
 
 #### [x] L07 — `POST /api/lobbies/[id]/start`
 
-- **File:** `client/src/app/api/lobbies/[id]/start/route.ts`
+- **File:** `src/app/api/lobbies/[id]/start/route.ts`
 - **Auth:** `requireUser` + `requireHost`
 - **Input:** dynamic `id`; body `{ gameId: string; mode: string }`
 - **Success:** `201 { sessionId: string; lobby: Lobby }`
@@ -398,7 +398,7 @@ All member routes use `requireUser` + `requireNonGuest` at the router level.
 
 #### [x] M01 — `GET /api/members/group/[groupId]`
 
-- **File:** `client/src/app/api/members/group/[groupId]/route.ts`
+- **File:** `src/app/api/members/group/[groupId]/route.ts`
 - **Auth:** `requireUser` + `requireNonGuest` + `requireGroupMember("groupId")`
 - **Input:** dynamic `groupId`
 - **Success:** `200 member_profiles[]` for the group
@@ -407,7 +407,7 @@ All member routes use `requireUser` + `requireNonGuest` at the router level.
 
 #### [x] M02 — `POST /api/members/group/[groupId]`
 
-- **File:** `client/src/app/api/members/group/[groupId]/route.ts`
+- **File:** `src/app/api/members/group/[groupId]/route.ts`
 - **Auth:** `requireUser` + `requireNonGuest` + `requireGroupMember("groupId")`; owner required only when editing another user
 - **Input:** dynamic `groupId`; body `{ userId?, displayName, nickname?, traits?, habits?, iconicMoments?, catchphrases?, mostLikelyTo?, avatarUrl? }`
 - **Success:** `200 member_profiles` when updating; `201 member_profiles` when inserting
@@ -416,7 +416,7 @@ All member routes use `requireUser` + `requireNonGuest` at the router level.
 
 #### [x] M03 — `DELETE /api/members/[id]`
 
-- **File:** `client/src/app/api/members/[id]/route.ts`
+- **File:** `src/app/api/members/[id]/route.ts`
 - **Auth:** `requireUser` + `requireNonGuest`; membership derived from the profile's group
 - **Input:** dynamic `id`
 - **Success:** `200 { success: true }`
@@ -429,7 +429,7 @@ All game routes use `requireUser` at the router level.
 
 #### [x] X01 — `GET /api/games/catalog`
 
-- **File:** `client/src/app/api/games/catalog/route.ts`
+- **File:** `src/app/api/games/catalog/route.ts`
 - **Auth:** `requireUser`
 - **Input:** none
 - **Success:** `200 GameCatalogItem[]` from `listGames()`, including mode metadata
@@ -438,7 +438,7 @@ All game routes use `requireUser` at the router level.
 
 #### [x] X02 — `GET /api/games/active/[groupId]`
 
-- **File:** `client/src/app/api/games/active/[groupId]/route.ts`
+- **File:** `src/app/api/games/active/[groupId]/route.ts`
 - **Auth:** `requireUser` + `requireGroupMember("groupId")`
 - **Input:** dynamic `groupId`
 - **Success:** `200 Lobby` or `200 null`
@@ -447,7 +447,7 @@ All game routes use `requireUser` at the router level.
 
 #### [x] X03 — `POST /api/games`
 
-- **File:** `client/src/app/api/games/route.ts`
+- **File:** `src/app/api/games/route.ts`
 - **Auth:** `requireUser` + `requireGroupMember("groupId")`, reading `groupId` from the **body** (the Express helper checks params, body, then query)
 - **Input:** body `{ groupId: string }`
 - **Success:** `201 Lobby`
@@ -456,7 +456,7 @@ All game routes use `requireUser` at the router level.
 
 #### [x] X04 — `GET /api/games/[id]`
 
-- **File:** `client/src/app/api/games/[id]/route.ts`
+- **File:** `src/app/api/games/[id]/route.ts`
 - **Auth:** `requireUser` + `requireSessionMember`
 - **Input:** dynamic `id`
 - **Success:** `200 game_sessions` row with joined lobby access fields
@@ -469,7 +469,7 @@ All feed routes use `requireUser` at the router level.
 
 #### [x] F01 — `GET /api/feed`
 
-- **File:** `client/src/app/api/feed/route.ts`
+- **File:** `src/app/api/feed/route.ts`
 - **Auth:** `requireUser`
 - **Input:** query `limit` (default 20, max 50) and `before` ISO timestamp (default now)
 - **Success:** `200 activity_log[]` joined with `groups(name)` and `profiles(display_name, avatar_url)`
@@ -478,7 +478,7 @@ All feed routes use `requireUser` at the router level.
 
 #### [x] F02 — `GET /api/feed/stats`
 
-- **File:** `client/src/app/api/feed/stats/route.ts`
+- **File:** `src/app/api/feed/stats/route.ts`
 - **Auth:** `requireUser`
 - **Input:** none
 - **Success:** `200 { stats: player_stats; badges: Badge[]; personalityByGroup: Array<{ groupName, displayName, traits }> }`
@@ -487,7 +487,7 @@ All feed routes use `requireUser` at the router level.
 
 #### [x] F03 — `GET /api/feed/active-lobbies`
 
-- **File:** `client/src/app/api/feed/active-lobbies/route.ts`
+- **File:** `src/app/api/feed/active-lobbies/route.ts`
 - **Auth:** `requireUser`
 - **Input:** none
 - **Success:** `200 Lobby[]` for the user's groups, newest first, including `groups(name)` and `lobby_players(*)`

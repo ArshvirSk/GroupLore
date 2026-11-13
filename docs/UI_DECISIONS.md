@@ -60,10 +60,10 @@ Confetti only in win reveals (ConfettiExplosion, not changed).
 
 ## Files Changed
 
-1. `client/src/app/globals.css` — hero-tint 12%→15%, scrollbar warmth
-2. `client/src/app/dashboard/page.tsx` — dev labels, copy, borders, error style
-3. `client/src/app/lobby/[sessionId]/page.tsx` — game card emoji-tile, room code card, waiting slot
-4. `client/src/app/group/[id]/page.tsx` — button label state fix
+1. `src/app/globals.css` — hero-tint 12%→15%, scrollbar warmth
+2. `src/app/dashboard/page.tsx` — dev labels, copy, borders, error style
+3. `src/app/lobby/[sessionId]/page.tsx` — game card emoji-tile, room code card, waiting slot
+4. `src/app/group/[id]/page.tsx` — button label state fix
 
 ## Known Gaps
 

@@ -4,8 +4,8 @@
 
 The findings below describe the pre-migration Express server and are kept for
 history. The current runtime is one Next.js process with SSE realtime; the
-engine lives in `client/src/server/engine/` and the process singleton lives in
-`client/src/server/realtime/`.
+engine lives in `src/server/engine/` and the process singleton lives in
+`src/server/realtime/`.
 
 - The live server uses `GameEngine` in `server/index.js`. `server/sockets/index.js`, `lobbyHandler.js` and `gameHandler.js` are an older unused path; they are not mounted and still trust client-provided `userId`/`socketId`.
 - Identity currently has two branches: verified Supabase users and a custom HMAC-signed guest token (`server/engine/auth.js`, `server/routes/auth.js`). Guests have no Supabase id.
@@ -29,7 +29,7 @@ engine lives in `client/src/server/engine/` and the process singleton lives in
 10. **Host:** the lobby creator is host. Host transfer picks the longest-connected remaining player by `joined_at`, skips disconnected players, and persists `lobbies.host_id`. An empty lobby closes and `closed_at` is set.
 11. **Reconnect:** realtime identity is the verified auth uid. The engine uses that uid as the stable player id; reconnect tokens remain only as a seat-proof optimization and never create an identity. Reconnect rehydrates the current `viewFor` snapshot.
 12. **Start:** only the lobby host may start. The API verifies `status='open'` and connected players against the registry minimum, marks the lobby `in_game`, creates the `game_sessions` row with `lobby_id`, and returns the session id.
-13. **Migration order:** `supabase-migration-supabase-auth.sql`, `supabase-migration-auth-rls.sql`, then the new `supabase-migration-auth-lobbies.sql`. The new migration is idempotent and includes rollback notes.
+13. **Migration order:** `supabase/migrations/supabase-migration-supabase-auth.sql`, `supabase/migrations/supabase-migration-auth-rls.sql`, then the new `supabase/migrations/supabase-migration-auth-lobbies.sql`. The new migration is idempotent and includes rollback notes.
 14. **Compatibility choice:** `member_profiles.user_id` is not migrated. Member-profile routes keep a legacy-id lookup bridge through `users.auth_user_id`; this is the only remaining legacy user-id path and is documented as a follow-up.
 15. **Error shape:** every new/updated API error returns `{ error: { code, message } }` with 401/403/404/409 as appropriate. Existing member/feed routes are brought onto the same helper where touched.
 
@@ -41,12 +41,12 @@ engine lives in `client/src/server/engine/` and the process singleton lives in
 
 ## Verification status
 
-- `cd client && npm run test:server`: 62 tests pass, including the live RLS probe.
-- `cd client && npm run test:api`: 8 contract/auth/game-flow tests pass against a production-mode server on port 3199.
+- ` npm run test:server`: 63 tests pass, including the live RLS probe.
+- ` npm run test:api`: 8 contract/auth/game-flow tests pass against a production-mode server on port 3199.
 - `.github/workflows/ci.yml`: lint, unit tests, and production build run without live credentials.
-- `cd client && npx tsc --noEmit`: clean.
-- `cd client && npm run lint`: 0 errors; one pre-existing unused-variable warning in `fiveSecond.js`.
-- `cd client && npm run build`: successful.
+- ` npx tsc --noEmit`: clean.
+- ` npm run lint`: 0 errors; one pre-existing unused-variable warning in `fiveSecond.js`.
+- ` npm run build`: successful.
 - `npm run check:api`: public and unauthenticated contract checks pass against port 3000.
 
 ## Remaining limitations

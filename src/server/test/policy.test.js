@@ -109,7 +109,7 @@ test("a guest joins only lobby_players, never group_members", async () => {
 
 test("schema enforces one open group lobby and frees closed codes", async () => {
   const sql = await readFile(
-    new URL("../../../../supabase-migration-auth-lobbies.sql", import.meta.url),
+    new URL("../../../supabase/migrations/supabase-migration-auth-lobbies.sql", import.meta.url),
     "utf8",
   );
   assert.match(

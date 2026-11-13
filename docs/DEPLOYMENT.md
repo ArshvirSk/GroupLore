@@ -13,7 +13,7 @@ process-local. Run exactly one application instance.
 
 - Node.js 22 or newer
 - The Supabase project and its SQL migrations
-- Environment variables from `client/.env.example`
+- Environment variables from `.env.example`
 - A reverse proxy for TLS, or direct HTTPS termination
 
 `SUPABASE_SERVICE_ROLE_KEY` must stay server-side. Only
@@ -23,7 +23,6 @@ configuration.
 ## Build and run
 
 ```bash
-cd client
 npm ci
 npm run build
 NODE_ENV=production PORT=3000 npm start
@@ -38,10 +37,9 @@ Health check:
 curl --fail http://127.0.0.1:3000/api/health
 ```
 
-The production check suite expects `client/.env.local`:
+The production check suite expects `.env.local`:
 
 ```bash
-cd client
 npm run test:server
 npm run build
 npm run test:api
@@ -111,7 +109,7 @@ application deployment step.
 Apply the root SQL files in the Supabase SQL editor (or your migration
 pipeline) before starting a release. The retired `server/migrate-activity.js`
 was a one-off helper and is intentionally not part of the runtime; apply
-`supabase-migration-activity-log.sql` directly if that migration still needs
+`supabase/migrations/supabase-migration-activity-log.sql` directly if that migration still needs
 to be run. Do not grant the application service-role key access to the
 Supabase Management API.
 

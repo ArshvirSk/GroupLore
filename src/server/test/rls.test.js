@@ -18,7 +18,7 @@ test("migration enables RLS and revokes browser roles for every app table", asyn
     await Promise.all(
       ["auth-rls", "auth-lobbies"].map((name) =>
         readFile(
-          new URL(`../../../../supabase-migration-${name}.sql`, import.meta.url),
+          new URL(`../../../supabase/migrations/supabase-migration-${name}.sql`, import.meta.url),
           "utf8",
         ),
       ),

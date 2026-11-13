@@ -88,7 +88,7 @@ All phase work is recorded here with what was verified and what was deferred.
 - **Category Rush** (`category-rush`): one category and one required starting letter per round. Unique valid answers score 2 and matching answers score 1; the server enforces the letter.
 - **Screens and routing:** seven new game components are routed by `room.gameId`, and the fallback no longer catches any Phase 4 id. Every module implements private `viewFor` and redacted `publicFor` for the TV.
 - **Prompt banks:** 24 Liars Bar truth/lie pairs, 30 Higher/Lower categories, 30 Avoid the Answer secret/banned sets, 30 Would You Rather pairs, 25 Caption This scenarios, 25 Wavelength spectra and 30 Category Rush category/letter prompts.
-- **Database migration:** `supabase-migration-phase4-games.sql` adds the seven ids to the `game_sessions.game_type` CHECK; `supabase-schema.sql` is updated for fresh installs. The migration was applied to the hosted Supabase project on 2026-11-11.
+- **Database migration:** `supabase/migrations/supabase-migration-phase4-games.sql` adds the seven ids to the `game_sessions.game_type` CHECK; `supabase/schema.sql` is updated for fresh installs. The migration was applied to the hosted Supabase project on 2026-11-11.
 - **Best Friend Test is retired rather than ported.** Its mechanic depends on `member_profiles` and would break the rule that current games are independent of lore. The legacy id stays in the CHECK constraint for old rows only.
 
 ### Verified
@@ -110,7 +110,7 @@ All phase work is recorded here with what was verified and what was deferred.
 - **Clerk removed end to end.** The client no longer depends on `@clerk/nextjs` or `@clerk/themes`, there is no `ClerkProvider` or middleware, and the server no longer reads `CLERK_SECRET_KEY`. Sign-in and sign-up are Supabase email/password forms.
 - **Supabase sessions drive both transports.** `AuthProvider` owns the browser session, REST calls send `Authorization: Bearer <access token>`, and the room/TV socket handshakes send the same token. Express and Socket.io both verify it with `supabase.auth.getUser`.
 - **App rows link through `users.auth_user_id`.** `/api/users/sync` creates or links the app row on sign-in, matching an existing row by email so groups and stats survive the provider change. Group membership, feed, members and seed routes now use the Supabase user id.
-- **Schema migration.** `supabase-schema.sql` uses `auth_user_id` for fresh installs; `supabase-migration-supabase-auth.sql` adds the column, copies the old id, drops `clerk_id` and adds a unique index for existing projects.
+- **Schema migration.** `supabase/schema.sql` uses `auth_user_id` for fresh installs; `supabase/migrations/supabase-migration-supabase-auth.sql` adds the column, copies the old id, drops `clerk_id` and adds a unique index for existing projects.
 - **App tables are server-only.** RLS is enabled on all app tables, the old `USING (true)` policies are removed, and direct grants to `anon`/`authenticated` are revoked. The browser anon key is used only for auth; the Express API keeps the service role.
 - **Guest and reconnect paths preserved.** Signed guest tokens, reconnect tokens, the 30-second handshake refresh and server-authoritative room membership are unchanged.
 - **Email confirmation links are removed from the normal sign-up flow.** The hosted Supabase project has **Confirm email** off, so a new account receives a session immediately and goes straight to the dashboard. The client no longer sends an `emailRedirectTo` or asks the user to find a confirmation link.
@@ -121,7 +121,7 @@ All phase work is recorded here with what was verified and what was deferred.
 - `client npm run build` — success; `/sign-in`, `/sign-up`, `/dashboard`, `/group`, `/lobby`, `/game` and `/tv` compile.
 - `client npx eslint src` — 0 errors, 4 warnings (hook dependency and unused-variable warnings in existing screens).
 - Supabase email/password — a temporary confirmed user was created, signed in through the anon client, and its access token was accepted by `supabase.auth.getUser`; the temporary user was deleted.
-- Hosted schema — `supabase-migration-supabase-auth.sql` left `users.auth_user_id` present, dropped `clerk_id`, and created the unique index.
+- Hosted schema — `supabase/migrations/supabase-migration-supabase-auth.sql` left `users.auth_user_id` present, dropped `clerk_id`, and created the unique index.
 - Live end-to-end — a temporary auth user with a pre-existing app row (matched by email) synced to the same `dbUserId`, created and listed a group, opened a lobby session, and joined the room socket with the database display name rather than the spoofed handshake name. All temporary rows and the auth user were deleted.
 - RLS lock-down — an anonymous client received `42501` for both `SELECT` and `INSERT` on `users`; a service-role read and `/api/users/sync` write both succeeded. The temporary auth user and app row were deleted.
 
@@ -141,7 +141,7 @@ All phase work is recorded here with what was verified and what was deferred.
 - **Screens and routing:** four new game components are routed by `room.gameId`; the lobby catalogue now exposes eight playable games and all exposed modes have a real behaviour.
 - **TV coverage:** all four new modules implement `publicFor`; the TV shows their prompt/question, progress and public reveal data. Odd One Out never sends either prompt to the TV before the reveal.
 - **Prompt banks:** one shared 150-pair bank (`hive.json`) powers Hive Mind's `text` prompts and Odd One Out's crew/odd prompts; 60 original Bluff question/answer pairs; 80 original Hot Takes statements.
-- **Database migration:** `supabase-migration-phase3-games.sql` adds the four ids to the `game_sessions.game_type` CHECK; `supabase-schema.sql` is updated for fresh installs. The migration was applied to the hosted Supabase project on 2026-11-10.
+- **Database migration:** `supabase/migrations/supabase-migration-phase3-games.sql` adds the four ids to the `game_sessions.game_type` CHECK; `supabase/schema.sql` is updated for fresh installs. The migration was applied to the hosted Supabase project on 2026-11-10.
 
 ### Verified
 

@@ -11,3 +11,7 @@ coverage/
 
 # archived nested client repo (.git moved aside, not deleted)
 .git-archive-client/
+*.tsbuildinfo
+next-env.d.ts
+.vercel
+*.pem

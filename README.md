@@ -10,14 +10,15 @@ Inside jokes, embarrassing habits, iconic moments — turned into multiplayer ch
 
 ```
 GroupLore/
-├── client/                 # Next.js (App Router)
-│   ├── src/app/           # Landing, dashboard, group, lobby, game, guest
-│   ├── src/app/api/       # REST + SSE realtime route handlers
-│   ├── src/components/    # Shared UI + game screens
-│   ├── src/stores/        # Zustand auth and room stores
-│   ├── src/lib/           # Supabase, API, realtime, lobby helpers
-│   └── src/server/        # Engine, games, data, and server libraries
-└── supabase-*.sql         # Base schema + ordered migrations
+├── src/app/               # Landing, dashboard, group, lobby, game, guest
+├── src/app/api/           # REST + SSE realtime route handlers
+├── src/components/        # Shared UI + game screens
+├── src/stores/            # Zustand auth and room stores
+├── src/lib/               # Supabase, API, realtime, lobby helpers
+├── src/server/            # Engine, games, data, and server libraries
+├── docs/                  # Design, deployment, and development docs
+├── supabase/              # Schema + ordered migrations
+└── deploy/                # systemd and nginx templates
 ```
 
 ## Tech Stack
@@ -106,14 +107,14 @@ Guests can upgrade after a game with an email and password. Supabase `updateUser
 ### 1. Database
 
 - Create a Supabase project at [supabase.com](https://supabase.com)
-- Run `supabase-schema.sql` in the SQL Editor
+- Run `supabase/schema.sql` in the SQL Editor
 - Upgrading an existing project, run in order:
-  1. `supabase-migration-phase3-games.sql`
-  2. `supabase-migration-phase4-games.sql`
-  3. `supabase-migration-tier1-games.sql`
-  4. `supabase-migration-supabase-auth.sql`
-  5. `supabase-migration-auth-rls.sql`
-  6. `supabase-migration-auth-lobbies.sql`
+  1. `supabase/migrations/supabase-migration-phase3-games.sql`
+  2. `supabase/migrations/supabase-migration-phase4-games.sql`
+  3. `supabase/migrations/supabase-migration-tier1-games.sql`
+  4. `supabase/migrations/supabase-migration-supabase-auth.sql`
+  5. `supabase/migrations/supabase-migration-auth-rls.sql`
+  6. `supabase/migrations/supabase-migration-auth-lobbies.sql`
 - Enable the **Email** provider under Supabase → Authentication → Providers.
 - Enable **Anonymous sign-ins** under Authentication → Providers when `ALLOW_GUESTS=true`. Disable it when `ALLOW_GUESTS=false`; app middleware rejects anonymous tokens either way, but the dashboard switch is the provider-level control.
 - All app tables are server-only (RLS on, no anon policies). The browser anon key is used for Supabase Auth only; the Next route handlers use the service-role key.
@@ -121,14 +122,13 @@ Guests can upgrade after a game with an email and password. Supabase `updateUser
 ### 2. Environment
 
 ```bash
-cp .env.example client/.env.local
+cp .env.example .env.local
 # Fill in your Supabase URL, anon key and service-role key
 ```
 
 ### 3. Run the app
 
 ```bash
-cd client
 npm install
 npm run dev
 ```
@@ -140,7 +140,6 @@ process; it cannot run as a serverless function.
 Production:
 
 ```bash
-cd client
 npm run build
 npm start
 ```
@@ -151,7 +150,6 @@ checks, and rollback runbook.
 ### 4. Tests
 
 ```bash
-cd client
 npm run test:server
 npm run check:api
 npm run test:api
@@ -167,7 +165,6 @@ staging runs.
 ### 5. Seed Demo Data (Optional)
 
 ```bash
-cd client
 npm run seed
 # Join code: CHASX2
 ```
@@ -184,7 +181,7 @@ Neon gaming UI with futuristic dark-mode and glassmorphism:
 
 ## Adding New Games
 
-1. Add a module in `client/src/server/games/` that implements the engine contract: `id`, `name`, `minPlayers`, `maxPlayers`, `modes`, `init`, `onEvent`, `onPhaseEnd`, `onPlayerLeave`, `viewFor` and `publicFor`.
-2. Register it in `client/src/server/games/index.js` and add its id to the `game_sessions.game_type` CHECK in a migration. The lobby catalogue is generated from the registry.
-3. Add a screen in `client/src/components/game/` and route it by `room.gameId` in `client/src/app/game/[sessionId]/page.tsx`.
-4. Put its prompt bank in `client/src/server/data/prompts/` and test both the mechanics and the bank size/id uniqueness.
+1. Add a module in `src/server/games/` that implements the engine contract: `id`, `name`, `minPlayers`, `maxPlayers`, `modes`, `init`, `onEvent`, `onPhaseEnd`, `onPlayerLeave`, `viewFor` and `publicFor`.
+2. Register it in `src/server/games/index.js` and add its id to the `game_sessions.game_type` CHECK in a migration. The lobby catalogue is generated from the registry.
+3. Add a screen in `src/components/game/` and route it by `room.gameId` in `src/app/game/[sessionId]/page.tsx`.
+4. Put its prompt bank in `src/server/data/prompts/` and test both the mechanics and the bank size/id uniqueness.

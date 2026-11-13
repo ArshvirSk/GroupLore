@@ -1,4 +1,4 @@
-# GroupLore Client
+# GroupLore Development
 
 Next.js App Router client plus the GroupLore REST API, game engine, and
 realtime layer. Everything runs in one Next.js process: pages and API route
@@ -13,7 +13,7 @@ npm run dev
 ```
 
 Open http://localhost:3000. Copy the root `.env.example` to
-`client/.env.local` first and fill in the Supabase values.
+`.env.local` first and fill in the Supabase values.
 
 Production:
 
@@ -24,7 +24,7 @@ npm start
 
 `npm start` is `next start`. The app needs a persistent Node process for SSE
 connections and in-memory room timers; it cannot run as serverless functions.
-Run one application instance. See `../docs/DEPLOYMENT.md` for the production
+Run one application instance. See `docs/DEPLOYMENT.md` for the production
 process, SSE reverse-proxy settings, and rollback steps.
 
 ## Layout
