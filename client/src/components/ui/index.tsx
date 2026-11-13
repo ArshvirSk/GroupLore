@@ -6,6 +6,7 @@ import {
   useReducedMotion,
   type HTMLMotionProps,
 } from "framer-motion";
+import { Icon, type IconName } from "@/components/ui/Icon";
 import {
   createContext,
   useContext,
@@ -395,8 +396,8 @@ export function Avatar({
         )}
       </span>
       {host ? (
-        <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[10px] text-on-accent" aria-label="Host">
-          ★
+        <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-on-accent" aria-label="Host">
+          <Icon name="crown" className="h-3 w-3" />
         </span>
       ) : null}
     </span>
@@ -507,7 +508,7 @@ export function Modal({
             <div className="mb-4 flex items-center justify-between gap-3">
               <h2 className="font-display text-xl font-bold text-ink">{title}</h2>
               <IconButton label="Close" onClick={onClose}>
-                ✕
+                <Icon name="close" className="h-4 w-4" />
               </IconButton>
             </div>
             {children}
@@ -587,19 +588,19 @@ export function Skeleton({ className = "" }: { className?: string }) {
 }
 
 export function EmptyState({
-  emoji = "✦",
+  icon = "sparkles",
   title,
   description,
   action,
 }: {
-  emoji?: string;
+  icon?: IconName;
   title: string;
   description: string;
   action?: ReactNode;
 }) {
   return (
     <div className="rounded-[20px] border border-border bg-surface p-8 text-center shadow-soft">
-      <span className="text-4xl" aria-hidden>{emoji}</span>
+      <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary-soft text-ink" aria-hidden><Icon name={icon} className="h-7 w-7" /></span>
       <h3 className="mt-3 font-display text-xl font-bold text-ink">{title}</h3>
       <p className="mx-auto mt-1 max-w-sm text-sm text-muted">{description}</p>
       {action ? <div className="mt-4 flex justify-center">{action}</div> : null}

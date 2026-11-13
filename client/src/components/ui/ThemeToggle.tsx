@@ -1,6 +1,7 @@
 "use client";
 
 import { useTheme, type ThemeChoice } from "@/components/ThemeProvider";
+import { Icon, type IconName } from "@/components/ui/Icon";
 import { motion, useReducedMotion } from "framer-motion";
 
 const NEXT: Record<ThemeChoice, ThemeChoice> = {
@@ -9,10 +10,10 @@ const NEXT: Record<ThemeChoice, ThemeChoice> = {
   dark: "system",
 };
 
-const ICON: Record<ThemeChoice, string> = {
-  system: "◐",
-  light: "☀",
-  dark: "☾",
+const ICON: Record<ThemeChoice, IconName> = {
+  system: "monitor",
+  light: "sun",
+  dark: "moon",
 };
 
 const LABEL: Record<ThemeChoice, string> = {
@@ -36,9 +37,7 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
       transition={{ type: "spring", stiffness: 400, damping: 30 }}
       className={`inline-flex h-10 min-h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-ink transition-colors hover:bg-surface-2 ${className}`}
     >
-      <span aria-hidden className="text-base leading-none">
-        {ICON[theme]}
-      </span>
+      <Icon name={ICON[theme]} className="h-[18px] w-[18px]" />
     </motion.button>
   );
 }

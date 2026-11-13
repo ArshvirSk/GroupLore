@@ -95,7 +95,7 @@ function Kit({ theme }: { theme: "light" | "dark" }) {
         </Card>
         <Card className="p-4">
           <p className="label mb-3">Empty state</p>
-          <EmptyState emoji="👥" title="No groups yet" description="Create one and invite your people." action={<Button size="sm">New group</Button>} />
+          <EmptyState icon="users" title="No groups yet" description="Create one and invite your people." action={<Button size="sm">New group</Button>} />
         </Card>
       </div>
       <Modal open={open} onClose={() => setOpen(false)} title="Modal / sheet">
