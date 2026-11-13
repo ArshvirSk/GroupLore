@@ -1,5 +1,6 @@
 "use client";
 
+import { EmojiIcon } from "@/components/ui/Icon";
 import { motion } from "framer-motion";
 
 interface AnimatedResultBarProps {
@@ -15,7 +16,7 @@ export default function AnimatedResultBar({
   label,
   value,
   maxValue,
-  color = "#2563eb",
+  color = "var(--primary)",
   emoji,
   delay = 0,
 }: AnimatedResultBarProps) {
@@ -30,7 +31,7 @@ export default function AnimatedResultBar({
     >
       <div className="flex justify-between items-center mb-1.5">
         <span className="text-sm font-medium tracking-tight">
-          {emoji && <span className="mr-1.5">{emoji}</span>}
+          {emoji && <EmojiIcon value={emoji} className="mr-1.5 inline h-4 w-4" />}
           {label}
         </span>
         <span className="text-sm text-text-secondary font-mono">

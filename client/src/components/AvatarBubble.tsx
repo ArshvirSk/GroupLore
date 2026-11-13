@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
 import { motion } from "framer-motion";
 
 interface AvatarBubbleProps {
@@ -64,7 +65,7 @@ export default function AvatarBubble({
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
           >
-            <span className="text-[8px]">★</span>
+            <Icon name="crown" className="h-2.5 w-2.5" />
           </motion.div>
         )}
       </div>

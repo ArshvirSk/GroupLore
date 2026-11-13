@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
 import { motion } from "framer-motion";
 
 interface VoteButtonProps {
@@ -27,7 +28,7 @@ const variantStyles: Record<
   purple: {
     bg: "bg-bg-elevated",
     border: "border-border",
-    selectedBg: "bg-[#7c3aed]/10 border-[#7c3aed]/40 text-[#7c3aed]",
+    selectedBg: "bg-primary-soft border-primary text-ink",
   },
   default: {
     bg: "bg-bg-elevated",
@@ -66,7 +67,7 @@ export default function VoteButton({
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
         >
-          <span className="text-white text-[10px]">✓</span>
+          <Icon name="check" className="h-3 w-3 text-on-accent" />
         </motion.span>
       )}
     </motion.button>

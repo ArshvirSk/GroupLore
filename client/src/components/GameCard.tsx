@@ -1,5 +1,6 @@
 "use client";
 
+import { EmojiIcon, Icon } from "@/components/ui/Icon";
 import { motion } from "framer-motion";
 
 interface GameCardProps {
@@ -33,7 +34,7 @@ export default function GameCard({
           className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl ${selected ? "bg-accent/20" : "bg-bg-elevated"
             }`}
         >
-          {emoji}
+          <EmojiIcon value={emoji} className="h-6 w-6" />
         </div>
         <div className="flex-1">
           <h3 className="font-bold text-base tracking-tight">{title}</h3>
@@ -45,7 +46,7 @@ export default function GameCard({
             animate={{ scale: 1 }}
             className="w-6 h-6 rounded-full bg-accent flex items-center justify-center"
           >
-            <span className="text-white text-xs">✓</span>
+            <Icon name="check" className="h-4 w-4 text-on-accent" />
           </motion.div>
         )}
       </div>
