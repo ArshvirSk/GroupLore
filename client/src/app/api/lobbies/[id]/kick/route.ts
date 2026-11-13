@@ -1,6 +1,6 @@
 import type { NextRequest } from "next/server";
 import { requireHost, requireUser } from "@/server/api/auth";
-import { ApiFailure, apiJson, handleApi } from "@/server/api/http";
+import { ApiFailure, apiJson, handleApi, readJson } from "@/server/api/http";
 import { kickLobbyPlayer } from "@/server/lib/lobby.js";
 
 export const runtime = "nodejs";
@@ -14,7 +14,7 @@ export async function POST(
     const { id } = await params;
     const user = await requireUser(request);
     const lobby = await requireHost(user.id, id);
-    const body = await request.json().catch(() => ({}));
+    const body = await readJson(request);
     const targetUserId = String(body?.userId || "");
 
     if (!targetUserId) {

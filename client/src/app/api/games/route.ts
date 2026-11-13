@@ -1,6 +1,6 @@
 import type { NextRequest } from "next/server";
 import { requireGroupMember, requireUser } from "@/server/api/auth";
-import { apiJson, handleApi } from "@/server/api/http";
+import { apiJson, handleApi, readJson } from "@/server/api/http";
 import { openGroupLobby } from "@/server/lib/lobby.js";
 
 export const runtime = "nodejs";
@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 export async function POST(request: NextRequest) {
   return handleApi(async () => {
     const user = await requireUser(request);
-    const body = await request.json().catch(() => ({}));
+    const body = await readJson(request);
     const groupId = String(body?.groupId || "");
     await requireGroupMember(user.id, groupId);
 

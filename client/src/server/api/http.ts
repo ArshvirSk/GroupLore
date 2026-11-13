@@ -12,6 +12,36 @@ export class ApiFailure extends Error {
   }
 }
 
+export const MAX_JSON_BODY_BYTES = 64 * 1024;
+
+/** Read a JSON body with the same 64 KB ceiling as the retired Express app. */
+export async function readJson(request: Request) {
+  const contentLength = Number(request.headers.get("content-length") || 0);
+  if (contentLength > MAX_JSON_BODY_BYTES) {
+    throw new ApiFailure(
+      413,
+      "payload_too_large",
+      "Request body is too large",
+    );
+  }
+
+  const text = await request.text();
+  if (new TextEncoder().encode(text).length > MAX_JSON_BODY_BYTES) {
+    throw new ApiFailure(
+      413,
+      "payload_too_large",
+      "Request body is too large",
+    );
+  }
+  if (!text) return {};
+
+  try {
+    return JSON.parse(text);
+  } catch {
+    return {};
+  }
+}
+
 export function apiJson(data: unknown, status = 200) {
   const response = NextResponse.json(data, { status });
   response.headers.set("Cache-Control", "no-store");

@@ -4,7 +4,7 @@ import {
   requireNonGuest,
   requireUser,
 } from "@/server/api/auth";
-import { ApiFailure, apiJson, handleApi } from "@/server/api/http";
+import { ApiFailure, apiJson, handleApi, readJson } from "@/server/api/http";
 import {
   ensureLegacyUser,
   isGroupMember,
@@ -50,7 +50,7 @@ export async function POST(
     const { groupId } = await params;
     const user = requireNonGuest(await requireUser(request));
     const membership = await requireGroupMember(user.id, groupId);
-    const body = await request.json().catch(() => ({}));
+    const body = await readJson(request);
 
     const {
       userId: requestedUserId,

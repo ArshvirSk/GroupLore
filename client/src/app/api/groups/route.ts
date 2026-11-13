@@ -5,7 +5,7 @@ import {
   createGroupForUser,
   listGroupsForUser,
 } from "@/server/api/groups";
-import { ApiFailure, apiJson, handleApi } from "@/server/api/http";
+import { ApiFailure, apiJson, handleApi, readJson } from "@/server/api/http";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   return handleApi(async () => {
     const user = requireNonGuest(await requireUser(request));
-    const body = await request.json().catch(() => ({}));
+    const body = await readJson(request);
     const name = cleanGroupName(body?.name);
     if (!name) {
       throw new ApiFailure(400, "name_required", "Group name is required");

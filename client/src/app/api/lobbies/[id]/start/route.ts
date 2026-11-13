@@ -1,6 +1,6 @@
 import type { NextRequest } from "next/server";
 import { requireHost, requireUser } from "@/server/api/auth";
-import { ApiFailure, apiJson, handleApi } from "@/server/api/http";
+import { ApiFailure, apiJson, handleApi, readJson } from "@/server/api/http";
 import { getGame } from "@/server/games/index.js";
 import { setLobbyStatus } from "@/server/lib/lobby.js";
 import { loadLobby } from "@/server/lib/membership.js";
@@ -26,7 +26,7 @@ export async function POST(
       );
     }
 
-    const body = await request.json().catch(() => ({}));
+    const body = await readJson(request);
     const game = getGame(String(body?.gameId || ""));
     if (!game) {
       throw new ApiFailure(404, "not_found", "That game does not exist");
