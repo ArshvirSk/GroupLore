@@ -1,21 +1,22 @@
 "use client";
 
+import AppShell from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
-import AppHeader from "@/components/ui/AppHeader";
+import { Icon } from "@/components/ui/Icon";
 import {
   Avatar,
   AvatarStack,
   Badge,
   Button,
-  Card,
   EmptyState,
   Input,
   Modal,
 } from "@/components/ui";
 import { api } from "@/lib/api";
 import { copyInviteLink, ensureLobby, lobbyPath } from "@/lib/play";
+import Link from "next/link";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 interface MemberProfile {
   id: string;
@@ -81,9 +82,22 @@ export default function GroupDashboard() {
     if (!isSignedIn) router.replace("/sign-in");
   }, [isLoaded, isSignedIn, router]);
 
+  const loadData = useCallback(async () => {
+    try {
+      const next = await api.getGroup(id);
+      setGroup(next);
+      if (next.members) setMembers(next.members);
+      setActiveLobby(next.lobby || null);
+    } catch {
+      // Keep the last successful snapshot while polling.
+    } finally {
+      setLoading(false);
+    }
+  }, [id]);
+
   useEffect(() => {
     if (!isLoaded || !isSignedIn) return;
-    loadData();
+    void loadData();
     const interval = window.setInterval(async () => {
       try {
         const next = await api.getGroup(id);
@@ -93,19 +107,7 @@ export default function GroupDashboard() {
       } catch {}
     }, 3000);
     return () => window.clearInterval(interval);
-  }, [id, isLoaded, isSignedIn]);
-
-  const loadData = async () => {
-    try {
-      const next = await api.getGroup(id);
-      setGroup(next);
-      if (next.members) setMembers(next.members);
-      setActiveLobby(next.lobby || null);
-    } catch {
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [id, isLoaded, isSignedIn, loadData]);
 
   const copyCode = () => {
     if (!joinCode) return;
@@ -202,33 +204,37 @@ export default function GroupDashboard() {
     }
   };
 
+  const groupAccents = ["purple", "lime", "pink", "cyan"];
+
   if (loading) {
     return (
-      <main className="min-h-screen">
-        <AppHeader backHref="/dashboard" backLabel="Hub" />
-        <div className="mx-auto max-w-[1120px] px-4 py-8 sm:px-6">
-          <div className="h-24 animate-pulse rounded-[20px] bg-surface-2" />
-        </div>
-      </main>
+      <AppShell active="groups">
+        <div className="space-y-4"><div className="h-56 animate-pulse rounded-[22px] bg-surface-2" /><div className="h-32 animate-pulse rounded-[18px] bg-surface-2" /></div>
+      </AppShell>
     );
   }
 
   return (
-    <main className="min-h-screen">
-      <AppHeader backHref="/dashboard" backLabel="Hub" onLeaveGroup={() => void leaveGroup()} />
-      <div className="mx-auto w-full max-w-[1120px] px-4 py-8 sm:px-6">
-        <header className="flex flex-wrap items-start justify-between gap-5">
-          <div>
-            <p className="eyebrow">Group</p>
-            <h1 className="mt-2 font-display text-4xl font-bold tracking-[-0.04em] sm:text-5xl">{group?.name || "Group"}</h1>
-            <div className="mt-3 flex flex-wrap items-center gap-3">
+    <AppShell active="groups">
+      <div className="w-full">
+        <div className="mb-4 flex items-center justify-between gap-3">
+          <Link href="/dashboard" className="inline-flex min-h-9 items-center gap-1.5 text-sm font-semibold text-muted hover:text-ink"><Icon name="arrow-left" className="h-4 w-4" /> Hub</Link>
+          <button type="button" onClick={() => void leaveGroup()} className="inline-flex min-h-9 items-center gap-1.5 rounded-full px-3 text-sm font-semibold text-muted hover:bg-surface-2 hover:text-danger"><Icon name="logout" className="h-4 w-4" /> Leave group</button>
+        </div>
+
+        <header className="page-hero">
+          <div className="max-w-[64%] sm:max-w-[60%]">
+            <p className="page-kicker"><Icon name="users" className="h-3.5 w-3.5" /> My group</p>
+            <h1 className="page-title break-words">{group?.name || "Group"}</h1>
+            <div className="mt-5 flex flex-wrap items-center gap-3">
               <AvatarStack people={members.map((member) => ({ name: member.display_name, src: member.avatar_url }))} />
-              <span className="text-sm text-muted">{members.length} member{members.length === 1 ? "" : "s"} · Owner {hostName}</span>
+              <span className="text-sm font-medium text-ink/70">{members.length} member{members.length === 1 ? "" : "s"} · Owner {hostName}</span>
+              <Badge tone={activeLobby ? "success" : "neutral"}>{activeLobby ? "Room open" : "No open room"}</Badge>
             </div>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <Button onClick={() => void startGame()} loading={launching}>{activeLobby ? "Join lobby" : "Open lobby"}</Button>
-            <Button variant="secondary" disabled={!joinCode} onClick={() => void copyInvite()}>{inviteCopied ? "Invite copied" : "Invite"}</Button>
+            <div className="mt-6 flex flex-wrap gap-2">
+              <Button onClick={() => void startGame()} loading={launching}>{activeLobby ? "Join lobby" : "Open lobby"} <Icon name="arrow-right" className="h-4 w-4" /></Button>
+              <Button variant="secondary" disabled={!joinCode} onClick={() => void copyInvite()}><Icon name={inviteCopied ? "check" : "link"} className="h-4 w-4" /> {inviteCopied ? "Invite copied" : "Invite"}</Button>
+            </div>
           </div>
         </header>
 
@@ -237,17 +243,18 @@ export default function GroupDashboard() {
         ) : null}
         {launchError ? <p role="alert" className="mt-5 rounded-[12px] bg-danger/10 px-4 py-3 text-sm font-medium text-danger">{launchError}</p> : null}
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-[1fr_auto]">
-          <Card className="flex flex-wrap items-center justify-between gap-3 p-4">
+        <div className="mt-4 grid gap-3 sm:grid-cols-[1fr_auto]">
+          <div className="room-code-panel flex flex-wrap items-center justify-between gap-3">
             <div>
-              <p className="text-sm font-medium text-muted">Room code</p>
-              <p className="font-mono text-2xl font-bold tracking-[0.12em]">{joinCode || "—"}</p>
+              <p className="label text-ink/70">Room code</p>
+              <code className="mt-1 block text-ink">{joinCode || "—"}</code>
             </div>
-            <Button variant="ghost" size="sm" disabled={!joinCode} onClick={copyCode}>{codeCopied ? "Copied" : "Copy code"}</Button>
-          </Card>
-          <Card className="flex items-center gap-3 p-4">
-            <Badge tone={activeLobby ? "success" : "neutral"}>{activeLobby ? "Live now" : "No open room"}</Badge>
-          </Card>
+            <Button variant="secondary" size="sm" disabled={!joinCode} onClick={copyCode}><Icon name={codeCopied ? "check" : "link"} className="h-4 w-4" /> {codeCopied ? "Copied" : "Copy code"}</Button>
+          </div>
+          <div className="color-card lime flex items-center gap-3 p-4">
+            <span className="round-icon"><Icon name="gamepad" /></span>
+            <div><p className="text-xs font-bold uppercase tracking-wide">Lobby status</p><p className="text-sm font-semibold">{activeLobby ? "Ready for the group" : "Start a room to play"}</p></div>
+          </div>
         </div>
 
         <section className="mt-8" aria-labelledby="members-title">
@@ -256,9 +263,9 @@ export default function GroupDashboard() {
             <Button size="sm" variant="secondary" onClick={() => { setShowAdd(true); setEditingId(null); setEditingUserId(null); setForm(EMPTY_FORM); }}>Add member</Button>
           </div>
           {members.length === 0 ? (
-            <div className="mt-4"><EmptyState emoji="👋" title="Nobody here yet" description="Add a profile to start personalizing your games." action={<Button size="sm" onClick={() => setShowAdd(true)}>Add the first member</Button>} /></div>
+            <div className="mt-4"><EmptyState icon="hand" title="Nobody here yet" description="Add a profile to start personalizing your games." action={<Button size="sm" onClick={() => setShowAdd(true)}>Add the first member</Button>} /></div>
           ) : (
-            <div className="mt-4 divide-y divide-border rounded-[20px] border border-border bg-surface shadow-soft">
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
               {members.map((member) => {
                 const memberIsHost = member.role === "owner";
                 return (
@@ -266,9 +273,9 @@ export default function GroupDashboard() {
                     key={member.id}
                     type="button"
                     onClick={() => startEditing(member)}
-                    className="flex min-h-16 w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-surface-2 sm:px-5"
+                    className={`member-card ${groupAccents[members.indexOf(member) % groupAccents.length]}`}
                   >
-                    <Avatar name={member.display_name} src={member.avatar_url} host={memberIsHost} />
+                    <Avatar name={member.display_name} src={member.avatar_url} host={memberIsHost} size="lg" />
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-semibold text-ink">{member.display_name}{member.nickname ? <span className="font-normal text-muted"> “{member.nickname}”</span> : null}</p>
                       <p className="mt-0.5 text-xs text-muted">{[...(member.traits ?? [])].slice(0, 3).join(" · ") || "No traits yet"}</p>
@@ -283,7 +290,7 @@ export default function GroupDashboard() {
                         className="flex min-h-11 min-w-11 items-center justify-center rounded-full text-muted hover:bg-surface-2 hover:text-danger"
                         aria-label={`Remove ${member.display_name}`}
                       >
-                        ✕
+                        <Icon name="close" className="h-4 w-4" />
                       </span>
                     ) : null}
                   </button>
@@ -295,7 +302,7 @@ export default function GroupDashboard() {
 
         <section className="mt-8" aria-labelledby="recent-title">
           <h2 id="recent-title" className="font-display text-2xl font-semibold">Recent games</h2>
-          <div className="mt-4"><EmptyState emoji="🎲" title="No games yet" description="Your recent sessions will appear here after your first game night." action={<Button size="sm" onClick={() => void startGame()}>Open a lobby</Button>} /></div>
+          <div className="mt-4"><EmptyState icon="dice" title="No games yet" description="Your recent sessions will appear here after your first game night." action={<Button size="sm" onClick={() => void startGame()}>Open a lobby</Button>} /></div>
         </section>
       </div>
 
@@ -314,6 +321,6 @@ export default function GroupDashboard() {
           <Button variant="ghost" onClick={() => setShowAdd(false)}>Cancel</Button>
         </div>
       </Modal>
-    </main>
+    </AppShell>
   );
 }
