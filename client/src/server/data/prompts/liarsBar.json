@@ -1,0 +1,122 @@
+[
+  {
+    "id": "liars-01",
+    "truth": "A group of flamingos is called a flamboyance.",
+    "lie": "A group of flamingos is called a parade."
+  },
+  {
+    "id": "liars-02",
+    "truth": "Honey never spoils.",
+    "lie": "Honey spoils after about two years."
+  },
+  {
+    "id": "liars-03",
+    "truth": "Octopuses have three hearts.",
+    "lie": "Octopuses have two hearts."
+  },
+  {
+    "id": "liars-04",
+    "truth": "Bananas are berries, but strawberries are not.",
+    "lie": "Strawberries are berries, but bananas are not."
+  },
+  {
+    "id": "liars-05",
+    "truth": "The Eiffel Tower can grow taller in summer.",
+    "lie": "The Eiffel Tower shrinks in summer."
+  },
+  {
+    "id": "liars-06",
+    "truth": "A day on Venus is longer than a year on Venus.",
+    "lie": "A year on Venus is longer than a day on Venus."
+  },
+  {
+    "id": "liars-07",
+    "truth": "Sharks existed before trees.",
+    "lie": "Trees existed before sharks."
+  },
+  {
+    "id": "liars-08",
+    "truth": "The unicorn is Scotland's national animal.",
+    "lie": "The dragon is Scotland's national animal."
+  },
+  {
+    "id": "liars-09",
+    "truth": "Wombat poop is cube-shaped.",
+    "lie": "Wombat poop is perfectly round."
+  },
+  {
+    "id": "liars-10",
+    "truth": "There are more stars in the universe than grains of sand on Earth.",
+    "lie": "There are more grains of sand on Earth than stars in the universe."
+  },
+  {
+    "id": "liars-11",
+    "truth": "A snail can sleep for three years.",
+    "lie": "A snail can only sleep for three days."
+  },
+  {
+    "id": "liars-12",
+    "truth": "The first oranges were not orange.",
+    "lie": "The first oranges were bright orange."
+  },
+  {
+    "id": "liars-13",
+    "truth": "A jiffy is an actual unit of time.",
+    "lie": "A jiffy is not a real unit of time."
+  },
+  {
+    "id": "liars-14",
+    "truth": "Cows have best friends and get stressed when separated.",
+    "lie": "Cows are solitary and prefer no company."
+  },
+  {
+    "id": "liars-15",
+    "truth": "The inventor of the Pringles can was buried in one.",
+    "lie": "The inventor of the Pringles can was buried with a potato."
+  },
+  {
+    "id": "liars-16",
+    "truth": "A cloud can weigh more than a million pounds.",
+    "lie": "A cloud weighs less than a pound."
+  },
+  {
+    "id": "liars-17",
+    "truth": "The Great Wall of China is not visible from space with the naked eye.",
+    "lie": "The Great Wall of China is the only man-made object visible from space."
+  },
+  {
+    "id": "liars-18",
+    "truth": "A crocodile cannot stick its tongue out.",
+    "lie": "A crocodile can stick its tongue out like a snake."
+  },
+  {
+    "id": "liars-19",
+    "truth": "The dot over the letter i is called a tittle.",
+    "lie": "The dot over the letter i is called a serif."
+  },
+  {
+    "id": "liars-20",
+    "truth": "Sea otters hold hands while sleeping.",
+    "lie": "Sea otters sleep alone and avoid touch."
+  },
+  {
+    "id": "liars-21",
+    "truth": "The shortest war in history lasted 38 minutes.",
+    "lie": "The shortest war in history lasted 38 days."
+  },
+  {
+    "id": "liars-22",
+    "truth": "A group of crows is called a murder.",
+    "lie": "A group of crows is called a flock."
+  },
+  {
+    "id": "liars-23",
+    "truth": "A day on Mercury is longer than its year.",
+    "lie": "A year on Mercury is longer than its day."
+  },
+  {
+    "id": "liars-24",
+    "truth": "The tongue is the strongest muscle in the human body relative to its size.",
+    "lie": "The tongue is the weakest muscle in the human body."
+  }
+]
