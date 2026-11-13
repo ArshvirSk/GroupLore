@@ -10,7 +10,7 @@
     "check:contrast": "node scripts/check-contrast.mjs",
     "check:api": "node scripts/api-smoke.mjs",
     "test:api": "node --env-file=.env.local --test test/api.integration.test.mjs",
-    "test:server": "node --env-file=.env.local --test \"src/server/test/*.test.js\"",
+    "test:server": "node --env-file-if-exists=.env.local --test \"src/server/test/*.test.js\"",
     "seed": "node scripts/seed.mjs"
   },
   "dependencies": {
