@@ -2,6 +2,10 @@
 
 ## Audit findings
 
+The findings below describe the pre-migration Express server and are kept for
+history. The current runtime is `client/server.mjs`; the engine lives in
+`client/src/server/engine/`.
+
 - The live server uses `GameEngine` in `server/index.js`. `server/sockets/index.js`, `lobbyHandler.js` and `gameHandler.js` are an older unused path; they are not mounted and still trust client-provided `userId`/`socketId`.
 - Identity currently has two branches: verified Supabase users and a custom HMAC-signed guest token (`server/engine/auth.js`, `server/routes/auth.js`). Guests have no Supabase id.
 - Routes still resolve `users.id` from `auth_user_id`; `group_members`, `game_sessions`, `activity_log` and `player_stats` all reference that legacy id.
@@ -36,14 +40,16 @@
 
 ## Verification status
 
-- `cd server && npm test`: 60 tests, 59 pass, 1 skipped (live RLS probe needs Supabase credentials).
+- `cd client && npm run test:server`: 60 tests pass, including the live RLS probe.
+- `cd client && npm run test:api`: 8 contract/auth/game-flow tests pass against a production-mode server on port 3199.
 - `cd client && npx tsc --noEmit`: clean.
-- `cd client && npm run lint`: 0 errors; four pre-existing/effect-dependency warnings.
-- `cd client && npm run build`: successful (including `/guest` and `/upgrade`).
+- `cd client && npm run lint`: 0 errors; one pre-existing unused-variable warning in `fiveSecond.js`.
+- `cd client && npm run build`: successful.
+- `npm run check:api`: public and unauthenticated contract checks pass against port 3000.
 
 ## Remaining limitations
 
-- The live RLS check is skipped unless `SUPABASE_URL` and `SUPABASE_ANON_KEY` are set; the static migration test still asserts RLS/revokes and no anon policies.
-- DB-backed route integration tests (guest join/open-lobby, code reuse, one-open-lobby race) require a live Supabase project. The migration's partial unique indexes enforce the code and per-group rules, and middleware policy tests cover guest creation denial and non-member lobby denial.
+- The configured Supabase project currently has **Anonymous sign-ins disabled**, so live guest HTTP cases are skipped in `test:api`. The guest policy is still covered by `test:server`.
+- The live API test creates and removes temporary Supabase users, groups, lobbies, and sessions; it should run against a disposable or staging project in the future.
 - `member_profiles.user_id` intentionally remains in the legacy `users.id` space. New users get a bridge `users` row on demand, but a future migration should collapse that table.
 - Lobby player `connected` is maintained by join/leave; socket disconnect presence for pre-game lobby screens is not streamed because the lobby uses REST polling.

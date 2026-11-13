@@ -8,7 +8,6 @@ coverage/
 .env
 .env.*
 !.env.example
-server/.env
 
 # archived nested client repo (.git moved aside, not deleted)
 .git-archive-client/

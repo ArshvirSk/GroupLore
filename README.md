@@ -12,14 +12,12 @@ Inside jokes, embarrassing habits, iconic moments — turned into multiplayer ch
 GroupLore/
 ├── client/                 # Next.js (App Router)
 │   ├── src/app/           # Landing, dashboard, group, lobby, game, guest
+│   ├── src/app/api/       # REST route handlers
 │   ├── src/components/    # Shared UI + game screens
 │   ├── src/stores/        # Zustand auth and room stores
-│   └── src/lib/           # Supabase, API, socket, lobby helpers
-├── server/                # Express + Socket.io
-│   ├── routes/            # REST API (auth, users, groups, lobbies, games)
-│   ├── engine/            # Server-authoritative room/game engine
-│   ├── games/             # Modular game rules and registry
-│   └── lib/               # Auth, membership, lobby, activity, Supabase
+│   ├── src/lib/           # Supabase, API, socket, lobby helpers
+│   ├── src/server/        # Engine, games, data, and server libraries
+│   └── server.mjs         # Next + Socket.io single Node process
 └── supabase-*.sql         # Base schema + ordered migrations
 ```
 
@@ -27,8 +25,8 @@ GroupLore/
 
 | Layer     | Technology                                          |
 | --------- | --------------------------------------------------- |
-| Frontend  | Next.js 15, Tailwind CSS v4, Framer Motion, Zustand |
-| Backend   | Express, Socket.io                                  |
+| Frontend  | Next.js 16, Tailwind CSS v4, Framer Motion, Zustand |
+| Backend   | Next.js route handlers + custom Node/Socket.io server |
 | Database  | Supabase (PostgreSQL)                               |
 | Auth      | Supabase Auth (email/password + anonymous guests)   |
 | Real-time | Socket.io (WebSockets)                              |
@@ -119,24 +117,16 @@ Guests can upgrade after a game with an email and password. Supabase `updateUser
   6. `supabase-migration-auth-lobbies.sql`
 - Enable the **Email** provider under Supabase → Authentication → Providers.
 - Enable **Anonymous sign-ins** under Authentication → Providers when `ALLOW_GUESTS=true`. Disable it when `ALLOW_GUESTS=false`; app middleware rejects anonymous tokens either way, but the dashboard switch is the provider-level control.
-- All app tables are server-only (RLS on, no anon policies). The browser anon key is used for Supabase Auth only; the Express API uses the service-role key.
+- All app tables are server-only (RLS on, no anon policies). The browser anon key is used for Supabase Auth only; the Next route handlers use the service-role key.
 
 ### 2. Environment
 
 ```bash
-cp .env.example .env
+cp .env.example client/.env.local
 # Fill in your Supabase URL, anon key and service-role key
 ```
 
-### 3. Server
-
-```bash
-cd server
-npm install
-npm run dev
-```
-
-### 4. Client
+### 3. Run the app
 
 ```bash
 cd client
@@ -144,12 +134,37 @@ npm install
 npm run dev
 ```
 
+This starts Next.js and Socket.io together on http://localhost:3000. The app
+requires a persistent Node process; it cannot run as a serverless function.
+
+Production:
+
+```bash
+cd client
+npm run build
+npm start
+```
+
+### 4. Tests
+
+```bash
+cd client
+npm run test:server
+npm run check:api
+npm run test:api
+```
+
+`test:server` covers the engine, games, auth policy, and schema. `check:api`
+checks a running server. `test:api` starts an isolated server, creates temporary
+Supabase users, exercises the REST contract and auth rules, and runs a real
+multi-client game over Socket.io.
+
 ### 5. Seed Demo Data (Optional)
 
 ```bash
-cd server
-node seed.js
-# Join code: CHAOS1
+cd client
+npm run seed
+# Join code: CHASX2
 ```
 
 ## Design
@@ -164,7 +179,7 @@ Neon gaming UI with futuristic dark-mode and glassmorphism:
 
 ## Adding New Games
 
-1. Add a module in `server/games/` that implements the engine contract: `id`, `name`, `minPlayers`, `maxPlayers`, `modes`, `init`, `onEvent`, `onPhaseEnd`, `onPlayerLeave`, `viewFor` and `publicFor`.
-2. Register it in `server/games/index.js` and add its id to the `game_sessions.game_type` CHECK in a migration. The lobby catalogue is generated from the registry.
+1. Add a module in `client/src/server/games/` that implements the engine contract: `id`, `name`, `minPlayers`, `maxPlayers`, `modes`, `init`, `onEvent`, `onPhaseEnd`, `onPlayerLeave`, `viewFor` and `publicFor`.
+2. Register it in `client/src/server/games/index.js` and add its id to the `game_sessions.game_type` CHECK in a migration. The lobby catalogue is generated from the registry.
 3. Add a screen in `client/src/components/game/` and route it by `room.gameId` in `client/src/app/game/[sessionId]/page.tsx`.
-4. Put its prompt bank in `server/data/prompts/` and test both the mechanics and the bank size/id uniqueness.
+4. Put its prompt bank in `client/src/server/data/prompts/` and test both the mechanics and the bank size/id uniqueness.

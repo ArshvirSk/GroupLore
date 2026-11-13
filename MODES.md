@@ -20,7 +20,7 @@ The final section is a ready-to-paste **agent prompt**.
 
 ### Prompt bank format
 
-`server/data/prompts/<game-id>.json`, an array of objects with a unique `id` (stable, never reused), plus game-specific fields. Required: `id`, `text` (or the game's primary field), optional `tags`, `difficulty` (1–3), `nsfw` (bool, default false; exclude by default). Minimum bank sizes are listed per game. Tests must assert: unique ids, no empty fields, minimum size, and that a full session never repeats an item.
+`client/src/server/data/prompts/<game-id>.json`, an array of objects with a unique `id` (stable, never reused), plus game-specific fields. Required: `id`, `text` (or the game's primary field), optional `tags`, `difficulty` (1–3), `nsfw` (bool, default false; exclude by default). Minimum bank sizes are listed per game. Tests must assert: unique ids, no empty fields, minimum size, and that a full session never repeats an item.
 
 ### Definition of done (per game)
 
@@ -271,7 +271,7 @@ Observed from the current engine, modules, migrations, tests and client screens 
 - **Events:** client `send(type, data)` becomes `onEvent(room, playerId, { type, ...data, playerId })`. Validate turn/role ownership server-side and throw `failure(code, message)` for invalid actions. Use stable player ids, never socket ids.
 - **Scoring:** modules add integer points directly to `room.scores[playerId]` and expose a `roundPoints`/`roundWinners` array shaped `{ playerId, name, points }` in the reveal for the existing UI. The engine owns final ranking, winners and persistence.
 - **Modes:** modes are config objects with `label`, `description`, timers/round counts and rule flags. Fall back to `classic` for unknown modes. The mode is selected in the lobby through `selectGame`.
-- **Prompt banks:** JSON arrays in `server/data/prompts/<game-id>.json`, loaded with `createRequire` because the server is ESM. Each run tracks `usedPromptIds` and cycles only after exhausting the bank. Tests assert minimum size, non-empty primary text, unique stable ids and full-session non-repetition where applicable.
+- **Prompt banks:** JSON arrays in `client/src/server/data/prompts/<game-id>.json`, loaded with `createRequire` because the server is ESM. Each run tracks `usedPromptIds` and cycles only after exhausting the bank. Tests assert minimum size, non-empty primary text, unique stable ids and full-session non-repetition where applicable.
 - **Migrations:** existing phases add all ids for that phase to the `game_sessions_game_type_check` in one migration. Follow that tier-level pattern rather than one migration per individual game; note it in `DECISIONS`. Update `supabase-schema.sql` for fresh installs as well.
 - **Client:** the game page casts `room.game` to the screen's exported view type and renders by `room.gameId`, passing `{ room, view, send }`. `GameShell` owns the timer ring from `room.endsAt`/`room.serverNow`, round labels and exit handling; the game screen renders phase content and its own reveal/round-points UI. No client source of truth for timers or scoring.
 - **Lobby:** cards are generated from the registry, so adding a module exposes it automatically. Player minimums and modes come from module metadata. Optional metadata can be added for tags without hard-coding a card.

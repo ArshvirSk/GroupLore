@@ -1,7 +1,7 @@
 -- Lock down direct browser access to app data.
 --
 -- The browser uses the Supabase anon key only for auth. All app-table reads and
--- writes go through the Express API, which uses the service-role key. The
+-- writes go through the application server, which uses the service-role key. The
 -- service role bypasses RLS, so no browser-facing policies are needed.
 
 BEGIN;
