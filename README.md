@@ -157,7 +157,9 @@ npm run test:api
 `test:server` covers the engine, games, auth policy, and schema. `check:api`
 checks a running server. `test:api` starts an isolated server, creates temporary
 Supabase users, exercises the REST contract and auth rules, and runs a real
-multi-client game over Socket.io.
+multi-client game over Socket.io. CI runs lint, `test:server`, and the production
+build; `test:api` needs live Supabase credentials and is intended for local or
+staging runs.
 
 ### 5. Seed Demo Data (Optional)
 

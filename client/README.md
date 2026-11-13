@@ -53,6 +53,9 @@ npm run test:api
   up its data. It needs the server-only Supabase credentials.
 - Set `API_BASE` to point `check:api` at another origin.
 - Set `TEST_ACCESS_TOKEN` to include authenticated cases in `check:api`.
+- CI runs `npm run lint`, `npm run test:server`, and `npm run build` without
+  live credentials. The integration suite is not part of CI because it creates
+  and removes real Supabase data.
 
 ## Seed demo data
 

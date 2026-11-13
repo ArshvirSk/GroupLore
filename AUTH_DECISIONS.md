@@ -40,8 +40,9 @@ history. The current runtime is `client/server.mjs`; the engine lives in
 
 ## Verification status
 
-- `cd client && npm run test:server`: 60 tests pass, including the live RLS probe.
+- `cd client && npm run test:server`: 62 tests pass, including the live RLS probe.
 - `cd client && npm run test:api`: 8 contract/auth/game-flow tests pass against a production-mode server on port 3199.
+- `.github/workflows/ci.yml`: lint, unit tests, and production build run without live credentials.
 - `cd client && npx tsc --noEmit`: clean.
 - `cd client && npm run lint`: 0 errors; one pre-existing unused-variable warning in `fiveSecond.js`.
 - `cd client && npm run build`: successful.
@@ -53,3 +54,4 @@ history. The current runtime is `client/server.mjs`; the engine lives in
 - The live API test creates and removes temporary Supabase users, groups, lobbies, and sessions; it should run against a disposable or staging project in the future.
 - `member_profiles.user_id` intentionally remains in the legacy `users.id` space. New users get a bridge `users` row on demand, but a future migration should collapse that table.
 - Lobby player `connected` is maintained by join/leave; socket disconnect presence for pre-game lobby screens is not streamed because the lobby uses REST polling.
+- Rate limits and nudges are process-scoped; a multi-instance deployment needs a shared store.
