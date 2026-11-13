@@ -40,7 +40,6 @@ function publicError(err) {
  */
 export class GameEngine {
   constructor({
-    io,
     resolveIdentity,
     authorize,
     loadSession,
@@ -49,7 +48,6 @@ export class GameEngine {
     disconnectGraceMs = 30_000,
     logger = console,
   }) {
-    this.io = io;
     this.resolveIdentity = resolveIdentity;
     this.authorize = authorize;
     this.loadSession = loadSession;
@@ -60,29 +58,18 @@ export class GameEngine {
 
     this.rooms = new Map();
     this.loadingRooms = new Map();
-    this.attached = false;
+    this.connections = new Map();
   }
 
-  attach() {
-    if (this.attached) return this;
-    this.attached = true;
+  connect(connection) {
+    this.connections.set(connection.id, connection);
+    this.onConnection(connection);
+    return connection;
+  }
 
-    this.io.use(async (socket, next) => {
-      try {
-        socket.data.identity = await this.resolveIdentity(socket);
-        next();
-      } catch (err) {
-        const error = new Error("Sign in to play");
-        error.data = {
-          code: err.code || "unauthorized",
-          message: err.message || "Sign in to play",
-        };
-        next(error);
-      }
-    });
-
-    this.io.on("connection", (socket) => this.onConnection(socket));
-    return this;
+  disconnect(connection) {
+    this.connections.delete(connection.id);
+    this.onDisconnect(connection);
   }
 
   onConnection(socket) {
@@ -312,7 +299,7 @@ export class GameEngine {
     if (player) {
       const oldSocketId = player.socketId;
       if (oldSocketId && oldSocketId !== socket.id) {
-        const old = this.io.sockets.sockets.get(oldSocketId);
+        const old = this.connections.get(oldSocketId);
         if (old) {
           old.emit("room:error", {
             code: "session_replaced",
@@ -320,8 +307,8 @@ export class GameEngine {
           });
           old.data.roomId = null;
           old.data.playerId = null;
-          old.leave(room.id);
-          old.disconnect(true);
+          old.close?.();
+          this.connections.delete(oldSocketId);
         }
       }
 
@@ -367,7 +354,6 @@ export class GameEngine {
     socket.data.roomId = room.id;
     socket.data.playerId = player.id;
     socket.data.spectating = false;
-    socket.join(room.id);
   }
 
   sendJoined(socket, room, player) {
@@ -411,7 +397,6 @@ export class GameEngine {
     socket.data.roomId = room.id;
     socket.data.spectating = true;
     socket.data.playerId = null;
-    socket.join(room.id);
     room.spectators.add(socket.id);
     socket.emit("room:spectate-joined", {
       sessionId: room.id,
@@ -424,7 +409,6 @@ export class GameEngine {
     const spectatorRoom = this.spectatorContext(socket);
     if (spectatorRoom) {
       spectatorRoom.spectators.delete(socket.id);
-      socket.leave(spectatorRoom.id);
       socket.data.roomId = null;
       socket.data.spectating = false;
       socket.emit("room:left", {});
@@ -433,7 +417,6 @@ export class GameEngine {
 
     const ctx = this.context(socket);
     if (!ctx) return;
-    socket.leave(ctx.room.id);
     socket.data.roomId = null;
     socket.data.playerId = null;
     this.removePlayer(ctx.room, ctx.player.id, "left");
@@ -521,7 +504,7 @@ export class GameEngine {
       if (player.graceTimer) clearTimeout(player.graceTimer);
     }
     for (const socketId of room.spectators) {
-      const socket = this.io.sockets.sockets.get(socketId);
+      const socket = this.connections.get(socketId);
       socket?.emit("room:closed", {
         message: "The room has ended",
       });
@@ -589,7 +572,7 @@ export class GameEngine {
         const target = room.players.get(targetId);
         if (!target) throw failure("player_not_found", "That player has left");
         const targetSocket =
-          target.socketId && this.io.sockets.sockets.get(target.socketId);
+          target.socketId && this.connections.get(target.socketId);
         targetSocket?.emit("room:kicked", {
           message: "The host removed you from the room",
         });
@@ -928,11 +911,11 @@ export class GameEngine {
     room.version += 1;
     for (const player of room.players.values()) {
       if (!player.socketId) continue;
-      const socket = this.io.sockets.sockets.get(player.socketId);
+      const socket = this.connections.get(player.socketId);
       if (socket) socket.emit("room:sync", this.view(room, player.id));
     }
     for (const socketId of room.spectators) {
-      const socket = this.io.sockets.sockets.get(socketId);
+      const socket = this.connections.get(socketId);
       if (socket) socket.emit("room:sync", this.publicView(room));
     }
   }
@@ -945,5 +928,6 @@ export class GameEngine {
       }
     }
     this.rooms.clear();
+    this.connections.clear();
   }
 }

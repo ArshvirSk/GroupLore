@@ -60,7 +60,7 @@ export function apiError(status: number, code: string, message: string) {
 }
 
 export async function handleApi(
-  fn: () => Promise<NextResponse>,
+  fn: () => Promise<Response>,
   fallbackMessage = "Something went wrong",
 ) {
   try {

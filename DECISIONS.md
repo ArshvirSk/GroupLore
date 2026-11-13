@@ -6,7 +6,7 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 
 - **Initialised a git repository in the project root.** The repo had no git metadata, and the phase plan requires one commit per phase. The original client folder was its own single-commit Create Next App repository with no remote; its `.git` was moved to `.git-archive-client/` (gitignored) instead of deleted, so its history is preserved on disk.
 - **Server stays JavaScript with JSDoc contracts.** The existing server is ESM JavaScript; changing the runtime to TypeScript would be a large, unrelated migration. The `GameModule` contract is documented in `server/engine/engine.js` and enforced at registration.
-- **Tests use `node:test` + `socket.io-client`.** No test framework dependency was added. `socket.io-client` is a dev dependency only.
+- **Tests use `node:test` + a small SSE/POST harness.** No test framework or Socket.io dependency is used.
 
 ## Engine semantics
 
@@ -33,9 +33,9 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 
 ## Client
 
-- **One app-wide socket, no disconnect on unmount.** `useRoom` only detaches listeners. This is the direct fix for the original `leave-lobby` navigation bug.
+- **One app-wide realtime connection, no disconnect on unmount.** `useRoom` only detaches listeners. This is the direct fix for the original `leave-lobby` navigation bug.
 - **Lobby and game are separate routes that redirect based on `room.phase`.** This keeps the URL shareable without duplicating room state or creating a provider that spans route groups.
-- **Deleted `client/src/lib/socket.ts` and `client/src/stores/gameStore.ts`.** They encoded the old per-page socket contract and had no remaining importers.
+- **Deleted `client/src/lib/socket.ts` and `client/src/stores/gameStore.ts`.** They encoded the old per-page realtime contract and had no remaining importers.
 - **Only engine games appear in the lobby.** During Phase 1 that means Most Likely To only; all fake mode pills are gone. Parked games will reappear as they are ported.
 - **Lore is untouched but unused.** `member_profiles`, the editor and the Hub stay in place; `LORE_MODE` (default off) is the only switch that may re-enable lore prompts later. No current game reads profiles.
 
@@ -75,12 +75,12 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 
 ## Supabase Auth
 
-- **Supabase Auth replaces Clerk; there is no parallel identity provider.** The browser owns the Supabase session, REST calls carry its access token as a bearer token, and the socket handshake carries the same token. The server verifies every token with `supabase.auth.getUser`.
+- **Supabase Auth replaces Clerk; there is no parallel identity provider.** The browser owns the Supabase session, REST calls carry its access token as a bearer token, and the realtime SSE stream carries the same token. The server verifies every token with `supabase.auth.getUser`.
 - **`users.auth_user_id` is the app-side link to `auth.users.id`.** It is not a password hash or a second auth system; it exists so app rows keep stable UUIDs while auth identities can be replaced.
 - **Existing users are linked by email on first sync.** `supabase-migration-supabase-auth.sql` copies the old external id into `auth_user_id`; the first sign-in updates that row to the Supabase user id, preserving groups and stats.
-- **Page protection is client-side; data protection is server-side.** There is no auth middleware. The dashboard and group pages redirect signed-out visitors, while every REST route and socket handshake verifies the Supabase token authoritatively.
+- **Page protection is client-side; data protection is server-side.** There is no auth middleware. The dashboard and group pages redirect signed-out visitors, while every REST route and realtime stream verifies the Supabase token authoritatively.
 - **Email confirmation is disabled for the hosted project.** Sign-up returns a session immediately, so there is no confirmation-link step in the normal flow. The client still handles a no-session response instead of assuming success if another environment enables confirmation.
-- **App tables are server-only.** RLS is enabled on every app table and direct grants to `anon` and `authenticated` are revoked. The browser's anon key is only for Supabase Auth; the Express API uses the service role, which bypasses RLS.
+- **App tables are server-only.** RLS is enabled on every app table and direct grants to `anon` and `authenticated` are revoked. The browser's anon key is only for Supabase Auth; the Next.js server uses the service role, which bypasses RLS.
 
 ## Start flow
 

@@ -30,7 +30,7 @@ const eslintConfig = defineConfig([
             {
               group: ["@/server/*", "**/src/server/*"],
               message:
-                "Server-only modules must be imported from route handlers or server.mjs.",
+                "Server-only modules must be imported from route handlers or server code.",
             },
           ],
         },

@@ -2,8 +2,8 @@
 
 import { useAuth } from "@/components/AuthProvider";
 import type { RoomStatus, RoomView } from "@/stores/roomStore";
+import { createRealtimeSocket } from "@/lib/roomSocket";
 import { useEffect, useState } from "react";
-import { io } from "socket.io-client";
 
 /**
  * The TV is a spectator, not a player. It uses the signed-in Supabase token and
@@ -29,14 +29,7 @@ export function useTvRoom(sessionId: string) {
       return () => clearTimeout(timer);
     }
 
-    const socket = io({
-      autoConnect: false,
-      transports: ["websocket", "polling"],
-      reconnection: true,
-      reconnectionDelay: 500,
-      reconnectionDelayMax: 4000,
-      timeout: 10000,
-    });
+    const socket = createRealtimeSocket();
 
     const spectate = () => {
       setStatus("joining");

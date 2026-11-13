@@ -5,7 +5,6 @@ import { once } from "node:events";
 import { fileURLToPath } from "node:url";
 import { after, before, test } from "node:test";
 import { createClient } from "@supabase/supabase-js";
-import { io as createSocket } from "socket.io-client";
 
 const base = process.env.API_BASE || "http://127.0.0.1:3199";
 const supabaseUrl = process.env.SUPABASE_URL;
@@ -181,19 +180,139 @@ function waitSync(tracker, predicate = () => true, timeout = 12000, label = "roo
   });
 }
 
+class SseTestSocket {
+  constructor(token) {
+    this.token = token;
+    this.connectionId = null;
+    this.connected = false;
+    this.listeners = new Map();
+    this.abort = null;
+    this.ready = null;
+  }
+
+  on(event, handler) {
+    const set = this.listeners.get(event) || new Set();
+    set.add(handler);
+    this.listeners.set(event, set);
+    return this;
+  }
+
+  once(event, handler) {
+    const wrapped = (payload) => {
+      this.off(event, wrapped);
+      handler(payload);
+    };
+    return this.on(event, wrapped);
+  }
+
+  off(event, handler) {
+    if (!handler) this.listeners.delete(event);
+    else this.listeners.get(event)?.delete(handler);
+    return this;
+  }
+
+  dispatch(event, payload) {
+    for (const handler of this.listeners.get(event) || []) handler(payload);
+  }
+
+  async connect() {
+    this.abort = new AbortController();
+    this.ready = new Promise((resolve, reject) => {
+      this.once("realtime:ready", resolve);
+      this.once("connect_error", reject);
+    });
+    const response = await fetch(`${base}/api/realtime/stream`, {
+      headers: { Authorization: `Bearer ${this.token}` },
+      signal: this.abort.signal,
+    });
+    if (!response.ok || !response.body) {
+      const payload = await response.json().catch(() => null);
+      throw Object.assign(new Error(payload?.error?.message || "connect failed"), {
+        data: payload?.error,
+      });
+    }
+    void this.read(response.body);
+    await this.ready;
+  }
+
+  async read(body) {
+    const reader = body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+    try {
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        let boundary = buffer.indexOf("\n\n");
+        while (boundary !== -1) {
+          const block = buffer.slice(0, boundary);
+          buffer = buffer.slice(boundary + 2);
+          this.handle(block);
+          boundary = buffer.indexOf("\n\n");
+        }
+      }
+    } catch {
+      // The test closes the stream during cleanup.
+    }
+  }
+
+  handle(block) {
+    let event = "message";
+    const data = [];
+    for (const line of block.split("\n")) {
+      if (line.startsWith("event:")) event = line.slice(6).trim();
+      if (line.startsWith("data:")) data.push(line.slice(5).trimStart());
+    }
+    if (!data.length) return;
+    let payload;
+    try {
+      payload = JSON.parse(data.join("\n"));
+    } catch {
+      return;
+    }
+    if (event === "realtime:ready") {
+      this.connectionId = payload.connectionId;
+      this.connected = true;
+      this.dispatch("connect", undefined);
+      this.dispatch("realtime:ready", payload);
+      return;
+    }
+    this.dispatch(event, payload);
+  }
+
+  emit(event, payload = {}) {
+    void fetch(`${base}/api/realtime/action`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${this.token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        connectionId: this.connectionId,
+        event,
+        payload,
+      }),
+    }).then(async (response) => {
+      if (!response.ok) {
+        const body = await response.json().catch(() => null);
+        this.dispatch("room:error", body?.error || { code: "request_failed" });
+      }
+    });
+    return this;
+  }
+
+  disconnect() {
+    this.connected = false;
+    this.abort?.abort();
+  }
+}
+
 async function connectSocket(account) {
-  const socket = createSocket(base, {
-    transports: ["websocket"],
-    reconnection: false,
-    forceNew: true,
-    auth: { token: account.token },
-  });
+  const socket = new SseTestSocket(account.token);
   sockets.push(socket);
   const hello = waitFor(socket, "room:hello");
-  await new Promise((resolve, reject) => {
-    socket.once("connect", resolve);
-    socket.once("connect_error", reject);
-  });
+  await socket.connect();
   return {
     socket,
     tracker: trackRoom(socket),
@@ -270,7 +389,10 @@ function emitGame(client, type, data = {}) {
 before(async () => {
   if (!configured) return;
 
-  server = spawn(process.execPath, ["server.mjs"], {
+  server = spawn(
+    process.execPath,
+    ["node_modules/next/dist/bin/next", "start", "-p", "3199"],
+    {
     cwd: fileURLToPath(new URL("..", import.meta.url)),
     env: {
       ...process.env,
@@ -280,7 +402,8 @@ before(async () => {
     },
     stdio: ["ignore", "pipe", "pipe"],
     windowsHide: true,
-  });
+    },
+  );
   server.stdout.on("data", (chunk) => remember("stdout", chunk));
   server.stderr.on("data", (chunk) => remember("stderr", chunk));
 

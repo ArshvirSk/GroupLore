@@ -1,5 +1,5 @@
 [Unit]
-Description=GroupLore Next.js and Socket.io server
+Description=GroupLore Next.js server
 After=network-online.target
 Wants=network-online.target
 
@@ -9,7 +9,7 @@ User=grouplore
 Group=grouplore
 WorkingDirectory=/srv/grouplore/current/client
 EnvironmentFile=/etc/grouplore.env
-ExecStart=/usr/bin/node server.mjs
+ExecStart=/usr/bin/npm start
 Restart=always
 RestartSec=5
 KillSignal=SIGTERM

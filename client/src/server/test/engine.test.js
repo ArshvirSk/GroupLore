@@ -1,9 +1,6 @@
 import assert from "node:assert/strict";
 import { randomUUID } from "node:crypto";
-import { createServer } from "node:http";
 import { after, test } from "node:test";
-import { Server } from "socket.io";
-import { io as createClient } from "socket.io-client";
 import { GameEngine } from "../engine/engine.js";
 import { createIdentityResolver } from "../engine/auth.js";
 
@@ -34,10 +31,7 @@ const persistence = {
   },
 };
 
-const httpServer = createServer();
-const ioServer = new Server(httpServer);
 const engine = new GameEngine({
-  io: ioServer,
   resolveIdentity: createIdentityResolver({
     verifyAccessToken: async (token) => tokenUsers.get(token) || null,
     allowGuests: true,
@@ -51,10 +45,7 @@ const engine = new GameEngine({
   loadSession: async (sessionId) => sessions.get(sessionId) || null,
   persistence,
   disconnectGraceMs: 500,
-}).attach();
-
-await new Promise((resolve) => httpServer.listen(0, resolve));
-const port = httpServer.address().port;
+});
 
 function makeSession() {
   const id = randomUUID();
@@ -114,19 +105,68 @@ async function makeClient(name, existingToken) {
       user_metadata: { display_name: name },
     });
   }
-  const socket = createClient(`http://localhost:${port}`, {
-    transports: ["websocket"],
-    reconnection: false,
-    forceNew: true,
-    auth: { token, displayName: name },
+  const identity = await engine.resolveIdentity({
+    handshake: { auth: { token, displayName: name } },
   });
-  sockets.push(socket);
-  const tracker = makeTracker(socket);
-  await new Promise((resolve, reject) => {
-    socket.once("connect", resolve);
-    socket.once("connect_error", reject);
-  });
-  return { name, socket, tracker, token };
+  const listeners = new Map();
+  const clientSocket = {
+    id: null,
+    connected: true,
+    on(event, handler) {
+      const set = listeners.get(event) || new Set();
+      set.add(handler);
+      listeners.set(event, set);
+      return clientSocket;
+    },
+    once(event, handler) {
+      const wrapped = (payload) => {
+        clientSocket.off(event, wrapped);
+        handler(payload);
+      };
+      return clientSocket.on(event, wrapped);
+    },
+    off(event, handler) {
+      if (!handler) listeners.delete(event);
+      else listeners.get(event)?.delete(handler);
+      return clientSocket;
+    },
+    emit(event, payload) {
+      connection.receive(event, payload);
+      return clientSocket;
+    },
+    disconnect() {
+      if (!clientSocket.connected) return;
+      clientSocket.connected = false;
+      connection.connected = false;
+      engine.disconnect(connection);
+    },
+  };
+  const connection = {
+    id: randomUUID(),
+    connected: true,
+    data: { identity },
+    handlers: new Map(),
+    on(event, handler) {
+      connection.handlers.set(event, handler);
+    },
+    receive(event, payload) {
+      const handler = connection.handlers.get(event);
+      if (!handler) return;
+      handler(payload);
+    },
+    emit(event, payload) {
+      for (const handler of listeners.get(event) || []) handler(payload);
+    },
+    close() {
+      connection.connected = false;
+      clientSocket.connected = false;
+    },
+  };
+  clientSocket.id = connection.id;
+  sockets.push(clientSocket);
+  engine.connect(connection);
+  const tracker = makeTracker(clientSocket);
+  return { name, socket: clientSocket, tracker, token };
 }
 
 async function spectate(client, sessionId) {
@@ -212,45 +252,25 @@ async function startStub(sessionId, mode, count) {
 after(async () => {
   for (const socket of sockets) socket.disconnect();
   engine.close();
-  ioServer.close();
-  await new Promise((resolve) => httpServer.close(resolve));
 });
 
 test("a Supabase access token resolves to the verified auth identity", async () => {
   const sessionId = makeSession();
-  const socket = createClient(`http://localhost:${port}`, {
-    transports: ["websocket"],
-    reconnection: false,
-    forceNew: true,
-    auth: { token: "supabase-test-token", displayName: "Spoofed Name" },
-  });
-  sockets.push(socket);
-  await new Promise((resolve, reject) => {
-    socket.once("connect", resolve);
-    socket.once("connect_error", reject);
-  });
-
-  const tracker = makeTracker(socket);
-  const joined = await join({ socket, tracker }, sessionId);
+  const client = await makeClient("Spoofed Name", "supabase-test-token");
+  const joined = await join(client, sessionId);
   const player = joined.view.players.find(
     (entry) => entry.id === joined.playerId,
   );
 
   assert.equal(player.name, "Ada Lovelace");
-  socket.disconnect();
+  client.socket.disconnect();
 });
 
-test("rejects a socket without a valid credential", async () => {
-  const socket = createClient(`http://localhost:${port}`, {
-    transports: ["websocket"],
-    reconnection: false,
-    forceNew: true,
-    auth: {},
-  });
-  sockets.push(socket);
-  const error = await waitFor(socket, "connect_error", () => true, 2000);
-  assert.equal(error.data?.code, "unauthorized");
-  socket.disconnect();
+test("rejects a connection without a valid credential", async () => {
+  await assert.rejects(
+    () => engine.resolveIdentity({ handshake: { auth: {} } }),
+    (error) => error.code === "unauthorized",
+  );
 });
 
 test("host starts, host-only end, idempotent answers and results", async () => {

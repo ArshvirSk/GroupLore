@@ -183,7 +183,7 @@ Other success bodies reference the existing database row shape for `member_profi
 - [x] Keep the Supabase service-role client server-only.
 - [x] Move in-process rate limiting to a single process-scoped store. Multi-instance deployments still need Redis/Upstash.
 - [x] Move the in-memory nudge map to a process singleton (`globalThis`) or a durable store. Nudges remain intentionally ephemeral and are lost on restart.
-- [x] Do not couple REST handlers to the in-memory game engine. `POST /api/lobbies/[id]/start` only creates the database session; the socket host starts the engine with a normal room action.
+- [x] Do not couple REST handlers to the in-memory game engine. `POST /api/lobbies/[id]/start` only creates the database session; the realtime host starts the engine with a normal room action.
 - [x] Preserve the current kick behavior: REST deletes the lobby player row only; it does not emit a socket kick event.
 - [x] Add contract tests that assert status, error code, and response keys, not only the happy path.
 
@@ -381,7 +381,7 @@ All lobby routes run `requireUser` at the router level.
 - **Input:** dynamic `id`; body `{ userId: string }`
 - **Success:** `200 { success: true }`
 - **Errors:** 400 `user_required`; 400 `cannot_kick_self`; 404 `lobby_not_found`; 403 `host_only`; 500
-- **Tests:** host kicks target; self 400; non-host 403; missing user id 400; last player closes lobby; REST does not emit a socket kick event, preserving current behavior.
+- **Tests:** host kicks target; self 400; non-host 403; missing user id 400; last player closes lobby; REST does not emit a realtime kick event, preserving current behavior.
 
 #### [x] L07 — `POST /api/lobbies/[id]/start`
 
@@ -541,9 +541,9 @@ For group, lobby, and session resources:
 
 Although these are REST routes, verify the surrounding flow after migration:
 
-- Create group → open lobby → join by code → start session via REST → socket room loads that session.
-- Kick via REST removes the lobby player; the socket engine behavior remains unchanged.
-- TV spectator uses the socket path, not a new REST endpoint.
+- Create group → open lobby → join by code → start session via REST → realtime room loads that session.
+- Kick via REST removes the lobby player; the realtime engine behavior remains unchanged.
+- TV spectator uses the SSE path, not a new REST endpoint.
 - Host transfer and last-player close match current helper behavior.
 
 ### 5. In-memory state tests
@@ -560,9 +560,9 @@ Although these are REST routes, verify the surrounding flow after migration:
 - [x] All auth/membership error codes match the table above.
 - [x] No client code references `localhost:3001`, `NEXT_PUBLIC_SERVER_URL`, or CORS.
 - [x] `server/` can be deleted without breaking the client build.
-- [x] REST contract tests and the multi-client socket test pass against the configured Supabase project.
-- [x] A production custom Next server serves the app, API, and Socket.io on one origin.
+- [x] REST contract tests and the multi-client realtime test pass against the configured Supabase project.
+- [x] A production Next.js process serves the app, API, and SSE realtime stream on one origin.
 - [x] Secret scan confirms the service-role key is not present in the client bundle.
 - [x] Every public game module has an initialization/view smoke test.
 - [x] The live suite covers `room:hello`, `room:sync-request`, `room:leave`, reconnect, and host transfer against the production server.
-- [x] Deployment, reverse-proxy WebSocket, and rollback procedures are documented in `docs/DEPLOYMENT.md`.
+- [x] Deployment, reverse-proxy SSE, and rollback procedures are documented in `docs/DEPLOYMENT.md`.

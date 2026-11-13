@@ -12,12 +12,11 @@ Inside jokes, embarrassing habits, iconic moments — turned into multiplayer ch
 GroupLore/
 ├── client/                 # Next.js (App Router)
 │   ├── src/app/           # Landing, dashboard, group, lobby, game, guest
-│   ├── src/app/api/       # REST route handlers
+│   ├── src/app/api/       # REST + SSE realtime route handlers
 │   ├── src/components/    # Shared UI + game screens
 │   ├── src/stores/        # Zustand auth and room stores
-│   ├── src/lib/           # Supabase, API, socket, lobby helpers
-│   ├── src/server/        # Engine, games, data, and server libraries
-│   └── server.mjs         # Next + Socket.io single Node process
+│   ├── src/lib/           # Supabase, API, realtime, lobby helpers
+│   └── src/server/        # Engine, games, data, and server libraries
 └── supabase-*.sql         # Base schema + ordered migrations
 ```
 
@@ -26,10 +25,10 @@ GroupLore/
 | Layer     | Technology                                          |
 | --------- | --------------------------------------------------- |
 | Frontend  | Next.js 16, Tailwind CSS v4, Framer Motion, Zustand |
-| Backend   | Next.js route handlers + custom Node/Socket.io server |
+| Backend   | Next.js route handlers + process-wide game engine |
 | Database  | Supabase (PostgreSQL)                               |
 | Auth      | Supabase Auth (email/password + anonymous guests)   |
-| Real-time | Socket.io (WebSockets)                              |
+| Real-time | Server-Sent Events + authenticated POST actions     |
 
 ## Games
 
@@ -71,12 +70,12 @@ Session  one run     game id, mode, results, belongs to a lobby
 ```
 
 - Every player has a Supabase auth uid. Guests use `signInAnonymously` and are identified by `is_anonymous`; there is no custom guest token or separate guest player id.
-- `profiles.id` is the auth uid. `groups.owner_id`, `group_members.user_id`, `lobbies.host_id`, `lobby_players.user_id`, `game_sessions.lobby_id` and socket player ids all use the same uid.
+- `profiles.id` is the auth uid. `groups.owner_id`, `group_members.user_id`, `lobbies.host_id`, `lobby_players.user_id`, `game_sessions.lobby_id` and realtime player ids all use the same uid.
 - Guests may join an open lobby but cannot create groups, quick-play lobbies, or group lobbies. Joining by code creates a `lobby_players` row only; it never adds a `group_members` row.
 - Any member may open or reopen a group lobby. Opening returns the existing open lobby if one exists. Quick play creates a lobby with `group_id NULL`.
 - The creator is the lobby host. Only the host starts or kicks. A host who leaves or disconnects past 30 seconds transfers host to the longest-connected remaining player. An empty lobby closes and its code becomes reusable.
-- A game session is created by `POST /api/lobbies/:id/start`; the socket room then seats `lobby_players` and the host starts the engine automatically once everyone is connected.
-- Supabase Auth owns guest policy in the dashboard. The app server enforces `ALLOW_GUESTS=false` by rejecting anonymous tokens on both HTTP and Socket.io.
+- A game session is created by `POST /api/lobbies/:id/start`; the realtime room then seats `lobby_players` and the host starts the engine automatically once everyone is connected.
+- Supabase Auth owns guest policy in the dashboard. The app server enforces `ALLOW_GUESTS=false` by rejecting anonymous tokens on both HTTP and realtime SSE.
 
 ### Join flow
 
@@ -134,8 +133,9 @@ npm install
 npm run dev
 ```
 
-This starts Next.js and Socket.io together on http://localhost:3000. The app
-requires a persistent Node process; it cannot run as a serverless function.
+This starts Next.js on http://localhost:3000. Realtime uses SSE plus POST
+actions inside the same Next.js process. The app requires a persistent Node
+process; it cannot run as a serverless function.
 
 Production:
 
@@ -145,7 +145,7 @@ npm run build
 npm start
 ```
 
-See `docs/DEPLOYMENT.md` for the systemd unit, nginx WebSocket proxy, health
+See `docs/DEPLOYMENT.md` for the systemd unit, nginx SSE proxy, health
 checks, and rollback runbook.
 
 ### 4. Tests
@@ -160,7 +160,7 @@ npm run test:api
 `test:server` covers the engine, games, auth policy, and schema. `check:api`
 checks a running server. `test:api` starts an isolated server, creates temporary
 Supabase users, exercises the REST contract and auth rules, and runs a real
-multi-client game over Socket.io. CI runs lint, `test:server`, and the production
+multi-client game over SSE. CI runs lint, `test:server`, and the production
 build; `test:api` needs live Supabase credentials and is intended for local or
 staging runs.
 

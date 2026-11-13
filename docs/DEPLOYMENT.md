@@ -1,10 +1,13 @@
 # Deployment
 
-GroupLore is one long-lived Node process serving the Next.js app, the REST
-routes, and Socket.io on the same origin. It cannot run as a serverless
-function, and live rooms, nudge queues, and join limits are process-local.
-Run exactly one application instance unless those stores and the Socket.io
-adapter are replaced with shared infrastructure.
+GroupLore runs as one long-lived Next.js process. Next.js serves the pages,
+the REST API, and the realtime layer: Server-Sent Events for server-to-client
+updates and authenticated POST requests for client actions. There is no custom
+Node entrypoint and no Socket.io server.
+
+This design requires a persistent Node process. It cannot run as serverless
+functions, and live rooms, timers, nudge queues, and join limits are
+process-local. Run exactly one application instance.
 
 ## Requirements
 
@@ -23,11 +26,11 @@ configuration.
 cd client
 npm ci
 npm run build
-NODE_ENV=production PORT=3000 node server.mjs
+NODE_ENV=production PORT=3000 npm start
 ```
 
-The process must receive `SIGTERM` for graceful shutdown. `server.mjs` closes
-the HTTP server and Socket.io before exiting.
+`npm start` runs `next start`. The process must stay alive for SSE connections
+and game timers.
 
 Health check:
 
@@ -40,12 +43,13 @@ The production check suite expects `client/.env.local`:
 ```bash
 cd client
 npm run test:server
+npm run build
 npm run test:api
 npm run check:api
 ```
 
-`test:api` starts its own server on `127.0.0.1:3199` and uses real Supabase
-test accounts, cleaning them up afterward.
+`test:api` starts its own `next start` server on `127.0.0.1:3199` and uses real
+Supabase test accounts, cleaning them up afterward.
 
 ## systemd
 
@@ -63,35 +67,37 @@ sudo systemctl status grouplore
 The unit assumes a release symlink at `/srv/grouplore/current` and a
 `grouplore` user. Adjust `WorkingDirectory` if your layout differs.
 
-## Reverse proxy and WebSocket upgrade
+## Reverse proxy
 
-Use `deploy/nginx.conf` as the nginx template. The `/socket.io/` location must
-forward:
+Use `deploy/nginx.conf` as the nginx template. The SSE route needs:
 
-- `Upgrade: websocket`
-- `Connection: upgrade`
+- `proxy_http_version 1.1`
+- `proxy_buffering off`
+- `proxy_cache off`
+- a read timeout longer than a game session
 - `Host`, `X-Real-IP`, `X-Forwarded-For`, and `X-Forwarded-Proto`
-- a read timeout longer than the engine's idle period
 
 Verify the deployed proxy with a real browser session:
 
 1. Open a lobby in one browser and a second player in another.
 2. Confirm both receive live lobby updates.
-3. Start a game and confirm socket actions and sync events continue through
-   the proxy, not just the initial HTTP load.
+3. Start a game and confirm actions and sync events continue through the
+   proxy, not just the initial HTTP load.
 4. Open the TV spectator view and confirm it receives live game state.
-5. Check the browser network panel: the Socket.io connection must be
-   `101 Switching Protocols`, not repeated polling failures.
+5. Check the browser network panel: `/api/realtime/stream` must remain an open
+   `text/event-stream` response, not a buffered or repeatedly failing request.
 
-Do not test only `GET /`; the HTTP page can load while `/socket.io/` is broken.
+Do not test only `GET /`; the page can load while the SSE route is buffered or
+blocked.
 
 ## Single-instance and restart behavior
 
 - Live room state is in memory. A restart loses active rooms; clients must
   rejoin from the persisted session/lobby.
+- SSE connections are held by the same process that owns the engine.
 - Rate limits and nudges are process-local.
-- Do not run multiple Node processes behind a load balancer without a shared
-  Socket.io adapter and shared room/rate-limit state.
+- Do not run multiple Node processes behind a load balancer. There is no
+  shared room state or cross-process broadcast.
 
 ## Guest accounts
 
@@ -131,11 +137,9 @@ Rollback steps:
 
 1. Point `current` back to the previous release.
 2. Run `sudo systemctl restart grouplore`.
-3. Confirm `/api/health` and a real two-player Socket.io flow.
+3. Confirm `/api/health` and a real two-player SSE game flow.
 4. Do not roll back database migrations blindly; restore a Supabase backup or
    apply a reviewed down migration if the schema change is incompatible.
 
-The retired Express server is not part of the running deployment. A full
-pre-migration rollback requires restoring commit `de0596f^` in a separate
-checkout and reconfiguring its old port and client URL; normal rollback is to
-the previous Next.js release.
+Normal rollback is to the previous Next.js release. The retired Express and
+Socket.io servers are not part of the running deployment.
