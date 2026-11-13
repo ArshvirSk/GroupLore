@@ -30,7 +30,7 @@ type AuthContextValue = {
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
-const PROTECTED_PREFIXES = ["/dashboard", "/group"];
+const PROTECTED_PREFIXES = ["/dashboard", "/group", "/games", "/leaderboard", "/activity"];
 
 function nameFor(user: User | null): string {
   if (!user) return "Player";
