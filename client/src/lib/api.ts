@@ -1,5 +1,3 @@
-const API_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3001";
-
 let getTokenFn: (() => Promise<string | null>) | null = null;
 
 export function setAuthTokenGetter(fn: () => Promise<string | null>) {
@@ -37,7 +35,7 @@ function messageFrom(body: unknown, fallback: string) {
 
 async function apiRequest(path: string, options: RequestInit = {}) {
   const token = getTokenFn ? await getTokenFn() : null;
-  const res = await fetch(`${API_URL}${path}`, {
+  const res = await fetch(path, {
     headers: {
       "Content-Type": "application/json",
       ...(token ? { Authorization: `Bearer ${token}` } : {}),

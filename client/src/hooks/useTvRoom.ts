@@ -5,9 +5,6 @@ import type { RoomStatus, RoomView } from "@/stores/roomStore";
 import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
-const SERVER_URL =
-  process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3001";
-
 /**
  * The TV is a spectator, not a player. It uses the signed-in Supabase token and
  * never takes a seat. The viewer must already be a member of the room.
@@ -32,7 +29,7 @@ export function useTvRoom(sessionId: string) {
       return () => clearTimeout(timer);
     }
 
-    const socket = io(SERVER_URL, {
+    const socket = io({
       autoConnect: false,
       transports: ["websocket", "polling"],
       reconnection: true,

@@ -2,9 +2,6 @@
 
 import { io, Socket } from "socket.io-client";
 
-const SERVER_URL =
-  process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3001";
-
 export type RoomAuth = {
   token: string | null;
   displayName?: string;
@@ -21,7 +18,7 @@ export function setRoomAuthFactory(factory: () => Promise<RoomAuth>) {
 
 export function getRoomSocket(): Socket {
   if (!socket) {
-    socket = io(SERVER_URL, {
+    socket = io({
       autoConnect: false,
       transports: ["websocket", "polling"],
       reconnection: true,
