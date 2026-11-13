@@ -1,6 +1,8 @@
 "use client";
 
+import AppShell from "@/components/AppShell";
 import ConnectionBanner from "@/components/game/ConnectionBanner";
+import { EmojiIcon, Icon } from "@/components/ui/Icon";
 import { TimerBar } from "@/components/ui";
 import type { RoomStatus } from "@/stores/roomStore";
 import { motion, useReducedMotion } from "framer-motion";
@@ -33,13 +35,13 @@ export default function GameShell({
   const reduced = useReducedMotion();
 
   return (
-    <main className="game-route min-h-screen bg-bg">
-      <div className="mx-auto flex min-h-screen max-w-4xl flex-col px-4 pb-10 pt-5 sm:px-6">
-        <header className="rounded-[20px] border border-border bg-surface px-4 py-3 shadow-soft">
+    <AppShell active="games" contentClassName="game-route">
+      <div className="mx-auto flex min-h-[calc(100vh-140px)] max-w-5xl flex-col pb-4">
+        <header className="rounded-[18px] border border-border bg-surface px-3 py-3 shadow-soft sm:px-4">
           <div className="flex items-center justify-between gap-3">
             <div className="flex min-w-0 items-center gap-3">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[12px] bg-primary-soft text-xl" aria-hidden>
-                {emoji || "🎲"}
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ink/15 bg-primary text-primary-ink" aria-hidden>
+                <EmojiIcon value={emoji} className="h-5 w-5" />
               </span>
               <div className="min-w-0">
                 <p className="text-xs font-medium text-muted">
@@ -58,7 +60,7 @@ export default function GameShell({
                 onClick={onExit}
                 className="min-h-11 rounded-full px-3 text-sm font-medium text-muted transition-colors hover:bg-surface-2 hover:text-ink"
               >
-                {exitLabel}
+                <Icon name="close" className="mr-1.5 inline h-4 w-4" /> {exitLabel}
               </button>
             ) : null}
           </div>
@@ -84,6 +86,6 @@ export default function GameShell({
           </motion.div>
         )}
       </div>
-    </main>
+    </AppShell>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import AvatarBubble from "@/components/game/AvatarBubble";
+import { Icon } from "@/components/ui/Icon";
 import { motion, useReducedMotion } from "framer-motion";
 
 export type LeaderboardEntry = {
@@ -10,7 +11,6 @@ export type LeaderboardEntry = {
   isWinner?: boolean;
 };
 
-const MEDALS = ["🥇", "🥈", "🥉"];
 
 export default function Leaderboard({
   entries,
@@ -33,8 +33,8 @@ export default function Leaderboard({
             entry.isWinner ? "border-honey shadow-pop" : "border-transparent shadow-soft"
           } ${entry.playerId === youId ? "ring-2 ring-grape/30" : ""}`}
         >
-          <span className="w-7 text-center font-display text-base font-semibold text-ink-soft">
-            {MEDALS[index] || index + 1}
+          <span className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold ${index === 0 ? "bg-accent text-on-accent" : index === 1 ? "bg-primary-soft text-ink" : "bg-surface-2 text-muted"}`}>
+            {index < 3 ? <Icon name="trophy" className="h-4 w-4" /> : index + 1}
           </span>
           <AvatarBubble name={entry.name} size="sm" />
           <span className="min-w-0 flex-1 truncate font-display font-semibold text-ink">

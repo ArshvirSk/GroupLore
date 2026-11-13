@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/ui/Icon";
+
 import AvatarBubble from "@/components/game/AvatarBubble";
 import type { ReactNode } from "react";
 
@@ -44,7 +46,7 @@ export default function VoteButton({
           </span>
         )}
       </span>
-      {trailing ?? (selected ? <span className="text-lg">✓</span> : null)}
+      {trailing ?? (selected ? <Icon name="check" className="h-5 w-5" /> : null)}
     </button>
   );
 }
