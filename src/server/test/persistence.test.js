@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { createSupabasePersistence } from "../engine/persistence.js";
 
-function createFakeSupabase({ failures = {} } = {}) {
+function createFakeSupabase({ failures = {}, insertFailures = {} } = {}) {
   const state = {
     game_sessions: {
       id: "session-1",
@@ -18,10 +18,22 @@ function createFakeSupabase({ failures = {} } = {}) {
     },
   };
   const attempts = { game_sessions: 0, lobbies: 0 };
+  const inserts = {};
 
   const supabase = {
     from(table) {
       return {
+        insert(row) {
+          inserts[table] = inserts[table] || [];
+          inserts[table].push(row);
+          if ((insertFailures[table] || 0) > 0) {
+            insertFailures[table] -= 1;
+            return Promise.resolve({
+              error: { message: `${table} unavailable` },
+            });
+          }
+          return Promise.resolve({ error: null });
+        },
         update(patch) {
           return {
             async eq(column, id) {
@@ -42,7 +54,7 @@ function createFakeSupabase({ failures = {} } = {}) {
     },
   };
 
-  return { supabase, state, attempts };
+  return { supabase, state, attempts, inserts };
 }
 
 function makePersistence(fake, logs) {
@@ -228,4 +240,56 @@ test("onHostChange retries a failed host update", async () => {
 
   assert.equal(fake.attempts.lobbies, 2);
   assert.equal(fake.state.lobbies.host_id, "user-2");
+});
+
+test("onReport writes the moderation record", async () => {
+  const fake = createFakeSupabase();
+  const logs = [];
+
+  const saved = await makePersistence(fake, logs).onReport({
+    sessionId: "session-1",
+    groupId: "group-1",
+    reporterUserId: "reporter-1",
+    targetUserId: "target-1",
+    reporterName: "Ada",
+    targetName: "Grace",
+    reason: "harassment",
+  });
+
+  assert.deepEqual(fake.inserts.moderation_reports, [
+    {
+      session_id: "session-1",
+      group_id: "group-1",
+      reporter_user_id: "reporter-1",
+      target_user_id: "target-1",
+      reporter_name: "Ada",
+      target_name: "Grace",
+      reason: "harassment",
+    },
+  ]);
+  assert.equal(saved, true);
+  assert.equal(logs.length, 0);
+});
+
+test("onReport returns false when the insert fails", async () => {
+  const fake = createFakeSupabase({
+    insertFailures: { moderation_reports: 1 },
+  });
+  const logs = [];
+
+  const saved = await makePersistence(fake, logs).onReport({
+    sessionId: "session-1",
+    groupId: "group-1",
+    reporterUserId: "reporter-1",
+    targetUserId: "target-1",
+    reporterName: "Ada",
+    targetName: "Grace",
+    reason: "harassment",
+  });
+
+  assert.equal(saved, false);
+  assert.equal(fake.inserts.moderation_reports.length, 1);
+  assert.ok(
+    logs.some((args) => String(args[0]).includes("moderation report failed")),
+  );
 });

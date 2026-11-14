@@ -26,6 +26,8 @@ type CatalogGame = {
   description: string;
   emoji: string;
   tag?: string;
+  rating?: "family" | "teen" | "mature";
+  nsfw?: boolean;
   minPlayers: number;
   maxPlayers: number;
   modes: CatalogMode[];
@@ -43,6 +45,12 @@ const NUMBER_WORDS: Record<string, number> = {
   nine: 9,
   ten: 10,
 };
+
+function ratingLabel(rating?: string) {
+  if (rating === "teen") return "Teen";
+  if (rating === "mature") return "18+";
+  return "Family";
+}
 
 function modeFeatures(mode: CatalogMode): { icon: IconName; label: string; value: string }[] {
   const text = `${mode.id} ${mode.label} ${mode.description}`.toLowerCase();
@@ -359,6 +367,7 @@ export default function LobbyPage() {
                     <h2 className="mt-1 truncate font-display text-xl font-bold leading-tight">{selectedGame.name}</h2>
                     <div className="mt-2 flex flex-wrap gap-1.5">
                       <Badge tone="accent">{selectedMeta.category}</Badge>
+                      <Badge>{ratingLabel(selectedGame.rating)}</Badge>
                       <Badge>{selectedGame.minPlayers}–{selectedGame.maxPlayers} players</Badge>
                     </div>
                   </div>
@@ -466,7 +475,10 @@ export default function LobbyPage() {
                 >
                   <span className="flex items-start justify-between gap-2">
                     <span className="library-mark" aria-hidden><Icon name={meta.icon} /></span>
-                    <span className="rounded-full border border-ink/15 bg-surface/60 px-2 py-1 text-[10px] font-bold">{meta.category}</span>
+                    <span className="flex flex-wrap items-center justify-end gap-1">
+                      <span className="rounded-full border border-ink/15 bg-surface/60 px-2 py-1 text-[10px] font-bold">{ratingLabel(game.rating)}</span>
+                      <span className="rounded-full border border-ink/15 bg-surface/60 px-2 py-1 text-[10px] font-bold">{meta.category}</span>
+                    </span>
                   </span>
                   <span className="mt-4 block">
                     <span className="library-name block">{game.name}</span>

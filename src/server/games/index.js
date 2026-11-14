@@ -1,4 +1,5 @@
 import acronymWars from "./acronymWars.js";
+import { contentAllowed, contentForGame } from "./content.js";
 import avoidTheAnswer from "./avoidTheAnswer.js";
 import blindSketch from "./blindSketch.js";
 import blurGuess from "./blurGuess.js";
@@ -52,7 +53,10 @@ export function getGame(id) {
 }
 
 export function listGames() {
-  return [...registry.values()].filter((module) => !module.hidden);
+  return [...registry.values()].filter(
+    (module) =>
+      !module.hidden && contentAllowed(contentForGame(module.id)),
+  );
 }
 
 registerGame(mostLikelyTo);

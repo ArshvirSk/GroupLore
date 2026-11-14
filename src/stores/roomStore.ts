@@ -35,6 +35,8 @@ export interface CatalogGame {
   emoji: string;
   accent: string;
   tag: string;
+  rating: "family" | "teen" | "mature";
+  nsfw: boolean;
   minPlayers: number;
   maxPlayers: number;
   teams?: { count: number; minPerTeam: number; allowUneven?: boolean } | null;
@@ -80,6 +82,7 @@ export interface RoomView {
     ready: boolean;
     muted: boolean;
   } | null;
+  yourReports: string[];
   scores: ScoreEntry[];
   teams: RoomTeam[];
   teamsLocked: boolean;

@@ -18,6 +18,8 @@ const persistence = {
   empties: [],
   lobbies: [],
   snapshots: [],
+  reports: [],
+  reportFailure: false,
   async onStart(payload) {
     this.starts.push(payload);
   },
@@ -32,6 +34,11 @@ const persistence = {
   },
   async onSnapshot(payload) {
     this.snapshots.push(payload);
+  },
+  async onReport(payload) {
+    if (this.reportFailure) return false;
+    this.reports.push(payload);
+    return true;
   },
 };
 
@@ -1030,4 +1037,92 @@ test("mute survives a snapshot restore", async () => {
 
   restoredEngine.close();
   for (const client of clients) client.socket.disconnect();
+});
+
+test("a player can report another player once per room", async () => {
+  const sessionId = makeSession();
+  const { clients, joined, host } = await startStub(sessionId, "classic", 2);
+  const target = clients[1];
+  const targetId = joined[0].playerId;
+
+  const before = target.tracker.latest.version;
+  target.socket.emit("room:action", {
+    action: "report",
+    data: { playerId: targetId, reason: "harassment" },
+    eventId: randomUUID(),
+  });
+  const view = await waitSync(
+    target.tracker,
+    (state) => state.version > before && state.yourReports.includes(targetId),
+  );
+  assert.deepEqual(view.yourReports, [targetId]);
+
+  const persisted = await waitUntil(() =>
+    persistence.reports.find(
+      (entry) =>
+        entry.sessionId === sessionId && entry.reporterName === target.name,
+    ),
+  );
+  assert.equal(persisted.groupId, "00000000-0000-4000-8000-000000000001");
+  assert.equal(persisted.targetName, "P1");
+  assert.equal(persisted.reason, "harassment");
+
+  const duplicate = await expectError(target, () => {
+    target.socket.emit("room:action", {
+      action: "report",
+      data: { playerId: targetId, reason: "spam" },
+      eventId: randomUUID(),
+    });
+  });
+  assert.equal(duplicate.code, "already_reported");
+
+  const self = await expectError(target, () => {
+    target.socket.emit("room:action", {
+      action: "report",
+      data: { playerId: joined[1].playerId, reason: "spam" },
+      eventId: randomUUID(),
+    });
+  });
+  assert.equal(self.code, "cannot_report_self");
+
+  const invalid = await expectError(target, () => {
+    target.socket.emit("room:action", {
+      action: "report",
+      data: { playerId: targetId, reason: "not-a-reason" },
+      eventId: randomUUID(),
+    });
+  });
+  assert.equal(invalid.code, "invalid_report_reason");
+
+  await act(host, "end");
+});
+
+test("a failed report write is not acknowledged as a report", async () => {
+  const sessionId = makeSession();
+  const { clients, joined, host } = await startStub(sessionId, "classic", 2);
+  const reporter = clients[1];
+  const targetId = joined[0].playerId;
+  const before = reporter.tracker.latest.version;
+
+  persistence.reportFailure = true;
+  try {
+    const error = await expectError(reporter, () => {
+      reporter.socket.emit("room:action", {
+        action: "report",
+        data: { playerId: targetId, reason: "harassment" },
+        eventId: randomUUID(),
+      });
+    });
+    assert.equal(error.code, "report_failed");
+    assert.equal(reporter.tracker.latest.version, before);
+    assert.deepEqual(reporter.tracker.latest.yourReports, []);
+    assert.equal(
+      persistence.reports.some((entry) => entry.sessionId === sessionId),
+      false,
+    );
+  } finally {
+    persistence.reportFailure = false;
+  }
+
+  await act(host, "end");
 });

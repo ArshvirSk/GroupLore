@@ -118,6 +118,22 @@ CREATE INDEX IF NOT EXISTS idx_activity_log_created ON activity_log(created_at D
 CREATE INDEX IF NOT EXISTS idx_activity_log_group_created ON activity_log(group_id, created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_player_stats_user ON player_stats(user_id);
 
+-- Moderation reports are written only by the server and reviewed out of band.
+CREATE TABLE IF NOT EXISTS moderation_reports (
+  id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  session_id UUID REFERENCES game_sessions(id) ON DELETE SET NULL,
+  group_id UUID REFERENCES groups(id) ON DELETE SET NULL,
+  reporter_user_id UUID,
+  target_user_id UUID,
+  reporter_name TEXT NOT NULL,
+  target_name TEXT NOT NULL,
+  reason TEXT NOT NULL CHECK (reason IN ('harassment', 'hate', 'sexual', 'spam', 'other')),
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_moderation_reports_session ON moderation_reports(session_id);
+CREATE INDEX IF NOT EXISTS idx_moderation_reports_created ON moderation_reports(created_at DESC);
+
 -- RLS: app data is server-only. The service role bypasses RLS; browser roles
 -- must not read or write these tables directly with the public anon key.
 ALTER TABLE users ENABLE ROW LEVEL SECURITY;
@@ -127,6 +143,7 @@ ALTER TABLE member_profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE game_sessions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE activity_log ENABLE ROW LEVEL SECURITY;
 ALTER TABLE player_stats ENABLE ROW LEVEL SECURITY;
+ALTER TABLE moderation_reports ENABLE ROW LEVEL SECURITY;
 
 REVOKE ALL ON ALL TABLES IN SCHEMA public FROM anon, authenticated;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public REVOKE ALL ON TABLES FROM anon, authenticated;

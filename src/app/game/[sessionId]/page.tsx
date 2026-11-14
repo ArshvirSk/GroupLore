@@ -39,6 +39,7 @@ import ImpostorGame, {
   type ImpostorView,
 } from "@/components/game/ImpostorGame";
 import Leaderboard from "@/components/game/Leaderboard";
+import ReportPlayer from "@/components/game/ReportPlayer";
 import LiarsBarGame, {
   type LiarsView,
 } from "@/components/game/LiarsBarGame";
@@ -223,6 +224,10 @@ export default function GamePage() {
             they unmute you.
           </span>
         </div>
+      ) : null}
+
+      {room.phase !== "results" ? (
+        <ReportPlayer room={room} act={act} />
       ) : null}
 
       {room.you?.isHost && room.phase !== "results" && room.players.length > 1 ? (

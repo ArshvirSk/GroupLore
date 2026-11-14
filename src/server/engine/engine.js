@@ -1,4 +1,5 @@
 import { getGame, listGames } from "../games/index.js";
+import { contentAllowed, contentForGame } from "../games/content.js";
 import { socketRateLimit } from "../lib/rateLimit.js";
 import { signReconnectToken, verifySignedToken } from "./auth.js";
 import { recordLatency } from "./primitives/latency.js";
@@ -14,6 +15,7 @@ const MAX_EVENT_ID_LENGTH = 64;
 const MAX_SEEN_EVENTS = 50;
 const TICK_MS = 15;
 const DEFAULT_RESTORE_TIMEOUT_MS = 5 * 60_000;
+const REPORT_REASONS = new Set(["harassment", "hate", "sexual", "spam", "other"]);
 
 function failure(code, message) {
   const err = new Error(message);
@@ -273,6 +275,10 @@ export class GameEngine {
 
   createRoom({ id, groupId, lobbyId, session = null }) {
     const sessionGame = session?.game_type ? getGame(session.game_type) : null;
+    const allowedSessionGame =
+      sessionGame && contentAllowed(contentForGame(sessionGame.id))
+        ? sessionGame
+        : null;
     return {
       id,
       groupId,
@@ -284,11 +290,11 @@ export class GameEngine {
       spectators: new Set(),
       hostId: null,
       phase: "lobby",
-      gameId: sessionGame?.id || null,
-      mode: sessionGame
-        ? sessionGame.modes.classic
+      gameId: allowedSessionGame?.id || null,
+      mode: allowedSessionGame
+        ? allowedSessionGame.modes.classic
           ? "classic"
-          : Object.keys(sessionGame.modes)[0]
+          : Object.keys(allowedSessionGame.modes)[0]
         : null,
       module: null,
       state: null,
@@ -305,6 +311,7 @@ export class GameEngine {
       version: 0,
       advancing: false,
       endPersisted: false,
+      reports: new Set(),
       seen: new Map(),
       createdAt: Date.now(),
     };
@@ -336,7 +343,13 @@ export class GameEngine {
     }
 
     const game = getGame(snapshot.gameId);
-    if (!game || !game.modes[snapshot.mode]) return null;
+    if (
+      !game ||
+      !game.modes[snapshot.mode] ||
+      !contentAllowed(contentForGame(game.id))
+    ) {
+      return null;
+    }
 
     const room = this.createRoom({
       id: session.id,
@@ -355,6 +368,9 @@ export class GameEngine {
       ? JSON.parse(JSON.stringify(snapshot.teams))
       : null;
     room.teamsLocked = Boolean(snapshot.teamsLocked);
+    room.reports = new Set(
+      Array.isArray(snapshot.reports) ? snapshot.reports : [],
+    );
     room.result = null;
     room.endPersisted = false;
     room.createdAt = Number(snapshot.createdAt) || Date.now();
@@ -472,6 +488,7 @@ export class GameEngine {
       scores: { ...room.scores },
       teams: room.teams ? JSON.parse(JSON.stringify(room.teams)) : null,
       teamsLocked: room.teamsLocked,
+      reports: [...room.reports],
       state: room.state ? JSON.parse(JSON.stringify(room.state)) : null,
       result: room.result ? JSON.parse(JSON.stringify(room.result)) : null,
       remainingMs: this.remainingPhaseMs(room),
@@ -852,6 +869,9 @@ export class GameEngine {
         this.inPhase(room, "lobby", "The game has already started");
         const game = getGame(String(data.gameId || ""));
         if (!game) throw failure("unknown_game", "That game does not exist");
+        if (!contentAllowed(contentForGame(game.id))) {
+          throw failure("content_blocked", "That game is not available");
+        }
         const mode = String(data.mode || "classic");
         if (!game.modes[mode]) {
           throw failure("unknown_mode", "That mode does not exist");
@@ -971,6 +991,48 @@ export class GameEngine {
         this.persistSnapshot(room, "moderation");
         return;
       }
+      case "report": {
+        const targetId = String(data.playerId || "");
+        if (targetId === player.id) {
+          throw failure("cannot_report_self", "You cannot report yourself");
+        }
+        const target = room.players.get(targetId);
+        if (!target) throw failure("player_not_found", "That player has left");
+        const reason = String(data.reason || "other");
+        if (!REPORT_REASONS.has(reason)) {
+          throw failure("invalid_report_reason", "Pick a valid report reason");
+        }
+        const reportKey = `${player.id}:${targetId}`;
+        if (room.reports.has(reportKey)) {
+          throw failure("already_reported", "You already reported that player");
+        }
+        let saved = false;
+        try {
+          saved = Boolean(
+            await this.persistence?.onReport?.({
+              sessionId: room.id,
+              groupId: room.groupId,
+              reporterUserId: player.userId || null,
+              targetUserId: target.userId || null,
+              reporterName: player.name,
+              targetName: target.name,
+              reason,
+            }),
+          );
+        } catch (err) {
+          this.logger.error("[engine] onReport failed", err);
+        }
+        if (!saved) {
+          throw failure(
+            "report_failed",
+            "Your report could not be saved. Please try again.",
+          );
+        }
+        room.reports.add(reportKey);
+        this.broadcast(room);
+        this.persistSnapshot(room, "moderation");
+        return;
+      }
       case "requestSync": {
         socket.emit("room:sync", this.view(room, player.id));
         return;
@@ -987,6 +1049,9 @@ export class GameEngine {
     if (!room.gameId) throw failure("select_game", "Select a game first");
     const game = getGame(room.gameId);
     if (!game) throw failure("unknown_game", "That game does not exist");
+    if (!contentAllowed(contentForGame(game.id))) {
+      throw failure("content_blocked", "That game is not available");
+    }
     const mode = room.mode || "classic";
     if (!game.modes[mode]) {
       throw failure("unknown_mode", "That mode does not exist");
@@ -1253,6 +1318,11 @@ export class GameEngine {
             muted: Boolean(viewer.muted),
           }
         : null,
+      yourReports: viewer
+        ? [...room.reports]
+            .filter((key) => key.startsWith(`${viewer.id}:`))
+            .map((key) => key.slice(viewer.id.length + 1))
+        : [],
       scores: players.map((player) => ({
         playerId: player.id,
         name: player.name,
@@ -1321,22 +1391,27 @@ export class GameEngine {
   }
 
   catalog() {
-    return listGames().map((game) => ({
-      id: game.id,
-      name: game.name,
-      description: game.description,
-      emoji: game.emoji || "🎮",
-      accent: game.accent || "grape",
-      tag: game.tag || "Party game",
-      minPlayers: game.minPlayers,
-      maxPlayers: game.maxPlayers,
-      teams: game.teams || null,
-      modes: Object.entries(game.modes).map(([id, config]) => ({
-        id,
-        label: config.label || id,
-        description: config.description || "",
-      })),
-    }));
+    return listGames().map((game) => {
+      const content = contentForGame(game.id);
+      return {
+        id: game.id,
+        name: game.name,
+        description: game.description,
+        emoji: game.emoji || "🎮",
+        accent: game.accent || "grape",
+        tag: game.tag || "Party game",
+        rating: content.rating,
+        nsfw: content.nsfw,
+        minPlayers: game.minPlayers,
+        maxPlayers: game.maxPlayers,
+        teams: game.teams || null,
+        modes: Object.entries(game.modes).map(([id, config]) => ({
+          id,
+          label: config.label || id,
+          description: config.description || "",
+        })),
+      };
+    });
   }
 
   broadcast(room) {

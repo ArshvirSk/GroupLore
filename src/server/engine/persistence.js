@@ -235,5 +235,30 @@ export function createSupabasePersistence({
         "lobby host update",
       );
     },
+
+    async onReport(payload) {
+      try {
+        const { error } = await supabase.from("moderation_reports").insert({
+          session_id: payload.sessionId || null,
+          group_id: payload.groupId || null,
+          reporter_user_id: payload.reporterUserId || null,
+          target_user_id: payload.targetUserId || null,
+          reporter_name: payload.reporterName,
+          target_name: payload.targetName,
+          reason: payload.reason,
+        });
+        if (error) {
+          logger.error(
+            "[persistence] moderation report failed",
+            error.message || error,
+          );
+          return false;
+        }
+        return true;
+      } catch (err) {
+        logger.error("[persistence] moderation report failed", err.message);
+        return false;
+      }
+    },
   };
 }
