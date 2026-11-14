@@ -5,8 +5,19 @@ import { createSupabasePersistence } from "../engine/persistence.js";
 import { incrementStats, logActivity } from "../lib/activity.js";
 import { guestsAllowed } from "../lib/guestAccess.js";
 import { findOpenSessionForUser } from "../lib/lobby.js";
+import { loadApprovedLorePack } from "../lib/lore.js";
 import { authorizeLobbyPlayer } from "../lib/membership.js";
 import { supabase } from "../lib/supabase.js";
+import { loreModeEnabled } from "../lib/features.js";
+
+async function withLorePack(session) {
+  if (!session?.lobbies?.group_id || !loreModeEnabled()) return session;
+  const lorePack = await loadApprovedLorePack(
+    supabase,
+    session.lobbies.group_id,
+  );
+  return { ...session, lorePack };
+}
 
 const globalStore = globalThis;
 
@@ -43,7 +54,7 @@ export function getEngine() {
         )
         .eq("id", sessionId)
         .maybeSingle();
-      return data || null;
+      return withLorePack(data || null);
     },
     restoreOneSession: async () => {
       const { data, error } = await supabase
@@ -58,7 +69,7 @@ export function getEngine() {
         .limit(1)
         .maybeSingle();
       if (error) return null;
-      return data || null;
+      return withLorePack(data || null);
     },
     findOpenSession: (connection) =>
       findOpenSessionForUser(connection.data.identity?.authUserId),

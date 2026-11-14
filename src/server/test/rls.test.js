@@ -12,12 +12,22 @@ const tables = [
   "activity_log",
   "player_stats",
   "moderation_reports",
+  "session_recaps",
+  "player_game_ratings",
+  "player_rivalries",
+  "group_achievements",
+  "lore_packs",
 ];
 
 test("migration enables RLS and revokes browser roles for every app table", async () => {
   const sql = (
     await Promise.all(
-      ["auth-rls", "auth-lobbies", "moderation-reports"].map((name) =>
+      [
+        "auth-rls",
+        "auth-lobbies",
+        "moderation-reports",
+        "recap-progression-lore",
+      ].map((name) =>
         readFile(
           new URL(`../../../supabase/migrations/supabase-migration-${name}.sql`, import.meta.url),
           "utf8",
@@ -49,8 +59,17 @@ test(
       });
       // The hosted test project may not have the new moderation migration
       // yet. A 404 means the table is absent, so it is still not readable.
-      const unreadableStatuses =
-        table === "moderation_reports" ? [401, 403, 404] : [401, 403];
+      const pendingTables = new Set([
+        "moderation_reports",
+        "session_recaps",
+        "player_game_ratings",
+        "player_rivalries",
+        "group_achievements",
+        "lore_packs",
+      ]);
+      const unreadableStatuses = pendingTables.has(table)
+        ? [401, 403, 404]
+        : [401, 403];
       assert.ok(
         unreadableStatuses.includes(res.status),
         `${table} exposed to anon (HTTP ${res.status})`,

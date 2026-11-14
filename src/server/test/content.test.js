@@ -45,4 +45,6 @@ test("nsfw banks are excluded unless explicitly enabled", () => {
   assert.equal(contentAllowed(nsfw, {}), false);
   assert.equal(contentAllowed(nsfw, { ALLOW_NSFW_CONTENT: "true" }), true);
   assert.equal(contentAllowed(family, {}), true);
+  assert.equal(contentAllowed({ rating: "teen", nsfw: false }, { MAX_CONTENT_RATING: "family" }), false);
+  assert.equal(contentAllowed({ rating: "teen", nsfw: false }, { MAX_CONTENT_RATING: "teen" }), true);
 });

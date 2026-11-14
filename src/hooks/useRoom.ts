@@ -189,6 +189,9 @@ export function useRoom(sessionId: string) {
   ]);
 
   const act = useCallback((action: string, data: Record<string, unknown> = {}) => {
+    if (typeof navigator !== "undefined" && "vibrate" in navigator) {
+      navigator.vibrate(8);
+    }
     getRoomSocket().emit("room:action", {
       action,
       data,
@@ -197,6 +200,9 @@ export function useRoom(sessionId: string) {
   }, []);
 
   const send = useCallback((type: string, data: Record<string, unknown> = {}) => {
+    if (typeof navigator !== "undefined" && "vibrate" in navigator) {
+      navigator.vibrate(8);
+    }
     getRoomSocket().emit("game:event", {
       type,
       ...data,

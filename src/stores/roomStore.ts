@@ -59,6 +59,7 @@ export interface ScoreEntry {
 
 export interface RoomResult {
   reason: string;
+  shareId: string | null;
   ranking: (ScoreEntry & { isWinner: boolean })[];
 }
 

@@ -1,3 +1,5 @@
+import { recordProgression } from "../lib/progression.js";
+
 /**
  * Persistence adapter for the engine.
  *
@@ -116,7 +118,7 @@ export function createSupabasePersistence({
       });
     },
 
-    async onEnd({ room, sessionId, groupId, gameId, mode, ranking, scores, reason }) {
+    async onEnd({ room, sessionId, groupId, gameId, mode, ranking, scores, reason, recap }) {
       await writeWithRetry(
         "game_sessions",
         sessionId,
@@ -135,6 +137,30 @@ export function createSupabasePersistence({
       const winners = ranking.filter(
         (entry) => entry.score === ranking[0]?.score && entry.score > 0,
       );
+
+      if (recap?.shareId) {
+        try {
+          const { error } = await supabase.from("session_recaps").insert({
+            session_id: sessionId,
+            group_id: groupId || null,
+            game_type: gameId,
+            mode: mode || null,
+            winner_name: recap.winnerName || null,
+            winner_names: recap.winnerNames || [],
+            highlights: recap.highlights || [],
+            scores: recap.scores || [],
+            share_id: recap.shareId,
+          });
+          if (error) {
+            logger.error(
+              "[persistence] recap insert failed",
+              error.message || error,
+            );
+          }
+        } catch (err) {
+          logger.error("[persistence] recap insert failed", err.message);
+        }
+      }
 
       if (groupId) {
         await logActivity({
@@ -164,6 +190,20 @@ export function createSupabasePersistence({
         );
       }
       await Promise.allSettled(tasks);
+
+      if (groupId) {
+        try {
+          await recordProgression({
+            supabase,
+            groupId,
+            gameId,
+            ranking,
+            players: room.players,
+          });
+        } catch (err) {
+          logger.error("[persistence] progression update failed", err.message);
+        }
+      }
     },
 
     async onEmpty({ room }) {

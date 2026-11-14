@@ -1,5 +1,6 @@
 -- Migration: store player reports for moderation review.
 -- Run this in the Supabase SQL editor before deploying the reporting flow.
+-- Idempotent; safe to re-run.
 
 BEGIN;
 

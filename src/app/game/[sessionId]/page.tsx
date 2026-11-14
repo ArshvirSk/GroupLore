@@ -70,6 +70,8 @@ import WouldYouRatherGame, {
   type WouldYouRatherView,
 } from "@/components/game/WouldYouRatherGame";
 import { useRoom } from "@/hooks/useRoom";
+import { useWakeLock } from "@/hooks/useWakeLock";
+import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
@@ -82,6 +84,7 @@ export default function GamePage() {
   const autoStartRef = useRef(false);
   const { room, status, error, kicked, act, send, leave, clearError } =
     useRoom(sessionId);
+  useWakeLock(Boolean(room && room.phase === "playing" && !kicked));
 
   const groupId = room?.groupId || "";
   const exitPath = isSignedIn
@@ -239,26 +242,39 @@ export default function GamePage() {
             {room.players
               .filter((player) => !player.isHost)
               .map((player) => (
-                <button
-                  key={player.id}
-                  type="button"
-                  onClick={() =>
-                    act("mute", { playerId: player.id, muted: !player.muted })
-                  }
-                  aria-pressed={player.muted}
-                  title={
-                    player.muted
-                      ? `${player.name} cannot submit game events`
-                      : `Block ${player.name} from submitting game events`
-                  }
-                  className={`min-h-11 shrink-0 rounded-full border px-3 text-xs font-semibold transition-colors ${
-                    player.muted
-                      ? "border-danger/40 bg-danger/10 text-danger"
-                      : "border-border text-muted hover:bg-surface-2 hover:text-ink"
-                  }`}
-                >
-                  {player.muted ? "Unmute" : "Mute"} {player.name}
-                </button>
+                <span key={player.id} className="flex shrink-0 gap-1">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      act("mute", { playerId: player.id, muted: !player.muted })
+                    }
+                    aria-pressed={player.muted}
+                    title={
+                      player.muted
+                        ? `${player.name} cannot submit game events`
+                        : `Mute ${player.name}`
+                    }
+                    className={`min-h-11 rounded-full border px-3 text-xs font-semibold transition-colors ${
+                      player.muted
+                        ? "border-danger/40 bg-danger/10 text-danger"
+                        : "border-border text-muted hover:bg-surface-2 hover:text-ink"
+                    }`}
+                  >
+                    {player.muted ? "Unmute" : "Mute"} {player.name}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (confirm(`Block ${player.name} from this room?`)) {
+                        act("block", { playerId: player.id });
+                      }
+                    }}
+                    title={`Remove and block ${player.name} from rejoining`}
+                    className="min-h-11 rounded-full border border-danger/40 bg-danger/10 px-3 text-xs font-semibold text-danger"
+                  >
+                    Block
+                  </button>
+                </span>
               ))}
           </div>
         </div>
@@ -535,6 +551,15 @@ export default function GamePage() {
           </div>
 
           <Leaderboard entries={room.result.ranking} youId={room.you?.id} />
+
+          {room.result.shareId ? (
+            <Link
+              href={`/recap/${room.result.shareId}`}
+              className="flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-border bg-surface px-5 text-sm font-bold text-primary"
+            >
+              <Icon name="link" className="h-4 w-4" /> Open shareable recap
+            </Link>
+          ) : null}
 
           {isGuest && <GuestUpgradePrompt />}
 

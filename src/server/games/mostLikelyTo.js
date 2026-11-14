@@ -39,16 +39,22 @@ function configFor(mode) {
   return MODES[mode] || MODES.classic;
 }
 
-function choosePrompt(state) {
-  if (state.usedPromptIds.length >= PROMPTS.length) state.usedPromptIds = [];
-  let index = Math.floor(Math.random() * PROMPTS.length);
+function promptsFor(room) {
+  const lore = room?.lorePack?.prompts;
+  return Array.isArray(lore) && lore.length >= 5 ? lore : PROMPTS;
+}
+
+function choosePrompt(state, room) {
+  const prompts = promptsFor(room);
+  if (state.usedPromptIds.length >= prompts.length) state.usedPromptIds = [];
+  let index = Math.floor(Math.random() * prompts.length);
   let guard = 0;
-  while (state.usedPromptIds.includes(PROMPTS[index].id) && guard < 500) {
-    index = Math.floor(Math.random() * PROMPTS.length);
+  while (state.usedPromptIds.includes(prompts[index].id) && guard < 500) {
+    index = Math.floor(Math.random() * prompts.length);
     guard += 1;
   }
-  state.usedPromptIds.push(PROMPTS[index].id);
-  return PROMPTS[index];
+  state.usedPromptIds.push(prompts[index].id);
+  return prompts[index];
 }
 
 function beginRound(room, state) {
@@ -57,7 +63,7 @@ function beginRound(room, state) {
   state.phase = "vote";
   state.votes = {};
   state.reveal = null;
-  state.prompt = choosePrompt(state);
+  state.prompt = choosePrompt(state, room);
   state.endsAt = Date.now() + config.voteMs;
 }
 

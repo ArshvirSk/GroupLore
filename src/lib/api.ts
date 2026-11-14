@@ -117,4 +117,24 @@ export const api = {
     ),
   getMyStats: () => apiRequest("/api/feed/stats"),
   getActiveLobbies: () => apiRequest("/api/feed/active-lobbies"),
+
+  getGroupRecaps: (groupId: string) =>
+    apiRequest(`/api/groups/${groupId}/recaps`),
+  getRecap: (shareId: string) =>
+    apiRequest(`/api/recaps/${encodeURIComponent(shareId)}`),
+  getProgression: (groupId: string) =>
+    apiRequest(`/api/groups/${groupId}/progression`),
+  getLore: (groupId: string) => apiRequest(`/api/groups/${groupId}/lore`),
+  setLoreOptIn: (groupId: string, optIn: boolean) =>
+    apiRequest(`/api/groups/${groupId}/lore`, {
+      method: "PATCH",
+      body: JSON.stringify({ optIn }),
+    }),
+  generateLorePack: (groupId: string) =>
+    apiRequest(`/api/groups/${groupId}/lore`, { method: "POST" }),
+  approveLorePack: (groupId: string, packId: string) =>
+    apiRequest(`/api/groups/${groupId}/lore/${packId}`, {
+      method: "PATCH",
+      body: JSON.stringify({ status: "approved" }),
+    }),
 };

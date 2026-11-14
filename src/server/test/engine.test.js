@@ -1126,3 +1126,95 @@ test("a failed report write is not acknowledged as a report", async () => {
 
   await act(host, "end");
 });
+
+test("the host can block a player from rejoining the room", async () => {
+  const sessionId = makeSession();
+  const a = await makeClient("A");
+  const b = await makeClient("B");
+  const c = await makeClient("C");
+  await join(a, sessionId);
+  const joinedB = await join(b, sessionId);
+  await join(c, sessionId);
+
+  const kicked = waitFor(b.socket, "room:kicked");
+  a.socket.emit("room:action", {
+    action: "block",
+    data: { playerId: joinedB.playerId },
+    eventId: randomUUID(),
+  });
+  await kicked;
+
+  const error = await expectError(b, () => {
+    b.socket.emit("room:join", { sessionId });
+  });
+  assert.equal(error.code, "blocked");
+});
+
+test("a block survives a snapshot restore", async () => {
+  const sessionId = makeSession();
+  const { clients, joined, host } = await startStub(sessionId, "classic", 3);
+  const target = clients[1];
+  const targetId = joined[1].playerId;
+  const blockedUserId = tokenUsers.get(target.token).id;
+
+  const kicked = waitFor(target.socket, "room:kicked");
+  host.socket.emit("room:action", {
+    action: "block",
+    data: { playerId: targetId },
+    eventId: randomUUID(),
+  });
+  await kicked;
+
+  const persisted = await waitUntil(() =>
+    persistence.snapshots.find(
+      (entry) =>
+        entry.sessionId === sessionId &&
+        entry.reason === "moderation" &&
+        entry.snapshot?.blocked?.includes(blockedUserId),
+    ),
+  );
+
+  const restoredEngine = new GameEngine({
+    resolveIdentity: engine.resolveIdentity,
+    authorize: async ({ identity }) => ({
+      allowed: true,
+      userId: identity.authUserId,
+      name: identity.name,
+      avatarUrl: null,
+    }),
+    loadSession: async (id) => sessions.get(id) || null,
+    restoreOneSession: async () => ({
+      ...sessions.get(sessionId),
+      snapshot: persisted.snapshot,
+    }),
+    disconnectGraceMs: 500,
+  });
+
+  const restored = await restoredEngine.restoreLiveRoom();
+  assert.deepEqual([...restored.blocked], [blockedUserId]);
+
+  const returning = await makeClientFor(restoredEngine, "B", target.token);
+  const error = await expectError(returning, () => {
+    returning.socket.emit("room:join", { sessionId });
+  });
+  assert.equal(error.code, "blocked");
+
+  restoredEngine.close();
+  for (const client of clients) client.socket.disconnect();
+});
+
+test("game events reject profanity in user-authored answers", async () => {
+  const sessionId = makeSession();
+  const { host } = await startStub(sessionId, "classic", 3);
+
+  const error = await expectError(host, () => {
+    host.socket.emit("game:event", {
+      type: "answer",
+      value: "this is shit",
+      eventId: randomUUID(),
+    });
+  });
+  assert.equal(error.code, "profanity_blocked");
+
+  await act(host, "end");
+});

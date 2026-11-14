@@ -772,8 +772,55 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
 /* Public home uses the exact dashboard hero proportions. */
 .home-hero-row { align-items: stretch; }
 .home-reference-hero { min-height: 435px; }
+.home-hero-kicker { display: inline-flex; align-items: center; gap: 7px; margin: 0 0 10px; border: 1px solid color-mix(in srgb, var(--ink) 15%, transparent); border-radius: 999px; background: color-mix(in srgb, var(--surface) 76%, transparent); padding: 5px 10px; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.home-hero-kicker > span { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent); }
 .home-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .home-hero-actions .reference-join-toggle { margin: 0; }
+.home-trust { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; padding: 0; list-style: none; }
+.home-trust li { display: inline-flex; min-height: 26px; align-items: center; gap: 5px; border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent); border-radius: 999px; background: color-mix(in srgb, var(--surface) 68%, transparent); padding: 4px 9px; font-size: 10px; font-weight: 700; }
+.home-trust svg { color: color-mix(in srgb, var(--ink) 72%, var(--primary)); }
+.home-lower { display: grid; width: min(100%, 1220px); margin: 16px auto 56px; padding: 0 24px; gap: 16px; }
+.home-sheet { position: relative; overflow: hidden; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); box-shadow: 0 2px 3px rgba(51, 37, 24, .035), 0 9px 22px rgba(51, 37, 24, .045); }
+.home-sheet-inner { position: relative; z-index: 1; padding: clamp(24px, 4vw, 40px); }
+.home-how { background: color-mix(in srgb, var(--accent-soft) 56%, var(--surface)); }
+.home-section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 24px; border-bottom: 1px solid color-mix(in srgb, var(--ink) 13%, transparent); padding-bottom: 20px; }
+.home-section-kicker { display: flex; align-items: center; gap: 8px; color: var(--muted); font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.home-section-kicker > span { display: grid; width: 25px; height: 25px; place-items: center; border-radius: 50%; background: var(--ink); color: var(--bg); font-size: 9px; letter-spacing: 0; }
+.home-section-head h2 { margin: 9px 0 0; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -.055em; line-height: .96; }
+.home-section-aside { display: flex; max-width: 310px; flex-direction: column; align-items: flex-end; gap: 10px; text-align: right; }
+.home-section-note { max-width: 310px; margin: 0; color: var(--muted); font-size: 12px; font-weight: 600; line-height: 1.5; }
+.home-games-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.home-game-card { display: flex; min-height: 225px; flex-direction: column; padding: 18px; }
+.home-game-card .library-mark { display: grid; width: 52px; height: 52px; place-items: center; border: 1px solid color-mix(in srgb, var(--ink) 24%, transparent); border-radius: 13px; background: color-mix(in srgb, var(--surface) 46%, transparent); transform: rotate(-4deg); }
+.home-game-card .library-mark svg { width: 27px; height: 27px; }
+.home-game-index { color: color-mix(in srgb, var(--ink) 48%, transparent); font-family: var(--font-mono); font-size: 10px; font-weight: 700; }
+.home-game-card h3 { margin: 20px 0 0; font-family: var(--font-display); font-size: clamp(1.4rem, 2vw, 1.9rem); font-style: italic; font-weight: 800; letter-spacing: -.05em; line-height: .95; }
+.home-game-card p { margin: 8px 0 0; font-size: 12px; font-weight: 600; line-height: 1.45; opacity: .72; }
+.home-game-tag { align-self: flex-start; margin-top: auto; border: 1px solid color-mix(in srgb, var(--ink) 20%, transparent); border-radius: 999px; background: color-mix(in srgb, var(--surface) 68%, transparent); padding: 4px 8px; font-size: 10px; font-weight: 700; }
+.home-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.home-step-card { position: relative; min-height: 190px; overflow: hidden; border: 1px solid color-mix(in srgb, var(--ink) 15%, transparent); border-radius: 16px; background: color-mix(in srgb, var(--surface) 82%, transparent); padding: 20px; }
+.home-step-card::before { position: absolute; inset: 0 0 auto; height: 5px; content: ""; background: var(--primary); }
+.home-step-card:nth-child(2)::before { background: var(--accent); }
+.home-step-card:nth-child(3)::before { background: var(--pink); }
+.home-step-index { display: inline-grid; width: 32px; height: 32px; place-items: center; border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent); border-radius: 50%; background: color-mix(in srgb, var(--surface) 75%, transparent); color: var(--muted); font-family: var(--font-mono); font-size: 10px; font-weight: 700; }
+.home-step-card h3 { position: relative; z-index: 1; margin: 22px 0 0; font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; letter-spacing: -.04em; }
+.home-step-card p { position: relative; z-index: 1; max-width: 28ch; margin: 7px 0 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.home-safety { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+.home-safety::after { position: absolute; z-index: 0; right: -14px; bottom: -110px; color: transparent; content: "✦"; font: 330px/1 var(--font-display); -webkit-text-stroke: 1px color-mix(in srgb, var(--bg) 18%, transparent); transform: rotate(12deg); pointer-events: none; }
+.home-safety-layout { display: grid; grid-template-columns: .8fr 1.2fr; align-items: start; gap: clamp(28px, 5vw, 64px); }
+.home-safety .home-section-kicker { color: color-mix(in srgb, var(--bg) 66%, transparent); }
+.home-safety .home-section-kicker > span { background: var(--bg); color: var(--ink); }
+.home-safety-intro h2 { margin: 20px 0 0; font-size: clamp(2.4rem, 4.4vw, 4rem); font-weight: 800; letter-spacing: -.07em; line-height: .9; }
+.home-safety-intro p:last-child { max-width: 38ch; margin: 18px 0 0; color: color-mix(in srgb, var(--bg) 68%, transparent); font-size: 14px; line-height: 1.6; }
+.home-safety-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.home-safety-card { border: 1px solid color-mix(in srgb, var(--bg) 19%, transparent); border-radius: 16px; background: color-mix(in srgb, var(--bg) 7%, transparent); padding: 18px; }
+.home-safety-card .security-icon { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid color-mix(in srgb, var(--bg) 25%, transparent); border-radius: 12px; background: color-mix(in srgb, var(--bg) 13%, transparent); color: var(--on-accent); }
+.home-safety-card:nth-child(1) .security-icon { background: color-mix(in srgb, var(--primary) 76%, transparent); }
+.home-safety-card:nth-child(2) .security-icon { background: color-mix(in srgb, var(--accent) 76%, transparent); }
+.home-safety-card:nth-child(3) .security-icon { background: color-mix(in srgb, var(--pink) 76%, transparent); }
+.home-safety-card:nth-child(4) .security-icon { background: color-mix(in srgb, var(--cyan) 76%, transparent); }
+.home-safety-card h3 { margin: 16px 0 0; font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; letter-spacing: -.035em; }
+.home-safety-card p { margin: 6px 0 0; color: color-mix(in srgb, var(--bg) 67%, transparent); font-size: 12px; line-height: 1.5; }
 .home-start-list { display: grid; gap: 2px; padding-top: 8px; }
 .home-start-row { display: flex; width: 100%; min-height: 61px; align-items: center; gap: 11px; border-bottom: 1px solid var(--border); border-radius: 10px; padding: 7px 4px; color: var(--ink); text-align: left; transition: background-color .16s ease, padding .16s ease; }
 .home-start-row:hover { background: var(--surface-2); padding-inline: 8px; }
@@ -786,14 +833,39 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
 
 @media (max-width: 900px) {
   .home-reference-hero { min-height: 360px; }
+  .home-games-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-safety-layout { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
   .home-reference-hero { min-height: 278px; }
   .home-hero-actions { gap: 6px; }
+  .home-hero-kicker { margin-bottom: 8px; font-size: 9px; }
+  .home-trust { gap: 4px; margin-top: 10px; }
+  .home-trust li { padding: 3px 7px; font-size: 9px; }
+  .home-lower { margin: 10px auto 28px; padding: 0 16px; gap: 10px; }
+  .home-sheet { border-radius: 15px; }
+  .home-sheet-inner { padding: 20px 16px; }
+  .home-section-head { display: block; margin-bottom: 18px; padding-bottom: 15px; }
+  .home-section-head h2 { font-size: 2rem; }
+  .home-section-head > .home-section-note { margin-top: 10px; }
+  .home-section-aside { max-width: none; align-items: flex-start; margin-top: 12px; text-align: left; }
+  .home-section-note { max-width: none; }
+  .home-games-grid, .home-steps { grid-template-columns: 1fr; }
+  .home-game-card { min-height: 200px; }
+  .home-safety::after { right: -80px; bottom: -120px; font-size: 250px; }
   .home-start-list { padding-top: 4px; }
   .home-start-row { min-height: 56px; }
   .home-start-icon { width: 34px; height: 34px; }
+}
+
+@media (min-width: 480px) and (max-width: 640px) {
+  .home-games-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-game-card { min-height: 220px; }
+}
+
+@media (max-width: 479px) {
+  .home-safety-grid { grid-template-columns: 1fr; }
 }
 
 /* Shared page furniture for group, lobby and game routes. */

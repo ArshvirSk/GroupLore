@@ -33,7 +33,7 @@ GroupLore/
 
 ## Games
 
-All **36 games** below are playable through the server-authoritative engine. Player counts range from 2 to 12; see the table for each game's requirement. Every game reads only its own prompt bank, not `member_profiles`.
+All **36 games** below are playable through the server-authoritative engine. Player counts range from 2 to 12; see the table for each game's requirement. Games use their static prompt banks by default. When a group opts in and its owner approves a generated lore pack, lore-enabled deployments can use those approved prompts for **Most Likely To**, with the static bank as a fallback.
 
 There is **no single-player or bot mode** yet. **Solo** below means individual scoring, not one human: every game currently needs at least two real players.
 
@@ -176,6 +176,8 @@ Guests can upgrade after a game with an email and password. Supabase `updateUser
   5. `supabase/migrations/supabase-migration-auth-rls.sql`
   6. `supabase/migrations/supabase-migration-auth-lobbies.sql`
   7. `supabase/migrations/supabase-migration-round2-games.sql`
+  8. `supabase/migrations/supabase-migration-moderation-reports.sql`
+  9. `supabase/migrations/supabase-migration-recap-progression-lore.sql`
 - Enable the **Email** provider under Supabase → Authentication → Providers.
 - Enable **Anonymous sign-ins** under Authentication → Providers when `ALLOW_GUESTS=true`. Disable it when `ALLOW_GUESTS=false`; app middleware rejects anonymous tokens either way, but the dashboard switch is the provider-level control.
 - All app tables are server-only (RLS on, no anon policies). The browser anon key is used for Supabase Auth only; the Next route handlers use the service-role key.
@@ -187,6 +189,10 @@ cp .env.example .env.local
 # Fill in your Supabase URL, anon key and service-role key
 ```
 
+Optional content controls: `MAX_CONTENT_RATING` accepts `family`, `teen` or
+`mature`; NSFW banks still require `ALLOW_NSFW_CONTENT=true`. `LORE_MODE=true`
+allows an owner-approved group lore pack to reach lore-enabled games.
+
 ### 3. Run the app
 
 ```bash
@@ -197,6 +203,10 @@ npm run dev
 This starts Next.js on http://localhost:3000. Realtime uses SSE plus POST
 actions inside the same Next.js process. The app requires a persistent Node
 process; it cannot run as a serverless function.
+
+The player app is installable as a PWA. The lobby and TV screen show a QR code
+that deep-links to `/join/CODE`; games request a screen wake lock while a round
+is live and use short haptics on mobile actions.
 
 Production:
 

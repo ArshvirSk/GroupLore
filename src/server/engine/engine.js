@@ -1,5 +1,7 @@
 import { getGame, listGames } from "../games/index.js";
 import { contentAllowed, contentForGame } from "../games/content.js";
+import { findProfanity } from "../lib/contentFilter.js";
+import { buildRecap } from "../lib/recap.js";
 import { socketRateLimit } from "../lib/rateLimit.js";
 import { signReconnectToken, verifySignedToken } from "./auth.js";
 import { recordLatency } from "./primitives/latency.js";
@@ -312,6 +314,8 @@ export class GameEngine {
       advancing: false,
       endPersisted: false,
       reports: new Set(),
+      blocked: new Set(),
+      lorePack: session?.lorePack || null,
       seen: new Map(),
       createdAt: Date.now(),
     };
@@ -370,6 +374,9 @@ export class GameEngine {
     room.teamsLocked = Boolean(snapshot.teamsLocked);
     room.reports = new Set(
       Array.isArray(snapshot.reports) ? snapshot.reports : [],
+    );
+    room.blocked = new Set(
+      Array.isArray(snapshot.blocked) ? snapshot.blocked : [],
     );
     room.result = null;
     room.endPersisted = false;
@@ -489,6 +496,7 @@ export class GameEngine {
       teams: room.teams ? JSON.parse(JSON.stringify(room.teams)) : null,
       teamsLocked: room.teamsLocked,
       reports: [...room.reports],
+      blocked: [...room.blocked],
       state: room.state ? JSON.parse(JSON.stringify(room.state)) : null,
       result: room.result ? JSON.parse(JSON.stringify(room.result)) : null,
       remainingMs: this.remainingPhaseMs(room),
@@ -562,6 +570,9 @@ export class GameEngine {
 
     const stableId = auth.userId || identity.authUserId;
     const identityKey = `u:${stableId}`;
+    if (room.blocked.has(stableId)) {
+      throw failure("blocked", "The host blocked you from this room");
+    }
     const reconnect = payload.reconnectToken
       ? verifySignedToken(payload.reconnectToken)
       : null;
@@ -1033,6 +1044,30 @@ export class GameEngine {
         this.persistSnapshot(room, "moderation");
         return;
       }
+      case "block": {
+        this.hostOnly(room, player);
+        const targetId = String(data.playerId || "");
+        if (targetId === player.id) {
+          throw failure("cannot_block_self", "You cannot block yourself");
+        }
+        const target = room.players.get(targetId);
+        if (!target) throw failure("player_not_found", "That player has left");
+        room.blocked.add(target.userId || target.id);
+        const targetSocket =
+          target.socketId && this.connections.get(target.socketId);
+        targetSocket?.emit("room:kicked", {
+          message: "The host blocked you from this room",
+        });
+        if (targetSocket) {
+          targetSocket.data.roomId = null;
+          targetSocket.data.playerId = null;
+        }
+        this.removePlayer(room, targetId, "blocked");
+        if (this.rooms.get(room.id) === room) {
+          this.persistSnapshot(room, "moderation");
+        }
+        return;
+      }
       case "requestSync": {
         socket.emit("room:sync", this.view(room, player.id));
         return;
@@ -1188,9 +1223,18 @@ export class GameEngine {
       }))
       .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name));
 
+    const recap = buildRecap({
+      room,
+      gameId: room.gameId,
+      mode: room.mode,
+      ranking,
+      reason,
+    });
+
     room.result = {
       reason,
       ranking,
+      shareId: recap.shareId,
       winnerIds: ranking.length
         ? ranking
             .filter((entry) => entry.score === ranking[0].score)
@@ -1215,6 +1259,7 @@ export class GameEngine {
             ranking.map((entry) => [entry.name, entry.score]),
           ),
           reason,
+          recap,
         }),
       ).catch((err) => this.logger.error("[engine] onEnd failed", err));
     }
@@ -1261,6 +1306,14 @@ export class GameEngine {
         ? { ...payload, playerId: player.id }
         : { playerId: player.id };
     delete event.eventId;
+
+    const profanity = findProfanity(event);
+    if (profanity) {
+      throw failure(
+        "profanity_blocked",
+        "Keep answers family-friendly and try again",
+      );
+    }
 
     const previousPhase = room.state?.phase;
     const outcome = room.module.onEvent?.(room, player.id, event);
@@ -1383,6 +1436,7 @@ export class GameEngine {
     if (!room.result) return null;
     return {
       reason: room.result.reason,
+      shareId: room.result.shareId || null,
       ranking: room.result.ranking.map((entry) => ({
         ...entry,
         isWinner: room.result.winnerIds.includes(entry.playerId),

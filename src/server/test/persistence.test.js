@@ -293,3 +293,83 @@ test("onReport returns false when the insert fails", async () => {
     logs.some((args) => String(args[0]).includes("moderation report failed")),
   );
 });
+
+test("onEnd stores the shareable recap", async () => {
+  const fake = createFakeSupabase();
+
+  await makePersistence(fake, []).onEnd({
+    room: { state: { round: 3 }, players: new Map() },
+    sessionId: "session-1",
+    groupId: null,
+    gameId: "bluff",
+    mode: "classic",
+    ranking: [
+      { playerId: "p1", name: "Ada", score: 4 },
+      { playerId: "p2", name: "Grace", score: 2 },
+    ],
+    scores: { Ada: 4, Grace: 2 },
+    reason: "completed",
+    recap: {
+      shareId: "abc123",
+      winnerName: "Ada",
+      winnerNames: ["Ada"],
+      highlights: ["Ada won with 4 points"],
+      scores: [
+        { name: "Ada", score: 4, winner: true },
+        { name: "Grace", score: 2, winner: false },
+      ],
+    },
+  });
+
+  assert.deepEqual(fake.inserts.session_recaps?.[0], {
+    session_id: "session-1",
+    group_id: null,
+    game_type: "bluff",
+    mode: "classic",
+    winner_name: "Ada",
+    winner_names: ["Ada"],
+    highlights: ["Ada won with 4 points"],
+    scores: [
+      { name: "Ada", score: 4, winner: true },
+      { name: "Grace", score: 2, winner: false },
+    ],
+    share_id: "abc123",
+  });
+});
+
+test("one session can store a recap for each finished game", async () => {
+  const fake = createFakeSupabase();
+  const persistence = makePersistence(fake, []);
+  const ranking = [
+    { playerId: "p1", name: "Ada", score: 4 },
+    { playerId: "p2", name: "Grace", score: 2 },
+  ];
+
+  for (const shareId of ["session-1-a", "session-1-b"]) {
+    await persistence.onEnd({
+      room: { state: { round: 1 }, players: new Map() },
+      sessionId: "session-1",
+      groupId: null,
+      gameId: "bluff",
+      mode: "classic",
+      ranking,
+      scores: { Ada: 4, Grace: 2 },
+      reason: "completed",
+      recap: {
+        shareId,
+        winnerName: "Ada",
+        winnerNames: ["Ada"],
+        highlights: [],
+        scores: [],
+      },
+    });
+  }
+
+  assert.deepEqual(
+    fake.inserts.session_recaps.map((row) => row.share_id),
+    ["session-1-a", "session-1-b"],
+  );
+  assert.ok(
+    fake.inserts.session_recaps.every((row) => row.session_id === "session-1"),
+  );
+});

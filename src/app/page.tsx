@@ -34,6 +34,13 @@ const STEPS = [
   { title: "Leave with the lore", body: "Every round adds another story your group will bring up later." },
 ];
 
+const SAFETY: { icon: IconName; title: string; body: string }[] = [
+  { icon: "shield", title: "Invite-only rooms", body: "Every room is reached through its code. There is no public lobby to stumble into." },
+  { icon: "ban", title: "Host moderation", body: "Mute, kick or block a player. Reports are saved server-side, not just hidden on screen." },
+  { icon: "scale", title: "Content settings", body: "Family, teen and mature prompt banks, with a deployment-wide ceiling and an NSFW gate." },
+  { icon: "lock", title: "Private group data", body: "Rooms are server-authoritative, database access stays server-side, and lore is generated locally." },
+];
+
 const START_ACTIONS: { key: "create" | "join" | "guest"; icon: IconName; title: string; body: string }[] = [
   { key: "create", icon: "users", title: "Create a group", body: "Open a room for your crew" },
   { key: "join", icon: "key", title: "Join a room", body: "Use a six-character code" },
@@ -105,6 +112,7 @@ export default function LandingPage() {
           <div className="dashboard-hero-row home-hero-row">
             <div className="reference-hero home-reference-hero">
               <div className="reference-hero-copy">
+                <div className="home-hero-kicker"><span aria-hidden /> Made for the group chat</div>
                 <Image className="reference-wordmark" src="/assets/grouplore/wordmark-transparent.png" alt="GroupLore" width={401} height={158} priority />
                 <h1 className="sr-only">GroupLore — real-time multiplayer party games, personalized for your friend group</h1>
                 <p>Real-time multiplayer<br />party games, personalized<br />for your friend group.</p>
@@ -116,6 +124,11 @@ export default function LandingPage() {
                     Have a code? Join a room
                   </button>
                 </div>
+                <ul className="home-trust" aria-label="Safety features">
+                  <li><Icon name="shield" className="h-3.5 w-3.5" /> Invite-only rooms</li>
+                  <li><Icon name="ban" className="h-3.5 w-3.5" /> Host moderation</li>
+                  <li><Icon name="scale" className="h-3.5 w-3.5" /> Age-aware prompts</li>
+                </ul>
               </div>
               <Image className="reference-checker" src="/assets/grouplore/library-checker.png" alt="" aria-hidden width={178} height={45} priority />
               <Image className="reference-star" src="/assets/grouplore/chrome-star-clean.png" alt="" aria-hidden width={249} height={216} priority />
@@ -208,45 +221,78 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[1220px] px-4 py-12 sm:px-6">
-        <div className="flex flex-wrap items-end justify-between gap-3">
-          <div>
-            <p className="label">A little something for everyone</p>
-            <h2 className="mt-2 font-display text-3xl font-bold tracking-[-0.04em]">Pick a game, any game</h2>
-          </div>
-          <Badge tone="primary">21 games and counting</Badge>
-        </div>
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {FEATURED.map((id) => {
-            const meta = gameMeta(id);
-            return (
-              <div key={id} className={`color-card ${["purple", "lime", "pink", "cyan"][FEATURED.indexOf(id) % 4]} p-5`}>
-                <span className="library-mark -rotate-3" aria-hidden><Icon name={meta.icon} /></span>
-                <h3 className="mt-5 font-display text-2xl font-extrabold italic leading-none">{meta.name}</h3>
-                <p className="mt-2 text-sm font-medium leading-relaxed opacity-70">{meta.description}</p>
-                <span className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-surface/65 px-2.5 py-1 text-[10px] font-bold">{meta.category}</span>
+      <div className="home-lower">
+        <section className="home-sheet" aria-labelledby="home-games-title">
+          <div className="home-sheet-inner">
+            <div className="home-section-head">
+              <div>
+                <p className="home-section-kicker"><span aria-hidden>01</span> The lineup</p>
+                <h2 id="home-games-title">Pick a game, any game</h2>
               </div>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="border-t border-border bg-surface">
-        <div className="mx-auto w-full max-w-[1220px] px-4 py-12 sm:px-6">
-          <p className="label">How it works</p>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {STEPS.map((step, index) => (
-              <Card key={step.title} className="p-5">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-soft font-mono text-sm font-bold text-primary">
-                  {index + 1}
-                </span>
-                <h3 className="mt-4 font-display text-xl font-semibold">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{step.body}</p>
-              </Card>
-            ))}
+              <div className="home-section-aside">
+                <p className="home-section-note">Eight favorites from a full library of social, writing, trivia and real-time games.</p>
+                <Badge tone="primary">Free to play</Badge>
+              </div>
+            </div>
+            <div className="home-games-grid">
+              {FEATURED.map((id, index) => {
+                const meta = gameMeta(id);
+                return (
+                  <div key={id} className={`color-card home-game-card ${["purple", "lime", "pink", "cyan"][index % 4]}`}>
+                    <div className="flex items-start justify-between gap-2">
+                      <span className="library-mark" aria-hidden><Icon name={meta.icon} /></span>
+                      <span className="home-game-index" aria-hidden>{String(index + 1).padStart(2, "0")}</span>
+                    </div>
+                    <h3>{meta.name}</h3>
+                    <p>{meta.description}</p>
+                    <span className="home-game-tag">{meta.category}</span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section className="home-sheet home-how" aria-labelledby="home-how-title">
+          <div className="home-sheet-inner">
+            <div className="home-section-head">
+              <div>
+                <p className="home-section-kicker"><span aria-hidden>02</span> How it works</p>
+                <h2 id="home-how-title">Three steps to better stories.</h2>
+              </div>
+              <p className="home-section-note">One phone each. One screen for the room. No downloads.</p>
+            </div>
+            <div className="home-steps">
+              {STEPS.map((step, index) => (
+                <div key={step.title} className="home-step-card">
+                  <span className="home-step-index" aria-hidden>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="home-sheet home-safety" aria-labelledby="home-safety-title">
+          <div className="home-sheet-inner home-safety-layout">
+            <div className="home-safety-intro">
+              <p className="home-section-kicker"><span aria-hidden>03</span> Safe by design</p>
+              <h2 id="home-safety-title">Good chaos.<br />Guardrails included.</h2>
+              <p>GroupLore is built for people you already know. The fun is loud; the room, content and data boundaries are not.</p>
+            </div>
+            <div className="home-safety-grid">
+              {SAFETY.map((item) => (
+                <div key={item.title} className="home-safety-card">
+                  <span className="security-icon" aria-hidden><Icon name={item.icon} className="h-5 w-5" /></span>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }

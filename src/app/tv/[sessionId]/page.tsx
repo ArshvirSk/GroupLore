@@ -1,6 +1,7 @@
 "use client";
 
 import TimerRing from "@/components/game/TimerRing";
+import JoinQr from "@/components/JoinQr";
 import { EmojiIcon, Icon } from "@/components/ui/Icon";
 import { useTvRoom } from "@/hooks/useTvRoom";
 import { useParams } from "next/navigation";
@@ -143,6 +144,14 @@ export default function TvPage() {
                   {room.players.length} player
                   {room.players.length === 1 ? "" : "s"} in the lobby
                 </p>
+                {room.joinCode ? (
+                  <div className="mt-6 flex flex-col items-center gap-2">
+                    <JoinQr code={room.joinCode} />
+                    <p className="font-mono text-lg font-bold tracking-[0.2em] text-ink">
+                      {room.joinCode}
+                    </p>
+                  </div>
+                ) : null}
               </div>
             )}
 

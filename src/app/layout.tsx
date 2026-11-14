@@ -1,6 +1,7 @@
 import AuthProvider from "@/components/AuthProvider";
+import PWARegister from "@/components/PWARegister";
 import ThemeProvider from "@/components/ThemeProvider";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {
   Bricolage_Grotesque,
   Inter,
@@ -37,12 +38,23 @@ export const metadata: Metadata = {
     "real-time",
     "social games",
   ],
+  manifest: "/manifest.webmanifest",
+  applicationName: "GroupLore",
+  appleWebApp: { capable: true, statusBarStyle: "black-translucent", title: "GroupLore" },
+  icons: { icon: "/icon.svg", apple: "/icon.svg" },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#F8F1E7",
 };
 
 const themeScript = `
 (function () {
   try {
-    var stored = localStorage.getItem("grouplore-theme") || "system";
+    var stored = localStorage.getItem("grouplore-theme") || "light";
     var dark = stored === "dark" || (stored === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
     document.documentElement.dataset.theme = dark ? "dark" : "light";
     document.documentElement.style.colorScheme = dark ? "dark" : "light";
@@ -65,6 +77,7 @@ export default function RootLayout({
       <body
         className={`${display.variable} ${body.variable} ${mono.variable} min-h-screen antialiased`}
       >
+        <PWARegister />
         <ThemeProvider>
           <AuthProvider>{children}</AuthProvider>
         </ThemeProvider>

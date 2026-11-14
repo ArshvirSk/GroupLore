@@ -2,6 +2,7 @@
 
 import AppShell from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
+import JoinQr from "@/components/JoinQr";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import {
   Avatar,
@@ -332,7 +333,7 @@ export default function LobbyPage() {
             {groupId ? <Button size="sm" variant="secondary" onClick={() => router.push(`/group/${groupId}`)}>Group page</Button> : null}
           </div>
         </div>
-        <div className="mt-5 grid max-w-2xl gap-3 sm:grid-cols-[1fr_auto] sm:items-end">
+        <div className="mt-5 grid max-w-3xl grid-cols-[1fr_auto] gap-3 sm:items-end">
           <div className="room-code-panel">
             <p className="label text-ink/70">Room code</p>
             <code className="mt-1 block">{lobby.code}</code>
@@ -340,6 +341,9 @@ export default function LobbyPage() {
           <div className="flex flex-wrap gap-2 sm:flex-col">
             <Button variant="secondary" onClick={() => void handleCopyCode()}><Icon name={codeCopied ? "check" : "link"} className="h-4 w-4" /> {codeCopied ? "Copied" : "Copy code"}</Button>
             <Button variant="secondary" onClick={() => void handleCopyInvite()}><Icon name={inviteCopied ? "check" : "users"} className="h-4 w-4" /> {inviteCopied ? "Invite copied" : "Copy invite"}</Button>
+          </div>
+          <div className="col-span-2 justify-self-start sm:col-span-1 sm:justify-self-end">
+            <JoinQr code={lobby.code} />
           </div>
         </div>
       </header>

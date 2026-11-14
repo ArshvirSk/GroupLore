@@ -2,6 +2,9 @@
 
 import AppShell from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
+import GroupTimeline from "@/components/group/GroupTimeline";
+import LoreStudio from "@/components/group/LoreStudio";
+import ProgressionPanel from "@/components/group/ProgressionPanel";
 import { Icon } from "@/components/ui/Icon";
 import {
   Avatar,
@@ -300,10 +303,9 @@ export default function GroupDashboard() {
           )}
         </section>
 
-        <section className="mt-8" aria-labelledby="recent-title">
-          <h2 id="recent-title" className="font-display text-2xl font-semibold">Recent games</h2>
-          <div className="mt-4"><EmptyState icon="dice" title="No games yet" description="Your recent sessions will appear here after your first game night." action={<Button size="sm" onClick={() => void startGame()}>Open a lobby</Button>} /></div>
-        </section>
+        <LoreStudio groupId={id} isOwner={isHost} />
+        <ProgressionPanel groupId={id} />
+        <GroupTimeline groupId={id} />
       </div>
 
       <Modal open={showAdd} onClose={() => setShowAdd(false)} title={editingId ? "Edit member" : "Add member"}>

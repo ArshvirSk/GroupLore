@@ -4,6 +4,7 @@ const require = createRequire(import.meta.url);
 export const PROMPT_BANK_RATINGS = require("../data/promptRatings.json");
 
 const RATINGS = new Set(["family", "teen", "mature"]);
+const RATING_RANK = { family: 0, teen: 1, mature: 2 };
 const BANK_BY_GAME = new Map();
 
 for (const [bank, meta] of Object.entries(PROMPT_BANK_RATINGS)) {
@@ -20,8 +21,15 @@ export function contentForGame(gameId) {
   };
 }
 
+export function maxContentRating(env = process.env) {
+  const value = String(env.MAX_CONTENT_RATING || "mature").toLowerCase();
+  return validContentRating(value) ? value : "mature";
+}
+
 export function contentAllowed(meta, env = process.env) {
-  return !meta?.nsfw || env.ALLOW_NSFW_CONTENT === "true";
+  if (meta?.nsfw && env.ALLOW_NSFW_CONTENT !== "true") return false;
+  const rating = validContentRating(meta?.rating) ? meta.rating : "family";
+  return RATING_RANK[rating] <= RATING_RANK[maxContentRating(env)];
 }
 
 export function validContentRating(rating) {

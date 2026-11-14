@@ -100,3 +100,12 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 - The TV route requires a signed-in group member to authenticate the spectator socket; it is not an unauthenticated public display URL yet.
 - A game screen is compiled but has not been visually exercised at 375px or on a TV-sized viewport.
 - A full socket game against the hosted database has not been run; persistence is verified through the adapter and direct hosted-table checks.
+
+## Roadmap features
+
+- **Recaps are per finished game, not per session row.** A room can return to the lobby and play again, so `session_recaps.session_id` is indexed rather than unique and every recap gets its own timestamped share id.
+- **Share cards are public by share id only.** They expose display names, scores and selected public answer text; group membership and profile data are not included.
+- **Progression is group-scoped.** Elo ratings are stored per group and game, while rivalries are pairwise and achievements are milestones. This keeps a player's record in one friend group separate from another.
+- **Lore generation is local and deterministic.** No profile text is sent to a model. Generation requires explicit owner opt-in, approval is a separate owner action, and the engine only receives the latest approved pack when `LORE_MODE=true`. Most Likely To falls back to its static bank when no valid pack exists.
+- **Moderation is layered.** Hosts can mute, kick or block (block also prevents rejoining), reports persist before being acknowledged, profanity is rejected at the engine boundary, and a deployment content ceiling plus NSFW gate selects age-appropriate banks.
+- **PWA support is network-first.** The service worker exists for installability but never caches realtime or API responses; QR joins use the existing `/join/:code` route.

@@ -31,7 +31,7 @@ function storedTheme(): ThemeChoice {
   } catch {
     // Storage can be unavailable in private or embedded contexts.
   }
-  return "system";
+  return "light";
 }
 
 function systemTheme(): AppliedTheme {
@@ -81,7 +81,7 @@ export default function ThemeProvider({
   const theme = useSyncExternalStore(
     subscribe,
     storedTheme,
-    () => "system" as const,
+    () => "light" as const,
   );
   const applied = resolve(theme);
 
