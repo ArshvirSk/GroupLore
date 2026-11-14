@@ -1,0 +1,647 @@
+[
+  {
+    "id": "buzz-001",
+    "text": "Which planet is closest to the Sun?",
+    "answer": "Mercury",
+    "aliases": [
+      "mercury"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-002",
+    "text": "What is the capital of France?",
+    "answer": "Paris",
+    "aliases": [
+      "paris"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-003",
+    "text": "What is the chemical symbol for gold?",
+    "answer": "Au",
+    "aliases": [
+      "au",
+      "aurum"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-004",
+    "text": "Who wrote Romeo and Juliet?",
+    "answer": "William Shakespeare",
+    "aliases": [
+      "shakespeare",
+      "william shakespeare"
+    ],
+    "category": "Literature",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-005",
+    "text": "How many sides does a hexagon have?",
+    "answer": "Six",
+    "aliases": [
+      "6",
+      "six"
+    ],
+    "category": "Maths",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-006",
+    "text": "Which ocean is the largest?",
+    "answer": "Pacific",
+    "aliases": [
+      "pacific",
+      "pacific ocean"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-007",
+    "text": "What is the tallest mountain above sea level?",
+    "answer": "Mount Everest",
+    "aliases": [
+      "everest",
+      "mount everest"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-008",
+    "text": "Which animal is the fastest land animal?",
+    "answer": "Cheetah",
+    "aliases": [
+      "cheetah"
+    ],
+    "category": "Nature",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-009",
+    "text": "How many continents are there?",
+    "answer": "Seven",
+    "aliases": [
+      "7",
+      "seven"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-010",
+    "text": "What gas do plants absorb from the air?",
+    "answer": "Carbon dioxide",
+    "aliases": [
+      "carbon dioxide",
+      "co2"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-011",
+    "text": "Who painted the Mona Lisa?",
+    "answer": "Leonardo da Vinci",
+    "aliases": [
+      "leonardo da vinci",
+      "da vinci"
+    ],
+    "category": "Art",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-012",
+    "text": "Which country is shaped like a boot?",
+    "answer": "Italy",
+    "aliases": [
+      "italy"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-013",
+    "text": "How many players are on a football team on the pitch?",
+    "answer": "Eleven",
+    "aliases": [
+      "11",
+      "eleven"
+    ],
+    "category": "Sport",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-014",
+    "text": "What is the largest mammal?",
+    "answer": "Blue whale",
+    "aliases": [
+      "blue whale",
+      "whale"
+    ],
+    "category": "Nature",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-015",
+    "text": "Which language has the most native speakers?",
+    "answer": "Mandarin Chinese",
+    "aliases": [
+      "mandarin",
+      "chinese",
+      "mandarin chinese"
+    ],
+    "category": "Language",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-016",
+    "text": "What is the freezing point of water in Celsius?",
+    "answer": "Zero",
+    "aliases": [
+      "0",
+      "zero",
+      "0 degrees"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-017",
+    "text": "Who was the first person to walk on the Moon?",
+    "answer": "Neil Armstrong",
+    "aliases": [
+      "neil armstrong",
+      "armstrong"
+    ],
+    "category": "History",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-018",
+    "text": "Which instrument has 88 keys?",
+    "answer": "Piano",
+    "aliases": [
+      "piano"
+    ],
+    "category": "Music",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-019",
+    "text": "What is the currency of Japan?",
+    "answer": "Yen",
+    "aliases": [
+      "yen"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-020",
+    "text": "How many strings does a standard violin have?",
+    "answer": "Four",
+    "aliases": [
+      "4",
+      "four"
+    ],
+    "category": "Music",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-021",
+    "text": "Which vitamin is produced in skin from sunlight?",
+    "answer": "Vitamin D",
+    "aliases": [
+      "vitamin d",
+      "d"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-022",
+    "text": "What is the longest river in Africa?",
+    "answer": "The Nile",
+    "aliases": [
+      "nile",
+      "the nile"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-023",
+    "text": "Which planet has the Great Red Spot?",
+    "answer": "Jupiter",
+    "aliases": [
+      "jupiter"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-024",
+    "text": "Who wrote Pride and Prejudice?",
+    "answer": "Jane Austen",
+    "aliases": [
+      "jane austen",
+      "austen"
+    ],
+    "category": "Literature",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-025",
+    "text": "What is the smallest prime number?",
+    "answer": "Two",
+    "aliases": [
+      "2",
+      "two"
+    ],
+    "category": "Maths",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-026",
+    "text": "Which country invented paper?",
+    "answer": "China",
+    "aliases": [
+      "china"
+    ],
+    "category": "History",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-027",
+    "text": "What is the hardest natural substance?",
+    "answer": "Diamond",
+    "aliases": [
+      "diamond"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-028",
+    "text": "How many colours are in a rainbow?",
+    "answer": "Seven",
+    "aliases": [
+      "7",
+      "seven"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-029",
+    "text": "Which sea creature has eight arms?",
+    "answer": "Octopus",
+    "aliases": [
+      "octopus"
+    ],
+    "category": "Nature",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-030",
+    "text": "What is the capital of Australia?",
+    "answer": "Canberra",
+    "aliases": [
+      "canberra"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-031",
+    "text": "Who composed the Fifth Symphony?",
+    "answer": "Beethoven",
+    "aliases": [
+      "beethoven",
+      "ludwig van beethoven"
+    ],
+    "category": "Music",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-032",
+    "text": "Which sport uses a shuttlecock?",
+    "answer": "Badminton",
+    "aliases": [
+      "badminton"
+    ],
+    "category": "Sport",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-033",
+    "text": "How many degrees are in a right angle?",
+    "answer": "Ninety",
+    "aliases": [
+      "90",
+      "ninety"
+    ],
+    "category": "Maths",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-034",
+    "text": "What is the main ingredient in guacamole?",
+    "answer": "Avocado",
+    "aliases": [
+      "avocado"
+    ],
+    "category": "Food",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-035",
+    "text": "Which country has the city of Marrakesh?",
+    "answer": "Morocco",
+    "aliases": [
+      "morocco"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-036",
+    "text": "What is the largest desert in the world?",
+    "answer": "Antarctic Desert",
+    "aliases": [
+      "antarctic",
+      "antarctica",
+      "antarctic desert"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-037",
+    "text": "Who developed the theory of relativity?",
+    "answer": "Albert Einstein",
+    "aliases": [
+      "einstein",
+      "albert einstein"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-038",
+    "text": "What is the capital of Canada?",
+    "answer": "Ottawa",
+    "aliases": [
+      "ottawa"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-039",
+    "text": "Which bird is known for mimicking human speech?",
+    "answer": "Parrot",
+    "aliases": [
+      "parrot"
+    ],
+    "category": "Nature",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-040",
+    "text": "How many minutes are in a full football match?",
+    "answer": "Ninety",
+    "aliases": [
+      "90",
+      "ninety"
+    ],
+    "category": "Sport",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-041",
+    "text": "What is the largest organ in the human body?",
+    "answer": "Skin",
+    "aliases": [
+      "skin"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-042",
+    "text": "Which artist cut off part of his ear?",
+    "answer": "Vincent van Gogh",
+    "aliases": [
+      "van gogh",
+      "vincent van gogh"
+    ],
+    "category": "Art",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-043",
+    "text": "What is the chemical symbol for water?",
+    "answer": "H2O",
+    "aliases": [
+      "h2o",
+      "water"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-044",
+    "text": "Which country is home to the kangaroo?",
+    "answer": "Australia",
+    "aliases": [
+      "australia"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-045",
+    "text": "What is the first month of the year?",
+    "answer": "January",
+    "aliases": [
+      "january"
+    ],
+    "category": "General",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-046",
+    "text": "How many sides does a triangle have?",
+    "answer": "Three",
+    "aliases": [
+      "3",
+      "three"
+    ],
+    "category": "Maths",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-047",
+    "text": "Which planet is known as the Red Planet?",
+    "answer": "Mars",
+    "aliases": [
+      "mars"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-048",
+    "text": "What is the capital of Italy?",
+    "answer": "Rome",
+    "aliases": [
+      "rome"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-049",
+    "text": "Who wrote The Little Prince?",
+    "answer": "Antoine de Saint-Exupéry",
+    "aliases": [
+      "saint-exupery",
+      "antoine de saint-exupery"
+    ],
+    "category": "Literature",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-050",
+    "text": "What is the fastest bird in a dive?",
+    "answer": "Peregrine falcon",
+    "aliases": [
+      "peregrine falcon",
+      "peregrine"
+    ],
+    "category": "Nature",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-051",
+    "text": "Which country gifted the Statue of Liberty to the USA?",
+    "answer": "France",
+    "aliases": [
+      "france"
+    ],
+    "category": "History",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-052",
+    "text": "How many sides does a cube have?",
+    "answer": "Six",
+    "aliases": [
+      "6",
+      "six"
+    ],
+    "category": "Maths",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-053",
+    "text": "What is the largest planet in the Solar System?",
+    "answer": "Jupiter",
+    "aliases": [
+      "jupiter"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-054",
+    "text": "Which musical family includes the cello?",
+    "answer": "Strings",
+    "aliases": [
+      "string",
+      "strings"
+    ],
+    "category": "Music",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-055",
+    "text": "What is the capital of Spain?",
+    "answer": "Madrid",
+    "aliases": [
+      "madrid"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-056",
+    "text": "Which animal is known as the ship of the desert?",
+    "answer": "Camel",
+    "aliases": [
+      "camel"
+    ],
+    "category": "Nature",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-057",
+    "text": "What is the study of stars called?",
+    "answer": "Astronomy",
+    "aliases": [
+      "astronomy"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-058",
+    "text": "Who painted The Starry Night?",
+    "answer": "Vincent van Gogh",
+    "aliases": [
+      "van gogh",
+      "vincent van gogh"
+    ],
+    "category": "Art",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-059",
+    "text": "Which sport is played at Wimbledon?",
+    "answer": "Tennis",
+    "aliases": [
+      "tennis"
+    ],
+    "category": "Sport",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-060",
+    "text": "What is the largest internal organ?",
+    "answer": "Liver",
+    "aliases": [
+      "liver"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-061",
+    "text": "Which country has the Great Barrier Reef?",
+    "answer": "Australia",
+    "aliases": [
+      "australia"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  }
+]
