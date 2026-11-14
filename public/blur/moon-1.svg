@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
   <defs><filter id="blur"><feGaussianBlur stdDeviation="30.0"/></filter></defs>
   <rect width="400" height="300" fill="#F7F2E8"/>
-  <g filter="url(#blur)"><path d="M250 55a105 105 0 1 0 80 172 88 88 0 0 1-80-172Z" fill="#F4E9C8"/><circle cx="150" cy="96" r="5" fill="#fff"/><circle cx="245" cy="220" r="4" fill="#fff"/><circle cx="110" cy="190" r="3" fill="#fff"/></g>
+  <g filter="url(#blur)"><path d="M250 55a105 105 0 1 0 80 172 88 88 0 0 1-80-172Z" fill="#E4CF8E" stroke="#9A7D45" stroke-width="7"/><circle cx="150" cy="96" r="5" fill="#C2A96A"/><circle cx="245" cy="220" r="4" fill="#C2A96A"/><circle cx="110" cy="190" r="3" fill="#C2A96A"/></g>
 </svg>

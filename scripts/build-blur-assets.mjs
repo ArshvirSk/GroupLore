@@ -20,7 +20,7 @@ const baseSubjects = [
     answer: "Moon",
     aliases: ["the moon", "crescent moon"],
     category: "nature",
-    art: '<path d="M250 55a105 105 0 1 0 80 172 88 88 0 0 1-80-172Z" fill="#F4E9C8"/><circle cx="150" cy="96" r="5" fill="#fff"/><circle cx="245" cy="220" r="4" fill="#fff"/><circle cx="110" cy="190" r="3" fill="#fff"/>',
+    art: '<path d="M250 55a105 105 0 1 0 80 172 88 88 0 0 1-80-172Z" fill="#E4CF8E" stroke="#9A7D45" stroke-width="7"/><circle cx="150" cy="96" r="5" fill="#C2A96A"/><circle cx="245" cy="220" r="4" fill="#C2A96A"/><circle cx="110" cy="190" r="3" fill="#C2A96A"/>',
   },
   {
     id: "star",
@@ -76,7 +76,7 @@ const baseSubjects = [
     answer: "Rocket",
     aliases: ["spaceship", "space rocket"],
     category: "space",
-    art: '<path d="M200 45c58 45 70 100 42 165h-84c-28-65-16-120 42-165Z" fill="#F4F1DE" stroke="#5C4033" stroke-width="8"/><circle cx="200" cy="145" r="28" fill="#8ECAE6" stroke="#5C4033" stroke-width="8"/><path d="m158 190-45 55 48-8m81 8 45 55-48-8" fill="#E76F51"/><path d="M170 215c8 35 22 55 30 65 8-10 22-30 30-65z" fill="#FFB703"/>',
+    art: '<path d="M200 45c58 45 70 100 42 165h-84c-28-65-16-120 42-165Z" fill="#DCE8F0" stroke="#4A6D8C" stroke-width="8"/><path d="M200 45c22 17 37 38 46 64h-92c9-26 24-47 46-64Z" fill="#E63946"/><circle cx="200" cy="145" r="28" fill="#8ECAE6" stroke="#4A6D8C" stroke-width="8"/><path d="m158 190-45 55 48-8m81 8 45 55-48-8" fill="#E63946"/><path d="M170 215c8 35 22 55 30 65 8-10 22-30 30-65z" fill="#FFB703"/>',
   },
   {
     id: "clock",
@@ -97,7 +97,7 @@ const baseSubjects = [
     answer: "Mushroom",
     aliases: ["toadstool"],
     category: "nature",
-    art: '<path d="M95 165a105 70 0 0 1 210 0z" fill="#E63946"/><path d="M175 165h50v95c0 20-50 20-50 0z" fill="#F4F1DE"/><circle cx="155" cy="135" r="13" fill="#fff"/><circle cx="235" cy="125" r="10" fill="#fff"/><circle cx="200" cy="155" r="8" fill="#fff"/>',
+    art: '<path d="M95 165a105 70 0 0 1 210 0z" fill="#E63946" stroke="#A61E2B" stroke-width="6"/><path d="M175 165h50v95c0 20-50 20-50 0z" fill="#E4D3B2" stroke="#A77B52" stroke-width="5"/><circle cx="155" cy="135" r="13" fill="#fff"/><circle cx="235" cy="125" r="10" fill="#fff"/><circle cx="200" cy="155" r="8" fill="#fff"/>',
   },
   {
     id: "key",
