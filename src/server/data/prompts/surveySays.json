@@ -1,0 +1,1862 @@
+[
+  {
+    "id": "survey-001",
+    "text": "Name something people do first thing in the morning",
+    "answers": [
+      {
+        "text": "drink coffee",
+        "aliases": [
+          "drink coffee"
+        ],
+        "points": 40
+      },
+      {
+        "text": "take a shower",
+        "aliases": [
+          "take a shower"
+        ],
+        "points": 30
+      },
+      {
+        "text": "check their phone",
+        "aliases": [
+          "check their phone"
+        ],
+        "points": 25
+      },
+      {
+        "text": "hit snooze",
+        "aliases": [
+          "hit snooze"
+        ],
+        "points": 20
+      },
+      {
+        "text": "brush their teeth",
+        "aliases": [
+          "brush their teeth"
+        ],
+        "points": 15
+      },
+      {
+        "text": "eat breakfast",
+        "aliases": [
+          "eat breakfast"
+        ],
+        "points": 10
+      },
+      {
+        "text": "walk the dog",
+        "aliases": [
+          "walk the dog"
+        ],
+        "points": 5
+      },
+      {
+        "text": "stretch",
+        "aliases": [
+          "stretch"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-002",
+    "text": "Name something you might forget on a trip",
+    "answers": [
+      {
+        "text": "passport",
+        "aliases": [
+          "passport"
+        ],
+        "points": 40
+      },
+      {
+        "text": "phone charger",
+        "aliases": [
+          "phone charger"
+        ],
+        "points": 30
+      },
+      {
+        "text": "toothbrush",
+        "aliases": [
+          "toothbrush"
+        ],
+        "points": 25
+      },
+      {
+        "text": "sunscreen",
+        "aliases": [
+          "sunscreen"
+        ],
+        "points": 20
+      },
+      {
+        "text": "keys",
+        "aliases": [
+          "keys"
+        ],
+        "points": 15
+      },
+      {
+        "text": "wallet",
+        "aliases": [
+          "wallet"
+        ],
+        "points": 10
+      },
+      {
+        "text": "medication",
+        "aliases": [
+          "medication"
+        ],
+        "points": 5
+      },
+      {
+        "text": "tickets",
+        "aliases": [
+          "tickets"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-003",
+    "text": "Name a food that is better cold",
+    "answers": [
+      {
+        "text": "pizza",
+        "aliases": [
+          "pizza"
+        ],
+        "points": 40
+      },
+      {
+        "text": "watermelon",
+        "aliases": [
+          "watermelon"
+        ],
+        "points": 30
+      },
+      {
+        "text": "ice cream",
+        "aliases": [
+          "ice cream"
+        ],
+        "points": 25
+      },
+      {
+        "text": "cereal",
+        "aliases": [
+          "cereal"
+        ],
+        "points": 20
+      },
+      {
+        "text": "cheese",
+        "aliases": [
+          "cheese"
+        ],
+        "points": 15
+      },
+      {
+        "text": "pasta salad",
+        "aliases": [
+          "pasta salad"
+        ],
+        "points": 10
+      },
+      {
+        "text": "chocolate",
+        "aliases": [
+          "chocolate"
+        ],
+        "points": 5
+      },
+      {
+        "text": "fried chicken",
+        "aliases": [
+          "fried chicken"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-004",
+    "text": "Name something people argue about in a car",
+    "answers": [
+      {
+        "text": "directions",
+        "aliases": [
+          "directions"
+        ],
+        "points": 40
+      },
+      {
+        "text": "music",
+        "aliases": [
+          "music"
+        ],
+        "points": 30
+      },
+      {
+        "text": "temperature",
+        "aliases": [
+          "temperature"
+        ],
+        "points": 25
+      },
+      {
+        "text": "parking",
+        "aliases": [
+          "parking"
+        ],
+        "points": 20
+      },
+      {
+        "text": "who drives",
+        "aliases": [
+          "who drives"
+        ],
+        "points": 15
+      },
+      {
+        "text": "snacks",
+        "aliases": [
+          "snacks"
+        ],
+        "points": 10
+      },
+      {
+        "text": "arrival time",
+        "aliases": [
+          "arrival time"
+        ],
+        "points": 5
+      },
+      {
+        "text": "the route",
+        "aliases": [
+          "the route"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-005",
+    "text": "Name a place where people whisper",
+    "answers": [
+      {
+        "text": "library",
+        "aliases": [
+          "library"
+        ],
+        "points": 40
+      },
+      {
+        "text": "cinema",
+        "aliases": [
+          "cinema"
+        ],
+        "points": 30
+      },
+      {
+        "text": "museum",
+        "aliases": [
+          "museum"
+        ],
+        "points": 25
+      },
+      {
+        "text": "hospital",
+        "aliases": [
+          "hospital"
+        ],
+        "points": 20
+      },
+      {
+        "text": "funeral",
+        "aliases": [
+          "funeral"
+        ],
+        "points": 15
+      },
+      {
+        "text": "church",
+        "aliases": [
+          "church"
+        ],
+        "points": 10
+      },
+      {
+        "text": "golf course",
+        "aliases": [
+          "golf course"
+        ],
+        "points": 5
+      },
+      {
+        "text": "bedroom",
+        "aliases": [
+          "bedroom"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-006",
+    "text": "Name something you keep in a kitchen drawer",
+    "answers": [
+      {
+        "text": "scissors",
+        "aliases": [
+          "scissors"
+        ],
+        "points": 40
+      },
+      {
+        "text": "batteries",
+        "aliases": [
+          "batteries"
+        ],
+        "points": 30
+      },
+      {
+        "text": "takeout menus",
+        "aliases": [
+          "takeout menus"
+        ],
+        "points": 25
+      },
+      {
+        "text": "tape",
+        "aliases": [
+          "tape"
+        ],
+        "points": 20
+      },
+      {
+        "text": "matches",
+        "aliases": [
+          "matches"
+        ],
+        "points": 15
+      },
+      {
+        "text": "spoons",
+        "aliases": [
+          "spoons"
+        ],
+        "points": 10
+      },
+      {
+        "text": "towels",
+        "aliases": [
+          "towels"
+        ],
+        "points": 5
+      },
+      {
+        "text": "junk",
+        "aliases": [
+          "junk"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-007",
+    "text": "Name a reason people are late",
+    "answers": [
+      {
+        "text": "traffic",
+        "aliases": [
+          "traffic"
+        ],
+        "points": 40
+      },
+      {
+        "text": "oversleeping",
+        "aliases": [
+          "oversleeping"
+        ],
+        "points": 30
+      },
+      {
+        "text": "getting dressed",
+        "aliases": [
+          "getting dressed"
+        ],
+        "points": 25
+      },
+      {
+        "text": "finding keys",
+        "aliases": [
+          "finding keys"
+        ],
+        "points": 20
+      },
+      {
+        "text": "a phone call",
+        "aliases": [
+          "phone call"
+        ],
+        "points": 15
+      },
+      {
+        "text": "public transport",
+        "aliases": [
+          "public transport"
+        ],
+        "points": 10
+      },
+      {
+        "text": "a long queue",
+        "aliases": [
+          "long queue"
+        ],
+        "points": 5
+      },
+      {
+        "text": "forgetting something",
+        "aliases": [
+          "forgetting something"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-008",
+    "text": "Name something people do at a wedding",
+    "answers": [
+      {
+        "text": "dance",
+        "aliases": [
+          "dance"
+        ],
+        "points": 40
+      },
+      {
+        "text": "cry",
+        "aliases": [
+          "cry"
+        ],
+        "points": 30
+      },
+      {
+        "text": "eat cake",
+        "aliases": [
+          "eat cake"
+        ],
+        "points": 25
+      },
+      {
+        "text": "give a speech",
+        "aliases": [
+          "give a speech"
+        ],
+        "points": 20
+      },
+      {
+        "text": "take photos",
+        "aliases": [
+          "take photos"
+        ],
+        "points": 15
+      },
+      {
+        "text": "throw confetti",
+        "aliases": [
+          "throw confetti"
+        ],
+        "points": 10
+      },
+      {
+        "text": "toast",
+        "aliases": [
+          "toast"
+        ],
+        "points": 5
+      },
+      {
+        "text": "catch the bouquet",
+        "aliases": [
+          "catch the bouquet"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-009",
+    "text": "Name a thing that is always in a hotel room",
+    "answers": [
+      {
+        "text": "towels",
+        "aliases": [
+          "towels"
+        ],
+        "points": 40
+      },
+      {
+        "text": "a bed",
+        "aliases": [
+          "bed"
+        ],
+        "points": 30
+      },
+      {
+        "text": "a television",
+        "aliases": [
+          "television"
+        ],
+        "points": 25
+      },
+      {
+        "text": "soap",
+        "aliases": [
+          "soap"
+        ],
+        "points": 20
+      },
+      {
+        "text": "a kettle",
+        "aliases": [
+          "kettle"
+        ],
+        "points": 15
+      },
+      {
+        "text": "a wardrobe",
+        "aliases": [
+          "wardrobe"
+        ],
+        "points": 10
+      },
+      {
+        "text": "a lamp",
+        "aliases": [
+          "lamp"
+        ],
+        "points": 5
+      },
+      {
+        "text": "a phone",
+        "aliases": [
+          "phone"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-010",
+    "text": "Name something that makes a loud noise",
+    "answers": [
+      {
+        "text": "a siren",
+        "aliases": [
+          "siren"
+        ],
+        "points": 40
+      },
+      {
+        "text": "a doorbell",
+        "aliases": [
+          "doorbell"
+        ],
+        "points": 30
+      },
+      {
+        "text": "thunder",
+        "aliases": [
+          "thunder"
+        ],
+        "points": 25
+      },
+      {
+        "text": "a car alarm",
+        "aliases": [
+          "car alarm"
+        ],
+        "points": 20
+      },
+      {
+        "text": "a blender",
+        "aliases": [
+          "blender"
+        ],
+        "points": 15
+      },
+      {
+        "text": "a dog",
+        "aliases": [
+          "dog"
+        ],
+        "points": 10
+      },
+      {
+        "text": "a baby",
+        "aliases": [
+          "baby"
+        ],
+        "points": 5
+      },
+      {
+        "text": "a firework",
+        "aliases": [
+          "firework"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-011",
+    "text": "Name a chore people avoid",
+    "answers": [
+      {
+        "text": "washing dishes",
+        "aliases": [
+          "washing dishes"
+        ],
+        "points": 40
+      },
+      {
+        "text": "folding laundry",
+        "aliases": [
+          "folding laundry"
+        ],
+        "points": 30
+      },
+      {
+        "text": "cleaning the bathroom",
+        "aliases": [
+          "cleaning the bathroom"
+        ],
+        "points": 25
+      },
+      {
+        "text": "taking out trash",
+        "aliases": [
+          "taking out trash"
+        ],
+        "points": 20
+      },
+      {
+        "text": "ironing",
+        "aliases": [
+          "ironing"
+        ],
+        "points": 15
+      },
+      {
+        "text": "vacuuming",
+        "aliases": [
+          "vacuuming"
+        ],
+        "points": 10
+      },
+      {
+        "text": "dusting",
+        "aliases": [
+          "dusting"
+        ],
+        "points": 5
+      },
+      {
+        "text": "mowing the lawn",
+        "aliases": [
+          "mowing the lawn"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-012",
+    "text": "Name something you might find in a backpack",
+    "answers": [
+      {
+        "text": "laptop",
+        "aliases": [
+          "laptop"
+        ],
+        "points": 40
+      },
+      {
+        "text": "water bottle",
+        "aliases": [
+          "water bottle"
+        ],
+        "points": 30
+      },
+      {
+        "text": "snacks",
+        "aliases": [
+          "snacks"
+        ],
+        "points": 25
+      },
+      {
+        "text": "notebook",
+        "aliases": [
+          "notebook"
+        ],
+        "points": 20
+      },
+      {
+        "text": "keys",
+        "aliases": [
+          "keys"
+        ],
+        "points": 15
+      },
+      {
+        "text": "headphones",
+        "aliases": [
+          "headphones"
+        ],
+        "points": 10
+      },
+      {
+        "text": "umbrella",
+        "aliases": [
+          "umbrella"
+        ],
+        "points": 5
+      },
+      {
+        "text": "charger",
+        "aliases": [
+          "charger"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-013",
+    "text": "Name a topping people put on pizza",
+    "answers": [
+      {
+        "text": "cheese",
+        "aliases": [
+          "cheese"
+        ],
+        "points": 40
+      },
+      {
+        "text": "pepperoni",
+        "aliases": [
+          "pepperoni"
+        ],
+        "points": 30
+      },
+      {
+        "text": "mushrooms",
+        "aliases": [
+          "mushrooms"
+        ],
+        "points": 25
+      },
+      {
+        "text": "onions",
+        "aliases": [
+          "onions"
+        ],
+        "points": 20
+      },
+      {
+        "text": "pineapple",
+        "aliases": [
+          "pineapple"
+        ],
+        "points": 15
+      },
+      {
+        "text": "olives",
+        "aliases": [
+          "olives"
+        ],
+        "points": 10
+      },
+      {
+        "text": "ham",
+        "aliases": [
+          "ham"
+        ],
+        "points": 5
+      },
+      {
+        "text": "peppers",
+        "aliases": [
+          "peppers"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-014",
+    "text": "Name something people take a photo of on holiday",
+    "answers": [
+      {
+        "text": "the beach",
+        "aliases": [
+          "the beach"
+        ],
+        "points": 40
+      },
+      {
+        "text": "food",
+        "aliases": [
+          "food"
+        ],
+        "points": 30
+      },
+      {
+        "text": "a landmark",
+        "aliases": [
+          "landmark"
+        ],
+        "points": 25
+      },
+      {
+        "text": "the hotel",
+        "aliases": [
+          "the hotel"
+        ],
+        "points": 20
+      },
+      {
+        "text": "a sunset",
+        "aliases": [
+          "sunset"
+        ],
+        "points": 15
+      },
+      {
+        "text": "themselves",
+        "aliases": [
+          "themselves"
+        ],
+        "points": 10
+      },
+      {
+        "text": "a drink",
+        "aliases": [
+          "drink"
+        ],
+        "points": 5
+      },
+      {
+        "text": "the view",
+        "aliases": [
+          "the view"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-015",
+    "text": "Name a reason to call a friend",
+    "answers": [
+      {
+        "text": "to catch up",
+        "aliases": [
+          "to catch up"
+        ],
+        "points": 40
+      },
+      {
+        "text": "for advice",
+        "aliases": [
+          "for advice"
+        ],
+        "points": 30
+      },
+      {
+        "text": "to make plans",
+        "aliases": [
+          "to make plans"
+        ],
+        "points": 25
+      },
+      {
+        "text": "for a favour",
+        "aliases": [
+          "for a favour"
+        ],
+        "points": 20
+      },
+      {
+        "text": "to complain",
+        "aliases": [
+          "to complain"
+        ],
+        "points": 15
+      },
+      {
+        "text": "to share news",
+        "aliases": [
+          "to share news"
+        ],
+        "points": 10
+      },
+      {
+        "text": "to ask directions",
+        "aliases": [
+          "to ask directions"
+        ],
+        "points": 5
+      },
+      {
+        "text": "to say happy birthday",
+        "aliases": [
+          "to say happy birthday"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-016",
+    "text": "Name something that gets lost in a house",
+    "answers": [
+      {
+        "text": "the remote",
+        "aliases": [
+          "the remote"
+        ],
+        "points": 40
+      },
+      {
+        "text": "keys",
+        "aliases": [
+          "keys"
+        ],
+        "points": 30
+      },
+      {
+        "text": "socks",
+        "aliases": [
+          "socks"
+        ],
+        "points": 25
+      },
+      {
+        "text": "scissors",
+        "aliases": [
+          "scissors"
+        ],
+        "points": 20
+      },
+      {
+        "text": "chargers",
+        "aliases": [
+          "chargers"
+        ],
+        "points": 15
+      },
+      {
+        "text": "glasses",
+        "aliases": [
+          "glasses"
+        ],
+        "points": 10
+      },
+      {
+        "text": "pens",
+        "aliases": [
+          "pens"
+        ],
+        "points": 5
+      },
+      {
+        "text": "earrings",
+        "aliases": [
+          "earrings"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-017",
+    "text": "Name a thing people do while waiting",
+    "answers": [
+      {
+        "text": "scroll their phone",
+        "aliases": [
+          "scroll their phone"
+        ],
+        "points": 40
+      },
+      {
+        "text": "check the time",
+        "aliases": [
+          "check the time"
+        ],
+        "points": 30
+      },
+      {
+        "text": "pace",
+        "aliases": [
+          "pace"
+        ],
+        "points": 25
+      },
+      {
+        "text": "read",
+        "aliases": [
+          "read"
+        ],
+        "points": 20
+      },
+      {
+        "text": "talk",
+        "aliases": [
+          "talk"
+        ],
+        "points": 15
+      },
+      {
+        "text": "daydream",
+        "aliases": [
+          "daydream"
+        ],
+        "points": 10
+      },
+      {
+        "text": "drink coffee",
+        "aliases": [
+          "drink coffee"
+        ],
+        "points": 5
+      },
+      {
+        "text": "complain",
+        "aliases": [
+          "complain"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-018",
+    "text": "Name something you might see at a farmers market",
+    "answers": [
+      {
+        "text": "fresh fruit",
+        "aliases": [
+          "fresh fruit"
+        ],
+        "points": 40
+      },
+      {
+        "text": "vegetables",
+        "aliases": [
+          "vegetables"
+        ],
+        "points": 30
+      },
+      {
+        "text": "honey",
+        "aliases": [
+          "honey"
+        ],
+        "points": 25
+      },
+      {
+        "text": "bread",
+        "aliases": [
+          "bread"
+        ],
+        "points": 20
+      },
+      {
+        "text": "flowers",
+        "aliases": [
+          "flowers"
+        ],
+        "points": 15
+      },
+      {
+        "text": "cheese",
+        "aliases": [
+          "cheese"
+        ],
+        "points": 10
+      },
+      {
+        "text": "eggs",
+        "aliases": [
+          "eggs"
+        ],
+        "points": 5
+      },
+      {
+        "text": "jam",
+        "aliases": [
+          "jam"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-019",
+    "text": "Name a thing that is hard to open",
+    "answers": [
+      {
+        "text": "a jar",
+        "aliases": [
+          "jar"
+        ],
+        "points": 40
+      },
+      {
+        "text": "a packet",
+        "aliases": [
+          "packet"
+        ],
+        "points": 30
+      },
+      {
+        "text": "a parcel",
+        "aliases": [
+          "parcel"
+        ],
+        "points": 25
+      },
+      {
+        "text": "a champagne bottle",
+        "aliases": [
+          "champagne bottle"
+        ],
+        "points": 20
+      },
+      {
+        "text": "a can",
+        "aliases": [
+          "can"
+        ],
+        "points": 15
+      },
+      {
+        "text": "a childproof lid",
+        "aliases": [
+          "childproof lid"
+        ],
+        "points": 10
+      },
+      {
+        "text": "a new box",
+        "aliases": [
+          "new box"
+        ],
+        "points": 5
+      },
+      {
+        "text": "a stiff door",
+        "aliases": [
+          "stiff door"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-020",
+    "text": "Name something people do at the beach",
+    "answers": [
+      {
+        "text": "swim",
+        "aliases": [
+          "swim"
+        ],
+        "points": 40
+      },
+      {
+        "text": "sunbathe",
+        "aliases": [
+          "sunbathe"
+        ],
+        "points": 30
+      },
+      {
+        "text": "build a sandcastle",
+        "aliases": [
+          "build a sandcastle"
+        ],
+        "points": 25
+      },
+      {
+        "text": "read",
+        "aliases": [
+          "read"
+        ],
+        "points": 20
+      },
+      {
+        "text": "play ball",
+        "aliases": [
+          "play ball"
+        ],
+        "points": 15
+      },
+      {
+        "text": "collect shells",
+        "aliases": [
+          "collect shells"
+        ],
+        "points": 10
+      },
+      {
+        "text": "eat ice cream",
+        "aliases": [
+          "eat ice cream"
+        ],
+        "points": 5
+      },
+      {
+        "text": "walk",
+        "aliases": [
+          "walk"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-021",
+    "text": "Name a type of weather people complain about",
+    "answers": [
+      {
+        "text": "rain",
+        "aliases": [
+          "rain"
+        ],
+        "points": 40
+      },
+      {
+        "text": "heat",
+        "aliases": [
+          "heat"
+        ],
+        "points": 30
+      },
+      {
+        "text": "cold",
+        "aliases": [
+          "cold"
+        ],
+        "points": 25
+      },
+      {
+        "text": "wind",
+        "aliases": [
+          "wind"
+        ],
+        "points": 20
+      },
+      {
+        "text": "humidity",
+        "aliases": [
+          "humidity"
+        ],
+        "points": 15
+      },
+      {
+        "text": "snow",
+        "aliases": [
+          "snow"
+        ],
+        "points": 10
+      },
+      {
+        "text": "fog",
+        "aliases": [
+          "fog"
+        ],
+        "points": 5
+      },
+      {
+        "text": "storms",
+        "aliases": [
+          "storms"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-022",
+    "text": "Name something you might bring to a picnic",
+    "answers": [
+      {
+        "text": "a blanket",
+        "aliases": [
+          "blanket"
+        ],
+        "points": 40
+      },
+      {
+        "text": "sandwiches",
+        "aliases": [
+          "sandwiches"
+        ],
+        "points": 30
+      },
+      {
+        "text": "drinks",
+        "aliases": [
+          "drinks"
+        ],
+        "points": 25
+      },
+      {
+        "text": "fruit",
+        "aliases": [
+          "fruit"
+        ],
+        "points": 20
+      },
+      {
+        "text": "a football",
+        "aliases": [
+          "football"
+        ],
+        "points": 15
+      },
+      {
+        "text": "sunscreen",
+        "aliases": [
+          "sunscreen"
+        ],
+        "points": 10
+      },
+      {
+        "text": "a cooler",
+        "aliases": [
+          "cooler"
+        ],
+        "points": 5
+      },
+      {
+        "text": "crisps",
+        "aliases": [
+          "crisps"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-023",
+    "text": "Name a place where you have to queue",
+    "answers": [
+      {
+        "text": "supermarket",
+        "aliases": [
+          "supermarket"
+        ],
+        "points": 40
+      },
+      {
+        "text": "airport",
+        "aliases": [
+          "airport"
+        ],
+        "points": 30
+      },
+      {
+        "text": "bank",
+        "aliases": [
+          "bank"
+        ],
+        "points": 25
+      },
+      {
+        "text": "theme park",
+        "aliases": [
+          "theme park"
+        ],
+        "points": 20
+      },
+      {
+        "text": "post office",
+        "aliases": [
+          "post office"
+        ],
+        "points": 15
+      },
+      {
+        "text": "concert",
+        "aliases": [
+          "concert"
+        ],
+        "points": 10
+      },
+      {
+        "text": "cafe",
+        "aliases": [
+          "cafe"
+        ],
+        "points": 5
+      },
+      {
+        "text": "doctor",
+        "aliases": [
+          "doctor"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-024",
+    "text": "Name something people do when they are nervous",
+    "answers": [
+      {
+        "text": "bite their nails",
+        "aliases": [
+          "bite their nails"
+        ],
+        "points": 40
+      },
+      {
+        "text": "pace",
+        "aliases": [
+          "pace"
+        ],
+        "points": 30
+      },
+      {
+        "text": "talk fast",
+        "aliases": [
+          "talk fast"
+        ],
+        "points": 25
+      },
+      {
+        "text": "sweat",
+        "aliases": [
+          "sweat"
+        ],
+        "points": 20
+      },
+      {
+        "text": "fidget",
+        "aliases": [
+          "fidget"
+        ],
+        "points": 15
+      },
+      {
+        "text": "check their phone",
+        "aliases": [
+          "check their phone"
+        ],
+        "points": 10
+      },
+      {
+        "text": "laugh",
+        "aliases": [
+          "laugh"
+        ],
+        "points": 5
+      },
+      {
+        "text": "drink water",
+        "aliases": [
+          "drink water"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-025",
+    "text": "Name a thing you might buy at a pharmacy",
+    "answers": [
+      {
+        "text": "painkillers",
+        "aliases": [
+          "painkillers"
+        ],
+        "points": 40
+      },
+      {
+        "text": "plasters",
+        "aliases": [
+          "plasters"
+        ],
+        "points": 30
+      },
+      {
+        "text": "shampoo",
+        "aliases": [
+          "shampoo"
+        ],
+        "points": 25
+      },
+      {
+        "text": "vitamins",
+        "aliases": [
+          "vitamins"
+        ],
+        "points": 20
+      },
+      {
+        "text": "cough syrup",
+        "aliases": [
+          "cough syrup"
+        ],
+        "points": 15
+      },
+      {
+        "text": "sunscreen",
+        "aliases": [
+          "sunscreen"
+        ],
+        "points": 10
+      },
+      {
+        "text": "toothpaste",
+        "aliases": [
+          "toothpaste"
+        ],
+        "points": 5
+      },
+      {
+        "text": "tissues",
+        "aliases": [
+          "tissues"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-026",
+    "text": "Name something that happens at a birthday party",
+    "answers": [
+      {
+        "text": "cake",
+        "aliases": [
+          "cake"
+        ],
+        "points": 40
+      },
+      {
+        "text": "presents",
+        "aliases": [
+          "presents"
+        ],
+        "points": 30
+      },
+      {
+        "text": "singing",
+        "aliases": [
+          "singing"
+        ],
+        "points": 25
+      },
+      {
+        "text": "games",
+        "aliases": [
+          "games"
+        ],
+        "points": 20
+      },
+      {
+        "text": "photos",
+        "aliases": [
+          "photos"
+        ],
+        "points": 15
+      },
+      {
+        "text": "balloons",
+        "aliases": [
+          "balloons"
+        ],
+        "points": 10
+      },
+      {
+        "text": "speeches",
+        "aliases": [
+          "speeches"
+        ],
+        "points": 5
+      },
+      {
+        "text": "dancing",
+        "aliases": [
+          "dancing"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-027",
+    "text": "Name something you might do on a rainy day",
+    "answers": [
+      {
+        "text": "watch a film",
+        "aliases": [
+          "watch a film"
+        ],
+        "points": 40
+      },
+      {
+        "text": "read",
+        "aliases": [
+          "read"
+        ],
+        "points": 30
+      },
+      {
+        "text": "sleep",
+        "aliases": [
+          "sleep"
+        ],
+        "points": 25
+      },
+      {
+        "text": "bake",
+        "aliases": [
+          "bake"
+        ],
+        "points": 20
+      },
+      {
+        "text": "clean",
+        "aliases": [
+          "clean"
+        ],
+        "points": 15
+      },
+      {
+        "text": "play games",
+        "aliases": [
+          "play games"
+        ],
+        "points": 10
+      },
+      {
+        "text": "listen to music",
+        "aliases": [
+          "listen to music"
+        ],
+        "points": 5
+      },
+      {
+        "text": "stay in bed",
+        "aliases": [
+          "stay in bed"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-028",
+    "text": "Name a food people eat with their hands",
+    "answers": [
+      {
+        "text": "pizza",
+        "aliases": [
+          "pizza"
+        ],
+        "points": 40
+      },
+      {
+        "text": "burger",
+        "aliases": [
+          "burger"
+        ],
+        "points": 30
+      },
+      {
+        "text": "sandwich",
+        "aliases": [
+          "sandwich"
+        ],
+        "points": 25
+      },
+      {
+        "text": "fries",
+        "aliases": [
+          "fries"
+        ],
+        "points": 20
+      },
+      {
+        "text": "tacos",
+        "aliases": [
+          "tacos"
+        ],
+        "points": 15
+      },
+      {
+        "text": "chicken wings",
+        "aliases": [
+          "chicken wings"
+        ],
+        "points": 10
+      },
+      {
+        "text": "fruit",
+        "aliases": [
+          "fruit"
+        ],
+        "points": 5
+      },
+      {
+        "text": "crisps",
+        "aliases": [
+          "crisps"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-029",
+    "text": "Name something that is usually in a handbag",
+    "answers": [
+      {
+        "text": "wallet",
+        "aliases": [
+          "wallet"
+        ],
+        "points": 40
+      },
+      {
+        "text": "phone",
+        "aliases": [
+          "phone"
+        ],
+        "points": 30
+      },
+      {
+        "text": "keys",
+        "aliases": [
+          "keys"
+        ],
+        "points": 25
+      },
+      {
+        "text": "tissues",
+        "aliases": [
+          "tissues"
+        ],
+        "points": 20
+      },
+      {
+        "text": "lipstick",
+        "aliases": [
+          "lipstick"
+        ],
+        "points": 15
+      },
+      {
+        "text": "sunglasses",
+        "aliases": [
+          "sunglasses"
+        ],
+        "points": 10
+      },
+      {
+        "text": "snacks",
+        "aliases": [
+          "snacks"
+        ],
+        "points": 5
+      },
+      {
+        "text": "receipts",
+        "aliases": [
+          "receipts"
+        ],
+        "points": 5
+      }
+    ]
+  },
+  {
+    "id": "survey-030",
+    "text": "Name a thing people do at the gym",
+    "answers": [
+      {
+        "text": "run",
+        "aliases": [
+          "run"
+        ],
+        "points": 40
+      },
+      {
+        "text": "lift weights",
+        "aliases": [
+          "lift weights"
+        ],
+        "points": 30
+      },
+      {
+        "text": "stretch",
+        "aliases": [
+          "stretch"
+        ],
+        "points": 25
+      },
+      {
+        "text": "cycle",
+        "aliases": [
+          "cycle"
+        ],
+        "points": 20
+      },
+      {
+        "text": "swim",
+        "aliases": [
+          "swim"
+        ],
+        "points": 15
+      },
+      {
+        "text": "row",
+        "aliases": [
+          "row"
+        ],
+        "points": 10
+      },
+      {
+        "text": "jump rope",
+        "aliases": [
+          "jump rope"
+        ],
+        "points": 5
+      },
+      {
+        "text": "take a class",
+        "aliases": [
+          "take a class"
+        ],
+        "points": 5
+      }
+    ]
+  }
+]
