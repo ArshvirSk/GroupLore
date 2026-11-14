@@ -60,6 +60,8 @@ import PitchPerfectGame, {
 import RoastBattleGame, {
   type RoastView,
 } from "@/components/game/RoastBattleGame";
+import RoundTwoGame from "@/components/game/RoundTwoGame";
+import TeamAssignment from "@/components/game/TeamAssignment";
 import WavelengthGame, {
   type WavelengthView,
 } from "@/components/game/WavelengthGame";
@@ -106,6 +108,7 @@ export default function GamePage() {
     if (!game || room.players.length !== room.players.filter((p) => p.connected).length) {
       return;
     }
+    if (game.teams) return;
     if (room.players.length < game.minPlayers || room.players.length > game.maxPlayers) {
       return;
     }
@@ -181,6 +184,7 @@ export default function GamePage() {
 
   const activeView = room.phase === "playing" ? gameView : null;
   const results = room.phase === "results";
+  const teamGame = room.catalog.find((entry) => entry.id === room.gameId)?.teams;
 
   return (
     <GameShell
@@ -207,6 +211,35 @@ export default function GamePage() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {room.phase === "lobby" && teamGame ? (
+        <TeamAssignment room={room} act={act} />
+      ) : null}
+
+      {activeView &&
+        [
+          "fill-the-blank",
+          "connections",
+          "survey-says",
+          "scattergories",
+          "pattern-memory",
+          "reaction-duel",
+          "story-chain",
+          "password",
+          "boggle-rush",
+          "buzzer-trivia",
+          "liars-dice",
+          "blur-guess",
+          "codenames",
+          "blind-sketch",
+          "duel-bracket",
+        ].includes(room.gameId || "") && (
+          <RoundTwoGame
+            room={room}
+            view={room.game as unknown as Record<string, unknown>}
+            send={send}
+          />
+        )}
 
       {activeView && room.gameId === "most-likely-to" && (
         <MostLikelyToGame
@@ -399,6 +432,21 @@ export default function GamePage() {
           "mad-libs",
           "two-truths",
           "fact-or-fiction",
+          "fill-the-blank",
+          "connections",
+          "survey-says",
+          "scattergories",
+          "pattern-memory",
+          "reaction-duel",
+          "story-chain",
+          "password",
+          "boggle-rush",
+          "buzzer-trivia",
+          "liars-dice",
+          "blur-guess",
+          "codenames",
+          "blind-sketch",
+          "duel-bracket",
         ].includes(room.gameId || "") && (
           <div className="party-card p-8 text-center">
             <Icon name="settings" className="mx-auto h-8 w-8" />

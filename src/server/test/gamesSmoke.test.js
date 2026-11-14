@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { listGames } from "../games/index.js";
+import { autoBalance } from "../engine/teams.js";
 
 function makeRoom(count, mode) {
   const players = new Map();
@@ -20,12 +21,13 @@ function makeRoom(count, mode) {
     mode,
     scores: Object.fromEntries([...players.keys()].map((id) => [id, 0])),
     state: null,
+    teams: null,
   };
 }
 
 test("every public game module initializes and renders a player view", () => {
   const games = listGames();
-  assert.equal(games.length, 21);
+  assert.equal(games.length, 36);
 
   for (const game of games) {
     const mode = game.modes.classic
@@ -35,6 +37,7 @@ test("every public game module initializes and renders a player view", () => {
 
     const playerCount = Math.max(3, game.minPlayers);
     const room = makeRoom(playerCount, mode);
+    if (game.teams) room.teams = autoBalance([...room.players.keys()], 2);
     const state = game.init(room, mode);
 
     assert.ok(state && typeof state === "object", `${game.id} did not initialize`);

@@ -59,7 +59,8 @@ export type IconName =
   | "megaphone"
   | "target"
   | "rocket"
-  | "heart";
+  | "heart"
+  | "grid";
 
 const paths: Record<IconName, React.ReactNode> = {
   home: <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z" />,
@@ -121,6 +122,7 @@ const paths: Record<IconName, React.ReactNode> = {
   target: <><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1" /></>,
   rocket: <path d="M14 4c3-2 6-1 6-1s1 3-1 6l-5 5-4-4zM10 10l-5 1-2 3 5 1m1 4 1 5 3-2 1-5M6 18l-3 3" />,
   heart: <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1L12 21l7.7-7.6 1.1-1a5.5 5.5 0 0 0 0-7.8z" />,
+  grid: <><rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" /></>,
 };
 
 export function Icon({

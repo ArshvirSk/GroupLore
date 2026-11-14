@@ -53,6 +53,21 @@ const DATA: Record<
   "mad-libs": { name: "Mad Libs", icon: "puzzle", category: "Write", description: "Fill the blanks and unleash a cursed story." },
   "two-truths": { name: "Two Truths", icon: "mask", category: "Social", description: "Separate the truth from two impressive lies." },
   "fact-or-fiction": { name: "Fact or Fiction", icon: "book", category: "Trivia", description: "Decide whether the strange fact is real." },
+  "fill-the-blank": { name: "Fill the Blank", icon: "puzzle", category: "Write", description: "Play the strangest card that completes the prompt." },
+  connections: { name: "Connections", icon: "grid", category: "Strategy", description: "Find four groups of four before time runs out." },
+  "survey-says": { name: "Survey Says", icon: "chart", category: "Trivia", description: "Match the answers the group would put on the board." },
+  scattergories: { name: "Scattergories", icon: "folder", category: "Write", description: "Race a letter and avoid matching the room." },
+  "pattern-memory": { name: "Pattern Memory", icon: "brain", category: "Real-time", description: "Watch the sequence and replay it under pressure." },
+  "reaction-duel": { name: "Reaction Duel", icon: "zap", category: "Real-time", description: "Wait for green and tap faster than the room." },
+  "story-chain": { name: "Story Chain", icon: "book", category: "Write", description: "Build one absurd story together, sentence by sentence." },
+  password: { name: "Password", icon: "key", category: "Social", description: "Give one-word clues without saying the secret word." },
+  "boggle-rush": { name: "Boggle Rush", icon: "grid", category: "Real-time", description: "Trace words on a shared grid before the clock runs out." },
+  "buzzer-trivia": { name: "Buzzer Trivia", icon: "bell", category: "Trivia", description: "Buzz first, answer fast, and avoid a wrong guess." },
+  "liars-dice": { name: "Liar's Dice", icon: "dice", category: "Strategy", description: "Hide your dice, raise the bid, and call the bluff." },
+  "blur-guess": { name: "Blur Guess", icon: "image", category: "Trivia", description: "Name the picture as the blur lifts stage by stage." },
+  codenames: { name: "Codenames", icon: "search", category: "Strategy", description: "Two teams decode a spymaster's one-word clue." },
+  "blind-sketch": { name: "Blind Sketch", icon: "image", category: "Draw", description: "Draw blind while your team guesses the strokes." },
+  "duel-bracket": { name: "Duel Bracket", icon: "sword", category: "Strategy", description: "Tiny duels. One live bracket. One survivor." },
 };
 
 function hash(id: string) {

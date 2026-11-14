@@ -60,6 +60,21 @@ Most games support **3–12 players**. **Odd One Out** requires **4–12**; **Ma
 | 📝 **Mad Libs Chaos** | 3–9 | **Classic** — three stories, blind blanks, then rate everyone else's words |
 | 🤥 **Two Truths, One Lie** | 3–12 | **Classic** — sixty seconds to write, twenty to vote; **Rapid** — fifteen-second votes |
 | ✅ **Fact or Fiction** | 3–12 | **Classic** — ten statements with speed and streak bonuses; **Sudden Death** — a wrong answer eliminates you |
+| 🃏 **Fill the Blank** | 3–12 | **Classic** — a rotating judge and a target of 5 points; **Quick** — eight rounds |
+| 🧩 **Connections** | 2–12 | **Race** — every player solves a shuffled board of their own; **Co-op** — one shared board and four mistakes |
+| 📊 **Survey Says** | 3–12 | **Classic** — eight editorial-ranked questions; **Fast Money** — three questions with multipliers |
+| 🗂️ **Scattergories** | 3–12 | **Classic** — five rounds and eight categories; **Blitz** — six categories and a shorter timer |
+| 🧠 **Pattern Memory** | 2–12 | **Classic** — simultaneous replay until one survivor; **Relay** — a growing shared chain |
+| ⚡ **Reaction Duel** | 2–12 | **Classic** — seven server-timed rounds; **Sudden** — first to three wins |
+| 📖 **Story Chain** | 3–12 | **Classic** — every chain visits every player; **Short** — four passes then the vote |
+| 🔤 **Password** | 4–12 | **Classic** — five words and three clue tries; **Speed** — a shorter turn |
+| 🔠 **Boggle Rush** | 2–12 | **Classic** — three 4×4 rounds; **Big** — a 5×5 grid |
+| 🔔 **Buzzer Trivia** | 3–12 | **Classic** — ten questions with an early-buzz bonus; **Lightning** — a shorter buzz window |
+| 🎲 **Liar's Dice** | 3–8 | **Classic** — five dice and wild ones; **Fast** — three dice and no wilds |
+| 🖼️ **Blur Guess** | 3–12 | **Classic** — eight images, six pre-blurred stages; **Hard** — fewer images and faster stages |
+| 🕵️ **Codenames** | 4–12 | **Classic** — two teams, one spymaster each; **Speed** — a shorter turn clock |
+| 🙈 **Blind Sketch** | 4–12 | **Classic** — three turns per team with hidden strokes; **Hard** — a shorter timer |
+| 🥊 **Duel Bracket** | 4–8 | **Classic** — a single-elimination bracket of random mini-duels; **Round Robin** — the same compact bracket rotation |
 
 ## Auth and Lobby Model
 
@@ -115,6 +130,7 @@ Guests can upgrade after a game with an email and password. Supabase `updateUser
   4. `supabase/migrations/supabase-migration-supabase-auth.sql`
   5. `supabase/migrations/supabase-migration-auth-rls.sql`
   6. `supabase/migrations/supabase-migration-auth-lobbies.sql`
+  7. `supabase/migrations/supabase-migration-round2-games.sql`
 - Enable the **Email** provider under Supabase → Authentication → Providers.
 - Enable **Anonymous sign-ins** under Authentication → Providers when `ALLOW_GUESTS=true`. Disable it when `ALLOW_GUESTS=false`; app middleware rejects anonymous tokens either way, but the dashboard switch is the provider-level control.
 - All app tables are server-only (RLS on, no anon policies). The browser anon key is used for Supabase Auth only; the Next route handlers use the service-role key.
