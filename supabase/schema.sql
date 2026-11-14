@@ -59,6 +59,8 @@ CREATE TABLE IF NOT EXISTS game_sessions (
   current_round INTEGER DEFAULT 0,
   round_data JSONB DEFAULT '{}',
   scores JSONB DEFAULT '{}',
+  snapshot JSONB,
+  snapshot_updated_at TIMESTAMPTZ,
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 

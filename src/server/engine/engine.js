@@ -52,6 +52,7 @@ export class GameEngine {
     authorize,
     loadSession,
     findOpenSession = null,
+    restoreOneSession = null,
     persistence = null,
     disconnectGraceMs = 30_000,
     logger = console,
@@ -60,12 +61,14 @@ export class GameEngine {
     this.authorize = authorize;
     this.loadSession = loadSession;
     this.findOpenSession = findOpenSession;
+    this.restoreOneSession = restoreOneSession;
     this.persistence = persistence;
     this.disconnectGraceMs = disconnectGraceMs;
     this.logger = logger;
 
     this.rooms = new Map();
     this.loadingRooms = new Map();
+    this.restorePromise = null;
     this.connections = new Map();
   }
 
@@ -226,13 +229,15 @@ export class GameEngine {
       const cached = this.rooms.get(sessionId);
       if (cached) return cached;
 
-      const room = this.createRoom({
-        id: session.id || sessionId,
-        groupId:
-          session.lobbies?.group_id || session.group_id || session.groupId || null,
-        lobbyId: session.lobby_id || session.lobbies?.id || null,
-        session,
-      });
+      const room =
+        this.roomFromSnapshot(session) ||
+        this.createRoom({
+          id: session.id || sessionId,
+          groupId:
+            session.lobbies?.group_id || session.group_id || session.groupId || null,
+          lobbyId: session.lobby_id || session.lobbies?.id || null,
+          session,
+        });
       this.rooms.set(room.id, room);
       return room;
     })();
@@ -273,12 +278,201 @@ export class GameEngine {
       result: null,
       endsAt: null,
       timer: null,
+      paused: false,
+      pausedRemainingMs: null,
       version: 0,
       advancing: false,
       endPersisted: false,
       seen: new Map(),
       createdAt: Date.now(),
     };
+  }
+
+  /**
+   * Rehydrate a playing room from its last phase-boundary snapshot. Players
+   * come back as disconnected seats so a reconnect token or identity can
+   * reclaim them. The room starts paused and resumes its stored remaining
+   * phase time only once a player reconnects.
+   */
+  roomFromSnapshot(session) {
+    let snapshot = session?.snapshot;
+    if (typeof snapshot === "string") {
+      try {
+        snapshot = JSON.parse(snapshot);
+      } catch {
+        return null;
+      }
+    }
+    if (
+      !snapshot ||
+      snapshot.version !== 1 ||
+      snapshot.phase !== "playing" ||
+      !snapshot.state ||
+      snapshot.state.done
+    ) {
+      return null;
+    }
+
+    const game = getGame(snapshot.gameId);
+    if (!game || !game.modes[snapshot.mode]) return null;
+
+    const room = this.createRoom({
+      id: session.id,
+      groupId:
+        session.lobbies?.group_id || session.group_id || snapshot.groupId || null,
+      lobbyId: session.lobby_id || session.lobbies?.id || snapshot.lobbyId || null,
+      session,
+    });
+    room.phase = "playing";
+    room.gameId = game.id;
+    room.mode = snapshot.mode;
+    room.module = game;
+    room.state = JSON.parse(JSON.stringify(snapshot.state));
+    room.scores = { ...(snapshot.scores || {}) };
+    room.teams = snapshot.teams
+      ? JSON.parse(JSON.stringify(snapshot.teams))
+      : null;
+    room.teamsLocked = Boolean(snapshot.teamsLocked);
+    room.result = null;
+    room.endPersisted = false;
+    room.createdAt = Number(snapshot.createdAt) || Date.now();
+
+    for (const saved of snapshot.players || []) {
+      if (!saved?.id) continue;
+      room.players.set(saved.id, {
+        id: saved.id,
+        identityKey: saved.identityKey,
+        kind: saved.kind,
+        guestId: saved.guestId || null,
+        authUserId: saved.authUserId || null,
+        userId: saved.userId || null,
+        isGuest: Boolean(saved.isGuest),
+        name: saved.name || "Player",
+        avatarUrl: saved.avatarUrl || null,
+        isReady: Boolean(saved.isReady),
+        socketId: null,
+        connected: false,
+        joinedAt: Number(saved.joinedAt) || room.createdAt,
+        graceTimer: null,
+      });
+      room.latency[saved.id] = [];
+    }
+
+    room.hostId = room.players.has(snapshot.hostId)
+      ? snapshot.hostId
+      : room.players.keys().next().value || null;
+
+    room.paused = true;
+    room.pausedRemainingMs =
+      snapshot.remainingMs !== null &&
+      snapshot.remainingMs !== undefined &&
+      Number.isFinite(Number(snapshot.remainingMs))
+      ? Math.max(0, Number(snapshot.remainingMs))
+      : null;
+
+    return room;
+  }
+
+  remainingPhaseMs(room) {
+    if (room.phase !== "playing") return null;
+    if (room.paused) {
+      return room.pausedRemainingMs !== null &&
+        room.pausedRemainingMs !== undefined &&
+        Number.isFinite(Number(room.pausedRemainingMs))
+        ? Math.max(0, Number(room.pausedRemainingMs))
+        : null;
+    }
+    return Number.isFinite(Number(room.state?.endsAt))
+      ? Math.max(0, Number(room.state.endsAt) - Date.now())
+      : null;
+  }
+
+  resumePhaseTimer(room) {
+    if (!room.paused || room.phase !== "playing") return;
+    const remainingMs = room.pausedRemainingMs;
+    room.paused = false;
+    room.pausedRemainingMs = null;
+
+    if (
+      remainingMs !== null &&
+      remainingMs !== undefined &&
+      Number.isFinite(Number(remainingMs))
+    ) {
+      room.state = room.state || {};
+      room.state.endsAt = Date.now() + Math.max(TICK_MS, Number(remainingMs));
+    }
+
+    this.arm(room);
+    this.persistSnapshot(room, "resume");
+  }
+
+  snapshotRoom(room) {
+    return {
+      version: 1,
+      sessionId: room.id,
+      groupId: room.groupId,
+      lobbyId: room.lobbyId,
+      groupName: room.groupName,
+      joinCode: room.joinCode,
+      phase: room.phase,
+      gameId: room.gameId,
+      mode: room.mode,
+      hostId: room.hostId,
+      players: [...room.players.values()].map((player) => ({
+        id: player.id,
+        identityKey: player.identityKey,
+        kind: player.kind,
+        guestId: player.guestId,
+        authUserId: player.authUserId,
+        userId: player.userId,
+        isGuest: player.isGuest,
+        name: player.name,
+        avatarUrl: player.avatarUrl,
+        isReady: player.isReady,
+        joinedAt: player.joinedAt,
+      })),
+      scores: { ...room.scores },
+      teams: room.teams ? JSON.parse(JSON.stringify(room.teams)) : null,
+      teamsLocked: room.teamsLocked,
+      state: room.state ? JSON.parse(JSON.stringify(room.state)) : null,
+      result: room.result ? JSON.parse(JSON.stringify(room.result)) : null,
+      remainingMs: this.remainingPhaseMs(room),
+      createdAt: room.createdAt,
+      savedAt: Date.now(),
+    };
+  }
+
+  persistSnapshot(room, reason) {
+    if (!this.persistence?.onSnapshot) return;
+    let snapshot;
+    try {
+      snapshot = this.snapshotRoom(room);
+    } catch (err) {
+      this.logger.error("[engine] snapshot failed", err?.message || err);
+      return;
+    }
+    void Promise.resolve(
+      this.persistence.onSnapshot({ room, sessionId: room.id, snapshot, reason }),
+    ).catch((err) =>
+      this.logger.error("[engine] onSnapshot failed", err?.message || err),
+    );
+  }
+
+  async restoreLiveRoom() {
+    if (this.restorePromise) return this.restorePromise;
+    if (typeof this.restoreOneSession !== "function") return null;
+
+    this.restorePromise = (async () => {
+      const session = await this.restoreOneSession();
+      if (!session) return null;
+      const room = this.roomFromSnapshot(session);
+      if (!room) return null;
+      if (this.rooms.has(room.id)) return this.rooms.get(room.id);
+      this.rooms.set(room.id, room);
+      return room;
+    })();
+
+    return this.restorePromise;
   }
 
   async join(socket, payload = {}) {
@@ -358,6 +552,7 @@ export class GameEngine {
       this.bindSocket(socket, room, player);
       this.sendJoined(socket, room, player);
       this.playerJoinedGame(room, player.id);
+      this.resumePhaseTimer(room);
       this.broadcast(room);
       return;
     }
@@ -400,12 +595,16 @@ export class GameEngine {
   playerJoinedGame(room, playerId) {
     if (room.phase !== "playing" || !room.module?.onPlayerJoin) return;
     try {
+      const previousPhase = room.state?.phase;
       room.module.onPlayerJoin(room, playerId);
       if (room.state?.done) {
         this.finish(room, "completed");
         return;
       }
       this.arm(room);
+      if (previousPhase !== room.state?.phase) {
+        this.persistSnapshot(room, "phase");
+      }
     } catch (err) {
       this.logger.error("[engine] onPlayerJoin failed", err);
     }
@@ -541,15 +740,19 @@ export class GameEngine {
 
     if (room.phase === "playing" && room.module?.onPlayerLeave) {
       try {
+        const previousPhase = room.state?.phase;
         room.module.onPlayerLeave(room, playerId);
+        if (room.state?.done) {
+          this.finish(room, "player_left");
+          return;
+        }
+        this.arm(room);
+        if (previousPhase !== room.state?.phase) {
+          this.persistSnapshot(room, "phase");
+        }
       } catch (err) {
         this.logger.error("[engine] onPlayerLeave failed", err);
       }
-      if (room.state?.done) {
-        this.finish(room, "player_left");
-        return;
-      }
-      this.arm(room);
     }
 
     if (room.players.size === 0) {
@@ -780,6 +983,7 @@ export class GameEngine {
 
     this.arm(room);
     this.broadcast(room);
+    this.persistSnapshot(room, "start");
 
     void Promise.resolve(
       this.persistence?.onStart?.({
@@ -799,7 +1003,7 @@ export class GameEngine {
     room.timer = null;
     room.endsAt = null;
 
-    if (room.phase !== "playing") return;
+    if (room.paused || room.phase !== "playing") return;
     const endsAt = Number(room.state?.endsAt);
     if (!Number.isFinite(endsAt)) return;
 
@@ -813,7 +1017,7 @@ export class GameEngine {
   }
 
   advance(room, reason) {
-    if (room.phase !== "playing" || room.advancing) return;
+    if (room.paused || room.phase !== "playing" || room.advancing) return;
     if (!room.module) return;
 
     room.advancing = true;
@@ -829,6 +1033,7 @@ export class GameEngine {
       }
       this.arm(room);
       this.broadcast(room);
+      this.persistSnapshot(room, "phase");
     } catch (err) {
       this.logger.error("[engine] onPhaseEnd failed", err);
       this.finish(room, "error");
@@ -842,6 +1047,8 @@ export class GameEngine {
     if (room.timer) clearTimeout(room.timer);
     room.timer = null;
     room.endsAt = null;
+    room.paused = false;
+    room.pausedRemainingMs = null;
     room.phase = "results";
 
     const ranking = [...room.players.values()]
@@ -863,6 +1070,7 @@ export class GameEngine {
     };
 
     this.broadcast(room);
+    this.persistSnapshot(room, "results");
 
     if (!room.endPersisted) {
       room.endPersisted = true;
@@ -887,6 +1095,8 @@ export class GameEngine {
     if (room.timer) clearTimeout(room.timer);
     room.timer = null;
     room.endsAt = null;
+    room.paused = false;
+    room.pausedRemainingMs = null;
     room.phase = "lobby";
     room.state = null;
     room.module = null;
@@ -897,6 +1107,7 @@ export class GameEngine {
       player.isReady = false;
     }
     this.broadcast(room);
+    this.persistSnapshot(room, "lobby");
 
     void Promise.resolve(
       this.persistence?.onLobby?.({ room, sessionId: room.id }),
@@ -917,6 +1128,7 @@ export class GameEngine {
         : { playerId: player.id };
     delete event.eventId;
 
+    const previousPhase = room.state?.phase;
     const outcome = room.module.onEvent?.(room, player.id, event);
     if (outcome === "results" || room.state?.done) {
       this.finish(room, "completed");
@@ -925,6 +1137,9 @@ export class GameEngine {
 
     this.arm(room);
     this.broadcast(room);
+    if (previousPhase !== room.state?.phase) {
+      this.persistSnapshot(room, "phase");
+    }
   }
 
   view(room, viewerId) {

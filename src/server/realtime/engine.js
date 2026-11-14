@@ -36,10 +36,24 @@ export function getEngine() {
       const { data } = await supabase
         .from("game_sessions")
         .select(
-          "id, lobby_id, status, game_type, lobbies(id, code, group_id, status, groups(name))",
+          "id, lobby_id, status, game_type, snapshot, lobbies(id, code, group_id, status, groups(name))",
         )
         .eq("id", sessionId)
         .maybeSingle();
+      return data || null;
+    },
+    restoreOneSession: async () => {
+      const { data, error } = await supabase
+        .from("game_sessions")
+        .select(
+          "id, lobby_id, status, game_type, snapshot, lobbies(id, code, group_id, status, groups(name))",
+        )
+        .eq("status", "active")
+        .not("snapshot", "is", null)
+        .order("snapshot_updated_at", { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      if (error) return null;
       return data || null;
     },
     findOpenSession: (connection) =>
@@ -50,6 +64,12 @@ export function getEngine() {
       incrementStats,
     }),
   });
+
+  void engine
+    .restoreLiveRoom()
+    .catch((err) =>
+      console.error("[engine] live room restore failed", err?.message || err),
+    );
 
   globalStore.__grouploreEngine = engine;
   return engine;

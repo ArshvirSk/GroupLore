@@ -17,6 +17,7 @@ const persistence = {
   ends: [],
   empties: [],
   lobbies: [],
+  snapshots: [],
   async onStart(payload) {
     this.starts.push(payload);
   },
@@ -28,6 +29,9 @@ const persistence = {
   },
   async onEmpty(payload) {
     this.empties.push(payload);
+  },
+  async onSnapshot(payload) {
+    this.snapshots.push(payload);
   },
 };
 
@@ -96,7 +100,26 @@ function waitSync(tracker, predicate = () => true, timeout = 4000) {
   });
 }
 
+function waitUntil(predicate, timeout = 2000) {
+  return new Promise((resolve, reject) => {
+    const startedAt = Date.now();
+    const poll = () => {
+      const result = predicate();
+      if (result) return resolve(result);
+      if (Date.now() - startedAt >= timeout) {
+        return reject(new Error("Timed out waiting for condition"));
+      }
+      setTimeout(poll, 10);
+    };
+    poll();
+  });
+}
+
 async function makeClient(name, existingToken) {
+  return makeClientFor(engine, name, existingToken);
+}
+
+async function makeClientFor(targetEngine, name, existingToken) {
   const token = existingToken || `token-${randomUUID()}`;
   if (!tokenUsers.has(token)) {
     tokenUsers.set(token, {
@@ -105,7 +128,7 @@ async function makeClient(name, existingToken) {
       user_metadata: { display_name: name },
     });
   }
-  const identity = await engine.resolveIdentity({
+  const identity = await targetEngine.resolveIdentity({
     handshake: { auth: { token, displayName: name } },
   });
   const listeners = new Map();
@@ -138,7 +161,7 @@ async function makeClient(name, existingToken) {
       if (!clientSocket.connected) return;
       clientSocket.connected = false;
       connection.connected = false;
-      engine.disconnect(connection);
+      targetEngine.disconnect(connection);
     },
   };
   const connection = {
@@ -164,7 +187,7 @@ async function makeClient(name, existingToken) {
   };
   clientSocket.id = connection.id;
   sockets.push(clientSocket);
-  engine.connect(connection);
+  targetEngine.connect(connection);
   const tracker = makeTracker(clientSocket);
   return { name, socket: clientSocket, tracker, token };
 }
@@ -400,6 +423,135 @@ test("server timers advance a round without any client action", async () => {
     3000,
   );
   assert.ok(results.result);
+});
+
+test("phase snapshots persist and restore one live room after restart", async () => {
+  const sessionId = makeSession();
+  const { clients } = await startStub(sessionId, "classic", 2);
+
+  const started = await waitUntil(() =>
+    persistence.snapshots.find(
+      (entry) => entry.sessionId === sessionId && entry.reason === "start",
+    ),
+  );
+  assert.equal(started.snapshot.version, 1);
+  assert.equal(started.snapshot.phase, "playing");
+  assert.equal(started.snapshot.state.phase, "answer");
+  assert.equal(started.snapshot.players.length, 2);
+  assert.ok(started.snapshot.remainingMs > 0);
+  assert.equal("socketId" in started.snapshot.players[0], false);
+
+  // Advance the room without a socket event to prove phase boundaries also
+  // write a snapshot.
+  const room = engine.rooms.get(sessionId);
+  room.state.endsAt = Date.now();
+  engine.advance(room, "timeout");
+  const reveal = await waitUntil(() =>
+    persistence.snapshots.find(
+      (entry) =>
+        entry.sessionId === sessionId && entry.snapshot.state?.phase === "reveal",
+    ),
+  );
+  assert.equal(reveal.snapshot.phase, "playing");
+  assert.equal(reveal.snapshot.players.length, 2);
+
+  // A fresh engine restores the last live phase into memory, with the same
+  // seats and host but no stale socket bindings, and waits paused for a
+  // player instead of burning the phase timer.
+  const restoredEngine = new GameEngine({
+    resolveIdentity: engine.resolveIdentity,
+    authorize: async ({ identity }) => ({
+      allowed: true,
+      userId: identity.authUserId,
+      name: identity.name,
+      avatarUrl: null,
+    }),
+    loadSession: async (id) => sessions.get(id) || null,
+    restoreOneSession: async () => ({
+      ...sessions.get(sessionId),
+      snapshot: started.snapshot,
+    }),
+    disconnectGraceMs: 500,
+  });
+
+  const restored = await restoredEngine.restoreLiveRoom();
+  assert.equal(restored.id, sessionId);
+  assert.equal(restoredEngine.rooms.get(sessionId), restored);
+  assert.equal(restored.phase, "playing");
+  assert.equal(restored.state.phase, "answer");
+  assert.equal(restored.players.size, 2);
+  assert.equal(restored.hostId, started.snapshot.hostId);
+  assert.equal(restored.paused, true);
+  assert.equal(restored.timer, null);
+  assert.equal(restored.endsAt, null);
+  assert.ok(restored.pausedRemainingMs > 0);
+  assert.equal(
+    [...restored.players.values()].every(
+      (player) => player.connected === false && player.socketId === null,
+    ),
+    true,
+  );
+
+  restoredEngine.close();
+  for (const client of clients) client.socket.disconnect();
+});
+
+test("a restored room stays paused until a player rejoins and resumes its timer", async () => {
+  const sessionId = makeSession();
+  const { clients, joined } = await startStub(sessionId, "timer", 2);
+  const started = await waitUntil(() =>
+    persistence.snapshots.find(
+      (entry) => entry.sessionId === sessionId && entry.reason === "start",
+    ),
+  );
+
+  const restoredEngine = new GameEngine({
+    resolveIdentity: engine.resolveIdentity,
+    authorize: async ({ identity }) => ({
+      allowed: true,
+      userId: identity.authUserId,
+      name: identity.name,
+      avatarUrl: null,
+    }),
+    loadSession: async (id) => sessions.get(id) || null,
+    restoreOneSession: async () => ({
+      ...sessions.get(sessionId),
+      snapshot: started.snapshot,
+    }),
+    disconnectGraceMs: 500,
+  });
+
+  const restored = await restoredEngine.restoreLiveRoom();
+  assert.equal(restored.paused, true);
+  assert.equal(restored.timer, null);
+  assert.ok(restored.pausedRemainingMs > 0);
+
+  await new Promise((resolve) => setTimeout(resolve, 60));
+  assert.equal(restored.paused, true);
+  assert.equal(restored.timer, null);
+  assert.equal(restored.state.phase, "answer");
+
+  const returning = await makeClientFor(restoredEngine, "A", clients[0].token);
+  const seat = await join(returning, sessionId, joined[0].reconnectToken);
+  await waitUntil(() => restored.paused === false);
+
+  assert.equal(seat.playerId, joined[0].playerId);
+  assert.equal(restored.players.get(seat.playerId).connected, true);
+  assert.equal(restored.pausedRemainingMs, null);
+  assert.ok(restored.endsAt > Date.now());
+  assert.ok(restored.timer);
+  assert.ok(returning.tracker.latest.endsAt > Date.now());
+
+  const reveal = await waitSync(
+    returning.tracker,
+    (view) => view.game?.phase === "reveal",
+    2000,
+  );
+  assert.equal(reveal.game.phase, "reveal");
+
+  returning.socket.disconnect();
+  for (const client of clients) client.socket.disconnect();
+  restoredEngine.close();
 });
 
 test("most likely to scores the plurality and hides voters in anonymous mode", async () => {

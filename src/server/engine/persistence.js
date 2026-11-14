@@ -9,6 +9,8 @@ export function createSupabasePersistence({
   incrementStats,
   logger = console,
 }) {
+  const snapshotWrites = new Map();
+
   async function markSession(sessionId, patch) {
     try {
       await supabase.from("game_sessions").update(patch).eq("id", sessionId);
@@ -26,7 +28,44 @@ export function createSupabasePersistence({
     }
   }
 
+  // Phase snapshots can be produced faster than they are written. Keep one
+  // ordered write chain per session so an older phase cannot overwrite a newer
+  // one after a network delay.
+  function queueSnapshot(sessionId, write) {
+    const previous = snapshotWrites.get(sessionId) || Promise.resolve();
+    const next = previous.then(write, write);
+    snapshotWrites.set(sessionId, next);
+    void next.finally(() => {
+      if (snapshotWrites.get(sessionId) === next) {
+        snapshotWrites.delete(sessionId);
+      }
+    });
+    return next;
+  }
+
   return {
+    async onSnapshot({ sessionId, snapshot }) {
+      await queueSnapshot(sessionId, async () => {
+        try {
+          const { error } = await supabase
+            .from("game_sessions")
+            .update({
+              snapshot,
+              snapshot_updated_at: new Date().toISOString(),
+            })
+            .eq("id", sessionId);
+          if (error) {
+            logger.error(
+              "[persistence] snapshot update failed",
+              error.message || error,
+            );
+          }
+        } catch (err) {
+          logger.error("[persistence] snapshot update failed", err.message);
+        }
+      });
+    },
+
     async onStart({ room, gameId, mode, sessionId, groupId }) {
       await markSession(sessionId, { status: "active", game_type: gameId });
       await markLobby(room.lobbyId, { status: "in_game" });
