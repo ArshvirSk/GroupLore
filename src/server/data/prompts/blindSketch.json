@@ -1,0 +1,1502 @@
+[
+  {
+    "id": "sketch-001",
+    "text": "otter",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-002",
+    "text": "badger",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-003",
+    "text": "falcon",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-004",
+    "text": "rabbit",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-005",
+    "text": "turtle",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-006",
+    "text": "panther",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-007",
+    "text": "dolphin",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-008",
+    "text": "penguin",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-009",
+    "text": "koala",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-010",
+    "text": "beaver",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-011",
+    "text": "heron",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-012",
+    "text": "gecko",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-013",
+    "text": "walrus",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-014",
+    "text": "donkey",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-015",
+    "text": "ferret",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-016",
+    "text": "parrot",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-017",
+    "text": "salmon",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-018",
+    "text": "weasel",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-019",
+    "text": "bison",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-020",
+    "text": "camel",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-021",
+    "text": "bread",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-022",
+    "text": "cheese",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-023",
+    "text": "apple",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-024",
+    "text": "pepper",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-025",
+    "text": "noodle",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-026",
+    "text": "butter",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-027",
+    "text": "melon",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-028",
+    "text": "carrot",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-029",
+    "text": "waffle",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-030",
+    "text": "yogurt",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-031",
+    "text": "pickle",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-032",
+    "text": "tomato",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-033",
+    "text": "mango",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-034",
+    "text": "cereal",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-035",
+    "text": "garlic",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-036",
+    "text": "biscuit",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-037",
+    "text": "coconut",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-038",
+    "text": "pumpkin",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-039",
+    "text": "mustard",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-040",
+    "text": "popcorn",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-041",
+    "text": "river",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-042",
+    "text": "meadow",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-043",
+    "text": "volcano",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-044",
+    "text": "glacier",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-045",
+    "text": "forest",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-046",
+    "text": "desert",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-047",
+    "text": "island",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-048",
+    "text": "canyon",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-049",
+    "text": "harbour",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-050",
+    "text": "thunder",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-051",
+    "text": "fern",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-052",
+    "text": "pebble",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-053",
+    "text": "orchard",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-054",
+    "text": "moss",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-055",
+    "text": "summit",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-056",
+    "text": "valley",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-057",
+    "text": "reef",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-058",
+    "text": "prairie",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-059",
+    "text": "grove",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-060",
+    "text": "marsh",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-061",
+    "text": "kettle",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-062",
+    "text": "pillow",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-063",
+    "text": "ladder",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-064",
+    "text": "mirror",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-065",
+    "text": "carpet",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-066",
+    "text": "drawer",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-067",
+    "text": "hamper",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-068",
+    "text": "candle",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-069",
+    "text": "curtain",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-070",
+    "text": "teapot",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-071",
+    "text": "shelf",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-072",
+    "text": "bucket",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-073",
+    "text": "clock",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-074",
+    "text": "blanket",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-075",
+    "text": "toaster",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-076",
+    "text": "broom",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-077",
+    "text": "sponge",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-078",
+    "text": "vase",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-079",
+    "text": "stool",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-080",
+    "text": "hanger",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-081",
+    "text": "jacket",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-082",
+    "text": "sandal",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-083",
+    "text": "scarf",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-084",
+    "text": "mitten",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-085",
+    "text": "apron",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-086",
+    "text": "bonnet",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-087",
+    "text": "sweater",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-088",
+    "text": "boot",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-089",
+    "text": "glove",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-090",
+    "text": "cap",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-091",
+    "text": "belt",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-092",
+    "text": "sock",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-093",
+    "text": "robe",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-094",
+    "text": "badge",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-095",
+    "text": "pocket",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-096",
+    "text": "zipper",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-097",
+    "text": "button",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-098",
+    "text": "collar",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-099",
+    "text": "sleeve",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-100",
+    "text": "lace",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-101",
+    "text": "passport",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-102",
+    "text": "suitcase",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-103",
+    "text": "ticket",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-104",
+    "text": "harbor",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-105",
+    "text": "station",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-106",
+    "text": "airport",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-107",
+    "text": "journey",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-108",
+    "text": "hotel",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-109",
+    "text": "map",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-110",
+    "text": "compass",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-111",
+    "text": "ferry",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-112",
+    "text": "taxi",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-113",
+    "text": "voyage",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-114",
+    "text": "border",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-115",
+    "text": "customs",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-116",
+    "text": "platform",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-117",
+    "text": "tour",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-118",
+    "text": "guide",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-119",
+    "text": "cabin",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-120",
+    "text": "lodge",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-121",
+    "text": "racket",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-122",
+    "text": "stadium",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-123",
+    "text": "referee",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-124",
+    "text": "medal",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-125",
+    "text": "trophy",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-126",
+    "text": "helmet",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-127",
+    "text": "goal",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-128",
+    "text": "bicycle",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-129",
+    "text": "skate",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-130",
+    "text": "paddle",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-131",
+    "text": "wicket",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-132",
+    "text": "basket",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-133",
+    "text": "marathon",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-134",
+    "text": "sprint",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-135",
+    "text": "coach",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-136",
+    "text": "league",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-137",
+    "text": "final",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-138",
+    "text": "relay",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-139",
+    "text": "dive",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-140",
+    "text": "puck",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-141",
+    "text": "violin",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-142",
+    "text": "trumpet",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-143",
+    "text": "melody",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-144",
+    "text": "chorus",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-145",
+    "text": "guitar",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-146",
+    "text": "piano",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-147",
+    "text": "rhythm",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-148",
+    "text": "concert",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-149",
+    "text": "drum",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-150",
+    "text": "flute",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-151",
+    "text": "opera",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-152",
+    "text": "hymn",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-153",
+    "text": "tempo",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-154",
+    "text": "singer",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-155",
+    "text": "album",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-156",
+    "text": "stage",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-157",
+    "text": "encore",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-158",
+    "text": "harmony",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-159",
+    "text": "lyric",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-160",
+    "text": "fiddle",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-161",
+    "text": "doctor",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-162",
+    "text": "farmer",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-163",
+    "text": "pilot",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-164",
+    "text": "lawyer",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-165",
+    "text": "baker",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-166",
+    "text": "painter",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-167",
+    "text": "plumber",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-168",
+    "text": "teacher",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-169",
+    "text": "engineer",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-170",
+    "text": "nurse",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-171",
+    "text": "actor",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-172",
+    "text": "chef",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-173",
+    "text": "judge",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-174",
+    "text": "tailor",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-175",
+    "text": "dentist",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-176",
+    "text": "sailor",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-177",
+    "text": "writer",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-178",
+    "text": "guard",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-179",
+    "text": "clerk",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-180",
+    "text": "architect",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-181",
+    "text": "elbow",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-182",
+    "text": "shoulder",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-183",
+    "text": "finger",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-184",
+    "text": "ankle",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-185",
+    "text": "knee",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-186",
+    "text": "wrist",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-187",
+    "text": "thumb",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-188",
+    "text": "spine",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-189",
+    "text": "heart",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-190",
+    "text": "lung",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-191",
+    "text": "tooth",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-192",
+    "text": "tongue",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-193",
+    "text": "cheek",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-194",
+    "text": "eyebrow",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-195",
+    "text": "chin",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-196",
+    "text": "heel",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-197",
+    "text": "palm",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-198",
+    "text": "nerve",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-199",
+    "text": "rib",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-200",
+    "text": "joint",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-201",
+    "text": "pencil",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-202",
+    "text": "notebook",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-203",
+    "text": "eraser",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-204",
+    "text": "ruler",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-205",
+    "text": "chalk",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-206",
+    "text": "desk",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-207",
+    "text": "lesson",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-208",
+    "text": "library",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-209",
+    "text": "homework",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-210",
+    "text": "exam",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-211",
+    "text": "science",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-212",
+    "text": "history",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-213",
+    "text": "recital",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-214",
+    "text": "debate",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-215",
+    "text": "thesis",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-216",
+    "text": "diploma",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-217",
+    "text": "tutor",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-218",
+    "text": "campus",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-219",
+    "text": "lecture",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-220",
+    "text": "atlas",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-221",
+    "text": "hammer",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-222",
+    "text": "wrench",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-223",
+    "text": "chisel",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-224",
+    "text": "drill",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-225",
+    "text": "saw",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-226",
+    "text": "screw",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-227",
+    "text": "pliers",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-228",
+    "text": "level",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-229",
+    "text": "clamp",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-230",
+    "text": "file",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-231",
+    "text": "tape",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-232",
+    "text": "wire",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-233",
+    "text": "nail",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-234",
+    "text": "bolt",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-235",
+    "text": "shovel",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-236",
+    "text": "hoe",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-237",
+    "text": "rake",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-238",
+    "text": "vice",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-239",
+    "text": "toolbox",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-240",
+    "text": "glue",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-241",
+    "text": "kite",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-242",
+    "text": "puzzle",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-243",
+    "text": "marble",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-244",
+    "text": "doll",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-245",
+    "text": "robot",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-246",
+    "text": "yo-yo",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-247",
+    "text": "kaleidoscope",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-248",
+    "text": "balloon",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-249",
+    "text": "blocks",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-250",
+    "text": "train",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-251",
+    "text": "jacks",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-252",
+    "text": "crayon",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-253",
+    "text": "puppet",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-254",
+    "text": "whistle",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-255",
+    "text": "spinner",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-256",
+    "text": "teddy",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-257",
+    "text": "domino",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-258",
+    "text": "jigsaw",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-259",
+    "text": "slinky",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-260",
+    "text": "top",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-261",
+    "text": "rain",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-262",
+    "text": "snow",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-263",
+    "text": "fog",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-264",
+    "text": "storm",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-265",
+    "text": "sunshine",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-266",
+    "text": "hail",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-267",
+    "text": "wind",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-268",
+    "text": "frost",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-269",
+    "text": "drizzle",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-270",
+    "text": "cloud",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-271",
+    "text": "heatwave",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-272",
+    "text": "monsoon",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-273",
+    "text": "lightning",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-274",
+    "text": "rainbow",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-275",
+    "text": "breeze",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-276",
+    "text": "sleet",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-277",
+    "text": "humid",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-278",
+    "text": "chill",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-279",
+    "text": "gale",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-280",
+    "text": "shower",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-281",
+    "text": "avenue",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-282",
+    "text": "bridge",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-283",
+    "text": "market",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-284",
+    "text": "tower",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-285",
+    "text": "plaza",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-286",
+    "text": "alley",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-287",
+    "text": "subway",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-288",
+    "text": "museum",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-289",
+    "text": "theatre",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-290",
+    "text": "square",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-291",
+    "text": "park",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-292",
+    "text": "fountain",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-293",
+    "text": "arcade",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-294",
+    "text": "bank",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-295",
+    "text": "cafe",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-296",
+    "text": "corner",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-297",
+    "text": "traffic",
+    "difficulty": 3
+  },
+  {
+    "id": "sketch-298",
+    "text": "sidewalk",
+    "difficulty": 1
+  },
+  {
+    "id": "sketch-299",
+    "text": "bench",
+    "difficulty": 2
+  },
+  {
+    "id": "sketch-300",
+    "text": "lamppost",
+    "difficulty": 3
+  }
+]
