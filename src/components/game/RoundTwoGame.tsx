@@ -6,7 +6,7 @@ import { Badge, Button, Card, Chip, Input } from "@/components/ui";
 import type { RoomView } from "@/stores/roomStore";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Obj = Record<string, unknown>;
 type Sender = (type: string, data?: Record<string, unknown>) => void;
@@ -216,7 +216,55 @@ function Scattergories({ view, send }: { view: Obj; send: Sender }) {
   const categories = asStrings(view.categories);
   const [values, setValues] = useState<Record<string, string>>({});
   const reveal = asObj(view.reveal);
-  if (text(view.phase) !== "answer") {
+  if (text(view.phase) === "challenge") {
+    const challenges = asObj(view.challenges);
+    const myVotes = asObj(view.myVotes);
+    return (
+      <div className="space-y-4">
+        <PromptCard kicker={`Challenge answers · letter ${text(view.letter)}`} icon="folder" compact>
+          Challenge an answer that does not fit its category. The answerer cannot vote on their own answer.
+        </PromptCard>
+        <div className="space-y-3">
+          {asList(view.challengeRows).map((row) => (
+            <Panel key={text(row.category)}>
+              <p className="text-xs font-bold uppercase tracking-wide text-ink-soft">{text(row.category)}</p>
+              <div className="mt-2 space-y-2">
+                {asList(row.answers).map((answer) => {
+                  const key = `${text(row.category)}:${text(answer.playerId)}`;
+                  const challenge = asObj(challenges[key]);
+                  const isMine = text(answer.playerId) === text(view.viewerId);
+                  const voted = key in myVotes;
+                  return (
+                    <div key={text(answer.playerId)} className="rounded-xl bg-surface-2/50 px-3 py-2">
+                      <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
+                        <span className="font-semibold text-ink">{text(answer.name)}: {text(answer.text) || "—"}</span>
+                        {!isMine && text(answer.text) && !challenge.key ? (
+                          <button type="button" onClick={() => send("challenge", { categoryIndex: asList(view.challengeRows).indexOf(row), targetId: text(answer.playerId) })}
+                            className="rounded-full border border-border px-2 py-1 text-[10px] font-bold uppercase text-muted hover:border-grape hover:text-ink">Challenge</button>
+                        ) : null}
+                      </div>
+                      {challenge.key ? (
+                        <div className="mt-2 flex flex-wrap items-center gap-2 text-xs font-semibold text-muted">
+                          <span>Under review · {Object.keys(asObj(challenge.votes)).length} vote{Object.keys(asObj(challenge.votes)).length === 1 ? "" : "s"}</span>
+                          {!isMine && !voted ? (
+                            <>
+                              <button type="button" onClick={() => send("voteChallenge", { key, accept: true })} className="rounded-full bg-mint/60 px-2 py-1 font-bold text-[#0F7F6C]">Accept challenge</button>
+                              <button type="button" onClick={() => send("voteChallenge", { key, accept: false })} className="rounded-full bg-white px-2 py-1 font-bold text-muted">Keep answer</button>
+                            </>
+                          ) : voted ? <span>Your vote: {myVotes[key] ? "accept" : "keep"}</span> : null}
+                        </div>
+                      ) : null}
+                    </div>
+                  );
+                })}
+              </div>
+            </Panel>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  if (text(view.phase) === "compare") {
     return (
       <div className="space-y-4">
         <PromptCard kicker={`Letter ${text(view.letter)}`} icon="folder" compact>Unique valid answers score 100. Answers shared with another player score zero.</PromptCard>
@@ -228,7 +276,7 @@ function Scattergories({ view, send }: { view: Obj; send: Sender }) {
                 {asList(row.answers).map((answer) => (
                   <div key={text(answer.playerId)} className="flex items-center justify-between gap-2 text-sm">
                     <span className="font-semibold text-ink">{text(answer.text) || "—"}</span>
-                    <span className={`font-bold ${num(answer.points) ? "text-success" : "text-muted"}`}>{num(answer.points) ? `+${num(answer.points)}` : text(answer.shared) === "true" ? "shared" : "0"}</span>
+                    <span className={`font-bold ${num(answer.points) ? "text-success" : "text-muted"}`}>{num(answer.points) ? `+${num(answer.points)}` : answer.challengeAccepted ? "challenged" : answer.shared ? "shared" : "0"}</span>
                   </div>
                 ))}
               </div>
@@ -352,6 +400,23 @@ function StoryChain({ view, send }: { view: Obj; send: Sender }) {
 
 function Password({ view, send }: { view: Obj; send: Sender }) {
   const result = asObj(view.result);
+  if (view.paused) {
+    return (
+      <div className="space-y-4">
+        <PromptCard kicker="Team pause" icon="key" compact>
+          {text(view.pauseReason) || "A team is waiting for a player to reconnect."}
+        </PromptCard>
+        <Panel>
+          <p className="font-display text-xl font-semibold text-ink">
+            {text(view.pauseTeamName) || "A team"} needs another player.
+          </p>
+          <p className="mt-1 text-sm font-semibold text-muted">
+            The game resumes automatically when both teams have two connected players. Otherwise it ends after the 20-second pause.
+          </p>
+        </Panel>
+      </div>
+    );
+  }
   return (
     <div className="space-y-4">
       <PromptCard kicker={`${text(view.currentTeamName)} clue`} icon="key">
@@ -557,6 +622,71 @@ function Codenames({ view, send }: { view: Obj; send: Sender }) {
   );
 }
 
+function StrokeReplay({ strokes, word }: { strokes: Obj[]; word: string }) {
+  const totalPoints = strokes.reduce(
+    (total, stroke) => total + asList(stroke.points).length,
+    0,
+  );
+  const [shown, setShown] = useState(0);
+  const [done, setDone] = useState(totalPoints === 0);
+
+  useEffect(() => {
+    if (!totalPoints) return undefined;
+    const duration = Math.max(750, totalPoints * 4);
+    const startedAt = performance.now();
+    const timer = window.setInterval(() => {
+      const progress = Math.min(1, (performance.now() - startedAt) / duration);
+      setShown(Math.floor(totalPoints * progress));
+      if (progress >= 1) {
+        setShown(totalPoints);
+        setDone(true);
+        window.clearInterval(timer);
+      }
+    }, 16);
+    return () => window.clearInterval(timer);
+  }, [totalPoints]);
+
+  let remaining = shown;
+  const drawn: React.ReactNode[] = [];
+  for (const [index, stroke] of strokes.entries()) {
+    if (remaining <= 0) break;
+    const points = asList(stroke.points);
+    const visiblePoints = points.slice(0, remaining);
+    remaining -= visiblePoints.length;
+    if (visiblePoints.length < 2) continue;
+    drawn.push(
+      <polyline
+        key={index}
+        points={visiblePoints.map(asObj).map((point) => `${num(point.x) * 100},${num(point.y) * 75}`).join(" ")}
+        fill="none"
+        stroke={text(stroke.color) || "#23182f"}
+        strokeWidth={num(stroke.width, 2)}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />,
+    );
+  }
+
+  return (
+    <Panel>
+      <div className="flex items-center justify-between">
+        <p className="text-xs font-bold uppercase tracking-wide text-ink-soft">Stroke replay · 3×</p>
+        <Badge tone={done ? "success" : "accent"}>{done ? "Complete" : "Playing"}</Badge>
+      </div>
+      <div className="mt-3 overflow-hidden rounded-2xl border border-border bg-white">
+        <svg viewBox="0 0 100 75" className="h-64 w-full">
+          {drawn}
+        </svg>
+      </div>
+      {done ? (
+        <p className="mt-3 font-display text-2xl font-semibold text-ink">Answer: {word}</p>
+      ) : (
+        <p className="mt-3 text-sm font-semibold text-muted">The original strokes are replaying before the answer.</p>
+      )}
+    </Panel>
+  );
+}
+
 function BlindSketch({ view, send }: { view: Obj; send: Sender }) {
   const strokes = asList(view.strokes);
   const [current, setCurrent] = useState<Obj | null>(null);
@@ -592,6 +722,25 @@ function BlindSketch({ view, send }: { view: Obj; send: Sender }) {
       </Panel>
     );
   }
+  if (text(view.phase) === "reveal") {
+    return (
+      <div className="space-y-4">
+        <PromptCard kicker="The blind drawing, replayed" icon="image" compact>
+          {text(reveal.reason) === "correct" ? "The drawing team solved it." : "Time ran out."}
+        </PromptCard>
+        <StrokeReplay
+          key={text(view.round)}
+          strokes={asList(reveal.strokes)}
+          word={text(reveal.word)}
+        />
+        <Panel>
+          <p className="text-sm font-semibold text-muted">
+            {asList(reveal.roundPoints).map((entry) => `${text(entry.name)} +${num(entry.points)}`).join(" · ") || "No points this turn."}
+          </p>
+        </Panel>
+      </div>
+    );
+  }
   return (
     <div className="space-y-4">
       <PromptCard kicker={isDrawer ? "You can see the word. Nobody else can." : "Guess the blind sketch"} icon="image" compact>
@@ -620,7 +769,6 @@ function BlindSketch({ view, send }: { view: Obj; send: Sender }) {
           <AnswerInput maxLength={60} placeholder="Your guess…" submitLabel="Guess" disabled={!view.isDrawingTeam || asStrings(view.correctNames).length >= 2} onSubmit={(value) => send("guess", { value })} />
         </Panel>
       )}
-      {text(view.phase) === "reveal" ? <Panel><p className="font-display text-xl font-semibold">Answer: {text(reveal.word)}</p><p className="mt-1 text-sm font-semibold text-muted">{asList(reveal.roundPoints).map((entry) => `${text(entry.name)} +${num(entry.points)}`).join(" · ")}</p></Panel> : null}
     </div>
   );
 }
@@ -634,6 +782,19 @@ function DuelBracket({ view, send }: { view: Obj; send: Sender }) {
       <PromptCard kicker={text(match.duelLabel) || "Duel"} icon="sword" compact>
         {text(match.aName)} vs {text(match.bName)}
       </PromptCard>
+      {text(view.format) === "round-robin" ? (
+        <Panel>
+          <div className="flex items-center justify-between">
+            <p className="text-xs font-bold uppercase tracking-wide text-ink-soft">Round-robin standings</p>
+            <span className="text-xs font-bold text-muted">{num(asObj(view.bracket).matchesPlayed)} / {num(asObj(view.bracket).scheduleLength)} matches</span>
+          </div>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {asList(asObj(view.bracket).standings).map((entry) => (
+              <Badge key={text(entry.playerId)}>{text(entry.name)} · {num(entry.wins)} wins</Badge>
+            ))}
+          </div>
+        </Panel>
+      ) : null}
       {type === "tic-tac-toe" ? (
         <div className="mx-auto grid max-w-xs grid-cols-3 gap-1.5">
           {asStrings(duel.board).map((cell, index) => <button key={index} type="button" disabled={!view.isPlayer || Boolean(cell)} onClick={() => send("move", { move: { index } })} className="aspect-square rounded-xl border border-border bg-white text-xl font-bold">{cell === "a" ? "X" : cell === "b" ? "O" : cell}</button>)}
@@ -655,7 +816,11 @@ function DuelBracket({ view, send }: { view: Obj; send: Sender }) {
         <Panel><p className="text-sm font-semibold text-muted">Dots and Boxes is played by tapping the listed lines. Complete a box to score and keep your turn.</p><div className="mt-3 flex flex-wrap gap-1.5">{asStrings(duel.edges).map((edge) => <Button key={edge} size="sm" variant="secondary" disabled={!view.isPlayer || Boolean(asObj(duel.taken)[edge])} onClick={() => send("move", { move: { edge } })}>{edge}</Button>)}</div><p className="mt-2 text-xs font-bold text-muted">Boxes: {Object.values(asObj(duel.boxes)).length}</p></Panel>
       ) : null}
       {view.lastMatch ? <Panel><p className="text-sm font-semibold text-muted">{text(asObj(view.lastMatch).winnerName)} won {text(asObj(view.lastMatch).duelLabel)} ({text(asObj(view.lastMatch).reason)}).</p></Panel> : null}
-      {text(view.phase) === "results" ? <p className="text-center font-display text-xl font-semibold">Champion: {text(view.championId)}</p> : null}
+      {text(view.phase) === "results" ? (
+        <p className="text-center font-display text-xl font-semibold">
+          Champion: {asStrings(view.championIds).join(", ") || text(view.championId)}
+        </p>
+      ) : null}
     </div>
   );
 }

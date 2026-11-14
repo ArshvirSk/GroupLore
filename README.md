@@ -63,18 +63,18 @@ Most games support **3–12 players**. **Odd One Out** requires **4–12**; **Ma
 | 🃏 **Fill the Blank** | 3–12 | **Classic** — a rotating judge and a target of 5 points; **Quick** — eight rounds |
 | 🧩 **Connections** | 2–12 | **Race** — every player solves a shuffled board of their own; **Co-op** — one shared board and four mistakes |
 | 📊 **Survey Says** | 3–12 | **Classic** — eight editorial-ranked questions; **Fast Money** — three questions with multipliers |
-| 🗂️ **Scattergories** | 3–12 | **Classic** — five rounds and eight categories; **Blitz** — six categories and a shorter timer |
+| 🗂️ **Scattergories** | 3–12 | **Classic** — five rounds, eight categories, then a 10-second challenge vote; **Blitz** — six categories and a shorter timer |
 | 🧠 **Pattern Memory** | 2–12 | **Classic** — simultaneous replay until one survivor; **Relay** — a growing shared chain |
 | ⚡ **Reaction Duel** | 2–12 | **Classic** — seven server-timed rounds; **Sudden** — first to three wins |
 | 📖 **Story Chain** | 3–12 | **Classic** — every chain visits every player; **Short** — four passes then the vote |
-| 🔤 **Password** | 4–12 | **Classic** — five words and three clue tries; **Speed** — a shorter turn |
+| 🔤 **Password** | 4–12 | **Classic** — five words and three clue tries; **Speed** — a shorter turn; either mode pauses 20 seconds if a team drops below two |
 | 🔠 **Boggle Rush** | 2–12 | **Classic** — three 4×4 rounds; **Big** — a 5×5 grid |
 | 🔔 **Buzzer Trivia** | 3–12 | **Classic** — ten questions with an early-buzz bonus; **Lightning** — a shorter buzz window |
 | 🎲 **Liar's Dice** | 3–8 | **Classic** — five dice and wild ones; **Fast** — three dice and no wilds |
 | 🖼️ **Blur Guess** | 3–12 | **Classic** — eight images, six pre-blurred stages; **Hard** — fewer images and faster stages |
 | 🕵️ **Codenames** | 4–12 | **Classic** — two teams, one spymaster each; **Speed** — a shorter turn clock |
 | 🙈 **Blind Sketch** | 4–12 | **Classic** — three turns per team with hidden strokes; **Hard** — a shorter timer |
-| 🥊 **Duel Bracket** | 4–8 | **Classic** — a single-elimination bracket of random mini-duels; **Round Robin** — the same compact bracket rotation |
+| 🥊 **Duel Bracket** | 4–8 | **Classic** — a single-elimination bracket of random mini-duels; **Round Robin** — every pairing plays once and standings rank the room |
 
 ## Auth and Lobby Model
 

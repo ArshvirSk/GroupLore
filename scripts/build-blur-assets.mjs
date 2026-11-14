@@ -1,12 +1,13 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { extraBlurSubjects } from "./blur-extra-subjects.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publicDir = path.join(root, "public", "blur");
 const manifestDir = path.join(root, "src", "server", "data", "assets", "blur");
 
-const subjects = [
+const baseSubjects = [
   {
     id: "sun",
     answer: "Sun",
@@ -106,6 +107,8 @@ const subjects = [
     art: '<circle cx="125" cy="160" r="55" fill="none" stroke="#FFB703" stroke-width="24"/><path d="M170 160h145v30h-35v30h-30v-30h-25v30h-30v-30h-25" fill="#FFB703"/>',
   },
 ];
+
+const subjects = [...baseSubjects, ...extraBlurSubjects];
 
 const WIDTH = 400;
 const HEIGHT = 300;

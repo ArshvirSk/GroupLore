@@ -325,7 +325,10 @@ export class GameEngine {
       );
     }
 
-    if (!player && room.phase !== "lobby") {
+    const pauseJoin =
+      room.phase === "playing" &&
+      room.module?.canJoinDuringPause?.(room);
+    if (!player && room.phase !== "lobby" && !pauseJoin) {
       throw failure("game_in_progress", "That game is already in progress");
     }
 
@@ -354,6 +357,7 @@ export class GameEngine {
       player.name = player.name || auth.name || identity.name;
       this.bindSocket(socket, room, player);
       this.sendJoined(socket, room, player);
+      this.playerJoinedGame(room, player.id);
       this.broadcast(room);
       return;
     }
@@ -389,7 +393,22 @@ export class GameEngine {
 
     this.bindSocket(socket, room, player);
     this.sendJoined(socket, room, player);
+    this.playerJoinedGame(room, player.id);
     this.broadcast(room);
+  }
+
+  playerJoinedGame(room, playerId) {
+    if (room.phase !== "playing" || !room.module?.onPlayerJoin) return;
+    try {
+      room.module.onPlayerJoin(room, playerId);
+      if (room.state?.done) {
+        this.finish(room, "completed");
+        return;
+      }
+      this.arm(room);
+    } catch (err) {
+      this.logger.error("[engine] onPlayerJoin failed", err);
+    }
   }
 
   bindSocket(socket, room, player) {

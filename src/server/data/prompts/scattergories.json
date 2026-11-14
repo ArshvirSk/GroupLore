@@ -258,5 +258,785 @@
       "Things at a party",
       "Things that are rare"
     ]
+  },
+  {
+    "id": "scatter-021",
+    "categories": [
+      "Things in a kitchen",
+      "Things at an airport",
+      "Things in a museum",
+      "Things at school",
+      "Things in a drawer",
+      "Things at a pool",
+      "Things in a handbag",
+      "Things that are soft"
+    ]
+  },
+  {
+    "id": "scatter-022",
+    "categories": [
+      "Things at a campsite",
+      "Things at a concert",
+      "Things in a fridge",
+      "Things in space",
+      "Things at a football match",
+      "Things that are red",
+      "Things that are sticky",
+      "Things that are expensive"
+    ]
+  },
+  {
+    "id": "scatter-023",
+    "categories": [
+      "Things in a car",
+      "Things in a suitcase",
+      "Things at a market",
+      "Things in a bakery",
+      "Things that are loud",
+      "Things that are sharp",
+      "Things that are spicy",
+      "Board games"
+    ]
+  },
+  {
+    "id": "scatter-024",
+    "categories": [
+      "Things in a forest",
+      "Things in a classroom",
+      "Things that are green",
+      "Things that are cold",
+      "Things that are quiet",
+      "Insects",
+      "Fruits",
+      "Things in a bathroom"
+    ]
+  },
+  {
+    "id": "scatter-025",
+    "categories": [
+      "Things that are yellow",
+      "Things that are heavy",
+      "Things that are old",
+      "Animals with stripes",
+      "Sports",
+      "Holidays",
+      "Things in a hotel",
+      "Things at a zoo"
+    ]
+  },
+  {
+    "id": "scatter-026",
+    "categories": [
+      "Things that are hot",
+      "Things that are noisy",
+      "Pets",
+      "Vegetables",
+      "Things in a bedroom",
+      "Things in a supermarket",
+      "Things in a cinema",
+      "Things in a wallet"
+    ]
+  },
+  {
+    "id": "scatter-027",
+    "categories": [
+      "Animals in the sea",
+      "Musical instruments",
+      "Things in a kitchen",
+      "Things at an airport",
+      "Things in a museum",
+      "Things at school",
+      "Things in a drawer",
+      "Things at a pool"
+    ]
+  },
+  {
+    "id": "scatter-028",
+    "categories": [
+      "Cheeses",
+      "Things in a garden",
+      "Things at a campsite",
+      "Things at a concert",
+      "Things in a fridge",
+      "Things in space",
+      "Things at a football match",
+      "Things that are red"
+    ]
+  },
+  {
+    "id": "scatter-029",
+    "categories": [
+      "Things in a hospital",
+      "Things in a restaurant",
+      "Things in a car",
+      "Things in a suitcase",
+      "Things at a market",
+      "Things in a bakery",
+      "Things that are loud",
+      "Things that are sharp"
+    ]
+  },
+  {
+    "id": "scatter-030",
+    "categories": [
+      "Things at a party",
+      "Things in a freezer",
+      "Things in a forest",
+      "Things in a classroom",
+      "Things that are green",
+      "Things that are cold",
+      "Things that are quiet",
+      "Insects"
+    ]
+  },
+  {
+    "id": "scatter-031",
+    "categories": [
+      "Things in a park",
+      "Things at a festival",
+      "Things that are yellow",
+      "Things that are heavy",
+      "Things that are old",
+      "Animals with stripes",
+      "Sports",
+      "Holidays"
+    ]
+  },
+  {
+    "id": "scatter-032",
+    "categories": [
+      "Things in a garage",
+      "Things that are round",
+      "Things that are hot",
+      "Things that are noisy",
+      "Pets",
+      "Vegetables",
+      "Things in a bedroom",
+      "Things in a supermarket"
+    ]
+  },
+  {
+    "id": "scatter-033",
+    "categories": [
+      "Things that are fragile",
+      "Things that are rare",
+      "Animals in the sea",
+      "Musical instruments",
+      "Things in a kitchen",
+      "Things at an airport",
+      "Things in a museum",
+      "Things at school"
+    ]
+  },
+  {
+    "id": "scatter-034",
+    "categories": [
+      "Things that are sweet",
+      "Baby animals",
+      "Cheeses",
+      "Things in a garden",
+      "Things at a campsite",
+      "Things at a concert",
+      "Things in a fridge",
+      "Things in space"
+    ]
+  },
+  {
+    "id": "scatter-035",
+    "categories": [
+      "Jobs",
+      "Things at a beach",
+      "Things in a hospital",
+      "Things in a restaurant",
+      "Things in a car",
+      "Things in a suitcase",
+      "Things at a market",
+      "Things in a bakery"
+    ]
+  },
+  {
+    "id": "scatter-036",
+    "categories": [
+      "Things in an office",
+      "Things at a train station",
+      "Things at a party",
+      "Things in a freezer",
+      "Things in a forest",
+      "Things in a classroom",
+      "Things that are green",
+      "Things that are cold"
+    ]
+  },
+  {
+    "id": "scatter-037",
+    "categories": [
+      "Things at a gym",
+      "Things in a backpack",
+      "Things in a park",
+      "Things at a festival",
+      "Things that are yellow",
+      "Things that are heavy",
+      "Things that are old",
+      "Animals with stripes"
+    ]
+  },
+  {
+    "id": "scatter-038",
+    "categories": [
+      "Things in a toolbox",
+      "Things in a city",
+      "Things in a garage",
+      "Things that are round",
+      "Things that are hot",
+      "Things that are noisy",
+      "Pets",
+      "Vegetables"
+    ]
+  },
+  {
+    "id": "scatter-039",
+    "categories": [
+      "Things in a nightclub",
+      "Things that are blue",
+      "Things that are fragile",
+      "Things that are rare",
+      "Animals in the sea",
+      "Musical instruments",
+      "Things in a kitchen",
+      "Things at an airport"
+    ]
+  },
+  {
+    "id": "scatter-040",
+    "categories": [
+      "Things that are soft",
+      "Things that are transparent",
+      "Things that are sweet",
+      "Baby animals",
+      "Cheeses",
+      "Things in a garden",
+      "Things at a campsite",
+      "Things at a concert"
+    ]
+  },
+  {
+    "id": "scatter-041",
+    "categories": [
+      "Things that are expensive",
+      "Birds",
+      "Jobs",
+      "Things at a beach",
+      "Things in a hospital",
+      "Things in a restaurant",
+      "Things in a car",
+      "Things in a suitcase"
+    ]
+  },
+  {
+    "id": "scatter-042",
+    "categories": [
+      "Board games",
+      "Desserts",
+      "Things in an office",
+      "Things at a train station",
+      "Things at a party",
+      "Things in a freezer",
+      "Things in a forest",
+      "Things in a classroom"
+    ]
+  },
+  {
+    "id": "scatter-043",
+    "categories": [
+      "Things in a bathroom",
+      "Things in a library",
+      "Things at a gym",
+      "Things in a backpack",
+      "Things in a park",
+      "Things at a festival",
+      "Things that are yellow",
+      "Things that are heavy"
+    ]
+  },
+  {
+    "id": "scatter-044",
+    "categories": [
+      "Things at a zoo",
+      "Things at a wedding",
+      "Things in a toolbox",
+      "Things in a city",
+      "Things in a garage",
+      "Things that are round",
+      "Things that are hot",
+      "Things that are noisy"
+    ]
+  },
+  {
+    "id": "scatter-045",
+    "categories": [
+      "Things in a wallet",
+      "Things on a farm",
+      "Things in a nightclub",
+      "Things that are blue",
+      "Things that are fragile",
+      "Things that are rare",
+      "Animals in the sea",
+      "Musical instruments"
+    ]
+  },
+  {
+    "id": "scatter-046",
+    "categories": [
+      "Things at a pool",
+      "Things in a handbag",
+      "Things that are soft",
+      "Things that are transparent",
+      "Things that are sweet",
+      "Baby animals",
+      "Cheeses",
+      "Things in a garden"
+    ]
+  },
+  {
+    "id": "scatter-047",
+    "categories": [
+      "Things that are red",
+      "Things that are sticky",
+      "Things that are expensive",
+      "Birds",
+      "Jobs",
+      "Things at a beach",
+      "Things in a hospital",
+      "Things in a restaurant"
+    ]
+  },
+  {
+    "id": "scatter-048",
+    "categories": [
+      "Things that are sharp",
+      "Things that are spicy",
+      "Board games",
+      "Desserts",
+      "Things in an office",
+      "Things at a train station",
+      "Things at a party",
+      "Things in a freezer"
+    ]
+  },
+  {
+    "id": "scatter-049",
+    "categories": [
+      "Insects",
+      "Fruits",
+      "Things in a bathroom",
+      "Things in a library",
+      "Things at a gym",
+      "Things in a backpack",
+      "Things in a park",
+      "Things at a festival"
+    ]
+  },
+  {
+    "id": "scatter-050",
+    "categories": [
+      "Holidays",
+      "Things in a hotel",
+      "Things at a zoo",
+      "Things at a wedding",
+      "Things in a toolbox",
+      "Things in a city",
+      "Things in a garage",
+      "Things that are round"
+    ]
+  },
+  {
+    "id": "scatter-051",
+    "categories": [
+      "Things in a supermarket",
+      "Things in a cinema",
+      "Things in a wallet",
+      "Things on a farm",
+      "Things in a nightclub",
+      "Things that are blue",
+      "Things that are fragile",
+      "Things that are rare"
+    ]
+  },
+  {
+    "id": "scatter-052",
+    "categories": [
+      "Things at school",
+      "Things in a drawer",
+      "Things at a pool",
+      "Things in a handbag",
+      "Things that are soft",
+      "Things that are transparent",
+      "Things that are sweet",
+      "Baby animals"
+    ]
+  },
+  {
+    "id": "scatter-053",
+    "categories": [
+      "Things in space",
+      "Things at a football match",
+      "Things that are red",
+      "Things that are sticky",
+      "Things that are expensive",
+      "Birds",
+      "Jobs",
+      "Things at a beach"
+    ]
+  },
+  {
+    "id": "scatter-054",
+    "categories": [
+      "Things in a bakery",
+      "Things that are loud",
+      "Things that are sharp",
+      "Things that are spicy",
+      "Board games",
+      "Desserts",
+      "Things in an office",
+      "Things at a train station"
+    ]
+  },
+  {
+    "id": "scatter-055",
+    "categories": [
+      "Things that are cold",
+      "Things that are quiet",
+      "Insects",
+      "Fruits",
+      "Things in a bathroom",
+      "Things in a library",
+      "Things at a gym",
+      "Things in a backpack"
+    ]
+  },
+  {
+    "id": "scatter-056",
+    "categories": [
+      "Animals with stripes",
+      "Sports",
+      "Holidays",
+      "Things in a hotel",
+      "Things at a zoo",
+      "Things at a wedding",
+      "Things in a toolbox",
+      "Things in a city"
+    ]
+  },
+  {
+    "id": "scatter-057",
+    "categories": [
+      "Vegetables",
+      "Things in a bedroom",
+      "Things in a supermarket",
+      "Things in a cinema",
+      "Things in a wallet",
+      "Things on a farm",
+      "Things in a nightclub",
+      "Things that are blue"
+    ]
+  },
+  {
+    "id": "scatter-058",
+    "categories": [
+      "Things at an airport",
+      "Things in a museum",
+      "Things at school",
+      "Things in a drawer",
+      "Things at a pool",
+      "Things in a handbag",
+      "Things that are soft",
+      "Things that are transparent"
+    ]
+  },
+  {
+    "id": "scatter-059",
+    "categories": [
+      "Things at a concert",
+      "Things in a fridge",
+      "Things in space",
+      "Things at a football match",
+      "Things that are red",
+      "Things that are sticky",
+      "Things that are expensive",
+      "Birds"
+    ]
+  },
+  {
+    "id": "scatter-060",
+    "categories": [
+      "Things in a suitcase",
+      "Things at a market",
+      "Things in a bakery",
+      "Things that are loud",
+      "Things that are sharp",
+      "Things that are spicy",
+      "Board games",
+      "Desserts"
+    ]
+  },
+  {
+    "id": "scatter-061",
+    "categories": [
+      "Things in a classroom",
+      "Things that are green",
+      "Things that are cold",
+      "Things that are quiet",
+      "Insects",
+      "Fruits",
+      "Things in a bathroom",
+      "Things in a library"
+    ]
+  },
+  {
+    "id": "scatter-062",
+    "categories": [
+      "Things that are heavy",
+      "Things that are old",
+      "Animals with stripes",
+      "Sports",
+      "Holidays",
+      "Things in a hotel",
+      "Things at a zoo",
+      "Things at a wedding"
+    ]
+  },
+  {
+    "id": "scatter-063",
+    "categories": [
+      "Things that are noisy",
+      "Pets",
+      "Vegetables",
+      "Things in a bedroom",
+      "Things in a supermarket",
+      "Things in a cinema",
+      "Things in a wallet",
+      "Things on a farm"
+    ]
+  },
+  {
+    "id": "scatter-064",
+    "categories": [
+      "Musical instruments",
+      "Things in a kitchen",
+      "Things at an airport",
+      "Things in a museum",
+      "Things at school",
+      "Things in a drawer",
+      "Things at a pool",
+      "Things in a handbag"
+    ]
+  },
+  {
+    "id": "scatter-065",
+    "categories": [
+      "Things in a garden",
+      "Things at a campsite",
+      "Things at a concert",
+      "Things in a fridge",
+      "Things in space",
+      "Things at a football match",
+      "Things that are red",
+      "Things that are sticky"
+    ]
+  },
+  {
+    "id": "scatter-066",
+    "categories": [
+      "Things in a restaurant",
+      "Things in a car",
+      "Things in a suitcase",
+      "Things at a market",
+      "Things in a bakery",
+      "Things that are loud",
+      "Things that are sharp",
+      "Things that are spicy"
+    ]
+  },
+  {
+    "id": "scatter-067",
+    "categories": [
+      "Things in a freezer",
+      "Things in a forest",
+      "Things in a classroom",
+      "Things that are green",
+      "Things that are cold",
+      "Things that are quiet",
+      "Insects",
+      "Fruits"
+    ]
+  },
+  {
+    "id": "scatter-068",
+    "categories": [
+      "Things at a festival",
+      "Things that are yellow",
+      "Things that are heavy",
+      "Things that are old",
+      "Animals with stripes",
+      "Sports",
+      "Holidays",
+      "Things in a hotel"
+    ]
+  },
+  {
+    "id": "scatter-069",
+    "categories": [
+      "Things that are round",
+      "Things that are hot",
+      "Things that are noisy",
+      "Pets",
+      "Vegetables",
+      "Things in a bedroom",
+      "Things in a supermarket",
+      "Things in a cinema"
+    ]
+  },
+  {
+    "id": "scatter-070",
+    "categories": [
+      "Things that are rare",
+      "Animals in the sea",
+      "Musical instruments",
+      "Things in a kitchen",
+      "Things at an airport",
+      "Things in a museum",
+      "Things at school",
+      "Things in a drawer"
+    ]
+  },
+  {
+    "id": "scatter-071",
+    "categories": [
+      "Baby animals",
+      "Cheeses",
+      "Things in a garden",
+      "Things at a campsite",
+      "Things at a concert",
+      "Things in a fridge",
+      "Things in space",
+      "Things at a football match"
+    ]
+  },
+  {
+    "id": "scatter-072",
+    "categories": [
+      "Things at a beach",
+      "Things in a hospital",
+      "Things in a restaurant",
+      "Things in a car",
+      "Things in a suitcase",
+      "Things at a market",
+      "Things in a bakery",
+      "Things that are loud"
+    ]
+  },
+  {
+    "id": "scatter-073",
+    "categories": [
+      "Things at a train station",
+      "Things at a party",
+      "Things in a freezer",
+      "Things in a forest",
+      "Things in a classroom",
+      "Things that are green",
+      "Things that are cold",
+      "Things that are quiet"
+    ]
+  },
+  {
+    "id": "scatter-074",
+    "categories": [
+      "Things in a backpack",
+      "Things in a park",
+      "Things at a festival",
+      "Things that are yellow",
+      "Things that are heavy",
+      "Things that are old",
+      "Animals with stripes",
+      "Sports"
+    ]
+  },
+  {
+    "id": "scatter-075",
+    "categories": [
+      "Things in a city",
+      "Things in a garage",
+      "Things that are round",
+      "Things that are hot",
+      "Things that are noisy",
+      "Pets",
+      "Vegetables",
+      "Things in a bedroom"
+    ]
+  },
+  {
+    "id": "scatter-076",
+    "categories": [
+      "Things that are blue",
+      "Things that are fragile",
+      "Things that are rare",
+      "Animals in the sea",
+      "Musical instruments",
+      "Things in a kitchen",
+      "Things at an airport",
+      "Things in a museum"
+    ]
+  },
+  {
+    "id": "scatter-077",
+    "categories": [
+      "Things that are transparent",
+      "Things that are sweet",
+      "Baby animals",
+      "Cheeses",
+      "Things in a garden",
+      "Things at a campsite",
+      "Things at a concert",
+      "Things in a fridge"
+    ]
+  },
+  {
+    "id": "scatter-078",
+    "categories": [
+      "Birds",
+      "Jobs",
+      "Things at a beach",
+      "Things in a hospital",
+      "Things in a restaurant",
+      "Things in a car",
+      "Things in a suitcase",
+      "Things at a market"
+    ]
+  },
+  {
+    "id": "scatter-079",
+    "categories": [
+      "Desserts",
+      "Things in an office",
+      "Things at a train station",
+      "Things at a party",
+      "Things in a freezer",
+      "Things in a forest",
+      "Things in a classroom",
+      "Things that are green"
+    ]
+  },
+  {
+    "id": "scatter-080",
+    "categories": [
+      "Things in a library",
+      "Things at a gym",
+      "Things in a backpack",
+      "Things in a park",
+      "Things at a festival",
+      "Things that are yellow",
+      "Things that are heavy",
+      "Things that are old"
+    ]
   }
 ]

@@ -21,6 +21,7 @@ const MODES = {
     rounds: 5,
     categories: 8,
     answerMs: 90_000,
+    challengeMs: 10_000,
     compareMs: 12_000,
   },
   blitz: {
@@ -29,6 +30,7 @@ const MODES = {
     rounds: 5,
     categories: 6,
     answerMs: 45_000,
+    challengeMs: 10_000,
     compareMs: 9_000,
   },
 };
@@ -48,6 +50,8 @@ function beginRound(room, state) {
   }
   state.answers = {};
   state.reveal = null;
+  state.candidates = [];
+  state.challenges = {};
   state.points = new Map();
   state.phase = "answer";
   state.endsAt = Date.now() + config.answerMs;
@@ -58,49 +62,96 @@ function firstLetter(value) {
   return normalizeText(value).charAt(0).toUpperCase();
 }
 
-function resolveRound(room, state) {
+function buildCandidates(room, state) {
+  return state.categories.map((category, index) => ({
+    category,
+    answers: activePlayers(room).map((player) => {
+      const text = String(state.answers[player.id]?.[index] || "").trim();
+      return {
+        playerId: player.id,
+        name: player.name,
+        text,
+        valid: Boolean(text) && firstLetter(text) === state.letter,
+        key: normalizeText(text),
+        challenged: false,
+        challengeAccepted: false,
+        shared: false,
+        points: 0,
+      };
+    }),
+  }));
+}
+
+function eligibleVoters(room, targetId) {
+  return activePlayers(room).filter((player) => player.id !== targetId);
+}
+
+function allChallengesVoted(room, state) {
+  const open = Object.values(state.challenges);
+  if (!open.length) return false;
+  return open.every((challenge) =>
+    eligibleVoters(room, challenge.targetId).every(
+      (player) => challenge.votes[player.id] !== undefined,
+    ),
+  );
+}
+
+function beginChallenge(room, state) {
   const config = configFor(MODES, room.mode);
-  const normalized = {};
-  for (const player of activePlayers(room)) {
-    const answers = state.answers[player.id] || {};
-    normalized[player.id] = Object.fromEntries(
-      state.categories.map((category, index) => {
-        const text = String(answers[index] || "").trim();
-        return [
-          index,
-          {
-            text,
-            valid: Boolean(text) && firstLetter(text) === state.letter,
-            key: normalizeText(text),
-          },
-        ];
-      }),
-    );
+  state.candidates = buildCandidates(room, state);
+  state.challenges = {};
+  state.reveal = null;
+  state.phase = "challenge";
+  state.endsAt = Date.now() + config.challengeMs;
+}
+
+function finalizeRound(room, state) {
+  const config = configFor(MODES, room.mode);
+  const challenged = new Map();
+  const challengeRows = [];
+  for (const challenge of Object.values(state.challenges)) {
+    const votes = Object.values(challenge.votes);
+    const accept = votes.filter(Boolean).length;
+    const reject = votes.length - accept;
+    const accepted = accept > reject;
+    challenged.set(challenge.key, accepted);
+    challengeRows.push({
+      ...challenge,
+      accept,
+      reject,
+      accepted,
+    });
   }
+
+  const normalized = state.candidates.map((row) =>
+    row.answers.map((answer) => {
+      const key = `${row.category}:${answer.playerId}`;
+      const invalidated = challenged.get(key) === true;
+      return {
+        ...answer,
+        challenged: state.challenges[key] ? true : false,
+        challengeAccepted: invalidated,
+        valid: answer.valid && !invalidated,
+      };
+    }),
+  );
 
   const points = new Map();
   const rows = state.categories.map((category, index) => {
+    const entries = normalized[index];
     const counts = new Map();
-    for (const entry of Object.values(normalized)) {
-      if (entry[index].valid && entry[index].key) {
-        counts.set(entry[index].key, (counts.get(entry[index].key) || 0) + 1);
+    for (const entry of entries) {
+      if (entry.valid && entry.key) {
+        counts.set(entry.key, (counts.get(entry.key) || 0) + 1);
       }
     }
     return {
       category,
-      answers: Object.entries(normalized).map(([playerId, entry]) => {
-        const item = entry[index];
-        const shared = item.valid && (counts.get(item.key) || 0) > 1;
-        const pointsEarned = item.valid && !shared ? 100 : 0;
-        if (pointsEarned) addPoints(room, points, playerId, pointsEarned);
-        return {
-          playerId,
-          name: room.players.get(playerId)?.name || "Player",
-          text: item.text,
-          valid: item.valid,
-          shared,
-          points: pointsEarned,
-        };
+      answers: entries.map((entry) => {
+        const shared = entry.valid && (counts.get(entry.key) || 0) > 1;
+        const pointsEarned = entry.valid && !shared ? 100 : 0;
+        if (pointsEarned) addPoints(room, points, entry.playerId, pointsEarned);
+        return { ...entry, shared, points: pointsEarned };
       }),
     };
   });
@@ -111,6 +162,7 @@ function resolveRound(room, state) {
   state.reveal = {
     letter: state.letter,
     rows,
+    challenges: challengeRows,
     roundPoints: pointsList(room, points),
   };
   state.phase = "compare";
@@ -138,6 +190,8 @@ const scattergories = {
       letter: "A",
       categories: [],
       answers: {},
+      candidates: [],
+      challenges: {},
       reveal: null,
       points: new Map(),
       usedPromptIds: [],
@@ -152,25 +206,73 @@ const scattergories = {
   onEvent(room, playerId, event) {
     const state = room.state;
     if (!state || state.done) return "results";
-    if (state.phase !== "answer" || event.type !== "answer") return;
-    if (state.answers[playerId]) {
-      throw failure("already_answered", "You already submitted answers");
-    }
-    const values = event.values && typeof event.values === "object" ? event.values : {};
-    const answers = {};
-    for (let index = 0; index < state.categories.length; index += 1) {
-      const text = String(values[index] || values[state.categories[index]] || "").trim().slice(0, 60);
-      if (text && firstLetter(text) !== state.letter) {
-        throw failure(
-          "wrong_letter",
-          `“${text}” does not start with ${state.letter}`,
-        );
+    if (state.phase === "answer" && event.type === "answer") {
+      if (state.answers[playerId]) {
+        throw failure("already_answered", "You already submitted answers");
       }
-      answers[index] = text;
+      const values = event.values && typeof event.values === "object" ? event.values : {};
+      const answers = {};
+      for (let index = 0; index < state.categories.length; index += 1) {
+        const text = String(values[index] || values[state.categories[index]] || "").trim().slice(0, 60);
+        if (text && firstLetter(text) !== state.letter) {
+          throw failure(
+            "wrong_letter",
+            `“${text}” does not start with ${state.letter}`,
+          );
+        }
+        answers[index] = text;
+      }
+      state.answers[playerId] = answers;
+      if (activePlayers(room).every((player) => state.answers[player.id])) {
+        beginChallenge(room, state);
+      }
+      return undefined;
     }
-    state.answers[playerId] = answers;
-    if (activePlayers(room).every((player) => state.answers[player.id])) {
-      resolveRound(room, state);
+
+    if (state.phase === "challenge" && event.type === "challenge") {
+      const categoryIndex = Number(event.categoryIndex);
+      const targetId = String(event.targetId || "");
+      const target = state.candidates[categoryIndex]?.answers.find(
+        (answer) => answer.playerId === targetId,
+      );
+      if (!target || !target.text) {
+        throw failure("invalid_answer", "Pick an answer to challenge");
+      }
+      if (targetId === playerId) {
+        throw failure("cannot_challenge_self", "You cannot challenge your own answer");
+      }
+      const key = `${state.candidates[categoryIndex].category}:${targetId}`;
+      if (state.challenges[key]) {
+        throw failure("already_challenged", "That answer is already under review");
+      }
+      state.challenges[key] = {
+        key,
+        category: state.candidates[categoryIndex].category,
+        categoryIndex,
+        targetId,
+        targetName: target.name,
+        text: target.text,
+        challengerId: playerId,
+        challengerName: room.players.get(playerId)?.name || "Player",
+        votes: {},
+      };
+      if (allChallengesVoted(room, state)) finalizeRound(room, state);
+      return undefined;
+    }
+
+    if (state.phase === "challenge" && event.type === "voteChallenge") {
+      const key = String(event.key || "");
+      const challenge = state.challenges[key];
+      if (!challenge) throw failure("challenge_missing", "That challenge has closed");
+      if (playerId === challenge.targetId) {
+        throw failure("answerer_cannot_vote", "The answerer cannot vote on their answer");
+      }
+      if (challenge.votes[playerId] !== undefined) {
+        throw failure("already_voted", "You already voted on that answer");
+      }
+      challenge.votes[playerId] = Boolean(event.accept);
+      if (allChallengesVoted(room, state)) finalizeRound(room, state);
+      return undefined;
     }
     return undefined;
   },
@@ -179,7 +281,11 @@ const scattergories = {
     const state = room.state;
     if (!state || state.done) return "results";
     if (state.phase === "answer") {
-      resolveRound(room, state);
+      beginChallenge(room, state);
+      return;
+    }
+    if (state.phase === "challenge") {
+      finalizeRound(room, state);
       return;
     }
     if (state.phase === "compare") {
@@ -196,11 +302,17 @@ const scattergories = {
       state.done = true;
       return "results";
     }
-    if (
-      state.phase === "answer" &&
-      activePlayers(room).every((player) => state.answers[player.id])
-    ) {
-      resolveRound(room, state);
+    if (state.phase === "answer" && activePlayers(room).every((player) => state.answers[player.id])) {
+      beginChallenge(room, state);
+      return;
+    }
+    if (state.phase === "challenge") {
+      for (const [key, challenge] of Object.entries(state.challenges)) {
+        if (challenge.targetId === playerId || challenge.challengerId === playerId) {
+          delete state.challenges[key];
+        }
+      }
+      if (allChallengesVoted(room, state)) finalizeRound(room, state);
     }
     return undefined;
   },
@@ -209,6 +321,7 @@ const scattergories = {
     const state = room.state;
     const base = {
       phase: state.phase,
+      viewerId,
       round: state.round,
       rounds: state.rounds,
       letter: state.letter,
@@ -217,10 +330,23 @@ const scattergories = {
       total: activePlayers(room).length,
       myAnswers: state.answers[viewerId] || {},
       answerMs: configFor(MODES, room.mode).answerMs,
+      challengeMs: configFor(MODES, room.mode).challengeMs,
+      endsAt: state.endsAt,
     };
-    return state.phase === "answer"
-      ? base
-      : { ...base, reveal: state.reveal };
+    if (state.phase === "answer") return base;
+    if (state.phase === "challenge") {
+      return {
+        ...base,
+        challengeRows: state.candidates,
+        challenges: state.challenges,
+        myVotes: Object.fromEntries(
+          Object.entries(state.challenges)
+            .filter(([, challenge]) => challenge.votes[viewerId] !== undefined)
+            .map(([key, challenge]) => [key, challenge.votes[viewerId]]),
+        ),
+      };
+    }
+    return { ...base, reveal: state.reveal };
   },
 
   publicFor(room) {
@@ -232,8 +358,17 @@ const scattergories = {
       letter: state.letter,
       submitted: Object.keys(state.answers).length,
       total: activePlayers(room).length,
+      endsAt: state.endsAt,
     };
-    return state.phase === "answer" ? base : { ...base, reveal: state.reveal };
+    if (state.phase === "answer") return base;
+    if (state.phase === "challenge") {
+      return {
+        ...base,
+        challengeRows: state.candidates,
+        challenges: state.challenges,
+      };
+    }
+    return { ...base, reveal: state.reveal };
   },
 };
 

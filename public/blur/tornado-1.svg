@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs><filter id="blur"><feGaussianBlur stdDeviation="30.0"/></filter></defs>
+  <rect width="400" height="300" fill="#F7F2E8"/>
+  <g filter="url(#blur)"><path d="M70 55h260L225 125h45l-75 75h35l-55 65h25" fill="none" stroke="#9AA5B1" stroke-width="22" stroke-linecap="round"/><path d="M110 55h180M145 90h120m-90 35h75m-55 35h45m-35 35h25" stroke="#D8DEE3" stroke-width="6"/></g>
+</svg>

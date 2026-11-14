@@ -29,6 +29,72 @@ const MODES = {
   },
 };
 
+const PAUSE_MS = 20_000;
+
+function connectedTeamPlayers(room, team) {
+  return (team?.playerIds || [])
+    .map((id) => room.players.get(id))
+    .filter((player) => player?.connected);
+}
+
+function teamsReady(room) {
+  return (
+    activePlayers(room).length >= 4 &&
+    (room.teams || []).length >= 2 &&
+    (room.teams || []).every((team) => connectedTeamPlayers(room, team).length >= 2)
+  );
+}
+
+function pauseForDropout(room, state, team) {
+  const config = configFor(MODES, room.mode);
+  if (state.phase === "paused") {
+    state.endsAt = Date.now() + PAUSE_MS;
+    return;
+  }
+  state.pausedFrom = state.phase;
+  state.pauseRemainingMs = Math.max(
+    0,
+    Math.min(
+      Number(state.endsAt || 0) - Date.now(),
+      state.phase === "result" ? config.resultMs : config.turnMs,
+    ),
+  );
+  state.pauseTeamId = team?.id || state.currentTeamId;
+  state.pauseReason = "A team is waiting for a player to reconnect";
+  state.phase = "paused";
+  state.endsAt = Date.now() + PAUSE_MS;
+}
+
+function resumeFromPause(room, state) {
+  if (state.phase !== "paused" || !teamsReady(room)) return false;
+  const config = configFor(MODES, room.mode);
+  const from = state.pausedFrom || "turn";
+  state.pausedFrom = null;
+  state.pauseTeamId = null;
+  state.pauseReason = null;
+  if (from === "result" && state.result) {
+    state.phase = "result";
+    state.endsAt = Date.now() + config.resultMs;
+    state.pauseRemainingMs = 0;
+    return true;
+  }
+  const team = (room.teams || []).find((item) => item.id === state.currentTeamId);
+  const players = connectedTeamPlayers(room, team);
+  if (players.length < 2) return false;
+  if (!players.some((player) => player.id === state.clueGiverId)) {
+    state.clueGiverId = players[0].id;
+  }
+  state.phase = "turn";
+  state.endsAt =
+    Date.now() +
+    Math.max(
+      10_000,
+      Math.min(state.pauseRemainingMs || config.turnMs, config.turnMs),
+    );
+  state.pauseRemainingMs = 0;
+  return true;
+}
+
 function chooseWord(state) {
   if (state.usedWordIds.length >= WORDS.length) state.usedWordIds = [];
   let index = Math.floor(Math.random() * WORDS.length);
@@ -132,6 +198,9 @@ const password = {
     const teams = room.teams || [];
     const state = {
       phase: "turn",
+      playerTeams: Object.fromEntries(
+        teams.flatMap((team) => team.playerIds.map((id) => [id, team.id])),
+      ),
       teamIndex: 0,
       turnsByTeam: Object.fromEntries(teams.map((team) => [team.id, 0])),
       currentTeamId: null,
@@ -153,6 +222,9 @@ const password = {
   onEvent(room, playerId, event) {
     const state = room.state;
     if (!state || state.done) return "results";
+    if (state.phase === "paused" && !resumeFromPause(room, state)) {
+      return undefined;
+    }
     if (state.phase !== "turn") return;
     const team = (room.teams || []).find((item) => item.id === state.currentTeamId);
     if (!team?.playerIds.includes(playerId)) {
@@ -215,6 +287,11 @@ const password = {
   onPhaseEnd(room) {
     const state = room.state;
     if (!state || state.done) return "results";
+    if (state.phase === "paused") {
+      if (resumeFromPause(room, state)) return undefined;
+      state.done = true;
+      return "results";
+    }
     if (state.phase === "turn") {
       resolveTurn(room, state, false);
       return;
@@ -233,20 +310,35 @@ const password = {
       state.done = true;
       return "results";
     }
-    const team = teamOf(room, playerId);
+    const team =
+      (room.teams || []).find(
+        (item) => item.id === state.playerTeams?.[playerId],
+      ) || teamOf(room, playerId);
     if (team && team.playerIds.length < 2) {
-      state.done = true;
-      return "results";
+      pauseForDropout(room, state, team);
+      return undefined;
     }
     if (playerId === state.clueGiverId) {
       const next = teamPlayers(room, team).find((player) => player.id !== playerId);
       state.clueGiverId = next?.id || null;
       if (!state.clueGiverId) {
-        state.done = true;
-        return "results";
+        pauseForDropout(room, state, team);
+        return undefined;
       }
     }
     return undefined;
+  },
+
+  onPlayerJoin(room, playerId) {
+    const state = room.state;
+    if (!state || state.done || state.phase !== "paused") return;
+    const team = (room.teams || []).find((item) => item.playerIds.includes(playerId));
+    if (team) state.playerTeams[playerId] = team.id;
+    if (room.players.get(playerId)?.connected) resumeFromPause(room, state);
+  },
+
+  canJoinDuringPause(room) {
+    return room.state?.phase === "paused";
   },
 
   viewFor(room, viewerId) {
@@ -267,6 +359,12 @@ const password = {
       clues: [...state.clues],
       turnMs: configFor(MODES, room.mode).turnMs,
       myGuess: state.guesses[viewerId] || null,
+      paused: state.phase === "paused",
+      pauseEndsAt: state.phase === "paused" ? state.endsAt : null,
+      pauseReason: state.pauseReason || null,
+      pauseTeamName:
+        (room.teams || []).find((item) => item.id === state.pauseTeamId)?.name || null,
+      endsAt: state.endsAt,
       ...teamsView(room),
     };
     if (state.phase === "result") return { ...base, result: state.result };
@@ -279,6 +377,9 @@ const password = {
       phase: state.phase,
       currentTeamName: (room.teams || []).find((team) => team.id === state.currentTeamId)?.name || "Team",
       clues: [...state.clues],
+      paused: state.phase === "paused",
+      pauseEndsAt: state.phase === "paused" ? state.endsAt : null,
+      pauseReason: state.pauseReason || null,
       ...teamsView(room),
     };
     return state.phase === "result" ? { ...base, result: state.result } : base;

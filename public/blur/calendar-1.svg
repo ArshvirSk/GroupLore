@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs><filter id="blur"><feGaussianBlur stdDeviation="30.0"/></filter></defs>
+  <rect width="400" height="300" fill="#F7F2E8"/>
+  <g filter="url(#blur)"><rect x="70" y="70" width="260" height="200" rx="18" fill="#F4F1DE" stroke="#5C4033" stroke-width="8"/><rect x="70" y="70" width="260" height="55" rx="18" fill="#E63946"/><path d="M130 45v45m140-45v45" stroke="#5C4033" stroke-width="12"/><path d="M100 150h200M100 185h200M100 220h200M135 135v110m65-110v110m65-110v110" stroke="#D8CFC0" stroke-width="4"/><text x="200" y="107" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#fff">JULY</text></g>
+</svg>

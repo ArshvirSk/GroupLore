@@ -1,6 +1,12 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  extraScatter,
+  extraStoryStarters,
+  extraSurvey,
+  extraTrivia,
+} from "./round2-extra-banks.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const out = path.join(root, "src", "server", "data");
@@ -210,7 +216,10 @@ const surveyQuestions = [
   ["Name something that is usually in a handbag", ["wallet", "phone", "keys", "tissues", "lipstick", "sunglasses", "snacks", "receipts"]],
   ["Name a thing people do at the gym", ["run", "lift weights", "stretch", "cycle", "swim", "row", "jump rope", "take a class"]],
 ];
-const survey = surveyQuestions.map(([text, answers], index) => ({
+const survey = [
+  ...surveyQuestions,
+  ...extraSurvey.map(([text, answers]) => [text, answers.split("|")]),
+].map(([text, answers], index) => ({
   id: `survey-${String(index + 1).padStart(3, "0")}`,
   text,
   answers: answers.map((answer, rank) => ({
@@ -242,7 +251,7 @@ const scatterLists = [
   ["Things at a birthday party", "Things in a bathroom", "Things that fly", "Things in a supermarket", "Things at a wedding", "Things that are transparent", "Things in a car", "Things that are round"],
   ["Things at a campsite", "Things in a bedroom", "Things that are blue", "Things at a museum", "Things in a kitchen", "Things that are fragile", "Things at a party", "Things that are rare"],
 ];
-const scatter = scatterLists.map((categories, index) => ({
+const scatter = [...scatterLists, ...extraScatter].map((categories, index) => ({
   id: `scatter-${String(index + 1).padStart(3, "0")}`,
   categories,
 }));
@@ -319,7 +328,7 @@ const sketchWords = codenameWords.slice(0, 300).map((word, index) => ({
   difficulty: [1, 2, 3][index % 3],
 }));
 
-const trivia = [
+const triviaFacts = [
   ["Which planet is closest to the Sun?", "Mercury", ["mercury"], "Science"],
   ["What is the capital of France?", "Paris", ["paris"], "Geography"],
   ["What is the chemical symbol for gold?", "Au", ["au", "aurum"], "Science"],
@@ -381,7 +390,9 @@ const trivia = [
   ["Which sport is played at Wimbledon?", "Tennis", ["tennis"], "Sport"],
   ["What is the largest internal organ?", "Liver", ["liver"], "Science"],
   ["Which country has the Great Barrier Reef?", "Australia", ["australia"], "Geography"],
-].map(([text, answer, aliases, category], index) => ({
+];
+
+const trivia = [...triviaFacts, ...extraTrivia].map(([text, answer, aliases, category], index) => ({
   id: `buzz-${String(index + 1).padStart(3, "0")}`,
   text,
   answer,
@@ -435,7 +446,7 @@ await writeJson("prompts/fillTheBlank.json", {
 await writeJson("prompts/connections.json", connections);
 await writeJson("prompts/surveySays.json", survey);
 await writeJson("prompts/scattergories.json", scatter);
-await writeJson("prompts/storyChain.json", starters.map((text, index) => ({
+await writeJson("prompts/storyChain.json", [...starters, ...extraStoryStarters].map((text, index) => ({
   id: `story-${String(index + 1).padStart(3, "0")}`,
   text,
 })));
@@ -454,7 +465,7 @@ console.log(JSON.stringify({
   connections: connections.length,
   survey: survey.length,
   scatter: scatter.length,
-  story: starters.length,
+  story: starters.length + extraStoryStarters.length,
   password: passwordWords.length,
   codenames: codenameWords.length,
   sketch: sketchWords.length,

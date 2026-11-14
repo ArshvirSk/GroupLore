@@ -11,7 +11,7 @@ const MODES = {
   },
   "round-robin": {
     label: "Round Robin",
-    description: "A compact bracket rotation for up to six players",
+    description: "Every player faces every other player once",
     matchMs: 120_000,
     advanceMs: 4_000,
   },
@@ -21,7 +21,60 @@ function pickDuel() {
   return DUELS[Math.floor(Math.random() * DUELS.length)];
 }
 
+function roundRobinSchedule(players) {
+  const pairs = [];
+  for (let first = 0; first < players.length; first += 1) {
+    for (let second = first + 1; second < players.length; second += 1) {
+      pairs.push({ a: players[first], b: players[second] });
+    }
+  }
+  return shuffle(pairs);
+}
+
+function finishRoundRobin(room, state) {
+  const best = Math.max(
+    0,
+    ...state.roundPlayers.map((playerId) => state.matchWins[playerId] || 0),
+  );
+  const champions = state.roundPlayers.filter(
+    (playerId) => (state.matchWins[playerId] || 0) === best,
+  );
+  state.championIds = champions;
+  state.championId = champions[0] || null;
+  for (const playerId of champions) {
+    room.scores[playerId] = Number(room.scores[playerId] || 0) + 500;
+  }
+  state.done = true;
+  state.phase = "results";
+  return "results";
+}
+
+function beginRoundRobinMatch(room, state) {
+  const config = configFor(MODES, room.mode);
+  if (state.matchIndex >= state.schedule.length) {
+    return finishRoundRobin(room, state);
+  }
+  const pairing = state.schedule[state.matchIndex];
+  if (!state.roundPlayers.includes(pairing.a) || !state.roundPlayers.includes(pairing.b)) {
+    state.matchIndex += 1;
+    return beginRoundRobinMatch(room, state);
+  }
+  const duel = pickDuel();
+  state.currentMatch = {
+    a: pairing.a,
+    b: pairing.b,
+    duelType: duel.type,
+    duelLabel: duel.label,
+    duel: duel.init(pairing.a, pairing.b),
+  };
+  state.phase = "duel";
+  state.endsAt = Date.now() + config.matchMs;
+  state.lastMatch = null;
+  return undefined;
+}
+
 function beginMatch(room, state) {
+  if (state.format === "round-robin") return beginRoundRobinMatch(room, state);
   const config = configFor(MODES, room.mode);
   while (state.roundPlayers.length > 1 && state.roundPlayers.length % 2 === 1) {
     state.winners.push(state.roundPlayers.pop());
@@ -100,8 +153,11 @@ const duelBracket = {
   init(room, mode) {
     room.mode = mode in MODES ? mode : "classic";
     const players = activePlayers(room).map((player) => player.id);
+    const format = room.mode === "round-robin" ? "round-robin" : "classic";
     const state = {
       phase: "duel",
+      format,
+      schedule: format === "round-robin" ? roundRobinSchedule(shuffle(players)) : [],
       round: 1,
       roundPlayers: shuffle(players),
       winners: [],
@@ -110,6 +166,7 @@ const duelBracket = {
       lastMatch: null,
       matchWins: {},
       championId: null,
+      championIds: [],
       done: false,
       endsAt: null,
     };
@@ -172,6 +229,10 @@ const duelBracket = {
       finishMatch(room, state, match.a === playerId ? match.b : match.a, "forfeit");
       return;
     }
+    if (state.format === "round-robin") {
+      state.roundPlayers = state.roundPlayers.filter((id) => id !== playerId);
+      return undefined;
+    }
     state.roundPlayers = state.roundPlayers.filter((id) => id !== playerId);
     state.winners = state.winners.filter((id) => id !== playerId);
     return undefined;
@@ -186,10 +247,18 @@ const duelBracket = {
       phase: state.phase,
       round: state.round,
       rounds: null,
+      format: state.format,
       bracket: {
         remaining: [...state.roundPlayers],
         winners: [...state.winners],
         matchIndex: state.matchIndex,
+        scheduleLength: state.schedule.length,
+        matchesPlayed: state.format === "round-robin" ? state.matchIndex : undefined,
+        standings: state.roundPlayers.map((playerId) => ({
+          playerId,
+          name: room.players.get(playerId)?.name || "Player",
+          wins: state.matchWins[playerId] || 0,
+        })),
       },
       match: match
         ? {
@@ -205,6 +274,7 @@ const duelBracket = {
       duel: match && duel ? duel.viewFor(match.duel, isPlayer ? viewerId : null) : null,
       lastMatch: state.lastMatch,
       championId: state.championId,
+      championIds: [...state.championIds],
     };
   },
 
@@ -215,6 +285,9 @@ const duelBracket = {
     return {
       phase: state.phase,
       round: state.round,
+      format: state.format,
+      scheduleLength: state.schedule.length,
+      matchesPlayed: state.format === "round-robin" ? state.matchIndex : undefined,
       match: match
         ? {
             aName: room.players.get(match.a)?.name || "Player",
@@ -224,6 +297,7 @@ const duelBracket = {
         : null,
       duel: match && duel ? duel.viewFor(match.duel, null) : null,
       lastMatch: state.lastMatch,
+      championIds: [...state.championIds],
     };
   },
 };

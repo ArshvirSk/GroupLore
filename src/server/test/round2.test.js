@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { existsSync } from "node:fs";
 import { createRequire } from "node:module";
 import test from "node:test";
 import blindSketch from "../games/blindSketch.js";
@@ -135,7 +136,7 @@ test("survey says matches answers and hides them until the reveal", () => {
   assert.equal(Object.values(room.scores).some((score) => score > 0), true);
 });
 
-test("scattergories rejects a wrong letter and scores a unique answer", () => {
+test("scattergories challenges an answer and scores after the vote", () => {
   const room = makeRoom(3);
   const state = scattergories.init(room, "classic");
   const wrong = state.letter === "A" ? "B" : "A";
@@ -147,7 +148,19 @@ test("scattergories rejects a wrong letter and scores a unique answer", () => {
     type: "answer",
     values: Object.fromEntries(state.categories.map((_, index) => [index, `${state.letter}${player.id}${index}`])),
   }));
+  assert.equal(state.phase, "challenge");
+  const target = "p2";
+  const key = `${state.candidates[0].category}:${target}`;
+  scattergories.onEvent(room, "p1", { type: "challenge", categoryIndex: 0, targetId: target });
+  assert.throws(
+    () => scattergories.onEvent(room, target, { type: "voteChallenge", key, accept: false }),
+    /answerer cannot vote/i,
+  );
+  scattergories.onEvent(room, "p1", { type: "voteChallenge", key, accept: true });
+  scattergories.onEvent(room, "p3", { type: "voteChallenge", key, accept: true });
   assert.equal(state.phase, "compare");
+  assert.equal(state.reveal.challenges[0].accepted, true);
+  assert.equal(state.reveal.rows[0].answers.find((answer) => answer.playerId === target).points, 0);
   assert.equal(Object.values(room.scores).some((score) => score > 0), true);
 });
 
@@ -218,6 +231,45 @@ test("password validates one-word clues and scores a team guess", () => {
   assert.equal(room.scores[guesserId] > 0, true);
 });
 
+test("password pauses for 20 seconds when a team falls below two players", () => {
+  const room = makeRoom(5, { withTeams: true });
+  const state = password.init(room, "classic");
+  const team = room.teams.find((item) => item.playerIds.length === 2);
+  const leaving = team.playerIds[0];
+  team.playerIds = team.playerIds.filter((id) => id !== leaving);
+  room.players.delete(leaving);
+  delete room.scores[leaving];
+  password.onPlayerLeave(room, leaving);
+  assert.equal(state.phase, "paused");
+  assert.equal(state.pausedFrom, "turn");
+  assert.ok(state.endsAt > Date.now());
+
+  room.players.set(leaving, {
+    id: leaving,
+    name: "Returning Player",
+    connected: true,
+    joinedAt: 99,
+  });
+  team.playerIds.push(leaving);
+  password.onPlayerJoin(room, leaving);
+  assert.equal(state.phase, "turn");
+  assert.equal(password.canJoinDuringPause(room), false);
+});
+
+test("password ends cleanly if the pause expires without a rejoin", () => {
+  const room = makeRoom(5, { withTeams: true });
+  const state = password.init(room, "classic");
+  const team = room.teams.find((item) => item.playerIds.length === 2);
+  const leaving = team.playerIds[0];
+  team.playerIds = team.playerIds.filter((id) => id !== leaving);
+  room.players.delete(leaving);
+  delete room.scores[leaving];
+  password.onPlayerLeave(room, leaving);
+  assert.equal(state.phase, "paused");
+  assert.equal(password.onPhaseEnd(room), "results");
+  assert.equal(state.done, true);
+});
+
 test("boggle validates a path and dictionary word, and hides the board from the TV", () => {
   const room = makeRoom(2);
   const state = boggleRush.init(room, "classic");
@@ -262,7 +314,9 @@ test("buzzer trivia hides the answer until the result and scores a correct buzz"
   const state = buzzerTrivia.init(room, "classic");
   state.buzzOpenAt = 0;
   buzzerTrivia.onEvent(room, "p1", { type: "buzz" });
-  assert.equal(JSON.stringify(buzzerTrivia.publicFor(room)).includes(state.question.answer), false);
+  const publicView = buzzerTrivia.publicFor(room);
+  assert.equal("answer" in publicView, false);
+  assert.equal(publicView.reveal, undefined);
   buzzerTrivia.onEvent(room, "p1", { type: "answer", value: state.question.answer });
   assert.equal(state.phase, "result");
   assert.equal(room.scores.p1 >= 300, true);
@@ -326,6 +380,8 @@ test("blind sketch hides the word from guessers and strokes from the drawer", ()
   assert.equal(blindSketch.viewFor(room, drawerTeam[1]).word, null);
   blindSketch.onEvent(room, drawerTeam[1], { type: "guess", value: state.word.text });
   assert.equal(state.phase, "reveal");
+  assert.equal(blindSketch.viewFor(room, drawerTeam[1]).reveal.strokes.length, 1);
+  assert.equal(blindSketch.viewFor(room, drawerTeam[1]).reveal.word, state.word.text);
 });
 
 test("duel bracket exposes a live board and accepts a legal duel move", () => {
@@ -348,6 +404,22 @@ test("duel bracket exposes a live board and accepts a legal duel move", () => {
   if (type === "dots-and-boxes") assert.equal(state.currentMatch.duel.taken[move.edge], state.currentMatch.a);
 });
 
+test("duel bracket round robin plays every pairing once", () => {
+  const room = makeRoom(4);
+  const state = duelBracket.init(room, "round-robin");
+  assert.equal(state.format, "round-robin");
+  assert.equal(state.schedule.length, 6);
+  let guard = 0;
+  while (!state.done && guard < 40) {
+    guard += 1;
+    duelBracket.onPhaseEnd(room);
+  }
+  assert.equal(state.done, true);
+  assert.equal(state.matchIndex, 6);
+  assert.ok(state.championIds.length >= 1);
+  assert.equal(room.scores[state.championId] >= 500, true);
+});
+
 test("round-two banks have stable unique content and the blur license manifest is complete", () => {
   const unique = (items, key = "id") => new Set(items.map((item) => item[key])).size === items.length;
   assert.equal(fillBank.prompts.length, 120);
@@ -361,19 +433,29 @@ test("round-two banks have stable unique content and the blur license manifest i
     assert.equal(words.length, 16);
     assert.equal(new Set(words.map((word) => word.toLowerCase())).size, 16);
   }
-  assert.equal(surveyBank.length >= 30, true);
-  assert.equal(scatterBank.length >= 20, true);
+  assert.equal(surveyBank.length, 150);
+  assert.equal(surveyBank.every((question) => question.answers.length === 8), true);
+  assert.equal(new Set(surveyBank.map((question) => question.text)).size, surveyBank.length);
+  assert.equal(scatterBank.length, 80);
+  assert.equal(scatterBank.every((list) => new Set(list.categories).size === 8), true);
+  assert.equal(new Set(scatterBank.map((list) => list.id)).size, scatterBank.length);
+  assert.equal(require("../data/prompts/storyChain.json").length, 60);
   assert.equal(passwordBank.length, 300);
   assert.equal(codenameBank.length >= 400, true);
   assert.equal(sketchBank.length, 300);
-  assert.equal(triviaBank.length >= 60, true);
+  assert.equal(triviaBank.length, 300);
+  assert.equal(new Set(triviaBank.map((question) => question.text)).size, triviaBank.length);
   assert.equal(boggleWords.length >= 600, true);
   assert.equal(new Set(boggleWords).size, boggleWords.length);
-  assert.equal(blurManifest.length >= 1, true);
+  assert.equal(blurManifest.length, 150);
   for (const image of blurManifest) {
     assert.ok(image.license, `${image.id} needs a license`);
     assert.ok(image.source, `${image.id} needs a source`);
     assert.equal(image.stages.length, 6);
     assert.ok(image.sharp.endsWith(".svg"));
+    assert.equal(existsSync(`public${image.sharp}`), true, `${image.id} sharp image is missing`);
+    for (const stage of image.stages) {
+      assert.equal(existsSync(`public${stage}`), true, `${image.id} stage ${stage} is missing`);
+    }
   }
 });

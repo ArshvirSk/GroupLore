@@ -271,5 +271,2663 @@
     "sharp": "/blur/key.svg",
     "license": "self-made",
     "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-dog",
+    "answer": "Dog",
+    "aliases": [
+      "puppy",
+      "a dog"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/dog-1.svg",
+      "/blur/dog-2.svg",
+      "/blur/dog-3.svg",
+      "/blur/dog-4.svg",
+      "/blur/dog-5.svg",
+      "/blur/dog-6.svg"
+    ],
+    "sharp": "/blur/dog.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-bird",
+    "answer": "Bird",
+    "aliases": [
+      "a bird",
+      "sparrow"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/bird-1.svg",
+      "/blur/bird-2.svg",
+      "/blur/bird-3.svg",
+      "/blur/bird-4.svg",
+      "/blur/bird-5.svg",
+      "/blur/bird-6.svg"
+    ],
+    "sharp": "/blur/bird.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-butterfly",
+    "answer": "Butterfly",
+    "aliases": [
+      "a butterfly"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/butterfly-1.svg",
+      "/blur/butterfly-2.svg",
+      "/blur/butterfly-3.svg",
+      "/blur/butterfly-4.svg",
+      "/blur/butterfly-5.svg",
+      "/blur/butterfly-6.svg"
+    ],
+    "sharp": "/blur/butterfly.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-bee",
+    "answer": "Bee",
+    "aliases": [
+      "a bee",
+      "honeybee"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/bee-1.svg",
+      "/blur/bee-2.svg",
+      "/blur/bee-3.svg",
+      "/blur/bee-4.svg",
+      "/blur/bee-5.svg",
+      "/blur/bee-6.svg"
+    ],
+    "sharp": "/blur/bee.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-rabbit",
+    "answer": "Rabbit",
+    "aliases": [
+      "bunny",
+      "a rabbit"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/rabbit-1.svg",
+      "/blur/rabbit-2.svg",
+      "/blur/rabbit-3.svg",
+      "/blur/rabbit-4.svg",
+      "/blur/rabbit-5.svg",
+      "/blur/rabbit-6.svg"
+    ],
+    "sharp": "/blur/rabbit.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-elephant",
+    "answer": "Elephant",
+    "aliases": [
+      "an elephant"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/elephant-1.svg",
+      "/blur/elephant-2.svg",
+      "/blur/elephant-3.svg",
+      "/blur/elephant-4.svg",
+      "/blur/elephant-5.svg",
+      "/blur/elephant-6.svg"
+    ],
+    "sharp": "/blur/elephant.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-turtle",
+    "answer": "Turtle",
+    "aliases": [
+      "tortoise",
+      "a turtle"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/turtle-1.svg",
+      "/blur/turtle-2.svg",
+      "/blur/turtle-3.svg",
+      "/blur/turtle-4.svg",
+      "/blur/turtle-5.svg",
+      "/blur/turtle-6.svg"
+    ],
+    "sharp": "/blur/turtle.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-snake",
+    "answer": "Snake",
+    "aliases": [
+      "serpent",
+      "a snake"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/snake-1.svg",
+      "/blur/snake-2.svg",
+      "/blur/snake-3.svg",
+      "/blur/snake-4.svg",
+      "/blur/snake-5.svg",
+      "/blur/snake-6.svg"
+    ],
+    "sharp": "/blur/snake.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-frog",
+    "answer": "Frog",
+    "aliases": [
+      "toad",
+      "a frog"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/frog-1.svg",
+      "/blur/frog-2.svg",
+      "/blur/frog-3.svg",
+      "/blur/frog-4.svg",
+      "/blur/frog-5.svg",
+      "/blur/frog-6.svg"
+    ],
+    "sharp": "/blur/frog.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-owl",
+    "answer": "Owl",
+    "aliases": [
+      "an owl"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/owl-1.svg",
+      "/blur/owl-2.svg",
+      "/blur/owl-3.svg",
+      "/blur/owl-4.svg",
+      "/blur/owl-5.svg",
+      "/blur/owl-6.svg"
+    ],
+    "sharp": "/blur/owl.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-whale",
+    "answer": "Whale",
+    "aliases": [
+      "a whale"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/whale-1.svg",
+      "/blur/whale-2.svg",
+      "/blur/whale-3.svg",
+      "/blur/whale-4.svg",
+      "/blur/whale-5.svg",
+      "/blur/whale-6.svg"
+    ],
+    "sharp": "/blur/whale.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-penguin",
+    "answer": "Penguin",
+    "aliases": [
+      "a penguin"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/penguin-1.svg",
+      "/blur/penguin-2.svg",
+      "/blur/penguin-3.svg",
+      "/blur/penguin-4.svg",
+      "/blur/penguin-5.svg",
+      "/blur/penguin-6.svg"
+    ],
+    "sharp": "/blur/penguin.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-lion",
+    "answer": "Lion",
+    "aliases": [
+      "a lion"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/lion-1.svg",
+      "/blur/lion-2.svg",
+      "/blur/lion-3.svg",
+      "/blur/lion-4.svg",
+      "/blur/lion-5.svg",
+      "/blur/lion-6.svg"
+    ],
+    "sharp": "/blur/lion.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-monkey",
+    "answer": "Monkey",
+    "aliases": [
+      "an ape",
+      "a monkey"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/monkey-1.svg",
+      "/blur/monkey-2.svg",
+      "/blur/monkey-3.svg",
+      "/blur/monkey-4.svg",
+      "/blur/monkey-5.svg",
+      "/blur/monkey-6.svg"
+    ],
+    "sharp": "/blur/monkey.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-horse",
+    "answer": "Horse",
+    "aliases": [
+      "a horse"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/horse-1.svg",
+      "/blur/horse-2.svg",
+      "/blur/horse-3.svg",
+      "/blur/horse-4.svg",
+      "/blur/horse-5.svg",
+      "/blur/horse-6.svg"
+    ],
+    "sharp": "/blur/horse.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-cow",
+    "answer": "Cow",
+    "aliases": [
+      "a cow"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/cow-1.svg",
+      "/blur/cow-2.svg",
+      "/blur/cow-3.svg",
+      "/blur/cow-4.svg",
+      "/blur/cow-5.svg",
+      "/blur/cow-6.svg"
+    ],
+    "sharp": "/blur/cow.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-pig",
+    "answer": "Pig",
+    "aliases": [
+      "a pig"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/pig-1.svg",
+      "/blur/pig-2.svg",
+      "/blur/pig-3.svg",
+      "/blur/pig-4.svg",
+      "/blur/pig-5.svg",
+      "/blur/pig-6.svg"
+    ],
+    "sharp": "/blur/pig.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-sheep",
+    "answer": "Sheep",
+    "aliases": [
+      "a sheep",
+      "lamb"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/sheep-1.svg",
+      "/blur/sheep-2.svg",
+      "/blur/sheep-3.svg",
+      "/blur/sheep-4.svg",
+      "/blur/sheep-5.svg",
+      "/blur/sheep-6.svg"
+    ],
+    "sharp": "/blur/sheep.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-fox",
+    "answer": "Fox",
+    "aliases": [
+      "a fox"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/fox-1.svg",
+      "/blur/fox-2.svg",
+      "/blur/fox-3.svg",
+      "/blur/fox-4.svg",
+      "/blur/fox-5.svg",
+      "/blur/fox-6.svg"
+    ],
+    "sharp": "/blur/fox.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-bear",
+    "answer": "Bear",
+    "aliases": [
+      "a bear"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/bear-1.svg",
+      "/blur/bear-2.svg",
+      "/blur/bear-3.svg",
+      "/blur/bear-4.svg",
+      "/blur/bear-5.svg",
+      "/blur/bear-6.svg"
+    ],
+    "sharp": "/blur/bear.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-shark",
+    "answer": "Shark",
+    "aliases": [
+      "a shark"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/shark-1.svg",
+      "/blur/shark-2.svg",
+      "/blur/shark-3.svg",
+      "/blur/shark-4.svg",
+      "/blur/shark-5.svg",
+      "/blur/shark-6.svg"
+    ],
+    "sharp": "/blur/shark.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-octopus",
+    "answer": "Octopus",
+    "aliases": [
+      "an octopus"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/octopus-1.svg",
+      "/blur/octopus-2.svg",
+      "/blur/octopus-3.svg",
+      "/blur/octopus-4.svg",
+      "/blur/octopus-5.svg",
+      "/blur/octopus-6.svg"
+    ],
+    "sharp": "/blur/octopus.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-crab",
+    "answer": "Crab",
+    "aliases": [
+      "a crab"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/crab-1.svg",
+      "/blur/crab-2.svg",
+      "/blur/crab-3.svg",
+      "/blur/crab-4.svg",
+      "/blur/crab-5.svg",
+      "/blur/crab-6.svg"
+    ],
+    "sharp": "/blur/crab.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-snail",
+    "answer": "Snail",
+    "aliases": [
+      "a snail"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/snail-1.svg",
+      "/blur/snail-2.svg",
+      "/blur/snail-3.svg",
+      "/blur/snail-4.svg",
+      "/blur/snail-5.svg",
+      "/blur/snail-6.svg"
+    ],
+    "sharp": "/blur/snail.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-banana",
+    "answer": "Banana",
+    "aliases": [
+      "a banana"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/banana-1.svg",
+      "/blur/banana-2.svg",
+      "/blur/banana-3.svg",
+      "/blur/banana-4.svg",
+      "/blur/banana-5.svg",
+      "/blur/banana-6.svg"
+    ],
+    "sharp": "/blur/banana.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-pizza",
+    "answer": "Pizza",
+    "aliases": [
+      "a pizza slice",
+      "pizza slice"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/pizza-1.svg",
+      "/blur/pizza-2.svg",
+      "/blur/pizza-3.svg",
+      "/blur/pizza-4.svg",
+      "/blur/pizza-5.svg",
+      "/blur/pizza-6.svg"
+    ],
+    "sharp": "/blur/pizza.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-burger",
+    "answer": "Burger",
+    "aliases": [
+      "hamburger",
+      "a burger"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/burger-1.svg",
+      "/blur/burger-2.svg",
+      "/blur/burger-3.svg",
+      "/blur/burger-4.svg",
+      "/blur/burger-5.svg",
+      "/blur/burger-6.svg"
+    ],
+    "sharp": "/blur/burger.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-cake",
+    "answer": "Cake",
+    "aliases": [
+      "birthday cake",
+      "a cake"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/cake-1.svg",
+      "/blur/cake-2.svg",
+      "/blur/cake-3.svg",
+      "/blur/cake-4.svg",
+      "/blur/cake-5.svg",
+      "/blur/cake-6.svg"
+    ],
+    "sharp": "/blur/cake.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-ice-cream",
+    "answer": "Ice cream",
+    "aliases": [
+      "icecream",
+      "ice cream cone"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/ice-cream-1.svg",
+      "/blur/ice-cream-2.svg",
+      "/blur/ice-cream-3.svg",
+      "/blur/ice-cream-4.svg",
+      "/blur/ice-cream-5.svg",
+      "/blur/ice-cream-6.svg"
+    ],
+    "sharp": "/blur/ice-cream.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-donut",
+    "answer": "Donut",
+    "aliases": [
+      "doughnut",
+      "a donut"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/donut-1.svg",
+      "/blur/donut-2.svg",
+      "/blur/donut-3.svg",
+      "/blur/donut-4.svg",
+      "/blur/donut-5.svg",
+      "/blur/donut-6.svg"
+    ],
+    "sharp": "/blur/donut.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-coffee",
+    "answer": "Coffee",
+    "aliases": [
+      "cup of coffee",
+      "coffee cup"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/coffee-1.svg",
+      "/blur/coffee-2.svg",
+      "/blur/coffee-3.svg",
+      "/blur/coffee-4.svg",
+      "/blur/coffee-5.svg",
+      "/blur/coffee-6.svg"
+    ],
+    "sharp": "/blur/coffee.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-egg",
+    "answer": "Egg",
+    "aliases": [
+      "fried egg",
+      "an egg"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/egg-1.svg",
+      "/blur/egg-2.svg",
+      "/blur/egg-3.svg",
+      "/blur/egg-4.svg",
+      "/blur/egg-5.svg",
+      "/blur/egg-6.svg"
+    ],
+    "sharp": "/blur/egg.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-bread",
+    "answer": "Bread",
+    "aliases": [
+      "loaf",
+      "a loaf of bread"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/bread-1.svg",
+      "/blur/bread-2.svg",
+      "/blur/bread-3.svg",
+      "/blur/bread-4.svg",
+      "/blur/bread-5.svg",
+      "/blur/bread-6.svg"
+    ],
+    "sharp": "/blur/bread.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-cheese",
+    "answer": "Cheese",
+    "aliases": [
+      "cheese wedge"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/cheese-1.svg",
+      "/blur/cheese-2.svg",
+      "/blur/cheese-3.svg",
+      "/blur/cheese-4.svg",
+      "/blur/cheese-5.svg",
+      "/blur/cheese-6.svg"
+    ],
+    "sharp": "/blur/cheese.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-carrot",
+    "answer": "Carrot",
+    "aliases": [
+      "a carrot"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/carrot-1.svg",
+      "/blur/carrot-2.svg",
+      "/blur/carrot-3.svg",
+      "/blur/carrot-4.svg",
+      "/blur/carrot-5.svg",
+      "/blur/carrot-6.svg"
+    ],
+    "sharp": "/blur/carrot.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-watermelon",
+    "answer": "Watermelon",
+    "aliases": [
+      "melon slice"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/watermelon-1.svg",
+      "/blur/watermelon-2.svg",
+      "/blur/watermelon-3.svg",
+      "/blur/watermelon-4.svg",
+      "/blur/watermelon-5.svg",
+      "/blur/watermelon-6.svg"
+    ],
+    "sharp": "/blur/watermelon.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-strawberry",
+    "answer": "Strawberry",
+    "aliases": [
+      "a strawberry"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/strawberry-1.svg",
+      "/blur/strawberry-2.svg",
+      "/blur/strawberry-3.svg",
+      "/blur/strawberry-4.svg",
+      "/blur/strawberry-5.svg",
+      "/blur/strawberry-6.svg"
+    ],
+    "sharp": "/blur/strawberry.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-taco",
+    "answer": "Taco",
+    "aliases": [
+      "a taco"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/taco-1.svg",
+      "/blur/taco-2.svg",
+      "/blur/taco-3.svg",
+      "/blur/taco-4.svg",
+      "/blur/taco-5.svg",
+      "/blur/taco-6.svg"
+    ],
+    "sharp": "/blur/taco.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-sushi",
+    "answer": "Sushi",
+    "aliases": [
+      "sushi roll",
+      "maki"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/sushi-1.svg",
+      "/blur/sushi-2.svg",
+      "/blur/sushi-3.svg",
+      "/blur/sushi-4.svg",
+      "/blur/sushi-5.svg",
+      "/blur/sushi-6.svg"
+    ],
+    "sharp": "/blur/sushi.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-cookie",
+    "answer": "Cookie",
+    "aliases": [
+      "biscuit",
+      "a cookie"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/cookie-1.svg",
+      "/blur/cookie-2.svg",
+      "/blur/cookie-3.svg",
+      "/blur/cookie-4.svg",
+      "/blur/cookie-5.svg",
+      "/blur/cookie-6.svg"
+    ],
+    "sharp": "/blur/cookie.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-popcorn",
+    "answer": "Popcorn",
+    "aliases": [
+      "pop corn"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/popcorn-1.svg",
+      "/blur/popcorn-2.svg",
+      "/blur/popcorn-3.svg",
+      "/blur/popcorn-4.svg",
+      "/blur/popcorn-5.svg",
+      "/blur/popcorn-6.svg"
+    ],
+    "sharp": "/blur/popcorn.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-lemon",
+    "answer": "Lemon",
+    "aliases": [
+      "a lemon"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/lemon-1.svg",
+      "/blur/lemon-2.svg",
+      "/blur/lemon-3.svg",
+      "/blur/lemon-4.svg",
+      "/blur/lemon-5.svg",
+      "/blur/lemon-6.svg"
+    ],
+    "sharp": "/blur/lemon.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-grapes",
+    "answer": "Grapes",
+    "aliases": [
+      "a bunch of grapes"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/grapes-1.svg",
+      "/blur/grapes-2.svg",
+      "/blur/grapes-3.svg",
+      "/blur/grapes-4.svg",
+      "/blur/grapes-5.svg",
+      "/blur/grapes-6.svg"
+    ],
+    "sharp": "/blur/grapes.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-pineapple",
+    "answer": "Pineapple",
+    "aliases": [
+      "a pineapple"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/pineapple-1.svg",
+      "/blur/pineapple-2.svg",
+      "/blur/pineapple-3.svg",
+      "/blur/pineapple-4.svg",
+      "/blur/pineapple-5.svg",
+      "/blur/pineapple-6.svg"
+    ],
+    "sharp": "/blur/pineapple.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-hot-dog",
+    "answer": "Hot dog",
+    "aliases": [
+      "hotdog",
+      "hot dog bun"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/hot-dog-1.svg",
+      "/blur/hot-dog-2.svg",
+      "/blur/hot-dog-3.svg",
+      "/blur/hot-dog-4.svg",
+      "/blur/hot-dog-5.svg",
+      "/blur/hot-dog-6.svg"
+    ],
+    "sharp": "/blur/hot-dog.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-cupcake",
+    "answer": "Cupcake",
+    "aliases": [
+      "fairy cake"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/cupcake-1.svg",
+      "/blur/cupcake-2.svg",
+      "/blur/cupcake-3.svg",
+      "/blur/cupcake-4.svg",
+      "/blur/cupcake-5.svg",
+      "/blur/cupcake-6.svg"
+    ],
+    "sharp": "/blur/cupcake.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-chocolate",
+    "answer": "Chocolate",
+    "aliases": [
+      "chocolate bar"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/chocolate-1.svg",
+      "/blur/chocolate-2.svg",
+      "/blur/chocolate-3.svg",
+      "/blur/chocolate-4.svg",
+      "/blur/chocolate-5.svg",
+      "/blur/chocolate-6.svg"
+    ],
+    "sharp": "/blur/chocolate.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-soup",
+    "answer": "Soup",
+    "aliases": [
+      "bowl of soup"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/soup-1.svg",
+      "/blur/soup-2.svg",
+      "/blur/soup-3.svg",
+      "/blur/soup-4.svg",
+      "/blur/soup-5.svg",
+      "/blur/soup-6.svg"
+    ],
+    "sharp": "/blur/soup.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-sandwich",
+    "answer": "Sandwich",
+    "aliases": [
+      "a sandwich"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/sandwich-1.svg",
+      "/blur/sandwich-2.svg",
+      "/blur/sandwich-3.svg",
+      "/blur/sandwich-4.svg",
+      "/blur/sandwich-5.svg",
+      "/blur/sandwich-6.svg"
+    ],
+    "sharp": "/blur/sandwich.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-book",
+    "answer": "Book",
+    "aliases": [
+      "a book",
+      "open book"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/book-1.svg",
+      "/blur/book-2.svg",
+      "/blur/book-3.svg",
+      "/blur/book-4.svg",
+      "/blur/book-5.svg",
+      "/blur/book-6.svg"
+    ],
+    "sharp": "/blur/book.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-pencil",
+    "answer": "Pencil",
+    "aliases": [
+      "a pencil"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/pencil-1.svg",
+      "/blur/pencil-2.svg",
+      "/blur/pencil-3.svg",
+      "/blur/pencil-4.svg",
+      "/blur/pencil-5.svg",
+      "/blur/pencil-6.svg"
+    ],
+    "sharp": "/blur/pencil.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-scissors",
+    "answer": "Scissors",
+    "aliases": [
+      "a pair of scissors"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/scissors-1.svg",
+      "/blur/scissors-2.svg",
+      "/blur/scissors-3.svg",
+      "/blur/scissors-4.svg",
+      "/blur/scissors-5.svg",
+      "/blur/scissors-6.svg"
+    ],
+    "sharp": "/blur/scissors.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-camera",
+    "answer": "Camera",
+    "aliases": [
+      "a camera",
+      "photo camera"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/camera-1.svg",
+      "/blur/camera-2.svg",
+      "/blur/camera-3.svg",
+      "/blur/camera-4.svg",
+      "/blur/camera-5.svg",
+      "/blur/camera-6.svg"
+    ],
+    "sharp": "/blur/camera.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-phone",
+    "answer": "Phone",
+    "aliases": [
+      "smartphone",
+      "mobile phone"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/phone-1.svg",
+      "/blur/phone-2.svg",
+      "/blur/phone-3.svg",
+      "/blur/phone-4.svg",
+      "/blur/phone-5.svg",
+      "/blur/phone-6.svg"
+    ],
+    "sharp": "/blur/phone.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-laptop",
+    "answer": "Laptop",
+    "aliases": [
+      "a laptop",
+      "computer"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/laptop-1.svg",
+      "/blur/laptop-2.svg",
+      "/blur/laptop-3.svg",
+      "/blur/laptop-4.svg",
+      "/blur/laptop-5.svg",
+      "/blur/laptop-6.svg"
+    ],
+    "sharp": "/blur/laptop.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-lightbulb",
+    "answer": "Lightbulb",
+    "aliases": [
+      "light bulb",
+      "bulb"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/lightbulb-1.svg",
+      "/blur/lightbulb-2.svg",
+      "/blur/lightbulb-3.svg",
+      "/blur/lightbulb-4.svg",
+      "/blur/lightbulb-5.svg",
+      "/blur/lightbulb-6.svg"
+    ],
+    "sharp": "/blur/lightbulb.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-guitar",
+    "answer": "Guitar",
+    "aliases": [
+      "acoustic guitar"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/guitar-1.svg",
+      "/blur/guitar-2.svg",
+      "/blur/guitar-3.svg",
+      "/blur/guitar-4.svg",
+      "/blur/guitar-5.svg",
+      "/blur/guitar-6.svg"
+    ],
+    "sharp": "/blur/guitar.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-drum",
+    "answer": "Drum",
+    "aliases": [
+      "a drum"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/drum-1.svg",
+      "/blur/drum-2.svg",
+      "/blur/drum-3.svg",
+      "/blur/drum-4.svg",
+      "/blur/drum-5.svg",
+      "/blur/drum-6.svg"
+    ],
+    "sharp": "/blur/drum.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-hammer",
+    "answer": "Hammer",
+    "aliases": [
+      "a hammer"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/hammer-1.svg",
+      "/blur/hammer-2.svg",
+      "/blur/hammer-3.svg",
+      "/blur/hammer-4.svg",
+      "/blur/hammer-5.svg",
+      "/blur/hammer-6.svg"
+    ],
+    "sharp": "/blur/hammer.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-wrench",
+    "answer": "Wrench",
+    "aliases": [
+      "spanner",
+      "a wrench"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/wrench-1.svg",
+      "/blur/wrench-2.svg",
+      "/blur/wrench-3.svg",
+      "/blur/wrench-4.svg",
+      "/blur/wrench-5.svg",
+      "/blur/wrench-6.svg"
+    ],
+    "sharp": "/blur/wrench.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-toothbrush",
+    "answer": "Toothbrush",
+    "aliases": [
+      "a toothbrush"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/toothbrush-1.svg",
+      "/blur/toothbrush-2.svg",
+      "/blur/toothbrush-3.svg",
+      "/blur/toothbrush-4.svg",
+      "/blur/toothbrush-5.svg",
+      "/blur/toothbrush-6.svg"
+    ],
+    "sharp": "/blur/toothbrush.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-glasses",
+    "answer": "Glasses",
+    "aliases": [
+      "eyeglasses",
+      "spectacles"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/glasses-1.svg",
+      "/blur/glasses-2.svg",
+      "/blur/glasses-3.svg",
+      "/blur/glasses-4.svg",
+      "/blur/glasses-5.svg",
+      "/blur/glasses-6.svg"
+    ],
+    "sharp": "/blur/glasses.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-hat",
+    "answer": "Hat",
+    "aliases": [
+      "cap",
+      "a hat"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/hat-1.svg",
+      "/blur/hat-2.svg",
+      "/blur/hat-3.svg",
+      "/blur/hat-4.svg",
+      "/blur/hat-5.svg",
+      "/blur/hat-6.svg"
+    ],
+    "sharp": "/blur/hat.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-shoe",
+    "answer": "Shoe",
+    "aliases": [
+      "sneaker",
+      "a shoe"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/shoe-1.svg",
+      "/blur/shoe-2.svg",
+      "/blur/shoe-3.svg",
+      "/blur/shoe-4.svg",
+      "/blur/shoe-5.svg",
+      "/blur/shoe-6.svg"
+    ],
+    "sharp": "/blur/shoe.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-sock",
+    "answer": "Sock",
+    "aliases": [
+      "a sock"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/sock-1.svg",
+      "/blur/sock-2.svg",
+      "/blur/sock-3.svg",
+      "/blur/sock-4.svg",
+      "/blur/sock-5.svg",
+      "/blur/sock-6.svg"
+    ],
+    "sharp": "/blur/sock.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-backpack",
+    "answer": "Backpack",
+    "aliases": [
+      "rucksack",
+      "a backpack"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/backpack-1.svg",
+      "/blur/backpack-2.svg",
+      "/blur/backpack-3.svg",
+      "/blur/backpack-4.svg",
+      "/blur/backpack-5.svg",
+      "/blur/backpack-6.svg"
+    ],
+    "sharp": "/blur/backpack.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-cup",
+    "answer": "Cup",
+    "aliases": [
+      "mug",
+      "a cup"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/cup-1.svg",
+      "/blur/cup-2.svg",
+      "/blur/cup-3.svg",
+      "/blur/cup-4.svg",
+      "/blur/cup-5.svg",
+      "/blur/cup-6.svg"
+    ],
+    "sharp": "/blur/cup.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-spoon",
+    "answer": "Spoon",
+    "aliases": [
+      "a spoon"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/spoon-1.svg",
+      "/blur/spoon-2.svg",
+      "/blur/spoon-3.svg",
+      "/blur/spoon-4.svg",
+      "/blur/spoon-5.svg",
+      "/blur/spoon-6.svg"
+    ],
+    "sharp": "/blur/spoon.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-fork",
+    "answer": "Fork",
+    "aliases": [
+      "a fork"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/fork-1.svg",
+      "/blur/fork-2.svg",
+      "/blur/fork-3.svg",
+      "/blur/fork-4.svg",
+      "/blur/fork-5.svg",
+      "/blur/fork-6.svg"
+    ],
+    "sharp": "/blur/fork.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-knife",
+    "answer": "Knife",
+    "aliases": [
+      "a knife",
+      "kitchen knife"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/knife-1.svg",
+      "/blur/knife-2.svg",
+      "/blur/knife-3.svg",
+      "/blur/knife-4.svg",
+      "/blur/knife-5.svg",
+      "/blur/knife-6.svg"
+    ],
+    "sharp": "/blur/knife.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-chair",
+    "answer": "Chair",
+    "aliases": [
+      "a chair"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/chair-1.svg",
+      "/blur/chair-2.svg",
+      "/blur/chair-3.svg",
+      "/blur/chair-4.svg",
+      "/blur/chair-5.svg",
+      "/blur/chair-6.svg"
+    ],
+    "sharp": "/blur/chair.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-table",
+    "answer": "Table",
+    "aliases": [
+      "a table"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/table-1.svg",
+      "/blur/table-2.svg",
+      "/blur/table-3.svg",
+      "/blur/table-4.svg",
+      "/blur/table-5.svg",
+      "/blur/table-6.svg"
+    ],
+    "sharp": "/blur/table.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-bed",
+    "answer": "Bed",
+    "aliases": [
+      "a bed"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/bed-1.svg",
+      "/blur/bed-2.svg",
+      "/blur/bed-3.svg",
+      "/blur/bed-4.svg",
+      "/blur/bed-5.svg",
+      "/blur/bed-6.svg"
+    ],
+    "sharp": "/blur/bed.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-lamp",
+    "answer": "Lamp",
+    "aliases": [
+      "a lamp",
+      "table lamp"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/lamp-1.svg",
+      "/blur/lamp-2.svg",
+      "/blur/lamp-3.svg",
+      "/blur/lamp-4.svg",
+      "/blur/lamp-5.svg",
+      "/blur/lamp-6.svg"
+    ],
+    "sharp": "/blur/lamp.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-candle",
+    "answer": "Candle",
+    "aliases": [
+      "a candle"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/candle-1.svg",
+      "/blur/candle-2.svg",
+      "/blur/candle-3.svg",
+      "/blur/candle-4.svg",
+      "/blur/candle-5.svg",
+      "/blur/candle-6.svg"
+    ],
+    "sharp": "/blur/candle.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-gift",
+    "answer": "Gift",
+    "aliases": [
+      "present",
+      "a gift"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/gift-1.svg",
+      "/blur/gift-2.svg",
+      "/blur/gift-3.svg",
+      "/blur/gift-4.svg",
+      "/blur/gift-5.svg",
+      "/blur/gift-6.svg"
+    ],
+    "sharp": "/blur/gift.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-balloon",
+    "answer": "Balloon",
+    "aliases": [
+      "a balloon"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/balloon-1.svg",
+      "/blur/balloon-2.svg",
+      "/blur/balloon-3.svg",
+      "/blur/balloon-4.svg",
+      "/blur/balloon-5.svg",
+      "/blur/balloon-6.svg"
+    ],
+    "sharp": "/blur/balloon.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-kite",
+    "answer": "Kite",
+    "aliases": [
+      "a kite"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/kite-1.svg",
+      "/blur/kite-2.svg",
+      "/blur/kite-3.svg",
+      "/blur/kite-4.svg",
+      "/blur/kite-5.svg",
+      "/blur/kite-6.svg"
+    ],
+    "sharp": "/blur/kite.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-robot",
+    "answer": "Robot",
+    "aliases": [
+      "a robot"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/robot-1.svg",
+      "/blur/robot-2.svg",
+      "/blur/robot-3.svg",
+      "/blur/robot-4.svg",
+      "/blur/robot-5.svg",
+      "/blur/robot-6.svg"
+    ],
+    "sharp": "/blur/robot.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-dice",
+    "answer": "Dice",
+    "aliases": [
+      "die",
+      "a die"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/dice-1.svg",
+      "/blur/dice-2.svg",
+      "/blur/dice-3.svg",
+      "/blur/dice-4.svg",
+      "/blur/dice-5.svg",
+      "/blur/dice-6.svg"
+    ],
+    "sharp": "/blur/dice.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-puzzle",
+    "answer": "Puzzle",
+    "aliases": [
+      "jigsaw",
+      "puzzle piece"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/puzzle-1.svg",
+      "/blur/puzzle-2.svg",
+      "/blur/puzzle-3.svg",
+      "/blur/puzzle-4.svg",
+      "/blur/puzzle-5.svg",
+      "/blur/puzzle-6.svg"
+    ],
+    "sharp": "/blur/puzzle.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-basketball",
+    "answer": "Basketball",
+    "aliases": [
+      "a basketball"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/basketball-1.svg",
+      "/blur/basketball-2.svg",
+      "/blur/basketball-3.svg",
+      "/blur/basketball-4.svg",
+      "/blur/basketball-5.svg",
+      "/blur/basketball-6.svg"
+    ],
+    "sharp": "/blur/basketball.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-football",
+    "answer": "Football",
+    "aliases": [
+      "soccer ball",
+      "a football"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/football-1.svg",
+      "/blur/football-2.svg",
+      "/blur/football-3.svg",
+      "/blur/football-4.svg",
+      "/blur/football-5.svg",
+      "/blur/football-6.svg"
+    ],
+    "sharp": "/blur/football.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-tennis-racket",
+    "answer": "Tennis racket",
+    "aliases": [
+      "racket",
+      "racquet"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/tennis-racket-1.svg",
+      "/blur/tennis-racket-2.svg",
+      "/blur/tennis-racket-3.svg",
+      "/blur/tennis-racket-4.svg",
+      "/blur/tennis-racket-5.svg",
+      "/blur/tennis-racket-6.svg"
+    ],
+    "sharp": "/blur/tennis-racket.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-bicycle",
+    "answer": "Bicycle",
+    "aliases": [
+      "bike",
+      "a bicycle"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/bicycle-1.svg",
+      "/blur/bicycle-2.svg",
+      "/blur/bicycle-3.svg",
+      "/blur/bicycle-4.svg",
+      "/blur/bicycle-5.svg",
+      "/blur/bicycle-6.svg"
+    ],
+    "sharp": "/blur/bicycle.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-car",
+    "answer": "Car",
+    "aliases": [
+      "automobile",
+      "a car"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/car-1.svg",
+      "/blur/car-2.svg",
+      "/blur/car-3.svg",
+      "/blur/car-4.svg",
+      "/blur/car-5.svg",
+      "/blur/car-6.svg"
+    ],
+    "sharp": "/blur/car.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-bus",
+    "answer": "Bus",
+    "aliases": [
+      "a bus",
+      "school bus"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/bus-1.svg",
+      "/blur/bus-2.svg",
+      "/blur/bus-3.svg",
+      "/blur/bus-4.svg",
+      "/blur/bus-5.svg",
+      "/blur/bus-6.svg"
+    ],
+    "sharp": "/blur/bus.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-train",
+    "answer": "Train",
+    "aliases": [
+      "locomotive",
+      "a train"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/train-1.svg",
+      "/blur/train-2.svg",
+      "/blur/train-3.svg",
+      "/blur/train-4.svg",
+      "/blur/train-5.svg",
+      "/blur/train-6.svg"
+    ],
+    "sharp": "/blur/train.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-plane",
+    "answer": "Plane",
+    "aliases": [
+      "airplane",
+      "aeroplane"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/plane-1.svg",
+      "/blur/plane-2.svg",
+      "/blur/plane-3.svg",
+      "/blur/plane-4.svg",
+      "/blur/plane-5.svg",
+      "/blur/plane-6.svg"
+    ],
+    "sharp": "/blur/plane.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-helicopter",
+    "answer": "Helicopter",
+    "aliases": [
+      "a helicopter"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/helicopter-1.svg",
+      "/blur/helicopter-2.svg",
+      "/blur/helicopter-3.svg",
+      "/blur/helicopter-4.svg",
+      "/blur/helicopter-5.svg",
+      "/blur/helicopter-6.svg"
+    ],
+    "sharp": "/blur/helicopter.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-traffic-light",
+    "answer": "Traffic light",
+    "aliases": [
+      "traffic signal"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/traffic-light-1.svg",
+      "/blur/traffic-light-2.svg",
+      "/blur/traffic-light-3.svg",
+      "/blur/traffic-light-4.svg",
+      "/blur/traffic-light-5.svg",
+      "/blur/traffic-light-6.svg"
+    ],
+    "sharp": "/blur/traffic-light.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-stop-sign",
+    "answer": "Stop sign",
+    "aliases": [
+      "stop sign",
+      "stop"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/stop-sign-1.svg",
+      "/blur/stop-sign-2.svg",
+      "/blur/stop-sign-3.svg",
+      "/blur/stop-sign-4.svg",
+      "/blur/stop-sign-5.svg",
+      "/blur/stop-sign-6.svg"
+    ],
+    "sharp": "/blur/stop-sign.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-mailbox",
+    "answer": "Mailbox",
+    "aliases": [
+      "mail box",
+      "letterbox"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/mailbox-1.svg",
+      "/blur/mailbox-2.svg",
+      "/blur/mailbox-3.svg",
+      "/blur/mailbox-4.svg",
+      "/blur/mailbox-5.svg",
+      "/blur/mailbox-6.svg"
+    ],
+    "sharp": "/blur/mailbox.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-anchor",
+    "answer": "Anchor",
+    "aliases": [
+      "a anchor",
+      "ship anchor"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/anchor-1.svg",
+      "/blur/anchor-2.svg",
+      "/blur/anchor-3.svg",
+      "/blur/anchor-4.svg",
+      "/blur/anchor-5.svg",
+      "/blur/anchor-6.svg"
+    ],
+    "sharp": "/blur/anchor.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-compass",
+    "answer": "Compass",
+    "aliases": [
+      "a compass",
+      "navigation compass"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/compass-1.svg",
+      "/blur/compass-2.svg",
+      "/blur/compass-3.svg",
+      "/blur/compass-4.svg",
+      "/blur/compass-5.svg",
+      "/blur/compass-6.svg"
+    ],
+    "sharp": "/blur/compass.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-map",
+    "answer": "Map",
+    "aliases": [
+      "a map",
+      "road map"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/map-1.svg",
+      "/blur/map-2.svg",
+      "/blur/map-3.svg",
+      "/blur/map-4.svg",
+      "/blur/map-5.svg",
+      "/blur/map-6.svg"
+    ],
+    "sharp": "/blur/map.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-telescope",
+    "answer": "Telescope",
+    "aliases": [
+      "a telescope"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/telescope-1.svg",
+      "/blur/telescope-2.svg",
+      "/blur/telescope-3.svg",
+      "/blur/telescope-4.svg",
+      "/blur/telescope-5.svg",
+      "/blur/telescope-6.svg"
+    ],
+    "sharp": "/blur/telescope.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-microscope",
+    "answer": "Microscope",
+    "aliases": [
+      "a microscope"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/microscope-1.svg",
+      "/blur/microscope-2.svg",
+      "/blur/microscope-3.svg",
+      "/blur/microscope-4.svg",
+      "/blur/microscope-5.svg",
+      "/blur/microscope-6.svg"
+    ],
+    "sharp": "/blur/microscope.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-magnet",
+    "answer": "Magnet",
+    "aliases": [
+      "horseshoe magnet",
+      "a magnet"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/magnet-1.svg",
+      "/blur/magnet-2.svg",
+      "/blur/magnet-3.svg",
+      "/blur/magnet-4.svg",
+      "/blur/magnet-5.svg",
+      "/blur/magnet-6.svg"
+    ],
+    "sharp": "/blur/magnet.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-battery",
+    "answer": "Battery",
+    "aliases": [
+      "a battery",
+      "AA battery"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/battery-1.svg",
+      "/blur/battery-2.svg",
+      "/blur/battery-3.svg",
+      "/blur/battery-4.svg",
+      "/blur/battery-5.svg",
+      "/blur/battery-6.svg"
+    ],
+    "sharp": "/blur/battery.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-lock",
+    "answer": "Lock",
+    "aliases": [
+      "padlock",
+      "a lock"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/lock-1.svg",
+      "/blur/lock-2.svg",
+      "/blur/lock-3.svg",
+      "/blur/lock-4.svg",
+      "/blur/lock-5.svg",
+      "/blur/lock-6.svg"
+    ],
+    "sharp": "/blur/lock.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-envelope",
+    "answer": "Envelope",
+    "aliases": [
+      "letter",
+      "an envelope"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/envelope-1.svg",
+      "/blur/envelope-2.svg",
+      "/blur/envelope-3.svg",
+      "/blur/envelope-4.svg",
+      "/blur/envelope-5.svg",
+      "/blur/envelope-6.svg"
+    ],
+    "sharp": "/blur/envelope.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-calendar",
+    "answer": "Calendar",
+    "aliases": [
+      "a calendar"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/calendar-1.svg",
+      "/blur/calendar-2.svg",
+      "/blur/calendar-3.svg",
+      "/blur/calendar-4.svg",
+      "/blur/calendar-5.svg",
+      "/blur/calendar-6.svg"
+    ],
+    "sharp": "/blur/calendar.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-trophy",
+    "answer": "Trophy",
+    "aliases": [
+      "a trophy",
+      "cup trophy"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/trophy-1.svg",
+      "/blur/trophy-2.svg",
+      "/blur/trophy-3.svg",
+      "/blur/trophy-4.svg",
+      "/blur/trophy-5.svg",
+      "/blur/trophy-6.svg"
+    ],
+    "sharp": "/blur/trophy.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-cloud",
+    "answer": "Cloud",
+    "aliases": [
+      "a cloud"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/cloud-1.svg",
+      "/blur/cloud-2.svg",
+      "/blur/cloud-3.svg",
+      "/blur/cloud-4.svg",
+      "/blur/cloud-5.svg",
+      "/blur/cloud-6.svg"
+    ],
+    "sharp": "/blur/cloud.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-rain",
+    "answer": "Rain",
+    "aliases": [
+      "rainy weather",
+      "rainfall"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/rain-1.svg",
+      "/blur/rain-2.svg",
+      "/blur/rain-3.svg",
+      "/blur/rain-4.svg",
+      "/blur/rain-5.svg",
+      "/blur/rain-6.svg"
+    ],
+    "sharp": "/blur/rain.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-snowflake",
+    "answer": "Snowflake",
+    "aliases": [
+      "a snowflake"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/snowflake-1.svg",
+      "/blur/snowflake-2.svg",
+      "/blur/snowflake-3.svg",
+      "/blur/snowflake-4.svg",
+      "/blur/snowflake-5.svg",
+      "/blur/snowflake-6.svg"
+    ],
+    "sharp": "/blur/snowflake.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-rainbow",
+    "answer": "Rainbow",
+    "aliases": [
+      "a rainbow"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/rainbow-1.svg",
+      "/blur/rainbow-2.svg",
+      "/blur/rainbow-3.svg",
+      "/blur/rainbow-4.svg",
+      "/blur/rainbow-5.svg",
+      "/blur/rainbow-6.svg"
+    ],
+    "sharp": "/blur/rainbow.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-lightning",
+    "answer": "Lightning",
+    "aliases": [
+      "lightning bolt",
+      "a lightning bolt"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/lightning-1.svg",
+      "/blur/lightning-2.svg",
+      "/blur/lightning-3.svg",
+      "/blur/lightning-4.svg",
+      "/blur/lightning-5.svg",
+      "/blur/lightning-6.svg"
+    ],
+    "sharp": "/blur/lightning.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-tornado",
+    "answer": "Tornado",
+    "aliases": [
+      "a tornado",
+      "twister"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/tornado-1.svg",
+      "/blur/tornado-2.svg",
+      "/blur/tornado-3.svg",
+      "/blur/tornado-4.svg",
+      "/blur/tornado-5.svg",
+      "/blur/tornado-6.svg"
+    ],
+    "sharp": "/blur/tornado.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-mountain",
+    "answer": "Mountain",
+    "aliases": [
+      "a mountain"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/mountain-1.svg",
+      "/blur/mountain-2.svg",
+      "/blur/mountain-3.svg",
+      "/blur/mountain-4.svg",
+      "/blur/mountain-5.svg",
+      "/blur/mountain-6.svg"
+    ],
+    "sharp": "/blur/mountain.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-volcano",
+    "answer": "Volcano",
+    "aliases": [
+      "a volcano"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/volcano-1.svg",
+      "/blur/volcano-2.svg",
+      "/blur/volcano-3.svg",
+      "/blur/volcano-4.svg",
+      "/blur/volcano-5.svg",
+      "/blur/volcano-6.svg"
+    ],
+    "sharp": "/blur/volcano.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-cactus",
+    "answer": "Cactus",
+    "aliases": [
+      "a cactus"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/cactus-1.svg",
+      "/blur/cactus-2.svg",
+      "/blur/cactus-3.svg",
+      "/blur/cactus-4.svg",
+      "/blur/cactus-5.svg",
+      "/blur/cactus-6.svg"
+    ],
+    "sharp": "/blur/cactus.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-flower",
+    "answer": "Flower",
+    "aliases": [
+      "a flower",
+      "blossom"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/flower-1.svg",
+      "/blur/flower-2.svg",
+      "/blur/flower-3.svg",
+      "/blur/flower-4.svg",
+      "/blur/flower-5.svg",
+      "/blur/flower-6.svg"
+    ],
+    "sharp": "/blur/flower.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-leaf",
+    "answer": "Leaf",
+    "aliases": [
+      "a leaf"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/leaf-1.svg",
+      "/blur/leaf-2.svg",
+      "/blur/leaf-3.svg",
+      "/blur/leaf-4.svg",
+      "/blur/leaf-5.svg",
+      "/blur/leaf-6.svg"
+    ],
+    "sharp": "/blur/leaf.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-fire",
+    "answer": "Fire",
+    "aliases": [
+      "flame",
+      "a fire"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/fire-1.svg",
+      "/blur/fire-2.svg",
+      "/blur/fire-3.svg",
+      "/blur/fire-4.svg",
+      "/blur/fire-5.svg",
+      "/blur/fire-6.svg"
+    ],
+    "sharp": "/blur/fire.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-water-drop",
+    "answer": "Water drop",
+    "aliases": [
+      "water droplet",
+      "droplet"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/water-drop-1.svg",
+      "/blur/water-drop-2.svg",
+      "/blur/water-drop-3.svg",
+      "/blur/water-drop-4.svg",
+      "/blur/water-drop-5.svg",
+      "/blur/water-drop-6.svg"
+    ],
+    "sharp": "/blur/water-drop.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-wave",
+    "answer": "Wave",
+    "aliases": [
+      "ocean wave",
+      "a wave"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/wave-1.svg",
+      "/blur/wave-2.svg",
+      "/blur/wave-3.svg",
+      "/blur/wave-4.svg",
+      "/blur/wave-5.svg",
+      "/blur/wave-6.svg"
+    ],
+    "sharp": "/blur/wave.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-island",
+    "answer": "Island",
+    "aliases": [
+      "a island",
+      "desert island"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/island-1.svg",
+      "/blur/island-2.svg",
+      "/blur/island-3.svg",
+      "/blur/island-4.svg",
+      "/blur/island-5.svg",
+      "/blur/island-6.svg"
+    ],
+    "sharp": "/blur/island.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-campfire",
+    "answer": "Campfire",
+    "aliases": [
+      "camp fire",
+      "bonfire"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/campfire-1.svg",
+      "/blur/campfire-2.svg",
+      "/blur/campfire-3.svg",
+      "/blur/campfire-4.svg",
+      "/blur/campfire-5.svg",
+      "/blur/campfire-6.svg"
+    ],
+    "sharp": "/blur/campfire.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-palm-tree",
+    "answer": "Palm tree",
+    "aliases": [
+      "palm",
+      "palm tree"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/palm-tree-1.svg",
+      "/blur/palm-tree-2.svg",
+      "/blur/palm-tree-3.svg",
+      "/blur/palm-tree-4.svg",
+      "/blur/palm-tree-5.svg",
+      "/blur/palm-tree-6.svg"
+    ],
+    "sharp": "/blur/palm-tree.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-acorn",
+    "answer": "Acorn",
+    "aliases": [
+      "an acorn"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/acorn-1.svg",
+      "/blur/acorn-2.svg",
+      "/blur/acorn-3.svg",
+      "/blur/acorn-4.svg",
+      "/blur/acorn-5.svg",
+      "/blur/acorn-6.svg"
+    ],
+    "sharp": "/blur/acorn.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-seashell",
+    "answer": "Seashell",
+    "aliases": [
+      "shell",
+      "a seashell"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/seashell-1.svg",
+      "/blur/seashell-2.svg",
+      "/blur/seashell-3.svg",
+      "/blur/seashell-4.svg",
+      "/blur/seashell-5.svg",
+      "/blur/seashell-6.svg"
+    ],
+    "sharp": "/blur/seashell.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-snowman",
+    "answer": "Snowman",
+    "aliases": [
+      "snow man",
+      "a snowman"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/snowman-1.svg",
+      "/blur/snowman-2.svg",
+      "/blur/snowman-3.svg",
+      "/blur/snowman-4.svg",
+      "/blur/snowman-5.svg",
+      "/blur/snowman-6.svg"
+    ],
+    "sharp": "/blur/snowman.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-castle",
+    "answer": "Castle",
+    "aliases": [
+      "a castle",
+      "fortress"
+    ],
+    "category": "places",
+    "stages": [
+      "/blur/castle-1.svg",
+      "/blur/castle-2.svg",
+      "/blur/castle-3.svg",
+      "/blur/castle-4.svg",
+      "/blur/castle-5.svg",
+      "/blur/castle-6.svg"
+    ],
+    "sharp": "/blur/castle.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-bridge",
+    "answer": "Bridge",
+    "aliases": [
+      "a bridge"
+    ],
+    "category": "places",
+    "stages": [
+      "/blur/bridge-1.svg",
+      "/blur/bridge-2.svg",
+      "/blur/bridge-3.svg",
+      "/blur/bridge-4.svg",
+      "/blur/bridge-5.svg",
+      "/blur/bridge-6.svg"
+    ],
+    "sharp": "/blur/bridge.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-lighthouse",
+    "answer": "Lighthouse",
+    "aliases": [
+      "light house",
+      "a lighthouse"
+    ],
+    "category": "places",
+    "stages": [
+      "/blur/lighthouse-1.svg",
+      "/blur/lighthouse-2.svg",
+      "/blur/lighthouse-3.svg",
+      "/blur/lighthouse-4.svg",
+      "/blur/lighthouse-5.svg",
+      "/blur/lighthouse-6.svg"
+    ],
+    "sharp": "/blur/lighthouse.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-windmill",
+    "answer": "Windmill",
+    "aliases": [
+      "wind mill",
+      "a windmill"
+    ],
+    "category": "places",
+    "stages": [
+      "/blur/windmill-1.svg",
+      "/blur/windmill-2.svg",
+      "/blur/windmill-3.svg",
+      "/blur/windmill-4.svg",
+      "/blur/windmill-5.svg",
+      "/blur/windmill-6.svg"
+    ],
+    "sharp": "/blur/windmill.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-tent",
+    "answer": "Tent",
+    "aliases": [
+      "a tent",
+      "camping tent"
+    ],
+    "category": "places",
+    "stages": [
+      "/blur/tent-1.svg",
+      "/blur/tent-2.svg",
+      "/blur/tent-3.svg",
+      "/blur/tent-4.svg",
+      "/blur/tent-5.svg",
+      "/blur/tent-6.svg"
+    ],
+    "sharp": "/blur/tent.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-pyramid",
+    "answer": "Pyramid",
+    "aliases": [
+      "a pyramid",
+      "egyptian pyramid"
+    ],
+    "category": "places",
+    "stages": [
+      "/blur/pyramid-1.svg",
+      "/blur/pyramid-2.svg",
+      "/blur/pyramid-3.svg",
+      "/blur/pyramid-4.svg",
+      "/blur/pyramid-5.svg",
+      "/blur/pyramid-6.svg"
+    ],
+    "sharp": "/blur/pyramid.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-fountain",
+    "answer": "Fountain",
+    "aliases": [
+      "a fountain"
+    ],
+    "category": "places",
+    "stages": [
+      "/blur/fountain-1.svg",
+      "/blur/fountain-2.svg",
+      "/blur/fountain-3.svg",
+      "/blur/fountain-4.svg",
+      "/blur/fountain-5.svg",
+      "/blur/fountain-6.svg"
+    ],
+    "sharp": "/blur/fountain.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-barn",
+    "answer": "Barn",
+    "aliases": [
+      "a barn",
+      "farm barn"
+    ],
+    "category": "places",
+    "stages": [
+      "/blur/barn-1.svg",
+      "/blur/barn-2.svg",
+      "/blur/barn-3.svg",
+      "/blur/barn-4.svg",
+      "/blur/barn-5.svg",
+      "/blur/barn-6.svg"
+    ],
+    "sharp": "/blur/barn.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-tractor",
+    "answer": "Tractor",
+    "aliases": [
+      "a tractor",
+      "farm tractor"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/tractor-1.svg",
+      "/blur/tractor-2.svg",
+      "/blur/tractor-3.svg",
+      "/blur/tractor-4.svg",
+      "/blur/tractor-5.svg",
+      "/blur/tractor-6.svg"
+    ],
+    "sharp": "/blur/tractor.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-scooter",
+    "answer": "Scooter",
+    "aliases": [
+      "kick scooter",
+      "a scooter"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/scooter-1.svg",
+      "/blur/scooter-2.svg",
+      "/blur/scooter-3.svg",
+      "/blur/scooter-4.svg",
+      "/blur/scooter-5.svg",
+      "/blur/scooter-6.svg"
+    ],
+    "sharp": "/blur/scooter.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-truck",
+    "answer": "Truck",
+    "aliases": [
+      "lorry",
+      "a truck"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/truck-1.svg",
+      "/blur/truck-2.svg",
+      "/blur/truck-3.svg",
+      "/blur/truck-4.svg",
+      "/blur/truck-5.svg",
+      "/blur/truck-6.svg"
+    ],
+    "sharp": "/blur/truck.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-ambulance",
+    "answer": "Ambulance",
+    "aliases": [
+      "a ambulance"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/ambulance-1.svg",
+      "/blur/ambulance-2.svg",
+      "/blur/ambulance-3.svg",
+      "/blur/ambulance-4.svg",
+      "/blur/ambulance-5.svg",
+      "/blur/ambulance-6.svg"
+    ],
+    "sharp": "/blur/ambulance.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
   }
 ]

@@ -643,5 +643,2427 @@
     ],
     "category": "Geography",
     "difficulty": 1
+  },
+  {
+    "id": "buzz-062",
+    "text": "What is the capital of Alabama?",
+    "answer": "Montgomery",
+    "aliases": [
+      "montgomery"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-063",
+    "text": "What is the capital of Alaska?",
+    "answer": "Juneau",
+    "aliases": [
+      "juneau"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-064",
+    "text": "What is the capital of Arizona?",
+    "answer": "Phoenix",
+    "aliases": [
+      "phoenix"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-065",
+    "text": "What is the capital of Arkansas?",
+    "answer": "Little Rock",
+    "aliases": [
+      "little rock"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-066",
+    "text": "What is the capital of California?",
+    "answer": "Sacramento",
+    "aliases": [
+      "sacramento"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-067",
+    "text": "What is the capital of Colorado?",
+    "answer": "Denver",
+    "aliases": [
+      "denver"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-068",
+    "text": "What is the capital of Connecticut?",
+    "answer": "Hartford",
+    "aliases": [
+      "hartford"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-069",
+    "text": "What is the capital of Delaware?",
+    "answer": "Dover",
+    "aliases": [
+      "dover"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-070",
+    "text": "What is the capital of Florida?",
+    "answer": "Tallahassee",
+    "aliases": [
+      "tallahassee"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-071",
+    "text": "What is the capital of Georgia?",
+    "answer": "Atlanta",
+    "aliases": [
+      "atlanta"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-072",
+    "text": "What is the capital of Hawaii?",
+    "answer": "Honolulu",
+    "aliases": [
+      "honolulu"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-073",
+    "text": "What is the capital of Idaho?",
+    "answer": "Boise",
+    "aliases": [
+      "boise"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-074",
+    "text": "What is the capital of Illinois?",
+    "answer": "Springfield",
+    "aliases": [
+      "springfield"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-075",
+    "text": "What is the capital of Indiana?",
+    "answer": "Indianapolis",
+    "aliases": [
+      "indianapolis"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-076",
+    "text": "What is the capital of Iowa?",
+    "answer": "Des Moines",
+    "aliases": [
+      "des moines"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-077",
+    "text": "What is the capital of Kansas?",
+    "answer": "Topeka",
+    "aliases": [
+      "topeka"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-078",
+    "text": "What is the capital of Kentucky?",
+    "answer": "Frankfort",
+    "aliases": [
+      "frankfort"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-079",
+    "text": "What is the capital of Louisiana?",
+    "answer": "Baton Rouge",
+    "aliases": [
+      "baton rouge"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-080",
+    "text": "What is the capital of Maine?",
+    "answer": "Augusta",
+    "aliases": [
+      "augusta"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-081",
+    "text": "What is the capital of Maryland?",
+    "answer": "Annapolis",
+    "aliases": [
+      "annapolis"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-082",
+    "text": "What is the capital of Massachusetts?",
+    "answer": "Boston",
+    "aliases": [
+      "boston"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-083",
+    "text": "What is the capital of Michigan?",
+    "answer": "Lansing",
+    "aliases": [
+      "lansing"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-084",
+    "text": "What is the capital of Minnesota?",
+    "answer": "Saint Paul",
+    "aliases": [
+      "saint paul"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-085",
+    "text": "What is the capital of Mississippi?",
+    "answer": "Jackson",
+    "aliases": [
+      "jackson"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-086",
+    "text": "What is the capital of Missouri?",
+    "answer": "Jefferson City",
+    "aliases": [
+      "jefferson city"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-087",
+    "text": "What is the capital of Montana?",
+    "answer": "Helena",
+    "aliases": [
+      "helena"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-088",
+    "text": "What is the capital of Nebraska?",
+    "answer": "Lincoln",
+    "aliases": [
+      "lincoln"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-089",
+    "text": "What is the capital of Nevada?",
+    "answer": "Carson City",
+    "aliases": [
+      "carson city"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-090",
+    "text": "What is the capital of New Hampshire?",
+    "answer": "Concord",
+    "aliases": [
+      "concord"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-091",
+    "text": "What is the capital of New Jersey?",
+    "answer": "Trenton",
+    "aliases": [
+      "trenton"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-092",
+    "text": "What is the capital of New Mexico?",
+    "answer": "Santa Fe",
+    "aliases": [
+      "santa fe"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-093",
+    "text": "What is the capital of New York?",
+    "answer": "Albany",
+    "aliases": [
+      "albany"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-094",
+    "text": "What is the capital of North Carolina?",
+    "answer": "Raleigh",
+    "aliases": [
+      "raleigh"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-095",
+    "text": "What is the capital of North Dakota?",
+    "answer": "Bismarck",
+    "aliases": [
+      "bismarck"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-096",
+    "text": "What is the capital of Ohio?",
+    "answer": "Columbus",
+    "aliases": [
+      "columbus"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-097",
+    "text": "What is the capital of Oklahoma?",
+    "answer": "Oklahoma City",
+    "aliases": [
+      "oklahoma city"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-098",
+    "text": "What is the capital of Oregon?",
+    "answer": "Salem",
+    "aliases": [
+      "salem"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-099",
+    "text": "What is the capital of Pennsylvania?",
+    "answer": "Harrisburg",
+    "aliases": [
+      "harrisburg"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-100",
+    "text": "What is the capital of Rhode Island?",
+    "answer": "Providence",
+    "aliases": [
+      "providence"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-101",
+    "text": "What is the capital of South Carolina?",
+    "answer": "Columbia",
+    "aliases": [
+      "columbia"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-102",
+    "text": "What is the capital of South Dakota?",
+    "answer": "Pierre",
+    "aliases": [
+      "pierre"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-103",
+    "text": "What is the capital of Tennessee?",
+    "answer": "Nashville",
+    "aliases": [
+      "nashville"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-104",
+    "text": "What is the capital of Texas?",
+    "answer": "Austin",
+    "aliases": [
+      "austin"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-105",
+    "text": "What is the capital of Utah?",
+    "answer": "Salt Lake City",
+    "aliases": [
+      "salt lake city"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-106",
+    "text": "What is the capital of Vermont?",
+    "answer": "Montpelier",
+    "aliases": [
+      "montpelier"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-107",
+    "text": "What is the capital of Virginia?",
+    "answer": "Richmond",
+    "aliases": [
+      "richmond"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-108",
+    "text": "What is the capital of Washington?",
+    "answer": "Olympia",
+    "aliases": [
+      "olympia"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-109",
+    "text": "What is the capital of West Virginia?",
+    "answer": "Charleston",
+    "aliases": [
+      "charleston"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-110",
+    "text": "What is the capital of Wisconsin?",
+    "answer": "Madison",
+    "aliases": [
+      "madison"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-111",
+    "text": "What is the capital of Wyoming?",
+    "answer": "Cheyenne",
+    "aliases": [
+      "cheyenne"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-112",
+    "text": "What is the chemical symbol for Hydrogen?",
+    "answer": "H",
+    "aliases": [
+      "h"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-113",
+    "text": "What is the chemical symbol for Helium?",
+    "answer": "He",
+    "aliases": [
+      "he"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-114",
+    "text": "What is the chemical symbol for Lithium?",
+    "answer": "Li",
+    "aliases": [
+      "li"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-115",
+    "text": "What is the chemical symbol for Beryllium?",
+    "answer": "Be",
+    "aliases": [
+      "be"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-116",
+    "text": "What is the chemical symbol for Boron?",
+    "answer": "B",
+    "aliases": [
+      "b"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-117",
+    "text": "What is the chemical symbol for Carbon?",
+    "answer": "C",
+    "aliases": [
+      "c"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-118",
+    "text": "What is the chemical symbol for Nitrogen?",
+    "answer": "N",
+    "aliases": [
+      "n"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-119",
+    "text": "What is the chemical symbol for Oxygen?",
+    "answer": "O",
+    "aliases": [
+      "o"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-120",
+    "text": "What is the chemical symbol for Fluorine?",
+    "answer": "F",
+    "aliases": [
+      "f"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-121",
+    "text": "What is the chemical symbol for Neon?",
+    "answer": "Ne",
+    "aliases": [
+      "ne"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-122",
+    "text": "What is the chemical symbol for Sodium?",
+    "answer": "Na",
+    "aliases": [
+      "na"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-123",
+    "text": "What is the chemical symbol for Magnesium?",
+    "answer": "Mg",
+    "aliases": [
+      "mg"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-124",
+    "text": "What is the chemical symbol for Aluminium?",
+    "answer": "Al",
+    "aliases": [
+      "al",
+      "aluminum"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-125",
+    "text": "What is the chemical symbol for Silicon?",
+    "answer": "Si",
+    "aliases": [
+      "si"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-126",
+    "text": "What is the chemical symbol for Phosphorus?",
+    "answer": "P",
+    "aliases": [
+      "p"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-127",
+    "text": "What is the chemical symbol for Sulfur?",
+    "answer": "S",
+    "aliases": [
+      "s"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-128",
+    "text": "What is the chemical symbol for Chlorine?",
+    "answer": "Cl",
+    "aliases": [
+      "cl"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-129",
+    "text": "What is the chemical symbol for Argon?",
+    "answer": "Ar",
+    "aliases": [
+      "ar"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-130",
+    "text": "What is the chemical symbol for Potassium?",
+    "answer": "K",
+    "aliases": [
+      "k"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-131",
+    "text": "What is the chemical symbol for Calcium?",
+    "answer": "Ca",
+    "aliases": [
+      "ca"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-132",
+    "text": "What is the chemical symbol for Titanium?",
+    "answer": "Ti",
+    "aliases": [
+      "ti"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-133",
+    "text": "What is the chemical symbol for Chromium?",
+    "answer": "Cr",
+    "aliases": [
+      "cr"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-134",
+    "text": "What is the chemical symbol for Manganese?",
+    "answer": "Mn",
+    "aliases": [
+      "mn"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-135",
+    "text": "What is the chemical symbol for Iron?",
+    "answer": "Fe",
+    "aliases": [
+      "fe"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-136",
+    "text": "What is the chemical symbol for Cobalt?",
+    "answer": "Co",
+    "aliases": [
+      "co"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-137",
+    "text": "What is the chemical symbol for Nickel?",
+    "answer": "Ni",
+    "aliases": [
+      "ni"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-138",
+    "text": "What is the chemical symbol for Copper?",
+    "answer": "Cu",
+    "aliases": [
+      "cu"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-139",
+    "text": "What is the chemical symbol for Zinc?",
+    "answer": "Zn",
+    "aliases": [
+      "zn"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-140",
+    "text": "What is the chemical symbol for Gallium?",
+    "answer": "Ga",
+    "aliases": [
+      "ga"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-141",
+    "text": "What is the chemical symbol for Germanium?",
+    "answer": "Ge",
+    "aliases": [
+      "ge"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-142",
+    "text": "What is the chemical symbol for Arsenic?",
+    "answer": "As",
+    "aliases": [
+      "as"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-143",
+    "text": "What is the chemical symbol for Selenium?",
+    "answer": "Se",
+    "aliases": [
+      "se"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-144",
+    "text": "What is the chemical symbol for Bromine?",
+    "answer": "Br",
+    "aliases": [
+      "br"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-145",
+    "text": "What is the chemical symbol for Krypton?",
+    "answer": "Kr",
+    "aliases": [
+      "kr"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-146",
+    "text": "What is the chemical symbol for Silver?",
+    "answer": "Ag",
+    "aliases": [
+      "ag"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-147",
+    "text": "What is the chemical symbol for Tin?",
+    "answer": "Sn",
+    "aliases": [
+      "sn"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-148",
+    "text": "What is the chemical symbol for Iodine?",
+    "answer": "I",
+    "aliases": [
+      "i"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-149",
+    "text": "What is the chemical symbol for Xenon?",
+    "answer": "Xe",
+    "aliases": [
+      "xe"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-150",
+    "text": "What is the chemical symbol for Caesium?",
+    "answer": "Cs",
+    "aliases": [
+      "cs",
+      "cesium"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-151",
+    "text": "What is the chemical symbol for Barium?",
+    "answer": "Ba",
+    "aliases": [
+      "ba"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-152",
+    "text": "What is the chemical symbol for Platinum?",
+    "answer": "Pt",
+    "aliases": [
+      "pt"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-153",
+    "text": "What is the chemical symbol for Gold?",
+    "answer": "Au",
+    "aliases": [
+      "au"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-154",
+    "text": "What is the chemical symbol for Mercury?",
+    "answer": "Hg",
+    "aliases": [
+      "hg"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-155",
+    "text": "What is the chemical symbol for Lead?",
+    "answer": "Pb",
+    "aliases": [
+      "pb"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-156",
+    "text": "What is the chemical symbol for Radon?",
+    "answer": "Rn",
+    "aliases": [
+      "rn"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-157",
+    "text": "What is the chemical symbol for Radium?",
+    "answer": "Ra",
+    "aliases": [
+      "ra"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-158",
+    "text": "What is the chemical symbol for Uranium?",
+    "answer": "U",
+    "aliases": [
+      "u"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-159",
+    "text": "What is the chemical symbol for Tungsten?",
+    "answer": "W",
+    "aliases": [
+      "w"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-160",
+    "text": "What is the chemical symbol for Osmium?",
+    "answer": "Os",
+    "aliases": [
+      "os"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-161",
+    "text": "What is the chemical symbol for Iridium?",
+    "answer": "Ir",
+    "aliases": [
+      "ir"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-162",
+    "text": "What is the capital of Japan?",
+    "answer": "Tokyo",
+    "aliases": [
+      "tokyo"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-163",
+    "text": "What is the capital of United Kingdom?",
+    "answer": "London",
+    "aliases": [
+      "london"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-164",
+    "text": "What is the capital of Germany?",
+    "answer": "Berlin",
+    "aliases": [
+      "berlin"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-165",
+    "text": "What is the capital of Brazil?",
+    "answer": "Brasília",
+    "aliases": [
+      "brasília",
+      "brasilia"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-166",
+    "text": "What is the capital of Argentina?",
+    "answer": "Buenos Aires",
+    "aliases": [
+      "buenos aires"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-167",
+    "text": "What is the capital of Mexico?",
+    "answer": "Mexico City",
+    "aliases": [
+      "mexico city"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-168",
+    "text": "What is the capital of Egypt?",
+    "answer": "Cairo",
+    "aliases": [
+      "cairo"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-169",
+    "text": "What is the capital of Kenya?",
+    "answer": "Nairobi",
+    "aliases": [
+      "nairobi"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-170",
+    "text": "What is the capital of Nigeria?",
+    "answer": "Abuja",
+    "aliases": [
+      "abuja"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-171",
+    "text": "What is the capital of India?",
+    "answer": "New Delhi",
+    "aliases": [
+      "new delhi"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-172",
+    "text": "What is the capital of China?",
+    "answer": "Beijing",
+    "aliases": [
+      "beijing"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-173",
+    "text": "What is the capital of Russia?",
+    "answer": "Moscow",
+    "aliases": [
+      "moscow"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-174",
+    "text": "What is the capital of Greece?",
+    "answer": "Athens",
+    "aliases": [
+      "athens"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-175",
+    "text": "What is the capital of Portugal?",
+    "answer": "Lisbon",
+    "aliases": [
+      "lisbon"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-176",
+    "text": "What is the capital of Norway?",
+    "answer": "Oslo",
+    "aliases": [
+      "oslo"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-177",
+    "text": "What is the capital of Sweden?",
+    "answer": "Stockholm",
+    "aliases": [
+      "stockholm"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-178",
+    "text": "What is the capital of Denmark?",
+    "answer": "Copenhagen",
+    "aliases": [
+      "copenhagen"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-179",
+    "text": "What is the capital of Finland?",
+    "answer": "Helsinki",
+    "aliases": [
+      "helsinki"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-180",
+    "text": "What is the capital of Poland?",
+    "answer": "Warsaw",
+    "aliases": [
+      "warsaw"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-181",
+    "text": "What is the capital of Ireland?",
+    "answer": "Dublin",
+    "aliases": [
+      "dublin"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-182",
+    "text": "What is the capital of Belgium?",
+    "answer": "Brussels",
+    "aliases": [
+      "brussels"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-183",
+    "text": "What is the capital of Netherlands?",
+    "answer": "Amsterdam",
+    "aliases": [
+      "amsterdam"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-184",
+    "text": "What is the capital of Switzerland?",
+    "answer": "Bern",
+    "aliases": [
+      "bern"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-185",
+    "text": "What is the capital of Austria?",
+    "answer": "Vienna",
+    "aliases": [
+      "vienna"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-186",
+    "text": "What is the capital of Hungary?",
+    "answer": "Budapest",
+    "aliases": [
+      "budapest"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-187",
+    "text": "What is the capital of Czech Republic?",
+    "answer": "Prague",
+    "aliases": [
+      "prague"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-188",
+    "text": "What is the capital of Turkey?",
+    "answer": "Ankara",
+    "aliases": [
+      "ankara"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-189",
+    "text": "What is the capital of Saudi Arabia?",
+    "answer": "Riyadh",
+    "aliases": [
+      "riyadh"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-190",
+    "text": "What is the capital of United Arab Emirates?",
+    "answer": "Abu Dhabi",
+    "aliases": [
+      "abu dhabi"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-191",
+    "text": "What is the capital of South Korea?",
+    "answer": "Seoul",
+    "aliases": [
+      "seoul"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-192",
+    "text": "What is the capital of Thailand?",
+    "answer": "Bangkok",
+    "aliases": [
+      "bangkok"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-193",
+    "text": "What is the capital of Vietnam?",
+    "answer": "Hanoi",
+    "aliases": [
+      "hanoi"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-194",
+    "text": "What is the capital of Indonesia?",
+    "answer": "Jakarta",
+    "aliases": [
+      "jakarta"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-195",
+    "text": "What is the capital of Philippines?",
+    "answer": "Manila",
+    "aliases": [
+      "manila"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-196",
+    "text": "What is the capital of New Zealand?",
+    "answer": "Wellington",
+    "aliases": [
+      "wellington"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-197",
+    "text": "What is the capital of Chile?",
+    "answer": "Santiago",
+    "aliases": [
+      "santiago"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-198",
+    "text": "What is the capital of Peru?",
+    "answer": "Lima",
+    "aliases": [
+      "lima"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-199",
+    "text": "What is the capital of Colombia?",
+    "answer": "Bogotá",
+    "aliases": [
+      "bogotá",
+      "bogota"
+    ],
+    "category": "Geography",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-200",
+    "text": "What is the capital of Morocco?",
+    "answer": "Rabat",
+    "aliases": [
+      "rabat"
+    ],
+    "category": "Geography",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-201",
+    "text": "What is the capital of Ethiopia?",
+    "answer": "Addis Ababa",
+    "aliases": [
+      "addis ababa"
+    ],
+    "category": "Geography",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-202",
+    "text": "What is 7 × 8?",
+    "answer": "56",
+    "aliases": [
+      "56"
+    ],
+    "category": "Maths",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-203",
+    "text": "What is 9 × 6?",
+    "answer": "54",
+    "aliases": [
+      "54"
+    ],
+    "category": "Maths",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-204",
+    "text": "What is 12 × 12?",
+    "answer": "144",
+    "aliases": [
+      "144"
+    ],
+    "category": "Maths",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-205",
+    "text": "What is 11 × 11?",
+    "answer": "121",
+    "aliases": [
+      "121"
+    ],
+    "category": "Maths",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-206",
+    "text": "What is the square root of 81?",
+    "answer": "9",
+    "aliases": [
+      "9"
+    ],
+    "category": "Maths",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-207",
+    "text": "What is 15% of 200?",
+    "answer": "30",
+    "aliases": [
+      "30"
+    ],
+    "category": "Maths",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-208",
+    "text": "What is 100 minus 37?",
+    "answer": "63",
+    "aliases": [
+      "63"
+    ],
+    "category": "Maths",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-209",
+    "text": "What is 8 squared?",
+    "answer": "64",
+    "aliases": [
+      "64"
+    ],
+    "category": "Maths",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-210",
+    "text": "What is 3 cubed?",
+    "answer": "27",
+    "aliases": [
+      "27"
+    ],
+    "category": "Maths",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-211",
+    "text": "What is 45 plus 55?",
+    "answer": "100",
+    "aliases": [
+      "100"
+    ],
+    "category": "Maths",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-212",
+    "text": "What is 144 divided by 12?",
+    "answer": "12",
+    "aliases": [
+      "12"
+    ],
+    "category": "Maths",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-213",
+    "text": "What is 25 times 4?",
+    "answer": "100",
+    "aliases": [
+      "100"
+    ],
+    "category": "Maths",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-214",
+    "text": "What is 13 times 3?",
+    "answer": "39",
+    "aliases": [
+      "39"
+    ],
+    "category": "Maths",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-215",
+    "text": "What is 72 divided by 8?",
+    "answer": "9",
+    "aliases": [
+      "9"
+    ],
+    "category": "Maths",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-216",
+    "text": "What is 1000 minus 250?",
+    "answer": "750",
+    "aliases": [
+      "750"
+    ],
+    "category": "Maths",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-217",
+    "text": "What is 17 plus 28?",
+    "answer": "45",
+    "aliases": [
+      "45"
+    ],
+    "category": "Maths",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-218",
+    "text": "What is 6 times 7?",
+    "answer": "42",
+    "aliases": [
+      "42"
+    ],
+    "category": "Maths",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-219",
+    "text": "What is 9 times 9?",
+    "answer": "81",
+    "aliases": [
+      "81"
+    ],
+    "category": "Maths",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-220",
+    "text": "What is 10 squared?",
+    "answer": "100",
+    "aliases": [
+      "100"
+    ],
+    "category": "Maths",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-221",
+    "text": "What is 2 to the power of 5?",
+    "answer": "32",
+    "aliases": [
+      "32"
+    ],
+    "category": "Maths",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-222",
+    "text": "What is 60 divided by 5?",
+    "answer": "12",
+    "aliases": [
+      "12"
+    ],
+    "category": "Maths",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-223",
+    "text": "What is 14 times 2?",
+    "answer": "28",
+    "aliases": [
+      "28"
+    ],
+    "category": "Maths",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-224",
+    "text": "What is 99 plus 1?",
+    "answer": "100",
+    "aliases": [
+      "100"
+    ],
+    "category": "Maths",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-225",
+    "text": "What is 50% of 90?",
+    "answer": "45",
+    "aliases": [
+      "45"
+    ],
+    "category": "Maths",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-226",
+    "text": "What is 7 plus 8 plus 9?",
+    "answer": "24",
+    "aliases": [
+      "24"
+    ],
+    "category": "Maths",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-227",
+    "text": "What is 4 times 4 times 4?",
+    "answer": "64",
+    "aliases": [
+      "64"
+    ],
+    "category": "Maths",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-228",
+    "text": "What is 121 divided by 11?",
+    "answer": "11",
+    "aliases": [
+      "11"
+    ],
+    "category": "Maths",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-229",
+    "text": "What is 19 plus 23?",
+    "answer": "42",
+    "aliases": [
+      "42"
+    ],
+    "category": "Maths",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-230",
+    "text": "What is 5 factorial?",
+    "answer": "120",
+    "aliases": [
+      "120"
+    ],
+    "category": "Maths",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-231",
+    "text": "Is 31 a prime number?",
+    "answer": "Yes",
+    "aliases": [
+      "yes",
+      "yes"
+    ],
+    "category": "Maths",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-232",
+    "text": "What is the powerhouse of the cell?",
+    "answer": "Mitochondria",
+    "aliases": [
+      "mitochondria"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-233",
+    "text": "What is the chemical formula for table salt?",
+    "answer": "NaCl",
+    "aliases": [
+      "nacl",
+      "sodium chloride"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-234",
+    "text": "Which gas do humans breathe in to survive?",
+    "answer": "Oxygen",
+    "aliases": [
+      "oxygen"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-235",
+    "text": "What is the largest bone in the human body?",
+    "answer": "Femur",
+    "aliases": [
+      "femur"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-236",
+    "text": "How many bones are in an adult human body?",
+    "answer": "206",
+    "aliases": [
+      "206",
+      "two hundred and six"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-237",
+    "text": "What is the approximate speed of light?",
+    "answer": "299,792 km/s",
+    "aliases": [
+      "299,792 km/s",
+      "300,000 km/s"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-238",
+    "text": "Which planet is famous for its rings?",
+    "answer": "Saturn",
+    "aliases": [
+      "saturn"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-239",
+    "text": "What is H2O more commonly known as?",
+    "answer": "Water",
+    "aliases": [
+      "water"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-240",
+    "text": "What is the study of living things called?",
+    "answer": "Biology",
+    "aliases": [
+      "biology"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-241",
+    "text": "What is the centre of an atom called?",
+    "answer": "Nucleus",
+    "aliases": [
+      "nucleus"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-242",
+    "text": "What force keeps planets in orbit around the Sun?",
+    "answer": "Gravity",
+    "aliases": [
+      "gravity"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-243",
+    "text": "What is the boiling point of water at sea level in Celsius?",
+    "answer": "100",
+    "aliases": [
+      "100",
+      "100 degrees"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-244",
+    "text": "Which organ pumps blood around the body?",
+    "answer": "Heart",
+    "aliases": [
+      "heart"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-245",
+    "text": "Which planet is the smallest in the Solar System?",
+    "answer": "Mercury",
+    "aliases": [
+      "mercury"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-246",
+    "text": "What process do plants use to make food from sunlight?",
+    "answer": "Photosynthesis",
+    "aliases": [
+      "photosynthesis"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-247",
+    "text": "What is the chemical symbol for oxygen?",
+    "answer": "O",
+    "aliases": [
+      "o"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-248",
+    "text": "How many chambers does the human heart have?",
+    "answer": "Four",
+    "aliases": [
+      "four",
+      "4"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-249",
+    "text": "What is the closest star to Earth?",
+    "answer": "The Sun",
+    "aliases": [
+      "the sun",
+      "sun"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-250",
+    "text": "What is the largest species of shark?",
+    "answer": "Whale shark",
+    "aliases": [
+      "whale shark"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-251",
+    "text": "What is the study of weather called?",
+    "answer": "Meteorology",
+    "aliases": [
+      "meteorology"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-252",
+    "text": "What is the most abundant gas in Earth's atmosphere?",
+    "answer": "Nitrogen",
+    "aliases": [
+      "nitrogen"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-253",
+    "text": "What is the pH of pure water?",
+    "answer": "7",
+    "aliases": [
+      "7",
+      "seven"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-254",
+    "text": "What is the largest cell in the human body?",
+    "answer": "Ovum",
+    "aliases": [
+      "ovum",
+      "egg cell"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-255",
+    "text": "What is the smallest unit of life?",
+    "answer": "Cell",
+    "aliases": [
+      "cell"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-256",
+    "text": "What is the chemical symbol for carbon?",
+    "answer": "C",
+    "aliases": [
+      "c"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-257",
+    "text": "What does DNA stand for?",
+    "answer": "Deoxyribonucleic acid",
+    "aliases": [
+      "deoxyribonucleic acid"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-258",
+    "text": "What is the largest volcano in the Solar System?",
+    "answer": "Olympus Mons",
+    "aliases": [
+      "olympus mons"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-259",
+    "text": "What is the study of earthquakes called?",
+    "answer": "Seismology",
+    "aliases": [
+      "seismology"
+    ],
+    "category": "Science",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-260",
+    "text": "What is the centre of the Solar System?",
+    "answer": "The Sun",
+    "aliases": [
+      "the sun",
+      "sun"
+    ],
+    "category": "Science",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-261",
+    "text": "What is the chemical symbol for iron?",
+    "answer": "Fe",
+    "aliases": [
+      "fe"
+    ],
+    "category": "Science",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-262",
+    "text": "How many days are in a leap year?",
+    "answer": "366",
+    "aliases": [
+      "366"
+    ],
+    "category": "General",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-263",
+    "text": "How many hours are in a day?",
+    "answer": "24",
+    "aliases": [
+      "24"
+    ],
+    "category": "General",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-264",
+    "text": "How many seconds are in a minute?",
+    "answer": "60",
+    "aliases": [
+      "60"
+    ],
+    "category": "General",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-265",
+    "text": "How many weeks are in a year?",
+    "answer": "52",
+    "aliases": [
+      "52"
+    ],
+    "category": "General",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-266",
+    "text": "How many basketball players from one team are on court?",
+    "answer": "Five",
+    "aliases": [
+      "five",
+      "5"
+    ],
+    "category": "General",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-267",
+    "text": "How many rings are on the Olympic flag?",
+    "answer": "Five",
+    "aliases": [
+      "five",
+      "5"
+    ],
+    "category": "General",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-268",
+    "text": "Which country hosted the 2024 Summer Olympics?",
+    "answer": "France",
+    "aliases": [
+      "france"
+    ],
+    "category": "General",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-269",
+    "text": "Which sport is played at Lord's Cricket Ground?",
+    "answer": "Cricket",
+    "aliases": [
+      "cricket"
+    ],
+    "category": "General",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-270",
+    "text": "How many holes are on a standard golf course?",
+    "answer": "18",
+    "aliases": [
+      "18",
+      "eighteen"
+    ],
+    "category": "General",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-271",
+    "text": "Which sport is traditionally associated with sumo in Japan?",
+    "answer": "Sumo",
+    "aliases": [
+      "sumo"
+    ],
+    "category": "General",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-272",
+    "text": "How many letters are in the English alphabet?",
+    "answer": "26",
+    "aliases": [
+      "26",
+      "twenty-six"
+    ],
+    "category": "General",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-273",
+    "text": "Who wrote Hamlet?",
+    "answer": "William Shakespeare",
+    "aliases": [
+      "william shakespeare",
+      "shakespeare"
+    ],
+    "category": "General",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-274",
+    "text": "Who wrote 1984?",
+    "answer": "George Orwell",
+    "aliases": [
+      "george orwell",
+      "orwell"
+    ],
+    "category": "General",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-275",
+    "text": "Who wrote the Harry Potter books?",
+    "answer": "J.K. Rowling",
+    "aliases": [
+      "j.k. rowling",
+      "jk rowling"
+    ],
+    "category": "General",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-276",
+    "text": "Who painted the Sistine Chapel ceiling?",
+    "answer": "Michelangelo",
+    "aliases": [
+      "michelangelo"
+    ],
+    "category": "General",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-277",
+    "text": "Who composed The Four Seasons?",
+    "answer": "Vivaldi",
+    "aliases": [
+      "vivaldi"
+    ],
+    "category": "General",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-278",
+    "text": "Which city is home to the Eiffel Tower?",
+    "answer": "Paris",
+    "aliases": [
+      "paris"
+    ],
+    "category": "General",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-279",
+    "text": "Which city is home to the Colosseum?",
+    "answer": "Rome",
+    "aliases": [
+      "rome"
+    ],
+    "category": "General",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-280",
+    "text": "Which country is home to the pyramids of Giza?",
+    "answer": "Egypt",
+    "aliases": [
+      "egypt"
+    ],
+    "category": "General",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-281",
+    "text": "What is the largest country in the world by area?",
+    "answer": "Russia",
+    "aliases": [
+      "russia"
+    ],
+    "category": "General",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-282",
+    "text": "What is the smallest country in the world?",
+    "answer": "Vatican City",
+    "aliases": [
+      "vatican city"
+    ],
+    "category": "General",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-283",
+    "text": "Which country has the largest population?",
+    "answer": "India",
+    "aliases": [
+      "india"
+    ],
+    "category": "General",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-284",
+    "text": "Which river flows through Egypt?",
+    "answer": "The Nile",
+    "aliases": [
+      "the nile",
+      "nile"
+    ],
+    "category": "General",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-285",
+    "text": "Which continent is the Sahara Desert on?",
+    "answer": "Africa",
+    "aliases": [
+      "africa"
+    ],
+    "category": "General",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-286",
+    "text": "Which ocean lies between Africa and Australia?",
+    "answer": "Indian Ocean",
+    "aliases": [
+      "indian ocean"
+    ],
+    "category": "General",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-287",
+    "text": "What is the capital of the United States?",
+    "answer": "Washington, D.C.",
+    "aliases": [
+      "washington, d.c.",
+      "washington dc"
+    ],
+    "category": "General",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-288",
+    "text": "How many states are in the USA?",
+    "answer": "50",
+    "aliases": [
+      "50",
+      "fifty"
+    ],
+    "category": "General",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-289",
+    "text": "What is the currency of the United Kingdom?",
+    "answer": "Pound sterling",
+    "aliases": [
+      "pound sterling",
+      "pound"
+    ],
+    "category": "General",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-290",
+    "text": "What is the currency of the United States?",
+    "answer": "Dollar",
+    "aliases": [
+      "dollar"
+    ],
+    "category": "General",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-291",
+    "text": "What is the largest island in the world?",
+    "answer": "Greenland",
+    "aliases": [
+      "greenland"
+    ],
+    "category": "General",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-292",
+    "text": "What is the tallest building in the world?",
+    "answer": "Burj Khalifa",
+    "aliases": [
+      "burj khalifa"
+    ],
+    "category": "General",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-293",
+    "text": "What is the longest wall in the world?",
+    "answer": "Great Wall of China",
+    "aliases": [
+      "great wall of china"
+    ],
+    "category": "General",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-294",
+    "text": "How many players from one team are on a volleyball court?",
+    "answer": "Six",
+    "aliases": [
+      "six",
+      "6"
+    ],
+    "category": "General",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-295",
+    "text": "How many strings does a standard guitar have?",
+    "answer": "Six",
+    "aliases": [
+      "six",
+      "6"
+    ],
+    "category": "General",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-296",
+    "text": "How many pedals does a standard piano have?",
+    "answer": "Three",
+    "aliases": [
+      "three",
+      "3"
+    ],
+    "category": "General",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-297",
+    "text": "How many sides does a stop sign have?",
+    "answer": "Eight",
+    "aliases": [
+      "eight",
+      "8"
+    ],
+    "category": "General",
+    "difficulty": 3
+  },
+  {
+    "id": "buzz-298",
+    "text": "How many minutes are in a football half?",
+    "answer": "45",
+    "aliases": [
+      "45",
+      "forty-five"
+    ],
+    "category": "General",
+    "difficulty": 1
+  },
+  {
+    "id": "buzz-299",
+    "text": "How many players are on a rugby union team?",
+    "answer": "15",
+    "aliases": [
+      "15",
+      "fifteen"
+    ],
+    "category": "General",
+    "difficulty": 2
+  },
+  {
+    "id": "buzz-300",
+    "text": "How many players from one team are on a baseball field?",
+    "answer": "Nine",
+    "aliases": [
+      "nine",
+      "9"
+    ],
+    "category": "General",
+    "difficulty": 3
   }
 ]
