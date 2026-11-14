@@ -10,7 +10,12 @@ function createFakeSupabase({ failures = {} } = {}) {
       snapshot: { version: 1 },
       snapshot_updated_at: "2026-01-01T00:00:00.000Z",
     },
-    lobbies: { id: "lobby-1", status: "in_game", closed_at: null },
+    lobbies: {
+      id: "lobby-1",
+      status: "in_game",
+      host_id: null,
+      closed_at: null,
+    },
   };
   const attempts = { game_sessions: 0, lobbies: 0 };
 
@@ -164,4 +169,63 @@ test("onLobby retries a transient lobby failure before resetting the session", a
   assert.equal(fake.state.lobbies.status, "open");
   assert.equal(fake.state.game_sessions.status, "lobby");
   assert.equal(fake.state.game_sessions.snapshot, null);
+});
+
+test("onStart only marks the lobby in game after the session starts", async () => {
+  const sessionFailure = createFakeSupabase({
+    failures: { game_sessions: 3 },
+  });
+  sessionFailure.state.game_sessions.status = "lobby";
+  sessionFailure.state.game_sessions.snapshot = null;
+  sessionFailure.state.lobbies.status = "open";
+  const sessionLogs = [];
+
+  await makePersistence(sessionFailure, sessionLogs).onStart({
+    room: { lobbyId: "lobby-1", groupId: null, players: new Map(), hostId: null },
+    gameId: "engine-stub",
+    mode: "classic",
+    sessionId: "session-1",
+    groupId: null,
+  });
+
+  assert.equal(sessionFailure.attempts.game_sessions, 3);
+  assert.equal(sessionFailure.attempts.lobbies, 0);
+  assert.equal(sessionFailure.state.game_sessions.status, "lobby");
+  assert.equal(sessionFailure.state.lobbies.status, "open");
+  assert.ok(
+    sessionLogs.some((args) => String(args[0]).includes("session start")),
+  );
+
+  const transientFailure = createFakeSupabase({
+    failures: { game_sessions: 1 },
+  });
+  transientFailure.state.game_sessions.status = "lobby";
+  transientFailure.state.game_sessions.snapshot = null;
+  transientFailure.state.lobbies.status = "open";
+
+  await makePersistence(transientFailure, []).onStart({
+    room: { lobbyId: "lobby-1", groupId: null, players: new Map(), hostId: null },
+    gameId: "engine-stub",
+    mode: "classic",
+    sessionId: "session-1",
+    groupId: null,
+  });
+
+  assert.equal(transientFailure.attempts.game_sessions, 2);
+  assert.equal(transientFailure.attempts.lobbies, 1);
+  assert.equal(transientFailure.state.game_sessions.status, "active");
+  assert.equal(transientFailure.state.lobbies.status, "in_game");
+});
+
+test("onHostChange retries a failed host update", async () => {
+  const fake = createFakeSupabase({ failures: { lobbies: 1 } });
+  const logs = [];
+
+  await makePersistence(fake, logs).onHostChange({
+    room: { lobbyId: "lobby-1" },
+    hostId: "user-2",
+  });
+
+  assert.equal(fake.attempts.lobbies, 2);
+  assert.equal(fake.state.lobbies.host_id, "user-2");
 });

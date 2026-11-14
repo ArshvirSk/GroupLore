@@ -23,21 +23,6 @@ export function createSupabasePersistence({
     }
   }
 
-  async function markSession(sessionId, patch) {
-    const err = await write("game_sessions", sessionId, patch);
-    if (err) {
-      logger.error("[persistence] session update failed", err.message);
-    }
-  }
-
-  async function markLobby(lobbyId, patch) {
-    if (!lobbyId) return;
-    const err = await write("lobbies", lobbyId, patch);
-    if (err) {
-      logger.error("[persistence] lobby update failed", err.message);
-    }
-  }
-
   async function writeWithRetry(table, id, patch, label) {
     let lastError = null;
     for (let attempt = 1; attempt <= writeAttempts; attempt += 1) {
@@ -95,8 +80,26 @@ export function createSupabasePersistence({
     },
 
     async onStart({ room, gameId, mode, sessionId, groupId }) {
-      await markSession(sessionId, { status: "active", game_type: gameId });
-      await markLobby(room.lobbyId, { status: "in_game" });
+      const sessionSaved = await writeWithRetry(
+        "game_sessions",
+        sessionId,
+        { status: "active", game_type: gameId },
+        "session start",
+      );
+      if (!sessionSaved) {
+        logger.error(
+          "[persistence] session start failed; lobby left open",
+          sessionId,
+        );
+        return;
+      }
+
+      await writeWithRetry(
+        "lobbies",
+        room.lobbyId,
+        { status: "in_game" },
+        "lobby start",
+      );
 
       if (!groupId) return;
       const host = room.players.get(room.hostId);
@@ -225,7 +228,12 @@ export function createSupabasePersistence({
     },
 
     async onHostChange({ room, hostId }) {
-      await markLobby(room.lobbyId, { host_id: hostId });
+      await writeWithRetry(
+        "lobbies",
+        room.lobbyId,
+        { host_id: hostId },
+        "lobby host update",
+      );
     },
   };
 }
