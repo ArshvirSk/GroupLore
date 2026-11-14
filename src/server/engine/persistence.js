@@ -7,25 +7,53 @@ export function createSupabasePersistence({
   supabase,
   logActivity,
   incrementStats,
+  cleanupAttempts = 3,
+  cleanupRetryDelayMs = 50,
   logger = console,
 }) {
   const snapshotWrites = new Map();
 
-  async function markSession(sessionId, patch) {
+  async function write(table, id, patch) {
+    if (!id) return new Error(`Missing ${table} id`);
     try {
-      await supabase.from("game_sessions").update(patch).eq("id", sessionId);
+      const { error } = await supabase.from(table).update(patch).eq("id", id);
+      return error || null;
     } catch (err) {
+      return err;
+    }
+  }
+
+  async function markSession(sessionId, patch) {
+    const err = await write("game_sessions", sessionId, patch);
+    if (err) {
       logger.error("[persistence] session update failed", err.message);
     }
   }
 
   async function markLobby(lobbyId, patch) {
     if (!lobbyId) return;
-    try {
-      await supabase.from("lobbies").update(patch).eq("id", lobbyId);
-    } catch (err) {
+    const err = await write("lobbies", lobbyId, patch);
+    if (err) {
       logger.error("[persistence] lobby update failed", err.message);
     }
+  }
+
+  async function writeWithRetry(table, id, patch, label) {
+    let lastError = null;
+    for (let attempt = 1; attempt <= cleanupAttempts; attempt += 1) {
+      lastError = await write(table, id, patch);
+      if (!lastError) return true;
+      if (attempt < cleanupAttempts && cleanupRetryDelayMs > 0) {
+        await new Promise((resolve) =>
+          setTimeout(resolve, cleanupRetryDelayMs),
+        );
+      }
+    }
+    logger.error(
+      `[persistence] ${label} failed after ${cleanupAttempts} attempts`,
+      lastError?.message || lastError,
+    );
+    return false;
   }
 
   // Phase snapshots can be produced faster than they are written. Keep one
@@ -129,11 +157,34 @@ export function createSupabasePersistence({
     },
 
     async onEmpty({ room }) {
-      await markSession(room.id, { status: "finished" });
-      await markLobby(room.lobbyId, {
-        status: "closed",
-        closed_at: new Date().toISOString(),
-      });
+      const [sessionSaved, lobbySaved] = await Promise.all([
+        writeWithRetry(
+          "game_sessions",
+          room.id,
+          {
+            status: "finished",
+            snapshot: null,
+            snapshot_updated_at: null,
+          },
+          "session cleanup",
+        ),
+        writeWithRetry(
+          "lobbies",
+          room.lobbyId,
+          {
+            status: "closed",
+            closed_at: new Date().toISOString(),
+          },
+          "lobby cleanup",
+        ),
+      ]);
+
+      if (!sessionSaved && !lobbySaved) {
+        logger.error(
+          "[persistence] cleanup could not mark the session or lobby as closed",
+          room.id,
+        );
+      }
     },
 
     async onLobby({ room }) {

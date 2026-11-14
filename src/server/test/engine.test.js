@@ -673,6 +673,33 @@ test("a rejoin cannot attach to a room destroyed by restore cleanup", async () =
   restoredEngine.close();
 });
 
+test("a direct join cannot reopen a session whose lobby is closed", async () => {
+  const sessionId = makeSession();
+  sessions.set(sessionId, {
+    id: sessionId,
+    group_id: "00000000-0000-4000-8000-000000000001",
+    status: "active",
+    game_type: "engine-stub",
+    lobby_id: "lobby-1",
+    lobbies: {
+      id: "lobby-1",
+      code: "CLOSED",
+      group_id: "00000000-0000-4000-8000-000000000001",
+      status: "closed",
+      groups: { name: "Test Group" },
+    },
+  });
+
+  const late = await makeClient("Late");
+  const error = await expectError(late, () => {
+    late.socket.emit("room:join", { sessionId });
+  });
+  assert.equal(error.code, "session_finished");
+  assert.equal(engine.rooms.has(sessionId), false);
+
+  late.socket.disconnect();
+});
+
 test("most likely to scores the plurality and hides voters in anonymous mode", async () => {
   const sessionId = makeSession();
   const a = await makeClient("A");

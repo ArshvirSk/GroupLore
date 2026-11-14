@@ -240,7 +240,10 @@ export class GameEngine {
       if (!session) {
         throw failure("session_not_found", "That room no longer exists");
       }
-      if (session.status === "finished") {
+      if (
+        session.status === "finished" ||
+        session.lobbies?.status === "closed"
+      ) {
         throw failure("session_finished", "That game has already finished");
       }
       const cached = this.rooms.get(sessionId);

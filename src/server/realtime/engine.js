@@ -49,9 +49,10 @@ export function getEngine() {
       const { data, error } = await supabase
         .from("game_sessions")
         .select(
-          "id, lobby_id, status, game_type, snapshot, lobbies(id, code, group_id, status, groups(name))",
+          "id, lobby_id, status, game_type, snapshot, lobbies!inner(id, code, group_id, status, groups(name))",
         )
         .eq("status", "active")
+        .eq("lobbies.status", "in_game")
         .not("snapshot", "is", null)
         .order("snapshot_updated_at", { ascending: false })
         .limit(1)
