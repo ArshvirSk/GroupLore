@@ -538,6 +538,7 @@ test("a restored room stays paused until a player rejoins and resumes its timer"
   assert.equal(seat.playerId, joined[0].playerId);
   assert.equal(restored.players.get(seat.playerId).connected, true);
   assert.equal(restored.pausedRemainingMs, null);
+  assert.equal(restored.restoreTimer, null);
   assert.ok(restored.endsAt > Date.now());
   assert.ok(restored.timer);
   assert.ok(returning.tracker.latest.endsAt > Date.now());
@@ -548,6 +549,124 @@ test("a restored room stays paused until a player rejoins and resumes its timer"
     2000,
   );
   assert.equal(reveal.game.phase, "reveal");
+
+  returning.socket.disconnect();
+  for (const client of clients) client.socket.disconnect();
+  restoredEngine.close();
+});
+
+test("a restored room closes when no player reconnects", async () => {
+  const sessionId = makeSession();
+  const { clients, joined } = await startStub(sessionId, "classic", 2);
+  const started = await waitUntil(() =>
+    persistence.snapshots.find(
+      (entry) => entry.sessionId === sessionId && entry.reason === "start",
+    ),
+  );
+  const empties = [];
+
+  const restoredEngine = new GameEngine({
+    resolveIdentity: engine.resolveIdentity,
+    authorize: async ({ identity }) => ({
+      allowed: true,
+      userId: identity.authUserId,
+      name: identity.name,
+      avatarUrl: null,
+    }),
+    loadSession: async (id) => sessions.get(id) || null,
+    restoreOneSession: async () => ({
+      ...sessions.get(sessionId),
+      snapshot: started.snapshot,
+    }),
+    restoreTimeoutMs: 100,
+    persistence: {
+      async onEmpty(payload) {
+        empties.push(payload);
+      },
+    },
+  });
+
+  const restored = await restoredEngine.restoreLiveRoom();
+  assert.equal(restored.paused, true);
+  assert.ok(restored.restoreTimer);
+
+  await waitUntil(() => !restoredEngine.rooms.has(sessionId), 1000);
+  assert.equal(empties.length, 1);
+  assert.equal(empties[0].reason, "restore_timeout");
+  assert.equal(empties[0].room.id, sessionId);
+
+  // A retry after the timeout must not restore the same active snapshot again
+  // while onEmpty's database write is still in flight.
+  const late = await makeClientFor(restoredEngine, "A", clients[0].token);
+  const lateError = await expectError(late, () => {
+    late.socket.emit("room:join", {
+      sessionId,
+      reconnectToken: joined[0].reconnectToken,
+    });
+  });
+  assert.equal(lateError.code, "session_finished");
+  assert.equal(restoredEngine.rooms.has(sessionId), false);
+
+  late.socket.disconnect();
+  for (const client of clients) client.socket.disconnect();
+  restoredEngine.close();
+});
+
+test("a rejoin cannot attach to a room destroyed by restore cleanup", async () => {
+  const sessionId = makeSession();
+  const { clients, joined } = await startStub(sessionId, "classic", 2);
+  const started = await waitUntil(() =>
+    persistence.snapshots.find(
+      (entry) => entry.sessionId === sessionId && entry.reason === "start",
+    ),
+  );
+
+  let releaseAuthorize;
+  let markAuthorizeStarted;
+  const authorizeGate = new Promise((resolve) => {
+    releaseAuthorize = resolve;
+  });
+  const authorizeStarted = new Promise((resolve) => {
+    markAuthorizeStarted = resolve;
+  });
+
+  const restoredEngine = new GameEngine({
+    resolveIdentity: engine.resolveIdentity,
+    authorize: async ({ identity }) => {
+      markAuthorizeStarted();
+      await authorizeGate;
+      return {
+        allowed: true,
+        userId: identity.authUserId,
+        name: identity.name,
+        avatarUrl: null,
+      };
+    },
+    loadSession: async (id) => sessions.get(id) || null,
+    restoreOneSession: async () => ({
+      ...sessions.get(sessionId),
+      snapshot: started.snapshot,
+    }),
+  });
+
+  const restored = await restoredEngine.restoreLiveRoom();
+  const returning = await makeClientFor(restoredEngine, "A", clients[0].token);
+  const errorPromise = waitFor(returning.socket, "room:error");
+  returning.socket.emit("room:join", {
+    sessionId,
+    reconnectToken: joined[0].reconnectToken,
+  });
+
+  await authorizeStarted;
+  restoredEngine.destroyRoom(restored, "restore_timeout");
+  assert.equal(restoredEngine.rooms.has(sessionId), false);
+  releaseAuthorize();
+
+  const error = await errorPromise;
+  assert.equal(error.code, "room_closed");
+  const stalePlayer = restored.players.get(joined[0].playerId);
+  assert.equal(stalePlayer.connected, false);
+  assert.equal(stalePlayer.socketId, null);
 
   returning.socket.disconnect();
   for (const client of clients) client.socket.disconnect();

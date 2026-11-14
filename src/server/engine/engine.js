@@ -13,6 +13,7 @@ import {
 const MAX_EVENT_ID_LENGTH = 64;
 const MAX_SEEN_EVENTS = 50;
 const TICK_MS = 15;
+const DEFAULT_RESTORE_TIMEOUT_MS = 5 * 60_000;
 
 function failure(code, message) {
   const err = new Error(message);
@@ -55,6 +56,7 @@ export class GameEngine {
     restoreOneSession = null,
     persistence = null,
     disconnectGraceMs = 30_000,
+    restoreTimeoutMs = DEFAULT_RESTORE_TIMEOUT_MS,
     logger = console,
   }) {
     this.resolveIdentity = resolveIdentity;
@@ -64,11 +66,17 @@ export class GameEngine {
     this.restoreOneSession = restoreOneSession;
     this.persistence = persistence;
     this.disconnectGraceMs = disconnectGraceMs;
+    const parsedRestoreTimeout = Number(restoreTimeoutMs);
+    this.restoreTimeoutMs =
+      Number.isFinite(parsedRestoreTimeout) && parsedRestoreTimeout > 0
+        ? parsedRestoreTimeout
+        : DEFAULT_RESTORE_TIMEOUT_MS;
     this.logger = logger;
 
     this.rooms = new Map();
     this.loadingRooms = new Map();
     this.restorePromise = null;
+    this.closedRestores = new Set();
     this.connections = new Map();
   }
 
@@ -186,6 +194,12 @@ export class GameEngine {
     }
   }
 
+  ensureRoomLive(room) {
+    if (this.rooms.get(room.id) !== room) {
+      throw failure("room_closed", "That room is no longer open");
+    }
+  }
+
   inPhase(room, phase, message) {
     if (room.phase !== phase) {
       throw failure("wrong_phase", message || "That is not available right now");
@@ -213,6 +227,9 @@ export class GameEngine {
   async getRoom(sessionId) {
     const existing = this.rooms.get(sessionId);
     if (existing) return existing;
+    if (this.closedRestores.has(sessionId)) {
+      throw failure("session_finished", "That game has already finished");
+    }
 
     if (this.loadingRooms.has(sessionId)) {
       return this.loadingRooms.get(sessionId);
@@ -239,6 +256,7 @@ export class GameEngine {
           session,
         });
       this.rooms.set(room.id, room);
+      this.scheduleRestoreCleanup(room);
       return room;
     })();
 
@@ -280,6 +298,7 @@ export class GameEngine {
       timer: null,
       paused: false,
       pausedRemainingMs: null,
+      restoreTimer: null,
       version: 0,
       advancing: false,
       endPersisted: false,
@@ -389,6 +408,8 @@ export class GameEngine {
 
   resumePhaseTimer(room) {
     if (!room.paused || room.phase !== "playing") return;
+    if (room.restoreTimer) clearTimeout(room.restoreTimer);
+    room.restoreTimer = null;
     const remainingMs = room.pausedRemainingMs;
     room.paused = false;
     room.pausedRemainingMs = null;
@@ -404,6 +425,18 @@ export class GameEngine {
 
     this.arm(room);
     this.persistSnapshot(room, "resume");
+  }
+
+  scheduleRestoreCleanup(room) {
+    if (!room.paused) return;
+    if (room.restoreTimer) clearTimeout(room.restoreTimer);
+    room.restoreTimer = setTimeout(() => {
+      room.restoreTimer = null;
+      if (!room.paused || room.phase !== "playing") return;
+      if ([...room.players.values()].some((player) => player.connected)) return;
+      this.destroyRoom(room, "restore_timeout");
+    }, this.restoreTimeoutMs);
+    room.restoreTimer.unref?.();
   }
 
   snapshotRoom(room) {
@@ -469,6 +502,7 @@ export class GameEngine {
       if (!room) return null;
       if (this.rooms.has(room.id)) return this.rooms.get(room.id);
       this.rooms.set(room.id, room);
+      this.scheduleRestoreCleanup(room);
       return room;
     })();
 
@@ -499,6 +533,10 @@ export class GameEngine {
     if (!auth?.allowed || !(auth.userId || identity.authUserId)) {
       throw failure("not_in_lobby", "Join this lobby first");
     }
+
+    // Authorization is async, so the restore cleanup may have destroyed the
+    // room while we waited. Never attach a player to a detached room object.
+    this.ensureRoomLive(room);
 
     const stableId = auth.userId || identity.authUserId;
     const identityKey = `u:${stableId}`;
@@ -654,6 +692,8 @@ export class GameEngine {
       throw failure("not_in_lobby", "Join this lobby first");
     }
 
+    this.ensureRoomLive(room);
+
     socket.data.roomId = room.id;
     socket.data.spectating = true;
     socket.data.playerId = null;
@@ -764,8 +804,11 @@ export class GameEngine {
   }
 
   destroyRoom(room, reason) {
+    if (reason === "restore_timeout") this.closedRestores.add(room.id);
     if (room.timer) clearTimeout(room.timer);
     room.timer = null;
+    if (room.restoreTimer) clearTimeout(room.restoreTimer);
+    room.restoreTimer = null;
     for (const player of room.players.values()) {
       if (player.graceTimer) clearTimeout(player.graceTimer);
     }
@@ -1046,6 +1089,8 @@ export class GameEngine {
     if (room.phase === "results") return;
     if (room.timer) clearTimeout(room.timer);
     room.timer = null;
+    if (room.restoreTimer) clearTimeout(room.restoreTimer);
+    room.restoreTimer = null;
     room.endsAt = null;
     room.paused = false;
     room.pausedRemainingMs = null;
@@ -1094,6 +1139,8 @@ export class GameEngine {
   resetToLobby(room) {
     if (room.timer) clearTimeout(room.timer);
     room.timer = null;
+    if (room.restoreTimer) clearTimeout(room.restoreTimer);
+    room.restoreTimer = null;
     room.endsAt = null;
     room.paused = false;
     room.pausedRemainingMs = null;
@@ -1283,6 +1330,7 @@ export class GameEngine {
   close() {
     for (const room of this.rooms.values()) {
       if (room.timer) clearTimeout(room.timer);
+      if (room.restoreTimer) clearTimeout(room.restoreTimer);
       for (const player of room.players.values()) {
         if (player.graceTimer) clearTimeout(player.graceTimer);
       }

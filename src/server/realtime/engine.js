@@ -22,6 +22,9 @@ export function getEngine() {
     disconnectGraceMs: process.env.DISCONNECT_GRACE_MS
       ? Number(process.env.DISCONNECT_GRACE_MS)
       : undefined,
+    restoreTimeoutMs: process.env.RESTORE_TIMEOUT_MS
+      ? Number(process.env.RESTORE_TIMEOUT_MS)
+      : undefined,
     resolveIdentity: createIdentityResolver({
       allowGuests,
       verifyAccessToken: async (token) => {
