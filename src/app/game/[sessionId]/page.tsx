@@ -212,6 +212,53 @@ export default function GamePage() {
         )}
       </AnimatePresence>
 
+      {room.you?.muted ? (
+        <div
+          role="status"
+          className="mb-4 flex items-start justify-center gap-2 rounded-2xl border border-honey/50 bg-honey/20 px-4 py-2 text-center text-sm font-bold text-ink"
+        >
+          <Icon name="hand" className="mt-0.5 h-4 w-4 shrink-0" />
+          <span>
+            You&apos;re muted by the host. Your game actions won&apos;t count until
+            they unmute you.
+          </span>
+        </div>
+      ) : null}
+
+      {room.you?.isHost && room.phase !== "results" && room.players.length > 1 ? (
+        <div className="mb-4 rounded-2xl border border-border bg-surface px-3 py-2">
+          <div className="flex items-center gap-2 overflow-x-auto">
+            <span className="shrink-0 text-[10px] font-bold uppercase tracking-[0.16em] text-muted">
+              Host controls
+            </span>
+            {room.players
+              .filter((player) => !player.isHost)
+              .map((player) => (
+                <button
+                  key={player.id}
+                  type="button"
+                  onClick={() =>
+                    act("mute", { playerId: player.id, muted: !player.muted })
+                  }
+                  aria-pressed={player.muted}
+                  title={
+                    player.muted
+                      ? `${player.name} cannot submit game events`
+                      : `Block ${player.name} from submitting game events`
+                  }
+                  className={`min-h-11 shrink-0 rounded-full border px-3 text-xs font-semibold transition-colors ${
+                    player.muted
+                      ? "border-danger/40 bg-danger/10 text-danger"
+                      : "border-border text-muted hover:bg-surface-2 hover:text-ink"
+                  }`}
+                >
+                  {player.muted ? "Unmute" : "Mute"} {player.name}
+                </button>
+              ))}
+          </div>
+        </div>
+      ) : null}
+
       {room.phase === "lobby" && teamGame ? (
         <TeamAssignment room={room} act={act} />
       ) : null}

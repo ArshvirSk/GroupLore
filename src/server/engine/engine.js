@@ -372,6 +372,7 @@ export class GameEngine {
         name: saved.name || "Player",
         avatarUrl: saved.avatarUrl || null,
         isReady: Boolean(saved.isReady),
+        muted: Boolean(saved.muted),
         socketId: null,
         connected: false,
         joinedAt: Number(saved.joinedAt) || room.createdAt,
@@ -465,6 +466,7 @@ export class GameEngine {
         name: player.name,
         avatarUrl: player.avatarUrl,
         isReady: player.isReady,
+        muted: player.muted,
         joinedAt: player.joinedAt,
       })),
       scores: { ...room.scores },
@@ -609,6 +611,7 @@ export class GameEngine {
       name: auth.name || identity.name || "Player",
       avatarUrl: auth.avatarUrl || identity.avatarUrl || null,
       isReady: false,
+      muted: false,
       socketId: socket.id,
       connected: true,
       joinedAt: Date.now(),
@@ -955,6 +958,19 @@ export class GameEngine {
         this.removePlayer(room, targetId, "kicked");
         return;
       }
+      case "mute": {
+        this.hostOnly(room, player);
+        const targetId = String(data.playerId || "");
+        if (targetId === player.id) {
+          throw failure("cannot_mute_self", "You cannot mute yourself");
+        }
+        const target = room.players.get(targetId);
+        if (!target) throw failure("player_not_found", "That player has left");
+        target.muted = data.muted === undefined ? true : Boolean(data.muted);
+        this.broadcast(room);
+        this.persistSnapshot(room, "moderation");
+        return;
+      }
       case "requestSync": {
         socket.emit("room:sync", this.view(room, player.id));
         return;
@@ -1170,6 +1186,9 @@ export class GameEngine {
     const { room, player } = ctx;
     this.inPhase(room, "playing", "The game is not running");
     if (!room.module) throw failure("no_game", "No game is running");
+    if (player.muted) {
+      throw failure("muted", "The host muted you");
+    }
     if (!this.accept(room, player.id, payload.eventId)) return;
 
     const event =
@@ -1202,6 +1221,7 @@ export class GameEngine {
         avatarUrl: player.avatarUrl,
         isHost: player.id === room.hostId,
         ready: player.isReady,
+        muted: Boolean(player.muted),
         connected: player.connected,
         score: Number(room.scores[player.id] || 0),
       }));
@@ -1230,6 +1250,7 @@ export class GameEngine {
             name: viewer.name,
             isHost: viewer.id === room.hostId,
             ready: viewer.isReady,
+            muted: Boolean(viewer.muted),
           }
         : null,
       scores: players.map((player) => ({
@@ -1254,6 +1275,7 @@ export class GameEngine {
         avatarUrl: player.avatarUrl,
         isHost: player.id === room.hostId,
         ready: player.isReady,
+        muted: Boolean(player.muted),
         connected: player.connected,
         score: Number(room.scores[player.id] || 0),
       }));

@@ -17,6 +17,7 @@ export interface RoomPlayer {
   avatarUrl?: string | null;
   isHost: boolean;
   ready: boolean;
+  muted: boolean;
   connected: boolean;
   score: number;
 }
@@ -77,6 +78,7 @@ export interface RoomView {
     name: string;
     isHost: boolean;
     ready: boolean;
+    muted: boolean;
   } | null;
   scores: ScoreEntry[];
   teams: RoomTeam[];

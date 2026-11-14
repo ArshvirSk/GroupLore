@@ -920,3 +920,114 @@ test("a client-supplied playerId cannot spoof a game event author", async () => 
   assert.notEqual(spoof.playerId, bJoined.playerId);
   assert.equal(cJoined.playerId.length > 0, true);
 });
+
+test("host can mute a player and only the host can change it", async () => {
+  const sessionId = makeSession();
+  const { clients, joined, host } = await startStub(sessionId, "classic", 2);
+  const [, target] = clients;
+  const targetId = joined[1].playerId;
+
+  const forbidden = await expectError(target, () => {
+    target.socket.emit("room:action", {
+      action: "mute",
+      data: { playerId: joined[0].playerId, muted: true },
+      eventId: randomUUID(),
+    });
+  });
+  assert.equal(forbidden.code, "host_only");
+
+  const muted = await act(
+    host,
+    "mute",
+    { playerId: targetId, muted: true },
+    (view) => view.players.find((player) => player.id === targetId)?.muted === true,
+  );
+  assert.equal(muted.you.muted, false);
+  const targetView = await waitSync(
+    target.tracker,
+    (view) => view.you?.muted === true,
+  );
+  assert.equal(targetView.players.find((player) => player.id === targetId).muted, true);
+
+  const rejected = await expectError(target, () => {
+    target.socket.emit("game:event", {
+      type: "answer",
+      value: "should not count",
+      eventId: randomUUID(),
+    });
+  });
+  assert.equal(rejected.code, "muted");
+  assert.equal(target.tracker.latest.game.answeredByMe, false);
+
+  await act(
+    host,
+    "mute",
+    { playerId: targetId, muted: false },
+    (view) => view.players.find((player) => player.id === targetId)?.muted === false,
+  );
+  await send(target, "noop");
+
+  await act(host, "end");
+});
+
+test("host cannot mute itself", async () => {
+  const sessionId = makeSession();
+  const { joined, host } = await startStub(sessionId, "classic", 2);
+
+  const error = await expectError(host, () => {
+    host.socket.emit("room:action", {
+      action: "mute",
+      data: { playerId: joined[0].playerId, muted: true },
+      eventId: randomUUID(),
+    });
+  });
+  assert.equal(error.code, "cannot_mute_self");
+
+  await act(host, "end");
+});
+
+test("mute survives a snapshot restore", async () => {
+  const sessionId = makeSession();
+  const { clients, joined, host } = await startStub(sessionId, "classic", 2);
+  const targetId = joined[1].playerId;
+
+  await act(
+    host,
+    "mute",
+    { playerId: targetId, muted: true },
+    (view) => view.players.find((player) => player.id === targetId)?.muted === true,
+  );
+  const persisted = await waitUntil(() =>
+    persistence.snapshots.find(
+      (entry) =>
+        entry.sessionId === sessionId && entry.reason === "moderation",
+    ),
+  );
+  assert.equal(
+    persisted.snapshot.players.find((player) => player.id === targetId).muted,
+    true,
+  );
+
+  const restoredEngine = new GameEngine({
+    resolveIdentity: engine.resolveIdentity,
+    authorize: async ({ identity }) => ({
+      allowed: true,
+      userId: identity.authUserId,
+      name: identity.name,
+      avatarUrl: null,
+    }),
+    loadSession: async (id) => sessions.get(id) || null,
+    restoreOneSession: async () => ({
+      ...sessions.get(sessionId),
+      snapshot: persisted.snapshot,
+    }),
+    disconnectGraceMs: 500,
+  });
+
+  const restored = await restoredEngine.restoreLiveRoom();
+  assert.equal(restored.players.get(targetId).muted, true);
+  assert.equal(restoredEngine.view(restored, targetId).you.muted, true);
+
+  restoredEngine.close();
+  for (const client of clients) client.socket.disconnect();
+});
