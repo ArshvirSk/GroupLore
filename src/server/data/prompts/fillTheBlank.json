@@ -1,0 +1,3226 @@
+{
+  "prompts": [
+    {
+      "id": "ftb-p-001",
+      "text": "The worst thing to bring to a wedding",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-002",
+      "text": "The worst thing to bring to a funeral",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-003",
+      "text": "The worst thing to bring to a job interview",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-004",
+      "text": "The worst thing to bring to a first date",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-005",
+      "text": "The worst thing to bring to a family dinner",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-006",
+      "text": "The worst thing to bring to a children's party",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-007",
+      "text": "The worst thing to bring to a camping trip",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-008",
+      "text": "The worst thing to bring to a book club",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-009",
+      "text": "The worst thing to bring to a karaoke night",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-010",
+      "text": "The worst thing to bring to a group project",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-011",
+      "text": "The best thing to say after a long silence",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-012",
+      "text": "The best thing to say after a bad joke",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-013",
+      "text": "The best thing to say after an awkward toast",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-014",
+      "text": "The best thing to say after a surprise party",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-015",
+      "text": "The best thing to say after a failed magic trick",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-016",
+      "text": "The best thing to say after a sports loss",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-017",
+      "text": "The best thing to say after a haircut",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-018",
+      "text": "The best thing to say after a broken promise",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-019",
+      "text": "The best thing to say after a loud sneeze",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-020",
+      "text": "The best thing to say after a group photo",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-021",
+      "text": "A suspiciously specific birthday gift for a dentist",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-022",
+      "text": "A suspiciously specific birthday gift for a pirate",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-023",
+      "text": "A suspiciously specific birthday gift for a librarian",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-024",
+      "text": "A suspiciously specific birthday gift for a marathon runner",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-025",
+      "text": "A suspiciously specific birthday gift for a weather presenter",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-026",
+      "text": "A suspiciously specific birthday gift for a retired spy",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-027",
+      "text": "A suspiciously specific birthday gift for a wedding planner",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-028",
+      "text": "A suspiciously specific birthday gift for a night-shift nurse",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-029",
+      "text": "A suspiciously specific birthday gift for a wedding DJ",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-030",
+      "text": "A suspiciously specific birthday gift for a competitive baker",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-031",
+      "text": "The new flavor at an ice cream shop that nobody asked for",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-032",
+      "text": "The new flavor at a coffee chain that nobody asked for",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-033",
+      "text": "The new flavor at a pizza place that nobody asked for",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-034",
+      "text": "The new flavor at a smoothie bar that nobody asked for",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-035",
+      "text": "The new flavor at a bakery that nobody asked for",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-036",
+      "text": "The new flavor at a cinema that nobody asked for",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-037",
+      "text": "The new flavor at a theme park that nobody asked for",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-038",
+      "text": "The new flavor at a gas station that nobody asked for",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-039",
+      "text": "The new flavor at a cereal company that nobody asked for",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-040",
+      "text": "The new flavor at a fancy restaurant that nobody asked for",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-041",
+      "text": "The worst superpower for a firefighter",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-042",
+      "text": "The worst superpower for a teacher",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-043",
+      "text": "The worst superpower for a surgeon",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-044",
+      "text": "The worst superpower for a pilot",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-045",
+      "text": "The worst superpower for a lifeguard",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-046",
+      "text": "The worst superpower for a chef",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-047",
+      "text": "The worst superpower for a security guard",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-048",
+      "text": "The worst superpower for a therapist",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-049",
+      "text": "The worst superpower for a tour guide",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-050",
+      "text": "The worst superpower for a referee",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-051",
+      "text": "The one rule every book club should follow",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-052",
+      "text": "The one rule every road trip should follow",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-053",
+      "text": "The one rule every office kitchen should follow",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-054",
+      "text": "The one rule every group chat should follow",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-055",
+      "text": "The one rule every karaoke room should follow",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-056",
+      "text": "The one rule every shared apartment should follow",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-057",
+      "text": "The one rule every wedding speech should follow",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-058",
+      "text": "The one rule every board game night should follow",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-059",
+      "text": "The one rule every gym locker room should follow",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-060",
+      "text": "The one rule every family holiday should follow",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-061",
+      "text": "The worst thing to find in your shoe",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-062",
+      "text": "The worst thing to find in your fridge",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-063",
+      "text": "The worst thing to find in your backpack",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-064",
+      "text": "The worst thing to find in your car",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-065",
+      "text": "The worst thing to find in your bed",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-066",
+      "text": "The worst thing to find in your pocket",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-067",
+      "text": "The worst thing to find in your soup",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-068",
+      "text": "The worst thing to find in your email inbox",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-069",
+      "text": "The worst thing to find in your garage",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-070",
+      "text": "The worst thing to find in your washing machine",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-071",
+      "text": "The most dramatic way to announce a promotion",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-072",
+      "text": "The most dramatic way to announce a breakup",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-073",
+      "text": "The most dramatic way to announce a pregnancy",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-074",
+      "text": "The most dramatic way to announce a move abroad",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-075",
+      "text": "The most dramatic way to announce a new haircut",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-076",
+      "text": "The most dramatic way to announce a canceled flight",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-077",
+      "text": "The most dramatic way to announce a lost phone",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-078",
+      "text": "The most dramatic way to announce a surprise guest",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-079",
+      "text": "The most dramatic way to announce a failed exam",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-080",
+      "text": "The most dramatic way to announce a dinner reservation",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-081",
+      "text": "A terrible theme for a birthday party",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-082",
+      "text": "A terrible theme for a retirement party",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-083",
+      "text": "A terrible theme for a housewarming party",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-084",
+      "text": "A terrible theme for a office party",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-085",
+      "text": "A terrible theme for a new year party",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-086",
+      "text": "A terrible theme for a baby shower party",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-087",
+      "text": "A terrible theme for a engagement party",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-088",
+      "text": "A terrible theme for a graduation party",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-089",
+      "text": "A terrible theme for a halloween party",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-090",
+      "text": "A terrible theme for a anniversary party",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-091",
+      "text": "The worst thing to whisper during a wedding ceremony",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-092",
+      "text": "The worst thing to whisper during a job interview",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-093",
+      "text": "The worst thing to whisper during a yoga class",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-094",
+      "text": "The worst thing to whisper during a horror film",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-095",
+      "text": "The worst thing to whisper during a first dance",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-096",
+      "text": "The worst thing to whisper during a dental exam",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-097",
+      "text": "The worst thing to whisper during a moment of silence",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-098",
+      "text": "The worst thing to whisper during a live podcast",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-099",
+      "text": "The worst thing to whisper during a job review",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-100",
+      "text": "The worst thing to whisper during a group photo",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-101",
+      "text": "The most useless app for a marathon runner",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-102",
+      "text": "The most useless app for a sommelier",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-103",
+      "text": "The most useless app for a librarian",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-104",
+      "text": "The most useless app for a cat",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-105",
+      "text": "The most useless app for a submarine captain",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-106",
+      "text": "The most useless app for a wedding planner",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-107",
+      "text": "The most useless app for a night owl",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-108",
+      "text": "The most useless app for a gardener",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-109",
+      "text": "The most useless app for a pilot",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-110",
+      "text": "The most useless app for a toddler",
+      "blanks": 0,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-111",
+      "text": "The worst thing to bring to a beach day because ___",
+      "blanks": 1,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-112",
+      "text": "The worst thing to bring to a job interview because ___",
+      "blanks": 1,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-113",
+      "text": "The worst thing to bring to a formal dinner because ___",
+      "blanks": 1,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-114",
+      "text": "The worst thing to bring to a camping trip because ___",
+      "blanks": 1,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-115",
+      "text": "The worst thing to bring to a first date because ___",
+      "blanks": 1,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-116",
+      "text": "The worst thing to bring to a funeral because ___",
+      "blanks": 1,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-117",
+      "text": "The worst thing to bring to a children's birthday because ___",
+      "blanks": 1,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-118",
+      "text": "The worst thing to bring to a movie night because ___",
+      "blanks": 1,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-119",
+      "text": "The worst thing to bring to a job site because ___",
+      "blanks": 1,
+      "rating": "family"
+    },
+    {
+      "id": "ftb-p-120",
+      "text": "The worst thing to bring to a potluck because ___",
+      "blanks": 1,
+      "rating": "family"
+    }
+  ],
+  "answers": [
+    {
+      "id": "ftb-a-001",
+      "text": "a suspiciously confident pigeon",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-002",
+      "text": "a aggressively beige pigeon",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-003",
+      "text": "a slightly haunted pigeon",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-004",
+      "text": "a deeply unqualified pigeon",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-005",
+      "text": "a overly polished pigeon",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-006",
+      "text": "a mildly explosive pigeon",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-007",
+      "text": "a unnecessarily dramatic pigeon",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-008",
+      "text": "a suspiciously damp pigeon",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-009",
+      "text": "a professionally confused pigeon",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-010",
+      "text": "a tragically underdressed pigeon",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-011",
+      "text": "a suspiciously confident toaster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-012",
+      "text": "a aggressively beige toaster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-013",
+      "text": "a slightly haunted toaster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-014",
+      "text": "a deeply unqualified toaster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-015",
+      "text": "a overly polished toaster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-016",
+      "text": "a mildly explosive toaster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-017",
+      "text": "a unnecessarily dramatic toaster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-018",
+      "text": "a suspiciously damp toaster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-019",
+      "text": "a professionally confused toaster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-020",
+      "text": "a tragically underdressed toaster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-021",
+      "text": "a suspiciously confident lighthouse",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-022",
+      "text": "a aggressively beige lighthouse",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-023",
+      "text": "a slightly haunted lighthouse",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-024",
+      "text": "a deeply unqualified lighthouse",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-025",
+      "text": "a overly polished lighthouse",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-026",
+      "text": "a mildly explosive lighthouse",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-027",
+      "text": "a unnecessarily dramatic lighthouse",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-028",
+      "text": "a suspiciously damp lighthouse",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-029",
+      "text": "a professionally confused lighthouse",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-030",
+      "text": "a tragically underdressed lighthouse",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-031",
+      "text": "a suspiciously confident pineapple",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-032",
+      "text": "a aggressively beige pineapple",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-033",
+      "text": "a slightly haunted pineapple",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-034",
+      "text": "a deeply unqualified pineapple",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-035",
+      "text": "a overly polished pineapple",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-036",
+      "text": "a mildly explosive pineapple",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-037",
+      "text": "a unnecessarily dramatic pineapple",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-038",
+      "text": "a suspiciously damp pineapple",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-039",
+      "text": "a professionally confused pineapple",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-040",
+      "text": "a tragically underdressed pineapple",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-041",
+      "text": "a suspiciously confident sock puppet",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-042",
+      "text": "a aggressively beige sock puppet",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-043",
+      "text": "a slightly haunted sock puppet",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-044",
+      "text": "a deeply unqualified sock puppet",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-045",
+      "text": "a overly polished sock puppet",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-046",
+      "text": "a mildly explosive sock puppet",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-047",
+      "text": "a unnecessarily dramatic sock puppet",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-048",
+      "text": "a suspiciously damp sock puppet",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-049",
+      "text": "a professionally confused sock puppet",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-050",
+      "text": "a tragically underdressed sock puppet",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-051",
+      "text": "a suspiciously confident lawn flamingo",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-052",
+      "text": "a aggressively beige lawn flamingo",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-053",
+      "text": "a slightly haunted lawn flamingo",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-054",
+      "text": "a deeply unqualified lawn flamingo",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-055",
+      "text": "a overly polished lawn flamingo",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-056",
+      "text": "a mildly explosive lawn flamingo",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-057",
+      "text": "a unnecessarily dramatic lawn flamingo",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-058",
+      "text": "a suspiciously damp lawn flamingo",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-059",
+      "text": "a professionally confused lawn flamingo",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-060",
+      "text": "a tragically underdressed lawn flamingo",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-061",
+      "text": "a suspiciously confident submarine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-062",
+      "text": "a aggressively beige submarine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-063",
+      "text": "a slightly haunted submarine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-064",
+      "text": "a deeply unqualified submarine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-065",
+      "text": "a overly polished submarine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-066",
+      "text": "a mildly explosive submarine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-067",
+      "text": "a unnecessarily dramatic submarine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-068",
+      "text": "a suspiciously damp submarine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-069",
+      "text": "a professionally confused submarine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-070",
+      "text": "a tragically underdressed submarine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-071",
+      "text": "a suspiciously confident accordion",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-072",
+      "text": "a aggressively beige accordion",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-073",
+      "text": "a slightly haunted accordion",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-074",
+      "text": "a deeply unqualified accordion",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-075",
+      "text": "a overly polished accordion",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-076",
+      "text": "a mildly explosive accordion",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-077",
+      "text": "a unnecessarily dramatic accordion",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-078",
+      "text": "a suspiciously damp accordion",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-079",
+      "text": "a professionally confused accordion",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-080",
+      "text": "a tragically underdressed accordion",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-081",
+      "text": "a suspiciously confident wheelbarrow",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-082",
+      "text": "a aggressively beige wheelbarrow",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-083",
+      "text": "a slightly haunted wheelbarrow",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-084",
+      "text": "a deeply unqualified wheelbarrow",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-085",
+      "text": "a overly polished wheelbarrow",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-086",
+      "text": "a mildly explosive wheelbarrow",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-087",
+      "text": "a unnecessarily dramatic wheelbarrow",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-088",
+      "text": "a suspiciously damp wheelbarrow",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-089",
+      "text": "a professionally confused wheelbarrow",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-090",
+      "text": "a tragically underdressed wheelbarrow",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-091",
+      "text": "a suspiciously confident mannequin",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-092",
+      "text": "a aggressively beige mannequin",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-093",
+      "text": "a slightly haunted mannequin",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-094",
+      "text": "a deeply unqualified mannequin",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-095",
+      "text": "a overly polished mannequin",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-096",
+      "text": "a mildly explosive mannequin",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-097",
+      "text": "a unnecessarily dramatic mannequin",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-098",
+      "text": "a suspiciously damp mannequin",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-099",
+      "text": "a professionally confused mannequin",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-100",
+      "text": "a tragically underdressed mannequin",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-101",
+      "text": "a suspiciously confident cactus",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-102",
+      "text": "a aggressively beige cactus",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-103",
+      "text": "a slightly haunted cactus",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-104",
+      "text": "a deeply unqualified cactus",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-105",
+      "text": "a overly polished cactus",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-106",
+      "text": "a mildly explosive cactus",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-107",
+      "text": "a unnecessarily dramatic cactus",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-108",
+      "text": "a suspiciously damp cactus",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-109",
+      "text": "a professionally confused cactus",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-110",
+      "text": "a tragically underdressed cactus",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-111",
+      "text": "a suspiciously confident blender",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-112",
+      "text": "a aggressively beige blender",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-113",
+      "text": "a slightly haunted blender",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-114",
+      "text": "a deeply unqualified blender",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-115",
+      "text": "a overly polished blender",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-116",
+      "text": "a mildly explosive blender",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-117",
+      "text": "a unnecessarily dramatic blender",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-118",
+      "text": "a suspiciously damp blender",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-119",
+      "text": "a professionally confused blender",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-120",
+      "text": "a tragically underdressed blender",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-121",
+      "text": "a suspiciously confident typewriter",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-122",
+      "text": "a aggressively beige typewriter",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-123",
+      "text": "a slightly haunted typewriter",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-124",
+      "text": "a deeply unqualified typewriter",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-125",
+      "text": "a overly polished typewriter",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-126",
+      "text": "a mildly explosive typewriter",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-127",
+      "text": "a unnecessarily dramatic typewriter",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-128",
+      "text": "a suspiciously damp typewriter",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-129",
+      "text": "a professionally confused typewriter",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-130",
+      "text": "a tragically underdressed typewriter",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-131",
+      "text": "a suspiciously confident hamster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-132",
+      "text": "a aggressively beige hamster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-133",
+      "text": "a slightly haunted hamster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-134",
+      "text": "a deeply unqualified hamster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-135",
+      "text": "a overly polished hamster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-136",
+      "text": "a mildly explosive hamster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-137",
+      "text": "a unnecessarily dramatic hamster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-138",
+      "text": "a suspiciously damp hamster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-139",
+      "text": "a professionally confused hamster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-140",
+      "text": "a tragically underdressed hamster",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-141",
+      "text": "a suspiciously confident traffic cone",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-142",
+      "text": "a aggressively beige traffic cone",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-143",
+      "text": "a slightly haunted traffic cone",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-144",
+      "text": "a deeply unqualified traffic cone",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-145",
+      "text": "a overly polished traffic cone",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-146",
+      "text": "a mildly explosive traffic cone",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-147",
+      "text": "a unnecessarily dramatic traffic cone",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-148",
+      "text": "a suspiciously damp traffic cone",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-149",
+      "text": "a professionally confused traffic cone",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-150",
+      "text": "a tragically underdressed traffic cone",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-151",
+      "text": "a suspiciously confident umbrella",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-152",
+      "text": "a aggressively beige umbrella",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-153",
+      "text": "a slightly haunted umbrella",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-154",
+      "text": "a deeply unqualified umbrella",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-155",
+      "text": "a overly polished umbrella",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-156",
+      "text": "a mildly explosive umbrella",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-157",
+      "text": "a unnecessarily dramatic umbrella",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-158",
+      "text": "a suspiciously damp umbrella",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-159",
+      "text": "a professionally confused umbrella",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-160",
+      "text": "a tragically underdressed umbrella",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-161",
+      "text": "a suspiciously confident grand piano",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-162",
+      "text": "a aggressively beige grand piano",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-163",
+      "text": "a slightly haunted grand piano",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-164",
+      "text": "a deeply unqualified grand piano",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-165",
+      "text": "a overly polished grand piano",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-166",
+      "text": "a mildly explosive grand piano",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-167",
+      "text": "a unnecessarily dramatic grand piano",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-168",
+      "text": "a suspiciously damp grand piano",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-169",
+      "text": "a professionally confused grand piano",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-170",
+      "text": "a tragically underdressed grand piano",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-171",
+      "text": "a suspiciously confident washing machine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-172",
+      "text": "a aggressively beige washing machine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-173",
+      "text": "a slightly haunted washing machine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-174",
+      "text": "a deeply unqualified washing machine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-175",
+      "text": "a overly polished washing machine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-176",
+      "text": "a mildly explosive washing machine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-177",
+      "text": "a unnecessarily dramatic washing machine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-178",
+      "text": "a suspiciously damp washing machine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-179",
+      "text": "a professionally confused washing machine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-180",
+      "text": "a tragically underdressed washing machine",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-181",
+      "text": "a suspiciously confident rubber duck",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-182",
+      "text": "a aggressively beige rubber duck",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-183",
+      "text": "a slightly haunted rubber duck",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-184",
+      "text": "a deeply unqualified rubber duck",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-185",
+      "text": "a overly polished rubber duck",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-186",
+      "text": "a mildly explosive rubber duck",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-187",
+      "text": "a unnecessarily dramatic rubber duck",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-188",
+      "text": "a suspiciously damp rubber duck",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-189",
+      "text": "a professionally confused rubber duck",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-190",
+      "text": "a tragically underdressed rubber duck",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-191",
+      "text": "a suspiciously confident mailbox",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-192",
+      "text": "a aggressively beige mailbox",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-193",
+      "text": "a slightly haunted mailbox",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-194",
+      "text": "a deeply unqualified mailbox",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-195",
+      "text": "a overly polished mailbox",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-196",
+      "text": "a mildly explosive mailbox",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-197",
+      "text": "a unnecessarily dramatic mailbox",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-198",
+      "text": "a suspiciously damp mailbox",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-199",
+      "text": "a professionally confused mailbox",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-200",
+      "text": "a tragically underdressed mailbox",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-201",
+      "text": "a suspiciously confident kettle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-202",
+      "text": "a aggressively beige kettle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-203",
+      "text": "a slightly haunted kettle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-204",
+      "text": "a deeply unqualified kettle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-205",
+      "text": "a overly polished kettle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-206",
+      "text": "a mildly explosive kettle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-207",
+      "text": "a unnecessarily dramatic kettle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-208",
+      "text": "a suspiciously damp kettle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-209",
+      "text": "a professionally confused kettle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-210",
+      "text": "a tragically underdressed kettle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-211",
+      "text": "a suspiciously confident ladder",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-212",
+      "text": "a aggressively beige ladder",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-213",
+      "text": "a slightly haunted ladder",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-214",
+      "text": "a deeply unqualified ladder",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-215",
+      "text": "a overly polished ladder",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-216",
+      "text": "a mildly explosive ladder",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-217",
+      "text": "a unnecessarily dramatic ladder",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-218",
+      "text": "a suspiciously damp ladder",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-219",
+      "text": "a professionally confused ladder",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-220",
+      "text": "a tragically underdressed ladder",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-221",
+      "text": "a suspiciously confident snow globe",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-222",
+      "text": "a aggressively beige snow globe",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-223",
+      "text": "a slightly haunted snow globe",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-224",
+      "text": "a deeply unqualified snow globe",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-225",
+      "text": "a overly polished snow globe",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-226",
+      "text": "a mildly explosive snow globe",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-227",
+      "text": "a unnecessarily dramatic snow globe",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-228",
+      "text": "a suspiciously damp snow globe",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-229",
+      "text": "a professionally confused snow globe",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-230",
+      "text": "a tragically underdressed snow globe",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-231",
+      "text": "a suspiciously confident beeswax candle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-232",
+      "text": "a aggressively beige beeswax candle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-233",
+      "text": "a slightly haunted beeswax candle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-234",
+      "text": "a deeply unqualified beeswax candle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-235",
+      "text": "a overly polished beeswax candle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-236",
+      "text": "a mildly explosive beeswax candle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-237",
+      "text": "a unnecessarily dramatic beeswax candle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-238",
+      "text": "a suspiciously damp beeswax candle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-239",
+      "text": "a professionally confused beeswax candle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-240",
+      "text": "a tragically underdressed beeswax candle",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-241",
+      "text": "a suspiciously confident disco ball",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-242",
+      "text": "a aggressively beige disco ball",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-243",
+      "text": "a slightly haunted disco ball",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-244",
+      "text": "a deeply unqualified disco ball",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-245",
+      "text": "a overly polished disco ball",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-246",
+      "text": "a mildly explosive disco ball",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-247",
+      "text": "a unnecessarily dramatic disco ball",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-248",
+      "text": "a suspiciously damp disco ball",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-249",
+      "text": "a professionally confused disco ball",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-250",
+      "text": "a tragically underdressed disco ball",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-251",
+      "text": "clothes hanger that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-252",
+      "text": "clothes hanger that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-253",
+      "text": "clothes hanger that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-254",
+      "text": "clothes hanger that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-255",
+      "text": "clothes hanger that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-256",
+      "text": "clothes hanger that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-257",
+      "text": "clothes hanger that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-258",
+      "text": "clothes hanger that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-259",
+      "text": "clothes hanger that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-260",
+      "text": "clothes hanger that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-261",
+      "text": "parking meter that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-262",
+      "text": "parking meter that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-263",
+      "text": "parking meter that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-264",
+      "text": "parking meter that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-265",
+      "text": "parking meter that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-266",
+      "text": "parking meter that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-267",
+      "text": "parking meter that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-268",
+      "text": "parking meter that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-269",
+      "text": "parking meter that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-270",
+      "text": "parking meter that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-271",
+      "text": "chessboard that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-272",
+      "text": "chessboard that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-273",
+      "text": "chessboard that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-274",
+      "text": "chessboard that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-275",
+      "text": "chessboard that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-276",
+      "text": "chessboard that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-277",
+      "text": "chessboard that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-278",
+      "text": "chessboard that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-279",
+      "text": "chessboard that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-280",
+      "text": "chessboard that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-281",
+      "text": "fire extinguisher that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-282",
+      "text": "fire extinguisher that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-283",
+      "text": "fire extinguisher that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-284",
+      "text": "fire extinguisher that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-285",
+      "text": "fire extinguisher that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-286",
+      "text": "fire extinguisher that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-287",
+      "text": "fire extinguisher that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-288",
+      "text": "fire extinguisher that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-289",
+      "text": "fire extinguisher that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-290",
+      "text": "fire extinguisher that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-291",
+      "text": "hot-water bottle that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-292",
+      "text": "hot-water bottle that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-293",
+      "text": "hot-water bottle that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-294",
+      "text": "hot-water bottle that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-295",
+      "text": "hot-water bottle that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-296",
+      "text": "hot-water bottle that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-297",
+      "text": "hot-water bottle that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-298",
+      "text": "hot-water bottle that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-299",
+      "text": "hot-water bottle that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-300",
+      "text": "hot-water bottle that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-301",
+      "text": "garden gnome that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-302",
+      "text": "garden gnome that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-303",
+      "text": "garden gnome that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-304",
+      "text": "garden gnome that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-305",
+      "text": "garden gnome that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-306",
+      "text": "garden gnome that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-307",
+      "text": "garden gnome that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-308",
+      "text": "garden gnome that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-309",
+      "text": "garden gnome that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-310",
+      "text": "garden gnome that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-311",
+      "text": "stapler that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-312",
+      "text": "stapler that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-313",
+      "text": "stapler that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-314",
+      "text": "stapler that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-315",
+      "text": "stapler that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-316",
+      "text": "stapler that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-317",
+      "text": "stapler that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-318",
+      "text": "stapler that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-319",
+      "text": "stapler that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-320",
+      "text": "stapler that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-321",
+      "text": "telescope that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-322",
+      "text": "telescope that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-323",
+      "text": "telescope that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-324",
+      "text": "telescope that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-325",
+      "text": "telescope that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-326",
+      "text": "telescope that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-327",
+      "text": "telescope that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-328",
+      "text": "telescope that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-329",
+      "text": "telescope that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-330",
+      "text": "telescope that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-331",
+      "text": "picnic basket that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-332",
+      "text": "picnic basket that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-333",
+      "text": "picnic basket that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-334",
+      "text": "picnic basket that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-335",
+      "text": "picnic basket that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-336",
+      "text": "picnic basket that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-337",
+      "text": "picnic basket that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-338",
+      "text": "picnic basket that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-339",
+      "text": "picnic basket that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-340",
+      "text": "picnic basket that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-341",
+      "text": "doorbell that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-342",
+      "text": "doorbell that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-343",
+      "text": "doorbell that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-344",
+      "text": "doorbell that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-345",
+      "text": "doorbell that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-346",
+      "text": "doorbell that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-347",
+      "text": "doorbell that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-348",
+      "text": "doorbell that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-349",
+      "text": "doorbell that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-350",
+      "text": "doorbell that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-351",
+      "text": "trampoline that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-352",
+      "text": "trampoline that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-353",
+      "text": "trampoline that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-354",
+      "text": "trampoline that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-355",
+      "text": "trampoline that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-356",
+      "text": "trampoline that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-357",
+      "text": "trampoline that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-358",
+      "text": "trampoline that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-359",
+      "text": "trampoline that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-360",
+      "text": "trampoline that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-361",
+      "text": "mug that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-362",
+      "text": "mug that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-363",
+      "text": "mug that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-364",
+      "text": "mug that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-365",
+      "text": "mug that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-366",
+      "text": "mug that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-367",
+      "text": "mug that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-368",
+      "text": "mug that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-369",
+      "text": "mug that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-370",
+      "text": "mug that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-371",
+      "text": "suitcase that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-372",
+      "text": "suitcase that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-373",
+      "text": "suitcase that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-374",
+      "text": "suitcase that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-375",
+      "text": "suitcase that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-376",
+      "text": "suitcase that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-377",
+      "text": "suitcase that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-378",
+      "text": "suitcase that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-379",
+      "text": "suitcase that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-380",
+      "text": "suitcase that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-381",
+      "text": "fishing rod that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-382",
+      "text": "fishing rod that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-383",
+      "text": "fishing rod that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-384",
+      "text": "fishing rod that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-385",
+      "text": "fishing rod that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-386",
+      "text": "fishing rod that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-387",
+      "text": "fishing rod that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-388",
+      "text": "fishing rod that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-389",
+      "text": "fishing rod that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-390",
+      "text": "fishing rod that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-391",
+      "text": "alarm clock that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-392",
+      "text": "alarm clock that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-393",
+      "text": "alarm clock that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-394",
+      "text": "alarm clock that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-395",
+      "text": "alarm clock that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-396",
+      "text": "alarm clock that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-397",
+      "text": "alarm clock that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-398",
+      "text": "alarm clock that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-399",
+      "text": "alarm clock that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-400",
+      "text": "alarm clock that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-401",
+      "text": "wind chime that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-402",
+      "text": "wind chime that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-403",
+      "text": "wind chime that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-404",
+      "text": "wind chime that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-405",
+      "text": "wind chime that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-406",
+      "text": "wind chime that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-407",
+      "text": "wind chime that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-408",
+      "text": "wind chime that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-409",
+      "text": "wind chime that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-410",
+      "text": "wind chime that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-411",
+      "text": "bread bin that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-412",
+      "text": "bread bin that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-413",
+      "text": "bread bin that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-414",
+      "text": "bread bin that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-415",
+      "text": "bread bin that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-416",
+      "text": "bread bin that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-417",
+      "text": "bread bin that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-418",
+      "text": "bread bin that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-419",
+      "text": "bread bin that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-420",
+      "text": "bread bin that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-421",
+      "text": "espresso machine that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-422",
+      "text": "espresso machine that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-423",
+      "text": "espresso machine that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-424",
+      "text": "espresso machine that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-425",
+      "text": "espresso machine that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-426",
+      "text": "espresso machine that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-427",
+      "text": "espresso machine that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-428",
+      "text": "espresso machine that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-429",
+      "text": "espresso machine that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-430",
+      "text": "espresso machine that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-431",
+      "text": "hair dryer that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-432",
+      "text": "hair dryer that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-433",
+      "text": "hair dryer that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-434",
+      "text": "hair dryer that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-435",
+      "text": "hair dryer that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-436",
+      "text": "hair dryer that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-437",
+      "text": "hair dryer that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-438",
+      "text": "hair dryer that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-439",
+      "text": "hair dryer that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-440",
+      "text": "hair dryer that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-441",
+      "text": "bicycle bell that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-442",
+      "text": "bicycle bell that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-443",
+      "text": "bicycle bell that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-444",
+      "text": "bicycle bell that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-445",
+      "text": "bicycle bell that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-446",
+      "text": "bicycle bell that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-447",
+      "text": "bicycle bell that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-448",
+      "text": "bicycle bell that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-449",
+      "text": "bicycle bell that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-450",
+      "text": "bicycle bell that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-451",
+      "text": "birdhouse that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-452",
+      "text": "birdhouse that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-453",
+      "text": "birdhouse that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-454",
+      "text": "birdhouse that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-455",
+      "text": "birdhouse that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-456",
+      "text": "birdhouse that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-457",
+      "text": "birdhouse that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-458",
+      "text": "birdhouse that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-459",
+      "text": "birdhouse that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-460",
+      "text": "birdhouse that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-461",
+      "text": "postcard that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-462",
+      "text": "postcard that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-463",
+      "text": "postcard that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-464",
+      "text": "postcard that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-465",
+      "text": "postcard that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-466",
+      "text": "postcard that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-467",
+      "text": "postcard that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-468",
+      "text": "postcard that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-469",
+      "text": "postcard that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-470",
+      "text": "postcard that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-471",
+      "text": "trophy that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-472",
+      "text": "trophy that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-473",
+      "text": "trophy that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-474",
+      "text": "trophy that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-475",
+      "text": "trophy that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-476",
+      "text": "trophy that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-477",
+      "text": "trophy that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-478",
+      "text": "trophy that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-479",
+      "text": "trophy that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-480",
+      "text": "trophy that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-481",
+      "text": "watering can that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-482",
+      "text": "watering can that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-483",
+      "text": "watering can that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-484",
+      "text": "watering can that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-485",
+      "text": "watering can that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-486",
+      "text": "watering can that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-487",
+      "text": "watering can that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-488",
+      "text": "watering can that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-489",
+      "text": "watering can that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-490",
+      "text": "watering can that has been banned from three weddings",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-491",
+      "text": "paperweight that makes eye contact for too long",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-492",
+      "text": "paperweight that only speaks in riddles",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-493",
+      "text": "paperweight that smells faintly of campfire",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-494",
+      "text": "paperweight that has a very strong opinion about soup",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-495",
+      "text": "paperweight that refuses to explain itself",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-496",
+      "text": "paperweight that arrives with a lawyer",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-497",
+      "text": "paperweight that insists it is a family heirloom",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-498",
+      "text": "paperweight that vibrates when nervous",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-499",
+      "text": "paperweight that knows too much about taxes",
+      "type": "answer"
+    },
+    {
+      "id": "ftb-a-500",
+      "text": "paperweight that has been banned from three weddings",
+      "type": "answer"
+    }
+  ]
+}
