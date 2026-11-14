@@ -7,8 +7,8 @@ export function createSupabasePersistence({
   supabase,
   logActivity,
   incrementStats,
-  cleanupAttempts = 3,
-  cleanupRetryDelayMs = 50,
+  writeAttempts = 3,
+  writeRetryDelayMs = 50,
   logger = console,
 }) {
   const snapshotWrites = new Map();
@@ -40,17 +40,17 @@ export function createSupabasePersistence({
 
   async function writeWithRetry(table, id, patch, label) {
     let lastError = null;
-    for (let attempt = 1; attempt <= cleanupAttempts; attempt += 1) {
+    for (let attempt = 1; attempt <= writeAttempts; attempt += 1) {
       lastError = await write(table, id, patch);
       if (!lastError) return true;
-      if (attempt < cleanupAttempts && cleanupRetryDelayMs > 0) {
+      if (attempt < writeAttempts && writeRetryDelayMs > 0) {
         await new Promise((resolve) =>
-          setTimeout(resolve, cleanupRetryDelayMs),
+          setTimeout(resolve, writeRetryDelayMs),
         );
       }
     }
     logger.error(
-      `[persistence] ${label} failed after ${cleanupAttempts} attempts`,
+      `[persistence] ${label} failed after ${writeAttempts} attempts`,
       lastError?.message || lastError,
     );
     return false;
@@ -114,13 +114,20 @@ export function createSupabasePersistence({
     },
 
     async onEnd({ room, sessionId, groupId, gameId, mode, ranking, scores, reason }) {
-      await markSession(sessionId, {
-        status: "finished",
-        game_type: gameId,
-        scores,
-        current_round: Number(room.state?.round || 0),
-        round_data: {},
-      });
+      await writeWithRetry(
+        "game_sessions",
+        sessionId,
+        {
+          status: "finished",
+          game_type: gameId,
+          scores,
+          current_round: Number(room.state?.round || 0),
+          round_data: {},
+          snapshot: null,
+          snapshot_updated_at: null,
+        },
+        "session finish",
+      );
 
       const winners = ranking.filter(
         (entry) => entry.score === ranking[0]?.score && entry.score > 0,
@@ -188,13 +195,33 @@ export function createSupabasePersistence({
     },
 
     async onLobby({ room }) {
-      await markSession(room.id, {
-        status: "lobby",
-        scores: {},
-        current_round: 0,
-        round_data: {},
-      });
-      await markLobby(room.lobbyId, { status: "open" });
+      const lobbySaved = await writeWithRetry(
+        "lobbies",
+        room.lobbyId,
+        { status: "open" },
+        "lobby reopen",
+      );
+      if (!lobbySaved) {
+        logger.error(
+          "[persistence] lobby reopen failed; session remains finished",
+          room.id,
+        );
+        return;
+      }
+
+      await writeWithRetry(
+        "game_sessions",
+        room.id,
+        {
+          status: "lobby",
+          scores: {},
+          current_round: 0,
+          round_data: {},
+          snapshot: null,
+          snapshot_updated_at: null,
+        },
+        "session lobby reset",
+      );
     },
 
     async onHostChange({ room, hostId }) {

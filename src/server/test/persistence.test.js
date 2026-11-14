@@ -43,7 +43,7 @@ function createFakeSupabase({ failures = {} } = {}) {
 function makePersistence(fake, logs) {
   return createSupabasePersistence({
     supabase: fake.supabase,
-    cleanupRetryDelayMs: 0,
+    writeRetryDelayMs: 0,
     logger: {
       error: (...args) => logs.push(args),
     },
@@ -89,4 +89,79 @@ test("cleanup cannot leave a restored room restorable when one write fails", asy
   assert.ok(
     lobbyLogs.some((args) => String(args[0]).includes("lobby cleanup")),
   );
+});
+
+test("onEnd retries a failed session finish", async () => {
+  const fake = createFakeSupabase({ failures: { game_sessions: 1 } });
+  const logs = [];
+
+  await makePersistence(fake, logs).onEnd({
+    room: { state: { round: 2 }, players: new Map() },
+    sessionId: "session-1",
+    groupId: null,
+    gameId: "engine-stub",
+    mode: "classic",
+    ranking: [],
+    scores: {},
+    reason: "completed",
+  });
+
+  assert.equal(fake.attempts.game_sessions, 2);
+  assert.equal(fake.state.game_sessions.status, "finished");
+  assert.equal(fake.state.game_sessions.snapshot, null);
+});
+
+test("onLobby does not reset a session while its lobby stays in game", async () => {
+  const lobbyFailure = createFakeSupabase({ failures: { lobbies: 3 } });
+  lobbyFailure.state.game_sessions.status = "finished";
+  lobbyFailure.state.game_sessions.snapshot = null;
+  const lobbyLogs = [];
+
+  await makePersistence(lobbyFailure, lobbyLogs).onLobby({
+    room: { id: "session-1", lobbyId: "lobby-1" },
+  });
+
+  assert.equal(lobbyFailure.attempts.lobbies, 3);
+  assert.equal(lobbyFailure.attempts.game_sessions, 0);
+  assert.equal(lobbyFailure.state.lobbies.status, "in_game");
+  assert.equal(lobbyFailure.state.game_sessions.status, "finished");
+  assert.ok(
+    lobbyLogs.some((args) => String(args[0]).includes("lobby reopen")),
+  );
+
+  const sessionFailure = createFakeSupabase({
+    failures: { game_sessions: 3 },
+  });
+  sessionFailure.state.game_sessions.status = "finished";
+  sessionFailure.state.game_sessions.snapshot = null;
+  const sessionLogs = [];
+
+  await makePersistence(sessionFailure, sessionLogs).onLobby({
+    room: { id: "session-1", lobbyId: "lobby-1" },
+  });
+
+  assert.equal(sessionFailure.attempts.lobbies, 1);
+  assert.equal(sessionFailure.state.lobbies.status, "open");
+  assert.equal(sessionFailure.state.game_sessions.status, "finished");
+  assert.ok(
+    sessionLogs.some((args) =>
+      String(args[0]).includes("session lobby reset"),
+    ),
+  );
+});
+
+test("onLobby retries a transient lobby failure before resetting the session", async () => {
+  const fake = createFakeSupabase({ failures: { lobbies: 1 } });
+  fake.state.game_sessions.status = "finished";
+  fake.state.game_sessions.snapshot = null;
+
+  await makePersistence(fake, []).onLobby({
+    room: { id: "session-1", lobbyId: "lobby-1" },
+  });
+
+  assert.equal(fake.attempts.lobbies, 2);
+  assert.equal(fake.attempts.game_sessions, 1);
+  assert.equal(fake.state.lobbies.status, "open");
+  assert.equal(fake.state.game_sessions.status, "lobby");
+  assert.equal(fake.state.game_sessions.snapshot, null);
 });
