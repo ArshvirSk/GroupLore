@@ -1,0 +1,4502 @@
+[
+  {
+    "id": "conn-001",
+    "groups": [
+      {
+        "category": "Big cats",
+        "words": [
+          "jaguar",
+          "leopard",
+          "tiger",
+          "lion"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Italian dishes",
+        "words": [
+          "risotto",
+          "pizza",
+          "lasagna",
+          "pasta"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Keyboards",
+        "words": [
+          "synth",
+          "accordion",
+          "piano",
+          "organ"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Martial arts",
+        "words": [
+          "karate",
+          "boxing",
+          "aikido",
+          "taekwondo"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-002",
+    "groups": [
+      {
+        "category": "Mexican dishes",
+        "words": [
+          "taco",
+          "enchilada",
+          "burrito",
+          "tamale"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Folk instruments",
+        "words": [
+          "bagpipes",
+          "harmonica",
+          "mandolin",
+          "ukulele"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Board games",
+        "words": [
+          "dominoes",
+          "backgammon",
+          "chess",
+          "checkers"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Shades of blue",
+        "words": [
+          "azure",
+          "navy",
+          "cobalt",
+          "indigo"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-003",
+    "groups": [
+      {
+        "category": "Indian instruments",
+        "words": [
+          "sitar",
+          "tabla",
+          "bansuri",
+          "sarangi"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Olympic sports",
+        "words": [
+          "rowing",
+          "judo",
+          "archery",
+          "fencing"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Shades of green",
+        "words": [
+          "mint",
+          "olive",
+          "emerald",
+          "jade"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Reptiles",
+        "words": [
+          "snake",
+          "turtle",
+          "crocodile",
+          "lizard"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-004",
+    "groups": [
+      {
+        "category": "Team sports",
+        "words": [
+          "volleyball",
+          "basketball",
+          "soccer",
+          "rugby"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Shades of yellow",
+        "words": [
+          "mustard",
+          "amber",
+          "gold",
+          "lemon"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Insects",
+        "words": [
+          "bee",
+          "moth",
+          "beetle",
+          "ant"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Street foods",
+        "words": [
+          "kebab",
+          "hotdog",
+          "nachos",
+          "pretzel"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-005",
+    "groups": [
+      {
+        "category": "Shades of purple",
+        "words": [
+          "violet",
+          "mauve",
+          "lilac",
+          "plum"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Pets",
+        "words": [
+          "dog",
+          "rabbit",
+          "hamster",
+          "cat"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Citrus fruits",
+        "words": [
+          "grapefruit",
+          "lemon",
+          "lime",
+          "orange"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Brass instruments",
+        "words": [
+          "tuba",
+          "trombone",
+          "trumpet",
+          "horn"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-006",
+    "groups": [
+      {
+        "category": "African animals",
+        "words": [
+          "hippo",
+          "giraffe",
+          "zebra",
+          "rhino"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Breakfast foods",
+        "words": [
+          "toast",
+          "omelet",
+          "pancake",
+          "cereal"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Percussion",
+        "words": [
+          "drum",
+          "tambourine",
+          "xylophone",
+          "cymbal"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Track events",
+        "words": [
+          "marathon",
+          "relay",
+          "sprint",
+          "hurdles"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-007",
+    "groups": [
+      {
+        "category": "Italian dishes",
+        "words": [
+          "pizza",
+          "lasagna",
+          "risotto",
+          "pasta"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Keyboards",
+        "words": [
+          "synth",
+          "piano",
+          "organ",
+          "accordion"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Martial arts",
+        "words": [
+          "karate",
+          "boxing",
+          "aikido",
+          "taekwondo"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Shades of red",
+        "words": [
+          "scarlet",
+          "cherry",
+          "ruby",
+          "crimson"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-008",
+    "groups": [
+      {
+        "category": "Folk instruments",
+        "words": [
+          "mandolin",
+          "harmonica",
+          "bagpipes",
+          "ukulele"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Board games",
+        "words": [
+          "chess",
+          "dominoes",
+          "checkers",
+          "backgammon"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Shades of blue",
+        "words": [
+          "indigo",
+          "navy",
+          "cobalt",
+          "azure"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Birds of prey",
+        "words": [
+          "falcon",
+          "hawk",
+          "eagle",
+          "owl"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-009",
+    "groups": [
+      {
+        "category": "Olympic sports",
+        "words": [
+          "rowing",
+          "fencing",
+          "judo",
+          "archery"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Shades of green",
+        "words": [
+          "jade",
+          "olive",
+          "mint",
+          "emerald"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Reptiles",
+        "words": [
+          "turtle",
+          "snake",
+          "lizard",
+          "crocodile"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Cheeses",
+        "words": [
+          "gouda",
+          "cheddar",
+          "brie",
+          "parmesan"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-010",
+    "groups": [
+      {
+        "category": "Shades of yellow",
+        "words": [
+          "mustard",
+          "amber",
+          "gold",
+          "lemon"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Insects",
+        "words": [
+          "bee",
+          "moth",
+          "ant",
+          "beetle"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Street foods",
+        "words": [
+          "nachos",
+          "pretzel",
+          "hotdog",
+          "kebab"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Woodwinds",
+        "words": [
+          "clarinet",
+          "oboe",
+          "bassoon",
+          "flute"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-011",
+    "groups": [
+      {
+        "category": "Pets",
+        "words": [
+          "hamster",
+          "rabbit",
+          "cat",
+          "dog"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Citrus fruits",
+        "words": [
+          "orange",
+          "lemon",
+          "grapefruit",
+          "lime"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Brass instruments",
+        "words": [
+          "trumpet",
+          "trombone",
+          "horn",
+          "tuba"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Racket sports",
+        "words": [
+          "badminton",
+          "pickleball",
+          "tennis",
+          "squash"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-012",
+    "groups": [
+      {
+        "category": "Breakfast foods",
+        "words": [
+          "toast",
+          "cereal",
+          "pancake",
+          "omelet"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Percussion",
+        "words": [
+          "tambourine",
+          "xylophone",
+          "drum",
+          "cymbal"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Track events",
+        "words": [
+          "hurdles",
+          "relay",
+          "marathon",
+          "sprint"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Pastel colors",
+        "words": [
+          "blush",
+          "peach",
+          "lavender",
+          "seafoam"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-013",
+    "groups": [
+      {
+        "category": "Keyboards",
+        "words": [
+          "synth",
+          "accordion",
+          "organ",
+          "piano"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Martial arts",
+        "words": [
+          "karate",
+          "taekwondo",
+          "aikido",
+          "boxing"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Shades of red",
+        "words": [
+          "ruby",
+          "crimson",
+          "cherry",
+          "scarlet"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Ocean mammals",
+        "words": [
+          "otter",
+          "seal",
+          "whale",
+          "dolphin"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-014",
+    "groups": [
+      {
+        "category": "Board games",
+        "words": [
+          "checkers",
+          "backgammon",
+          "dominoes",
+          "chess"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Shades of blue",
+        "words": [
+          "azure",
+          "navy",
+          "cobalt",
+          "indigo"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Birds of prey",
+        "words": [
+          "eagle",
+          "hawk",
+          "falcon",
+          "owl"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Vegetables",
+        "words": [
+          "pepper",
+          "spinach",
+          "broccoli",
+          "carrot"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-015",
+    "groups": [
+      {
+        "category": "Shades of green",
+        "words": [
+          "emerald",
+          "jade",
+          "mint",
+          "olive"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Reptiles",
+        "words": [
+          "snake",
+          "lizard",
+          "turtle",
+          "crocodile"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Cheeses",
+        "words": [
+          "cheddar",
+          "gouda",
+          "brie",
+          "parmesan"
+        ],
+        "level": 3
+      },
+      {
+        "category": "String instruments",
+        "words": [
+          "violin",
+          "cello",
+          "banjo",
+          "guitar"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-016",
+    "groups": [
+      {
+        "category": "Insects",
+        "words": [
+          "ant",
+          "moth",
+          "beetle",
+          "bee"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Street foods",
+        "words": [
+          "pretzel",
+          "nachos",
+          "kebab",
+          "hotdog"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Woodwinds",
+        "words": [
+          "flute",
+          "clarinet",
+          "oboe",
+          "bassoon"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Water sports",
+        "words": [
+          "swimming",
+          "surfing",
+          "kayaking",
+          "diving"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-017",
+    "groups": [
+      {
+        "category": "Citrus fruits",
+        "words": [
+          "lemon",
+          "orange",
+          "grapefruit",
+          "lime"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Brass instruments",
+        "words": [
+          "horn",
+          "trombone",
+          "tuba",
+          "trumpet"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Racket sports",
+        "words": [
+          "badminton",
+          "squash",
+          "tennis",
+          "pickleball"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Metallic colors",
+        "words": [
+          "bronze",
+          "copper",
+          "silver",
+          "brass"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-018",
+    "groups": [
+      {
+        "category": "Percussion",
+        "words": [
+          "drum",
+          "cymbal",
+          "xylophone",
+          "tambourine"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Track events",
+        "words": [
+          "relay",
+          "hurdles",
+          "marathon",
+          "sprint"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Pastel colors",
+        "words": [
+          "peach",
+          "blush",
+          "lavender",
+          "seafoam"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Farm animals",
+        "words": [
+          "pig",
+          "sheep",
+          "cow",
+          "goat"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-019",
+    "groups": [
+      {
+        "category": "Martial arts",
+        "words": [
+          "karate",
+          "aikido",
+          "taekwondo",
+          "boxing"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Shades of red",
+        "words": [
+          "crimson",
+          "ruby",
+          "cherry",
+          "scarlet"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Ocean mammals",
+        "words": [
+          "whale",
+          "dolphin",
+          "seal",
+          "otter"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Sweet treats",
+        "words": [
+          "cookie",
+          "brownie",
+          "donut",
+          "cake"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-020",
+    "groups": [
+      {
+        "category": "Shades of blue",
+        "words": [
+          "cobalt",
+          "azure",
+          "navy",
+          "indigo"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Birds of prey",
+        "words": [
+          "falcon",
+          "hawk",
+          "owl",
+          "eagle"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Vegetables",
+        "words": [
+          "pepper",
+          "carrot",
+          "broccoli",
+          "spinach"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Electronic instruments",
+        "words": [
+          "synthesizer",
+          "sampler",
+          "theremin",
+          "sequencer"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-021",
+    "groups": [
+      {
+        "category": "Reptiles",
+        "words": [
+          "snake",
+          "crocodile",
+          "turtle",
+          "lizard"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Cheeses",
+        "words": [
+          "gouda",
+          "parmesan",
+          "brie",
+          "cheddar"
+        ],
+        "level": 2
+      },
+      {
+        "category": "String instruments",
+        "words": [
+          "banjo",
+          "guitar",
+          "cello",
+          "violin"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Winter sports",
+        "words": [
+          "curling",
+          "skiing",
+          "snowboarding",
+          "bobsled"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-022",
+    "groups": [
+      {
+        "category": "Street foods",
+        "words": [
+          "pretzel",
+          "hotdog",
+          "nachos",
+          "kebab"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Woodwinds",
+        "words": [
+          "clarinet",
+          "flute",
+          "oboe",
+          "bassoon"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Water sports",
+        "words": [
+          "surfing",
+          "diving",
+          "swimming",
+          "kayaking"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Neutral tones",
+        "words": [
+          "beige",
+          "charcoal",
+          "taupe",
+          "ivory"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-023",
+    "groups": [
+      {
+        "category": "Brass instruments",
+        "words": [
+          "trombone",
+          "horn",
+          "tuba",
+          "trumpet"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Racket sports",
+        "words": [
+          "tennis",
+          "pickleball",
+          "badminton",
+          "squash"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Metallic colors",
+        "words": [
+          "bronze",
+          "brass",
+          "copper",
+          "silver"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Big cats",
+        "words": [
+          "jaguar",
+          "lion",
+          "tiger",
+          "leopard"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-024",
+    "groups": [
+      {
+        "category": "Track events",
+        "words": [
+          "marathon",
+          "hurdles",
+          "relay",
+          "sprint"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Pastel colors",
+        "words": [
+          "blush",
+          "lavender",
+          "seafoam",
+          "peach"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Farm animals",
+        "words": [
+          "pig",
+          "sheep",
+          "cow",
+          "goat"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Mexican dishes",
+        "words": [
+          "burrito",
+          "taco",
+          "enchilada",
+          "tamale"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-025",
+    "groups": [
+      {
+        "category": "Shades of red",
+        "words": [
+          "crimson",
+          "cherry",
+          "scarlet",
+          "ruby"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Ocean mammals",
+        "words": [
+          "otter",
+          "whale",
+          "dolphin",
+          "seal"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Sweet treats",
+        "words": [
+          "brownie",
+          "cake",
+          "donut",
+          "cookie"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Indian instruments",
+        "words": [
+          "tabla",
+          "sarangi",
+          "bansuri",
+          "sitar"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-026",
+    "groups": [
+      {
+        "category": "Birds of prey",
+        "words": [
+          "falcon",
+          "eagle",
+          "hawk",
+          "owl"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Vegetables",
+        "words": [
+          "carrot",
+          "broccoli",
+          "spinach",
+          "pepper"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Electronic instruments",
+        "words": [
+          "sequencer",
+          "sampler",
+          "theremin",
+          "synthesizer"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Team sports",
+        "words": [
+          "soccer",
+          "volleyball",
+          "basketball",
+          "rugby"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-027",
+    "groups": [
+      {
+        "category": "Cheeses",
+        "words": [
+          "brie",
+          "parmesan",
+          "cheddar",
+          "gouda"
+        ],
+        "level": 1
+      },
+      {
+        "category": "String instruments",
+        "words": [
+          "violin",
+          "cello",
+          "guitar",
+          "banjo"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Winter sports",
+        "words": [
+          "skiing",
+          "snowboarding",
+          "curling",
+          "bobsled"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Shades of purple",
+        "words": [
+          "plum",
+          "mauve",
+          "violet",
+          "lilac"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-028",
+    "groups": [
+      {
+        "category": "Woodwinds",
+        "words": [
+          "bassoon",
+          "clarinet",
+          "flute",
+          "oboe"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Water sports",
+        "words": [
+          "kayaking",
+          "swimming",
+          "diving",
+          "surfing"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Neutral tones",
+        "words": [
+          "taupe",
+          "beige",
+          "ivory",
+          "charcoal"
+        ],
+        "level": 3
+      },
+      {
+        "category": "African animals",
+        "words": [
+          "zebra",
+          "rhino",
+          "giraffe",
+          "hippo"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-029",
+    "groups": [
+      {
+        "category": "Racket sports",
+        "words": [
+          "badminton",
+          "pickleball",
+          "squash",
+          "tennis"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Metallic colors",
+        "words": [
+          "brass",
+          "bronze",
+          "silver",
+          "copper"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Big cats",
+        "words": [
+          "jaguar",
+          "lion",
+          "leopard",
+          "tiger"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Italian dishes",
+        "words": [
+          "lasagna",
+          "pasta",
+          "pizza",
+          "risotto"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-030",
+    "groups": [
+      {
+        "category": "Pastel colors",
+        "words": [
+          "blush",
+          "seafoam",
+          "lavender",
+          "peach"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Farm animals",
+        "words": [
+          "goat",
+          "cow",
+          "sheep",
+          "pig"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Mexican dishes",
+        "words": [
+          "enchilada",
+          "tamale",
+          "taco",
+          "burrito"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Folk instruments",
+        "words": [
+          "ukulele",
+          "bagpipes",
+          "mandolin",
+          "harmonica"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-031",
+    "groups": [
+      {
+        "category": "Ocean mammals",
+        "words": [
+          "whale",
+          "otter",
+          "seal",
+          "dolphin"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Sweet treats",
+        "words": [
+          "cake",
+          "cookie",
+          "brownie",
+          "donut"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Indian instruments",
+        "words": [
+          "sitar",
+          "bansuri",
+          "sarangi",
+          "tabla"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Olympic sports",
+        "words": [
+          "archery",
+          "judo",
+          "fencing",
+          "rowing"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-032",
+    "groups": [
+      {
+        "category": "Vegetables",
+        "words": [
+          "pepper",
+          "carrot",
+          "spinach",
+          "broccoli"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Electronic instruments",
+        "words": [
+          "sequencer",
+          "sampler",
+          "theremin",
+          "synthesizer"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Team sports",
+        "words": [
+          "volleyball",
+          "soccer",
+          "rugby",
+          "basketball"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Shades of yellow",
+        "words": [
+          "gold",
+          "amber",
+          "lemon",
+          "mustard"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-033",
+    "groups": [
+      {
+        "category": "String instruments",
+        "words": [
+          "violin",
+          "cello",
+          "guitar",
+          "banjo"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Winter sports",
+        "words": [
+          "snowboarding",
+          "skiing",
+          "curling",
+          "bobsled"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Shades of purple",
+        "words": [
+          "mauve",
+          "violet",
+          "lilac",
+          "plum"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Pets",
+        "words": [
+          "dog",
+          "cat",
+          "rabbit",
+          "hamster"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-034",
+    "groups": [
+      {
+        "category": "Water sports",
+        "words": [
+          "surfing",
+          "swimming",
+          "kayaking",
+          "diving"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Neutral tones",
+        "words": [
+          "taupe",
+          "ivory",
+          "charcoal",
+          "beige"
+        ],
+        "level": 2
+      },
+      {
+        "category": "African animals",
+        "words": [
+          "giraffe",
+          "zebra",
+          "rhino",
+          "hippo"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Breakfast foods",
+        "words": [
+          "omelet",
+          "pancake",
+          "cereal",
+          "toast"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-035",
+    "groups": [
+      {
+        "category": "Metallic colors",
+        "words": [
+          "bronze",
+          "copper",
+          "silver",
+          "brass"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Big cats",
+        "words": [
+          "lion",
+          "leopard",
+          "tiger",
+          "jaguar"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Italian dishes",
+        "words": [
+          "pasta",
+          "pizza",
+          "risotto",
+          "lasagna"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Keyboards",
+        "words": [
+          "piano",
+          "organ",
+          "synth",
+          "accordion"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-036",
+    "groups": [
+      {
+        "category": "Farm animals",
+        "words": [
+          "cow",
+          "pig",
+          "sheep",
+          "goat"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Mexican dishes",
+        "words": [
+          "burrito",
+          "enchilada",
+          "taco",
+          "tamale"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Folk instruments",
+        "words": [
+          "harmonica",
+          "mandolin",
+          "ukulele",
+          "bagpipes"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Board games",
+        "words": [
+          "backgammon",
+          "chess",
+          "dominoes",
+          "checkers"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-037",
+    "groups": [
+      {
+        "category": "Sweet treats",
+        "words": [
+          "cookie",
+          "brownie",
+          "cake",
+          "donut"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Indian instruments",
+        "words": [
+          "bansuri",
+          "sitar",
+          "sarangi",
+          "tabla"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Olympic sports",
+        "words": [
+          "archery",
+          "fencing",
+          "judo",
+          "rowing"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Shades of green",
+        "words": [
+          "olive",
+          "mint",
+          "emerald",
+          "jade"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-038",
+    "groups": [
+      {
+        "category": "Electronic instruments",
+        "words": [
+          "synthesizer",
+          "sampler",
+          "sequencer",
+          "theremin"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Team sports",
+        "words": [
+          "basketball",
+          "volleyball",
+          "soccer",
+          "rugby"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Shades of yellow",
+        "words": [
+          "mustard",
+          "gold",
+          "lemon",
+          "amber"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Insects",
+        "words": [
+          "bee",
+          "moth",
+          "ant",
+          "beetle"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-039",
+    "groups": [
+      {
+        "category": "Winter sports",
+        "words": [
+          "curling",
+          "skiing",
+          "snowboarding",
+          "bobsled"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Shades of purple",
+        "words": [
+          "plum",
+          "lilac",
+          "violet",
+          "mauve"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Pets",
+        "words": [
+          "hamster",
+          "rabbit",
+          "dog",
+          "cat"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Citrus fruits",
+        "words": [
+          "grapefruit",
+          "lemon",
+          "lime",
+          "orange"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-040",
+    "groups": [
+      {
+        "category": "Neutral tones",
+        "words": [
+          "charcoal",
+          "taupe",
+          "beige",
+          "ivory"
+        ],
+        "level": 1
+      },
+      {
+        "category": "African animals",
+        "words": [
+          "zebra",
+          "giraffe",
+          "hippo",
+          "rhino"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Breakfast foods",
+        "words": [
+          "pancake",
+          "omelet",
+          "cereal",
+          "toast"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Percussion",
+        "words": [
+          "drum",
+          "xylophone",
+          "tambourine",
+          "cymbal"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-041",
+    "groups": [
+      {
+        "category": "Big cats",
+        "words": [
+          "leopard",
+          "tiger",
+          "lion",
+          "jaguar"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Italian dishes",
+        "words": [
+          "pasta",
+          "risotto",
+          "lasagna",
+          "pizza"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Keyboards",
+        "words": [
+          "accordion",
+          "organ",
+          "piano",
+          "synth"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Martial arts",
+        "words": [
+          "taekwondo",
+          "boxing",
+          "aikido",
+          "karate"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-042",
+    "groups": [
+      {
+        "category": "Mexican dishes",
+        "words": [
+          "tamale",
+          "enchilada",
+          "burrito",
+          "taco"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Folk instruments",
+        "words": [
+          "harmonica",
+          "bagpipes",
+          "mandolin",
+          "ukulele"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Board games",
+        "words": [
+          "checkers",
+          "dominoes",
+          "chess",
+          "backgammon"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Shades of blue",
+        "words": [
+          "cobalt",
+          "navy",
+          "azure",
+          "indigo"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-043",
+    "groups": [
+      {
+        "category": "Indian instruments",
+        "words": [
+          "bansuri",
+          "sarangi",
+          "tabla",
+          "sitar"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Olympic sports",
+        "words": [
+          "fencing",
+          "judo",
+          "archery",
+          "rowing"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Shades of green",
+        "words": [
+          "emerald",
+          "olive",
+          "jade",
+          "mint"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Reptiles",
+        "words": [
+          "lizard",
+          "crocodile",
+          "snake",
+          "turtle"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-044",
+    "groups": [
+      {
+        "category": "Team sports",
+        "words": [
+          "rugby",
+          "volleyball",
+          "soccer",
+          "basketball"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Shades of yellow",
+        "words": [
+          "lemon",
+          "mustard",
+          "amber",
+          "gold"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Insects",
+        "words": [
+          "beetle",
+          "bee",
+          "ant",
+          "moth"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Street foods",
+        "words": [
+          "kebab",
+          "hotdog",
+          "pretzel",
+          "nachos"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-045",
+    "groups": [
+      {
+        "category": "Shades of purple",
+        "words": [
+          "violet",
+          "lilac",
+          "plum",
+          "mauve"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Pets",
+        "words": [
+          "dog",
+          "hamster",
+          "cat",
+          "rabbit"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Citrus fruits",
+        "words": [
+          "lemon",
+          "lime",
+          "orange",
+          "grapefruit"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Brass instruments",
+        "words": [
+          "tuba",
+          "horn",
+          "trombone",
+          "trumpet"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-046",
+    "groups": [
+      {
+        "category": "African animals",
+        "words": [
+          "giraffe",
+          "zebra",
+          "hippo",
+          "rhino"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Breakfast foods",
+        "words": [
+          "omelet",
+          "toast",
+          "cereal",
+          "pancake"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Percussion",
+        "words": [
+          "xylophone",
+          "cymbal",
+          "drum",
+          "tambourine"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Track events",
+        "words": [
+          "hurdles",
+          "sprint",
+          "marathon",
+          "relay"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-047",
+    "groups": [
+      {
+        "category": "Italian dishes",
+        "words": [
+          "lasagna",
+          "pizza",
+          "risotto",
+          "pasta"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Keyboards",
+        "words": [
+          "synth",
+          "piano",
+          "organ",
+          "accordion"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Martial arts",
+        "words": [
+          "taekwondo",
+          "boxing",
+          "aikido",
+          "karate"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Shades of red",
+        "words": [
+          "cherry",
+          "ruby",
+          "crimson",
+          "scarlet"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-048",
+    "groups": [
+      {
+        "category": "Folk instruments",
+        "words": [
+          "harmonica",
+          "mandolin",
+          "bagpipes",
+          "ukulele"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Board games",
+        "words": [
+          "chess",
+          "checkers",
+          "dominoes",
+          "backgammon"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Shades of blue",
+        "words": [
+          "cobalt",
+          "indigo",
+          "navy",
+          "azure"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Birds of prey",
+        "words": [
+          "falcon",
+          "eagle",
+          "hawk",
+          "owl"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-049",
+    "groups": [
+      {
+        "category": "Olympic sports",
+        "words": [
+          "archery",
+          "rowing",
+          "fencing",
+          "judo"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Shades of green",
+        "words": [
+          "mint",
+          "jade",
+          "olive",
+          "emerald"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Reptiles",
+        "words": [
+          "lizard",
+          "turtle",
+          "snake",
+          "crocodile"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Cheeses",
+        "words": [
+          "brie",
+          "parmesan",
+          "gouda",
+          "cheddar"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-050",
+    "groups": [
+      {
+        "category": "Shades of yellow",
+        "words": [
+          "mustard",
+          "amber",
+          "lemon",
+          "gold"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Insects",
+        "words": [
+          "bee",
+          "moth",
+          "ant",
+          "beetle"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Street foods",
+        "words": [
+          "hotdog",
+          "nachos",
+          "pretzel",
+          "kebab"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Woodwinds",
+        "words": [
+          "bassoon",
+          "oboe",
+          "clarinet",
+          "flute"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-051",
+    "groups": [
+      {
+        "category": "Pets",
+        "words": [
+          "cat",
+          "rabbit",
+          "hamster",
+          "dog"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Citrus fruits",
+        "words": [
+          "grapefruit",
+          "lime",
+          "orange",
+          "lemon"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Brass instruments",
+        "words": [
+          "tuba",
+          "trombone",
+          "horn",
+          "trumpet"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Racket sports",
+        "words": [
+          "tennis",
+          "squash",
+          "badminton",
+          "pickleball"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-052",
+    "groups": [
+      {
+        "category": "Breakfast foods",
+        "words": [
+          "cereal",
+          "toast",
+          "pancake",
+          "omelet"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Percussion",
+        "words": [
+          "drum",
+          "tambourine",
+          "cymbal",
+          "xylophone"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Track events",
+        "words": [
+          "relay",
+          "hurdles",
+          "marathon",
+          "sprint"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Pastel colors",
+        "words": [
+          "peach",
+          "seafoam",
+          "blush",
+          "lavender"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-053",
+    "groups": [
+      {
+        "category": "Keyboards",
+        "words": [
+          "synth",
+          "organ",
+          "accordion",
+          "piano"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Martial arts",
+        "words": [
+          "taekwondo",
+          "boxing",
+          "aikido",
+          "karate"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Shades of red",
+        "words": [
+          "scarlet",
+          "crimson",
+          "ruby",
+          "cherry"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Ocean mammals",
+        "words": [
+          "dolphin",
+          "otter",
+          "seal",
+          "whale"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-054",
+    "groups": [
+      {
+        "category": "Board games",
+        "words": [
+          "backgammon",
+          "dominoes",
+          "checkers",
+          "chess"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Shades of blue",
+        "words": [
+          "cobalt",
+          "navy",
+          "indigo",
+          "azure"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Birds of prey",
+        "words": [
+          "falcon",
+          "owl",
+          "eagle",
+          "hawk"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Vegetables",
+        "words": [
+          "carrot",
+          "broccoli",
+          "pepper",
+          "spinach"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-055",
+    "groups": [
+      {
+        "category": "Shades of green",
+        "words": [
+          "jade",
+          "olive",
+          "emerald",
+          "mint"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Reptiles",
+        "words": [
+          "snake",
+          "crocodile",
+          "lizard",
+          "turtle"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Cheeses",
+        "words": [
+          "gouda",
+          "cheddar",
+          "brie",
+          "parmesan"
+        ],
+        "level": 3
+      },
+      {
+        "category": "String instruments",
+        "words": [
+          "banjo",
+          "guitar",
+          "cello",
+          "violin"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-056",
+    "groups": [
+      {
+        "category": "Insects",
+        "words": [
+          "beetle",
+          "bee",
+          "moth",
+          "ant"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Street foods",
+        "words": [
+          "hotdog",
+          "nachos",
+          "pretzel",
+          "kebab"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Woodwinds",
+        "words": [
+          "bassoon",
+          "flute",
+          "oboe",
+          "clarinet"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Water sports",
+        "words": [
+          "surfing",
+          "kayaking",
+          "diving",
+          "swimming"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-057",
+    "groups": [
+      {
+        "category": "Citrus fruits",
+        "words": [
+          "lime",
+          "grapefruit",
+          "orange",
+          "lemon"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Brass instruments",
+        "words": [
+          "tuba",
+          "trombone",
+          "trumpet",
+          "horn"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Racket sports",
+        "words": [
+          "squash",
+          "pickleball",
+          "tennis",
+          "badminton"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Metallic colors",
+        "words": [
+          "bronze",
+          "copper",
+          "silver",
+          "brass"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-058",
+    "groups": [
+      {
+        "category": "Percussion",
+        "words": [
+          "cymbal",
+          "tambourine",
+          "xylophone",
+          "drum"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Track events",
+        "words": [
+          "relay",
+          "marathon",
+          "hurdles",
+          "sprint"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Pastel colors",
+        "words": [
+          "seafoam",
+          "peach",
+          "lavender",
+          "blush"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Farm animals",
+        "words": [
+          "goat",
+          "sheep",
+          "pig",
+          "cow"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-059",
+    "groups": [
+      {
+        "category": "Martial arts",
+        "words": [
+          "taekwondo",
+          "karate",
+          "boxing",
+          "aikido"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Shades of red",
+        "words": [
+          "cherry",
+          "crimson",
+          "scarlet",
+          "ruby"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Ocean mammals",
+        "words": [
+          "seal",
+          "otter",
+          "whale",
+          "dolphin"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Sweet treats",
+        "words": [
+          "cake",
+          "brownie",
+          "cookie",
+          "donut"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-060",
+    "groups": [
+      {
+        "category": "Shades of blue",
+        "words": [
+          "cobalt",
+          "azure",
+          "indigo",
+          "navy"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Birds of prey",
+        "words": [
+          "owl",
+          "falcon",
+          "hawk",
+          "eagle"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Vegetables",
+        "words": [
+          "carrot",
+          "broccoli",
+          "spinach",
+          "pepper"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Electronic instruments",
+        "words": [
+          "sampler",
+          "synthesizer",
+          "theremin",
+          "sequencer"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-061",
+    "groups": [
+      {
+        "category": "Reptiles",
+        "words": [
+          "crocodile",
+          "snake",
+          "turtle",
+          "lizard"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Cheeses",
+        "words": [
+          "parmesan",
+          "gouda",
+          "brie",
+          "cheddar"
+        ],
+        "level": 2
+      },
+      {
+        "category": "String instruments",
+        "words": [
+          "violin",
+          "banjo",
+          "cello",
+          "guitar"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Winter sports",
+        "words": [
+          "bobsled",
+          "snowboarding",
+          "skiing",
+          "curling"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-062",
+    "groups": [
+      {
+        "category": "Street foods",
+        "words": [
+          "pretzel",
+          "nachos",
+          "hotdog",
+          "kebab"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Woodwinds",
+        "words": [
+          "clarinet",
+          "bassoon",
+          "flute",
+          "oboe"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Water sports",
+        "words": [
+          "kayaking",
+          "surfing",
+          "diving",
+          "swimming"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Neutral tones",
+        "words": [
+          "ivory",
+          "taupe",
+          "charcoal",
+          "beige"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-063",
+    "groups": [
+      {
+        "category": "Brass instruments",
+        "words": [
+          "tuba",
+          "trumpet",
+          "trombone",
+          "horn"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Racket sports",
+        "words": [
+          "badminton",
+          "squash",
+          "pickleball",
+          "tennis"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Metallic colors",
+        "words": [
+          "silver",
+          "bronze",
+          "copper",
+          "brass"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Big cats",
+        "words": [
+          "jaguar",
+          "lion",
+          "tiger",
+          "leopard"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-064",
+    "groups": [
+      {
+        "category": "Track events",
+        "words": [
+          "marathon",
+          "hurdles",
+          "relay",
+          "sprint"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Pastel colors",
+        "words": [
+          "seafoam",
+          "blush",
+          "lavender",
+          "peach"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Farm animals",
+        "words": [
+          "pig",
+          "sheep",
+          "cow",
+          "goat"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Mexican dishes",
+        "words": [
+          "burrito",
+          "enchilada",
+          "tamale",
+          "taco"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-065",
+    "groups": [
+      {
+        "category": "Shades of red",
+        "words": [
+          "crimson",
+          "scarlet",
+          "ruby",
+          "cherry"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Ocean mammals",
+        "words": [
+          "otter",
+          "dolphin",
+          "whale",
+          "seal"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Sweet treats",
+        "words": [
+          "donut",
+          "brownie",
+          "cake",
+          "cookie"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Indian instruments",
+        "words": [
+          "sitar",
+          "bansuri",
+          "tabla",
+          "sarangi"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-066",
+    "groups": [
+      {
+        "category": "Birds of prey",
+        "words": [
+          "owl",
+          "falcon",
+          "hawk",
+          "eagle"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Vegetables",
+        "words": [
+          "spinach",
+          "broccoli",
+          "carrot",
+          "pepper"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Electronic instruments",
+        "words": [
+          "sequencer",
+          "sampler",
+          "synthesizer",
+          "theremin"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Team sports",
+        "words": [
+          "rugby",
+          "basketball",
+          "volleyball",
+          "soccer"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-067",
+    "groups": [
+      {
+        "category": "Cheeses",
+        "words": [
+          "brie",
+          "gouda",
+          "cheddar",
+          "parmesan"
+        ],
+        "level": 1
+      },
+      {
+        "category": "String instruments",
+        "words": [
+          "banjo",
+          "cello",
+          "guitar",
+          "violin"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Winter sports",
+        "words": [
+          "bobsled",
+          "curling",
+          "snowboarding",
+          "skiing"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Shades of purple",
+        "words": [
+          "lilac",
+          "mauve",
+          "plum",
+          "violet"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-068",
+    "groups": [
+      {
+        "category": "Woodwinds",
+        "words": [
+          "oboe",
+          "bassoon",
+          "flute",
+          "clarinet"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Water sports",
+        "words": [
+          "surfing",
+          "swimming",
+          "kayaking",
+          "diving"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Neutral tones",
+        "words": [
+          "charcoal",
+          "beige",
+          "ivory",
+          "taupe"
+        ],
+        "level": 3
+      },
+      {
+        "category": "African animals",
+        "words": [
+          "zebra",
+          "giraffe",
+          "rhino",
+          "hippo"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-069",
+    "groups": [
+      {
+        "category": "Racket sports",
+        "words": [
+          "pickleball",
+          "badminton",
+          "squash",
+          "tennis"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Metallic colors",
+        "words": [
+          "brass",
+          "bronze",
+          "silver",
+          "copper"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Big cats",
+        "words": [
+          "tiger",
+          "lion",
+          "leopard",
+          "jaguar"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Italian dishes",
+        "words": [
+          "pasta",
+          "pizza",
+          "risotto",
+          "lasagna"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-070",
+    "groups": [
+      {
+        "category": "Pastel colors",
+        "words": [
+          "seafoam",
+          "peach",
+          "lavender",
+          "blush"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Farm animals",
+        "words": [
+          "sheep",
+          "pig",
+          "goat",
+          "cow"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Mexican dishes",
+        "words": [
+          "taco",
+          "tamale",
+          "burrito",
+          "enchilada"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Folk instruments",
+        "words": [
+          "bagpipes",
+          "harmonica",
+          "ukulele",
+          "mandolin"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-071",
+    "groups": [
+      {
+        "category": "Ocean mammals",
+        "words": [
+          "otter",
+          "dolphin",
+          "seal",
+          "whale"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Sweet treats",
+        "words": [
+          "brownie",
+          "cake",
+          "cookie",
+          "donut"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Indian instruments",
+        "words": [
+          "sarangi",
+          "sitar",
+          "tabla",
+          "bansuri"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Olympic sports",
+        "words": [
+          "archery",
+          "judo",
+          "rowing",
+          "fencing"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-072",
+    "groups": [
+      {
+        "category": "Vegetables",
+        "words": [
+          "broccoli",
+          "spinach",
+          "pepper",
+          "carrot"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Electronic instruments",
+        "words": [
+          "synthesizer",
+          "theremin",
+          "sequencer",
+          "sampler"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Team sports",
+        "words": [
+          "soccer",
+          "volleyball",
+          "rugby",
+          "basketball"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Shades of yellow",
+        "words": [
+          "mustard",
+          "lemon",
+          "gold",
+          "amber"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-073",
+    "groups": [
+      {
+        "category": "String instruments",
+        "words": [
+          "banjo",
+          "violin",
+          "guitar",
+          "cello"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Winter sports",
+        "words": [
+          "snowboarding",
+          "bobsled",
+          "skiing",
+          "curling"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Shades of purple",
+        "words": [
+          "mauve",
+          "violet",
+          "lilac",
+          "plum"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Pets",
+        "words": [
+          "hamster",
+          "dog",
+          "rabbit",
+          "cat"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-074",
+    "groups": [
+      {
+        "category": "Water sports",
+        "words": [
+          "kayaking",
+          "diving",
+          "surfing",
+          "swimming"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Neutral tones",
+        "words": [
+          "taupe",
+          "ivory",
+          "charcoal",
+          "beige"
+        ],
+        "level": 2
+      },
+      {
+        "category": "African animals",
+        "words": [
+          "hippo",
+          "giraffe",
+          "rhino",
+          "zebra"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Breakfast foods",
+        "words": [
+          "cereal",
+          "toast",
+          "omelet",
+          "pancake"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-075",
+    "groups": [
+      {
+        "category": "Metallic colors",
+        "words": [
+          "brass",
+          "silver",
+          "copper",
+          "bronze"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Big cats",
+        "words": [
+          "leopard",
+          "tiger",
+          "lion",
+          "jaguar"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Italian dishes",
+        "words": [
+          "pasta",
+          "pizza",
+          "lasagna",
+          "risotto"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Keyboards",
+        "words": [
+          "organ",
+          "piano",
+          "accordion",
+          "synth"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-076",
+    "groups": [
+      {
+        "category": "Farm animals",
+        "words": [
+          "goat",
+          "cow",
+          "pig",
+          "sheep"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Mexican dishes",
+        "words": [
+          "taco",
+          "burrito",
+          "enchilada",
+          "tamale"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Folk instruments",
+        "words": [
+          "ukulele",
+          "harmonica",
+          "bagpipes",
+          "mandolin"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Board games",
+        "words": [
+          "dominoes",
+          "chess",
+          "backgammon",
+          "checkers"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-077",
+    "groups": [
+      {
+        "category": "Sweet treats",
+        "words": [
+          "brownie",
+          "cake",
+          "donut",
+          "cookie"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Indian instruments",
+        "words": [
+          "bansuri",
+          "tabla",
+          "sarangi",
+          "sitar"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Olympic sports",
+        "words": [
+          "fencing",
+          "rowing",
+          "archery",
+          "judo"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Shades of green",
+        "words": [
+          "olive",
+          "emerald",
+          "jade",
+          "mint"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-078",
+    "groups": [
+      {
+        "category": "Electronic instruments",
+        "words": [
+          "theremin",
+          "sampler",
+          "synthesizer",
+          "sequencer"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Team sports",
+        "words": [
+          "soccer",
+          "basketball",
+          "volleyball",
+          "rugby"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Shades of yellow",
+        "words": [
+          "amber",
+          "gold",
+          "lemon",
+          "mustard"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Insects",
+        "words": [
+          "beetle",
+          "moth",
+          "ant",
+          "bee"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-079",
+    "groups": [
+      {
+        "category": "Winter sports",
+        "words": [
+          "curling",
+          "bobsled",
+          "snowboarding",
+          "skiing"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Shades of purple",
+        "words": [
+          "mauve",
+          "violet",
+          "lilac",
+          "plum"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Pets",
+        "words": [
+          "rabbit",
+          "cat",
+          "dog",
+          "hamster"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Citrus fruits",
+        "words": [
+          "grapefruit",
+          "lime",
+          "orange",
+          "lemon"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-080",
+    "groups": [
+      {
+        "category": "Neutral tones",
+        "words": [
+          "taupe",
+          "beige",
+          "ivory",
+          "charcoal"
+        ],
+        "level": 1
+      },
+      {
+        "category": "African animals",
+        "words": [
+          "rhino",
+          "hippo",
+          "giraffe",
+          "zebra"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Breakfast foods",
+        "words": [
+          "cereal",
+          "toast",
+          "omelet",
+          "pancake"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Percussion",
+        "words": [
+          "xylophone",
+          "tambourine",
+          "drum",
+          "cymbal"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-081",
+    "groups": [
+      {
+        "category": "Big cats",
+        "words": [
+          "jaguar",
+          "leopard",
+          "tiger",
+          "lion"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Italian dishes",
+        "words": [
+          "pizza",
+          "pasta",
+          "lasagna",
+          "risotto"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Keyboards",
+        "words": [
+          "accordion",
+          "piano",
+          "synth",
+          "organ"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Martial arts",
+        "words": [
+          "karate",
+          "taekwondo",
+          "aikido",
+          "boxing"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-082",
+    "groups": [
+      {
+        "category": "Mexican dishes",
+        "words": [
+          "tamale",
+          "enchilada",
+          "taco",
+          "burrito"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Folk instruments",
+        "words": [
+          "harmonica",
+          "bagpipes",
+          "ukulele",
+          "mandolin"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Board games",
+        "words": [
+          "dominoes",
+          "checkers",
+          "chess",
+          "backgammon"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Shades of blue",
+        "words": [
+          "azure",
+          "indigo",
+          "cobalt",
+          "navy"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-083",
+    "groups": [
+      {
+        "category": "Indian instruments",
+        "words": [
+          "sarangi",
+          "sitar",
+          "tabla",
+          "bansuri"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Olympic sports",
+        "words": [
+          "fencing",
+          "archery",
+          "judo",
+          "rowing"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Shades of green",
+        "words": [
+          "mint",
+          "olive",
+          "jade",
+          "emerald"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Reptiles",
+        "words": [
+          "snake",
+          "turtle",
+          "lizard",
+          "crocodile"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-084",
+    "groups": [
+      {
+        "category": "Team sports",
+        "words": [
+          "soccer",
+          "basketball",
+          "rugby",
+          "volleyball"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Shades of yellow",
+        "words": [
+          "amber",
+          "mustard",
+          "lemon",
+          "gold"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Insects",
+        "words": [
+          "ant",
+          "bee",
+          "moth",
+          "beetle"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Street foods",
+        "words": [
+          "kebab",
+          "nachos",
+          "hotdog",
+          "pretzel"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-085",
+    "groups": [
+      {
+        "category": "Shades of purple",
+        "words": [
+          "plum",
+          "violet",
+          "lilac",
+          "mauve"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Pets",
+        "words": [
+          "cat",
+          "rabbit",
+          "dog",
+          "hamster"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Citrus fruits",
+        "words": [
+          "orange",
+          "lemon",
+          "lime",
+          "grapefruit"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Brass instruments",
+        "words": [
+          "tuba",
+          "trumpet",
+          "horn",
+          "trombone"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-086",
+    "groups": [
+      {
+        "category": "African animals",
+        "words": [
+          "rhino",
+          "zebra",
+          "giraffe",
+          "hippo"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Breakfast foods",
+        "words": [
+          "omelet",
+          "cereal",
+          "pancake",
+          "toast"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Percussion",
+        "words": [
+          "cymbal",
+          "tambourine",
+          "drum",
+          "xylophone"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Track events",
+        "words": [
+          "hurdles",
+          "relay",
+          "marathon",
+          "sprint"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-087",
+    "groups": [
+      {
+        "category": "Italian dishes",
+        "words": [
+          "risotto",
+          "pizza",
+          "pasta",
+          "lasagna"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Keyboards",
+        "words": [
+          "piano",
+          "synth",
+          "accordion",
+          "organ"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Martial arts",
+        "words": [
+          "karate",
+          "aikido",
+          "boxing",
+          "taekwondo"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Shades of red",
+        "words": [
+          "crimson",
+          "cherry",
+          "ruby",
+          "scarlet"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-088",
+    "groups": [
+      {
+        "category": "Folk instruments",
+        "words": [
+          "ukulele",
+          "mandolin",
+          "bagpipes",
+          "harmonica"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Board games",
+        "words": [
+          "backgammon",
+          "dominoes",
+          "checkers",
+          "chess"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Shades of blue",
+        "words": [
+          "indigo",
+          "azure",
+          "cobalt",
+          "navy"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Birds of prey",
+        "words": [
+          "owl",
+          "eagle",
+          "hawk",
+          "falcon"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-089",
+    "groups": [
+      {
+        "category": "Olympic sports",
+        "words": [
+          "judo",
+          "rowing",
+          "fencing",
+          "archery"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Shades of green",
+        "words": [
+          "olive",
+          "mint",
+          "jade",
+          "emerald"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Reptiles",
+        "words": [
+          "turtle",
+          "lizard",
+          "snake",
+          "crocodile"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Cheeses",
+        "words": [
+          "gouda",
+          "brie",
+          "parmesan",
+          "cheddar"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-090",
+    "groups": [
+      {
+        "category": "Shades of yellow",
+        "words": [
+          "gold",
+          "mustard",
+          "lemon",
+          "amber"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Insects",
+        "words": [
+          "ant",
+          "moth",
+          "bee",
+          "beetle"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Street foods",
+        "words": [
+          "nachos",
+          "pretzel",
+          "hotdog",
+          "kebab"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Woodwinds",
+        "words": [
+          "bassoon",
+          "flute",
+          "oboe",
+          "clarinet"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-091",
+    "groups": [
+      {
+        "category": "Pets",
+        "words": [
+          "dog",
+          "cat",
+          "hamster",
+          "rabbit"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Citrus fruits",
+        "words": [
+          "lemon",
+          "lime",
+          "grapefruit",
+          "orange"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Brass instruments",
+        "words": [
+          "horn",
+          "trombone",
+          "tuba",
+          "trumpet"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Racket sports",
+        "words": [
+          "badminton",
+          "tennis",
+          "squash",
+          "pickleball"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-092",
+    "groups": [
+      {
+        "category": "Breakfast foods",
+        "words": [
+          "omelet",
+          "pancake",
+          "cereal",
+          "toast"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Percussion",
+        "words": [
+          "drum",
+          "cymbal",
+          "xylophone",
+          "tambourine"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Track events",
+        "words": [
+          "sprint",
+          "marathon",
+          "hurdles",
+          "relay"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Pastel colors",
+        "words": [
+          "peach",
+          "lavender",
+          "seafoam",
+          "blush"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-093",
+    "groups": [
+      {
+        "category": "Keyboards",
+        "words": [
+          "piano",
+          "synth",
+          "organ",
+          "accordion"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Martial arts",
+        "words": [
+          "aikido",
+          "karate",
+          "taekwondo",
+          "boxing"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Shades of red",
+        "words": [
+          "ruby",
+          "cherry",
+          "crimson",
+          "scarlet"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Ocean mammals",
+        "words": [
+          "seal",
+          "otter",
+          "whale",
+          "dolphin"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-094",
+    "groups": [
+      {
+        "category": "Board games",
+        "words": [
+          "backgammon",
+          "dominoes",
+          "checkers",
+          "chess"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Shades of blue",
+        "words": [
+          "navy",
+          "indigo",
+          "azure",
+          "cobalt"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Birds of prey",
+        "words": [
+          "eagle",
+          "falcon",
+          "owl",
+          "hawk"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Vegetables",
+        "words": [
+          "pepper",
+          "carrot",
+          "broccoli",
+          "spinach"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-095",
+    "groups": [
+      {
+        "category": "Shades of green",
+        "words": [
+          "jade",
+          "emerald",
+          "mint",
+          "olive"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Reptiles",
+        "words": [
+          "turtle",
+          "crocodile",
+          "lizard",
+          "snake"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Cheeses",
+        "words": [
+          "cheddar",
+          "parmesan",
+          "gouda",
+          "brie"
+        ],
+        "level": 3
+      },
+      {
+        "category": "String instruments",
+        "words": [
+          "violin",
+          "cello",
+          "guitar",
+          "banjo"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-096",
+    "groups": [
+      {
+        "category": "Insects",
+        "words": [
+          "moth",
+          "bee",
+          "ant",
+          "beetle"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Street foods",
+        "words": [
+          "nachos",
+          "pretzel",
+          "kebab",
+          "hotdog"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Woodwinds",
+        "words": [
+          "bassoon",
+          "flute",
+          "clarinet",
+          "oboe"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Water sports",
+        "words": [
+          "kayaking",
+          "diving",
+          "swimming",
+          "surfing"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-097",
+    "groups": [
+      {
+        "category": "Citrus fruits",
+        "words": [
+          "grapefruit",
+          "orange",
+          "lime",
+          "lemon"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Brass instruments",
+        "words": [
+          "tuba",
+          "horn",
+          "trumpet",
+          "trombone"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Racket sports",
+        "words": [
+          "squash",
+          "badminton",
+          "tennis",
+          "pickleball"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Metallic colors",
+        "words": [
+          "bronze",
+          "silver",
+          "brass",
+          "copper"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-098",
+    "groups": [
+      {
+        "category": "Percussion",
+        "words": [
+          "cymbal",
+          "tambourine",
+          "xylophone",
+          "drum"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Track events",
+        "words": [
+          "hurdles",
+          "sprint",
+          "marathon",
+          "relay"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Pastel colors",
+        "words": [
+          "lavender",
+          "blush",
+          "peach",
+          "seafoam"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Farm animals",
+        "words": [
+          "sheep",
+          "cow",
+          "pig",
+          "goat"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-099",
+    "groups": [
+      {
+        "category": "Martial arts",
+        "words": [
+          "aikido",
+          "karate",
+          "taekwondo",
+          "boxing"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Shades of red",
+        "words": [
+          "scarlet",
+          "crimson",
+          "cherry",
+          "ruby"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Ocean mammals",
+        "words": [
+          "seal",
+          "otter",
+          "dolphin",
+          "whale"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Sweet treats",
+        "words": [
+          "cake",
+          "donut",
+          "brownie",
+          "cookie"
+        ],
+        "level": 4
+      }
+    ]
+  },
+  {
+    "id": "conn-100",
+    "groups": [
+      {
+        "category": "Shades of blue",
+        "words": [
+          "indigo",
+          "cobalt",
+          "navy",
+          "azure"
+        ],
+        "level": 1
+      },
+      {
+        "category": "Birds of prey",
+        "words": [
+          "owl",
+          "hawk",
+          "eagle",
+          "falcon"
+        ],
+        "level": 2
+      },
+      {
+        "category": "Vegetables",
+        "words": [
+          "pepper",
+          "spinach",
+          "carrot",
+          "broccoli"
+        ],
+        "level": 3
+      },
+      {
+        "category": "Electronic instruments",
+        "words": [
+          "synthesizer",
+          "sequencer",
+          "sampler",
+          "theremin"
+        ],
+        "level": 4
+      }
+    ]
+  }
+]
