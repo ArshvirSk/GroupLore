@@ -1,0 +1,275 @@
+[
+  {
+    "id": "blur-sun",
+    "answer": "Sun",
+    "aliases": [
+      "the sun",
+      "sunshine"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/sun-1.svg",
+      "/blur/sun-2.svg",
+      "/blur/sun-3.svg",
+      "/blur/sun-4.svg",
+      "/blur/sun-5.svg",
+      "/blur/sun-6.svg"
+    ],
+    "sharp": "/blur/sun.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-moon",
+    "answer": "Moon",
+    "aliases": [
+      "the moon",
+      "crescent moon"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/moon-1.svg",
+      "/blur/moon-2.svg",
+      "/blur/moon-3.svg",
+      "/blur/moon-4.svg",
+      "/blur/moon-5.svg",
+      "/blur/moon-6.svg"
+    ],
+    "sharp": "/blur/moon.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-star",
+    "answer": "Star",
+    "aliases": [
+      "a star"
+    ],
+    "category": "space",
+    "stages": [
+      "/blur/star-1.svg",
+      "/blur/star-2.svg",
+      "/blur/star-3.svg",
+      "/blur/star-4.svg",
+      "/blur/star-5.svg",
+      "/blur/star-6.svg"
+    ],
+    "sharp": "/blur/star.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-tree",
+    "answer": "Tree",
+    "aliases": [
+      "a tree"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/tree-1.svg",
+      "/blur/tree-2.svg",
+      "/blur/tree-3.svg",
+      "/blur/tree-4.svg",
+      "/blur/tree-5.svg",
+      "/blur/tree-6.svg"
+    ],
+    "sharp": "/blur/tree.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-house",
+    "answer": "House",
+    "aliases": [
+      "home",
+      "a house"
+    ],
+    "category": "places",
+    "stages": [
+      "/blur/house-1.svg",
+      "/blur/house-2.svg",
+      "/blur/house-3.svg",
+      "/blur/house-4.svg",
+      "/blur/house-5.svg",
+      "/blur/house-6.svg"
+    ],
+    "sharp": "/blur/house.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-fish",
+    "answer": "Fish",
+    "aliases": [
+      "a fish"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/fish-1.svg",
+      "/blur/fish-2.svg",
+      "/blur/fish-3.svg",
+      "/blur/fish-4.svg",
+      "/blur/fish-5.svg",
+      "/blur/fish-6.svg"
+    ],
+    "sharp": "/blur/fish.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-boat",
+    "answer": "Boat",
+    "aliases": [
+      "sailboat",
+      "ship"
+    ],
+    "category": "travel",
+    "stages": [
+      "/blur/boat-1.svg",
+      "/blur/boat-2.svg",
+      "/blur/boat-3.svg",
+      "/blur/boat-4.svg",
+      "/blur/boat-5.svg",
+      "/blur/boat-6.svg"
+    ],
+    "sharp": "/blur/boat.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-umbrella",
+    "answer": "Umbrella",
+    "aliases": [
+      "parasol"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/umbrella-1.svg",
+      "/blur/umbrella-2.svg",
+      "/blur/umbrella-3.svg",
+      "/blur/umbrella-4.svg",
+      "/blur/umbrella-5.svg",
+      "/blur/umbrella-6.svg"
+    ],
+    "sharp": "/blur/umbrella.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-apple",
+    "answer": "Apple",
+    "aliases": [
+      "an apple"
+    ],
+    "category": "food",
+    "stages": [
+      "/blur/apple-1.svg",
+      "/blur/apple-2.svg",
+      "/blur/apple-3.svg",
+      "/blur/apple-4.svg",
+      "/blur/apple-5.svg",
+      "/blur/apple-6.svg"
+    ],
+    "sharp": "/blur/apple.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-rocket",
+    "answer": "Rocket",
+    "aliases": [
+      "spaceship",
+      "space rocket"
+    ],
+    "category": "space",
+    "stages": [
+      "/blur/rocket-1.svg",
+      "/blur/rocket-2.svg",
+      "/blur/rocket-3.svg",
+      "/blur/rocket-4.svg",
+      "/blur/rocket-5.svg",
+      "/blur/rocket-6.svg"
+    ],
+    "sharp": "/blur/rocket.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-clock",
+    "answer": "Clock",
+    "aliases": [
+      "wall clock",
+      "timer"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/clock-1.svg",
+      "/blur/clock-2.svg",
+      "/blur/clock-3.svg",
+      "/blur/clock-4.svg",
+      "/blur/clock-5.svg",
+      "/blur/clock-6.svg"
+    ],
+    "sharp": "/blur/clock.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-cat",
+    "answer": "Cat",
+    "aliases": [
+      "kitten",
+      "a cat"
+    ],
+    "category": "animals",
+    "stages": [
+      "/blur/cat-1.svg",
+      "/blur/cat-2.svg",
+      "/blur/cat-3.svg",
+      "/blur/cat-4.svg",
+      "/blur/cat-5.svg",
+      "/blur/cat-6.svg"
+    ],
+    "sharp": "/blur/cat.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-mushroom",
+    "answer": "Mushroom",
+    "aliases": [
+      "toadstool"
+    ],
+    "category": "nature",
+    "stages": [
+      "/blur/mushroom-1.svg",
+      "/blur/mushroom-2.svg",
+      "/blur/mushroom-3.svg",
+      "/blur/mushroom-4.svg",
+      "/blur/mushroom-5.svg",
+      "/blur/mushroom-6.svg"
+    ],
+    "sharp": "/blur/mushroom.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  },
+  {
+    "id": "blur-key",
+    "answer": "Key",
+    "aliases": [
+      "a key"
+    ],
+    "category": "objects",
+    "stages": [
+      "/blur/key-1.svg",
+      "/blur/key-2.svg",
+      "/blur/key-3.svg",
+      "/blur/key-4.svg",
+      "/blur/key-5.svg",
+      "/blur/key-6.svg"
+    ],
+    "sharp": "/blur/key.svg",
+    "license": "self-made",
+    "source": "scripts/build-blur-assets.mjs"
+  }
+]

@@ -36,7 +36,16 @@ export interface CatalogGame {
   tag: string;
   minPlayers: number;
   maxPlayers: number;
+  teams?: { count: number; minPerTeam: number; allowUneven?: boolean } | null;
   modes: CatalogMode[];
+}
+
+export interface RoomTeam {
+  id: string;
+  name: string;
+  color: string;
+  playerIds: string[];
+  score: number;
 }
 
 export interface ScoreEntry {
@@ -70,6 +79,9 @@ export interface RoomView {
     ready: boolean;
   } | null;
   scores: ScoreEntry[];
+  teams: RoomTeam[];
+  teamsLocked: boolean;
+  yourTeamId: string | null;
   result: RoomResult | null;
   game: Record<string, unknown> | null;
   catalog: CatalogGame[];

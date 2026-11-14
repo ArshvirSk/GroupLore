@@ -1,6 +1,14 @@
 import { getGame, listGames } from "../games/index.js";
 import { socketRateLimit } from "../lib/rateLimit.js";
 import { signReconnectToken, verifySignedToken } from "./auth.js";
+import { recordLatency } from "./primitives/latency.js";
+import {
+  autoBalance,
+  removeFromTeams,
+  syncTeams,
+  teamsView,
+  validateTeams,
+} from "./teams.js";
 
 const MAX_EVENT_ID_LENGTH = 64;
 const MAX_SEEN_EVENTS = 50;
@@ -68,12 +76,34 @@ export class GameEngine {
   }
 
   disconnect(connection) {
+    if (connection.latencyTimer) clearInterval(connection.latencyTimer);
+    if (connection.data) connection.data.latencyPings?.clear?.();
     this.connections.delete(connection.id);
     this.onDisconnect(connection);
   }
 
   onConnection(socket) {
     socket.emit("room:hello", { serverNow: Date.now() });
+
+    // Server-measured RTT: the client only echoes an opaque ping id, so a
+    // client cannot improve its reaction time by reporting a fake timestamp.
+    socket.data = socket.data || {};
+    socket.data.latencyPings = new Map();
+    const ping = () => {
+      if (socket.connected === false) return;
+      const id = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+      socket.data.latencyPings.set(id, Date.now());
+      if (socket.data.latencyPings.size > 20) {
+        socket.data.latencyPings.delete(
+          socket.data.latencyPings.keys().next().value,
+        );
+      }
+      socket.emit("latency:ping", { id });
+    };
+    ping();
+    if (socket.latencyTimer) clearInterval(socket.latencyTimer);
+    socket.latencyTimer = setInterval(ping, 15_000);
+    socket.latencyTimer.unref?.();
 
     // Resume an in-progress room after a refresh. The client may also emit
     // room:join explicitly; join is idempotent for the same identity.
@@ -237,6 +267,9 @@ export class GameEngine {
       module: null,
       state: null,
       scores: {},
+      teams: null,
+      teamsLocked: false,
+      latency: {},
       result: null,
       endsAt: null,
       timer: null,
@@ -342,6 +375,15 @@ export class GameEngine {
       graceTimer: null,
     };
     room.players.set(player.id, player);
+    room.latency[player.id] = room.latency[player.id] || [];
+    const selectedGame = room.gameId ? getGame(room.gameId) : null;
+    if (selectedGame?.teams && !room.teams?.length && room.phase === "lobby") {
+      room.teams = autoBalance(
+        [...room.players.keys()],
+        selectedGame.teams.count,
+      );
+    }
+    if (room.teams?.length) syncTeams(room, [...room.players.keys()]);
 
     if (!room.hostId) room.hostId = player.id;
 
@@ -460,6 +502,8 @@ export class GameEngine {
     }
 
     room.players.delete(playerId);
+    removeFromTeams(room, playerId);
+    delete room.latency[playerId];
     room.seen.delete(playerId);
     delete room.scores[playerId];
 
@@ -543,7 +587,71 @@ export class GameEngine {
         }
         room.gameId = game.id;
         room.mode = mode;
+        if (game.teams) {
+          room.teams = autoBalance(
+            [...room.players.keys()],
+            game.teams.count,
+          );
+          room.teamsLocked = false;
+        } else {
+          room.teams = null;
+          room.teamsLocked = false;
+        }
         break;
+      }
+      case "autoBalanceTeams": {
+        this.hostOnly(room, player);
+        this.inPhase(room, "lobby", "Teams are locked once the game starts");
+        const game = getGame(room.gameId);
+        if (!game?.teams) throw failure("no_teams", "This game has no teams");
+        if (room.teamsLocked) throw failure("teams_locked", "Teams are locked");
+        room.teams = autoBalance(
+          [...room.players.keys()],
+          game.teams.count,
+        );
+        break;
+      }
+      case "shuffleTeams": {
+        this.hostOnly(room, player);
+        this.inPhase(room, "lobby", "Teams are locked once the game starts");
+        const game = getGame(room.gameId);
+        if (!game?.teams) throw failure("no_teams", "This game has no teams");
+        if (room.teamsLocked) throw failure("teams_locked", "Teams are locked");
+        room.teams = autoBalance(
+          [...room.players.keys()],
+          game.teams.count,
+        );
+        break;
+      }
+      case "movePlayerTeam": {
+        this.hostOnly(room, player);
+        this.inPhase(room, "lobby", "Teams are locked once the game starts");
+        if (room.teamsLocked) throw failure("teams_locked", "Teams are locked");
+        const targetTeam = (room.teams || []).find(
+          (team) => team.id === data.teamId,
+        );
+        if (!targetTeam) throw failure("team_not_found", "Pick a team first");
+        const targetPlayer = String(data.playerId || "");
+        if (!room.players.has(targetPlayer)) {
+          throw failure("player_not_found", "That player has left");
+        }
+        removeFromTeams(room, targetPlayer);
+        targetTeam.playerIds.push(targetPlayer);
+        break;
+      }
+      case "lockTeams": {
+        this.hostOnly(room, player);
+        this.inPhase(room, "lobby", "Teams are locked once the game starts");
+        room.teamsLocked = Boolean(data.locked);
+        break;
+      }
+      case "latencyPong": {
+        const sentAt = socket.data.latencyPings?.get(data.id);
+        if (sentAt) {
+          socket.data.latencyPings.delete(data.id);
+          recordLatency(room, player.id, Date.now() - sentAt);
+        }
+        return;
       }
       case "start": {
         this.hostOnly(room, player);
@@ -620,6 +728,20 @@ export class GameEngine {
         "players_offline",
         `Waiting for ${offline.map((candidate) => candidate.name).join(", ")}`,
       );
+    }
+
+    if (game.teams) {
+      if (!room.teams?.length) {
+        room.teams = autoBalance(
+          [...room.players.keys()],
+          game.teams.count,
+        );
+      }
+      syncTeams(room, [...room.players.keys()]);
+      const teamCheck = validateTeams(room, game.teams);
+      if (!teamCheck.ok) throw failure("teams_not_ready", teamCheck.message);
+    } else {
+      room.teams = null;
     }
 
     room.phase = "playing";
@@ -831,6 +953,8 @@ export class GameEngine {
         name: player.name,
         score: player.score,
       })),
+      ...teamsView(room),
+      yourTeamId: room.teams?.find((team) => team.playerIds.includes(viewerId))?.id || null,
       result: room.result ? this.publicResult(room) : null,
       game,
       catalog: this.catalog(),
@@ -872,6 +996,7 @@ export class GameEngine {
         name: player.name,
         score: player.score,
       })),
+      ...teamsView(room),
       result: room.result ? this.publicResult(room) : null,
       game,
       catalog: this.catalog(),
@@ -899,6 +1024,7 @@ export class GameEngine {
       tag: game.tag || "Party game",
       minPlayers: game.minPlayers,
       maxPlayers: game.maxPlayers,
+      teams: game.teams || null,
       modes: Object.entries(game.modes).map(([id, config]) => ({
         id,
         label: config.label || id,
@@ -926,6 +1052,9 @@ export class GameEngine {
       for (const player of room.players.values()) {
         if (player.graceTimer) clearTimeout(player.graceTimer);
       }
+    }
+    for (const connection of this.connections.values()) {
+      if (connection.latencyTimer) clearInterval(connection.latencyTimer);
     }
     this.rooms.clear();
     this.connections.clear();

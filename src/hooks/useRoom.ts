@@ -127,6 +127,14 @@ export function useRoom(sessionId: string) {
       if (active) setStatus("reconnecting");
     };
 
+    const onLatencyPing = (payload: { id?: string }) => {
+      if (!active || !payload?.id) return;
+      getRoomSocket().emit("room:action", {
+        action: "latencyPong",
+        data: { id: payload.id },
+      });
+    };
+
     socket.on("connect", onConnect);
     socket.on("connect_error", onConnectError);
     socket.on("room:joined", onJoined);
@@ -134,6 +142,7 @@ export function useRoom(sessionId: string) {
     socket.on("room:error", onError);
     socket.on("room:kicked", onKicked);
     socket.on("disconnect", onDisconnect);
+    socket.on("latency:ping", onLatencyPing);
 
     // Keep the handshake token fresh for long matches. AuthProvider owns the
     // token-refresh logic; this only copies the fresh token onto the socket.
@@ -166,6 +175,7 @@ export function useRoom(sessionId: string) {
       socket.off("room:error", onError);
       socket.off("room:kicked", onKicked);
       socket.off("disconnect", onDisconnect);
+      socket.off("latency:ping", onLatencyPing);
     };
   }, [
     sessionId,
