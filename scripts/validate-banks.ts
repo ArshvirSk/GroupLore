@@ -134,7 +134,8 @@ async function main() {
         gameId: id,
         items,
         target: checkTargets ? TARGETS[id] || 300 : 0,
-        skipNearDuplicates: id === "fact-or-fiction",
+        skipNearDuplicates:
+          id === "fact-or-fiction" || id === "scattergories",
       }),
     );
   }

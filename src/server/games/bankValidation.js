@@ -20,6 +20,9 @@ function textOf(item) {
   if (typeof item?.low === "string" && typeof item?.high === "string") {
     return `${item.low} / ${item.high}`.trim();
   }
+  if (Array.isArray(item?.categories)) {
+    return item.categories.map(String).join(" / ").trim();
+  }
   return "";
 }
 
@@ -97,8 +100,11 @@ export function validateBank({
 
     const text = textOf(item);
     if (!text) errors.push(`${gameId}:${id || index} has no text`);
-    if (text.length > 320) {
-      errors.push(`${gameId}:${id || index} text exceeds 320 characters`);
+    const textLimit = gameId === "mad-libs" ? 700 : 320;
+    if (text.length > textLimit) {
+      errors.push(
+        `${gameId}:${id || index} text exceeds ${textLimit} characters`,
+      );
     }
     const key = text.toLowerCase();
     if (key && texts.has(key)) errors.push(`${gameId}:${id || index} duplicates text`);
@@ -121,8 +127,11 @@ export function validateBank({
       }
     }
     if (item?.rating !== undefined) {
-      if (!["all", "spicy"].includes(item.rating)) {
-        errors.push(`${gameId}:${id || index} rating must be all or spicy`);
+      const legacyRatings = ["family", "teen", "mature"];
+      if (!["all", "spicy", ...legacyRatings].includes(item.rating)) {
+        errors.push(
+          `${gameId}:${id || index} rating must be all, spicy, or a legacy family/teen/mature value`,
+        );
       } else {
         counts.rating += 1;
       }
