@@ -33,7 +33,7 @@ GroupLore/
 
 ## Games
 
-All **36 games** below are playable through the server-authoritative engine. Player counts range from 2 to 12; see the table for each game's requirement. Games use their static prompt banks by default. When a group opts in and its owner approves a generated lore pack, lore-enabled deployments can use those approved prompts for **Most Likely To**, with the static bank as a fallback.
+All **39 games** below are playable through the server-authoritative engine. Player counts range from 2 to 12; see the table for each game's requirement. Games use their static prompt banks by default. When a group opts in and its owner approves a generated lore pack, lore-enabled deployments can use those approved prompts for **Most Likely To**, with the static bank as a fallback.
 
 There is **no single-player or bot mode** yet. **Solo** below means individual scoring, not one human: every game currently needs at least two real players.
 
@@ -48,6 +48,7 @@ There is **no single-player or bot mode** yet. **Solo** below means individual s
 | **Social deduction** | Hidden roles, hidden answers, or an uninformed majority. | Guess the Impostor, Odd One Out, Two Truths One Lie, Liars Bar, Bluff |
 | **Elimination** | Players drop out as the game progresses. | Fact or Fiction (Sudden Death), Pattern Memory, Liar's Dice |
 | **Rotating role** | One player leads a round, then the role passes on. | Fill the Blank (judge), Wavelength (clue giver) |
+| **Card table** | Hidden hands, face-down plays, and a shared pile. | Liars Bar, Cheat, Higher / Lower (Deck), Fill the Blank |
 
 ### Game and mode catalogue
 
@@ -57,8 +58,11 @@ There is **no single-player or bot mode** yet. **Solo** below means individual s
 | 🕵️ **Guess the Impostor** | 3–12 | Social deduction | **Classic** — one impostor, 30 seconds of clues; **Double Agent** — two impostors with 4+ players; **Blind** — no discussion, straight to the vote |
 | ⚡ **5 Second Challenge** | 3–12 | Solo FFA | **Classic** — five seconds, then the group judges; **Lightning** — three seconds; **Marathon** — ten seconds, six turns |
 | ⚖️ **Overrated / Underrated** | 3–12 | Solo FFA | **Classic** — five items, twelve seconds to pick a side |
-| 🍸 **Liars Bar** | 3–12 | Social deduction | **Classic** — five statements, twenty seconds to choose and vote; **Quick** — three faster rounds |
-| 📈 **Higher / Lower** | 3–12 | Solo FFA | **Classic** — rate the room, then six calls; **Quick** — faster poll and four calls |
+| 🍸 **Liars Bar** | 3–8 | Card table | **Classic** — 20-card table, five-card hands, three strikes; **Quick** — one strike eliminates |
+| 🃏 **Cheat** | 3–8 | Card table | **Classic** — 52 cards, claim the rank, empty your hand; **Quick** — 30-card deck and faster turns |
+| 💀 **Skull Duel** | 3–6 | Card table | **Classic** — first to two clean challenges; **Quick** — first to one |
+| ♠️ **Blackjack Showdown** | 2–8 | Card table | **Classic** — eight chip rounds and a 200-chip stack; **Quick** — faster decisions, same eight rounds |
+| 📈 **Higher / Lower** | 3–12 | Solo FFA | **Classic** — rate the room, then six calls; **Quick** — faster poll and four calls; **Deck** — 52 cards, streak multiplier, ties push |
 | 🚫 **Avoid the Answer** | 3–12 | Solo FFA | **Classic** — forty-five seconds without the banned words; **Blitz** — three fast rounds |
 | 🔀 **Would You Rather** | 3–12 | Solo FFA | **Classic** — majority takes the point; **Minority Rules** — the smaller side scores two |
 | 📸 **Caption This** | 3–12 | Solo FFA | **Classic** — four scenarios, thirty seconds each; **Quick** — three faster rounds |
@@ -75,7 +79,7 @@ There is **no single-player or bot mode** yet. **Solo** below means individual s
 | 🤥 **Two Truths, One Lie** | 3–12 | Social deduction | **Classic** — sixty seconds to write, twenty to vote; **Rapid** — fifteen-second votes |
 | ✅ **Fact or Fiction** | 3–12 | Solo / elimination | **Classic** — ten statements with speed and streak bonuses; **Sudden Death** — a wrong answer eliminates you |
 | 🃏 **Fill the Blank** | 3–12 | Rotating judge | **Classic** — a rotating judge and a target of 5 points; **Quick** — eight rounds |
-| 🧩 **Connections** | 2–12 | Solo race / co-op | **Race** — every player solves a shuffled board of their own; **Co-op** — one shared board and four mistakes |
+| 🧩 **Connections** | 2–12 | Solo race / co-op | **Race** — every player solves a shuffled board of their own; **Co-op** — one shared board and four mistakes; **Daily** — the same puzzle for every group today |
 | 📊 **Survey Says** | 3–12 | Solo FFA | **Classic** — eight editorial-ranked questions; **Fast Money** — three questions with multipliers |
 | 🗂️ **Scattergories** | 3–12 | Solo FFA | **Classic** — five rounds, eight categories, then a 10-second challenge vote; **Blitz** — six categories and a shorter timer |
 | 🧠 **Pattern Memory** | 2–12 | Elimination | **Classic** — simultaneous replay until one survivor; **Relay** — a growing shared chain |
@@ -85,14 +89,28 @@ There is **no single-player or bot mode** yet. **Solo** below means individual s
 | 🔠 **Boggle Rush** | 2–12 | Solo race | **Classic** — three 4×4 rounds; **Big** — a 5×5 grid |
 | 🔔 **Buzzer Trivia** | 3–12 | Solo FFA | **Classic** — ten questions with an early-buzz bonus; **Lightning** — a shorter buzz window |
 | 🎲 **Liar's Dice** | 3–8 | Elimination | **Classic** — five dice and wild ones; **Fast** — three dice and no wilds |
-| 🖼️ **Blur Guess** | 3–12 | Solo FFA | **Classic** — eight images, six pre-blurred stages; **Hard** — fewer images and faster stages |
+| 🖼️ **Blur Guess** | 3–12 | Solo FFA | **Classic** — eight images, six pre-blurred stages; **Hard** — fewer images and faster stages; **Daily** — five shared images seeded by UTC date |
 | 🕵️ **Codenames** | 4–12 | Team vs team | **Classic** — two teams, one spymaster each; **Speed** — a shorter turn clock |
 | 🙈 **Blind Sketch** | 4–12 | Team vs team | **Classic** — three turns per team with hidden strokes; **Custom Word** — the opposing team writes the word; **Hard** — a shorter timer |
 | 🥊 **Duel Bracket** | 4–8 | Head-to-head | **Classic** — a single-elimination bracket of random mini-duels; **Round Robin** — every pairing plays once and standings rank the room |
 
+### Card table structure
+
+Card games share `src/server/games/cards.js` for seeded shuffles, deck construction, hands, drawing and face-down piles. The pure functions never mutate their inputs, and every module implements `publicFor` so other hands and hidden cards never reach the TV or another player. Shared UI lives in `src/components/cards/`: `Card`, `Hand`, `Pile`, `PlayedCards`, `OpponentSeat` and `CardTable`. Hands fan on desktop, scroll horizontally on mobile, and support tap or drag selection with a cap; all motion respects `prefers-reduced-motion`.
+
+Liars Bar deals five cards per player from repeated 20-card table sets (6 Kings, 6 Queens, 6 Aces, 2 Jokers) because a single set cannot supply five cards to eight players. Cheat and Blackjack use a standard deck / three-deck shoe respectively. Fill the Blank uses the same `Card` and `Hand` components for answer cards. Higher/Lower's Deck mode draws from a real 52-card deck and hides the next card until the reveal.
+
+### Content rules
+
+Prompt banks live in `src/server/data/prompts/<bank>.json`, load on the server, and are never bundled into the client. Each item needs a stable unique id, text, and where applicable tags, `difficulty` 1–3 and `rating` (`all` by default, `spicy` for host-enabled packs). Content must be original: no copied commercial deck text, quiz text, lyrics or word lists. Factual banks only include stable, widely documented facts; avoid records or anything that changes over time. Survey Says rankings are editorial, not real survey data.
+
+The shared selection engine (`src/server/games/selection.js`) prefers unseen items, respects difficulty/category filters, excludes `spicy` unless enabled, never repeats inside a pick, and falls back to least-recently-seen rows from `seen_items` (pruned after 180 days). `scripts/audit-banks.ts` reports bank sizes and gaps; `scripts/validate-banks.ts` checks structure, ids, text, duplicates, Connections puzzles and targets. Run `npm run test:server`, then the validator, after changing a bank.
+
 ### Future mode ideas
 
 These are **not implemented**. They are candidates for future rounds, grouped by the kind of variety they add.
+
+**Recently shipped from this list:** deterministic daily Blur Guess and Connections modes, seeded by the UTC date so every group gets the same challenge. Group pages now show daily completion and current/best streaks from finished daily rooms; replays remain open.
 
 #### Cross-cutting formats
 
@@ -113,8 +131,8 @@ These are **not implemented**. They are candidates for future rounds, grouped by
 - **Password:** co-op mode, sudden-death clues, and a one-clue expert round.
 - **Blind Sketch:** team relay drawing, custom words, and an audience-guess mode.
 - **Duel Bracket:** more mini-duels, best-of-three finals, and a losers' bracket.
-- **Blur Guess:** category packs, daily challenges, and user-supplied images with license checks.
-- **Connections:** daily puzzles, team race mode, and user-created boards.
+- **Blur Guess:** category packs and user-supplied images with license checks.
+- **Connections:** team race mode and user-created boards.
 - **Survey Says:** room-created polls and a family-feud-style team board.
 - **Buzzer Trivia:** team trivia, category drafting, and a final wager round.
 - **Reaction Duel:** tournament ladders and a team relay version.
