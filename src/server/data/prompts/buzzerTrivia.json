@@ -518,22 +518,6 @@
     "confidence": "high"
   },
   {
-    "id": "buzz-033",
-    "text": "How many degrees are in a right angle?",
-    "answer": "Ninety",
-    "aliases": [
-      "90",
-      "ninety"
-    ],
-    "category": "Maths",
-    "difficulty": 3,
-    "tags": [
-      "trivia"
-    ],
-    "rating": "all",
-    "confidence": "high"
-  },
-  {
     "id": "buzz-034",
     "text": "What is the main ingredient in guacamole?",
     "answer": "Avocado",
@@ -623,23 +607,6 @@
     "difficulty": 3,
     "tags": [
       "trivia"
-    ],
-    "rating": "all",
-    "confidence": "high"
-  },
-  {
-    "id": "buzz-040",
-    "text": "How many minutes are in a full football match?",
-    "answer": "Ninety",
-    "aliases": [
-      "90",
-      "ninety"
-    ],
-    "category": "Sport",
-    "difficulty": 1,
-    "tags": [
-      "trivia",
-      "sport"
     ],
     "rating": "all",
     "confidence": "high"
@@ -3952,23 +3919,6 @@
     "confidence": "high"
   },
   {
-    "id": "buzz-254",
-    "text": "What is the largest cell in the human body?",
-    "answer": "Ovum",
-    "aliases": [
-      "ovum",
-      "egg cell"
-    ],
-    "category": "Science",
-    "difficulty": 2,
-    "tags": [
-      "trivia",
-      "science"
-    ],
-    "rating": "all",
-    "confidence": "high"
-  },
-  {
     "id": "buzz-255",
     "text": "What is the smallest unit of life?",
     "answer": "Cell",
@@ -4527,21 +4477,6 @@
     "confidence": "high"
   },
   {
-    "id": "buzz-290",
-    "text": "What is the currency of the United States?",
-    "answer": "Dollar",
-    "aliases": [
-      "dollar"
-    ],
-    "category": "General",
-    "difficulty": 2,
-    "tags": [
-      "trivia"
-    ],
-    "rating": "all",
-    "confidence": "high"
-  },
-  {
     "id": "buzz-291",
     "text": "What is the largest island in the world?",
     "answer": "Greenland",
@@ -4740,22 +4675,6 @@
     "answer": "Moon",
     "aliases": [
       "moon"
-    ],
-    "category": "Science",
-    "difficulty": 2,
-    "tags": [
-      "trivia",
-      "science"
-    ],
-    "rating": "all",
-    "confidence": "high"
-  },
-  {
-    "id": "buzz-304",
-    "text": "What is the study of fossils called?",
-    "answer": "Palaeontology",
-    "aliases": [
-      "palaeontology"
     ],
     "category": "Science",
     "difficulty": 2,

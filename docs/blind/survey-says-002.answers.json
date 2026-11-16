@@ -1,0 +1,504 @@
+{
+  "answers": {
+    "survey-051": [
+      "comedy",
+      "drama",
+      "reality",
+      "news",
+      "sports",
+      "documentary",
+      "game show",
+      "soap"
+    ],
+    "survey-052": [
+      "dishes",
+      "laundry",
+      "vacuuming",
+      "ironing",
+      "dusting",
+      "mopping",
+      "cleaning bathroom",
+      "taking out rubbish"
+    ],
+    "survey-053": [
+      "fridge",
+      "oven",
+      "microwave",
+      "kettle",
+      "toaster",
+      "dishwasher",
+      "blender",
+      "washing machine"
+    ],
+    "survey-054": [
+      "hammer",
+      "screwdriver",
+      "wrench",
+      "drill",
+      "saw",
+      "pliers",
+      "tape measure",
+      "spanner"
+    ],
+    "survey-055": [
+      "toilet",
+      "sink",
+      "shower",
+      "bath",
+      "mirror",
+      "towel",
+      "soap",
+      "toothbrush"
+    ],
+    "survey-056": [
+      "water bottle",
+      "snacks",
+      "laptop",
+      "books",
+      "charger",
+      "keys",
+      "wallet",
+      "umbrella"
+    ],
+    "survey-057": [
+      "steering wheel",
+      "seats",
+      "radio",
+      "mirrors",
+      "pedals",
+      "gear stick",
+      "glove box",
+      "seatbelts"
+    ],
+    "survey-058": [
+      "sand",
+      "sea",
+      "towel",
+      "umbrella",
+      "sunscreen",
+      "bucket",
+      "spade",
+      "shells"
+    ],
+    "survey-059": [
+      "bride",
+      "groom",
+      "cake",
+      "dress",
+      "rings",
+      "flowers",
+      "guests",
+      "vows"
+    ],
+    "survey-060": [
+      "cake",
+      "balloons",
+      "presents",
+      "candles",
+      "singing",
+      "games",
+      "party hats",
+      "invitations"
+    ],
+    "survey-061": [
+      "lion",
+      "elephant",
+      "giraffe",
+      "monkey",
+      "tiger",
+      "zebra",
+      "bear",
+      "penguin"
+    ],
+    "survey-062": [
+      "doctor",
+      "nurse",
+      "bed",
+      "patients",
+      "medicine",
+      "surgery",
+      "waiting room",
+      "ambulance"
+    ],
+    "survey-063": [
+      "plane",
+      "passport",
+      "luggage",
+      "gate",
+      "security",
+      "terminal",
+      "boarding pass",
+      "runway"
+    ],
+    "survey-064": [
+      "bed",
+      "tv",
+      "towels",
+      "bathroom",
+      "minibar",
+      "desk",
+      "phone",
+      "key card"
+    ],
+    "survey-065": [
+      "desk",
+      "computer",
+      "chair",
+      "printer",
+      "coffee",
+      "paper",
+      "phone",
+      "stapler"
+    ],
+    "survey-066": [
+      "flowers",
+      "plants",
+      "grass",
+      "trees",
+      "vegetables",
+      "weeds",
+      "soil",
+      "hose"
+    ],
+    "survey-067": [
+      "bed",
+      "pillow",
+      "blanket",
+      "wardrobe",
+      "lamp",
+      "mirror",
+      "dresser",
+      "alarm clock"
+    ],
+    "survey-068": [
+      "milk",
+      "eggs",
+      "butter",
+      "cheese",
+      "vegetables",
+      "fruit",
+      "meat",
+      "leftovers"
+    ],
+    "survey-069": [
+      "trolley",
+      "shelves",
+      "checkout",
+      "food",
+      "cashier",
+      "bags",
+      "aisle",
+      "prices"
+    ],
+    "survey-070": [
+      "books",
+      "shelves",
+      "silence",
+      "librarian",
+      "tables",
+      "computers",
+      "magazines",
+      "study"
+    ],
+    "survey-071": [
+      "weights",
+      "treadmill",
+      "bikes",
+      "mats",
+      "mirrors",
+      "lockers",
+      "instructor",
+      "water"
+    ],
+    "survey-072": [
+      "music",
+      "stage",
+      "crowd",
+      "lights",
+      "speakers",
+      "singer",
+      "tickets",
+      "dancing"
+    ],
+    "survey-073": [
+      "tent",
+      "campfire",
+      "sleeping bag",
+      "marshmallows",
+      "trees",
+      "lantern",
+      "backpack",
+      "cooler"
+    ],
+    "survey-074": [
+      "train",
+      "platform",
+      "tickets",
+      "tracks",
+      "passengers",
+      "timetable",
+      "benches",
+      "luggage"
+    ],
+    "survey-075": [
+      "cards",
+      "cash",
+      "coins",
+      "receipts",
+      "ID",
+      "photos",
+      "notes",
+      "coupons"
+    ],
+    "survey-076": [
+      "animals",
+      "barn",
+      "tractor",
+      "crops",
+      "mud",
+      "fence",
+      "farmer",
+      "hay"
+    ],
+    "survey-077": [
+      "stars",
+      "planets",
+      "Moon",
+      "rockets",
+      "astronauts",
+      "satellites",
+      "asteroids",
+      "comets"
+    ],
+    "survey-078": [
+      "ball",
+      "wheel",
+      "plate",
+      "clock",
+      "coin",
+      "Sun",
+      "Moon",
+      "pizza"
+    ],
+    "survey-079": [
+      "pillow",
+      "blanket",
+      "bed",
+      "cotton",
+      "teddy bear",
+      "cloud",
+      "sponge",
+      "bread"
+    ],
+    "survey-080": [
+      "siren",
+      "thunder",
+      "music",
+      "dog",
+      "fireworks",
+      "alarm",
+      "traffic",
+      "baby"
+    ],
+    "survey-081": [
+      "ice",
+      "snow",
+      "freezer",
+      "winter",
+      "fridge",
+      "ice cream",
+      "water",
+      "Antarctica"
+    ],
+    "survey-082": [
+      "fire",
+      "Sun",
+      "oven",
+      "soup",
+      "coffee",
+      "summer",
+      "desert",
+      "kettle"
+    ],
+    "survey-083": [
+      "elephant",
+      "car",
+      "truck",
+      "piano",
+      "anvil",
+      "refrigerator",
+      "rock",
+      "boulder"
+    ],
+    "survey-084": [
+      "glass",
+      "vase",
+      "egg",
+      "china",
+      "mirror",
+      "phone",
+      "laptop",
+      "ornament"
+    ],
+    "survey-085": [
+      "honey",
+      "glue",
+      "tape",
+      "jam",
+      "syrup",
+      "gum",
+      "mud",
+      "paint"
+    ],
+    "survey-086": [
+      "banana",
+      "Sun",
+      "lemon",
+      "school bus",
+      "sunflower",
+      "canary",
+      "cheese",
+      "corn"
+    ],
+    "survey-087": [
+      "sky",
+      "ocean",
+      "blueberry",
+      "jeans",
+      "sapphire",
+      "eyes",
+      "whale",
+      "Smurfs"
+    ],
+    "survey-088": [
+      "tomato",
+      "blood",
+      "rose",
+      "fire engine",
+      "strawberry",
+      "apple",
+      "chilli",
+      "brick"
+    ],
+    "survey-089": [
+      "grass",
+      "leaves",
+      "frog",
+      "emerald",
+      "broccoli",
+      "cucumber",
+      "ivy",
+      "lime"
+    ],
+    "survey-090": [
+      "zebra",
+      "tiger",
+      "bee",
+      "skunk",
+      "raccoon",
+      "lemur",
+      "fish",
+      "snake"
+    ],
+    "survey-091": [
+      "whale",
+      "dolphin",
+      "shark",
+      "octopus",
+      "fish",
+      "crab",
+      "jellyfish",
+      "seal"
+    ],
+    "survey-092": [
+      "eagle",
+      "sparrow",
+      "robin",
+      "owl",
+      "parrot",
+      "pigeon",
+      "penguin",
+      "flamingo"
+    ],
+    "survey-093": [
+      "ant",
+      "bee",
+      "butterfly",
+      "fly",
+      "mosquito",
+      "beetle",
+      "wasp",
+      "dragonfly"
+    ],
+    "survey-094": [
+      "dog",
+      "cat",
+      "fish",
+      "hamster",
+      "rabbit",
+      "bird",
+      "horse",
+      "turtle"
+    ],
+    "survey-095": [
+      "puppy",
+      "kitten",
+      "calf",
+      "foal",
+      "cub",
+      "chick",
+      "lamb",
+      "piglet"
+    ],
+    "survey-096": [
+      "Superman",
+      "Batman",
+      "Spider-Man",
+      "Wonder Woman",
+      "Iron Man",
+      "Captain America",
+      "Hulk",
+      "Thor"
+    ],
+    "survey-097": [
+      "Mickey Mouse",
+      "Bugs Bunny",
+      "Homer Simpson",
+      "SpongeBob",
+      "Scooby-Doo",
+      "Bart Simpson",
+      "Donald Duck",
+      "Tom Cat"
+    ],
+    "survey-098": [
+      "Lion King",
+      "Frozen",
+      "Aladdin",
+      "Cinderella",
+      "Snow White",
+      "Beauty and the Beast",
+      "Toy Story",
+      "Moana"
+    ],
+    "survey-099": [
+      "Toy Story",
+      "Finding Nemo",
+      "Up",
+      "Cars",
+      "Inside Out",
+      "Monsters Inc",
+      "Coco",
+      "WALL-E"
+    ],
+    "survey-100": [
+      "fiction",
+      "mystery",
+      "romance",
+      "fantasy",
+      "science fiction",
+      "horror",
+      "biography",
+      "thriller"
+    ]
+  }
+}

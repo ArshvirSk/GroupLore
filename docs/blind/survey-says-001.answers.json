@@ -1,0 +1,504 @@
+{
+  "answers": {
+    "survey-001": [
+      "wake up",
+      "brush teeth",
+      "shower",
+      "eat breakfast",
+      "drink coffee",
+      "get dressed",
+      "check phone",
+      "go to work"
+    ],
+    "survey-002": [
+      "passport",
+      "wallet",
+      "phone charger",
+      "toothbrush",
+      "sunscreen",
+      "keys",
+      "tickets",
+      "medication"
+    ],
+    "survey-003": [
+      "pizza",
+      "beer",
+      "watermelon",
+      "ice cream",
+      "salad",
+      "soda",
+      "pasta",
+      "soup"
+    ],
+    "survey-004": [
+      "directions",
+      "music",
+      "temperature",
+      "radio station",
+      "speed",
+      "parking",
+      "who drives",
+      "backseat driving"
+    ],
+    "survey-005": [
+      "library",
+      "church",
+      "hospital",
+      "cinema",
+      "museum",
+      "office",
+      "bedroom",
+      "restaurant"
+    ],
+    "survey-006": [
+      "scissors",
+      "utensils",
+      "batteries",
+      "pens",
+      "towels",
+      "foil",
+      "lighters",
+      "takeaway menus"
+    ],
+    "survey-007": [
+      "traffic",
+      "oversleeping",
+      "bus late",
+      "alarm",
+      "kids",
+      "parking",
+      "weather",
+      "forgot something"
+    ],
+    "survey-008": [
+      "dance",
+      "kiss",
+      "toast",
+      "cry",
+      "eat",
+      "photos",
+      "throw bouquet",
+      "give speech"
+    ],
+    "survey-009": [
+      "bed",
+      "tv",
+      "towels",
+      "bible",
+      "kettle",
+      "desk",
+      "chair",
+      "phone"
+    ],
+    "survey-010": [
+      "thunder",
+      "fireworks",
+      "siren",
+      "dog",
+      "music",
+      "alarm",
+      "traffic",
+      "baby"
+    ],
+    "survey-011": [
+      "dishes",
+      "laundry",
+      "vacuuming",
+      "ironing",
+      "cleaning bathroom",
+      "mopping",
+      "dusting",
+      "taking bins out"
+    ],
+    "survey-012": [
+      "water bottle",
+      "snacks",
+      "laptop",
+      "books",
+      "charger",
+      "keys",
+      "wallet",
+      "umbrella"
+    ],
+    "survey-013": [
+      "pepperoni",
+      "cheese",
+      "mushrooms",
+      "ham",
+      "pineapple",
+      "olives",
+      "onions",
+      "pepper"
+    ],
+    "survey-014": [
+      "landmark",
+      "family",
+      "food",
+      "beach",
+      "sunset",
+      "selfie",
+      "animals",
+      "scenery"
+    ],
+    "survey-015": [
+      "gossip",
+      "birthday",
+      "favour",
+      "catch up",
+      "emergency",
+      "invite",
+      "advice",
+      "borrow something"
+    ],
+    "survey-016": [
+      "keys",
+      "remote",
+      "phone",
+      "glasses",
+      "wallet",
+      "socks",
+      "charger",
+      "documents"
+    ],
+    "survey-017": [
+      "check phone",
+      "pace",
+      "read",
+      "sit",
+      "daydream",
+      "check watch",
+      "chat",
+      "drink coffee"
+    ],
+    "survey-018": [
+      "vegetables",
+      "fruit",
+      "bread",
+      "cheese",
+      "flowers",
+      "eggs",
+      "honey",
+      "meat"
+    ],
+    "survey-019": [
+      "jar",
+      "packaging",
+      "bottle",
+      "can",
+      "parcel",
+      "envelope",
+      "door",
+      "tin"
+    ],
+    "survey-020": [
+      "swim",
+      "sunbathe",
+      "build sandcastle",
+      "walk",
+      "picnic",
+      "surf",
+      "play ball",
+      "collect shells"
+    ],
+    "survey-021": [
+      "rain",
+      "heat",
+      "snow",
+      "wind",
+      "humidity",
+      "cold",
+      "storms",
+      "fog"
+    ],
+    "survey-022": [
+      "sandwiches",
+      "drinks",
+      "blanket",
+      "fruit",
+      "salad",
+      "crisps",
+      "cake",
+      "sunscreen"
+    ],
+    "survey-023": [
+      "supermarket",
+      "bank",
+      "airport",
+      "post office",
+      "bus stop",
+      "theme park",
+      "cafe",
+      "cinema"
+    ],
+    "survey-024": [
+      "bite nails",
+      "pace",
+      "fidget",
+      "sweat",
+      "shake",
+      "talk fast",
+      "tap foot",
+      "chew lip"
+    ],
+    "survey-025": [
+      "painkillers",
+      "plasters",
+      "cough syrup",
+      "vitamins",
+      "toothpaste",
+      "shampoo",
+      "deodorant",
+      "prescription"
+    ],
+    "survey-026": [
+      "cake",
+      "presents",
+      "singing",
+      "candles",
+      "games",
+      "balloons",
+      "party hats",
+      "dancing"
+    ],
+    "survey-027": [
+      "watch tv",
+      "read",
+      "sleep",
+      "bake",
+      "board games",
+      "clean",
+      "movie",
+      "nap"
+    ],
+    "survey-028": [
+      "pizza",
+      "burger",
+      "sandwich",
+      "chips",
+      "chicken wings",
+      "tacos",
+      "fruit",
+      "cookies"
+    ],
+    "survey-029": [
+      "phone",
+      "wallet",
+      "keys",
+      "lipstick",
+      "tissues",
+      "gum",
+      "pen",
+      "sunglasses"
+    ],
+    "survey-030": [
+      "run",
+      "lift weights",
+      "cycle",
+      "stretch",
+      "row",
+      "swim",
+      "squat",
+      "yoga"
+    ],
+    "survey-031": [
+      "apple",
+      "banana",
+      "orange",
+      "strawberry",
+      "grape",
+      "mango",
+      "pineapple",
+      "watermelon"
+    ],
+    "survey-032": [
+      "carrot",
+      "potato",
+      "broccoli",
+      "onion",
+      "tomato",
+      "peas",
+      "cabbage",
+      "pepper"
+    ],
+    "survey-033": [
+      "red",
+      "blue",
+      "green",
+      "yellow",
+      "purple",
+      "orange",
+      "pink",
+      "black"
+    ],
+    "survey-034": [
+      "dog",
+      "cat",
+      "lion",
+      "elephant",
+      "tiger",
+      "horse",
+      "bear",
+      "monkey"
+    ],
+    "survey-035": [
+      "pepperoni",
+      "cheese",
+      "mushroom",
+      "ham",
+      "pineapple",
+      "olives",
+      "onion",
+      "pepper"
+    ],
+    "survey-036": [
+      "vanilla",
+      "chocolate",
+      "strawberry",
+      "mint",
+      "cookie dough",
+      "caramel",
+      "mango",
+      "coffee"
+    ],
+    "survey-037": [
+      "maths",
+      "English",
+      "science",
+      "history",
+      "geography",
+      "art",
+      "music",
+      "PE"
+    ],
+    "survey-038": [
+      "Toyota",
+      "Ford",
+      "Honda",
+      "BMW",
+      "Mercedes",
+      "Audi",
+      "Tesla",
+      "Volkswagen"
+    ],
+    "survey-039": [
+      "Coca-Cola",
+      "Pepsi",
+      "Sprite",
+      "Fanta",
+      "lemonade",
+      "Dr Pepper",
+      "7 Up",
+      "root beer"
+    ],
+    "survey-040": [
+      "eggs",
+      "cereal",
+      "toast",
+      "bacon",
+      "pancakes",
+      "fruit",
+      "yogurt",
+      "coffee"
+    ],
+    "survey-041": [
+      "football",
+      "basketball",
+      "tennis",
+      "cricket",
+      "golf",
+      "rugby",
+      "baseball",
+      "hockey"
+    ],
+    "survey-042": [
+      "guitar",
+      "piano",
+      "drums",
+      "violin",
+      "flute",
+      "trumpet",
+      "cello",
+      "saxophone"
+    ],
+    "survey-043": [
+      "France",
+      "Germany",
+      "Italy",
+      "Spain",
+      "UK",
+      "Netherlands",
+      "Greece",
+      "Portugal"
+    ],
+    "survey-044": [
+      "China",
+      "Japan",
+      "India",
+      "Thailand",
+      "Vietnam",
+      "South Korea",
+      "Indonesia",
+      "Pakistan"
+    ],
+    "survey-045": [
+      "Egypt",
+      "Nigeria",
+      "Kenya",
+      "South Africa",
+      "Morocco",
+      "Ghana",
+      "Ethiopia",
+      "Tanzania"
+    ],
+    "survey-046": [
+      "California",
+      "Texas",
+      "Florida",
+      "New York",
+      "Illinois",
+      "Ohio",
+      "Georgia",
+      "Pennsylvania"
+    ],
+    "survey-047": [
+      "London",
+      "Paris",
+      "New York",
+      "Tokyo",
+      "Rome",
+      "Sydney",
+      "Dubai",
+      "Los Angeles"
+    ],
+    "survey-048": [
+      "Monopoly",
+      "Scrabble",
+      "Clue",
+      "Risk",
+      "Chess",
+      "Checkers",
+      "Sorry",
+      "Catan"
+    ],
+    "survey-049": [
+      "poker",
+      "blackjack",
+      "rummy",
+      "bridge",
+      "solitaire",
+      "go fish",
+      "snap",
+      "uno"
+    ],
+    "survey-050": [
+      "comedy",
+      "action",
+      "horror",
+      "drama",
+      "romance",
+      "thriller",
+      "sci-fi",
+      "animation"
+    ]
+  }
+}

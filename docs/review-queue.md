@@ -1,4 +1,100 @@
 # Factual review queue
 
-Items removed from shipped banks by `scripts/verify-factual.ts`.
+Items removed after blind re-answering and comparison.
 
+Totals: Buzzer Trivia 5 removed (345 kept), Fact or Fiction 0 (350 kept), Survey Says 42 (108 kept), Connections 0 (100 kept).
+
+- **buzzer-trivia / buzz-033**: answer mismatch
+  - How many degrees are in a right angle?
+- **buzzer-trivia / buzz-040**: answer mismatch
+  - How many minutes are in a full football match?
+- **buzzer-trivia / buzz-254**: answer mismatch
+  - What is the largest cell in the human body?
+- **buzzer-trivia / buzz-290**: answer mismatch
+  - What is the currency of the United States?
+- **buzzer-trivia / buzz-304**: answer mismatch
+  - What is the study of fossils called?
+- **survey-says / survey-001**: survey board mismatch (2/8)
+  - Name something people do first thing in the morning
+- **survey-says / survey-003**: survey board mismatch (3/8)
+  - Better cold: which food?
+- **survey-says / survey-006**: survey board mismatch (3/8)
+  - Name something you keep in a kitchen drawer
+- **survey-says / survey-007**: survey board mismatch (2/8)
+  - What's reason people are late
+- **survey-says / survey-008**: survey board mismatch (3/8)
+  - Name something people do at a wedding
+- **survey-says / survey-009**: survey board mismatch (1/8)
+  - Which thing is always in a hotel room?
+- **survey-says / survey-010**: survey board mismatch (1/8)
+  - What makes a loud noise?
+- **survey-says / survey-011**: survey board mismatch (3/8)
+  - What's chore people avoid
+- **survey-says / survey-014**: survey board mismatch (1/8)
+  - Name something people take a photo of on holiday
+- **survey-says / survey-015**: survey board mismatch (0/8)
+  - What's reason to call a friend
+- **survey-says / survey-016**: survey board mismatch (3/8)
+  - Name something that gets lost in a house
+- **survey-says / survey-017**: survey board mismatch (4/8)
+  - What's thing people do while waiting
+- **survey-says / survey-019**: survey board mismatch (0/8)
+  - Which thing is hard to open?
+- **survey-says / survey-024**: survey board mismatch (4/8)
+  - Name something people do when they are nervous
+- **survey-says / survey-027**: survey board mismatch (4/8)
+  - Name something you might do on a rainy day
+- **survey-says / survey-039**: survey board mismatch (2/8)
+  - What's soft drink
+- **survey-says / survey-051**: survey board mismatch (4/8)
+  - Which type of TV show?
+- **survey-says / survey-052**: survey board mismatch (4/8)
+  - What's chore
+- **survey-says / survey-056**: survey board mismatch (4/8)
+  - In a backpack, what's something?
+- **survey-says / survey-057**: survey board mismatch (2/8)
+  - In a car, what's something?
+- **survey-says / survey-058**: survey board mismatch (4/8)
+  - In the beach, what's something?
+- **survey-says / survey-062**: survey board mismatch (4/8)
+  - In a hospital, what's something?
+- **survey-says / survey-064**: survey board mismatch (2/8)
+  - In a hotel room, what's something?
+- **survey-says / survey-066**: survey board mismatch (4/8)
+  - In a garden, what's something?
+- **survey-says / survey-069**: survey board mismatch (4/8)
+  - In a supermarket, what's something?
+- **survey-says / survey-070**: survey board mismatch (4/8)
+  - In a library, what's something?
+- **survey-says / survey-071**: survey board mismatch (2/8)
+  - In a gym, what's something?
+- **survey-says / survey-073**: survey board mismatch (3/8)
+  - In a campsite, what's something?
+- **survey-says / survey-074**: survey board mismatch (4/8)
+  - In a train station, what's something?
+- **survey-says / survey-076**: survey board mismatch (4/8)
+  - In a farm, what's something?
+- **survey-says / survey-077**: survey board mismatch (3/8)
+  - In space, what's something?
+- **survey-says / survey-081**: survey board mismatch (4/8)
+  - What is cold?
+- **survey-says / survey-082**: survey board mismatch (4/8)
+  - What is hot?
+- **survey-says / survey-111**: survey board mismatch (0/8)
+  - Which type of shoe?
+- **survey-says / survey-113**: survey board mismatch (0/8)
+  - What's emotion
+- **survey-says / survey-114**: survey board mismatch (1/8)
+  - What's excuse for being late
+- **survey-says / survey-116**: survey board mismatch (4/8)
+  - What's birthday gift
+- **survey-says / survey-117**: survey board mismatch (3/8)
+  - What's wedding gift
+- **survey-says / survey-124**: survey board mismatch (3/8)
+  - Name something you recycle
+- **survey-says / survey-125**: survey board mismatch (0/8)
+  - Name something you throw away
+- **survey-says / survey-129**: survey board mismatch (0/8)
+  - What's phone app
+- **survey-says / survey-150**: survey board mismatch (0/8)
+  - What's festival

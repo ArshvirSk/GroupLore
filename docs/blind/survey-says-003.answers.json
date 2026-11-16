@@ -1,0 +1,504 @@
+{
+  "answers": {
+    "survey-101": [
+      "Taylor Swift",
+      "Beyoncé",
+      "Drake",
+      "Ed Sheeran",
+      "Adele",
+      "Michael Jackson",
+      "Rihanna",
+      "The Beatles"
+    ],
+    "survey-102": [
+      "ballet",
+      "salsa",
+      "tango",
+      "hip hop",
+      "waltz",
+      "jazz",
+      "breakdance",
+      "ballroom"
+    ],
+    "survey-103": [
+      "reading",
+      "gardening",
+      "cooking",
+      "painting",
+      "hiking",
+      "gaming",
+      "photography",
+      "knitting"
+    ],
+    "survey-104": [
+      "teacher",
+      "doctor",
+      "engineer",
+      "nurse",
+      "lawyer",
+      "chef",
+      "police officer",
+      "accountant"
+    ],
+    "survey-105": [
+      "pen",
+      "pencil",
+      "stapler",
+      "paper clips",
+      "sticky notes",
+      "tape",
+      "scissors",
+      "notebook"
+    ],
+    "survey-106": [
+      "balloons",
+      "plates",
+      "cups",
+      "napkins",
+      "streamers",
+      "party hats",
+      "invitations",
+      "candles"
+    ],
+    "survey-107": [
+      "tent",
+      "sleeping bag",
+      "torch",
+      "stove",
+      "backpack",
+      "cooler",
+      "rope",
+      "map"
+    ],
+    "survey-108": [
+      "towel",
+      "sunscreen",
+      "umbrella",
+      "bucket",
+      "spade",
+      "swimsuit",
+      "cooler",
+      "beach ball"
+    ],
+    "survey-109": [
+      "coat",
+      "scarf",
+      "gloves",
+      "hat",
+      "boots",
+      "sweater",
+      "earmuffs",
+      "thermal socks"
+    ],
+    "survey-110": [
+      "shorts",
+      "t-shirt",
+      "sandals",
+      "sunglasses",
+      "hat",
+      "swimsuit",
+      "dress",
+      "flip flops"
+    ],
+    "survey-111": [
+      "sneakers",
+      "boots",
+      "sandals",
+      "heels",
+      "flip flops",
+      "loafers",
+      "trainers",
+      "slippers"
+    ],
+    "survey-112": [
+      "watch",
+      "necklace",
+      "ring",
+      "bracelet",
+      "earrings",
+      "sunglasses",
+      "belt",
+      "scarf"
+    ],
+    "survey-113": [
+      "happiness",
+      "sadness",
+      "anger",
+      "fear",
+      "surprise",
+      "disgust",
+      "love",
+      "jealousy"
+    ],
+    "survey-114": [
+      "traffic",
+      "overslept",
+      "bus late",
+      "car trouble",
+      "weather",
+      "forgot something",
+      "babysitter",
+      "parking"
+    ],
+    "survey-115": [
+      "birthday",
+      "wedding",
+      "promotion",
+      "graduation",
+      "anniversary",
+      "new job",
+      "holiday",
+      "baby"
+    ],
+    "survey-116": [
+      "money",
+      "gift card",
+      "clothes",
+      "book",
+      "jewellery",
+      "perfume",
+      "chocolates",
+      "flowers"
+    ],
+    "survey-117": [
+      "toaster",
+      "blender",
+      "towels",
+      "cutlery",
+      "bedding",
+      "vase",
+      "picture frame",
+      "money"
+    ],
+    "survey-118": [
+      "beach",
+      "mountains",
+      "city",
+      "countryside",
+      "island",
+      "theme park",
+      "camping",
+      "abroad"
+    ],
+    "survey-119": [
+      "car",
+      "bus",
+      "train",
+      "plane",
+      "bicycle",
+      "boat",
+      "taxi",
+      "tram"
+    ],
+    "survey-120": [
+      "car",
+      "bicycle",
+      "bus",
+      "train",
+      "skateboard",
+      "trolley",
+      "wheelchair",
+      "scooter"
+    ],
+    "survey-121": [
+      "remote control",
+      "phone",
+      "elevator",
+      "shirt",
+      "computer keyboard",
+      "microwave",
+      "calculator",
+      "camera"
+    ],
+    "survey-122": [
+      "plane",
+      "bird",
+      "butterfly",
+      "helicopter",
+      "bee",
+      "balloon",
+      "drone",
+      "rocket"
+    ],
+    "survey-123": [
+      "car",
+      "dog",
+      "alarm",
+      "thunder",
+      "music",
+      "siren",
+      "fireworks",
+      "baby"
+    ],
+    "survey-124": [
+      "paper",
+      "plastic bottles",
+      "glass",
+      "cans",
+      "cardboard",
+      "newspapers",
+      "clothes",
+      "batteries"
+    ],
+    "survey-125": [
+      "rubbish",
+      "food scraps",
+      "packaging",
+      "tissues",
+      "old clothes",
+      "broken toys",
+      "receipts",
+      "batteries"
+    ],
+    "survey-126": [
+      "pen",
+      "pencil",
+      "notebook",
+      "ruler",
+      "eraser",
+      "backpack",
+      "calculator",
+      "glue"
+    ],
+    "survey-127": [
+      "chair",
+      "table",
+      "sofa",
+      "bed",
+      "wardrobe",
+      "desk",
+      "bookshelf",
+      "dresser"
+    ],
+    "survey-128": [
+      "dishes",
+      "floor",
+      "windows",
+      "bathroom",
+      "car",
+      "clothes",
+      "kitchen",
+      "teeth"
+    ],
+    "survey-129": [
+      "Instagram",
+      "WhatsApp",
+      "Facebook",
+      "TikTok",
+      "YouTube",
+      "Twitter",
+      "Snapchat",
+      "Spotify"
+    ],
+    "survey-130": [
+      "Facebook",
+      "Instagram",
+      "Twitter",
+      "TikTok",
+      "YouTube",
+      "LinkedIn",
+      "Snapchat",
+      "Reddit"
+    ],
+    "survey-131": [
+      "Google",
+      "YouTube",
+      "Facebook",
+      "Amazon",
+      "Wikipedia",
+      "Twitter",
+      "Instagram",
+      "Netflix"
+    ],
+    "survey-132": [
+      "dice",
+      "token",
+      "board",
+      "cards",
+      "money",
+      "spinner",
+      "pawn",
+      "timer"
+    ],
+    "survey-133": [
+      "Domino's",
+      "Pizza Hut",
+      "Papa John's",
+      "Little Caesars",
+      "Pizza Express",
+      "California Pizza Kitchen",
+      "Blaze",
+      "Papa Murphy's"
+    ],
+    "survey-134": [
+      "McDonald's",
+      "Burger King",
+      "KFC",
+      "Subway",
+      "Wendy's",
+      "Taco Bell",
+      "Domino's",
+      "Pizza Hut"
+    ],
+    "survey-135": [
+      "Snickers",
+      "Mars",
+      "Twix",
+      "KitKat",
+      "Milky Way",
+      "Bounty",
+      "Yorkie",
+      "Cadbury Dairy Milk"
+    ],
+    "survey-136": [
+      "cornflakes",
+      "Weetabix",
+      "Cheerios",
+      "Frosties",
+      "Coco Pops",
+      "Rice Krispies",
+      "Special K",
+      "muesli"
+    ],
+    "survey-137": [
+      "ham and cheese",
+      "turkey",
+      "BLT",
+      "tuna",
+      "chicken",
+      "egg",
+      "cheese",
+      "peanut butter"
+    ],
+    "survey-138": [
+      "tomato",
+      "chicken",
+      "mushroom",
+      "vegetable",
+      "minestrone",
+      "lentil",
+      "potato",
+      "onion"
+    ],
+    "survey-139": [
+      "cake",
+      "ice cream",
+      "chocolate",
+      "pie",
+      "cheesecake",
+      "cookies",
+      "brownies",
+      "fruit"
+    ],
+    "survey-140": [
+      "pepper",
+      "salt",
+      "cumin",
+      "paprika",
+      "cinnamon",
+      "turmeric",
+      "chilli",
+      "oregano"
+    ],
+    "survey-141": [
+      "basil",
+      "parsley",
+      "thyme",
+      "rosemary",
+      "mint",
+      "coriander",
+      "oregano",
+      "dill"
+    ],
+    "survey-142": [
+      "cheddar",
+      "mozzarella",
+      "brie",
+      "parmesan",
+      "gouda",
+      "swiss",
+      "feta",
+      "blue cheese"
+    ],
+    "survey-143": [
+      "white",
+      "wholemeal",
+      "sourdough",
+      "rye",
+      "baguette",
+      "ciabatta",
+      "pita",
+      "focaccia"
+    ],
+    "survey-144": [
+      "spaghetti",
+      "penne",
+      "fusilli",
+      "macaroni",
+      "rigatoni",
+      "lasagne",
+      "linguine",
+      "farfalle"
+    ],
+    "survey-145": [
+      "margarita",
+      "mojito",
+      "martini",
+      "cosmopolitan",
+      "daiquiri",
+      "piña colada",
+      "bloody mary",
+      "negroni"
+    ],
+    "survey-146": [
+      "coffee",
+      "tea",
+      "hot chocolate",
+      "cappuccino",
+      "latte",
+      "espresso",
+      "mocha",
+      "chai"
+    ],
+    "survey-147": [
+      "water",
+      "lemonade",
+      "iced tea",
+      "soda",
+      "beer",
+      "juice",
+      "smoothie",
+      "cola"
+    ],
+    "survey-148": [
+      "crisps",
+      "nuts",
+      "chocolate",
+      "popcorn",
+      "biscuits",
+      "fruit",
+      "cheese",
+      "pretzels"
+    ],
+    "survey-149": [
+      "hot dog",
+      "pizza slice",
+      "taco",
+      "burger",
+      "kebab",
+      "falafel",
+      "crepe",
+      "noodles"
+    ],
+    "survey-150": [
+      "Glastonbury",
+      "Coachella",
+      "Tomorrowland",
+      "Burning Man",
+      "Lollapalooza",
+      "Reading",
+      "Woodstock",
+      "Creamfields"
+    ]
+  }
+}

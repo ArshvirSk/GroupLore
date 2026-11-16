@@ -59,9 +59,12 @@ function compare(bankId: string, item: Item, answer: Answer): string {
     if (!Array.isArray(answer)) return "survey answer must be an array";
     const expected = list((item.answers || []).map((entry) => entry.text));
     const actual = list(answer);
-    return JSON.stringify(expected.sort()) === JSON.stringify(actual.sort())
-      ? ""
-      : "survey board mismatch";
+    // Survey boards are open-ended: many different eight-answer boards are
+    // defensible. Require the blind answer to reproduce a majority of the
+    // stored board, not the exact same eight strings.
+    const matched = new Set(actual.filter((entry) => expected.includes(entry)));
+    const needed = Math.min(5, expected.length);
+    return matched.size >= needed ? "" : `survey board mismatch (${matched.size}/${expected.length})`;
   }
   if (bankId === "connections") {
     if (!Array.isArray(answer)) return "connections answer must be group arrays";
@@ -83,7 +86,12 @@ for (const bank of BANKS) {
   const data = JSON.parse(await readFile(full, "utf8"));
   const items: Item[] = Array.isArray(data) ? data : data.prompts;
   const files = (await readdir(BLIND))
-    .filter((file) => file.startsWith(`${bank.id}-`) && file.endsWith(".json"))
+    .filter(
+      (file) =>
+        file.startsWith(`${bank.id}-`) &&
+        file.endsWith(".json") &&
+        !file.endsWith(".answers.json"),
+    )
     .sort();
   const answers = new Map<string, Answer>();
   let complete = true;

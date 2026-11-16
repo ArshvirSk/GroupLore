@@ -446,7 +446,7 @@ test("round-two banks have stable unique content and the blur license manifest i
     assert.equal(words.length, 16);
     assert.equal(new Set(words.map((word) => word.toLowerCase())).size, 16);
   }
-  assert.equal(surveyBank.length, 150);
+  assert.equal(surveyBank.length, 108);
   assert.equal(surveyBank.every((question) => question.answers.length === 8), true);
   assert.equal(new Set(surveyBank.map((question) => question.text)).size, surveyBank.length);
   assert.equal(scatterBank.length, 80);
@@ -456,7 +456,7 @@ test("round-two banks have stable unique content and the blur license manifest i
   assert.equal(passwordBank.length, 300);
   assert.equal(codenameBank.length >= 400, true);
   assert.equal(sketchBank.length, 300);
-  assert.equal(triviaBank.length, 350);
+  assert.equal(triviaBank.length, 345);
   assert.equal(new Set(triviaBank.map((question) => question.text)).size, triviaBank.length);
   assert.equal(boggleWords.length >= 600, true);
   assert.equal(new Set(boggleWords).size, boggleWords.length);
