@@ -63,7 +63,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-002",
@@ -130,7 +131,8 @@
       "survey",
       "travel"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-003",
@@ -197,7 +199,8 @@
       "survey",
       "food"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-004",
@@ -263,7 +266,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-005",
@@ -329,7 +333,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-006",
@@ -395,7 +400,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-007",
@@ -461,7 +467,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-008",
@@ -528,7 +535,8 @@
       "survey",
       "social"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-009",
@@ -595,7 +603,8 @@
       "survey",
       "travel"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-010",
@@ -661,7 +670,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-011",
@@ -727,7 +737,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-012",
@@ -793,7 +804,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-013",
@@ -860,7 +872,8 @@
       "survey",
       "food"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-014",
@@ -927,7 +940,8 @@
       "survey",
       "travel"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-015",
@@ -994,7 +1008,8 @@
       "survey",
       "social"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-016",
@@ -1060,7 +1075,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-017",
@@ -1126,7 +1142,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-018",
@@ -1192,7 +1209,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-019",
@@ -1258,7 +1276,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-020",
@@ -1325,7 +1344,8 @@
       "survey",
       "travel"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-021",
@@ -1392,7 +1412,8 @@
       "survey",
       "food"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-022",
@@ -1458,7 +1479,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-023",
@@ -1524,7 +1546,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-024",
@@ -1590,7 +1613,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-025",
@@ -1656,7 +1680,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-026",
@@ -1724,7 +1749,8 @@
       "tech",
       "social"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-027",
@@ -1790,7 +1816,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-028",
@@ -1857,7 +1884,8 @@
       "survey",
       "food"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-029",
@@ -1923,7 +1951,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-030",
@@ -1990,7 +2019,8 @@
       "survey",
       "sport"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-031",
@@ -2057,7 +2087,8 @@
       "survey",
       "food"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-032",
@@ -2124,7 +2155,8 @@
       "survey",
       "food"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-033",
@@ -2190,7 +2222,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-034",
@@ -2257,7 +2290,8 @@
       "survey",
       "science"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-035",
@@ -2324,7 +2358,8 @@
       "survey",
       "food"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-036",
@@ -2390,7 +2425,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-037",
@@ -2457,7 +2493,8 @@
       "survey",
       "school"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-038",
@@ -2523,7 +2560,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-039",
@@ -2589,7 +2627,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-040",
@@ -2656,7 +2695,8 @@
       "survey",
       "food"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-041",
@@ -2723,7 +2763,8 @@
       "survey",
       "sport"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-042",
@@ -2790,7 +2831,8 @@
       "survey",
       "music"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-043",
@@ -2857,7 +2899,8 @@
       "survey",
       "travel"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-044",
@@ -2924,7 +2967,8 @@
       "survey",
       "travel"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-045",
@@ -2991,7 +3035,8 @@
       "survey",
       "travel"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-046",
@@ -3057,7 +3102,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-047",
@@ -3124,7 +3170,8 @@
       "survey",
       "travel"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-048",
@@ -3191,7 +3238,8 @@
       "survey",
       "games"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-049",
@@ -3258,7 +3306,8 @@
       "survey",
       "games"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-050",
@@ -3325,7 +3374,8 @@
       "survey",
       "film"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-051",
@@ -3392,7 +3442,8 @@
       "survey",
       "film"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-052",
@@ -3458,7 +3509,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-053",
@@ -3525,7 +3577,8 @@
       "survey",
       "tech"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-054",
@@ -3591,7 +3644,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-055",
@@ -3657,7 +3711,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-056",
@@ -3723,7 +3778,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-057",
@@ -3789,7 +3845,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-058",
@@ -3856,7 +3913,8 @@
       "survey",
       "travel"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-059",
@@ -3923,7 +3981,8 @@
       "survey",
       "social"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-060",
@@ -3990,7 +4049,8 @@
       "survey",
       "social"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-061",
@@ -4057,7 +4117,8 @@
       "survey",
       "science"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-062",
@@ -4123,7 +4184,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-063",
@@ -4190,7 +4252,8 @@
       "survey",
       "travel"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-064",
@@ -4257,7 +4320,8 @@
       "survey",
       "travel"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-065",
@@ -4324,7 +4388,8 @@
       "survey",
       "work"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-066",
@@ -4390,7 +4455,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-067",
@@ -4456,7 +4522,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-068",
@@ -4522,7 +4589,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-069",
@@ -4588,7 +4656,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-070",
@@ -4655,7 +4724,8 @@
       "survey",
       "school"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-071",
@@ -4722,7 +4792,8 @@
       "survey",
       "sport"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-072",
@@ -4789,7 +4860,8 @@
       "survey",
       "music"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-073",
@@ -4855,7 +4927,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-074",
@@ -4922,7 +4995,8 @@
       "survey",
       "travel"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-075",
@@ -4988,7 +5062,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-076",
@@ -5054,7 +5129,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-077",
@@ -5121,7 +5197,8 @@
       "survey",
       "science"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-078",
@@ -5187,7 +5264,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-079",
@@ -5253,7 +5331,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-080",
@@ -5319,7 +5398,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-081",
@@ -5385,7 +5465,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-082",
@@ -5451,7 +5532,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-083",
@@ -5517,7 +5599,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-084",
@@ -5583,7 +5666,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-085",
@@ -5649,7 +5733,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-086",
@@ -5715,7 +5800,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-087",
@@ -5781,7 +5867,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-088",
@@ -5847,7 +5934,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-089",
@@ -5913,7 +6001,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-090",
@@ -5981,7 +6070,8 @@
       "travel",
       "science"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-091",
@@ -6048,7 +6138,8 @@
       "survey",
       "science"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-092",
@@ -6114,7 +6205,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-093",
@@ -6180,7 +6272,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-094",
@@ -6246,7 +6339,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-095",
@@ -6313,7 +6407,8 @@
       "survey",
       "science"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-096",
@@ -6379,7 +6474,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-097",
@@ -6445,7 +6541,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-098",
@@ -6512,7 +6609,8 @@
       "survey",
       "film"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-099",
@@ -6579,7 +6677,8 @@
       "survey",
       "film"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-100",
@@ -6645,7 +6744,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-101",
@@ -6712,7 +6812,8 @@
       "survey",
       "music"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-102",
@@ -6778,7 +6879,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-103",
@@ -6844,7 +6946,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-104",
@@ -6911,7 +7014,8 @@
       "survey",
       "work"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-105",
@@ -6978,7 +7082,8 @@
       "survey",
       "work"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-106",
@@ -7045,7 +7150,8 @@
       "survey",
       "social"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-107",
@@ -7111,7 +7217,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-108",
@@ -7178,7 +7285,8 @@
       "survey",
       "travel"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-109",
@@ -7244,7 +7352,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-110",
@@ -7310,7 +7419,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-111",
@@ -7376,7 +7486,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-112",
@@ -7442,7 +7553,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-113",
@@ -7508,7 +7620,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-114",
@@ -7574,7 +7687,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-115",
@@ -7640,7 +7754,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-116",
@@ -7706,7 +7821,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-117",
@@ -7773,7 +7889,8 @@
       "survey",
       "social"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-118",
@@ -7840,7 +7957,8 @@
       "survey",
       "travel"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-119",
@@ -7907,7 +8025,8 @@
       "survey",
       "sport"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-120",
@@ -7973,7 +8092,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-121",
@@ -8039,7 +8159,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-122",
@@ -8105,7 +8226,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-123",
@@ -8171,7 +8293,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-124",
@@ -8237,7 +8360,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-125",
@@ -8303,7 +8427,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-126",
@@ -8370,7 +8495,8 @@
       "survey",
       "school"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-127",
@@ -8436,7 +8562,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-128",
@@ -8502,7 +8629,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-129",
@@ -8569,7 +8697,8 @@
       "survey",
       "tech"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-130",
@@ -8635,7 +8764,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-131",
@@ -8701,7 +8831,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-132",
@@ -8768,7 +8899,8 @@
       "survey",
       "games"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-133",
@@ -8835,7 +8967,8 @@
       "survey",
       "food"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-134",
@@ -8902,7 +9035,8 @@
       "survey",
       "food"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-135",
@@ -8968,7 +9102,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-136",
@@ -9034,7 +9169,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-137",
@@ -9100,7 +9236,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-138",
@@ -9166,7 +9303,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-139",
@@ -9232,7 +9370,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-140",
@@ -9298,7 +9437,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-141",
@@ -9364,7 +9504,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-142",
@@ -9430,7 +9571,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-143",
@@ -9497,7 +9639,8 @@
       "survey",
       "food"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-144",
@@ -9563,7 +9706,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-145",
@@ -9629,7 +9773,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-146",
@@ -9695,7 +9840,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-147",
@@ -9761,7 +9907,8 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-148",
@@ -9828,7 +9975,8 @@
       "survey",
       "food"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-149",
@@ -9895,7 +10043,8 @@
       "survey",
       "food"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   },
   {
     "id": "survey-150",
@@ -9961,6 +10110,7 @@
     "tags": [
       "survey"
     ],
-    "rating": "all"
+    "rating": "all",
+    "confidence": "high"
   }
 ]

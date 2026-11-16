@@ -41,6 +41,27 @@ test("trivia template families have an 8% cap", () => {
   assert.equal(report.familyFailures[0][0], "capital");
 });
 
+test("factual banks require high-confidence verified items", () => {
+  const result = validateBank({
+    gameId: "fact-or-fiction",
+    target: 1,
+    items: [
+      {
+        id: "fact-1",
+        text: "The Nile is in Africa.",
+        isTrue: true,
+        explanation: "The Nile runs through Africa.",
+        tags: ["geography"],
+        rating: "all",
+      },
+    ],
+  });
+  assert.equal(
+    result.errors.some((error) => error.includes("high-confidence")),
+    true,
+  );
+});
+
 test("duplicate ids, blank text and short banks fail", () => {
   const result = validateBank({
     gameId: "demo",
@@ -71,6 +92,7 @@ test("near duplicates and bad difficulty are rejected", () => {
 test("connections require sixteen unique words in four groups", () => {
   const valid = {
     id: "conn-1",
+    confidence: "high",
     groups: [
       { words: ["a", "b", "c", "d"] },
       { words: ["e", "f", "g", "h"] },
@@ -84,6 +106,7 @@ test("connections require sixteen unique words in four groups", () => {
   );
   const invalid = {
     id: "conn-2",
+    confidence: "high",
     groups: [
       { words: ["a", "b", "c", "d"] },
       { words: ["a", "f", "g", "h"] },

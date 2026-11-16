@@ -43,6 +43,16 @@ function jaccard(a, b) {
   return shared / (left.size + right.size - shared);
 }
 
+const FACTUAL_GAMES = new Set([
+  "buzzer-trivia",
+  "fact-or-fiction",
+  "survey-says",
+  "connections",
+]);
+
+const TIME_SENSITIVE =
+  /\b(currently|today|right now|as of|reigning|incumbent|record holder|most recent|this year|next year)\b|\bcurrent (president|prime minister|champion|record|leader|price|population)\b/i;
+
 const TRIVIA_FAMILY_LIMITS = {
   "buzzer-trivia": 0.08,
   "fact-or-fiction": 0.08,
@@ -159,6 +169,12 @@ export function validateBank({
     else if (ids.has(id)) errors.push(`${gameId}: duplicate id ${id}`);
     ids.add(id);
 
+    if (FACTUAL_GAMES.has(gameId) && item?.confidence !== "high") {
+      errors.push(
+        `${gameId}:${id || index} has no high-confidence verification`,
+      );
+    }
+
     if (gameId === "connections") {
       errors.push(...connectionErrors(item));
       if (Array.isArray(item?.tags) && item.tags.length) counts.tags += 1;
@@ -170,6 +186,9 @@ export function validateBank({
 
     const text = textOf(item);
     if (!text) errors.push(`${gameId}:${id || index} has no text`);
+    if (FACTUAL_GAMES.has(gameId) && TIME_SENSITIVE.test(text)) {
+      errors.push(`${gameId}:${id || index} is time-sensitive`);
+    }
     const textLimit = gameId === "mad-libs" ? 700 : 320;
     if (text.length > textLimit) {
       errors.push(
