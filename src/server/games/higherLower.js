@@ -1,4 +1,5 @@
 import { createRequire } from "node:module";
+import { drawCards, seededShuffle, standardDeck } from "./cards.js";
 import { shuffle } from "../utils/helpers.js";
 
 const require = createRequire(import.meta.url);
@@ -20,6 +21,14 @@ const MODES = {
     guessMs: 10_000,
     revealMs: 5_000,
     rounds: 4,
+  },
+  deck: {
+    label: "Deck",
+    description: "Guess the next card against a 52-card deck and build a streak",
+    guessMs: 12_000,
+    revealMs: 6_000,
+    rounds: 8,
+    maxMultiplier: 5,
   },
 };
 
@@ -83,6 +92,72 @@ function currentPair(room, state) {
   };
 }
 
+function resolveDeckGuess(room, state) {
+  if (!state.deck.length) {
+    state.deck = seededShuffle(
+      standardDeck(),
+      `higher-lower-${room.id}-${state.round}`,
+    );
+  }
+  const drawn = drawCards(state.deck, 1);
+  state.deck = drawn.deck;
+  const next = drawn.cards[0];
+  if (!next || !state.currentCard) {
+    state.done = true;
+    return "results";
+  }
+  const current = state.currentCard;
+  const correctAnswer =
+    next.value > current.value
+      ? "higher"
+      : next.value < current.value
+        ? "lower"
+        : "tie";
+  const maxMultiplier = configFor(room.mode).maxMultiplier || 5;
+  const roundPoints = [];
+  for (const player of activePlayers(room)) {
+    const value = state.guesses[player.id];
+    if (value !== "higher" && value !== "lower") continue;
+    if (correctAnswer === "tie") {
+      roundPoints.push({ playerId: player.id, name: player.name, points: 0 });
+      continue;
+    }
+    if (value === correctAnswer) {
+      const streak = Number(state.streak[player.id] || 0) + 1;
+      state.streak[player.id] = streak;
+      const points = Math.min(maxMultiplier, streak);
+      room.scores[player.id] = Number(room.scores[player.id] || 0) + points;
+      roundPoints.push({ playerId: player.id, name: player.name, points });
+    } else {
+      state.streak[player.id] = 0;
+      roundPoints.push({ playerId: player.id, name: player.name, points: 0 });
+    }
+  }
+
+  state.nextCard = next;
+  state.reveal = {
+    mode: "deck",
+    currentCard: { ...current },
+    nextCard: { ...next },
+    correctAnswer,
+    guesses: Object.entries(state.guesses).map(([playerId, value]) => ({
+      playerId,
+      name: room.players.get(playerId)?.name || "Player",
+      value,
+    })),
+    roundPoints,
+    streaks: Object.fromEntries(
+      activePlayers(room).map((player) => [
+        player.id,
+        Number(state.streak[player.id] || 0),
+      ]),
+    ),
+  };
+  state.phase = "reveal";
+  state.endsAt = Date.now() + configFor(room.mode).revealMs;
+  return undefined;
+}
+
 function resolveGuess(room, state) {
   const { current, next } = currentPair(room, state);
   if (!current || !next) {
@@ -136,6 +211,26 @@ const higherLower = {
 
   init(room, mode) {
     room.mode = mode in MODES ? mode : "classic";
+    if (room.mode === "deck") {
+      const config = configFor(room.mode);
+      const deck = seededShuffle(standardDeck(), `${room.id}-deck`);
+      const first = deck.shift();
+      const state = {
+        phase: "guess",
+        round: 1,
+        rounds: config.rounds,
+        deck,
+        currentCard: first,
+        nextCard: null,
+        guesses: {},
+        streak: {},
+        reveal: null,
+        done: false,
+        endsAt: Date.now() + config.guessMs,
+      };
+      room.state = state;
+      return state;
+    }
     const state = {
       phase: "poll",
       round: 0,
@@ -158,6 +253,21 @@ const higherLower = {
   onEvent(room, playerId, event) {
     const state = room.state;
     if (!state || state.done) return "results";
+
+    if (room.mode === "deck" && state.phase === "guess" && event.type === "guess") {
+      if (state.guesses[playerId] !== undefined) {
+        throw failure("already_guessed", "You already made this call");
+      }
+      const value = String(event.value || "");
+      if (value !== "higher" && value !== "lower") {
+        throw failure("invalid_guess", "Choose higher or lower");
+      }
+      state.guesses[playerId] = value;
+      if (activePlayers(room).every((player) => state.guesses[player.id] !== undefined)) {
+        resolveDeckGuess(room, state);
+      }
+      return;
+    }
 
     if (state.phase === "poll" && event.type === "ratings") {
       if (state.ratings[playerId] !== undefined) {
@@ -202,6 +312,24 @@ const higherLower = {
     const state = room.state;
     if (!state || state.done) return "results";
 
+    if (room.mode === "deck") {
+      if (state.phase === "guess") {
+        resolveDeckGuess(room, state);
+        return;
+      }
+      if (state.round >= state.rounds) {
+        state.done = true;
+        return "results";
+      }
+      state.round += 1;
+      state.currentCard = state.nextCard;
+      state.nextCard = null;
+      state.guesses = {};
+      state.reveal = null;
+      state.phase = "guess";
+      state.endsAt = Date.now() + configFor(room.mode).guessMs;
+      return;
+    }
     if (state.phase === "poll") {
       if (activePlayers(room).length < 2) {
         state.done = true;
@@ -230,13 +358,19 @@ const higherLower = {
   onPlayerLeave(room, playerId) {
     const state = room.state;
     if (!state || state.done) return;
-    delete state.ratings[playerId];
+    delete state.ratings?.[playerId];
     delete state.guesses[playerId];
-    state.rankings = state.rankings.filter((entry) => entry.playerId !== playerId);
+    delete state.streak?.[playerId];
+    if (state.rankings) {
+      state.rankings = state.rankings.filter((entry) => entry.playerId !== playerId);
+    }
 
     if (activePlayers(room).length < 3) {
       state.done = true;
       return "results";
+    }
+    if (room.mode === "deck" && state.phase === "guess" && activePlayers(room).every((player) => state.guesses[player.id] !== undefined)) {
+      resolveDeckGuess(room, state);
     }
     if (state.phase === "poll" && activePlayers(room).every((player) => state.ratings[player.id] !== undefined)) {
       buildRankings(room, state);
@@ -250,6 +384,29 @@ const higherLower = {
   viewFor(room, viewerId) {
     const state = room.state;
     const active = activePlayers(room);
+    if (room.mode === "deck") {
+      if (state.phase === "guess") {
+        return {
+          phase: "guess",
+          round: state.round,
+          rounds: state.rounds,
+          mode: "deck",
+          currentCard: state.currentCard,
+          submitted: Object.keys(state.guesses).length,
+          total: active.length,
+          myGuess: state.guesses[viewerId] || null,
+          streak: Number(state.streak?.[viewerId] || 0),
+          guessMs: configFor(room.mode).guessMs,
+        };
+      }
+      return {
+        phase: "reveal",
+        round: state.round,
+        rounds: state.rounds,
+        mode: "deck",
+        reveal: state.reveal,
+      };
+    }
     if (state.phase === "poll") {
       return {
         phase: "poll",
@@ -294,6 +451,26 @@ const higherLower = {
 
   publicFor(room) {
     const state = room.state;
+    if (room.mode === "deck") {
+      if (state.phase === "guess") {
+        return {
+          phase: "guess",
+          round: state.round,
+          rounds: state.rounds,
+          mode: "deck",
+          currentCard: state.currentCard,
+          submitted: Object.keys(state.guesses).length,
+          total: activePlayers(room).length,
+        };
+      }
+      return {
+        phase: "reveal",
+        round: state.round,
+        rounds: state.rounds,
+        mode: "deck",
+        reveal: state.reveal,
+      };
+    }
     if (state.phase === "poll") {
       return {
         phase: "poll",

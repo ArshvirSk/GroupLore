@@ -2,6 +2,7 @@
 
 import AnswerInput from "@/components/game/AnswerInput";
 import PromptCard from "@/components/game/PromptCard";
+import { Card as PlayingCard, Hand } from "@/components/cards";
 import { Badge, Button, Card, Chip, Input } from "@/components/ui";
 import type { RoomView } from "@/stores/roomStore";
 import { motion, useReducedMotion } from "framer-motion";
@@ -61,63 +62,163 @@ function RevealPoints({ view }: { view: Obj }) {
 
 function FillTheBlank({ view, send }: { view: Obj; send: Sender }) {
   const [selected, setSelected] = useState<string[]>([]);
+  const [flipped, setFlipped] = useState<string[]>([]);
   const phase = text(view.phase);
-  const hand = asList(view.hand);
+  const hand = asList(view.hand).map((card) => ({
+    id: text(card.id),
+    text: text(card.text),
+  }));
   const options = asList(view.options);
   const reveal = asObj(view.reveal);
-  const toggle = (id: string) => {
-    setSelected((current) => {
-      if (current.includes(id)) return current.filter((item) => item !== id);
-      if (current.length >= num(view.blanks, 1)) return [current[1], id].filter(Boolean);
-      return [...current, id];
-    });
-  };
+  const blanks = num(view.blanks, 1);
+  const winner = asObj(reveal.winner);
+
   return (
     <div className="space-y-4">
-      <PromptCard kicker={view.isJudge ? "You are judging" : "Fill the blank"} icon="puzzle">
-        {text(view.prompt)}
-      </PromptCard>
+      <div
+        className={`rounded-[16px] border px-4 py-3 ${
+          view.isJudge
+            ? "border-ink bg-accent-soft"
+            : "border-border bg-surface"
+        }`}
+      >
+        <p className="font-mono text-[10px] font-bold uppercase tracking-[.12em] text-muted">
+          {view.isJudge ? "Judge this round" : `Judge: ${text(view.judgeName)}`}
+        </p>
+        <p className="mt-1 font-display text-lg font-bold text-ink">
+          {text(view.prompt)}
+        </p>
+        <p className="mt-1 text-xs font-semibold text-muted">
+          {view.isJudge
+            ? "Entries are anonymous. Flip each one before choosing."
+            : `Pick ${blanks} card${blanks === 1 ? "" : "s"} from your hand, then confirm.`}
+        </p>
+      </div>
       <Status view={view} />
+
       {phase === "play" ? (
         view.isJudge ? (
-          <Panel><p className="text-sm font-semibold text-muted">Wait for the other players to play their cards.</p></Panel>
+          <Panel>
+            <p className="text-center text-sm font-semibold text-muted">
+              The table is choosing cards. Your hand sits out this round.
+            </p>
+          </Panel>
         ) : (
-          <>
-            <div className="grid gap-2 sm:grid-cols-2">
-              {hand.map((card) => {
-                const active = selected.includes(text(card.id));
-                return (
-                  <button key={text(card.id)} type="button" disabled={Boolean(view.youPlayed)} onClick={() => toggle(text(card.id))}
-                    className={`rounded-2xl border-2 px-4 py-3 text-left text-sm font-semibold shadow-soft transition ${active ? "border-grape bg-lavender/40" : "border-transparent bg-white enabled:hover:border-lavender"}`}>
-                    {text(card.text)}
-                  </button>
-                );
-              })}
+          <div className="rounded-[18px] border border-border bg-surface p-3 shadow-soft">
+            <Hand
+              cards={hand}
+              size="lg"
+              max={blanks}
+              selectedIds={selected}
+              onSelect={setSelected}
+              disabled={Boolean(view.youPlayed)}
+              label="Your answer cards"
+            />
+            <div className="mt-1 flex flex-wrap items-center justify-between gap-2">
+              <p className="text-xs font-semibold text-muted">
+                {selected.length}/{blanks} selected
+              </p>
+              <Button
+                disabled={selected.length !== blanks || Boolean(view.youPlayed)}
+                onClick={() => {
+                  send("play", { cardIds: selected });
+                  setSelected([]);
+                }}
+              >
+                {view.youPlayed ? "Cards submitted" : "Confirm play"}
+              </Button>
             </div>
-            <Button disabled={selected.length !== num(view.blanks, 1) || Boolean(view.youPlayed)} onClick={() => { send("play", { cardIds: selected }); setSelected([]); }}>
-              {view.youPlayed ? "Cards submitted" : `Play ${num(view.blanks, 1)} card${num(view.blanks, 1) === 1 ? "" : "s"}`}
-            </Button>
-          </>
+          </div>
         )
       ) : null}
+
       {phase === "judge" ? (
         view.isJudge ? (
-          <div className="grid gap-2">
-            {options.map((option) => (
-              <button key={text(option.id)} type="button" onClick={() => send("pick", { entryId: text(option.id) })}
-                className="rounded-2xl border-2 border-transparent bg-white px-4 py-3 text-left shadow-soft transition hover:border-grape">
-                <span className="block text-[10px] font-bold uppercase tracking-wide text-muted">Anonymous entry</span>
-                <span className="mt-1 block font-display text-lg font-semibold text-ink">{asStrings(option.cards).join(" / ")}</span>
-              </button>
-            ))}
+          <div className="grid gap-3 sm:grid-cols-2">
+            {options.map((option) => {
+              const entryId = text(option.id);
+              const cards = asStrings(option.cards);
+              const isFlipped = flipped.includes(entryId);
+              return (
+                <div
+                  key={entryId}
+                  className="rounded-[16px] border border-border bg-surface p-3 shadow-soft"
+                >
+                  <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-[.12em] text-muted">
+                    Anonymous entry
+                  </p>
+                  <div className="card-played-row !min-h-[142px]">
+                    {cards.map((value, index) => (
+                      <span key={`${entryId}-${index}`}>
+                        <PlayingCard
+                          card={{ id: `${entryId}-${index}`, text: value }}
+                          faceUp={isFlipped}
+                          size="md"
+                        />
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-2 flex gap-2">
+                    <Button
+                      size="sm"
+                      variant="secondary"
+                      onClick={() =>
+                        setFlipped((current) =>
+                          current.includes(entryId)
+                            ? current.filter((id) => id !== entryId)
+                            : [...current, entryId],
+                        )
+                      }
+                    >
+                      {isFlipped ? "Hide" : "Flip"}
+                    </Button>
+                    <Button
+                      size="sm"
+                      disabled={!isFlipped}
+                      onClick={() => send("pick", { entryId })}
+                    >
+                      Pick this
+                    </Button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-        ) : <Panel><p className="text-sm font-semibold text-muted">The judge is choosing the best card.</p></Panel>
+        ) : (
+          <Panel>
+            <p className="text-center text-sm font-semibold text-muted">
+              The judge is flipping anonymous entries.
+            </p>
+          </Panel>
+        )
       ) : null}
+
       {phase === "reveal" ? (
         <Panel>
-          <p className="text-xs font-bold uppercase tracking-wide text-ink-soft">Winning card</p>
-          <p className="mt-1 font-display text-lg font-semibold text-ink">{asStrings(asObj(reveal.winner).cards).join(" / ") || "No card"}</p>
-          <p className="mt-1 text-sm font-semibold text-muted">{text(asObj(reveal.winner).name)} wins the round.</p>
+          <p className="text-xs font-bold uppercase tracking-wide text-ink-soft">
+            Winning card
+          </p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.82, rotate: -4 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ type: "spring", stiffness: 380, damping: 24 }}
+            className="mx-auto mt-3 flex max-w-full justify-center gap-2"
+          >
+            {asStrings(winner.cards).length ? (
+              asStrings(winner.cards).map((value, index) => (
+                <PlayingCard
+                  key={`${value}-${index}`}
+                  card={{ id: `winner-${index}`, text: value }}
+                  size="lg"
+                />
+              ))
+            ) : (
+              <p className="font-display text-lg text-muted">No card</p>
+            )}
+          </motion.div>
+          <p className="mt-3 text-center text-sm font-semibold text-muted">
+            {text(winner.name) || "Nobody"} wins the round.
+          </p>
         </Panel>
       ) : null}
       <RevealPoints view={view} />

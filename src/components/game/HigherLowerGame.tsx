@@ -1,5 +1,7 @@
 "use client";
 
+import { Card, PlayedCards } from "@/components/cards";
+import { Badge } from "@/components/ui";
 import { Icon } from "@/components/ui/Icon";
 
 import PromptCard from "@/components/game/PromptCard";
@@ -8,6 +10,22 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 
 type Ranking = { playerId: string; name: string; score: number };
+type DeckCard = {
+  id: string;
+  rank: string;
+  suit?: string;
+  value?: number;
+  joker?: boolean;
+};
+type DeckReveal = {
+  mode: "deck";
+  currentCard: DeckCard;
+  nextCard: DeckCard;
+  correctAnswer: "higher" | "lower" | "tie";
+  guesses: { playerId: string; name: string; value: "higher" | "lower" }[];
+  roundPoints: { playerId: string; name: string; points: number }[];
+  streaks: Record<string, number>;
+};
 
 type HigherLowerReveal = {
   category: string;
@@ -33,7 +51,10 @@ export type HigherLowerView = {
   currentScore?: number;
   nextName?: string;
   myGuess?: "higher" | "lower" | null;
-  reveal?: HigherLowerReveal | null;
+  currentCard?: DeckCard;
+  streak?: number;
+  guessMs?: number;
+  reveal?: HigherLowerReveal | DeckReveal | null;
 };
 
 export default function HigherLowerGame({
@@ -46,6 +67,136 @@ export default function HigherLowerGame({
   send: (type: string, data?: Record<string, unknown>) => void;
 }) {
   const reduced = useReducedMotion();
+
+  if (view.mode === "deck") {
+    const reveal = view.reveal as DeckReveal | null | undefined;
+    if (view.phase === "guess") {
+      return (
+        <div className="space-y-4">
+          <div className="party-card bg-cream p-4 text-center">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[.14em] text-muted">
+              Round {view.round} of {view.rounds} · Deck mode
+            </p>
+            <div className="mt-3 flex justify-center">
+              <motion.div
+                key={view.currentCard?.id}
+                initial={reduced ? false : { y: -18, opacity: 0, rotate: -4 }}
+                animate={{ y: 0, opacity: 1, rotate: 0 }}
+                transition={{ type: "spring", stiffness: 360, damping: 24 }}
+              >
+                <Card
+                  card={view.currentCard || { id: "unknown", rank: "?" }}
+                  size="lg"
+                />
+              </motion.div>
+            </div>
+            <p className="mt-3 text-sm font-semibold text-muted">
+              Will the next card be higher or lower? A tie is a push.
+            </p>
+            <div className="mt-2 flex justify-center gap-2">
+              <Badge tone="neutral">
+                Streak ×{Math.min(5, Math.max(1, (view.streak || 0) + 1))}
+              </Badge>
+              <Badge tone="neutral">
+                {view.submitted}/{view.total} called
+              </Badge>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <button
+              type="button"
+              disabled={Boolean(view.myGuess)}
+              onClick={() => send("guess", { value: "higher" })}
+              className={`min-h-24 rounded-3xl border-2 px-4 py-5 text-left shadow-soft transition ${
+                view.myGuess === "higher"
+                  ? "border-[#20B49A] bg-mint/50"
+                  : "border-transparent bg-surface enabled:hover:border-mint"
+              } disabled:cursor-default`}
+            >
+              <span className="text-3xl">⬆️</span>
+              <span className="mt-2 block font-display text-xl font-semibold text-ink">
+                Higher
+              </span>
+            </button>
+            <button
+              type="button"
+              disabled={Boolean(view.myGuess)}
+              onClick={() => send("guess", { value: "lower" })}
+              className={`min-h-24 rounded-3xl border-2 px-4 py-5 text-left shadow-soft transition ${
+                view.myGuess === "lower"
+                  ? "border-coral bg-blush/70"
+                  : "border-transparent bg-surface enabled:hover:border-blush"
+              } disabled:cursor-default`}
+            >
+              <span className="text-3xl">⬇️</span>
+              <span className="mt-2 block font-display text-xl font-semibold text-ink">
+                Lower
+              </span>
+            </button>
+          </div>
+        </div>
+      );
+    }
+    if (!reveal) return null;
+    const correct =
+      reveal.correctAnswer === "tie"
+        ? "Tie — no points, streaks survive."
+        : `The next card was ${reveal.correctAnswer}.`;
+    return (
+      <div className="space-y-4">
+        <motion.div
+          initial={reduced ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="party-card bg-mint/25 p-5 text-center"
+        >
+          <p className="font-mono text-[10px] font-bold uppercase tracking-[.14em] text-muted">
+            Round {view.round} of {view.rounds}
+          </p>
+          <div className="mt-3">
+            <PlayedCards
+              cards={[reveal.currentCard, reveal.nextCard]}
+              revealed
+              claimed={`${reveal.currentCard.rank} → ${reveal.nextCard.rank}`}
+            />
+          </div>
+          <p className="mt-3 font-display text-2xl font-extrabold text-ink">
+            {correct}
+          </p>
+        </motion.div>
+        <div className="party-card p-5">
+          <p className="text-xs font-bold uppercase tracking-wide text-ink-soft">
+            The calls
+          </p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {reveal.guesses.map((entry) => (
+              <span
+                key={entry.playerId}
+                className={`rounded-full px-3 py-1 text-xs font-bold ${
+                  entry.value === reveal.correctAnswer
+                    ? "bg-mint/60 text-[#0F7F6C]"
+                    : "bg-blush/60 text-[#B83232]"
+                }`}
+              >
+                {entry.name}: {entry.value}
+              </span>
+            ))}
+          </div>
+          {reveal.roundPoints.length ? (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {reveal.roundPoints.map((entry) => (
+                <span
+                  key={entry.playerId}
+                  className="rounded-full bg-honey/50 px-3 py-1 text-sm font-bold text-[#8A5A00]"
+                >
+                  {entry.name} +{entry.points}
+                </span>
+              ))}
+            </div>
+          ) : null}
+        </div>
+      </div>
+    );
+  }
 
   if (view.phase === "poll") {
     return (
@@ -120,7 +271,7 @@ export default function HigherLowerGame({
     );
   }
 
-  const reveal = view.reveal;
+  const reveal = view.reveal as HigherLowerReveal | null | undefined;
   if (!reveal) return null;
 
   return (
