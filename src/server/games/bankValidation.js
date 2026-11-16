@@ -17,6 +17,9 @@ function textOf(item) {
   if (typeof item?.a === "string" && typeof item?.b === "string") {
     return `${item.a} / ${item.b}`.trim();
   }
+  if (typeof item?.low === "string" && typeof item?.high === "string") {
+    return `${item.low} / ${item.high}`.trim();
+  }
   return "";
 }
 
