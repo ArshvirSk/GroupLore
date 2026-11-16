@@ -2,152 +2,288 @@
   {
     "id": "rush-01",
     "category": "Things in a kitchen",
-    "letter": "S"
+    "letter": "S",
+    "tags": [
+      "category"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-02",
     "category": "Animals",
-    "letter": "B"
+    "letter": "B",
+    "tags": [
+      "category",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-03",
     "category": "Countries",
-    "letter": "C"
+    "letter": "C",
+    "tags": [
+      "category"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-04",
     "category": "Movie titles",
-    "letter": "T"
+    "letter": "T",
+    "tags": [
+      "category",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-05",
     "category": "Foods",
-    "letter": "P"
+    "letter": "P",
+    "tags": [
+      "category",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-06",
     "category": "Things at a beach",
-    "letter": "S"
+    "letter": "S",
+    "tags": [
+      "category",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-07",
     "category": "Musical instruments",
-    "letter": "G"
+    "letter": "G",
+    "tags": [
+      "category",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-08",
     "category": "Things in a bedroom",
-    "letter": "B"
+    "letter": "B",
+    "tags": [
+      "category"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-09",
     "category": "Sports",
-    "letter": "B"
+    "letter": "B",
+    "tags": [
+      "category",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-10",
     "category": "Cities",
-    "letter": "M"
+    "letter": "M",
+    "tags": [
+      "category"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-11",
     "category": "Things that are cold",
-    "letter": "I"
+    "letter": "I",
+    "tags": [
+      "category"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-12",
     "category": "Jobs",
-    "letter": "D"
+    "letter": "D",
+    "tags": [
+      "category",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-13",
     "category": "Things in a school",
-    "letter": "T"
+    "letter": "T",
+    "tags": [
+      "category",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-14",
     "category": "Fruits",
-    "letter": "M"
+    "letter": "M",
+    "tags": [
+      "category",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-15",
     "category": "Things that fly",
-    "letter": "P"
+    "letter": "P",
+    "tags": [
+      "category"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-16",
     "category": "Board games",
-    "letter": "C"
+    "letter": "C",
+    "tags": [
+      "category",
+      "games"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-17",
     "category": "Things in a bathroom",
-    "letter": "T"
+    "letter": "T",
+    "tags": [
+      "category"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-18",
     "category": "Clothing",
-    "letter": "S"
+    "letter": "S",
+    "tags": [
+      "category"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-19",
     "category": "Things in space",
-    "letter": "M"
+    "letter": "M",
+    "tags": [
+      "category",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-20",
     "category": "Drinks",
-    "letter": "L"
+    "letter": "L",
+    "tags": [
+      "category"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-21",
     "category": "Things at a zoo",
-    "letter": "E"
+    "letter": "E",
+    "tags": [
+      "category"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-22",
     "category": "TV shows",
-    "letter": "F"
+    "letter": "F",
+    "tags": [
+      "category",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-23",
     "category": "Things that are round",
-    "letter": "B"
+    "letter": "B",
+    "tags": [
+      "category"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-24",
     "category": "Holidays",
-    "letter": "H"
+    "letter": "H",
+    "tags": [
+      "category",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-25",
     "category": "Things in a car",
-    "letter": "S"
+    "letter": "S",
+    "tags": [
+      "category"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-26",
     "category": "Video games",
-    "letter": "M"
+    "letter": "M",
+    "tags": [
+      "category",
+      "games"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-27",
     "category": "Things you find in a desk",
-    "letter": "P"
+    "letter": "P",
+    "tags": [
+      "category"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-28",
     "category": "Weather words",
-    "letter": "S"
+    "letter": "S",
+    "tags": [
+      "category",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-29",
     "category": "Things at a party",
-    "letter": "C"
+    "letter": "C",
+    "tags": [
+      "category",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-30",
     "category": "Superheroes",
-    "letter": "S"
+    "letter": "S",
+    "tags": [
+      "category"
+    ],
+    "rating": "all"
   },
   {
     "id": "rush-31",

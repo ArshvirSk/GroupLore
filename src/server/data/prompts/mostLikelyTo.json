@@ -1,203 +1,417 @@
 [
   {
     "id": "mlt-01",
-    "text": "Most likely to reply to a message three days later and act like nothing happened"
+    "text": "Most likely to reply to a message three days later and act like nothing happened",
+    "tags": [
+      "social",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-02",
-    "text": "Most likely to become famous for something completely accidental"
+    "text": "Most likely to become famous for something completely accidental",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-03",
-    "text": "Most likely to start a group chat and immediately mute it"
+    "text": "Most likely to start a group chat and immediately mute it",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-04",
-    "text": "Most likely to order for the whole table without asking"
+    "text": "Most likely to order for the whole table without asking",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-05",
-    "text": "Most likely to cry at a car commercial"
+    "text": "Most likely to cry at a car commercial",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-06",
-    "text": "Most likely to survive a zombie apocalypse purely by luck"
+    "text": "Most likely to survive a zombie apocalypse purely by luck",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-07",
-    "text": "Most likely to turn a five-minute errand into a three-hour adventure"
+    "text": "Most likely to turn a five-minute errand into a three-hour adventure",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-08",
-    "text": "Most likely to have a spreadsheet for their personal life"
+    "text": "Most likely to have a spreadsheet for their personal life",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-09",
-    "text": "Most likely to fall asleep during their own birthday party"
+    "text": "Most likely to fall asleep during their own birthday party",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-10",
-    "text": "Most likely to become a millionaire and still split the bill exactly"
+    "text": "Most likely to become a millionaire and still split the bill exactly",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-11",
-    "text": "Most likely to win an argument by inventing a statistic"
+    "text": "Most likely to win an argument by inventing a statistic",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-12",
-    "text": "Most likely to show up wearing the wrong outfit on purpose"
+    "text": "Most likely to show up wearing the wrong outfit on purpose",
+    "tags": [
+      "social",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-13",
-    "text": "Most likely to befriend a stranger in a queue and leave with plans"
+    "text": "Most likely to befriend a stranger in a queue and leave with plans",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-14",
-    "text": "Most likely to send a voice note that is longer than a podcast"
+    "text": "Most likely to send a voice note that is longer than a podcast",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-15",
-    "text": "Most likely to book a trip because the flight was cheap"
+    "text": "Most likely to book a trip because the flight was cheap",
+    "tags": [
+      "social",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-16",
-    "text": "Most likely to eat the last slice and blame the group chat"
+    "text": "Most likely to eat the last slice and blame the group chat",
+    "tags": [
+      "social",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-17",
-    "text": "Most likely to have a secret talent nobody believes"
+    "text": "Most likely to have a secret talent nobody believes",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-18",
-    "text": "Most likely to get lost using a map"
+    "text": "Most likely to get lost using a map",
+    "tags": [
+      "social",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-19",
-    "text": "Most likely to become the group's unofficial therapist"
+    "text": "Most likely to become the group's unofficial therapist",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-20",
-    "text": "Most likely to laugh at the worst possible moment"
+    "text": "Most likely to laugh at the worst possible moment",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-21",
-    "text": "Most likely to adopt an animal they definitely cannot look after"
+    "text": "Most likely to adopt an animal they definitely cannot look after",
+    "tags": [
+      "social",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-22",
-    "text": "Most likely to write a strongly worded review about a sandwich"
+    "text": "Most likely to write a strongly worded review about a sandwich",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-23",
-    "text": "Most likely to go viral for a video they did not mean to post"
+    "text": "Most likely to go viral for a video they did not mean to post",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-24",
-    "text": "Most likely to have a backup plan for their backup plan"
+    "text": "Most likely to have a backup plan for their backup plan",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-25",
-    "text": "Most likely to spend an entire day rearranging a playlist"
+    "text": "Most likely to spend an entire day rearranging a playlist",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-26",
-    "text": "Most likely to be late to their own surprise party"
+    "text": "Most likely to be late to their own surprise party",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-27",
-    "text": "Most likely to fall in love with a houseplant"
+    "text": "Most likely to fall in love with a houseplant",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-28",
-    "text": "Most likely to quote a film nobody else has seen"
+    "text": "Most likely to quote a film nobody else has seen",
+    "tags": [
+      "social",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-29",
-    "text": "Most likely to turn a hobby into a small business by the weekend"
+    "text": "Most likely to turn a hobby into a small business by the weekend",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-30",
-    "text": "Most likely to give a toast with zero preparation and nail it"
+    "text": "Most likely to give a toast with zero preparation and nail it",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-31",
-    "text": "Most likely to get into a debate with a stranger online"
+    "text": "Most likely to get into a debate with a stranger online",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-32",
-    "text": "Most likely to own three identical hoodies"
+    "text": "Most likely to own three identical hoodies",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-33",
-    "text": "Most likely to be trusted with a secret and forget it instantly"
+    "text": "Most likely to be trusted with a secret and forget it instantly",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-34",
-    "text": "Most likely to win a pub quiz single-handedly"
+    "text": "Most likely to win a pub quiz single-handedly",
+    "tags": [
+      "social",
+      "music",
+      "games"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-35",
-    "text": "Most likely to move to another country on a whim"
+    "text": "Most likely to move to another country on a whim",
+    "tags": [
+      "social",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-36",
-    "text": "Most likely to create chaos and then offer to make tea"
+    "text": "Most likely to create chaos and then offer to make tea",
+    "tags": [
+      "social",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-37",
-    "text": "Most likely to be the reason a restaurant runs out of dessert"
+    "text": "Most likely to be the reason a restaurant runs out of dessert",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-38",
-    "text": "Most likely to take a nap in a public place"
+    "text": "Most likely to take a nap in a public place",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-39",
-    "text": "Most likely to remember a birthday nobody else remembered"
+    "text": "Most likely to remember a birthday nobody else remembered",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-40",
-    "text": "Most likely to accidentally start a tradition"
+    "text": "Most likely to accidentally start a tradition",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-41",
-    "text": "Most likely to negotiate a discount with total confidence"
+    "text": "Most likely to negotiate a discount with total confidence",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-42",
-    "text": "Most likely to cry-laugh at their own joke first"
+    "text": "Most likely to cry-laugh at their own joke first",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-43",
-    "text": "Most likely to spend the whole holiday taking photos of everyone else"
+    "text": "Most likely to spend the whole holiday taking photos of everyone else",
+    "tags": [
+      "social",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-44",
-    "text": "Most likely to survive a week with no phone and love it"
+    "text": "Most likely to survive a week with no phone and love it",
+    "tags": [
+      "social",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-45",
-    "text": "Most likely to be the last one standing at every party"
+    "text": "Most likely to be the last one standing at every party",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-46",
-    "text": "Most likely to bring snacks to a snack-only event"
+    "text": "Most likely to bring snacks to a snack-only event",
+    "tags": [
+      "social",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-47",
-    "text": "Most likely to have a strongly held opinion about fonts"
+    "text": "Most likely to have a strongly held opinion about fonts",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-48",
-    "text": "Most likely to get a tattoo on a dare"
+    "text": "Most likely to get a tattoo on a dare",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-49",
-    "text": "Most likely to turn a minor inconvenience into a full saga"
+    "text": "Most likely to turn a minor inconvenience into a full saga",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-50",
-    "text": "Most likely to be missed the most when they leave the room"
+    "text": "Most likely to be missed the most when they leave the room",
+    "tags": [
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "mlt-51",

@@ -1,103 +1,218 @@
 [
   {
     "id": "caption-01",
-    "scenario": "A pigeon confidently walks into a business meeting."
+    "scenario": "A pigeon confidently walks into a business meeting.",
+    "tags": [
+      "caption",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-02",
-    "scenario": "Your group chat trying to decide where to eat."
+    "scenario": "Your group chat trying to decide where to eat.",
+    "tags": [
+      "caption",
+      "food",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-03",
-    "scenario": "The last slice of pizza watching everyone argue."
+    "scenario": "The last slice of pizza watching everyone argue.",
+    "tags": [
+      "caption",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-04",
-    "scenario": "A cat knocking a glass off a table while making eye contact."
+    "scenario": "A cat knocking a glass off a table while making eye contact.",
+    "tags": [
+      "caption"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-05",
-    "scenario": "Someone saying “I’ll be there in five minutes” from their bed."
+    "scenario": "Someone saying “I’ll be there in five minutes” from their bed.",
+    "tags": [
+      "caption"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-06",
-    "scenario": "A motivational poster in a completely empty gym."
+    "scenario": "A motivational poster in a completely empty gym.",
+    "tags": [
+      "caption",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-07",
-    "scenario": "Your phone at 1% battery while the GPS says “rerouting”."
+    "scenario": "Your phone at 1% battery while the GPS says “rerouting”.",
+    "tags": [
+      "caption",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-08",
-    "scenario": "A dog wearing a tiny suit at a job interview."
+    "scenario": "A dog wearing a tiny suit at a job interview.",
+    "tags": [
+      "caption",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-09",
-    "scenario": "The group project when one person finally opens the document."
+    "scenario": "The group project when one person finally opens the document.",
+    "tags": [
+      "caption",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-10",
-    "scenario": "A shopping cart with one wobbly wheel on a peaceful Sunday."
+    "scenario": "A shopping cart with one wobbly wheel on a peaceful Sunday.",
+    "tags": [
+      "caption"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-11",
-    "scenario": "Your alarm clock five minutes after you snoozed it."
+    "scenario": "Your alarm clock five minutes after you snoozed it.",
+    "tags": [
+      "caption"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-12",
-    "scenario": "A houseplant watching you forget to water it again."
+    "scenario": "A houseplant watching you forget to water it again.",
+    "tags": [
+      "caption"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-13",
-    "scenario": "Two people who only know each other from one group chat meeting in public."
+    "scenario": "Two people who only know each other from one group chat meeting in public.",
+    "tags": [
+      "caption",
+      "work",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-14",
-    "scenario": "A toddler explaining why the wall needed crayons."
+    "scenario": "A toddler explaining why the wall needed crayons.",
+    "tags": [
+      "caption"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-15",
-    "scenario": "The vibe when the Wi-Fi goes out mid-conversation."
+    "scenario": "The vibe when the Wi-Fi goes out mid-conversation.",
+    "tags": [
+      "caption"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-16",
-    "scenario": "A chef proudly presenting a plate with one single fry."
+    "scenario": "A chef proudly presenting a plate with one single fry.",
+    "tags": [
+      "caption",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-17",
-    "scenario": "A cat sitting on the one chair you actually needed."
+    "scenario": "A cat sitting on the one chair you actually needed.",
+    "tags": [
+      "caption"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-18",
-    "scenario": "Your suitcase after you insisted you packed light."
+    "scenario": "Your suitcase after you insisted you packed light.",
+    "tags": [
+      "caption"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-19",
-    "scenario": "A Monday morning that already knows what it did."
+    "scenario": "A Monday morning that already knows what it did.",
+    "tags": [
+      "caption"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-20",
-    "scenario": "A group photo where one person blinked in every single take."
+    "scenario": "A group photo where one person blinked in every single take.",
+    "tags": [
+      "caption",
+      "music",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-21",
-    "scenario": "A vending machine accepting exact change except when you have it."
+    "scenario": "A vending machine accepting exact change except when you have it.",
+    "tags": [
+      "caption"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-22",
-    "scenario": "The look you give when someone says “we need to talk”."
+    "scenario": "The look you give when someone says “we need to talk”.",
+    "tags": [
+      "caption"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-23",
-    "scenario": "A tiny dog trying to intimidate a delivery truck."
+    "scenario": "A tiny dog trying to intimidate a delivery truck.",
+    "tags": [
+      "caption"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-24",
-    "scenario": "An umbrella flipping inside out at the first sign of wind."
+    "scenario": "An umbrella flipping inside out at the first sign of wind.",
+    "tags": [
+      "caption"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-25",
-    "scenario": "Your headphones dying right before the best part of the song."
+    "scenario": "Your headphones dying right before the best part of the song.",
+    "tags": [
+      "caption",
+      "tech",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "caption-26",

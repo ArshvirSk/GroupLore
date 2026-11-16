@@ -1,602 +1,1268 @@
 [
   {
     "id": "rb-001",
-    "text": "The worst name for a pet goldfish"
+    "text": "A pet goldfish: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-002",
-    "text": "The most useless superpower"
+    "text": "The most useless superpower",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-003",
-    "text": "The worst thing to find in a hotel bed"
+    "text": "A hotel bed: the worst thing to find",
+    "tags": [
+      "comedy",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-004",
-    "text": "The worst theme for a restaurant"
+    "text": "The worst theme for a restaurant",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-005",
-    "text": "The worst thing to hear from the pilot"
+    "text": "The pilot: the worst thing to hear",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-006",
-    "text": "The worst excuse for being late"
+    "text": "The worst excuse for being late",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-007",
-    "text": "The worst answer in a job interview"
+    "text": "The worst answer in a job interview",
+    "tags": [
+      "comedy",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-008",
-    "text": "The worst pet to bring on a plane"
+    "text": "The worst pet to bring on a plane",
+    "tags": [
+      "comedy",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-009",
-    "text": "The worst secret to announce at a wedding"
+    "text": "The worst secret to announce at a wedding",
+    "tags": [
+      "comedy",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-010",
-    "text": "The worst thing to find in a library book"
+    "text": "A library book: the worst thing to find",
+    "tags": [
+      "comedy",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-011",
-    "text": "The worst thing to say during a haircut"
+    "text": "A haircut: the worst thing to say",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-012",
-    "text": "The worst name for a serious law firm"
+    "text": "A serious law firm: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-013",
-    "text": "The worst thing to whisper at a funeral"
+    "text": "A funeral: the worst thing to whisper",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-014",
-    "text": "The worst flavour of ice cream"
+    "text": "The worst flavour of ice cream",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-015",
-    "text": "The worst thing to put on a pizza"
+    "text": "A pizza: the worst thing to put",
+    "tags": [
+      "comedy",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-016",
-    "text": "The worst song to play at a gym"
+    "text": "The worst song to play at a gym",
+    "tags": [
+      "comedy",
+      "sport",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-017",
-    "text": "The worst thing to say to a dentist"
+    "text": "A dentist: the worst thing to say",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-018",
-    "text": "The worst name for a pet snake"
+    "text": "A pet snake: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-019",
-    "text": "The worst thing to find in your shoe"
+    "text": "Your shoe: the worst thing to find",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-020",
-    "text": "The worst thing to hear in a quiet cinema"
+    "text": "A quiet cinema: the worst thing to hear",
+    "tags": [
+      "comedy",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-021",
-    "text": "The worst thing to say after a first kiss"
+    "text": "The worst thing to say after a first kiss",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-022",
-    "text": "The worst prize to win at a school fair"
+    "text": "The worst prize to win at a school fair",
+    "tags": [
+      "comedy",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-023",
-    "text": "The worst thing to bring to a potluck"
+    "text": "A potluck: the worst thing to bring",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-024",
-    "text": "The worst name for a fitness class"
+    "text": "A fitness class: the worst possible name",
+    "tags": [
+      "comedy",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-025",
-    "text": "The worst thing to say when someone shows you their baby"
+    "text": "The worst thing to say when someone shows you their baby",
+    "tags": [
+      "comedy",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-026",
-    "text": "The worst thing to find in a hotel minibar"
+    "text": "A hotel minibar: the worst thing to find",
+    "tags": [
+      "comedy",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-027",
-    "text": "The worst job title to put on a business card"
+    "text": "The worst job title to put on a business card",
+    "tags": [
+      "comedy",
+      "work",
+      "games"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-028",
-    "text": "The worst thing to do during a job interview"
+    "text": "A job interview: the worst thing to do",
+    "tags": [
+      "comedy",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-029",
-    "text": "The worst place to fall asleep"
+    "text": "The worst place to fall asleep",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-030",
-    "text": "The worst thing to say to your boss on a Monday"
+    "text": "Your boss on a Monday: the worst thing to say",
+    "tags": [
+      "comedy",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-031",
-    "text": "The worst name for a luxury car"
+    "text": "A luxury car: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-032",
-    "text": "The worst thing to see on a menu"
+    "text": "A menu: the worst thing to see",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-033",
-    "text": "The worst thing to hear from your GPS"
+    "text": "Your GPS: the worst thing to hear",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-034",
-    "text": "The worst thing to find in a wedding gift bag"
+    "text": "A wedding gift bag: the worst thing to find",
+    "tags": [
+      "comedy",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-035",
-    "text": "The worst thing to say at a surprise party"
+    "text": "A surprise party: the worst thing to say",
+    "tags": [
+      "comedy",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-036",
-    "text": "The worst superpower for a spy"
+    "text": "The worst superpower for a spy",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-037",
-    "text": "The worst thing to put on a résumé"
+    "text": "A résumé: the worst thing to put",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-038",
-    "text": "The worst thing to hear from a mechanic"
+    "text": "A mechanic: the worst thing to hear",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-039",
-    "text": "The worst name for a coffee shop"
+    "text": "A coffee shop: the worst possible name",
+    "tags": [
+      "comedy",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-040",
-    "text": "The worst thing to do at a job fair"
+    "text": "A job fair: the worst thing to do",
+    "tags": [
+      "comedy",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-041",
-    "text": "The worst thing to say to a police officer"
+    "text": "A police officer: the worst thing to say",
+    "tags": [
+      "comedy",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-042",
-    "text": "The worst thing to find in a rental car"
+    "text": "A rental car: the worst thing to find",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-043",
-    "text": "The worst mascot for a bank"
+    "text": "The worst mascot for a bank",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-044",
-    "text": "The worst thing to bring to the beach"
+    "text": "The beach: the worst thing to bring",
+    "tags": [
+      "comedy",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-045",
-    "text": "The worst thing to shout in a library"
+    "text": "A library: the worst thing to shout",
+    "tags": [
+      "comedy",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-046",
-    "text": "The worst name for a retirement home"
+    "text": "A retirement home: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-047",
-    "text": "The worst thing to say in a group chat"
+    "text": "A group chat: the worst thing to say",
+    "tags": [
+      "comedy",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-048",
-    "text": "The worst thing to find in your takeaway"
+    "text": "Your takeaway: the worst thing to find",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-049",
-    "text": "The worst gift for someone who has everything"
+    "text": "The worst gift for someone who has everything",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-050",
-    "text": "The worst thing to say during a toast"
+    "text": "A toast: the worst thing to say",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-051",
-    "text": "The worst name for a security company"
+    "text": "A security company: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-052",
-    "text": "The worst thing to do on public transport"
+    "text": "Public transport: the worst thing to do",
+    "tags": [
+      "comedy",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-053",
-    "text": "The worst thing to hear from your accountant"
+    "text": "Your accountant: the worst thing to hear",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-054",
-    "text": "The worst thing to put in a smoothie"
+    "text": "A smoothie: the worst thing to put",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-055",
-    "text": "The worst name for a children's entertainer"
+    "text": "A children's entertainer: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-056",
-    "text": "The worst thing to say while getting a massage"
+    "text": "The worst thing to say while getting a massage",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-057",
-    "text": "The worst thing to find in a hotel bathroom"
+    "text": "A hotel bathroom: the worst thing to find",
+    "tags": [
+      "comedy",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-058",
-    "text": "The worst thing to bring to an interview"
+    "text": "An interview: the worst thing to bring",
+    "tags": [
+      "comedy",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-059",
-    "text": "The worst name for a horror movie"
+    "text": "A horror movie: the worst possible name",
+    "tags": [
+      "comedy",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-060",
-    "text": "The worst thing to say to a chef"
+    "text": "A chef: the worst thing to say",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-061",
-    "text": "The worst thing to do at a wedding reception"
+    "text": "A wedding reception: the worst thing to do",
+    "tags": [
+      "comedy",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-062",
-    "text": "The worst thing to hear from a doctor"
+    "text": "A doctor: the worst thing to hear",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-063",
-    "text": "The worst name for a pet parrot"
+    "text": "A pet parrot: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-064",
-    "text": "The worst thing to put on a birthday cake"
+    "text": "A birthday cake: the worst thing to put",
+    "tags": [
+      "comedy",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-065",
-    "text": "The worst thing to find in the office fridge"
+    "text": "The office fridge: the worst thing to find",
+    "tags": [
+      "comedy",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-066",
-    "text": "The worst thing to say to someone who just got dumped"
+    "text": "Someone who just got dumped: the worst thing to say",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-067",
-    "text": "The worst name for a gym"
+    "text": "A gym: the worst possible name",
+    "tags": [
+      "comedy",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-068",
-    "text": "The worst thing to bring on a first date"
+    "text": "A first date: the worst thing to bring",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-069",
-    "text": "The worst thing to say during a job promotion"
+    "text": "A job promotion: the worst thing to say",
+    "tags": [
+      "comedy",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-070",
-    "text": "The worst thing to do in a lift"
+    "text": "A lift: the worst thing to do",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-071",
-    "text": "The worst thing to find in a birthday card"
+    "text": "A birthday card: the worst thing to find",
+    "tags": [
+      "comedy",
+      "games"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-072",
-    "text": "The worst thing to hear at a car wash"
+    "text": "A car wash: the worst thing to hear",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-073",
-    "text": "The worst name for a dental practice"
+    "text": "A dental practice: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-074",
-    "text": "The worst thing to say to a hairdresser"
+    "text": "A hairdresser: the worst thing to say",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-075",
-    "text": "The worst thing to bring to a client meeting"
+    "text": "A client meeting: the worst thing to bring",
+    "tags": [
+      "comedy",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-076",
-    "text": "The worst thing to do at a museum"
+    "text": "A museum: the worst thing to do",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-077",
-    "text": "The worst thing to hear from your neighbour"
+    "text": "Your neighbour: the worst thing to hear",
+    "tags": [
+      "comedy",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-078",
-    "text": "The worst name for a dating app"
+    "text": "A dating app: the worst possible name",
+    "tags": [
+      "comedy",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-079",
-    "text": "The worst thing to put in a sandwich"
+    "text": "A sandwich: the worst thing to put",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-080",
-    "text": "The worst thing to say at a family dinner"
+    "text": "A family dinner: the worst thing to say",
+    "tags": [
+      "comedy",
+      "food",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-081",
-    "text": "The worst thing to find in an old coat pocket"
+    "text": "An old coat pocket: the worst thing to find",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-082",
-    "text": "The worst thing to do at a fancy restaurant"
+    "text": "A fancy restaurant: the worst thing to do",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-083",
-    "text": "The worst name for a space mission"
+    "text": "A space mission: the worst possible name",
+    "tags": [
+      "comedy",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-084",
-    "text": "The worst thing to hear from your roommate"
+    "text": "Your roommate: the worst thing to hear",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-085",
-    "text": "The worst thing to bring to a picnic"
+    "text": "A picnic: the worst thing to bring",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-086",
-    "text": "The worst thing to say after a presentation"
+    "text": "The worst thing to say after a presentation",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-087",
-    "text": "The worst name for a wedding band"
+    "text": "A wedding band: the worst possible name",
+    "tags": [
+      "comedy",
+      "music",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-088",
-    "text": "The worst thing to do on a first day at work"
+    "text": "A first day at work: the worst thing to do",
+    "tags": [
+      "comedy",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-089",
-    "text": "The worst thing to find in your luggage"
+    "text": "Your luggage: the worst thing to find",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-090",
-    "text": "The worst thing to say to a taxi driver"
+    "text": "A taxi driver: the worst thing to say",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-091",
-    "text": "The worst name for a perfume"
+    "text": "A perfume: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-092",
-    "text": "The worst thing to do at a concert"
+    "text": "A concert: the worst thing to do",
+    "tags": [
+      "comedy",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-093",
-    "text": "The worst thing to hear from your landlord"
+    "text": "Your landlord: the worst thing to hear",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-094",
-    "text": "The worst thing to put on a business card"
+    "text": "A business card: the worst thing to put",
+    "tags": [
+      "comedy",
+      "games"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-095",
-    "text": "The worst thing to say at a job rejection"
+    "text": "A job rejection: the worst thing to say",
+    "tags": [
+      "comedy",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-096",
-    "text": "The worst name for a pet hamster"
+    "text": "A pet hamster: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-097",
-    "text": "The worst thing to find in a box of cereal"
+    "text": "A box of cereal: the worst thing to find",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-098",
-    "text": "The worst thing to do in a hotel lobby"
+    "text": "A hotel lobby: the worst thing to do",
+    "tags": [
+      "comedy",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-099",
-    "text": "The worst thing to say to a referee"
+    "text": "A referee: the worst thing to say",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-100",
-    "text": "The worst name for a theme park ride"
+    "text": "A theme park ride: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-101",
-    "text": "The worst thing to bring to a gym session"
+    "text": "A gym session: the worst thing to bring",
+    "tags": [
+      "comedy",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-102",
-    "text": "The worst thing to hear during a haircut"
+    "text": "A haircut: the worst thing to hear",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-103",
-    "text": "The worst thing to write in a yearbook"
+    "text": "A yearbook: the worst thing to write",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-104",
-    "text": "The worst thing to say to a new parent"
+    "text": "A new parent: the worst thing to say",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-105",
-    "text": "The worst name for a smoothie"
+    "text": "A smoothie: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-106",
-    "text": "The worst thing to do at a wedding ceremony"
+    "text": "A wedding ceremony: the worst thing to do",
+    "tags": [
+      "comedy",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-107",
-    "text": "The worst thing to find in your desk drawer"
+    "text": "Your desk drawer: the worst thing to find",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-108",
-    "text": "The worst thing to say to a personal trainer"
+    "text": "A personal trainer: the worst thing to say",
+    "tags": [
+      "comedy",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-109",
-    "text": "The worst name for a funeral home"
+    "text": "A funeral home: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-110",
-    "text": "The worst thing to do on a Zoom call"
+    "text": "A Zoom call: the worst thing to do",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-111",
-    "text": "The worst thing to bring to a hospital"
+    "text": "A hospital: the worst thing to bring",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-112",
-    "text": "The worst thing to say at a job interview lunch"
+    "text": "A job interview lunch: the worst thing to say",
+    "tags": [
+      "comedy",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-113",
-    "text": "The worst thing to find on your windscreen"
+    "text": "Your windscreen: the worst thing to find",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-114",
-    "text": "The worst name for a sandwich shop"
+    "text": "A sandwich shop: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-115",
-    "text": "The worst thing to do at a library"
+    "text": "A library: the worst thing to do",
+    "tags": [
+      "comedy",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-116",
-    "text": "The worst thing to say to a judge"
+    "text": "A judge: the worst thing to say",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-117",
-    "text": "The worst thing to bring to a job fair"
+    "text": "A job fair: the worst thing to bring",
+    "tags": [
+      "comedy",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-118",
-    "text": "The worst thing to find in a hotel lift"
+    "text": "A hotel lift: the worst thing to find",
+    "tags": [
+      "comedy",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-119",
-    "text": "The worst name for a motivational speaker"
+    "text": "A motivational speaker: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-120",
-    "text": "The worst thing to say during a group project"
+    "text": "A group project: the worst thing to say",
+    "tags": [
+      "comedy",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-121",
-    "text": "The worst thing to do at a birthday party"
+    "text": "A birthday party: the worst thing to do",
+    "tags": [
+      "comedy",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-122",
-    "text": "The worst thing to find in a sandwich"
+    "text": "A sandwich: the worst thing to find",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-123",
-    "text": "The worst thing to say to a barber"
+    "text": "A barber: the worst thing to say",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-124",
-    "text": "The worst name for a hotel"
+    "text": "A hotel: the worst possible name",
+    "tags": [
+      "comedy",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-125",
-    "text": "The worst thing to bring to a wedding"
+    "text": "A wedding: the worst thing to bring",
+    "tags": [
+      "comedy",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-126",
-    "text": "The worst thing to do during a fire drill"
+    "text": "A fire drill: the worst thing to do",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-127",
-    "text": "The worst thing to say to a sommelier"
+    "text": "A sommelier: the worst thing to say",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-128",
-    "text": "The worst thing to find in a gym locker"
+    "text": "A gym locker: the worst thing to find",
+    "tags": [
+      "comedy",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-129",
-    "text": "The worst name for a pet turtle"
+    "text": "A pet turtle: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-130",
-    "text": "The worst thing to put in a salad"
+    "text": "A salad: the worst thing to put",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-131",
-    "text": "The worst thing to say at a job orientation"
+    "text": "A job orientation: the worst thing to say",
+    "tags": [
+      "comedy",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-132",
-    "text": "The worst thing to do at a supermarket"
+    "text": "A supermarket: the worst thing to do",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-133",
-    "text": "The worst thing to hear from your dentist"
+    "text": "Your dentist: the worst thing to hear",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-134",
-    "text": "The worst name for a book club"
+    "text": "A book club: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-135",
-    "text": "The worst thing to bring to a dinner party"
+    "text": "A dinner party: the worst thing to bring",
+    "tags": [
+      "comedy",
+      "food",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-136",
-    "text": "The worst thing to say to a waiter"
+    "text": "A waiter: the worst thing to say",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-137",
-    "text": "The worst thing to find in a packet of crisps"
+    "text": "A packet of crisps: the worst thing to find",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-138",
-    "text": "The worst thing to say in a performance review"
+    "text": "A performance review: the worst thing to say",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-139",
-    "text": "The worst name for a pet rabbit"
+    "text": "A pet rabbit: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-140",
-    "text": "The worst thing to say to a mechanic"
+    "text": "A mechanic: the worst thing to say",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-141",
-    "text": "The worst thing to do at a birthday dinner"
+    "text": "A birthday dinner: the worst thing to do",
+    "tags": [
+      "comedy",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-142",
-    "text": "The worst thing to bring to a karaoke night"
+    "text": "A karaoke night: the worst thing to bring",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-143",
-    "text": "The worst thing to find in a taxi"
+    "text": "A taxi: the worst thing to find",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-144",
-    "text": "The worst name for a cereal"
+    "text": "A cereal: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-145",
-    "text": "The worst thing to say at a wedding"
+    "text": "A wedding: the worst thing to say",
+    "tags": [
+      "comedy",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-146",
-    "text": "The worst thing to do in a queue"
+    "text": "A queue: the worst thing to do",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-147",
-    "text": "The worst thing to find in your fridge"
+    "text": "Your fridge: the worst thing to find",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-148",
-    "text": "The worst name for a nightclub"
+    "text": "A nightclub: the worst possible name",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-149",
-    "text": "The worst thing to say to a tour guide"
+    "text": "A tour guide: the worst thing to say",
+    "tags": [
+      "comedy"
+    ],
+    "rating": "all"
   },
   {
     "id": "rb-150",
-    "text": "The worst thing to do on a first day at school"
+    "text": "A first day at school: the worst thing to do",
+    "tags": [
+      "comedy",
+      "school"
+    ],
+    "rating": "all"
   }
 ]

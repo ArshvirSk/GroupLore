@@ -1,403 +1,846 @@
 [
   {
     "id": "pp-001",
-    "text": "A smart umbrella that argues with the weather"
+    "text": "A smart umbrella that argues with the weather",
+    "tags": [
+      "product",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-002",
-    "text": "A subscription box for single socks"
+    "text": "A subscription box for single socks",
+    "tags": [
+      "product",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-003",
-    "text": "A phone case that compliments you every time you drop it"
+    "text": "A phone case that compliments you every time you drop it",
+    "tags": [
+      "product",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-004",
-    "text": "A robot vacuum that judges your furniture"
+    "text": "A robot vacuum that judges your furniture",
+    "tags": [
+      "product",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-005",
-    "text": "A doorbell that interviews your visitors"
+    "text": "A doorbell that interviews your visitors",
+    "tags": [
+      "product",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-006",
-    "text": "A toaster that only accepts artisanal bread"
+    "text": "A toaster that only accepts artisanal bread",
+    "tags": [
+      "product",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-007",
-    "text": "A calendar that schedules spontaneous fun"
+    "text": "A calendar that schedules spontaneous fun",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-008",
-    "text": "A pillow that tells you what you dreamed"
+    "text": "A pillow that tells you what you dreamed",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-009",
-    "text": "A plant pot that gossips about your neighbours"
+    "text": "A plant pot that gossips about your neighbours",
+    "tags": [
+      "product",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-010",
-    "text": "A fridge that locks when you open it too often"
+    "text": "A fridge that locks when you open it too often",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-011",
-    "text": "A fitness tracker for your houseplants"
+    "text": "A fitness tracker for your houseplants",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-012",
-    "text": "A bike bell that plays dramatic movie music"
+    "text": "A bike bell that plays dramatic movie music",
+    "tags": [
+      "product",
+      "film",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-013",
-    "text": "A umbrella stand that doubles as a tiny stage"
+    "text": "A umbrella stand that doubles as a tiny stage",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-014",
-    "text": "A smart mirror that gives unsolicited fashion advice"
+    "text": "A smart mirror that gives unsolicited fashion advice",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-015",
-    "text": "A backpack with a built-in personal cheerleader"
+    "text": "A backpack with a built-in personal cheerleader",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-016",
-    "text": "A kettle that tells jokes while it boils"
+    "text": "A kettle that tells jokes while it boils",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-017",
-    "text": "A board game where the pieces argue with each other"
+    "text": "A board game where the pieces argue with each other",
+    "tags": [
+      "product",
+      "games"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-018",
-    "text": "A candle that smells like an old library"
+    "text": "A candle that smells like an old library",
+    "tags": [
+      "product",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-019",
-    "text": "A alarm clock that hides from you"
+    "text": "A alarm clock that hides from you",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-020",
-    "text": "A umbrella that turns inside out on purpose"
+    "text": "A umbrella that turns inside out on purpose",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-021",
-    "text": "A pair of shoes that narrates your walk"
+    "text": "A pair of shoes that narrates your walk",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-022",
-    "text": "A water bottle that rates your hydration"
+    "text": "A water bottle that rates your hydration",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-023",
-    "text": "A laundry basket that sorts clothes by mood"
+    "text": "A laundry basket that sorts clothes by mood",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-024",
-    "text": "A toothbrush that sings through the entire brush"
+    "text": "A toothbrush that sings through the entire brush",
+    "tags": [
+      "product",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-025",
-    "text": "A suitcase that refuses to be overpacked"
+    "text": "A suitcase that refuses to be overpacked",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-026",
-    "text": "A microwave that reviews your leftovers"
+    "text": "A microwave that reviews your leftovers",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-027",
-    "text": "A desk lamp that only works when you are being productive"
+    "text": "A desk lamp that only works when you are being productive",
+    "tags": [
+      "product",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-028",
-    "text": "A dog collar that translates barks into opinions"
+    "text": "A dog collar that translates barks into opinions",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-029",
-    "text": "A coffee mug that gets warmer as you get grumpier"
+    "text": "A coffee mug that gets warmer as you get grumpier",
+    "tags": [
+      "product",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-030",
-    "text": "A notebook that forgets one page every day"
+    "text": "A notebook that forgets one page every day",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-031",
-    "text": "A pillow fort kit for adults with meetings"
+    "text": "A pillow fort kit for adults with meetings",
+    "tags": [
+      "product",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-032",
-    "text": "A pair of sunglasses that hide your screen"
+    "text": "A pair of sunglasses that hide your screen",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-033",
-    "text": "A taxi service staffed entirely by retired racehorses"
+    "text": "A taxi service staffed entirely by retired racehorses",
+    "tags": [
+      "product",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-034",
-    "text": "A umbrella that doubles as a walking stick for dramatic exits"
+    "text": "A umbrella that doubles as a walking stick for dramatic exits",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-035",
-    "text": "A smart bin that compliments your recycling"
+    "text": "A smart bin that compliments your recycling",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-036",
-    "text": "A hairbrush that detangles while giving life advice"
+    "text": "A hairbrush that detangles while giving life advice",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-037",
-    "text": "A remote control for your family's volume"
+    "text": "A remote control for your family's volume",
+    "tags": [
+      "product",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-038",
-    "text": "A fridge magnet that changes its opinion daily"
+    "text": "A fridge magnet that changes its opinion daily",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-039",
-    "text": "A backpack that refuses to carry your regrets"
+    "text": "A backpack that refuses to carry your regrets",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-040",
-    "text": "A garden gnome with a security camera"
+    "text": "A garden gnome with a security camera",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-041",
-    "text": "A scented candle for people who miss airports"
+    "text": "A scented candle for people who miss airports",
+    "tags": [
+      "product",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-042",
-    "text": "A measuring tape that exaggerates"
+    "text": "A measuring tape that exaggerates",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-043",
-    "text": "A treadmill that only moves when you sing"
+    "text": "A treadmill that only moves when you sing",
+    "tags": [
+      "product",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-044",
-    "text": "A blender that tells you when a smoothie is a bad idea"
+    "text": "A blender that tells you when a smoothie is a bad idea",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-045",
-    "text": "A wallet that sighs when you spend money"
+    "text": "A wallet that sighs when you spend money",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-046",
-    "text": "A umbrella with a tiny weather forecaster inside"
+    "text": "A umbrella with a tiny weather forecaster inside",
+    "tags": [
+      "product",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-047",
-    "text": "A houseplant that sends passive-aggressive texts"
+    "text": "A houseplant that sends passive-aggressive texts",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-048",
-    "text": "A pair of pyjamas with a built-in midnight snack pocket"
+    "text": "A pair of pyjamas with a built-in midnight snack pocket",
+    "tags": [
+      "product",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-049",
-    "text": "A kettle that refuses to boil before 8am"
+    "text": "A kettle that refuses to boil before 8am",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-050",
-    "text": "A smart chair that rates your posture out of ten"
+    "text": "A smart chair that rates your posture out of ten",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-051",
-    "text": "A shower head that performs a tiny concert"
+    "text": "A shower head that performs a tiny concert",
+    "tags": [
+      "product",
+      "film",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-052",
-    "text": "A phone charger that only works during awkward silences"
+    "text": "A phone charger that only works during awkward silences",
+    "tags": [
+      "product",
+      "work",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-053",
-    "text": "A pair of slippers that warm up when you complain"
+    "text": "A pair of slippers that warm up when you complain",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-054",
-    "text": "A cookbook that reads itself aloud in a dramatic voice"
+    "text": "A cookbook that reads itself aloud in a dramatic voice",
+    "tags": [
+      "product",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-055",
-    "text": "A umbrella that knows when you are lying"
+    "text": "A umbrella that knows when you are lying",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-056",
-    "text": "A backpack with a secret compartment for snacks"
+    "text": "A backpack with a secret compartment for snacks",
+    "tags": [
+      "product",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-057",
-    "text": "A smart clock that makes up excuses for you"
+    "text": "A smart clock that makes up excuses for you",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-058",
-    "text": "A pair of headphones that filter out bad advice"
+    "text": "A pair of headphones that filter out bad advice",
+    "tags": [
+      "product",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-059",
-    "text": "A laundry machine that folds one sock at a time"
+    "text": "A laundry machine that folds one sock at a time",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-060",
-    "text": "A sofa that gently vibrates when you should stand up"
+    "text": "A sofa that gently vibrates when you should stand up",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-061",
-    "text": "A phone that apologises for your texts"
+    "text": "A phone that apologises for your texts",
+    "tags": [
+      "product",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-062",
-    "text": "A map that only shows places you are avoiding"
+    "text": "A map that only shows places you are avoiding",
+    "tags": [
+      "product",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-063",
-    "text": "A umbrella that turns rain into confetti"
+    "text": "A umbrella that turns rain into confetti",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-064",
-    "text": "A sandwich press that critiques your fillings"
+    "text": "A sandwich press that critiques your fillings",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-065",
-    "text": "A suitcase that packs itself but hides one item"
+    "text": "A suitcase that packs itself but hides one item",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-066",
-    "text": "A mirror that remembers your best outfit"
+    "text": "A mirror that remembers your best outfit",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-067",
-    "text": "A bike that rings its own bell at strangers"
+    "text": "A bike that rings its own bell at strangers",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-068",
-    "text": "A keyboard that applauds when you send an email"
+    "text": "A keyboard that applauds when you send an email",
+    "tags": [
+      "product",
+      "tech",
+      "games"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-069",
-    "text": "A pair of socks that match themselves"
+    "text": "A pair of socks that match themselves",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-070",
-    "text": "A fridge that plans dinner based on your mood"
+    "text": "A fridge that plans dinner based on your mood",
+    "tags": [
+      "product",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-071",
-    "text": "A vacuum that leaves a trail of glitter"
+    "text": "A vacuum that leaves a trail of glitter",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-072",
-    "text": "A watering can that gossips with the flowers"
+    "text": "A watering can that gossips with the flowers",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-073",
-    "text": "A alarm clock that charges rent for snoozing"
+    "text": "A alarm clock that charges rent for snoozing",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-074",
-    "text": "A backpack that plays entrance music"
+    "text": "A backpack that plays entrance music",
+    "tags": [
+      "product",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-075",
-    "text": "A pen that writes only when you are honest"
+    "text": "A pen that writes only when you are honest",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-076",
-    "text": "A umbrella that folds itself into a tiny hat"
+    "text": "A umbrella that folds itself into a tiny hat",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-077",
-    "text": "A smart bin that judges your takeaway habits"
+    "text": "A smart bin that judges your takeaway habits",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-078",
-    "text": "A pair of sunglasses that caption reality"
+    "text": "A pair of sunglasses that caption reality",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-079",
-    "text": "A chair that applauds when you finish a task"
+    "text": "A chair that applauds when you finish a task",
+    "tags": [
+      "product",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-080",
-    "text": "A phone case that doubles as a fidget toy"
+    "text": "A phone case that doubles as a fidget toy",
+    "tags": [
+      "product",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-081",
-    "text": "A toaster that prints a fortune on every slice"
+    "text": "A toaster that prints a fortune on every slice",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-082",
-    "text": "A plant that glows when it is thirsty"
+    "text": "A plant that glows when it is thirsty",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-083",
-    "text": "A laundry basket that hides the odd sock forever"
+    "text": "A laundry basket that hides the odd sock forever",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-084",
-    "text": "A pair of shoes that leave footprints in unexpected colours"
+    "text": "A pair of shoes that leave footprints in unexpected colours",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-085",
-    "text": "A fridge that plays a fanfare when you eat vegetables"
+    "text": "A fridge that plays a fanfare when you eat vegetables",
+    "tags": [
+      "product",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-086",
-    "text": "A smart wardrobe that refuses to let you repeat an outfit"
+    "text": "A smart wardrobe that refuses to let you repeat an outfit",
+    "tags": [
+      "product",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-087",
-    "text": "A umbrella that knows your bus is late"
+    "text": "A umbrella that knows your bus is late",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-088",
-    "text": "A notebook that doodles in the margins for you"
+    "text": "A notebook that doodles in the margins for you",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-089",
-    "text": "A kettle that has a favourite mug"
+    "text": "A kettle that has a favourite mug",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-090",
-    "text": "A backpack that gets lighter as you walk"
+    "text": "A backpack that gets lighter as you walk",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-091",
-    "text": "A mirror that gives a weather report"
+    "text": "A mirror that gives a weather report",
+    "tags": [
+      "product",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-092",
-    "text": "A pillow that plays a tiny applause track when you wake up"
+    "text": "A pillow that plays a tiny applause track when you wake up",
+    "tags": [
+      "product",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-093",
-    "text": "A bike lock that tells thieves a bedtime story"
+    "text": "A bike lock that tells thieves a bedtime story",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-094",
-    "text": "A coffee machine that insists on a morning chat"
+    "text": "A coffee machine that insists on a morning chat",
+    "tags": [
+      "product",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-095",
-    "text": "A umbrella that has a favourite puddle"
+    "text": "A umbrella that has a favourite puddle",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-096",
-    "text": "A desk that slowly lowers when you procrastinate"
+    "text": "A desk that slowly lowers when you procrastinate",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-097",
-    "text": "A pair of gloves that high-five each other"
+    "text": "A pair of gloves that high-five each other",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-098",
-    "text": "A smart lamp that dims when you tell a bad joke"
+    "text": "A smart lamp that dims when you tell a bad joke",
+    "tags": [
+      "product"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-099",
-    "text": "A suitcase that narrates your holiday"
+    "text": "A suitcase that narrates your holiday",
+    "tags": [
+      "product",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-100",
-    "text": "A fridge magnet that predicts your next snack"
+    "text": "A fridge magnet that predicts your next snack",
+    "tags": [
+      "product",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "pp-101",

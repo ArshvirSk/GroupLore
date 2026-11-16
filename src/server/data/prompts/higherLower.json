@@ -1,123 +1,251 @@
 [
   {
     "id": "hl-01",
-    "category": "most likely to become famous"
+    "category": "most likely to become famous",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-02",
-    "category": "most dramatic"
+    "category": "most dramatic",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-03",
-    "category": "biggest foodie"
+    "category": "biggest foodie",
+    "tags": [
+      "rating",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-04",
-    "category": "most likely to ghost the group chat"
+    "category": "most likely to ghost the group chat",
+    "tags": [
+      "rating",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-05",
-    "category": "best dressed"
+    "category": "best dressed",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-06",
-    "category": "most likely to cry first"
+    "category": "most likely to cry first",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-07",
-    "category": "funniest"
+    "category": "funniest",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-08",
-    "category": "most chaotic"
+    "category": "most chaotic",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-09",
-    "category": "biggest procrastinator"
+    "category": "biggest procrastinator",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-10",
-    "category": "most likely to start a business"
+    "category": "most likely to start a business",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-11",
-    "category": "most likely to survive in the wild"
+    "category": "most likely to survive in the wild",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-12",
-    "category": "biggest overthinker"
+    "category": "biggest overthinker",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-13",
-    "category": "most likely to become a meme"
+    "category": "most likely to become a meme",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-14",
-    "category": "best at keeping secrets"
+    "category": "best at keeping secrets",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-15",
-    "category": "most likely to move abroad"
+    "category": "most likely to move abroad",
+    "tags": [
+      "rating",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-16",
-    "category": "biggest night owl"
+    "category": "biggest night owl",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-17",
-    "category": "most likely to win a cooking show"
+    "category": "most likely to win a cooking show",
+    "tags": [
+      "rating",
+      "food",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-18",
-    "category": "most competitive"
+    "category": "most competitive",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-19",
-    "category": "best taste in music"
+    "category": "best taste in music",
+    "tags": [
+      "rating",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-20",
-    "category": "most likely to talk to a stranger"
+    "category": "most likely to talk to a stranger",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-21",
-    "category": "biggest planner"
+    "category": "biggest planner",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-22",
-    "category": "most likely to fall asleep first"
+    "category": "most likely to fall asleep first",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-23",
-    "category": "best at giving advice"
+    "category": "best at giving advice",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-24",
-    "category": "most likely to become a teacher"
+    "category": "most likely to become a teacher",
+    "tags": [
+      "rating",
+      "food",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-25",
-    "category": "biggest risk taker"
+    "category": "biggest risk taker",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-26",
-    "category": "most likely to own a strange pet"
+    "category": "most likely to own a strange pet",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-27",
-    "category": "best at parallel parking"
+    "category": "best at parallel parking",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-28",
-    "category": "most likely to laugh at the wrong time"
+    "category": "most likely to laugh at the wrong time",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-29",
-    "category": "biggest homebody"
+    "category": "biggest homebody",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-30",
-    "category": "most likely to become a millionaire"
+    "category": "most likely to become a millionaire",
+    "tags": [
+      "rating"
+    ],
+    "rating": "all"
   },
   {
     "id": "hl-31",

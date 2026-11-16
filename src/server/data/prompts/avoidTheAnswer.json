@@ -7,7 +7,12 @@
       "ocean",
       "sun",
       "waves"
-    ]
+    ],
+    "tags": [
+      "describe",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-02",
@@ -17,7 +22,12 @@
       "slice",
       "Italy",
       "pepperoni"
-    ]
+    ],
+    "tags": [
+      "describe",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-03",
@@ -27,7 +37,11 @@
       "party",
       "candles",
       "gift"
-    ]
+    ],
+    "tags": [
+      "describe"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-04",
@@ -37,7 +51,12 @@
       "groom",
       "rings",
       "marriage"
-    ]
+    ],
+    "tags": [
+      "describe",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-05",
@@ -47,7 +66,12 @@
       "flight",
       "luggage",
       "security"
-    ]
+    ],
+    "tags": [
+      "describe",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-06",
@@ -57,7 +81,12 @@
       "weights",
       "treadmill",
       "workout"
-    ]
+    ],
+    "tags": [
+      "describe",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-07",
@@ -67,7 +96,12 @@
       "caffeine",
       "mug",
       "espresso"
-    ]
+    ],
+    "tags": [
+      "describe",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-08",
@@ -77,7 +111,11 @@
       "work",
       "start",
       "weekend"
-    ]
+    ],
+    "tags": [
+      "describe"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-09",
@@ -87,7 +125,11 @@
       "cold",
       "December",
       "ice"
-    ]
+    ],
+    "tags": [
+      "describe"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-10",
@@ -97,7 +139,11 @@
       "puppy",
       "leash",
       "bone"
-    ]
+    ],
+    "tags": [
+      "describe"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-11",
@@ -107,7 +153,11 @@
       "whiskers",
       "purr",
       "kitten"
-    ]
+    ],
+    "tags": [
+      "describe"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-12",
@@ -117,7 +167,12 @@
       "students",
       "class",
       "homework"
-    ]
+    ],
+    "tags": [
+      "describe",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-13",
@@ -127,7 +182,11 @@
       "nurse",
       "patient",
       "medicine"
-    ]
+    ],
+    "tags": [
+      "describe"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-14",
@@ -137,7 +196,12 @@
       "popcorn",
       "screen",
       "ticket"
-    ]
+    ],
+    "tags": [
+      "describe",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-15",
@@ -147,7 +211,12 @@
       "quiet",
       "shelves",
       "reading"
-    ]
+    ],
+    "tags": [
+      "describe",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-16",
@@ -157,7 +226,12 @@
       "goal",
       "team",
       "field"
-    ]
+    ],
+    "tags": [
+      "describe",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-17",
@@ -167,7 +241,11 @@
       "tree",
       "presents",
       "December"
-    ]
+    ],
+    "tags": [
+      "describe"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-18",
@@ -177,7 +255,11 @@
       "candy",
       "pumpkin",
       "October"
-    ]
+    ],
+    "tags": [
+      "describe"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-19",
@@ -187,7 +269,11 @@
       "waves",
       "fish",
       "blue"
-    ]
+    ],
+    "tags": [
+      "describe"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-20",
@@ -197,7 +283,11 @@
       "peak",
       "hike",
       "tall"
-    ]
+    ],
+    "tags": [
+      "describe"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-21",
@@ -207,7 +297,12 @@
       "station",
       "rail",
       "carriage"
-    ]
+    ],
+    "tags": [
+      "describe",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-22",
@@ -217,7 +312,11 @@
       "wheels",
       "ride",
       "helmet"
-    ]
+    ],
+    "tags": [
+      "describe"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-23",
@@ -227,7 +326,11 @@
       "kitchen",
       "food",
       "restaurant"
-    ]
+    ],
+    "tags": [
+      "describe"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-24",
@@ -237,7 +340,11 @@
       "patient",
       "medicine",
       "sick"
-    ]
+    ],
+    "tags": [
+      "describe"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-25",
@@ -247,7 +354,13 @@
       "students",
       "class",
       "lesson"
-    ]
+    ],
+    "tags": [
+      "describe",
+      "food",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-26",
@@ -257,7 +370,11 @@
       "fangs",
       "Dracula",
       "bat"
-    ]
+    ],
+    "tags": [
+      "describe"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-27",
@@ -267,7 +384,12 @@
       "metal",
       "computer",
       "future"
-    ]
+    ],
+    "tags": [
+      "describe",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-28",
@@ -277,7 +399,11 @@
       "treasure",
       "parrot",
       "eyepatch"
-    ]
+    ],
+    "tags": [
+      "describe"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-29",
@@ -287,7 +413,11 @@
       "UFO",
       "planet",
       "extraterrestrial"
-    ]
+    ],
+    "tags": [
+      "describe"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-30",
@@ -297,7 +427,11 @@
       "rain",
       "sky",
       "arc"
-    ]
+    ],
+    "tags": [
+      "describe"
+    ],
+    "rating": "all"
   },
   {
     "id": "avoid-31",

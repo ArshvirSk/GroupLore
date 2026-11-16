@@ -1,323 +1,700 @@
 [
   {
     "id": "hot-01",
-    "text": "Cereal is soup."
+    "text": "Cereal is soup.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-02",
-    "text": "The airport is the best part of a holiday."
+    "text": "The airport is the best part of a holiday.",
+    "tags": [
+      "opinion",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-03",
-    "text": "Pineapple belongs on pizza."
+    "text": "Pineapple belongs on pizza.",
+    "tags": [
+      "opinion",
+      "food",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-04",
-    "text": "A hot dog is a sandwich."
+    "text": "A hot dog is a sandwich.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-05",
-    "text": "Brunch is just breakfast with better marketing."
+    "text": "Brunch is just breakfast with better marketing.",
+    "tags": [
+      "opinion",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-06",
-    "text": "The book is usually better than the movie."
+    "text": "The book is usually better than the movie.",
+    "tags": [
+      "opinion",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-07",
-    "text": "Group photos are never worth the effort."
+    "text": "Group photos are never worth the effort.",
+    "tags": [
+      "opinion",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-08",
-    "text": "Voice notes are better than texts."
+    "text": "Voice notes are better than texts.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-09",
-    "text": "Summer is the most overrated season."
+    "text": "Summer is the most overrated season.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-10",
-    "text": "Monday gets a bad reputation."
+    "text": "Monday gets a bad reputation.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-11",
-    "text": "Cold pizza is better than fresh pizza."
+    "text": "Cold pizza is better than fresh pizza.",
+    "tags": [
+      "opinion",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-12",
-    "text": "The cinema is better than streaming."
+    "text": "The cinema is better than streaming.",
+    "tags": [
+      "opinion",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-13",
-    "text": "Karaoke should be mandatory at every party."
+    "text": "Karaoke should be mandatory at every party.",
+    "tags": [
+      "opinion",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-14",
-    "text": "Board games are better than video games."
+    "text": "Board games are better than video games.",
+    "tags": [
+      "opinion",
+      "games"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-15",
-    "text": "A quiet night in beats a big night out."
+    "text": "A quiet night in beats a big night out.",
+    "tags": [
+      "opinion",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-16",
-    "text": "The middle seat on a plane is not that bad."
+    "text": "The middle seat on a plane is not that bad.",
+    "tags": [
+      "opinion",
+      "food",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-17",
-    "text": "Hotel breakfast is better than room service."
+    "text": "Hotel breakfast is better than room service.",
+    "tags": [
+      "opinion",
+      "food",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-18",
-    "text": "Eating at the airport is a luxury."
+    "text": "Eating at the airport is a luxury.",
+    "tags": [
+      "opinion",
+      "food",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-19",
-    "text": "A theme park is wasted on adults."
+    "text": "A theme park is wasted on adults.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-20",
-    "text": "The best part of a concert is the crowd."
+    "text": "The best part of a concert is the crowd.",
+    "tags": [
+      "opinion",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-21",
-    "text": "A city break needs at least four days."
+    "text": "A city break needs at least four days.",
+    "tags": [
+      "opinion",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-22",
-    "text": "Camping is just being homeless with snacks."
+    "text": "Camping is just being homeless with snacks.",
+    "tags": [
+      "opinion",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-23",
-    "text": "Glamping is not camping."
+    "text": "Glamping is not camping.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-24",
-    "text": "Road trips are better than flights."
+    "text": "Road trips are better than flights.",
+    "tags": [
+      "opinion",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-25",
-    "text": "The window seat is overrated."
+    "text": "The window seat is overrated.",
+    "tags": [
+      "opinion",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-26",
-    "text": "Public transport is underrated."
+    "text": "Public transport is underrated.",
+    "tags": [
+      "opinion",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-27",
-    "text": "A bicycle is the best way to see a city."
+    "text": "A bicycle is the best way to see a city.",
+    "tags": [
+      "opinion",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-28",
-    "text": "Souvenirs are a waste of money."
+    "text": "Souvenirs are a waste of money.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-29",
-    "text": "Postcards are better than texts."
+    "text": "Postcards are better than texts.",
+    "tags": [
+      "opinion",
+      "games"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-30",
-    "text": "Handwritten notes are underrated."
+    "text": "Handwritten notes are underrated.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-31",
-    "text": "Voice notes should be illegal after 10pm."
+    "text": "Voice notes should be illegal after 10pm.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-32",
-    "text": "Read receipts cause more problems than they solve."
+    "text": "Read receipts cause more problems than they solve.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-33",
-    "text": "Group chats are better with fewer people."
+    "text": "Group chats are better with fewer people.",
+    "tags": [
+      "opinion",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-34",
-    "text": "Leaving a group chat is the ultimate power move."
+    "text": "Leaving a group chat is the ultimate power move.",
+    "tags": [
+      "opinion",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-35",
-    "text": "A phone call is faster than a text."
+    "text": "A phone call is faster than a text.",
+    "tags": [
+      "opinion",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-36",
-    "text": "Email is not dead."
+    "text": "Email is not dead.",
+    "tags": [
+      "opinion",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-37",
-    "text": "Meetings should be 15 minutes by default."
+    "text": "Meetings should be 15 minutes by default.",
+    "tags": [
+      "opinion",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-38",
-    "text": "The best ideas happen in the shower."
+    "text": "The best ideas happen in the shower.",
+    "tags": [
+      "opinion",
+      "tech",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-39",
-    "text": "A to-do list is better than a calendar."
+    "text": "A to-do list is better than a calendar.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-40",
-    "text": "Productivity apps are procrastination in disguise."
+    "text": "Productivity apps are procrastination in disguise.",
+    "tags": [
+      "opinion",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-41",
-    "text": "The five-minute rule actually works."
+    "text": "The five-minute rule actually works.",
+    "tags": [
+      "opinion",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-42",
-    "text": "Multitasking is a lie."
+    "text": "Multitasking is a lie.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-43",
-    "text": "A nap is a legitimate hobby."
+    "text": "A nap is a legitimate hobby.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-44",
-    "text": "Sleep is the best skincare."
+    "text": "Sleep is the best skincare.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-45",
-    "text": "Breakfast for dinner is superior."
+    "text": "Breakfast for dinner is superior.",
+    "tags": [
+      "opinion",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-46",
-    "text": "Dessert first is the correct order."
+    "text": "Dessert first is the correct order.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-47",
-    "text": "The smell of coffee is better than the taste."
+    "text": "The smell of coffee is better than the taste.",
+    "tags": [
+      "opinion",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-48",
-    "text": "Iced coffee is better than hot coffee."
+    "text": "Iced coffee is better than hot coffee.",
+    "tags": [
+      "opinion",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-49",
-    "text": "Tea is underrated."
+    "text": "Tea is underrated.",
+    "tags": [
+      "opinion",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-50",
-    "text": "Sparkling water is a personality."
+    "text": "Sparkling water is a personality.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-51",
-    "text": "A sandwich is better cut diagonally."
+    "text": "A sandwich is better cut diagonally.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-52",
-    "text": "Fries are better without sauce."
+    "text": "Fries are better without sauce.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-53",
-    "text": "Sauce is the best part of a meal."
+    "text": "Sauce is the best part of a meal.",
+    "tags": [
+      "opinion",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-54",
-    "text": "The crust is the best part of a pizza."
+    "text": "The crust is the best part of a pizza.",
+    "tags": [
+      "opinion",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-55",
-    "text": "The last slice is always the best."
+    "text": "The last slice is always the best.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-56",
-    "text": "Sharing food is a love language."
+    "text": "Sharing food is a love language.",
+    "tags": [
+      "opinion",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-57",
-    "text": "The appetizer menu is better than the main menu."
+    "text": "The appetizer menu is better than the main menu.",
+    "tags": [
+      "opinion",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-58",
-    "text": "A buffet is a personality test."
+    "text": "A buffet is a personality test.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-59",
-    "text": "The best restaurant is the one you can walk to."
+    "text": "The best restaurant is the one you can walk to.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-60",
-    "text": "A home-cooked meal beats a fancy restaurant."
+    "text": "A home-cooked meal beats a fancy restaurant.",
+    "tags": [
+      "opinion",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-61",
-    "text": "The best seat in a restaurant is the corner booth."
+    "text": "The best seat in a restaurant is the corner booth.",
+    "tags": [
+      "opinion",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-62",
-    "text": "The music is always too loud in bars."
+    "text": "The music is always too loud in bars.",
+    "tags": [
+      "opinion",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-63",
-    "text": "A party needs a theme."
+    "text": "A party needs a theme.",
+    "tags": [
+      "opinion",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-64",
-    "text": "The playlist makes or breaks a party."
+    "text": "The playlist makes or breaks a party.",
+    "tags": [
+      "opinion",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-65",
-    "text": "Dancing is better than talking."
+    "text": "Dancing is better than talking.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-66",
-    "text": "The best parties end before midnight."
+    "text": "The best parties end before midnight.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-67",
-    "text": "The host should never do dishes alone."
+    "text": "The host should never do dishes alone.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-68",
-    "text": "BYO snacks is the best party rule."
+    "text": "BYO snacks is the best party rule.",
+    "tags": [
+      "opinion",
+      "food",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-69",
-    "text": "A good icebreaker is worth its weight in gold."
+    "text": "A good icebreaker is worth its weight in gold.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-70",
-    "text": "The group photo should happen at the start."
+    "text": "The group photo should happen at the start.",
+    "tags": [
+      "opinion",
+      "tech",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-71",
-    "text": "The best conversations happen in the kitchen."
+    "text": "The best conversations happen in the kitchen.",
+    "tags": [
+      "opinion",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-72",
-    "text": "The after-party is better than the party."
+    "text": "The after-party is better than the party.",
+    "tags": [
+      "opinion",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-73",
-    "text": "A wedding should be a weekend, not a day."
+    "text": "A wedding should be a weekend, not a day.",
+    "tags": [
+      "opinion",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-74",
-    "text": "The first dance is overrated."
+    "text": "The first dance is overrated.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-75",
-    "text": "Speeches should be capped at three minutes."
+    "text": "Speeches should be capped at three minutes.",
+    "tags": [
+      "opinion",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-76",
-    "text": "Birthdays should be a whole week."
+    "text": "Birthdays should be a whole week.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-77",
-    "text": "Gift cards are thoughtful."
+    "text": "Gift cards are thoughtful.",
+    "tags": [
+      "opinion",
+      "games"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-78",
-    "text": "The best gift is an experience."
+    "text": "The best gift is an experience.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-79",
-    "text": "Surprise parties are a bad idea."
+    "text": "Surprise parties are a bad idea.",
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-80",
-    "text": "The birthday cake is the most important part."
+    "text": "The birthday cake is the most important part.",
+    "tags": [
+      "opinion",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "hot-81",

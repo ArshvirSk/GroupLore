@@ -42,7 +42,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-002",
@@ -87,7 +91,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-003",
@@ -132,7 +140,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-004",
@@ -177,7 +189,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-005",
@@ -222,7 +238,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-006",
@@ -267,7 +287,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-007",
@@ -312,7 +336,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-008",
@@ -357,7 +385,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-009",
@@ -402,7 +434,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-010",
@@ -447,7 +483,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-011",
@@ -492,7 +532,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-012",
@@ -537,7 +581,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-013",
@@ -582,7 +630,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-014",
@@ -627,7 +679,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-015",
@@ -672,7 +728,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-016",
@@ -717,7 +777,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-017",
@@ -762,7 +826,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-018",
@@ -807,7 +875,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-019",
@@ -852,7 +924,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-020",
@@ -897,7 +973,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-021",
@@ -942,7 +1022,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-022",
@@ -987,7 +1071,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-023",
@@ -1032,7 +1120,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-024",
@@ -1077,7 +1169,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-025",
@@ -1122,7 +1218,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-026",
@@ -1167,7 +1267,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-027",
@@ -1212,7 +1316,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-028",
@@ -1257,7 +1365,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-029",
@@ -1302,7 +1414,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-030",
@@ -1347,7 +1463,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-031",
@@ -1392,7 +1512,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-032",
@@ -1437,7 +1561,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-033",
@@ -1482,7 +1610,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-034",
@@ -1527,7 +1659,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-035",
@@ -1572,7 +1708,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-036",
@@ -1617,7 +1757,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-037",
@@ -1662,7 +1806,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-038",
@@ -1707,7 +1855,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-039",
@@ -1752,7 +1904,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-040",
@@ -1797,7 +1953,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-041",
@@ -1842,7 +2002,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-042",
@@ -1887,7 +2051,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-043",
@@ -1932,7 +2100,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-044",
@@ -1977,7 +2149,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-045",
@@ -2022,7 +2198,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-046",
@@ -2067,7 +2247,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-047",
@@ -2112,7 +2296,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-048",
@@ -2157,7 +2345,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-049",
@@ -2202,7 +2394,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-050",
@@ -2247,7 +2443,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-051",
@@ -2292,7 +2492,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-052",
@@ -2337,7 +2541,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-053",
@@ -2382,7 +2590,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-054",
@@ -2427,7 +2639,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-055",
@@ -2472,7 +2688,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-056",
@@ -2517,7 +2737,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-057",
@@ -2562,7 +2786,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-058",
@@ -2607,7 +2835,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-059",
@@ -2652,7 +2884,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-060",
@@ -2697,7 +2933,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-061",
@@ -2742,7 +2982,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-062",
@@ -2787,7 +3031,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-063",
@@ -2832,7 +3080,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-064",
@@ -2877,7 +3129,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-065",
@@ -2922,7 +3178,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-066",
@@ -2967,7 +3227,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-067",
@@ -3012,7 +3276,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-068",
@@ -3057,7 +3325,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-069",
@@ -3102,7 +3374,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-070",
@@ -3147,7 +3423,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-071",
@@ -3192,7 +3472,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-072",
@@ -3237,7 +3521,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-073",
@@ -3282,7 +3570,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-074",
@@ -3327,7 +3619,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-075",
@@ -3372,7 +3668,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-076",
@@ -3417,7 +3717,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-077",
@@ -3462,7 +3766,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-078",
@@ -3507,7 +3815,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-079",
@@ -3552,7 +3864,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-080",
@@ -3597,7 +3913,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-081",
@@ -3642,7 +3962,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-082",
@@ -3687,7 +4011,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-083",
@@ -3732,7 +4060,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-084",
@@ -3777,7 +4109,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-085",
@@ -3822,7 +4158,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-086",
@@ -3867,7 +4207,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-087",
@@ -3912,7 +4256,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-088",
@@ -3957,7 +4305,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-089",
@@ -4002,7 +4354,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-090",
@@ -4047,7 +4403,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-091",
@@ -4092,7 +4452,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-092",
@@ -4137,7 +4501,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-093",
@@ -4182,7 +4550,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-094",
@@ -4227,7 +4599,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-095",
@@ -4272,7 +4648,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-096",
@@ -4317,7 +4697,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-097",
@@ -4362,7 +4746,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-098",
@@ -4407,7 +4795,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-099",
@@ -4452,7 +4844,11 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   },
   {
     "id": "conn-100",
@@ -4497,6 +4893,10 @@
         ],
         "level": 4
       }
-    ]
+    ],
+    "tags": [
+      "puzzle"
+    ],
+    "rating": "all"
   }
 ]

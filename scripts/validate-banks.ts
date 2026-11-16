@@ -150,6 +150,15 @@ async function main() {
       `${status.padEnd(4)} ${result.gameId}: ${result.count}/${result.target || "—"} items`,
     );
   }
+  for (const result of results) {
+    if (!result.patterns?.stemFailures.length && !result.patterns?.familyFailures.length) {
+      continue;
+    }
+    console.log(`\n${result.gameId} top stems:`);
+    for (const entry of result.patterns.stems) {
+      console.log(`  ${entry.count}\t${entry.key}`);
+    }
+  }
   for (const error of errors.slice(0, 80)) console.log(`  ERROR ${error}`);
   for (const warning of warnings.slice(0, 40)) console.log(`  WARN  ${warning}`);
   console.log(

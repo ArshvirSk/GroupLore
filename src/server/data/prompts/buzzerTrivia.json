@@ -7,7 +7,13 @@
       "mercury"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "travel",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-002",
@@ -17,7 +23,11 @@
       "paris"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-003",
@@ -28,7 +38,12 @@
       "aurum"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-004",
@@ -39,7 +54,11 @@
       "william shakespeare"
     ],
     "category": "Literature",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-005",
@@ -50,7 +69,11 @@
       "six"
     ],
     "category": "Maths",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-006",
@@ -61,7 +84,11 @@
       "pacific ocean"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-007",
@@ -72,7 +99,11 @@
       "mount everest"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-008",
@@ -82,7 +113,12 @@
       "cheetah"
     ],
     "category": "Nature",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-009",
@@ -93,7 +129,11 @@
       "seven"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-010",
@@ -104,7 +144,12 @@
       "co2"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-011",
@@ -115,7 +160,11 @@
       "da vinci"
     ],
     "category": "Art",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-012",
@@ -125,7 +174,12 @@
       "italy"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-013",
@@ -136,7 +190,13 @@
       "eleven"
     ],
     "category": "Sport",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "food",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-014",
@@ -147,7 +207,11 @@
       "whale"
     ],
     "category": "Nature",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-015",
@@ -159,7 +223,11 @@
       "mandarin chinese"
     ],
     "category": "Language",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-016",
@@ -171,7 +239,12 @@
       "0 degrees"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-017",
@@ -182,7 +255,11 @@
       "armstrong"
     ],
     "category": "History",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-018",
@@ -192,7 +269,12 @@
       "piano"
     ],
     "category": "Music",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-019",
@@ -202,7 +284,11 @@
       "yen"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-020",
@@ -213,7 +299,12 @@
       "four"
     ],
     "category": "Music",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-021",
@@ -224,7 +315,12 @@
       "d"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-022",
@@ -235,7 +331,11 @@
       "the nile"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-023",
@@ -245,7 +345,14 @@
       "jupiter"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "food",
+      "travel",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-024",
@@ -256,7 +363,11 @@
       "austen"
     ],
     "category": "Literature",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-025",
@@ -267,7 +378,11 @@
       "two"
     ],
     "category": "Maths",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-026",
@@ -277,7 +392,12 @@
       "china"
     ],
     "category": "History",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-027",
@@ -287,7 +407,12 @@
       "diamond"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-028",
@@ -298,7 +423,12 @@
       "seven"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-029",
@@ -308,7 +438,12 @@
       "octopus"
     ],
     "category": "Nature",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-030",
@@ -318,7 +453,11 @@
       "canberra"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-031",
@@ -329,7 +468,12 @@
       "ludwig van beethoven"
     ],
     "category": "Music",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-032",
@@ -339,7 +483,12 @@
       "badminton"
     ],
     "category": "Sport",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-033",
@@ -350,7 +499,11 @@
       "ninety"
     ],
     "category": "Maths",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-034",
@@ -360,7 +513,12 @@
       "avocado"
     ],
     "category": "Food",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-035",
@@ -370,7 +528,12 @@
       "morocco"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-036",
@@ -382,7 +545,11 @@
       "antarctic desert"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-037",
@@ -393,7 +560,12 @@
       "albert einstein"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-038",
@@ -403,7 +575,11 @@
       "ottawa"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-039",
@@ -413,7 +589,11 @@
       "parrot"
     ],
     "category": "Nature",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-040",
@@ -424,7 +604,12 @@
       "ninety"
     ],
     "category": "Sport",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-041",
@@ -434,7 +619,12 @@
       "skin"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-042",
@@ -445,7 +635,11 @@
       "vincent van gogh"
     ],
     "category": "Art",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-043",
@@ -456,7 +650,12 @@
       "water"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-044",
@@ -466,7 +665,12 @@
       "australia"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-045",
@@ -476,7 +680,11 @@
       "january"
     ],
     "category": "General",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-046",
@@ -487,7 +695,11 @@
       "three"
     ],
     "category": "Maths",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-047",
@@ -497,7 +709,13 @@
       "mars"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "travel",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-048",
@@ -507,7 +725,11 @@
       "rome"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-049",
@@ -518,7 +740,11 @@
       "antoine de saint-exupery"
     ],
     "category": "Literature",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-050",
@@ -529,7 +755,11 @@
       "peregrine"
     ],
     "category": "Nature",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-051",
@@ -539,7 +769,12 @@
       "france"
     ],
     "category": "History",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-052",
@@ -550,7 +785,11 @@
       "six"
     ],
     "category": "Maths",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-053",
@@ -560,7 +799,13 @@
       "jupiter"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "travel",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-054",
@@ -571,7 +816,13 @@
       "strings"
     ],
     "category": "Music",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "music",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-055",
@@ -581,7 +832,11 @@
       "madrid"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-056",
@@ -591,7 +846,12 @@
       "camel"
     ],
     "category": "Nature",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-057",
@@ -601,7 +861,12 @@
       "astronomy"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-058",
@@ -612,7 +877,11 @@
       "vincent van gogh"
     ],
     "category": "Art",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-059",
@@ -622,7 +891,12 @@
       "tennis"
     ],
     "category": "Sport",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-060",
@@ -632,7 +906,12 @@
       "liver"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-061",
@@ -642,7 +921,13 @@
       "australia"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "food",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-062",
@@ -652,7 +937,11 @@
       "montgomery"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-063",
@@ -662,7 +951,11 @@
       "juneau"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-064",
@@ -672,7 +965,11 @@
       "phoenix"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-065",
@@ -682,7 +979,11 @@
       "little rock"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-066",
@@ -692,7 +993,11 @@
       "sacramento"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-067",
@@ -702,7 +1007,11 @@
       "denver"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-068",
@@ -712,7 +1021,11 @@
       "hartford"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-069",
@@ -722,7 +1035,11 @@
       "dover"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-070",
@@ -732,7 +1049,11 @@
       "tallahassee"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-071",
@@ -742,7 +1063,11 @@
       "atlanta"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-072",
@@ -752,7 +1077,11 @@
       "honolulu"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-073",
@@ -762,7 +1091,11 @@
       "boise"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-074",
@@ -772,7 +1105,11 @@
       "springfield"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-075",
@@ -782,7 +1119,12 @@
       "indianapolis"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "india"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-076",
@@ -792,7 +1134,11 @@
       "des moines"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-077",
@@ -802,7 +1148,11 @@
       "topeka"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-078",
@@ -812,7 +1162,11 @@
       "frankfort"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-079",
@@ -822,7 +1176,11 @@
       "baton rouge"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-080",
@@ -832,7 +1190,11 @@
       "augusta"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-081",
@@ -842,7 +1204,11 @@
       "annapolis"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-082",
@@ -852,7 +1218,11 @@
       "boston"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-083",
@@ -862,7 +1232,12 @@
       "lansing"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-084",
@@ -872,7 +1247,11 @@
       "saint paul"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-085",
@@ -882,7 +1261,11 @@
       "jackson"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-086",
@@ -892,7 +1275,12 @@
       "jefferson city"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-087",
@@ -902,7 +1290,11 @@
       "helena"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-088",
@@ -912,7 +1304,11 @@
       "lincoln"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-089",
@@ -922,7 +1318,12 @@
       "carson city"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-090",
@@ -932,7 +1333,11 @@
       "concord"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-091",
@@ -942,7 +1347,11 @@
       "trenton"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-092",
@@ -952,7 +1361,11 @@
       "santa fe"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-093",
@@ -962,7 +1375,11 @@
       "albany"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-094",
@@ -972,7 +1389,11 @@
       "raleigh"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-095",
@@ -982,7 +1403,11 @@
       "bismarck"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-096",
@@ -992,7 +1417,11 @@
       "columbus"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-097",
@@ -1002,7 +1431,12 @@
       "oklahoma city"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-098",
@@ -1012,7 +1446,11 @@
       "salem"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-099",
@@ -1022,7 +1460,11 @@
       "harrisburg"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-100",
@@ -1032,7 +1474,11 @@
       "providence"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-101",
@@ -1042,7 +1488,11 @@
       "columbia"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-102",
@@ -1052,7 +1502,11 @@
       "pierre"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-103",
@@ -1062,7 +1516,11 @@
       "nashville"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-104",
@@ -1072,7 +1530,11 @@
       "austin"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-105",
@@ -1082,7 +1544,12 @@
       "salt lake city"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-106",
@@ -1092,7 +1559,11 @@
       "montpelier"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-107",
@@ -1102,7 +1573,11 @@
       "richmond"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-108",
@@ -1112,7 +1587,11 @@
       "olympia"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-109",
@@ -1122,7 +1601,11 @@
       "zagreb"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-110",
@@ -1132,7 +1615,11 @@
       "madison"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-111",
@@ -1142,7 +1629,11 @@
       "cheyenne"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-112",
@@ -1152,7 +1643,12 @@
       "h"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-113",
@@ -1162,7 +1658,12 @@
       "he"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-114",
@@ -1172,7 +1673,12 @@
       "li"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-115",
@@ -1182,7 +1688,12 @@
       "be"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-116",
@@ -1192,7 +1703,12 @@
       "b"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-117",
@@ -1202,7 +1718,12 @@
       "c"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-118",
@@ -1212,7 +1733,12 @@
       "n"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-119",
@@ -1222,7 +1748,12 @@
       "o"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-120",
@@ -1232,7 +1763,12 @@
       "f"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-121",
@@ -1242,7 +1778,12 @@
       "ne"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-122",
@@ -1252,7 +1793,12 @@
       "na"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-123",
@@ -1262,7 +1808,12 @@
       "mg"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-124",
@@ -1273,7 +1824,12 @@
       "aluminum"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-125",
@@ -1283,7 +1839,12 @@
       "si"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-126",
@@ -1293,7 +1854,12 @@
       "p"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-127",
@@ -1303,7 +1869,12 @@
       "s"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-128",
@@ -1313,7 +1884,12 @@
       "cl"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-129",
@@ -1323,7 +1899,12 @@
       "ar"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-130",
@@ -1333,7 +1914,12 @@
       "k"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-131",
@@ -1343,7 +1929,12 @@
       "ca"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-132",
@@ -1353,7 +1944,12 @@
       "ti"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-133",
@@ -1363,7 +1959,12 @@
       "cr"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-134",
@@ -1373,7 +1974,12 @@
       "mn"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-135",
@@ -1383,7 +1989,12 @@
       "fe"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-136",
@@ -1393,7 +2004,12 @@
       "co"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-137",
@@ -1403,7 +2019,12 @@
       "ni"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-138",
@@ -1413,7 +2034,12 @@
       "cu"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-139",
@@ -1423,7 +2049,12 @@
       "zn"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-140",
@@ -1433,7 +2064,12 @@
       "ga"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-141",
@@ -1443,7 +2079,12 @@
       "ge"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-142",
@@ -1453,7 +2094,12 @@
       "as"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-143",
@@ -1463,7 +2109,12 @@
       "se"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-144",
@@ -1473,7 +2124,12 @@
       "br"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-145",
@@ -1483,7 +2139,12 @@
       "kr"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-146",
@@ -1493,7 +2154,12 @@
       "ag"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-147",
@@ -1503,7 +2169,12 @@
       "sn"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-148",
@@ -1513,7 +2184,12 @@
       "i"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-149",
@@ -1523,7 +2199,12 @@
       "xe"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-150",
@@ -1534,7 +2215,12 @@
       "cesium"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-151",
@@ -1544,7 +2230,12 @@
       "ba"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-152",
@@ -1554,7 +2245,12 @@
       "pt"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-153",
@@ -1564,7 +2260,12 @@
       "sb"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-154",
@@ -1574,7 +2275,12 @@
       "hg"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-155",
@@ -1584,7 +2290,12 @@
       "pb"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-156",
@@ -1594,7 +2305,12 @@
       "rn"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-157",
@@ -1604,7 +2320,12 @@
       "ra"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-158",
@@ -1614,7 +2335,12 @@
       "u"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-159",
@@ -1624,7 +2350,12 @@
       "w"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-160",
@@ -1634,7 +2365,12 @@
       "os"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-161",
@@ -1644,7 +2380,12 @@
       "ir"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-162",
@@ -1654,7 +2395,11 @@
       "tokyo"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-163",
@@ -1664,7 +2409,11 @@
       "london"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-164",
@@ -1674,7 +2423,11 @@
       "berlin"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-165",
@@ -1685,7 +2438,11 @@
       "brasilia"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-166",
@@ -1695,7 +2452,11 @@
       "buenos aires"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-167",
@@ -1705,7 +2466,11 @@
       "lisbon"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-168",
@@ -1715,7 +2480,11 @@
       "cairo"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-169",
@@ -1725,7 +2494,11 @@
       "nairobi"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-170",
@@ -1735,7 +2508,11 @@
       "abuja"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-171",
@@ -1745,7 +2522,12 @@
       "new delhi"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "india"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-172",
@@ -1755,7 +2537,11 @@
       "beijing"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-173",
@@ -1765,7 +2551,11 @@
       "moscow"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-174",
@@ -1775,7 +2565,11 @@
       "athens"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-175",
@@ -1785,7 +2579,11 @@
       "tallinn"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-176",
@@ -1795,7 +2593,11 @@
       "oslo"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-177",
@@ -1805,7 +2607,11 @@
       "stockholm"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-178",
@@ -1815,7 +2621,11 @@
       "copenhagen"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-179",
@@ -1825,7 +2635,11 @@
       "helsinki"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-180",
@@ -1835,7 +2649,11 @@
       "warsaw"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-181",
@@ -1845,7 +2663,11 @@
       "dublin"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-182",
@@ -1855,7 +2677,11 @@
       "brussels"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-183",
@@ -1865,7 +2691,11 @@
       "amsterdam"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-184",
@@ -1875,7 +2705,11 @@
       "bern"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-185",
@@ -1885,7 +2719,11 @@
       "vienna"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-186",
@@ -1895,7 +2733,11 @@
       "budapest"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-187",
@@ -1905,7 +2747,11 @@
       "prague"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-188",
@@ -1915,7 +2761,11 @@
       "ankara"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-189",
@@ -1925,7 +2775,11 @@
       "riyadh"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-190",
@@ -1935,7 +2789,11 @@
       "abu dhabi"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-191",
@@ -1945,7 +2803,11 @@
       "seoul"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-192",
@@ -1955,7 +2817,11 @@
       "bangkok"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-193",
@@ -1965,7 +2831,11 @@
       "hanoi"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-194",
@@ -1975,7 +2845,11 @@
       "jakarta"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-195",
@@ -1985,7 +2859,11 @@
       "manila"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-196",
@@ -1995,7 +2873,11 @@
       "wellington"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-197",
@@ -2005,7 +2887,11 @@
       "santiago"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-198",
@@ -2015,7 +2901,11 @@
       "lima"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-199",
@@ -2026,7 +2916,11 @@
       "bogota"
     ],
     "category": "Geography",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-200",
@@ -2036,7 +2930,11 @@
       "rabat"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-201",
@@ -2046,7 +2944,11 @@
       "addis ababa"
     ],
     "category": "Geography",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-202",
@@ -2056,7 +2958,11 @@
       "56"
     ],
     "category": "Maths",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-203",
@@ -2066,7 +2972,11 @@
       "54"
     ],
     "category": "Maths",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-204",
@@ -2076,7 +2986,11 @@
       "144"
     ],
     "category": "Maths",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-205",
@@ -2086,7 +3000,11 @@
       "121"
     ],
     "category": "Maths",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-206",
@@ -2096,7 +3014,11 @@
       "9"
     ],
     "category": "Maths",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-207",
@@ -2106,7 +3028,11 @@
       "30"
     ],
     "category": "Maths",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-208",
@@ -2116,7 +3042,11 @@
       "63"
     ],
     "category": "Maths",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-209",
@@ -2126,7 +3056,11 @@
       "64"
     ],
     "category": "Maths",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-210",
@@ -2136,7 +3070,11 @@
       "27"
     ],
     "category": "Maths",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-211",
@@ -2146,7 +3084,11 @@
       "100"
     ],
     "category": "Maths",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-212",
@@ -2156,7 +3098,11 @@
       "12"
     ],
     "category": "Maths",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-213",
@@ -2166,7 +3112,11 @@
       "100"
     ],
     "category": "Maths",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-214",
@@ -2176,7 +3126,11 @@
       "39"
     ],
     "category": "Maths",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-215",
@@ -2186,7 +3140,11 @@
       "9"
     ],
     "category": "Maths",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-216",
@@ -2196,7 +3154,11 @@
       "750"
     ],
     "category": "Maths",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-217",
@@ -2206,7 +3168,11 @@
       "45"
     ],
     "category": "Maths",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-218",
@@ -2216,7 +3182,11 @@
       "42"
     ],
     "category": "Maths",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-219",
@@ -2226,7 +3196,11 @@
       "81"
     ],
     "category": "Maths",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-220",
@@ -2236,7 +3210,11 @@
       "100"
     ],
     "category": "Maths",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-221",
@@ -2246,7 +3224,11 @@
       "32"
     ],
     "category": "Maths",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-222",
@@ -2256,7 +3238,11 @@
       "12"
     ],
     "category": "Maths",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-223",
@@ -2266,7 +3252,11 @@
       "28"
     ],
     "category": "Maths",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-224",
@@ -2276,7 +3266,11 @@
       "100"
     ],
     "category": "Maths",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-225",
@@ -2286,7 +3280,11 @@
       "45"
     ],
     "category": "Maths",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-226",
@@ -2296,7 +3294,11 @@
       "24"
     ],
     "category": "Maths",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-227",
@@ -2306,7 +3308,11 @@
       "64"
     ],
     "category": "Maths",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-228",
@@ -2316,7 +3322,11 @@
       "11"
     ],
     "category": "Maths",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-229",
@@ -2326,7 +3336,11 @@
       "42"
     ],
     "category": "Maths",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-230",
@@ -2336,7 +3350,11 @@
       "120"
     ],
     "category": "Maths",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-231",
@@ -2347,7 +3365,11 @@
       "yes"
     ],
     "category": "Maths",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-232",
@@ -2357,7 +3379,12 @@
       "mitochondria"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-233",
@@ -2368,7 +3395,12 @@
       "sodium chloride"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-234",
@@ -2378,7 +3410,13 @@
       "oxygen"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "food",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-235",
@@ -2388,7 +3426,12 @@
       "femur"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-236",
@@ -2399,7 +3442,12 @@
       "two hundred and six"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-237",
@@ -2410,7 +3458,13 @@
       "300,000 km/s"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-238",
@@ -2420,7 +3474,13 @@
       "saturn"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "travel",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-239",
@@ -2430,7 +3490,12 @@
       "water"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-240",
@@ -2440,7 +3505,12 @@
       "biology"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-241",
@@ -2450,7 +3520,12 @@
       "nucleus"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-242",
@@ -2460,7 +3535,13 @@
       "gravity"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "travel",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-243",
@@ -2471,7 +3552,12 @@
       "100 degrees"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-244",
@@ -2481,7 +3567,12 @@
       "heart"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-245",
@@ -2491,7 +3582,13 @@
       "mercury"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "travel",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-246",
@@ -2501,7 +3598,13 @@
       "photosynthesis"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "food",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-247",
@@ -2511,7 +3614,11 @@
       "vilnius"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-248",
@@ -2522,7 +3629,12 @@
       "4"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-249",
@@ -2533,7 +3645,12 @@
       "sun"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-250",
@@ -2543,7 +3660,12 @@
       "whale shark"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-251",
@@ -2553,7 +3675,13 @@
       "meteorology"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "food",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-252",
@@ -2563,7 +3691,12 @@
       "nitrogen"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-253",
@@ -2574,7 +3707,12 @@
       "seven"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-254",
@@ -2585,7 +3723,12 @@
       "egg cell"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-255",
@@ -2595,7 +3738,12 @@
       "cell"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-256",
@@ -2605,7 +3753,12 @@
       "bi"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-257",
@@ -2615,7 +3768,12 @@
       "deoxyribonucleic acid"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-258",
@@ -2625,7 +3783,12 @@
       "olympus mons"
     ],
     "category": "Science",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-259",
@@ -2635,7 +3798,12 @@
       "seismology"
     ],
     "category": "Science",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-260",
@@ -2646,7 +3814,12 @@
       "sun"
     ],
     "category": "Science",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-261",
@@ -2656,7 +3829,12 @@
       "riga"
     ],
     "category": "Geography",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-262",
@@ -2666,7 +3844,11 @@
       "366"
     ],
     "category": "General",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-263",
@@ -2676,7 +3858,11 @@
       "24"
     ],
     "category": "General",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-264",
@@ -2686,7 +3872,11 @@
       "60"
     ],
     "category": "General",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-265",
@@ -2696,7 +3886,11 @@
       "52"
     ],
     "category": "General",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-266",
@@ -2707,7 +3901,13 @@
       "5"
     ],
     "category": "General",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "food",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-267",
@@ -2718,7 +3918,12 @@
       "5"
     ],
     "category": "General",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-268",
@@ -2728,7 +3933,13 @@
       "france"
     ],
     "category": "General",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "travel",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-269",
@@ -2738,7 +3949,12 @@
       "cricket"
     ],
     "category": "General",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-270",
@@ -2749,7 +3965,11 @@
       "eighteen"
     ],
     "category": "General",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-271",
@@ -2759,7 +3979,12 @@
       "sumo"
     ],
     "category": "General",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-272",
@@ -2770,7 +3995,11 @@
       "twenty-six"
     ],
     "category": "General",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-273",
@@ -2781,7 +4010,11 @@
       "shakespeare"
     ],
     "category": "General",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-274",
@@ -2792,7 +4025,11 @@
       "orwell"
     ],
     "category": "General",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-275",
@@ -2803,7 +4040,11 @@
       "jk rowling"
     ],
     "category": "General",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-276",
@@ -2813,7 +4054,11 @@
       "michelangelo"
     ],
     "category": "General",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-277",
@@ -2823,7 +4068,11 @@
       "vivaldi"
     ],
     "category": "General",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-278",
@@ -2833,7 +4082,12 @@
       "paris"
     ],
     "category": "General",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-279",
@@ -2843,7 +4097,12 @@
       "rome"
     ],
     "category": "General",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-280",
@@ -2853,7 +4112,12 @@
       "egypt"
     ],
     "category": "General",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-281",
@@ -2863,7 +4127,12 @@
       "russia"
     ],
     "category": "General",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-282",
@@ -2873,7 +4142,12 @@
       "vatican city"
     ],
     "category": "General",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-283",
@@ -2883,7 +4157,13 @@
       "india"
     ],
     "category": "General",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "travel",
+      "india"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-284",
@@ -2894,7 +4174,11 @@
       "nile"
     ],
     "category": "General",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-285",
@@ -2904,7 +4188,11 @@
       "africa"
     ],
     "category": "General",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-286",
@@ -2914,7 +4202,12 @@
       "indian ocean"
     ],
     "category": "General",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "india"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-287",
@@ -2925,7 +4218,11 @@
       "washington dc"
     ],
     "category": "General",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-288",
@@ -2936,7 +4233,11 @@
       "fifty"
     ],
     "category": "General",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-289",
@@ -2947,7 +4248,11 @@
       "pound"
     ],
     "category": "General",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-290",
@@ -2957,7 +4262,11 @@
       "dollar"
     ],
     "category": "General",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-291",
@@ -2967,7 +4276,11 @@
       "greenland"
     ],
     "category": "General",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-292",
@@ -2977,7 +4290,11 @@
       "burj khalifa"
     ],
     "category": "General",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-293",
@@ -2987,7 +4304,12 @@
       "great wall of china"
     ],
     "category": "General",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-294",
@@ -2998,7 +4320,12 @@
       "6"
     ],
     "category": "General",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-295",
@@ -3009,7 +4336,11 @@
       "6"
     ],
     "category": "General",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-296",
@@ -3020,7 +4351,11 @@
       "3"
     ],
     "category": "General",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-297",
@@ -3031,7 +4366,11 @@
       "8"
     ],
     "category": "General",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-298",
@@ -3042,7 +4381,12 @@
       "forty-five"
     ],
     "category": "General",
-    "difficulty": 1
+    "difficulty": 1,
+    "tags": [
+      "trivia",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-299",
@@ -3053,7 +4397,12 @@
       "fifteen"
     ],
     "category": "General",
-    "difficulty": 2
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "buzz-300",
@@ -3064,6 +4413,11 @@
       "9"
     ],
     "category": "General",
-    "difficulty": 3
+    "difficulty": 3,
+    "tags": [
+      "trivia",
+      "food"
+    ],
+    "rating": "all"
   }
 ]

@@ -1,283 +1,609 @@
 [
   {
     "id": "imp-01",
-    "text": "Name a breakfast food that always disappoints"
+    "text": "Name a breakfast food that always disappoints",
+    "tags": [
+      "deduction",
+      "food",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-02",
-    "text": "Name a movie everyone claims to have seen"
+    "text": "Name a movie everyone claims to have seen",
+    "tags": [
+      "deduction",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-03",
-    "text": "Name a song that gets a party started"
+    "text": "Name a song that gets a party started",
+    "tags": [
+      "deduction",
+      "music",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-04",
-    "text": "Name a snack that disappears at a party"
+    "text": "Name a snack that disappears at a party",
+    "tags": [
+      "deduction",
+      "food",
+      "tech",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-05",
-    "text": "Name a place that is always crowded"
+    "text": "Name a place that is always crowded",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-06",
-    "text": "Name a chore that takes longer than expected"
+    "text": "Name a chore that takes longer than expected",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-07",
-    "text": "Name a gift you pretend to like"
+    "text": "Name a gift you pretend to like",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-08",
-    "text": "Name an app you open without thinking"
+    "text": "Name an app you open without thinking",
+    "tags": [
+      "deduction",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-09",
-    "text": "Name a food that tastes better the next day"
+    "text": "Name a food that tastes better the next day",
+    "tags": [
+      "deduction",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-10",
-    "text": "Name a drink that says summer"
+    "text": "Name a drink that says summer",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-11",
-    "text": "Name a holiday tradition that confuses outsiders"
+    "text": "Name a holiday tradition that confuses outsiders",
+    "tags": [
+      "deduction",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-12",
-    "text": "Name a fictional character who would hate this group"
+    "text": "Name a fictional character who would hate this group",
+    "tags": [
+      "deduction",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-13",
-    "text": "Name something people always lose"
+    "text": "Name something people always lose",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-14",
-    "text": "Name a word that sounds fake"
+    "text": "Name a word that sounds fake",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-15",
-    "text": "Name a movie villain who has a point"
+    "text": "Name a movie villain who has a point",
+    "tags": [
+      "deduction",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-16",
-    "text": "Name a place you would never take a first date"
+    "text": "Name a place you would never take a first date",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-17",
-    "text": "Name a food that is better without the topping"
+    "text": "Name a food that is better without the topping",
+    "tags": [
+      "deduction",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-18",
-    "text": "Name something that is always in the group chat"
+    "text": "Name something that is always in the group chat",
+    "tags": [
+      "deduction",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-19",
-    "text": "Name a game that ruins friendships"
+    "text": "Name a game that ruins friendships",
+    "tags": [
+      "deduction",
+      "games",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-20",
-    "text": "Name a smell that brings back memories"
+    "text": "Name a smell that brings back memories",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-21",
-    "text": "Name something that is overpriced at the airport"
+    "text": "Name something that is overpriced at the airport",
+    "tags": [
+      "deduction",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-22",
-    "text": "Name a song that makes people emotional"
+    "text": "Name a song that makes people emotional",
+    "tags": [
+      "deduction",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-23",
-    "text": "Name something you do when you cannot sleep"
+    "text": "Name something you do when you cannot sleep",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-24",
-    "text": "Name a fictional place you want to visit"
+    "text": "Name a fictional place you want to visit",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-25",
-    "text": "Name a food that is impossible to eat politely"
+    "text": "Name a food that is impossible to eat politely",
+    "tags": [
+      "deduction",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-26",
-    "text": "Name something that always breaks at the worst time"
+    "text": "Name something that always breaks at the worst time",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-27",
-    "text": "Name a movie that is better than the book"
+    "text": "Name a movie that is better than the book",
+    "tags": [
+      "deduction",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-28",
-    "text": "Name a childhood toy everyone had"
+    "text": "Name a childhood toy everyone had",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-29",
-    "text": "Name something people say when they are lying"
+    "text": "Name something people say when they are lying",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-30",
-    "text": "Name a place where you whisper"
+    "text": "Name a place where you whisper",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-31",
-    "text": "Name a food that is always at a birthday party"
+    "text": "Name a food that is always at a birthday party",
+    "tags": [
+      "deduction",
+      "food",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-32",
-    "text": "Name something that makes a road trip worse"
+    "text": "Name something that makes a road trip worse",
+    "tags": [
+      "deduction",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-33",
-    "text": "Name a fictional family you would join"
+    "text": "Name a fictional family you would join",
+    "tags": [
+      "deduction",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-34",
-    "text": "Name something you would bring to a desert island"
+    "text": "Name something you would bring to a desert island",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-35",
-    "text": "Name a song everyone knows the chorus to"
+    "text": "Name a song everyone knows the chorus to",
+    "tags": [
+      "deduction",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-36",
-    "text": "Name something that gets stuck in your head"
+    "text": "Name something that gets stuck in your head",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-37",
-    "text": "Name a food that is better fried"
+    "text": "Name a food that is better fried",
+    "tags": [
+      "deduction",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-38",
-    "text": "Name something you can never find in a store"
+    "text": "Name something you can never find in a store",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-39",
-    "text": "Name a movie that always makes you cry"
+    "text": "Name a movie that always makes you cry",
+    "tags": [
+      "deduction",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-40",
-    "text": "Name something that is weirdly expensive"
+    "text": "Name something that is weirdly expensive",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-41",
-    "text": "Name a place that feels like a different world"
+    "text": "Name a place that feels like a different world",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-42",
-    "text": "Name something people do in elevators"
+    "text": "Name something people do in elevators",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-43",
-    "text": "Name a controversial pizza topping"
+    "text": "Name a controversial pizza topping",
+    "tags": [
+      "deduction",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-44",
-    "text": "Name a fictional creature you would keep as a pet"
+    "text": "Name a fictional creature you would keep as a pet",
+    "tags": [
+      "deduction",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-45",
-    "text": "Name something that is always sticky"
+    "text": "Name something that is always sticky",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-46",
-    "text": "Name a song that is impossible to dance to"
+    "text": "Name a song that is impossible to dance to",
+    "tags": [
+      "deduction",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-47",
-    "text": "Name something that makes a group chat go quiet"
+    "text": "Name something that makes a group chat go quiet",
+    "tags": [
+      "deduction",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-48",
-    "text": "Name a food that is better cold"
+    "text": "Name a food that is better cold",
+    "tags": [
+      "deduction",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-49",
-    "text": "Name something you would never admit to Googling"
+    "text": "Name something you would never admit to Googling",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-50",
-    "text": "Name a movie everyone has a strong opinion about"
+    "text": "Name a movie everyone has a strong opinion about",
+    "tags": [
+      "deduction",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-51",
-    "text": "Name a place you go when you need quiet"
+    "text": "Name a place you go when you need quiet",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-52",
-    "text": "Name something that always falls out of a bag"
+    "text": "Name something that always falls out of a bag",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-53",
-    "text": "Name a food that is too much work to eat"
+    "text": "Name a food that is too much work to eat",
+    "tags": [
+      "deduction",
+      "food",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-54",
-    "text": "Name something always on a hotel breakfast buffet"
+    "text": "Name something always on a hotel breakfast buffet",
+    "tags": [
+      "deduction",
+      "food",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-55",
-    "text": "Name a fictional duo that would win a fight"
+    "text": "Name a fictional duo that would win a fight",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-56",
-    "text": "Name something you do before guests arrive"
+    "text": "Name something you do before guests arrive",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-57",
-    "text": "Name a song that is played at every wedding"
+    "text": "Name a song that is played at every wedding",
+    "tags": [
+      "deduction",
+      "music",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-58",
-    "text": "Name something that is always lost in the laundry"
+    "text": "Name something that is always lost in the laundry",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-59",
-    "text": "Name a food that tastes like childhood"
+    "text": "Name a food that tastes like childhood",
+    "tags": [
+      "deduction",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-60",
-    "text": "Name something that would make a bad superpower"
+    "text": "Name something that would make a bad superpower",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-61",
-    "text": "Name a place that is better at night"
+    "text": "Name a place that is better at night",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-62",
-    "text": "Name something people always exaggerate"
+    "text": "Name something people always exaggerate",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-63",
-    "text": "Name a movie you would rewatch right now"
+    "text": "Name a movie you would rewatch right now",
+    "tags": [
+      "deduction",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-64",
-    "text": "Name something that is impossible to recycle"
+    "text": "Name something that is impossible to recycle",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-65",
-    "text": "Name a food that always comes in a weird shape"
+    "text": "Name a food that always comes in a weird shape",
+    "tags": [
+      "deduction",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-66",
-    "text": "Name something that makes you instantly suspicious"
+    "text": "Name something that makes you instantly suspicious",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-67",
-    "text": "Name a fictional school you would attend"
+    "text": "Name a fictional school you would attend",
+    "tags": [
+      "deduction",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-68",
-    "text": "Name something always in the fridge but never used"
+    "text": "Name something always in the fridge but never used",
+    "tags": [
+      "deduction"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-69",
-    "text": "Name a song that makes you drive faster"
+    "text": "Name a song that makes you drive faster",
+    "tags": [
+      "deduction",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-70",
-    "text": "Name something that is better with friends"
+    "text": "Name something that is better with friends",
+    "tags": [
+      "deduction",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "imp-71",

@@ -1,243 +1,524 @@
 [
   {
     "id": "story-001",
-    "text": "The elevator stopped between floors, and the lights went out."
+    "text": "The elevator stopped between floors, and the lights went out.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-002",
-    "text": "Nobody expected the vending machine to start talking."
+    "text": "Nobody expected the vending machine to start talking.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-003",
-    "text": "The wedding cake arrived with a small parachute attached."
+    "text": "The wedding cake arrived with a small parachute attached.",
+    "tags": [
+      "story",
+      "food",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-004",
-    "text": "At 3 a.m., the hotel phone rang for the third time."
+    "text": "At 3 a.m., the hotel phone rang for the third time.",
+    "tags": [
+      "story",
+      "travel",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-005",
-    "text": "The new neighbour's dog knew exactly where the treasure was buried."
+    "text": "The new neighbour's dog knew exactly where the treasure was buried.",
+    "tags": [
+      "story",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-006",
-    "text": "The office printer had finally developed a personality."
+    "text": "The office printer had finally developed a personality.",
+    "tags": [
+      "story",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-007",
-    "text": "The last train of the night was heading the wrong way."
+    "text": "The last train of the night was heading the wrong way.",
+    "tags": [
+      "story",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-008",
-    "text": "The museum guard noticed the painting had changed overnight."
+    "text": "The museum guard noticed the painting had changed overnight.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-009",
-    "text": "The camping trip took an unexpected turn when the map began to glow."
+    "text": "The camping trip took an unexpected turn when the map began to glow.",
+    "tags": [
+      "story",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-010",
-    "text": "The bakery's new pastry had a very suspicious name."
+    "text": "The bakery's new pastry had a very suspicious name.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-011",
-    "text": "The entire choir forgot the words at the same moment."
+    "text": "The entire choir forgot the words at the same moment.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-012",
-    "text": "The package had no address, only a drawing of a lighthouse."
+    "text": "The package had no address, only a drawing of a lighthouse.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-013",
-    "text": "The weather forecast promised snow, but the sky was full of confetti."
+    "text": "The weather forecast promised snow, but the sky was full of confetti.",
+    "tags": [
+      "story",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-014",
-    "text": "The old radio only played songs from the future."
+    "text": "The old radio only played songs from the future.",
+    "tags": [
+      "story",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-015",
-    "text": "The restaurant had one table, one waiter, and no menu."
+    "text": "The restaurant had one table, one waiter, and no menu.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-016",
-    "text": "The library book was returned with sand in every page."
+    "text": "The library book was returned with sand in every page.",
+    "tags": [
+      "story",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-017",
-    "text": "The football match was interrupted by a very determined goose."
+    "text": "The football match was interrupted by a very determined goose.",
+    "tags": [
+      "story",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-018",
-    "text": "The new housemate arrived carrying a grandfather clock."
+    "text": "The new housemate arrived carrying a grandfather clock.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-019",
-    "text": "The teacher's chair squeaked in complete sentences."
+    "text": "The teacher's chair squeaked in complete sentences.",
+    "tags": [
+      "story",
+      "food",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-020",
-    "text": "The road trip playlist suddenly included a recording of the car."
+    "text": "The road trip playlist suddenly included a recording of the car.",
+    "tags": [
+      "story",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-021",
-    "text": "The plant on the windowsill had grown a tiny door."
+    "text": "The plant on the windowsill had grown a tiny door.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-022",
-    "text": "The office fridge contained a cake shaped like the boss."
+    "text": "The office fridge contained a cake shaped like the boss.",
+    "tags": [
+      "story",
+      "food",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-023",
-    "text": "The ferry left the harbour with nobody at the wheel."
+    "text": "The ferry left the harbour with nobody at the wheel.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-024",
-    "text": "The neighbours were having a very loud argument about soup."
+    "text": "The neighbours were having a very loud argument about soup.",
+    "tags": [
+      "story",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-025",
-    "text": "The theme park ride stopped at the highest point, facing the exit."
+    "text": "The theme park ride stopped at the highest point, facing the exit.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-026",
-    "text": "The package arrived ten years after it was ordered."
+    "text": "The package arrived ten years after it was ordered.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-027",
-    "text": "The cat brought home a receipt for something nobody bought."
+    "text": "The cat brought home a receipt for something nobody bought.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-028",
-    "text": "The last slice of pizza came with a handwritten warning."
+    "text": "The last slice of pizza came with a handwritten warning.",
+    "tags": [
+      "story",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-029",
-    "text": "The art class was asked to paint the sound of a Monday."
+    "text": "The art class was asked to paint the sound of a Monday.",
+    "tags": [
+      "story",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-030",
-    "text": "The supermarket announced a surprise guest over the intercom."
+    "text": "The supermarket announced a surprise guest over the intercom.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-031",
-    "text": "The vending machine refused to sell anything except advice."
+    "text": "The vending machine refused to sell anything except advice.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-032",
-    "text": "Every clock in the house stopped at exactly the same second."
+    "text": "Every clock in the house stopped at exactly the same second.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-033",
-    "text": "The new employee's desk came with a very specific list of rules."
+    "text": "The new employee's desk came with a very specific list of rules.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-034",
-    "text": "The bus driver announced a detour through a forgotten memory."
+    "text": "The bus driver announced a detour through a forgotten memory.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-035",
-    "text": "A tiny door appeared in the back of the fridge overnight."
+    "text": "A tiny door appeared in the back of the fridge overnight.",
+    "tags": [
+      "story",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-036",
-    "text": "The wedding photographer noticed an extra guest in every photo."
+    "text": "The wedding photographer noticed an extra guest in every photo.",
+    "tags": [
+      "story",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-037",
-    "text": "The final exam question was a drawing of a closed door."
+    "text": "The final exam question was a drawing of a closed door.",
+    "tags": [
+      "story",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-038",
-    "text": "The neighbourhood cat had started collecting receipts."
+    "text": "The neighbourhood cat had started collecting receipts.",
+    "tags": [
+      "story",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-039",
-    "text": "The radio station played the same three seconds of a song all day."
+    "text": "The radio station played the same three seconds of a song all day.",
+    "tags": [
+      "story",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-040",
-    "text": "The hotel key opened a room that was not on any floor plan."
+    "text": "The hotel key opened a room that was not on any floor plan.",
+    "tags": [
+      "story",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-041",
-    "text": "The bakery sold a loaf of bread with a handwritten apology inside."
+    "text": "The bakery sold a loaf of bread with a handwritten apology inside.",
+    "tags": [
+      "story",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-042",
-    "text": "The garden gnome had moved again, this time to the roof."
+    "text": "The garden gnome had moved again, this time to the roof.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-043",
-    "text": "The office plant began dropping notes instead of leaves."
+    "text": "The office plant began dropping notes instead of leaves.",
+    "tags": [
+      "story",
+      "food",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-044",
-    "text": "The train stopped at a station that was not on the map."
+    "text": "The train stopped at a station that was not on the map.",
+    "tags": [
+      "story",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-045",
-    "text": "The cinema screen went dark just as the film revealed the culprit."
+    "text": "The cinema screen went dark just as the film revealed the culprit.",
+    "tags": [
+      "story",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-046",
-    "text": "The new app promised to predict what you would forget next."
+    "text": "The new app promised to predict what you would forget next.",
+    "tags": [
+      "story",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-047",
-    "text": "The old lighthouse began flashing a pattern in Morse code."
+    "text": "The old lighthouse began flashing a pattern in Morse code.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-048",
-    "text": "The pizza delivery arrived with a map to somewhere else."
+    "text": "The pizza delivery arrived with a map to somewhere else.",
+    "tags": [
+      "story",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-049",
-    "text": "The school choir was asked to sing a song nobody had heard."
+    "text": "The school choir was asked to sing a song nobody had heard.",
+    "tags": [
+      "story",
+      "school",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-050",
-    "text": "The library's returns bin contained a pair of muddy boots."
+    "text": "The library's returns bin contained a pair of muddy boots.",
+    "tags": [
+      "story",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-051",
-    "text": "The camping stove worked perfectly only when it was raining."
+    "text": "The camping stove worked perfectly only when it was raining.",
+    "tags": [
+      "story",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-052",
-    "text": "The street musician was playing a song about the people watching."
+    "text": "The street musician was playing a song about the people watching.",
+    "tags": [
+      "story",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-053",
-    "text": "The parcel had been forwarded through twelve countries and one kitchen."
+    "text": "The parcel had been forwarded through twelve countries and one kitchen.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-054",
-    "text": "The dishwasher began leaving messages in the fog on the window."
+    "text": "The dishwasher began leaving messages in the fog on the window.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-055",
-    "text": "The football stadium echoed with a whistle nobody had blown."
+    "text": "The football stadium echoed with a whistle nobody had blown.",
+    "tags": [
+      "story",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-056",
-    "text": "The art gallery's newest painting was still wet and moving."
+    "text": "The art gallery's newest painting was still wet and moving.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-057",
-    "text": "The lift button for the thirteenth floor lit up for the first time."
+    "text": "The lift button for the thirteenth floor lit up for the first time.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-058",
-    "text": "The neighbour's barbecue smoke formed a perfect question mark."
+    "text": "The neighbour's barbecue smoke formed a perfect question mark.",
+    "tags": [
+      "story",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-059",
-    "text": "The last ferry of the night had a passenger list with no names."
+    "text": "The last ferry of the night had a passenger list with no names.",
+    "tags": [
+      "story"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-060",
-    "text": "The museum's dinosaur skeleton was missing one very important bone."
+    "text": "The museum's dinosaur skeleton was missing one very important bone.",
+    "tags": [
+      "story",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "story-061",

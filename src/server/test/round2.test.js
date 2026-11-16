@@ -9,7 +9,9 @@ import buzzerTrivia from "../games/buzzerTrivia.js";
 import codenames from "../games/codenames.js";
 import connections from "../games/connections.js";
 import duelBracket from "../games/duelBracket.js";
-import fillTheBlank from "../games/fillTheBlank.js";
+import fillTheBlank, {
+  normalizePrompt,
+} from "../games/fillTheBlank.js";
 import liarsDice from "../games/liarsDice.js";
 import password from "../games/password.js";
 import patternMemory from "../games/patternMemory.js";
@@ -90,6 +92,17 @@ test("latency keeps a capped smoothed half-RTT and chain rotates ownership", () 
   advanceChain(chain, ["p1", "p2", "p3"], "third", "p3");
   assert.equal(chain.complete, true);
   assert.equal(chain.entries.length, 3);
+});
+
+test("fill the blank treats legacy zero-blank prompts as one-card answers", () => {
+  assert.equal(fillBank.prompts.some((prompt) => prompt.blanks === 0), true);
+  assert.equal(normalizePrompt({ blanks: 0 }).blanks, 1);
+  assert.equal(normalizePrompt({}).blanks, 1);
+  const room = makeRoom(3);
+  room.teams = null;
+  const state = fillTheBlank.init(room, "classic");
+  assert.ok(state.prompt.blanks >= 1);
+  assert.equal(fillTheBlank.viewFor(room, state.judgeId).blanks, state.prompt.blanks);
 });
 
 test("fill the blank deals hands, hides authors while judging, and scores a pick", () => {
@@ -439,7 +452,7 @@ test("round-two banks have stable unique content and the blur license manifest i
   assert.equal(scatterBank.length, 80);
   assert.equal(scatterBank.every((list) => new Set(list.categories).size === 8), true);
   assert.equal(new Set(scatterBank.map((list) => list.id)).size, scatterBank.length);
-  assert.equal(require("../data/prompts/storyChain.json").length, 60);
+  assert.equal(require("../data/prompts/storyChain.json").length, 110);
   assert.equal(passwordBank.length, 300);
   assert.equal(codenameBank.length >= 400, true);
   assert.equal(sketchBank.length, 300);

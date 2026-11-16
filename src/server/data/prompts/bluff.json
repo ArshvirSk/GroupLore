@@ -2,302 +2,549 @@
   {
     "id": "bluff-01",
     "question": "What does petrichor mean?",
-    "answer": "The smell of earth after rain"
+    "answer": "The smell of earth after rain",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-02",
     "question": "What does defenestrate mean?",
-    "answer": "To throw someone out of a window"
+    "answer": "To throw someone out of a window",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-03",
     "question": "What does susurrus mean?",
-    "answer": "A whispering or rustling sound"
+    "answer": "A whispering or rustling sound",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-04",
     "question": "What does borborygmus mean?",
-    "answer": "The rumbling sound of a stomach"
+    "answer": "The rumbling sound of a stomach",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-05",
     "question": "What does apricity mean?",
-    "answer": "The warmth of the sun in winter"
+    "answer": "The warmth of the sun in winter",
+    "tags": [
+      "vocabulary",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-06",
     "question": "What does lumbago mean?",
-    "answer": "Pain in the lower back"
+    "answer": "Pain in the lower back",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-07",
     "question": "What does ululate mean?",
-    "answer": "To howl or wail loudly"
+    "answer": "To howl or wail loudly",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-08",
     "question": "What does gamboge mean?",
-    "answer": "A yellow-brown gum resin used as a pigment"
+    "answer": "A yellow-brown gum resin used as a pigment",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-09",
     "question": "What does luculent mean?",
-    "answer": "Clearly expressed or easy to understand"
+    "answer": "Clearly expressed or easy to understand",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-10",
     "question": "What does nacreous mean?",
-    "answer": "Resembling the iridescent inside of a shell"
+    "answer": "Resembling the iridescent inside of a shell",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-11",
     "question": "What does obnubilate mean?",
-    "answer": "To cloud over or obscure"
+    "answer": "To cloud over or obscure",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-12",
     "question": "What does perambulate mean?",
-    "answer": "To walk around a place"
+    "answer": "To walk around a place",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-13",
     "question": "What does quincunx mean?",
-    "answer": "An arrangement of five things in a square"
+    "answer": "An arrangement of five things in a square",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-14",
     "question": "What does rubiginous mean?",
-    "answer": "Rust-colored"
+    "answer": "Rust-colored",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-15",
     "question": "What does sciamachy mean?",
-    "answer": "Fighting with shadows or imaginary enemies"
+    "answer": "Fighting with shadows or imaginary enemies",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-16",
     "question": "What does titubate mean?",
-    "answer": "To stagger or stumble"
+    "answer": "To stagger or stumble",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-17",
     "question": "What does velleity mean?",
-    "answer": "A wish or inclination too weak to act on"
+    "answer": "A wish or inclination too weak to act on",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-18",
     "question": "What does widdershins mean?",
-    "answer": "In a counterclockwise direction"
+    "answer": "In a counterclockwise direction",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-19",
     "question": "What does xanthous mean?",
-    "answer": "Yellow or yellow-haired"
+    "answer": "Yellow or yellow-haired",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-20",
     "question": "What does ylem mean?",
-    "answer": "The primordial matter of the universe"
+    "answer": "The primordial matter of the universe",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-21",
     "question": "What does zephyr mean?",
-    "answer": "A gentle breeze"
+    "answer": "A gentle breeze",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-22",
     "question": "What does abecedarian mean?",
-    "answer": "Arranged alphabetically or relating to the alphabet"
+    "answer": "Arranged alphabetically or relating to the alphabet",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-23",
     "question": "What does cachinnate mean?",
-    "answer": "To laugh loudly"
+    "answer": "To laugh loudly",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-24",
     "question": "What does deipnosophist mean?",
-    "answer": "A skilled dinner-table conversationalist"
+    "answer": "A skilled dinner-table conversationalist",
+    "tags": [
+      "vocabulary",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-25",
     "question": "What does ecdysis mean?",
-    "answer": "The shedding of an outer skin or shell"
+    "answer": "The shedding of an outer skin or shell",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-26",
     "question": "What does farrago mean?",
-    "answer": "A confused mixture"
+    "answer": "A confused mixture",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-27",
     "question": "What does garrulous mean?",
-    "answer": "Excessively talkative"
+    "answer": "Excessively talkative",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-28",
     "question": "What does halcyon mean?",
-    "answer": "Calm, peaceful, or idyllic"
+    "answer": "Calm, peaceful, or idyllic",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-29",
     "question": "What does imbricate mean?",
-    "answer": "To overlap like roof tiles"
+    "answer": "To overlap like roof tiles",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-30",
     "question": "What does jejune mean?",
-    "answer": "Dull, childish, or simplistic"
+    "answer": "Dull, childish, or simplistic",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-31",
     "question": "What does kenspeckle mean?",
-    "answer": "Easily recognizable"
+    "answer": "Easily recognizable",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-32",
     "question": "What does labile mean?",
-    "answer": "Easily changed or unstable"
+    "answer": "Easily changed or unstable",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-33",
     "question": "What does mawkish mean?",
-    "answer": "Excessively sentimental"
+    "answer": "Excessively sentimental",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-34",
     "question": "What does nidificate mean?",
-    "answer": "To build a nest"
+    "answer": "To build a nest",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-35",
     "question": "What does obdurate mean?",
-    "answer": "Stubbornly refusing to change"
+    "answer": "Stubbornly refusing to change",
+    "tags": [
+      "vocabulary",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-36",
     "question": "What does pellucid mean?",
-    "answer": "Transparently clear"
+    "answer": "Transparently clear",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-37",
     "question": "What does quotidian mean?",
-    "answer": "Ordinary or occurring every day"
+    "answer": "Ordinary or occurring every day",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-38",
     "question": "What does recalcitrant mean?",
-    "answer": "Resistant to authority or control"
+    "answer": "Resistant to authority or control",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-39",
     "question": "What does sanguine mean?",
-    "answer": "Optimistic or cheerfully confident"
+    "answer": "Optimistic or cheerfully confident",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-40",
     "question": "What does tatterdemalion mean?",
-    "answer": "A person in ragged clothing"
+    "answer": "A person in ragged clothing",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-41",
     "question": "What does umbrage mean?",
-    "answer": "Offense or annoyance"
+    "answer": "Offense or annoyance",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-42",
     "question": "What does vaticinate mean?",
-    "answer": "To prophesy or predict"
+    "answer": "To prophesy or predict",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-43",
     "question": "What does wamble mean?",
-    "answer": "To feel nauseated or queasy"
+    "answer": "To feel nauseated or queasy",
+    "tags": [
+      "vocabulary",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-44",
     "question": "What does xylograph mean?",
-    "answer": "A wood engraving or print"
+    "answer": "A wood engraving or print",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-45",
     "question": "What does yawp mean?",
-    "answer": "A harsh cry or loud complaint"
+    "answer": "A harsh cry or loud complaint",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-46",
     "question": "What does zeitgeist mean?",
-    "answer": "The spirit or mood of a particular time"
+    "answer": "The spirit or mood of a particular time",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-47",
     "question": "What does abligurition mean?",
-    "answer": "Excessive spending on food and drink"
+    "answer": "Excessive spending on food and drink",
+    "tags": [
+      "vocabulary",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-48",
     "question": "What does boustrophedon mean?",
-    "answer": "Writing in alternating directions"
+    "answer": "Writing in alternating directions",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-49",
     "question": "What does circumlocution mean?",
-    "answer": "Speaking indirectly or evasively"
+    "answer": "Speaking indirectly or evasively",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-50",
     "question": "What does dithyramb mean?",
-    "answer": "A wild, passionate hymn or speech"
+    "answer": "A wild, passionate hymn or speech",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-51",
     "question": "What does emollient mean?",
-    "answer": "A substance that softens or soothes"
+    "answer": "A substance that softens or soothes",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-52",
     "question": "What does fuliginous mean?",
-    "answer": "Sooty or dark-colored"
+    "answer": "Sooty or dark-colored",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-53",
     "question": "What does gossamer mean?",
-    "answer": "A fine, delicate cobweb or fabric"
+    "answer": "A fine, delicate cobweb or fabric",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-54",
     "question": "What does hircine mean?",
-    "answer": "Goat-like or smelling of a goat"
+    "answer": "Goat-like or smelling of a goat",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-55",
     "question": "What does ineffable mean?",
-    "answer": "Too great or extreme to be put into words"
+    "answer": "Too great or extreme to be put into words",
+    "tags": [
+      "vocabulary",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-56",
     "question": "What does lambent mean?",
-    "answer": "Softly glowing or flickering"
+    "answer": "Softly glowing or flickering",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-57",
     "question": "What does mellifluous mean?",
-    "answer": "Sweet-sounding or pleasant to hear"
+    "answer": "Sweet-sounding or pleasant to hear",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-58",
     "question": "What does nubilous mean?",
-    "answer": "Cloudy or misty"
+    "answer": "Cloudy or misty",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-59",
     "question": "What does obstreperous mean?",
-    "answer": "Noisy and difficult to control"
+    "answer": "Noisy and difficult to control",
+    "tags": [
+      "vocabulary"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-60",
     "question": "What does peripatetic mean?",
-    "answer": "Traveling from place to place"
+    "answer": "Traveling from place to place",
+    "tags": [
+      "vocabulary",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "bluff-61",

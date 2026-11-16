@@ -43,6 +43,76 @@ function jaccard(a, b) {
   return shared / (left.size + right.size - shared);
 }
 
+const TRIVIA_FAMILY_LIMITS = {
+  "buzzer-trivia": 0.08,
+  "fact-or-fiction": 0.08,
+  flag: 0.12,
+  "emoji-decode": 0.12,
+};
+
+function firstStem(text) {
+  return tokens(text).slice(0, 4).join(" ");
+}
+
+function templateFamily(text) {
+  const value = text.toLowerCase();
+  if (/\bcapital\b/.test(value)) return "capital";
+  if (/\bchemical symbol\b/.test(value)) return "chemical symbol";
+  if (/\bwho (wrote|painted|composed|directed)\b/.test(value)) return "creator";
+  if (/\b(what|which|in which) year\b|\byear of\b|\bwhen (was|did)\b/.test(value)) {
+    return "year";
+  }
+  if (/\bhow many\b/.test(value)) return "count";
+  if (/\b(largest|smallest|longest|shortest|tallest|highest|lowest)\b/.test(value)) {
+    return "superlative";
+  }
+  if (/\bcurrency\b/.test(value)) return "currency";
+  if (/\bwhich planet\b|\bwhat planet\b/.test(value)) return "planet";
+  if (/\bwhich country\b|\bwhat country\b/.test(value)) return "country";
+  if (/\bwho (is|was)\b/.test(value)) return "person";
+  if (/\bwhich (element|metal|gas)\b|\bwhat element\b/.test(value)) return "element";
+  return null;
+}
+
+function topEntries(map, limit = 10) {
+  return [...map.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit)
+    .map(([key, count]) => ({ key, count }));
+}
+
+export function patternReport(gameId, items = []) {
+  const stems = new Map();
+  const families = new Map();
+  const total = items.length || 1;
+  for (const item of items) {
+    const text = textOf(item);
+    if (!text) continue;
+    const stem = firstStem(text);
+    if (stem) stems.set(stem, (stems.get(stem) || 0) + 1);
+    const family = templateFamily(text);
+    if (family) families.set(family, (families.get(family) || 0) + 1);
+  }
+  const stemLimit = Math.max(1, Math.ceil(total * 0.03));
+  const stemFailures = [...stems.entries()]
+    .filter(([, count]) => count > stemLimit)
+    .sort((a, b) => b[1] - a[1]);
+  const familyLimit = TRIVIA_FAMILY_LIMITS[gameId];
+  const familyFailures = familyLimit
+    ? [...families.entries()]
+        .filter(([, count]) => count > total * familyLimit)
+        .sort((a, b) => b[1] - a[1])
+    : [];
+  return {
+    total: items.length,
+    stems: topEntries(stems),
+    families: topEntries(families),
+    stemFailures,
+    familyFailures,
+    familyLimit,
+  };
+}
+
 function connectionErrors(item) {
   const errors = [];
   if (!Array.isArray(item?.groups) || item.groups.length !== 4) {
@@ -95,6 +165,10 @@ export function validateBank({
 
     if (gameId === "connections") {
       errors.push(...connectionErrors(item));
+      if (Array.isArray(item?.tags) && item.tags.length) counts.tags += 1;
+      if (["all", "spicy", "family", "teen", "mature"].includes(item?.rating)) {
+        counts.rating += 1;
+      }
       continue;
     }
 
@@ -138,6 +212,18 @@ export function validateBank({
     }
   }
 
+  const patterns = patternReport(gameId, items);
+  for (const [stem, count] of patterns.stemFailures) {
+    errors.push(
+      `${gameId}: stem "${stem}" is ${count}/${items.length} items (over 3%)`,
+    );
+  }
+  for (const [family, count] of patterns.familyFailures) {
+    errors.push(
+      `${gameId}: template family "${family}" is ${count}/${items.length} items (over ${Math.round((patterns.familyLimit || 0) * 100)}%)`,
+    );
+  }
+
   if (!skipNearDuplicates) {
     for (let i = 0; i < normalized.length; i += 1) {
       for (let j = i + 1; j < normalized.length; j += 1) {
@@ -158,16 +244,23 @@ export function validateBank({
     }
   }
 
-  if (counts.tags < items.length * 0.5) {
+  if (counts.tags < items.length) {
     warnings.push(
       `${gameId}: ${items.length - counts.tags} items have no tags`,
     );
   }
-  if (counts.rating < items.length * 0.5) {
+  if (counts.rating < items.length) {
     warnings.push(
       `${gameId}: ${items.length - counts.rating} items have no rating`,
     );
   }
 
-  return { gameId, count: items.length, target, errors, warnings };
+  return {
+    gameId,
+    count: items.length,
+    target,
+    errors,
+    warnings,
+    patterns,
+  };
 }

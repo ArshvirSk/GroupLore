@@ -1,247 +1,515 @@
 [
   {
     "id": "aw-01",
-    "text": "A terrible name for a new airline"
+    "text": "A new airline: a terrible name",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-02",
-    "text": "An item you would find in a spy's suitcase"
+    "text": "An item you would find in a spy's suitcase",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-03",
-    "text": "A bad theme for a school dance"
+    "text": "A bad theme for a school dance",
+    "tags": [
+      "wordplay",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-04",
-    "text": "A job that should not exist"
+    "text": "A job that should not exist",
+    "tags": [
+      "wordplay",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-05",
-    "text": "A confusing instruction on a shampoo bottle"
+    "text": "A confusing instruction on a shampoo bottle",
+    "tags": [
+      "wordplay",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-06",
-    "text": "A strange thing to bring to a picnic"
+    "text": "A picnic: a strange thing to bring",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-07",
-    "text": "A new flavour of crisps"
+    "text": "A new flavour of crisps",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-08",
-    "text": "A bad slogan for a bank"
+    "text": "A bad slogan for a bank",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-09",
-    "text": "A useless app to install on your phone"
+    "text": "A useless app to install on your phone",
+    "tags": [
+      "wordplay",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-10",
-    "text": "A warning label that should exist"
+    "text": "A warning label that should exist",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-11",
-    "text": "A terrible name for a rock band"
+    "text": "A rock band: a terrible name",
+    "tags": [
+      "wordplay",
+      "music"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-12",
-    "text": "A thing you should never say in an interview"
+    "text": "A thing you should never say in an interview",
+    "tags": [
+      "wordplay",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-13",
-    "text": "A new Olympic sport"
+    "text": "A new Olympic sport",
+    "tags": [
+      "wordplay",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-14",
-    "text": "A bad name for a coffee shop"
+    "text": "A coffee shop: a bad name",
+    "tags": [
+      "wordplay",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-15",
-    "text": "A thing you would hide from your parents"
+    "text": "A thing you would hide from your parents",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-16",
-    "text": "A terrible present for a birthday"
+    "text": "A terrible present for a birthday",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-17",
-    "text": "A new rule for public transport"
+    "text": "Public transport: a new rule",
+    "tags": [
+      "wordplay",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-18",
-    "text": "A bad name for a security company"
+    "text": "A security company: a bad name",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-19",
-    "text": "An unusual thing to collect"
+    "text": "An unusual thing to collect",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-20",
-    "text": "A terrible theme for a wedding"
+    "text": "A terrible theme for a wedding",
+    "tags": [
+      "wordplay",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-21",
-    "text": "A thing that should come with a warning"
+    "text": "A thing that should come with a warning",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-22",
-    "text": "A new item on a fast-food menu"
+    "text": "A new item on a fast-food menu",
+    "tags": [
+      "wordplay",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-23",
-    "text": "A bad name for a pet grooming salon"
+    "text": "A pet grooming salon: a bad name",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-24",
-    "text": "A superpower with a terrible side effect"
+    "text": "A superpower with a terrible side effect",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-25",
-    "text": "A strange thing to find in a hotel room"
+    "text": "A hotel room: a strange thing to find",
+    "tags": [
+      "wordplay",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-26",
-    "text": "A terrible title for a self-help book"
+    "text": "A terrible title for a self-help book",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-27",
-    "text": "A new holiday that should not exist"
+    "text": "A new holiday that should not exist",
+    "tags": [
+      "wordplay",
+      "travel"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-28",
-    "text": "A bad way to start a speech"
+    "text": "A bad way to start a speech",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-29",
-    "text": "A thing you would not want to hear from your dentist"
+    "text": "A thing you would not want to hear from your dentist",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-30",
-    "text": "A terrible name for a space mission"
+    "text": "A space mission: a terrible name",
+    "tags": [
+      "wordplay",
+      "science"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-31",
-    "text": "A new flavour of ice cream"
+    "text": "A new flavour of ice cream",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-32",
-    "text": "A bad name for a gym"
+    "text": "A gym: a bad name",
+    "tags": [
+      "wordplay",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-33",
-    "text": "An unusual thing to put on a pizza"
+    "text": "An unusual thing to put on a pizza",
+    "tags": [
+      "wordplay",
+      "food"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-34",
-    "text": "A thing that is always lost"
+    "text": "A thing that is always lost",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-35",
-    "text": "A terrible mascot for a sports team"
+    "text": "A terrible mascot for a sports team",
+    "tags": [
+      "wordplay",
+      "food",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-36",
-    "text": "A new law that would ruin weekends"
+    "text": "A new law that would ruin weekends",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-37",
-    "text": "A bad name for a dating app"
+    "text": "A dating app: a bad name",
+    "tags": [
+      "wordplay",
+      "tech"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-38",
-    "text": "A thing you should never microwave"
+    "text": "A thing you should never microwave",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-39",
-    "text": "A strange thing to whisper at a party"
+    "text": "A party: a strange thing to whisper",
+    "tags": [
+      "wordplay",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-40",
-    "text": "A terrible name for a retirement home"
+    "text": "A retirement home: a terrible name",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-41",
-    "text": "A new rule for group chats"
+    "text": "Group chats: a new rule",
+    "tags": [
+      "wordplay",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-42",
-    "text": "A bad thing to bring on a first date"
+    "text": "A bad thing to bring on a first date",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-43",
-    "text": "A strange thing to see in someone's garden"
+    "text": "Someone's garden: a strange thing to see",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-44",
-    "text": "A terrible name for a horror movie"
+    "text": "A horror movie: a terrible name",
+    "tags": [
+      "wordplay",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-45",
-    "text": "A thing you would find in a lost-and-found box"
+    "text": "A thing you would find in a lost-and-found box",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-46",
-    "text": "A new flavour of toothpaste"
+    "text": "A new flavour of toothpaste",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-47",
-    "text": "A bad name for a funeral home"
+    "text": "A funeral home: a bad name",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-48",
-    "text": "A thing that should be banned from cinemas"
+    "text": "A thing that should be banned from cinemas",
+    "tags": [
+      "wordplay",
+      "film"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-49",
-    "text": "A terrible name for a perfume"
+    "text": "A perfume: a terrible name",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-50",
-    "text": "A strange thing to put on a business card"
+    "text": "A business card: a strange thing to put",
+    "tags": [
+      "wordplay",
+      "games"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-51",
-    "text": "A new subject for schools"
+    "text": "A new subject for schools",
+    "tags": [
+      "wordplay",
+      "school"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-52",
-    "text": "A bad name for a nightclub"
+    "text": "A nightclub: a bad name",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-53",
-    "text": "A thing you would not want to find in your shoe"
+    "text": "A thing you would not want to find in your shoe",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-54",
-    "text": "A terrible slogan for a hospital"
+    "text": "A terrible slogan for a hospital",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-55",
-    "text": "A strange thing to bring to a job interview"
+    "text": "A job interview: a strange thing to bring",
+    "tags": [
+      "wordplay",
+      "work"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-56",
-    "text": "A new mode of transport"
+    "text": "A new mode of transport",
+    "tags": [
+      "wordplay",
+      "sport"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-57",
-    "text": "A bad name for a children's entertainer"
+    "text": "A children's entertainer: a bad name",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-58",
-    "text": "A thing that should never be shared online"
+    "text": "A thing that should never be shared online",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-59",
-    "text": "A terrible name for a cereal"
+    "text": "A cereal: a terrible name",
+    "tags": [
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-60",
-    "text": "A strange thing to do at a wedding"
+    "text": "A wedding: a strange thing to do",
+    "tags": [
+      "wordplay",
+      "social"
+    ],
+    "rating": "all"
   },
   {
     "id": "aw-61",
-    "text": "A terrible name for a submarine",
+    "text": "A submarine: a terrible name",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -261,7 +529,7 @@
   },
   {
     "id": "aw-63",
-    "text": "A strange thing to name a planet",
+    "text": "A planet: a strange thing to name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -281,7 +549,7 @@
   },
   {
     "id": "aw-65",
-    "text": "A bad name for a library",
+    "text": "A library: a bad name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -291,7 +559,7 @@
   },
   {
     "id": "aw-66",
-    "text": "A new rule for elevators",
+    "text": "Elevators: a new rule",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -311,7 +579,7 @@
   },
   {
     "id": "aw-68",
-    "text": "A strange thing to sell online",
+    "text": "Online marketplaces: a strange thing to sell",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -321,7 +589,7 @@
   },
   {
     "id": "aw-69",
-    "text": "A bad name for a weather app",
+    "text": "A weather app: a bad name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -341,7 +609,7 @@
   },
   {
     "id": "aw-71",
-    "text": "A terrible name for a hospital",
+    "text": "A hospital: a terrible name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -351,7 +619,7 @@
   },
   {
     "id": "aw-72",
-    "text": "A new rule for airports",
+    "text": "Airports: a new rule",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -361,7 +629,7 @@
   },
   {
     "id": "aw-73",
-    "text": "A strange thing to bring to a wedding",
+    "text": "A wedding: a strange thing to bring",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -371,7 +639,7 @@
   },
   {
     "id": "aw-74",
-    "text": "A bad name for a furniture store",
+    "text": "A furniture store: a bad name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -381,7 +649,7 @@
   },
   {
     "id": "aw-75",
-    "text": "A terrible name for a pet",
+    "text": "A pet: a terrible name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -411,7 +679,7 @@
   },
   {
     "id": "aw-78",
-    "text": "A bad name for a cybersecurity firm",
+    "text": "A cybersecurity firm: a bad name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -431,7 +699,7 @@
   },
   {
     "id": "aw-80",
-    "text": "A terrible name for a bakery",
+    "text": "A bakery: a terrible name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -451,7 +719,7 @@
   },
   {
     "id": "aw-82",
-    "text": "A bad name for a hotel",
+    "text": "A hotel: a bad name",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -461,7 +729,7 @@
   },
   {
     "id": "aw-83",
-    "text": "A strange thing to find in a library book",
+    "text": "A library book: a strange thing to find",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -471,7 +739,7 @@
   },
   {
     "id": "aw-84",
-    "text": "A new rule for weddings",
+    "text": "Weddings: a new rule",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -481,7 +749,7 @@
   },
   {
     "id": "aw-85",
-    "text": "A terrible name for a shampoo",
+    "text": "A shampoo: a terrible name",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -491,7 +759,7 @@
   },
   {
     "id": "aw-86",
-    "text": "A strange thing to put on a flag",
+    "text": "A flag: a strange thing to put",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -501,7 +769,7 @@
   },
   {
     "id": "aw-87",
-    "text": "A bad name for a delivery service",
+    "text": "A delivery service: a bad name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -531,7 +799,7 @@
   },
   {
     "id": "aw-90",
-    "text": "A strange thing to announce at a wedding",
+    "text": "A wedding: a strange thing to announce",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -541,7 +809,7 @@
   },
   {
     "id": "aw-91",
-    "text": "A bad name for a coffee brand",
+    "text": "A coffee brand: a bad name",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -551,7 +819,7 @@
   },
   {
     "id": "aw-92",
-    "text": "A new rule for gyms",
+    "text": "Gyms: a new rule",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -571,7 +839,7 @@
   },
   {
     "id": "aw-94",
-    "text": "A terrible name for a theme park",
+    "text": "A theme park: a terrible name",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -581,7 +849,7 @@
   },
   {
     "id": "aw-95",
-    "text": "A strange thing to keep in a wallet",
+    "text": "A wallet: a strange thing to keep",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -591,7 +859,7 @@
   },
   {
     "id": "aw-96",
-    "text": "A bad name for a bank",
+    "text": "A bank: a bad name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -611,7 +879,7 @@
   },
   {
     "id": "aw-98",
-    "text": "A terrible name for a restaurant",
+    "text": "A restaurant: a terrible name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -621,7 +889,7 @@
   },
   {
     "id": "aw-99",
-    "text": "A strange thing to print on a T-shirt",
+    "text": "A T-shirt: a strange thing to print",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -631,7 +899,7 @@
   },
   {
     "id": "aw-100",
-    "text": "A bad name for a sports team",
+    "text": "A sports team: a bad name",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -641,7 +909,7 @@
   },
   {
     "id": "aw-101",
-    "text": "A new rule for cinemas",
+    "text": "Cinemas: a new rule",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -651,7 +919,7 @@
   },
   {
     "id": "aw-102",
-    "text": "A terrible name for a spaceship",
+    "text": "A spaceship: a terrible name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -661,7 +929,7 @@
   },
   {
     "id": "aw-103",
-    "text": "A strange thing to find in a hotel minibar",
+    "text": "A hotel minibar: a strange thing to find",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -671,7 +939,7 @@
   },
   {
     "id": "aw-104",
-    "text": "A bad name for a furniture company",
+    "text": "A furniture company: a bad name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -681,7 +949,7 @@
   },
   {
     "id": "aw-105",
-    "text": "A new rule for family dinners",
+    "text": "Family dinners: a new rule",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -691,7 +959,7 @@
   },
   {
     "id": "aw-106",
-    "text": "A terrible name for a weather forecast",
+    "text": "A weather forecast: a terrible name",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -701,7 +969,7 @@
   },
   {
     "id": "aw-107",
-    "text": "A strange thing to put on a pizza",
+    "text": "A pizza: a strange thing to put",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -711,7 +979,7 @@
   },
   {
     "id": "aw-108",
-    "text": "A bad name for a taxi company",
+    "text": "A taxi company: a bad name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -721,7 +989,7 @@
   },
   {
     "id": "aw-109",
-    "text": "A new rule for office meetings",
+    "text": "Office meetings: a new rule",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -731,7 +999,7 @@
   },
   {
     "id": "aw-110",
-    "text": "A terrible name for a breakfast cereal",
+    "text": "A breakfast cereal: a terrible name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -741,7 +1009,7 @@
   },
   {
     "id": "aw-111",
-    "text": "A bad name for a bicycle shop",
+    "text": "A bicycle shop: a bad name",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -751,7 +1019,7 @@
   },
   {
     "id": "aw-112",
-    "text": "A strange thing to name a library",
+    "text": "A library: a strange thing to name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -771,7 +1039,7 @@
   },
   {
     "id": "aw-114",
-    "text": "A new rule for hotel breakfasts",
+    "text": "Hotel breakfasts: a new rule",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -781,7 +1049,7 @@
   },
   {
     "id": "aw-115",
-    "text": "A bad name for a pet store",
+    "text": "A pet store: a bad name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -791,7 +1059,7 @@
   },
   {
     "id": "aw-116",
-    "text": "A strange thing to put on a postcard",
+    "text": "A postcard: a strange thing to put",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -801,7 +1069,7 @@
   },
   {
     "id": "aw-117",
-    "text": "A terrible name for a water bottle",
+    "text": "A water bottle: a terrible name",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -821,7 +1089,7 @@
   },
   {
     "id": "aw-119",
-    "text": "A bad name for a garden centre",
+    "text": "A garden centre: a bad name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -831,7 +1099,7 @@
   },
   {
     "id": "aw-120",
-    "text": "A strange thing to name a boat",
+    "text": "A boat: a strange thing to name",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -841,7 +1109,7 @@
   },
   {
     "id": "aw-121",
-    "text": "A terrible name for a bookshop",
+    "text": "A bookshop: a terrible name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -851,7 +1119,7 @@
   },
   {
     "id": "aw-122",
-    "text": "A new rule for picnics",
+    "text": "Picnics: a new rule",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -861,7 +1129,7 @@
   },
   {
     "id": "aw-123",
-    "text": "A bad name for a laundry service",
+    "text": "A laundry service: a bad name",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -871,7 +1139,7 @@
   },
   {
     "id": "aw-124",
-    "text": "A strange thing to advertise on a bus",
+    "text": "A bus: a strange thing to advertise",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -881,7 +1149,7 @@
   },
   {
     "id": "aw-125",
-    "text": "A terrible name for a running club",
+    "text": "A running club: a terrible name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -891,7 +1159,7 @@
   },
   {
     "id": "aw-126",
-    "text": "A new rule for museums",
+    "text": "Museums: a new rule",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -901,7 +1169,7 @@
   },
   {
     "id": "aw-127",
-    "text": "A bad name for a phone charger",
+    "text": "A phone charger: a bad name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -911,7 +1179,7 @@
   },
   {
     "id": "aw-128",
-    "text": "A strange thing to name a sandwich",
+    "text": "A sandwich: a strange thing to name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -921,7 +1189,7 @@
   },
   {
     "id": "aw-129",
-    "text": "A terrible name for a holiday company",
+    "text": "A holiday company: a terrible name",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -931,7 +1199,7 @@
   },
   {
     "id": "aw-130",
-    "text": "A new rule for book clubs",
+    "text": "Book clubs: a new rule",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -941,7 +1209,7 @@
   },
   {
     "id": "aw-131",
-    "text": "A bad name for a plant shop",
+    "text": "A plant shop: a bad name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -951,7 +1219,7 @@
   },
   {
     "id": "aw-132",
-    "text": "A strange thing to put on a mug",
+    "text": "A mug: a strange thing to put",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -961,7 +1229,7 @@
   },
   {
     "id": "aw-133",
-    "text": "A terrible name for a chess club",
+    "text": "A chess club: a terrible name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -971,7 +1239,7 @@
   },
   {
     "id": "aw-134",
-    "text": "A new rule for train travel",
+    "text": "Train travel: a new rule",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -981,7 +1249,7 @@
   },
   {
     "id": "aw-135",
-    "text": "A bad name for a bakery van",
+    "text": "A bakery van: a bad name",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -991,7 +1259,7 @@
   },
   {
     "id": "aw-136",
-    "text": "A strange thing to name a fountain",
+    "text": "A fountain: a strange thing to name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -1001,7 +1269,7 @@
   },
   {
     "id": "aw-137",
-    "text": "A terrible name for a cinema",
+    "text": "A cinema: a terrible name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -1011,7 +1279,7 @@
   },
   {
     "id": "aw-138",
-    "text": "A new rule for board game night",
+    "text": "Board game night: a new rule",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -1021,7 +1289,7 @@
   },
   {
     "id": "aw-139",
-    "text": "A bad name for a sock company",
+    "text": "A sock company: a bad name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -1031,7 +1299,7 @@
   },
   {
     "id": "aw-140",
-    "text": "A strange thing to name a bridge",
+    "text": "A bridge: a strange thing to name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -1041,7 +1309,7 @@
   },
   {
     "id": "aw-141",
-    "text": "A terrible name for a gym class",
+    "text": "A gym class: a terrible name",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -1051,7 +1319,7 @@
   },
   {
     "id": "aw-142",
-    "text": "A new rule for garden parties",
+    "text": "Garden parties: a new rule",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -1061,7 +1329,7 @@
   },
   {
     "id": "aw-143",
-    "text": "A bad name for a bicycle helmet",
+    "text": "A bicycle helmet: a bad name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -1071,7 +1339,7 @@
   },
   {
     "id": "aw-144",
-    "text": "A strange thing to print on a hoodie",
+    "text": "A hoodie: a strange thing to print",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -1081,7 +1349,7 @@
   },
   {
     "id": "aw-145",
-    "text": "A terrible name for a tea shop",
+    "text": "A tea shop: a terrible name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -1091,7 +1359,7 @@
   },
   {
     "id": "aw-146",
-    "text": "A new rule for libraries",
+    "text": "Libraries: a new rule",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -1101,7 +1369,7 @@
   },
   {
     "id": "aw-147",
-    "text": "A bad name for a suitcase",
+    "text": "A suitcase: a bad name",
     "difficulty": 1,
     "tags": [
       "acronym",
@@ -1111,7 +1379,7 @@
   },
   {
     "id": "aw-148",
-    "text": "A strange thing to name a park bench",
+    "text": "A park bench: a strange thing to name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -1121,7 +1389,7 @@
   },
   {
     "id": "aw-149",
-    "text": "A terrible name for a photo album",
+    "text": "A photo album: a terrible name",
     "difficulty": 2,
     "tags": [
       "acronym",
@@ -1131,7 +1399,7 @@
   },
   {
     "id": "aw-150",
-    "text": "A new rule for breakfast",
+    "text": "Breakfast: a new rule",
     "difficulty": 1,
     "tags": [
       "acronym",

@@ -52,6 +52,13 @@ function fillHand(state, playerId) {
   state.hands[playerId] = hand;
 }
 
+export function normalizePrompt(prompt) {
+  return {
+    ...prompt,
+    blanks: Math.max(1, Number(prompt?.blanks) || 1),
+  };
+}
+
 function beginRound(room, state) {
   const config = configFor(MODES, room.mode);
   const active = activePlayers(room).sort((a, b) => a.joinedAt - b.joinedAt);
@@ -68,7 +75,10 @@ function beginRound(room, state) {
   }
   state.skipJudgeId = null;
   state.judgeId = active[judgeIndex].id;
-  state.prompt = choosePrompt(BANK.prompts, state);
+  const chosen = choosePrompt(BANK.prompts, state);
+  // A legacy prompt may omit `blanks`; every prompt still needs one answer
+  // card, so normalise zero/undefined to one before the play phase.
+  state.prompt = normalizePrompt(chosen);
   state.points = new Map();
   state.submissions = {};
   state.winner = null;

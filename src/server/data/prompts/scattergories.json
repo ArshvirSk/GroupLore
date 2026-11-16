@@ -10,7 +10,12 @@
       "Words ending in -ing",
       "Famous landmarks",
       "Things in a backpack"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-002",
@@ -23,7 +28,12 @@
       "Things that are cold",
       "Places in a city",
       "Words with double letters"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-003",
@@ -36,7 +46,12 @@
       "Things in a hotel",
       "Jobs",
       "Things that are round"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-004",
@@ -49,7 +64,12 @@
       "Holiday destinations",
       "Things in a garden",
       "Words starting with a vowel"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-005",
@@ -62,7 +82,12 @@
       "Things in a wallet",
       "Things at the zoo",
       "Things that are sticky"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-006",
@@ -75,7 +100,12 @@
       "Things at a wedding",
       "Things that are expensive",
       "Things that make you laugh"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-007",
@@ -88,7 +118,12 @@
       "Things at a concert",
       "Things that are noisy",
       "Things in a park"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-008",
@@ -101,7 +136,12 @@
       "Things at a museum",
       "Things in a pocket",
       "Things that are sweet"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-009",
@@ -114,7 +154,12 @@
       "Things that are rare",
       "Things at a market",
       "Things with wheels"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-010",
@@ -127,7 +172,12 @@
       "Things at a football match",
       "Things in a handbag",
       "Things that are dangerous"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-011",
@@ -140,7 +190,12 @@
       "Things at a festival",
       "Things that are quiet",
       "Things in a drawer"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-012",
@@ -153,7 +208,12 @@
       "Things that are old",
       "Things at a sports shop",
       "Things in a wallet"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-013",
@@ -166,7 +226,12 @@
       "Things that are expensive",
       "Things in a freezer",
       "Things that are funny"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-014",
@@ -179,7 +244,12 @@
       "Things that are cute",
       "Things in a hotel room",
       "Things that are loud"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-015",
@@ -192,7 +262,12 @@
       "Things that are round",
       "Things at a museum",
       "Things in a bathroom"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-016",
@@ -205,7 +280,12 @@
       "Things that are heavy",
       "Things in a classroom",
       "Things that are yellow"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-017",
@@ -218,7 +298,12 @@
       "Things that are sharp",
       "Things in a handbag",
       "Things that are sticky"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-018",
@@ -231,7 +316,12 @@
       "Things that are noisy",
       "Things in a toolbox",
       "Things that are sweet"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-019",
@@ -244,7 +334,12 @@
       "Things that are transparent",
       "Things in a car",
       "Things that are round"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-020",
@@ -257,7 +352,12 @@
       "Things that are fragile",
       "Things at a party",
       "Things that are rare"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-021",
@@ -270,7 +370,12 @@
       "Things at a pool",
       "Things in a handbag",
       "Things that are soft"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-022",
@@ -283,7 +388,12 @@
       "Things that are red",
       "Things that are sticky",
       "Things that are expensive"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-023",
@@ -296,7 +406,12 @@
       "Things that are sharp",
       "Things that are spicy",
       "Board games"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-024",
@@ -309,7 +424,12 @@
       "Insects",
       "Fruits",
       "Things in a bathroom"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-025",
@@ -322,7 +442,12 @@
       "Holidays",
       "Things in a hotel",
       "Things at a zoo"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-026",
@@ -335,7 +460,12 @@
       "Things in a supermarket",
       "Things in a cinema",
       "Things in a wallet"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-027",
@@ -348,7 +478,12 @@
       "Things at school",
       "Things in a drawer",
       "Things at a pool"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-028",
@@ -361,7 +496,12 @@
       "Things in space",
       "Things at a football match",
       "Things that are red"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-029",
@@ -374,7 +514,12 @@
       "Things in a bakery",
       "Things that are loud",
       "Things that are sharp"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-030",
@@ -387,7 +532,12 @@
       "Things that are cold",
       "Things that are quiet",
       "Insects"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-031",
@@ -400,7 +550,12 @@
       "Animals with stripes",
       "Sports",
       "Holidays"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-032",
@@ -413,7 +568,12 @@
       "Vegetables",
       "Things in a bedroom",
       "Things in a supermarket"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-033",
@@ -426,7 +586,12 @@
       "Things at an airport",
       "Things in a museum",
       "Things at school"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-034",
@@ -439,7 +604,12 @@
       "Things at a concert",
       "Things in a fridge",
       "Things in space"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-035",
@@ -452,7 +622,12 @@
       "Things in a suitcase",
       "Things at a market",
       "Things in a bakery"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-036",
@@ -465,7 +640,12 @@
       "Things in a classroom",
       "Things that are green",
       "Things that are cold"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-037",
@@ -478,7 +658,12 @@
       "Things that are heavy",
       "Things that are old",
       "Animals with stripes"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-038",
@@ -491,7 +676,12 @@
       "Things that are noisy",
       "Pets",
       "Vegetables"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-039",
@@ -504,7 +694,12 @@
       "Musical instruments",
       "Things in a kitchen",
       "Things at an airport"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-040",
@@ -517,7 +712,12 @@
       "Things in a garden",
       "Things at a campsite",
       "Things at a concert"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-041",
@@ -530,7 +730,12 @@
       "Things in a restaurant",
       "Things in a car",
       "Things in a suitcase"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-042",
@@ -543,7 +748,12 @@
       "Things in a freezer",
       "Things in a forest",
       "Things in a classroom"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-043",
@@ -556,7 +766,12 @@
       "Things at a festival",
       "Things that are yellow",
       "Things that are heavy"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-044",
@@ -569,7 +784,12 @@
       "Things that are round",
       "Things that are hot",
       "Things that are noisy"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-045",
@@ -582,7 +802,12 @@
       "Things that are rare",
       "Animals in the sea",
       "Musical instruments"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-046",
@@ -595,7 +820,12 @@
       "Baby animals",
       "Cheeses",
       "Things in a garden"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-047",
@@ -608,7 +838,12 @@
       "Things at a beach",
       "Things in a hospital",
       "Things in a restaurant"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-048",
@@ -621,7 +856,12 @@
       "Things at a train station",
       "Things at a party",
       "Things in a freezer"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-049",
@@ -634,7 +874,12 @@
       "Things in a backpack",
       "Things in a park",
       "Things at a festival"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-050",
@@ -647,7 +892,12 @@
       "Things in a city",
       "Things in a garage",
       "Things that are round"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-051",
@@ -660,7 +910,12 @@
       "Things that are blue",
       "Things that are fragile",
       "Things that are rare"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-052",
@@ -673,7 +928,12 @@
       "Things that are transparent",
       "Things that are sweet",
       "Baby animals"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-053",
@@ -686,7 +946,12 @@
       "Birds",
       "Jobs",
       "Things at a beach"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-054",
@@ -699,7 +964,12 @@
       "Desserts",
       "Things in an office",
       "Things at a train station"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-055",
@@ -712,7 +982,12 @@
       "Things in a library",
       "Things at a gym",
       "Things in a backpack"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-056",
@@ -725,7 +1000,12 @@
       "Things at a wedding",
       "Things in a toolbox",
       "Things in a city"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-057",
@@ -738,7 +1018,12 @@
       "Things on a farm",
       "Things in a nightclub",
       "Things that are blue"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-058",
@@ -751,7 +1036,12 @@
       "Things in a handbag",
       "Things that are soft",
       "Things that are transparent"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-059",
@@ -764,7 +1054,12 @@
       "Things that are sticky",
       "Things that are expensive",
       "Birds"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-060",
@@ -777,7 +1072,12 @@
       "Things that are spicy",
       "Board games",
       "Desserts"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-061",
@@ -790,7 +1090,12 @@
       "Fruits",
       "Things in a bathroom",
       "Things in a library"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-062",
@@ -803,7 +1108,12 @@
       "Things in a hotel",
       "Things at a zoo",
       "Things at a wedding"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-063",
@@ -816,7 +1126,12 @@
       "Things in a cinema",
       "Things in a wallet",
       "Things on a farm"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-064",
@@ -829,7 +1144,12 @@
       "Things in a drawer",
       "Things at a pool",
       "Things in a handbag"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-065",
@@ -842,7 +1162,12 @@
       "Things at a football match",
       "Things that are red",
       "Things that are sticky"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-066",
@@ -855,7 +1180,12 @@
       "Things that are loud",
       "Things that are sharp",
       "Things that are spicy"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-067",
@@ -868,7 +1198,12 @@
       "Things that are quiet",
       "Insects",
       "Fruits"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-068",
@@ -881,7 +1216,12 @@
       "Sports",
       "Holidays",
       "Things in a hotel"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-069",
@@ -894,7 +1234,12 @@
       "Things in a bedroom",
       "Things in a supermarket",
       "Things in a cinema"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-070",
@@ -907,7 +1252,12 @@
       "Things in a museum",
       "Things at school",
       "Things in a drawer"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-071",
@@ -920,7 +1270,12 @@
       "Things in a fridge",
       "Things in space",
       "Things at a football match"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-072",
@@ -933,7 +1288,12 @@
       "Things at a market",
       "Things in a bakery",
       "Things that are loud"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-073",
@@ -946,7 +1306,12 @@
       "Things that are green",
       "Things that are cold",
       "Things that are quiet"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-074",
@@ -959,7 +1324,12 @@
       "Things that are old",
       "Animals with stripes",
       "Sports"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-075",
@@ -972,7 +1342,12 @@
       "Pets",
       "Vegetables",
       "Things in a bedroom"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-076",
@@ -985,7 +1360,12 @@
       "Things in a kitchen",
       "Things at an airport",
       "Things in a museum"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-077",
@@ -998,7 +1378,12 @@
       "Things at a campsite",
       "Things at a concert",
       "Things in a fridge"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-078",
@@ -1011,7 +1396,12 @@
       "Things in a car",
       "Things in a suitcase",
       "Things at a market"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-079",
@@ -1024,7 +1414,12 @@
       "Things in a forest",
       "Things in a classroom",
       "Things that are green"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   },
   {
     "id": "scatter-080",
@@ -1037,6 +1432,11 @@
       "Things that are yellow",
       "Things that are heavy",
       "Things that are old"
-    ]
+    ],
+    "tags": [
+      "category",
+      "wordplay"
+    ],
+    "rating": "all"
   }
 ]
