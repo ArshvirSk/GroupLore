@@ -668,8 +668,8 @@
     },
     {
       "id": "ftb-p-112",
-      "text": "The worst thing to bring to a job interview because ___",
-      "blanks": 1,
+      "text": "The worst excuse for being late to a job interview",
+      "blanks": 0,
       "rating": "family"
     },
     {
@@ -680,20 +680,20 @@
     },
     {
       "id": "ftb-p-114",
-      "text": "The worst thing to bring to a camping trip because ___",
-      "blanks": 1,
+      "text": "The worst thing to forget on a camping trip",
+      "blanks": 0,
       "rating": "family"
     },
     {
       "id": "ftb-p-115",
-      "text": "The worst thing to bring to a first date because ___",
-      "blanks": 1,
+      "text": "The worst thing to do on a first date",
+      "blanks": 0,
       "rating": "family"
     },
     {
       "id": "ftb-p-116",
-      "text": "The worst thing to bring to a funeral because ___",
-      "blanks": 1,
+      "text": "The most awkward thing to say at a funeral",
+      "blanks": 0,
       "rating": "family"
     },
     {

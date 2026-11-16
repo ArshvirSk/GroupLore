@@ -10,7 +10,7 @@ Generated 2026-11-16 by `scripts/audit-banks.ts`.
 | bluff | bluff.json | 110 | 500 | 390 | 0 | 60 | 0 | 0 | untagged 60; 3 33; 2 17 | untagged 60; vocabulary, definition 50 |
 | blur-guess | not implemented | 0 | 200 | 200 | 0 | 0 | 0 | 0 | — | — |
 | bomb-party | not implemented | 0 | 1 | 1 | 0 | 0 | 0 | 0 | — | — |
-| buzzer-trivia | buzzerTrivia.json | 300 | 2500 | 2200 | 0 | 0 | 4 | 6 | 1 100; 2 100; 3 100 | untagged 300 |
+| buzzer-trivia | buzzerTrivia.json | 300 | 2500 | 2200 | 0 | 0 | 0 | 0 | 2 104; 3 100; 1 96 | untagged 300 |
 | caption-this | captionThis.json | 75 | 300 | 225 | 75 | 25 | 0 | 0 | 2 33; untagged 25; 1 17 | caption, everyday 50; untagged 25 |
 | category-rush | categoryRush.json | 80 | 400 | 320 | 0 | 0 | 0 | 0 | 2 33; untagged 30; 1 17 | category, quick 50; untagged 30 |
 | chameleon | not implemented | 0 | 120 | 120 | 0 | 0 | 0 | 0 | — | — |
@@ -20,7 +20,7 @@ Generated 2026-11-16 by `scripts/audit-banks.ts`.
 | emoji-decode | not implemented | 0 | 600 | 600 | 0 | 0 | 0 | 0 | — | — |
 | fact-or-fiction | factOrFiction.json | 300 | 1500 | 1200 | 0 | 0 | 0 | 3 | untagged 300 | geography 96; science 78; animals 44; sports 28 |
 | fill-the-blank-answers | fillTheBlank.json | 500 | 1500 | 1000 | 0 | 500 | 0 | 0 | untagged 500 | untagged 500 |
-| fill-the-blank-prompts | fillTheBlank.json | 120 | 300 | 180 | 0 | 120 | 0 | 4 | untagged 120 | untagged 120 |
+| fill-the-blank-prompts | fillTheBlank.json | 120 | 300 | 180 | 0 | 120 | 0 | 0 | untagged 120 | untagged 120 |
 | five-second | fiveSecond.json | 130 | 600 | 470 | 0 | 80 | 0 | 0 | untagged 80; 2 33; 1 17 | untagged 80; quick, everyday 50 |
 | flag | not implemented | 0 | 250 | 250 | 0 | 0 | 0 | 0 | — | — |
 | guess-impostor | impostor.json | 120 | 400 | 280 | 0 | 70 | 0 | 0 | untagged 70; 2 33; 1 17 | untagged 70; prompt 50 |
@@ -35,7 +35,7 @@ Generated 2026-11-16 by `scripts/audit-banks.ts`.
 | password | password.json | 300 | 1000 | 700 | 0 | 300 | 0 | 0 | 1 100; 2 100; 3 100 | untagged 300 |
 | pitch-perfect | pitchPerfect.json | 150 | 400 | 250 | 0 | 100 | 0 | 0 | untagged 100; 2 33; 1 17 | untagged 100; product, invention 50 |
 | rank-it | not implemented | 0 | 300 | 300 | 0 | 0 | 0 | 0 | — | — |
-| roast-battle | roastBattle.json | 150 | 600 | 450 | 0 | 150 | 0 | 2 | untagged 150 | untagged 150 |
+| roast-battle | roastBattle.json | 150 | 600 | 450 | 0 | 150 | 0 | 0 | untagged 150 | untagged 150 |
 | scattergories | scattergories.json | 80 | 250 | 170 | 80 | 80 | 0 | 0 | untagged 80 | untagged 80 |
 | spyfall | not implemented | 0 | 60 | 60 | 0 | 0 | 0 | 0 | — | — |
 | story-chain | storyChain.json | 110 | 300 | 190 | 0 | 60 | 0 | 0 | untagged 60; 2 33; 1 17 | untagged 60; starter, story 50 |

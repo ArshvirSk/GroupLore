@@ -115,7 +115,9 @@ async function main() {
         count: 0,
         target: checkTargets ? TARGETS[id] || 300 : 0,
         errors: checksTargets()
-          ? [`${id}: no shipped bank (target ${TARGETS[id] || 300})`]
+          ? [
+              `${id}: 0/${TARGETS[id] || 300} items (bank not implemented; bank below target)`,
+            ]
           : [],
         warnings: [],
       });
