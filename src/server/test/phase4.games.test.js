@@ -32,32 +32,34 @@ function makeRoom(count, mode) {
   };
 }
 
-test("liars bar hides the truth and awards the group for catching a lie", () => {
+test("liars bar deals real cards and resolves a called bluff", () => {
   const room = makeRoom(4, "classic");
   const state = liarsBar.init(room, "classic");
-  const liarId = state.liarId;
-  const others = [...room.players.keys()].filter((id) => id !== liarId);
+  const [p1, p2] = state.turnOrder;
 
-  assert.equal(state.phase, "choose");
-  assert.equal(typeof liarsBar.viewFor(room, liarId).prompt.truth, "string");
-  assert.equal(liarsBar.viewFor(room, others[0]).prompt, undefined);
-  assert.equal(JSON.stringify(liarsBar.publicFor(room)).includes(state.prompt.truth), false);
+  assert.equal(state.phase, "turn");
+  assert.equal(state.hands[p1].length, 5);
+  assert.equal(liarsBar.viewFor(room, p1).hand.length, 5);
+  assert.equal(JSON.stringify(liarsBar.publicFor(room)).includes(state.hands[p2][0].id), false);
 
-  liarsBar.onEvent(room, liarId, { type: "choose", value: "lie" });
-  assert.equal(state.phase, "vote");
-
-  for (const playerId of others) {
-    liarsBar.onEvent(room, playerId, { type: "vote", value: "lie" });
-  }
+  state.turnIndex = 0;
+  state.tableRank = "K";
+  state.hands[p1] = [
+    { id: "lie-q", rank: "Q", value: 12 },
+    { id: "spare-a", rank: "A", value: 14 },
+  ];
+  liarsBar.onEvent(room, p1, { type: "play", cardIds: ["lie-q"] });
+  assert.equal(state.phase, "turn");
+  assert.equal(state.turnOrder[state.turnIndex], p2);
+  liarsBar.onEvent(room, p2, { type: "call" });
 
   assert.equal(state.phase, "reveal");
   assert.equal(state.reveal.wasLie, true);
-  assert.equal(state.reveal.groupCorrect, true);
-  assert.equal(room.scores[liarId], 0);
-  for (const playerId of others) assert.equal(room.scores[playerId], 1);
+  assert.equal(state.reveal.stamp, "Caught!");
+  assert.equal(state.strikes[p1], 1);
 
   liarsBar.onPhaseEnd(room);
-  assert.equal(state.phase, "choose");
+  assert.equal(state.phase, "turn");
   assert.equal(state.round, 2);
 });
 

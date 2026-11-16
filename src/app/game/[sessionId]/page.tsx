@@ -10,6 +10,13 @@ import BluffGame, { type BluffView } from "@/components/game/BluffGame";
 import CaptionThisGame, {
   type CaptionThisView,
 } from "@/components/game/CaptionThisGame";
+import BlackjackShowdownGame, {
+  type BlackjackView,
+} from "@/components/game/BlackjackShowdownGame";
+import CheatGame, { type CheatView } from "@/components/game/CheatGame";
+import SkullDuelGame, {
+  type SkullView,
+} from "@/components/game/SkullDuelGame";
 import CategoryRushGame, {
   type CategoryRushView,
 } from "@/components/game/CategoryRushGame";
@@ -381,6 +388,30 @@ export default function GamePage() {
         />
       )}
 
+      {activeView && room.gameId === "cheat" && (
+        <CheatGame
+          room={room}
+          view={room.game as unknown as CheatView}
+          send={send}
+        />
+      )}
+
+      {activeView && room.gameId === "skull-duel" && (
+        <SkullDuelGame
+          room={room}
+          view={room.game as unknown as SkullView}
+          send={send}
+        />
+      )}
+
+      {activeView && room.gameId === "blackjack-showdown" && (
+        <BlackjackShowdownGame
+          room={room}
+          view={room.game as unknown as BlackjackView}
+          send={send}
+        />
+      )}
+
       {activeView && room.gameId === "higher-or-lower" && (
         <HigherLowerGame
           room={room}
@@ -488,6 +519,9 @@ export default function GamePage() {
           "bluff",
           "hot-takes",
           "liars-bar",
+          "cheat",
+          "skull-duel",
+          "blackjack-showdown",
           "higher-or-lower",
           "avoid-the-answer",
           "would-you-rather",
