@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "audit:banks": "node --experimental-strip-types scripts/audit-banks.ts",
+    "validate:banks": "node --experimental-strip-types scripts/validate-banks.ts",
     "check:contrast": "node scripts/check-contrast.mjs",
     "check:api": "node scripts/api-smoke.mjs",
     "test:api": "node --env-file=.env.local --test test/api.integration.test.mjs",
