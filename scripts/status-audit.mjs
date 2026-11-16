@@ -1,6 +1,7 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { bankStatus } from "../src/server/games/bankStatus.js";
+import { launchMinimum } from "../src/server/games/launchPolicy.js";
 
 const ROOT = process.cwd();
 const registry = (await import("../src/server/games/index.js")).default;
@@ -25,17 +26,7 @@ const testText = (
   await Promise.all(testFiles.map((file) => readFile(file, "utf8")))
 ).join("\n");
 
-const consumed = {
-  "buzzer-trivia": 10,
-  "fact-or-fiction": 30,
-  codenames: 25,
-  "fill-the-blank-prompts": 10,
-  "fill-the-blank-answers": 70,
-};
-function launchMin(id) {
-  const rounds = consumed[id] || 10;
-  return Math.min(400, Math.max(150, rounds * 10));
-}
+const launchMin = launchMinimum;
 
 const extraGames = [
   ["closest-wins", "Closest Wins"],

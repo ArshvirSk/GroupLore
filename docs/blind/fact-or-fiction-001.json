@@ -1,0 +1,202 @@
+[
+  {
+    "id": "ff-001",
+    "question": "The Nile is the longest river in Africa."
+  },
+  {
+    "id": "ff-002",
+    "question": "The Amazon is the longest river in Africa."
+  },
+  {
+    "id": "ff-003",
+    "question": "Mount Everest is the tallest mountain above sea level."
+  },
+  {
+    "id": "ff-004",
+    "question": "K2 is the tallest mountain above sea level."
+  },
+  {
+    "id": "ff-005",
+    "question": "The Pacific is the largest ocean."
+  },
+  {
+    "id": "ff-006",
+    "question": "The Atlantic is the largest ocean."
+  },
+  {
+    "id": "ff-007",
+    "question": "The Sahara is the largest hot desert."
+  },
+  {
+    "id": "ff-008",
+    "question": "The Gobi is the largest hot desert."
+  },
+  {
+    "id": "ff-009",
+    "question": "Japan is an island nation."
+  },
+  {
+    "id": "ff-010",
+    "question": "Japan is landlocked."
+  },
+  {
+    "id": "ff-011",
+    "question": "Penguins live in the Southern Hemisphere."
+  },
+  {
+    "id": "ff-012",
+    "question": "Penguins live around the North Pole."
+  },
+  {
+    "id": "ff-013",
+    "question": "The capital of Italy is Rome."
+  },
+  {
+    "id": "ff-014",
+    "question": "The capital of Italy is Milan."
+  },
+  {
+    "id": "ff-015",
+    "question": "The capital of Spain is Madrid."
+  },
+  {
+    "id": "ff-016",
+    "question": "The capital of Spain is Barcelona."
+  },
+  {
+    "id": "ff-017",
+    "question": "The capital of Germany is Berlin."
+  },
+  {
+    "id": "ff-018",
+    "question": "The capital of Germany is Munich."
+  },
+  {
+    "id": "ff-019",
+    "question": "The capital of India is New Delhi."
+  },
+  {
+    "id": "ff-020",
+    "question": "The capital of India is Mumbai."
+  },
+  {
+    "id": "ff-021",
+    "question": "The capital of China is Beijing."
+  },
+  {
+    "id": "ff-022",
+    "question": "The capital of China is Shanghai."
+  },
+  {
+    "id": "ff-023",
+    "question": "The capital of Russia is Moscow."
+  },
+  {
+    "id": "ff-024",
+    "question": "The capital of Russia is Saint Petersburg."
+  },
+  {
+    "id": "ff-025",
+    "question": "The capital of the United States is Washington, D.C."
+  },
+  {
+    "id": "ff-026",
+    "question": "The capital of the United States is New York City."
+  },
+  {
+    "id": "ff-027",
+    "question": "The capital of the United Kingdom is London."
+  },
+  {
+    "id": "ff-028",
+    "question": "The capital of the United Kingdom is Manchester."
+  },
+  {
+    "id": "ff-029",
+    "question": "The capital of Greece is Athens."
+  },
+  {
+    "id": "ff-030",
+    "question": "The capital of Greece is Sparta."
+  },
+  {
+    "id": "ff-031",
+    "question": "The capital of Portugal is Lisbon."
+  },
+  {
+    "id": "ff-032",
+    "question": "The capital of Portugal is Porto."
+  },
+  {
+    "id": "ff-033",
+    "question": "The capital of Mexico is Mexico City."
+  },
+  {
+    "id": "ff-034",
+    "question": "The capital of Mexico is Guadalajara."
+  },
+  {
+    "id": "ff-035",
+    "question": "The capital of Argentina is Buenos Aires."
+  },
+  {
+    "id": "ff-036",
+    "question": "The capital of Argentina is Cordoba."
+  },
+  {
+    "id": "ff-037",
+    "question": "The Nile flows north."
+  },
+  {
+    "id": "ff-038",
+    "question": "The Nile flows south."
+  },
+  {
+    "id": "ff-039",
+    "question": "The Amazon rainforest is in South America."
+  },
+  {
+    "id": "ff-040",
+    "question": "The Amazon rainforest is in Africa."
+  },
+  {
+    "id": "ff-041",
+    "question": "The Sahara Desert is in Africa."
+  },
+  {
+    "id": "ff-042",
+    "question": "The Sahara Desert is in Asia."
+  },
+  {
+    "id": "ff-043",
+    "question": "Mount Everest is the highest mountain above sea level."
+  },
+  {
+    "id": "ff-044",
+    "question": "K2 is the highest mountain above sea level."
+  },
+  {
+    "id": "ff-045",
+    "question": "The Great Wall of China is in China."
+  },
+  {
+    "id": "ff-046",
+    "question": "The Great Wall of China is in Japan."
+  },
+  {
+    "id": "ff-047",
+    "question": "Australia is the smallest of the seven continents."
+  },
+  {
+    "id": "ff-048",
+    "question": "Africa is the smallest of the seven continents."
+  },
+  {
+    "id": "ff-049",
+    "question": "The Equator passes through Kenya."
+  },
+  {
+    "id": "ff-050",
+    "question": "The Equator passes through Egypt."
+  }
+]

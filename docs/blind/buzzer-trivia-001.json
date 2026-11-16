@@ -1,0 +1,252 @@
+[
+  {
+    "id": "buzz-001",
+    "question": "Which planet is closest to the Sun?",
+    "category": "Science"
+  },
+  {
+    "id": "buzz-002",
+    "question": "Which planet is known as the Red Planet?",
+    "category": "Science"
+  },
+  {
+    "id": "buzz-003",
+    "question": "Which cell organelle is called the powerhouse?",
+    "category": "Science"
+  },
+  {
+    "id": "buzz-004",
+    "question": "Who wrote Romeo and Juliet?",
+    "category": "Literature"
+  },
+  {
+    "id": "buzz-005",
+    "question": "At what Celsius temperature does water freeze?",
+    "category": "Science"
+  },
+  {
+    "id": "buzz-006",
+    "question": "Which ocean is the largest?",
+    "category": "Geography"
+  },
+  {
+    "id": "buzz-007",
+    "question": "What is the tallest mountain above sea level?",
+    "category": "Geography"
+  },
+  {
+    "id": "buzz-008",
+    "question": "Which animal is the fastest land animal?",
+    "category": "Nature"
+  },
+  {
+    "id": "buzz-009",
+    "question": "How many basketball players from one team start on court?",
+    "category": "Sport"
+  },
+  {
+    "id": "buzz-010",
+    "question": "What gas do plants absorb from the air?",
+    "category": "Science"
+  },
+  {
+    "id": "buzz-011",
+    "question": "Who painted the Mona Lisa?",
+    "category": "Art"
+  },
+  {
+    "id": "buzz-012",
+    "question": "Which country is shaped like a boot?",
+    "category": "Geography"
+  },
+  {
+    "id": "buzz-013",
+    "question": "What is the sum of a triangle's interior angles?",
+    "category": "Maths"
+  },
+  {
+    "id": "buzz-014",
+    "question": "Which rodent is the largest?",
+    "category": "Animals"
+  },
+  {
+    "id": "buzz-015",
+    "question": "Which language has the most native speakers?",
+    "category": "Language"
+  },
+  {
+    "id": "buzz-016",
+    "question": "What is the freezing point of water in Celsius?",
+    "category": "Science"
+  },
+  {
+    "id": "buzz-017",
+    "question": "Who was the first person to walk on the Moon?",
+    "category": "History"
+  },
+  {
+    "id": "buzz-018",
+    "question": "Which instrument has 88 keys?",
+    "category": "Music"
+  },
+  {
+    "id": "buzz-019",
+    "question": "What is the currency of Japan?",
+    "category": "Geography"
+  },
+  {
+    "id": "buzz-020",
+    "question": "How many strings does a standard violin have?",
+    "category": "Music"
+  },
+  {
+    "id": "buzz-021",
+    "question": "Which vitamin is produced in skin from sunlight?",
+    "category": "Science"
+  },
+  {
+    "id": "buzz-022",
+    "question": "What is the longest river in Africa?",
+    "category": "Geography"
+  },
+  {
+    "id": "buzz-023",
+    "question": "Which planet has the Great Red Spot?",
+    "category": "Science"
+  },
+  {
+    "id": "buzz-024",
+    "question": "Who wrote Pride and Prejudice?",
+    "category": "Literature"
+  },
+  {
+    "id": "buzz-025",
+    "question": "What is the smallest prime number?",
+    "category": "Maths"
+  },
+  {
+    "id": "buzz-026",
+    "question": "Which country invented paper?",
+    "category": "History"
+  },
+  {
+    "id": "buzz-027",
+    "question": "What is the hardest natural substance?",
+    "category": "Science"
+  },
+  {
+    "id": "buzz-028",
+    "question": "How many colours are in a rainbow?",
+    "category": "Science"
+  },
+  {
+    "id": "buzz-029",
+    "question": "Which sea creature has eight arms?",
+    "category": "Nature"
+  },
+  {
+    "id": "buzz-030",
+    "question": "Which gas do plants absorb from the air for photosynthesis?",
+    "category": "Science"
+  },
+  {
+    "id": "buzz-031",
+    "question": "Who composed the Fifth Symphony?",
+    "category": "Music"
+  },
+  {
+    "id": "buzz-032",
+    "question": "Which sport uses a shuttlecock?",
+    "category": "Sport"
+  },
+  {
+    "id": "buzz-033",
+    "question": "How many degrees are in a right angle?",
+    "category": "Maths"
+  },
+  {
+    "id": "buzz-034",
+    "question": "What is the main ingredient in guacamole?",
+    "category": "Food"
+  },
+  {
+    "id": "buzz-035",
+    "question": "Which country has the city of Marrakesh?",
+    "category": "Geography"
+  },
+  {
+    "id": "buzz-036",
+    "question": "Which dolphin species is the largest?",
+    "category": "Animals"
+  },
+  {
+    "id": "buzz-037",
+    "question": "Who developed the theory of relativity?",
+    "category": "Science"
+  },
+  {
+    "id": "buzz-038",
+    "question": "Which animal builds dams?",
+    "category": "Animals"
+  },
+  {
+    "id": "buzz-039",
+    "question": "Which bird is known for mimicking human speech?",
+    "category": "Nature"
+  },
+  {
+    "id": "buzz-040",
+    "question": "How many minutes are in a full football match?",
+    "category": "Sport"
+  },
+  {
+    "id": "buzz-041",
+    "question": "What is the largest organ in the human body?",
+    "category": "Science"
+  },
+  {
+    "id": "buzz-042",
+    "question": "Which artist cut off part of his ear?",
+    "category": "Art"
+  },
+  {
+    "id": "buzz-043",
+    "question": "Which force keeps planets in orbit?",
+    "category": "Science"
+  },
+  {
+    "id": "buzz-044",
+    "question": "Which country is home to the kangaroo?",
+    "category": "Geography"
+  },
+  {
+    "id": "buzz-045",
+    "question": "What is the first month of the year?",
+    "category": "General"
+  },
+  {
+    "id": "buzz-046",
+    "question": "How many sides does a triangle have?",
+    "category": "Maths"
+  },
+  {
+    "id": "buzz-047",
+    "question": "What pigment makes leaves green?",
+    "category": "Science"
+  },
+  {
+    "id": "buzz-048",
+    "question": "Which natural substance is the hardest?",
+    "category": "Science"
+  },
+  {
+    "id": "buzz-049",
+    "question": "Who wrote The Little Prince?",
+    "category": "Literature"
+  },
+  {
+    "id": "buzz-050",
+    "question": "What is the fastest bird in a dive?",
+    "category": "Nature"
+  }
+]

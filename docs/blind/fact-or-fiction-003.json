@@ -1,0 +1,202 @@
+[
+  {
+    "id": "ff-101",
+    "question": "Leonardo da Vinci painted the Mona Lisa."
+  },
+  {
+    "id": "ff-102",
+    "question": "Michelangelo painted the Mona Lisa."
+  },
+  {
+    "id": "ff-103",
+    "question": "Michelangelo painted the Sistine Chapel ceiling."
+  },
+  {
+    "id": "ff-104",
+    "question": "Leonardo da Vinci painted the Sistine Chapel ceiling."
+  },
+  {
+    "id": "ff-105",
+    "question": "Ludwig van Beethoven was a composer."
+  },
+  {
+    "id": "ff-106",
+    "question": "Ludwig van Beethoven was a painter."
+  },
+  {
+    "id": "ff-107",
+    "question": "Mozart was a composer."
+  },
+  {
+    "id": "ff-108",
+    "question": "Mozart was a scientist."
+  },
+  {
+    "id": "ff-109",
+    "question": "Albert Einstein developed the theory of relativity."
+  },
+  {
+    "id": "ff-110",
+    "question": "Albert Einstein developed the theory of evolution."
+  },
+  {
+    "id": "ff-111",
+    "question": "Charles Darwin developed the theory of evolution."
+  },
+  {
+    "id": "ff-112",
+    "question": "Charles Darwin developed the theory of relativity."
+  },
+  {
+    "id": "ff-113",
+    "question": "Isaac Newton described gravity."
+  },
+  {
+    "id": "ff-114",
+    "question": "Isaac Newton invented the electric light bulb."
+  },
+  {
+    "id": "ff-115",
+    "question": "Thomas Edison is associated with the practical light bulb."
+  },
+  {
+    "id": "ff-116",
+    "question": "Thomas Edison invented the telephone."
+  },
+  {
+    "id": "ff-117",
+    "question": "The Wright brothers made an early powered airplane flight."
+  },
+  {
+    "id": "ff-118",
+    "question": "The Wright brothers invented the automobile."
+  },
+  {
+    "id": "ff-119",
+    "question": "Neil Armstrong was the first person to walk on the Moon."
+  },
+  {
+    "id": "ff-120",
+    "question": "Buzz Aldrin was the first person to walk on the Moon."
+  },
+  {
+    "id": "ff-121",
+    "question": "The Titanic sank in 1912."
+  },
+  {
+    "id": "ff-122",
+    "question": "The Titanic sank in 1920."
+  },
+  {
+    "id": "ff-123",
+    "question": "World War I began in 1914."
+  },
+  {
+    "id": "ff-124",
+    "question": "World War I began in 1939."
+  },
+  {
+    "id": "ff-125",
+    "question": "World War II ended in 1945."
+  },
+  {
+    "id": "ff-126",
+    "question": "World War II ended in 1950."
+  },
+  {
+    "id": "ff-127",
+    "question": "The Berlin Wall fell in 1989."
+  },
+  {
+    "id": "ff-128",
+    "question": "The Berlin Wall fell in 1991."
+  },
+  {
+    "id": "ff-129",
+    "question": "The French Revolution began in 1789."
+  },
+  {
+    "id": "ff-130",
+    "question": "The French Revolution began in 1889."
+  },
+  {
+    "id": "ff-131",
+    "question": "The Magna Carta dates from 1215."
+  },
+  {
+    "id": "ff-132",
+    "question": "The Magna Carta dates from 1315."
+  },
+  {
+    "id": "ff-133",
+    "question": "The Great Fire of London happened in 1666."
+  },
+  {
+    "id": "ff-134",
+    "question": "The Great Fire of London happened in 1766."
+  },
+  {
+    "id": "ff-135",
+    "question": "Columbus reached the Americas in 1492."
+  },
+  {
+    "id": "ff-136",
+    "question": "Columbus reached the Americas in 1592."
+  },
+  {
+    "id": "ff-137",
+    "question": "The ancient Olympics began in Greece."
+  },
+  {
+    "id": "ff-138",
+    "question": "The ancient Olympics began in Rome."
+  },
+  {
+    "id": "ff-139",
+    "question": "The modern Summer Olympics are normally held every four years."
+  },
+  {
+    "id": "ff-140",
+    "question": "The modern Summer Olympics are normally held every two years."
+  },
+  {
+    "id": "ff-141",
+    "question": "The Mona Lisa is displayed in the Louvre."
+  },
+  {
+    "id": "ff-142",
+    "question": "The Mona Lisa is displayed in the Prado."
+  },
+  {
+    "id": "ff-143",
+    "question": "Vincent van Gogh painted The Starry Night."
+  },
+  {
+    "id": "ff-144",
+    "question": "Vincent van Gogh painted the Mona Lisa."
+  },
+  {
+    "id": "ff-145",
+    "question": "Pablo Picasso was a painter."
+  },
+  {
+    "id": "ff-146",
+    "question": "Pablo Picasso was a composer."
+  },
+  {
+    "id": "ff-147",
+    "question": "Ernest Hemingway was a writer."
+  },
+  {
+    "id": "ff-148",
+    "question": "Ernest Hemingway was a painter."
+  },
+  {
+    "id": "ff-149",
+    "question": "J. K. Rowling wrote Harry Potter."
+  },
+  {
+    "id": "ff-150",
+    "question": "J. K. Rowling wrote The Lord of the Rings."
+  }
+]

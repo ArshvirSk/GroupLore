@@ -154,3 +154,10 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 
 - **Added 50 confidence-tagged statements (25 true/false pairs) on science and nature.** The batch uses stable, non-time-sensitive facts, includes explanations, and keeps the bank's true/false balance even. Duplicate statements found by the validator were replaced rather than shipped twice.
 - **Spot-check samples are seeded and stratified.** Factual banks show five seeded random items plus five hardest items (difficulty, then prompt length), while other banks keep five seeded random items.
+
+## Status audit, blind verification and launch policy
+
+- **`MODES.md` is absent from this checkout.** `docs/STATUS.md` is generated from the registry, engine files, client routing, tests and loaded banks; MODES.md-only rows use the game names in the execution brief and the repository's tracked bank targets.
+- **Launch minimum is a policy, not a stretch target.** `launchPolicy.js` defines consumed items per session × 10, floored at 150 and capped at 400. The audit now reports launch and stretch gaps separately. Existing lobby gating still uses the smaller non-empty-bank minimum until each bank reaches launch size.
+- **Blind verification separates export, answering and comparison.** `export-blind.ts` writes answer-stripped chunks; `compare-blind.ts` refuses to remove items for a bank until every chunk has an answers file. Exporting does not count as verification, and the structural gate remains separate.
+- **Missing games are not being faked with placeholder banks.** The 18 missing rows in `docs/STATUS.md` have no engine, client screen or bank. They require vertical slices, not JSON alone.

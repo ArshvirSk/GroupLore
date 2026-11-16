@@ -6,6 +6,7 @@
  */
 import { readdir, readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
+import { launchMinimum } from "../src/server/games/launchPolicy.js";
 
 type Item = Record<string, unknown>;
 
@@ -156,6 +157,7 @@ type Row = {
   file: string;
   count: number;
   target: number;
+  launch: number;
   missingText: number;
   missingMeta: number;
   exactDuplicates: number;
@@ -173,6 +175,7 @@ async function auditFile(id: string): Promise<Row> {
       file: "not implemented",
       count: 0,
       target,
+      launch: launchMinimum(id),
       missingText: 0,
       missingMeta: 0,
       exactDuplicates: 0,
@@ -190,6 +193,7 @@ async function auditFile(id: string): Promise<Row> {
     file,
     count: items.length,
     target,
+    launch: launchMinimum(id),
     missingText: items.filter((item) => !textOf(item).trim()).length,
     missingMeta: items.filter((item) => !item.tags && !item.tag && !item.category).length,
     exactDuplicates: exact,
@@ -214,6 +218,7 @@ async function auditFillTheBlank(): Promise<Row[]> {
       file: "fillTheBlank.json",
       count: items.length,
       target: TARGETS[id] ?? 300,
+      launch: launchMinimum(id),
       missingText: items.filter((item) => !textOf(item).trim()).length,
       missingMeta: items.filter((item) => !item.tags && !item.tag && !item.category).length,
       exactDuplicates: texts.length - new Set(texts).size,
@@ -242,18 +247,19 @@ async function main() {
   rows.sort((a, b) => a.id.localeCompare(b.id));
 
   const totalGap = rows.reduce((sum, row) => sum + Math.max(0, row.target - row.count), 0);
+  const totalLaunchGap = rows.reduce((sum, row) => sum + Math.max(0, row.launch - row.count), 0);
   const lines = [
     "# Content bank audit",
     "",
     `Generated ${new Date().toISOString().slice(0, 10)} by \`scripts/audit-banks.ts\`.`,
     "",
-    "| Bank | File | Current | Target | Gap | Missing text | Missing tags/category | Exact dupes | Near dupes | Difficulty | Tags |",
-    "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- |",
+    "| Bank | File | Current | Launch min | Launch gap | Stretch target | Stretch gap | Missing text | Missing tags/category | Exact dupes | Near dupes | Difficulty | Tags |",
+    "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- |",
     ...rows.map((row) =>
-      `| ${row.id} | ${row.file} | ${row.count} | ${row.target} | ${Math.max(0, row.target - row.count)} | ${row.missingText} | ${row.missingMeta} | ${row.exactDuplicates} | ${row.nearDuplicates} | ${row.difficulty} | ${row.tags} |`,
+      `| ${row.id} | ${row.file} | ${row.count} | ${row.launch} | ${Math.max(0, row.launch - row.count)} | ${row.target} | ${Math.max(0, row.target - row.count)} | ${row.missingText} | ${row.missingMeta} | ${row.exactDuplicates} | ${row.nearDuplicates} | ${row.difficulty} | ${row.tags} |`,
     ),
     "",
-    `**Total items below target:** ${totalGap.toLocaleString()}.`,
+    `**Total launch gap:** ${totalLaunchGap.toLocaleString()}. **Total stretch gap:** ${totalGap.toLocaleString()}.`,
     "",
     "Games absent from `TARGETS` are included only when they have a shipped bank. Assets whose licensing is not verifiable are reported as absent rather than counted.",
   ];
