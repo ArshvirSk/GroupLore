@@ -779,6 +779,29 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
 .home-trust { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; padding: 0; list-style: none; }
 .home-trust li { display: inline-flex; min-height: 26px; align-items: center; gap: 5px; border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent); border-radius: 999px; background: color-mix(in srgb, var(--surface) 68%, transparent); padding: 4px 9px; font-size: 10px; font-weight: 700; }
 .home-trust svg { color: color-mix(in srgb, var(--ink) 72%, var(--primary)); }
+.daily-challenge { position: relative; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: clamp(20px, 3vw, 36px); overflow: hidden; border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); border-radius: 18px; background: color-mix(in srgb, var(--accent-soft) 64%, var(--surface)); padding: clamp(22px, 3.4vw, 34px); box-shadow: 0 2px 3px rgba(51, 37, 24, .035), 0 9px 22px rgba(51, 37, 24, .045); }
+.daily-challenge::after { position: absolute; right: -8px; bottom: -44px; color: color-mix(in srgb, var(--ink) 6%, transparent); content: "✦"; font: 180px/1 var(--font-display); pointer-events: none; }
+.daily-challenge-copy, .daily-challenge-games { position: relative; z-index: 1; }
+.daily-challenge-kicker { display: inline-flex; align-items: center; gap: 7px; color: var(--ink); font-family: var(--font-mono); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.daily-challenge-kicker > span { display: grid; width: 23px; height: 23px; place-items: center; border-radius: 50%; background: var(--ink); color: var(--bg); font-size: 11px; }
+.daily-challenge h2 { max-width: 15ch; margin: 12px 0 0; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; letter-spacing: -.06em; line-height: .96; }
+.daily-challenge-copy > p:last-child { max-width: 42ch; margin: 9px 0 0; color: var(--muted); font-size: 12px; font-weight: 600; line-height: 1.5; }
+.daily-challenge-games { display: grid; gap: 8px; }
+.daily-challenge-game { display: flex; width: 100%; min-height: 64px; align-items: center; gap: 11px; border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent); border-radius: 14px; background: color-mix(in srgb, var(--surface) 84%, transparent); padding: 10px 12px; color: var(--ink); text-align: left; transition: background-color .16s ease, transform .16s ease; }
+.daily-challenge-game:hover { background: var(--surface); transform: translateX(2px); }
+.daily-challenge-game:disabled { cursor: not-allowed; opacity: .6; }
+.daily-challenge-icon { display: grid; width: 36px; height: 36px; flex: none; place-items: center; border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); border-radius: 10px; background: var(--primary-soft); }
+.daily-challenge-name { min-width: 0; flex: 1; }
+.daily-challenge-name b { display: block; font-family: var(--font-display); font-size: 15px; font-weight: 700; letter-spacing: -.025em; }
+.daily-challenge-name small { display: block; margin-top: 1px; color: var(--muted); font-size: 10px; font-weight: 600; }
+.group-daily-stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.group-daily-stat { min-width: 116px; border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent); border-radius: 12px; background: color-mix(in srgb, var(--surface) 74%, transparent); padding: 9px 12px; }
+.group-daily-stat span { display: block; color: var(--muted); font-family: var(--font-mono); font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.group-daily-stat b { display: block; margin-top: 2px; font-family: var(--font-display); font-size: 21px; letter-spacing: -.045em; line-height: 1.05; }
+.group-daily-status { flex: none; border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent); border-radius: 999px; background: color-mix(in srgb, var(--surface) 70%, transparent); padding: 4px 9px; font-size: 10px; font-weight: 800; }
+.group-daily-status.is-done { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+.group-daily-loading, .group-daily-error { margin: 0; border: 1px dashed color-mix(in srgb, var(--ink) 20%, transparent); border-radius: 12px; background: color-mix(in srgb, var(--surface) 70%, transparent); padding: 14px; color: var(--muted); font-size: 12px; font-weight: 600; }
+.group-daily-error { border-color: color-mix(in srgb, var(--danger) 40%, transparent); color: var(--danger); }
 .home-lower { display: grid; width: min(100%, 1220px); margin: 16px auto 56px; padding: 0 24px; gap: 16px; }
 .home-sheet { position: relative; overflow: hidden; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); box-shadow: 0 2px 3px rgba(51, 37, 24, .035), 0 9px 22px rgba(51, 37, 24, .045); }
 .home-sheet-inner { position: relative; z-index: 1; padding: clamp(24px, 4vw, 40px); }
@@ -854,6 +877,10 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
   .home-games-grid, .home-steps { grid-template-columns: 1fr; }
   .home-game-card { min-height: 200px; }
   .home-safety::after { right: -80px; bottom: -120px; font-size: 250px; }
+  .daily-challenge { grid-template-columns: 1fr; gap: 16px; padding: 20px 16px; }
+  .daily-challenge h2 { max-width: none; font-size: 1.75rem; }
+  .group-daily-stat { min-width: 0; flex: 1; }
+  .group-daily-status { padding-inline: 8px; }
   .home-start-list { padding-top: 4px; }
   .home-start-row { min-height: 56px; }
   .home-start-icon { width: 34px; height: 34px; }
@@ -1081,3 +1108,134 @@ input:focus-visible, textarea:focus-visible, select:focus-visible {
   .app-page .reference-checker { right: 2%; top: 8%; width: 70px; }
   .app-page .reference-spark, .app-page .reference-burst { display: none; }
 }
+
+/* ============================================================
+   Card table: shared cards, hands, piles, seats and reveals.
+   ============================================================ */
+.card-shell {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-color: color-mix(in srgb, var(--ink) 22%, transparent);
+  border-radius: 10px;
+  padding: 0;
+  text-align: left;
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--ink) 28%, transparent), 0 8px 18px rgba(35, 24, 47, .12);
+}
+button.card-shell { appearance: none; min-height: 0; }
+.card-front { background: color-mix(in srgb, var(--surface) 96%, white); }
+.card-reverse {
+  border-color: color-mix(in srgb, var(--ink) 50%, transparent);
+  background:
+    radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--surface) 28%, transparent) 0 2px, transparent 3px),
+    repeating-linear-gradient(45deg, color-mix(in srgb, var(--ink) 14%, transparent) 0 2px, transparent 2px 8px),
+    var(--primary);
+}
+.card-face { position: absolute; inset: 0; display: block; padding: 7px; }
+.card-corner { display: flex; flex-direction: column; align-items: center; gap: 0; line-height: 1; }
+.card-corner b { font-family: var(--font-display); font-size: 1em; letter-spacing: -.04em; }
+.card-corner > span { font-size: .9em; }
+.card-corner-bottom { position: absolute; right: 7px; bottom: 7px; transform: rotate(180deg); }
+.card-center { position: absolute; inset: 0; display: grid; place-items: center; font-size: 2.1em; line-height: 1; opacity: .9; }
+.card-caption { position: absolute; inset: auto 8px 8px; z-index: 2; border-radius: 6px; background: color-mix(in srgb, var(--surface) 88%, transparent); padding: 3px 5px; color: var(--ink); font-size: 9px; font-weight: 750; line-height: 1.15; }
+.card-back { position: absolute; inset: 0; display: grid; place-items: center; color: var(--primary-ink); }
+.card-back-mark { display: grid; width: 38%; aspect-ratio: 1; place-items: center; border: 1px solid currentColor; border-radius: 50%; font: 800 .9em var(--font-display); letter-spacing: -.06em; }
+.card-back-star { position: absolute; right: 8px; bottom: 5px; font-size: .9em; opacity: .7; }
+.card-selected { outline: 3px solid var(--ink); outline-offset: 2px; transform: translateY(-10px); }
+.card-hand {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 18px 24px 24px;
+  scrollbar-width: thin;
+}
+.card-hand-slot {
+  position: relative;
+  margin-left: -12px;
+  transform: translateY(var(--card-lift)) rotate(var(--card-tilt));
+  transform-origin: 50% 130%;
+  transition: transform .18s ease;
+  z-index: var(--card-index);
+}
+.card-hand-slot:first-child { margin-left: 0; }
+.card-hand-slot:hover { z-index: 40; transform: translateY(calc(var(--card-lift) - 8px)) rotate(var(--card-tilt)); }
+.card-hand-drag-surface {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  min-height: 0;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  cursor: grab;
+  touch-action: pan-x;
+}
+.card-pile { position: relative; display: grid; justify-items: center; gap: 4px; padding-top: 8px; }
+.card-pile-stack { position: relative; width: 52px; height: 74px; }
+.card-pile-layer { position: absolute; inset: 0; }
+.card-pile-count {
+  min-width: 22px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 1px 6px;
+  font: 800 10px var(--font-mono);
+  text-align: center;
+}
+.card-pile-label { color: var(--muted); font: 700 9px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+.card-played { display: grid; place-items: center; gap: 8px; }
+.card-played-row { position: relative; display: flex; min-height: 146px; align-items: center; justify-content: center; padding: 8px 18px; }
+.card-played-row > span { display: block; margin-left: -34px; }
+.card-played-row > span:first-child { margin-left: 0; }
+.card-played-label { margin: 0; color: var(--muted); font-size: 11px; font-weight: 700; text-align: center; }
+.card-empty-slot { display: grid; min-height: 120px; min-width: 180px; place-items: center; border: 1px dashed color-mix(in srgb, var(--ink) 20%, transparent); border-radius: 14px; color: var(--muted); font-size: 12px; font-weight: 600; }
+.card-seat {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  padding: 7px 8px;
+  transition: border-color .16s ease, background-color .16s ease;
+}
+.card-seat-active { border-color: var(--ink); background: color-mix(in srgb, var(--accent-soft) 72%, var(--surface)); }
+.card-seat-eliminated { opacity: .55; }
+.card-strike { width: 7px; height: 7px; border: 1px solid var(--muted); border-radius: 50%; }
+.card-strike.is-filled { border-color: var(--danger); background: var(--danger); }
+.card-table {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  border-radius: 18px;
+  background:
+    radial-gradient(ellipse at center, color-mix(in srgb, var(--accent-soft) 52%, var(--surface)) 0 55%, transparent 56%),
+    var(--surface);
+  padding: 16px;
+  box-shadow: inset 0 0 0 6px color-mix(in srgb, var(--ink) 4%, transparent);
+}
+.card-table::before {
+  position: absolute;
+  inset: 8px;
+  border: 1px dashed color-mix(in srgb, var(--ink) 12%, transparent);
+  border-radius: 14px;
+  content: "";
+  pointer-events: none;
+}
+@media (max-width: 640px) {
+  .card-hand { justify-content: flex-start; padding: 14px 14px 20px; gap: 4px; }
+  .card-hand-slot { margin-left: -4px; transform: none; }
+  .card-hand-slot:hover { transform: translateY(-4px); }
+  .card-hand-drag-surface { display: none; }
+  .card-played-row > span { margin-left: -46px; }
+  .card-played-row { min-height: 126px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-hand-slot, .card-hand-slot:hover { transform: none !important; }
+}
+.card-face-text { display: flex; align-items: center; justify-content: center; border-radius: 8px; background: linear-gradient(150deg, color-mix(in srgb, var(--primary-soft) 70%, var(--surface)), var(--surface)); padding: 9px; }
+.card-text { display: -webkit-box; overflow: hidden; color: var(--ink); font-family: var(--font-display); font-size: 1rem; font-weight: 750; line-height: 1.05; letter-spacing: -.035em; text-align: center; -webkit-box-orient: vertical; -webkit-line-clamp: 5; }
