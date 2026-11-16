@@ -169,3 +169,8 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 - **Exact removals:** Buzzer Trivia 5/350 (`buzz-033`, `buzz-040`, `buzz-254`, `buzz-290`, `buzz-304`), Fact or Fiction 0/350, Survey Says 42/150, Connections 0/100. Remaining banks are 345, 350, 108 and 100 respectively. Every removed item and mismatch score is in `docs/review-queue.md`.
 - **The Buzzer removals are alias or precision mismatches, not proven false statements.** They are removed because they failed independent reproduction; adding aliases or rewording them is content work, not a reason to keep them in the verified bank.
 - **Question-only exports remain as evidence.** `docs/blind/*.json` stays next to the matching `*.answers.json` files so the gate can be rerun. `compare-blind.ts` now ignores answer files when enumerating chunks, which fixes an earlier `.answers.answers.json` bug.
+
+## Buzzer alias restoration
+
+- **The five Buzzer items removed only for alias gaps were restored.** `buzz-033` and `buzz-040` now accept `90 degrees`, `ninety degrees`/`90 minutes`, and `90 mins`; `buzz-254` accepts `egg` and `human egg`; `buzz-290` accepts `US dollar`, `USD` and `American dollar`; `buzz-304` accepts the US spelling `paleontology`. The original answers and aliases are preserved.
+- **The blind comparison is the regression check.** Rerunning it against the unchanged blind answers reports Buzzer Trivia 0 removed, 350 kept, and 0 removals for all four factual banks. A synonym, unit format or alternate-name difference is now an accepted answer rather than a deletion reason.

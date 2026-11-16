@@ -1,18 +1,18 @@
 # Factual review queue
 
-Items removed after blind re-answering and comparison.
+Removal history after blind re-answering and comparison. The five Buzzer Trivia entries below were restored after their accepted-answer aliases were fixed; the current Buzzer bank is 350 and the recheck removes 0.
 
-Totals: Buzzer Trivia 5 removed (345 kept), Fact or Fiction 0 (350 kept), Survey Says 42 (108 kept), Connections 0 (100 kept).
+Totals after alias restoration: Buzzer Trivia 0 removed (350 kept), Fact or Fiction 0 (350 kept), Survey Says 42 (108 kept), Connections 0 (100 kept).
 
-- **buzzer-trivia / buzz-033**: answer mismatch
+- **buzzer-trivia / buzz-033**: answer mismatch — restored after alias fix
   - How many degrees are in a right angle?
-- **buzzer-trivia / buzz-040**: answer mismatch
+- **buzzer-trivia / buzz-040**: answer mismatch — restored after alias fix
   - How many minutes are in a full football match?
-- **buzzer-trivia / buzz-254**: answer mismatch
+- **buzzer-trivia / buzz-254**: answer mismatch — restored after alias fix
   - What is the largest cell in the human body?
-- **buzzer-trivia / buzz-290**: answer mismatch
+- **buzzer-trivia / buzz-290**: answer mismatch — restored after alias fix
   - What is the currency of the United States?
-- **buzzer-trivia / buzz-304**: answer mismatch
+- **buzzer-trivia / buzz-304**: answer mismatch — restored after alias fix
   - What is the study of fossils called?
 - **survey-says / survey-001**: survey board mismatch (2/8)
   - Name something people do first thing in the morning
@@ -98,3 +98,8 @@ Totals: Buzzer Trivia 5 removed (345 kept), Fact or Fiction 0 (350 kept), Survey
   - What's phone app
 - **survey-says / survey-150**: survey board mismatch (0/8)
   - What's festival
+
+## Buzzer alias recheck
+
+- Restored `buzz-033`, `buzz-040`, `buzz-254`, `buzz-290`, `buzz-304` with added accepted-answer aliases.
+- `compare-blind.ts`: Buzzer Trivia **0 removed, 350 kept**; Fact or Fiction 0/350; Survey Says 0/108; Connections 0/100.
