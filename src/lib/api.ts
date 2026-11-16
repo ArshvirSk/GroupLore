@@ -102,6 +102,7 @@ export const api = {
     }),
 
   getCatalog: () => apiRequest("/api/games/catalog"),
+  getGameLibrary: () => apiRequest("/api/games/library"),
   getGame: (id: string) => apiRequest(`/api/games/${id}`),
 
   getInvite: (code: string) =>
@@ -124,6 +125,8 @@ export const api = {
     apiRequest(`/api/recaps/${encodeURIComponent(shareId)}`),
   getProgression: (groupId: string) =>
     apiRequest(`/api/groups/${groupId}/progression`),
+  getGroupDaily: (groupId: string) =>
+    apiRequest(`/api/groups/${groupId}/daily`),
   getLore: (groupId: string) => apiRequest(`/api/groups/${groupId}/lore`),
   setLoreOptIn: (groupId: string, optIn: boolean) =>
     apiRequest(`/api/groups/${groupId}/lore`, {

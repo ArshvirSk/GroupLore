@@ -1,18 +1,12 @@
 "use client";
 
+import { useAuth } from "@/components/AuthProvider";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import { Icon } from "@/components/ui/Icon";
 import UserMenu from "@/components/UserMenu";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, type ReactNode } from "react";
-
-const LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/games", label: "Games" },
-  { href: "/leaderboard", label: "Leaderboard" },
-  { href: "/activity", label: "Activity" },
-];
 
 export default function AppHeader({
   backHref,
@@ -26,10 +20,24 @@ export default function AppHeader({
   onLeaveGroup?: () => void;
 }) {
   const pathname = usePathname();
+  const { isLoaded, isSignedIn, isGuest } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
+  const canUseAccount = isSignedIn && !isGuest;
+  const links = [
+    { href: canUseAccount ? "/dashboard" : "/", label: "Home" },
+    { href: "/library", label: "Games" },
+    ...(canUseAccount
+      ? [
+          { href: "/leaderboard", label: "Leaderboard" },
+          { href: "/activity", label: "Activity" },
+        ]
+      : []),
+  ];
 
   const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+    href === "/" || href === "/dashboard"
+      ? pathname === href
+      : pathname.startsWith(href);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-bg/95 backdrop-blur">
@@ -40,7 +48,7 @@ export default function AppHeader({
         </Link>
 
         <nav className="hidden items-center gap-1 sm:flex" aria-label="Primary">
-          {LINKS.map((link) => (
+          {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -59,7 +67,15 @@ export default function AppHeader({
         <div className="flex items-center gap-2">
           {right}
           <ThemeToggle />
-          <UserMenu onLeaveGroup={onLeaveGroup} />
+          {isLoaded ? (
+            isSignedIn ? (
+              <UserMenu onLeaveGroup={onLeaveGroup} />
+            ) : (
+              <Link href="/sign-in" className="app-signin">
+                <Icon name="user" /> Sign in
+              </Link>
+            )
+          ) : null}
           <button
             type="button"
             className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-ink sm:hidden"
@@ -75,7 +91,7 @@ export default function AppHeader({
 
       {menuOpen ? (
         <nav id="public-mobile-nav" className="border-t border-border bg-bg px-4 pb-4 pt-2 sm:hidden" aria-label="Mobile">
-          {LINKS.map((link) => (
+          {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
