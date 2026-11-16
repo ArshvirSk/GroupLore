@@ -1,27 +1,402 @@
 [
-  { "id": "wave-01", "low": "Calm", "high": "Chaos" },
-  { "id": "wave-02", "low": "Underrated", "high": "Overrated" },
-  { "id": "wave-03", "low": "Innocent", "high": "Suspicious" },
-  { "id": "wave-04", "low": "Cozy", "high": "Uncomfortable" },
-  { "id": "wave-05", "low": "Genius", "high": "Terrible idea" },
-  { "id": "wave-06", "low": "Tiny problem", "high": "World-ending problem" },
-  { "id": "wave-07", "low": "Quiet", "high": "Ear-splitting" },
-  { "id": "wave-08", "low": "Normal", "high": "Unhinged" },
-  { "id": "wave-09", "low": "Cheap", "high": "Extravagant" },
-  { "id": "wave-10", "low": "Healthy", "high": "Questionable" },
-  { "id": "wave-11", "low": "Early", "high": "Late" },
-  { "id": "wave-12", "low": "Simple", "high": "Complicated" },
-  { "id": "wave-13", "low": "Private", "high": "Public" },
-  { "id": "wave-14", "low": "Fancy", "high": "Casual" },
-  { "id": "wave-15", "low": "Forgivable", "high": "Unforgivable" },
-  { "id": "wave-16", "low": "Essential", "high": "Useless" },
-  { "id": "wave-17", "low": "Soft", "high": "Crunchy" },
-  { "id": "wave-18", "low": "Realistic", "high": "Delusional" },
-  { "id": "wave-19", "low": "A whisper", "high": "A scream" },
-  { "id": "wave-20", "low": "Worth the hype", "high": "Not worth the hype" },
-  { "id": "wave-21", "low": "A good idea at 2am", "high": "A bad idea at 2am" },
-  { "id": "wave-22", "low": "Would survive a zombie apocalypse", "high": "Would not last a day" },
-  { "id": "wave-23", "low": "A salad", "high": "A dessert" },
-  { "id": "wave-24", "low": "Main character", "high": "Background extra" },
-  { "id": "wave-25", "low": "Instant regret", "high": "Best decision ever" }
+  {
+    "id": "wave-01",
+    "low": "Calm",
+    "high": "Chaos"
+  },
+  {
+    "id": "wave-02",
+    "low": "Underrated",
+    "high": "Overrated"
+  },
+  {
+    "id": "wave-03",
+    "low": "Innocent",
+    "high": "Suspicious"
+  },
+  {
+    "id": "wave-04",
+    "low": "Cozy",
+    "high": "Uncomfortable"
+  },
+  {
+    "id": "wave-05",
+    "low": "Genius",
+    "high": "Terrible idea"
+  },
+  {
+    "id": "wave-06",
+    "low": "Tiny problem",
+    "high": "World-ending problem"
+  },
+  {
+    "id": "wave-07",
+    "low": "Quiet",
+    "high": "Ear-splitting"
+  },
+  {
+    "id": "wave-08",
+    "low": "Normal",
+    "high": "Unhinged"
+  },
+  {
+    "id": "wave-09",
+    "low": "Cheap",
+    "high": "Extravagant"
+  },
+  {
+    "id": "wave-10",
+    "low": "Healthy",
+    "high": "Questionable"
+  },
+  {
+    "id": "wave-11",
+    "low": "Early",
+    "high": "Late"
+  },
+  {
+    "id": "wave-12",
+    "low": "Simple",
+    "high": "Complicated"
+  },
+  {
+    "id": "wave-13",
+    "low": "Private",
+    "high": "Public"
+  },
+  {
+    "id": "wave-14",
+    "low": "Fancy",
+    "high": "Casual"
+  },
+  {
+    "id": "wave-15",
+    "low": "Forgivable",
+    "high": "Unforgivable"
+  },
+  {
+    "id": "wave-16",
+    "low": "Essential",
+    "high": "Useless"
+  },
+  {
+    "id": "wave-17",
+    "low": "Soft",
+    "high": "Crunchy"
+  },
+  {
+    "id": "wave-18",
+    "low": "Realistic",
+    "high": "Delusional"
+  },
+  {
+    "id": "wave-19",
+    "low": "A whisper",
+    "high": "A scream"
+  },
+  {
+    "id": "wave-20",
+    "low": "Worth the hype",
+    "high": "Not worth the hype"
+  },
+  {
+    "id": "wave-21",
+    "low": "A good idea at 2am",
+    "high": "A bad idea at 2am"
+  },
+  {
+    "id": "wave-22",
+    "low": "Would survive a zombie apocalypse",
+    "high": "Would not last a day"
+  },
+  {
+    "id": "wave-23",
+    "low": "A salad",
+    "high": "A dessert"
+  },
+  {
+    "id": "wave-24",
+    "low": "Main character",
+    "high": "Background extra"
+  },
+  {
+    "id": "wave-25",
+    "low": "Instant regret",
+    "high": "Best decision ever"
+  },
+  {
+    "id": "wave-26",
+    "low": "Predictable",
+    "high": "Surprising",
+    "difficulty": 1,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-27",
+    "low": "A harmless prank",
+    "high": "A crime",
+    "difficulty": 2,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-28",
+    "low": "Background noise",
+    "high": "The main event",
+    "difficulty": 3,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-29",
+    "low": "A quick snack",
+    "high": "A full feast",
+    "difficulty": 1,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-30",
+    "low": "Slightly annoying",
+    "high": "Unbearable",
+    "difficulty": 2,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-31",
+    "low": "Common sense",
+    "high": "Complete nonsense",
+    "difficulty": 3,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-32",
+    "low": "A gentle hint",
+    "high": "A direct order",
+    "difficulty": 1,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-33",
+    "low": "A small favour",
+    "high": "A huge imposition",
+    "difficulty": 2,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-34",
+    "low": "A warm welcome",
+    "high": "A hostile reception",
+    "difficulty": 3,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-35",
+    "low": "A vague memory",
+    "high": "A vivid memory",
+    "difficulty": 1,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-36",
+    "low": "A guilty pleasure",
+    "high": "A point of pride",
+    "difficulty": 2,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-37",
+    "low": "A cheap thrill",
+    "high": "A life-changing experience",
+    "difficulty": 3,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-38",
+    "low": "A minor delay",
+    "high": "A total disaster",
+    "difficulty": 1,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-39",
+    "low": "A polite suggestion",
+    "high": "A heated argument",
+    "difficulty": 2,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-40",
+    "low": "A lucky guess",
+    "high": "A calculated plan",
+    "difficulty": 3,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-41",
+    "low": "A harmless crush",
+    "high": "A serious relationship",
+    "difficulty": 1,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-42",
+    "low": "A casual hobby",
+    "high": "An obsession",
+    "difficulty": 2,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-43",
+    "low": "A mild inconvenience",
+    "high": "A personal insult",
+    "difficulty": 3,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-44",
+    "low": "A good excuse",
+    "high": "An obvious lie",
+    "difficulty": 1,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-45",
+    "low": "A brave choice",
+    "high": "A reckless decision",
+    "difficulty": 2,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-46",
+    "low": "A comforting smell",
+    "high": "A disgusting smell",
+    "difficulty": 3,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-47",
+    "low": "A tidy desk",
+    "high": "A creative disaster",
+    "difficulty": 1,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-48",
+    "low": "A tidy garden",
+    "high": "A jungle",
+    "difficulty": 2,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-49",
+    "low": "A funny accident",
+    "high": "An embarrassing disaster",
+    "difficulty": 3,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wave-50",
+    "low": "A classic movie",
+    "high": "A forgotten flop",
+    "difficulty": 1,
+    "tags": [
+      "spectrum",
+      "social"
+    ],
+    "rating": "all"
+  }
 ]

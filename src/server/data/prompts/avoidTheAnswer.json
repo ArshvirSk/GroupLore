@@ -1,32 +1,1102 @@
 [
-  { "id": "avoid-01", "word": "Beach", "banned": ["sand", "ocean", "sun", "waves"] },
-  { "id": "avoid-02", "word": "Pizza", "banned": ["cheese", "slice", "Italy", "pepperoni"] },
-  { "id": "avoid-03", "word": "Birthday", "banned": ["cake", "party", "candles", "gift"] },
-  { "id": "avoid-04", "word": "Wedding", "banned": ["bride", "groom", "rings", "marriage"] },
-  { "id": "avoid-05", "word": "Airport", "banned": ["plane", "flight", "luggage", "security"] },
-  { "id": "avoid-06", "word": "Gym", "banned": ["exercise", "weights", "treadmill", "workout"] },
-  { "id": "avoid-07", "word": "Coffee", "banned": ["bean", "caffeine", "mug", "espresso"] },
-  { "id": "avoid-08", "word": "Monday", "banned": ["week", "work", "start", "weekend"] },
-  { "id": "avoid-09", "word": "Winter", "banned": ["snow", "cold", "December", "ice"] },
-  { "id": "avoid-10", "word": "Dog", "banned": ["bark", "puppy", "leash", "bone"] },
-  { "id": "avoid-11", "word": "Cat", "banned": ["meow", "whiskers", "purr", "kitten"] },
-  { "id": "avoid-12", "word": "School", "banned": ["teacher", "students", "class", "homework"] },
-  { "id": "avoid-13", "word": "Hospital", "banned": ["doctor", "nurse", "patient", "medicine"] },
-  { "id": "avoid-14", "word": "Cinema", "banned": ["movie", "popcorn", "screen", "ticket"] },
-  { "id": "avoid-15", "word": "Library", "banned": ["books", "quiet", "shelves", "reading"] },
-  { "id": "avoid-16", "word": "Football", "banned": ["ball", "goal", "team", "field"] },
-  { "id": "avoid-17", "word": "Christmas", "banned": ["Santa", "tree", "presents", "December"] },
-  { "id": "avoid-18", "word": "Halloween", "banned": ["costume", "candy", "pumpkin", "October"] },
-  { "id": "avoid-19", "word": "Ocean", "banned": ["water", "waves", "fish", "blue"] },
-  { "id": "avoid-20", "word": "Mountain", "banned": ["climb", "peak", "hike", "tall"] },
-  { "id": "avoid-21", "word": "Train", "banned": ["tracks", "station", "rail", "carriage"] },
-  { "id": "avoid-22", "word": "Bicycle", "banned": ["pedal", "wheels", "ride", "helmet"] },
-  { "id": "avoid-23", "word": "Chef", "banned": ["cook", "kitchen", "food", "restaurant"] },
-  { "id": "avoid-24", "word": "Doctor", "banned": ["hospital", "patient", "medicine", "sick"] },
-  { "id": "avoid-25", "word": "Teacher", "banned": ["school", "students", "class", "lesson"] },
-  { "id": "avoid-26", "word": "Vampire", "banned": ["blood", "fangs", "Dracula", "bat"] },
-  { "id": "avoid-27", "word": "Robot", "banned": ["machine", "metal", "computer", "future"] },
-  { "id": "avoid-28", "word": "Pirate", "banned": ["ship", "treasure", "parrot", "eyepatch"] },
-  { "id": "avoid-29", "word": "Alien", "banned": ["space", "UFO", "planet", "extraterrestrial"] },
-  { "id": "avoid-30", "word": "Rainbow", "banned": ["colors", "rain", "sky", "arc"] }
+  {
+    "id": "avoid-01",
+    "word": "Beach",
+    "banned": [
+      "sand",
+      "ocean",
+      "sun",
+      "waves"
+    ]
+  },
+  {
+    "id": "avoid-02",
+    "word": "Pizza",
+    "banned": [
+      "cheese",
+      "slice",
+      "Italy",
+      "pepperoni"
+    ]
+  },
+  {
+    "id": "avoid-03",
+    "word": "Birthday",
+    "banned": [
+      "cake",
+      "party",
+      "candles",
+      "gift"
+    ]
+  },
+  {
+    "id": "avoid-04",
+    "word": "Wedding",
+    "banned": [
+      "bride",
+      "groom",
+      "rings",
+      "marriage"
+    ]
+  },
+  {
+    "id": "avoid-05",
+    "word": "Airport",
+    "banned": [
+      "plane",
+      "flight",
+      "luggage",
+      "security"
+    ]
+  },
+  {
+    "id": "avoid-06",
+    "word": "Gym",
+    "banned": [
+      "exercise",
+      "weights",
+      "treadmill",
+      "workout"
+    ]
+  },
+  {
+    "id": "avoid-07",
+    "word": "Coffee",
+    "banned": [
+      "bean",
+      "caffeine",
+      "mug",
+      "espresso"
+    ]
+  },
+  {
+    "id": "avoid-08",
+    "word": "Monday",
+    "banned": [
+      "week",
+      "work",
+      "start",
+      "weekend"
+    ]
+  },
+  {
+    "id": "avoid-09",
+    "word": "Winter",
+    "banned": [
+      "snow",
+      "cold",
+      "December",
+      "ice"
+    ]
+  },
+  {
+    "id": "avoid-10",
+    "word": "Dog",
+    "banned": [
+      "bark",
+      "puppy",
+      "leash",
+      "bone"
+    ]
+  },
+  {
+    "id": "avoid-11",
+    "word": "Cat",
+    "banned": [
+      "meow",
+      "whiskers",
+      "purr",
+      "kitten"
+    ]
+  },
+  {
+    "id": "avoid-12",
+    "word": "School",
+    "banned": [
+      "teacher",
+      "students",
+      "class",
+      "homework"
+    ]
+  },
+  {
+    "id": "avoid-13",
+    "word": "Hospital",
+    "banned": [
+      "doctor",
+      "nurse",
+      "patient",
+      "medicine"
+    ]
+  },
+  {
+    "id": "avoid-14",
+    "word": "Cinema",
+    "banned": [
+      "movie",
+      "popcorn",
+      "screen",
+      "ticket"
+    ]
+  },
+  {
+    "id": "avoid-15",
+    "word": "Library",
+    "banned": [
+      "books",
+      "quiet",
+      "shelves",
+      "reading"
+    ]
+  },
+  {
+    "id": "avoid-16",
+    "word": "Football",
+    "banned": [
+      "ball",
+      "goal",
+      "team",
+      "field"
+    ]
+  },
+  {
+    "id": "avoid-17",
+    "word": "Christmas",
+    "banned": [
+      "Santa",
+      "tree",
+      "presents",
+      "December"
+    ]
+  },
+  {
+    "id": "avoid-18",
+    "word": "Halloween",
+    "banned": [
+      "costume",
+      "candy",
+      "pumpkin",
+      "October"
+    ]
+  },
+  {
+    "id": "avoid-19",
+    "word": "Ocean",
+    "banned": [
+      "water",
+      "waves",
+      "fish",
+      "blue"
+    ]
+  },
+  {
+    "id": "avoid-20",
+    "word": "Mountain",
+    "banned": [
+      "climb",
+      "peak",
+      "hike",
+      "tall"
+    ]
+  },
+  {
+    "id": "avoid-21",
+    "word": "Train",
+    "banned": [
+      "tracks",
+      "station",
+      "rail",
+      "carriage"
+    ]
+  },
+  {
+    "id": "avoid-22",
+    "word": "Bicycle",
+    "banned": [
+      "pedal",
+      "wheels",
+      "ride",
+      "helmet"
+    ]
+  },
+  {
+    "id": "avoid-23",
+    "word": "Chef",
+    "banned": [
+      "cook",
+      "kitchen",
+      "food",
+      "restaurant"
+    ]
+  },
+  {
+    "id": "avoid-24",
+    "word": "Doctor",
+    "banned": [
+      "hospital",
+      "patient",
+      "medicine",
+      "sick"
+    ]
+  },
+  {
+    "id": "avoid-25",
+    "word": "Teacher",
+    "banned": [
+      "school",
+      "students",
+      "class",
+      "lesson"
+    ]
+  },
+  {
+    "id": "avoid-26",
+    "word": "Vampire",
+    "banned": [
+      "blood",
+      "fangs",
+      "Dracula",
+      "bat"
+    ]
+  },
+  {
+    "id": "avoid-27",
+    "word": "Robot",
+    "banned": [
+      "machine",
+      "metal",
+      "computer",
+      "future"
+    ]
+  },
+  {
+    "id": "avoid-28",
+    "word": "Pirate",
+    "banned": [
+      "ship",
+      "treasure",
+      "parrot",
+      "eyepatch"
+    ]
+  },
+  {
+    "id": "avoid-29",
+    "word": "Alien",
+    "banned": [
+      "space",
+      "UFO",
+      "planet",
+      "extraterrestrial"
+    ]
+  },
+  {
+    "id": "avoid-30",
+    "word": "Rainbow",
+    "banned": [
+      "colors",
+      "rain",
+      "sky",
+      "arc"
+    ]
+  },
+  {
+    "id": "avoid-31",
+    "word": "Volcano",
+    "banned": [
+      "lava",
+      "erupt",
+      "mountain",
+      "ash"
+    ],
+    "difficulty": 1,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-32",
+    "word": "Desert",
+    "banned": [
+      "sand",
+      "camel",
+      "dry",
+      "cactus"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-33",
+    "word": "Castle",
+    "banned": [
+      "king",
+      "tower",
+      "moat",
+      "knight"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-34",
+    "word": "Museum",
+    "banned": [
+      "history",
+      "art",
+      "exhibit",
+      "ancient"
+    ],
+    "difficulty": 1,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-35",
+    "word": "Zoo",
+    "banned": [
+      "animals",
+      "cages",
+      "visit",
+      "keeper"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-36",
+    "word": "Bakery",
+    "banned": [
+      "bread",
+      "cake",
+      "oven",
+      "flour"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-37",
+    "word": "Farm",
+    "banned": [
+      "tractor",
+      "crops",
+      "barn",
+      "animals"
+    ],
+    "difficulty": 1,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-38",
+    "word": "Circus",
+    "banned": [
+      "clown",
+      "tent",
+      "acrobat",
+      "ring"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-39",
+    "word": "Casino",
+    "banned": [
+      "cards",
+      "chips",
+      "gamble",
+      "luck"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-40",
+    "word": "Stadium",
+    "banned": [
+      "crowd",
+      "game",
+      "seats",
+      "field"
+    ],
+    "difficulty": 1,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-41",
+    "word": "Marathon",
+    "banned": [
+      "run",
+      "race",
+      "miles",
+      "finish"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-42",
+    "word": "Graduation",
+    "banned": [
+      "degree",
+      "cap",
+      "ceremony",
+      "students"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-43",
+    "word": "Job interview",
+    "banned": [
+      "resume",
+      "questions",
+      "hire",
+      "office"
+    ],
+    "difficulty": 1,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-44",
+    "word": "First date",
+    "banned": [
+      "nervous",
+      "dinner",
+      "romance",
+      "stranger"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-45",
+    "word": "Road trip",
+    "banned": [
+      "car",
+      "map",
+      "highway",
+      "snacks"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-46",
+    "word": "Camping",
+    "banned": [
+      "tent",
+      "fire",
+      "sleep",
+      "outdoors"
+    ],
+    "difficulty": 1,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-47",
+    "word": "Fishing",
+    "banned": [
+      "rod",
+      "lake",
+      "fish",
+      "bait"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-48",
+    "word": "Skiing",
+    "banned": [
+      "snow",
+      "slope",
+      "cold",
+      "mountains"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-49",
+    "word": "Surfing",
+    "banned": [
+      "waves",
+      "board",
+      "ocean",
+      "beach"
+    ],
+    "difficulty": 1,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-50",
+    "word": "Swimming",
+    "banned": [
+      "pool",
+      "water",
+      "swim",
+      "lanes"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-51",
+    "word": "Basketball",
+    "banned": [
+      "hoop",
+      "ball",
+      "court",
+      "dunk"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-52",
+    "word": "Cricket",
+    "banned": [
+      "bat",
+      "wicket",
+      "ball",
+      "team"
+    ],
+    "difficulty": 1,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-53",
+    "word": "Tennis",
+    "banned": [
+      "racket",
+      "court",
+      "ball",
+      "net"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-54",
+    "word": "Chess",
+    "banned": [
+      "king",
+      "board",
+      "pieces",
+      "checkmate"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-55",
+    "word": "Poker",
+    "banned": [
+      "cards",
+      "bluff",
+      "chips",
+      "table"
+    ],
+    "difficulty": 1,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-56",
+    "word": "Magic trick",
+    "banned": [
+      "wand",
+      "illusion",
+      "cards",
+      "secret"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-57",
+    "word": "Superhero",
+    "banned": [
+      "cape",
+      "powers",
+      "save",
+      "villain"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-58",
+    "word": "Dragon",
+    "banned": [
+      "fire",
+      "wings",
+      "scales",
+      "myth"
+    ],
+    "difficulty": 1,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-59",
+    "word": "Ghost",
+    "banned": [
+      "haunt",
+      "spooky",
+      "invisible",
+      "sheets"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-60",
+    "word": "Witch",
+    "banned": [
+      "broom",
+      "spell",
+      "hat",
+      "cauldron"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-61",
+    "word": "Wizard",
+    "banned": [
+      "magic",
+      "staff",
+      "spell",
+      "beard"
+    ],
+    "difficulty": 1,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-62",
+    "word": "Mermaid",
+    "banned": [
+      "tail",
+      "ocean",
+      "fish",
+      "myth"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-63",
+    "word": "Dinosaur",
+    "banned": [
+      "fossil",
+      "extinct",
+      "giant",
+      "ancient"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-64",
+    "word": "Astronaut",
+    "banned": [
+      "space",
+      "helmet",
+      "rocket",
+      "moon"
+    ],
+    "difficulty": 1,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-65",
+    "word": "Firefighter",
+    "banned": [
+      "fire",
+      "hose",
+      "truck",
+      "rescue"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-66",
+    "word": "Police officer",
+    "banned": [
+      "badge",
+      "arrest",
+      "patrol",
+      "law"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-67",
+    "word": "Farmer",
+    "banned": [
+      "crops",
+      "tractor",
+      "field",
+      "harvest"
+    ],
+    "difficulty": 1,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-68",
+    "word": "Artist",
+    "banned": [
+      "paint",
+      "canvas",
+      "brush",
+      "gallery"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-69",
+    "word": "Musician",
+    "banned": [
+      "music",
+      "instrument",
+      "stage",
+      "band"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-70",
+    "word": "Photographer",
+    "banned": [
+      "camera",
+      "photo",
+      "lens",
+      "picture"
+    ],
+    "difficulty": 1,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-71",
+    "word": "Journalist",
+    "banned": [
+      "news",
+      "story",
+      "interview",
+      "report"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-72",
+    "word": "Lawyer",
+    "banned": [
+      "court",
+      "case",
+      "judge",
+      "client"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-73",
+    "word": "Architect",
+    "banned": [
+      "building",
+      "design",
+      "plans",
+      "blueprint"
+    ],
+    "difficulty": 1,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-74",
+    "word": "Engineer",
+    "banned": [
+      "design",
+      "build",
+      "math",
+      "machine"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-75",
+    "word": "Pilot",
+    "banned": [
+      "plane",
+      "cockpit",
+      "fly",
+      "airport"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-76",
+    "word": "Sailor",
+    "banned": [
+      "boat",
+      "sea",
+      "sail",
+      "captain"
+    ],
+    "difficulty": 1,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-77",
+    "word": "Tourist",
+    "banned": [
+      "travel",
+      "camera",
+      "map",
+      "souvenir"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-78",
+    "word": "Neighbour",
+    "banned": [
+      "next door",
+      "fence",
+      "street",
+      "hello"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-79",
+    "word": "Sibling",
+    "banned": [
+      "brother",
+      "sister",
+      "family",
+      "parents"
+    ],
+    "difficulty": 1,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "avoid-80",
+    "word": "Grandparent",
+    "banned": [
+      "older",
+      "family",
+      "stories",
+      "grandchild"
+    ],
+    "difficulty": 2,
+    "tags": [
+      "describe",
+      "everyday"
+    ],
+    "rating": "all"
+  }
 ]

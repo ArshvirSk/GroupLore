@@ -1,32 +1,702 @@
 [
-  { "id": "rush-01", "category": "Things in a kitchen", "letter": "S" },
-  { "id": "rush-02", "category": "Animals", "letter": "B" },
-  { "id": "rush-03", "category": "Countries", "letter": "C" },
-  { "id": "rush-04", "category": "Movie titles", "letter": "T" },
-  { "id": "rush-05", "category": "Foods", "letter": "P" },
-  { "id": "rush-06", "category": "Things at a beach", "letter": "S" },
-  { "id": "rush-07", "category": "Musical instruments", "letter": "G" },
-  { "id": "rush-08", "category": "Things in a bedroom", "letter": "B" },
-  { "id": "rush-09", "category": "Sports", "letter": "B" },
-  { "id": "rush-10", "category": "Cities", "letter": "M" },
-  { "id": "rush-11", "category": "Things that are cold", "letter": "I" },
-  { "id": "rush-12", "category": "Jobs", "letter": "D" },
-  { "id": "rush-13", "category": "Things in a school", "letter": "T" },
-  { "id": "rush-14", "category": "Fruits", "letter": "M" },
-  { "id": "rush-15", "category": "Things that fly", "letter": "P" },
-  { "id": "rush-16", "category": "Board games", "letter": "C" },
-  { "id": "rush-17", "category": "Things in a bathroom", "letter": "T" },
-  { "id": "rush-18", "category": "Clothing", "letter": "S" },
-  { "id": "rush-19", "category": "Things in space", "letter": "M" },
-  { "id": "rush-20", "category": "Drinks", "letter": "L" },
-  { "id": "rush-21", "category": "Things at a zoo", "letter": "E" },
-  { "id": "rush-22", "category": "TV shows", "letter": "F" },
-  { "id": "rush-23", "category": "Things that are round", "letter": "B" },
-  { "id": "rush-24", "category": "Holidays", "letter": "H" },
-  { "id": "rush-25", "category": "Things in a car", "letter": "S" },
-  { "id": "rush-26", "category": "Video games", "letter": "M" },
-  { "id": "rush-27", "category": "Things you find in a desk", "letter": "P" },
-  { "id": "rush-28", "category": "Weather words", "letter": "S" },
-  { "id": "rush-29", "category": "Things at a party", "letter": "C" },
-  { "id": "rush-30", "category": "Superheroes", "letter": "S" }
+  {
+    "id": "rush-01",
+    "category": "Things in a kitchen",
+    "letter": "S"
+  },
+  {
+    "id": "rush-02",
+    "category": "Animals",
+    "letter": "B"
+  },
+  {
+    "id": "rush-03",
+    "category": "Countries",
+    "letter": "C"
+  },
+  {
+    "id": "rush-04",
+    "category": "Movie titles",
+    "letter": "T"
+  },
+  {
+    "id": "rush-05",
+    "category": "Foods",
+    "letter": "P"
+  },
+  {
+    "id": "rush-06",
+    "category": "Things at a beach",
+    "letter": "S"
+  },
+  {
+    "id": "rush-07",
+    "category": "Musical instruments",
+    "letter": "G"
+  },
+  {
+    "id": "rush-08",
+    "category": "Things in a bedroom",
+    "letter": "B"
+  },
+  {
+    "id": "rush-09",
+    "category": "Sports",
+    "letter": "B"
+  },
+  {
+    "id": "rush-10",
+    "category": "Cities",
+    "letter": "M"
+  },
+  {
+    "id": "rush-11",
+    "category": "Things that are cold",
+    "letter": "I"
+  },
+  {
+    "id": "rush-12",
+    "category": "Jobs",
+    "letter": "D"
+  },
+  {
+    "id": "rush-13",
+    "category": "Things in a school",
+    "letter": "T"
+  },
+  {
+    "id": "rush-14",
+    "category": "Fruits",
+    "letter": "M"
+  },
+  {
+    "id": "rush-15",
+    "category": "Things that fly",
+    "letter": "P"
+  },
+  {
+    "id": "rush-16",
+    "category": "Board games",
+    "letter": "C"
+  },
+  {
+    "id": "rush-17",
+    "category": "Things in a bathroom",
+    "letter": "T"
+  },
+  {
+    "id": "rush-18",
+    "category": "Clothing",
+    "letter": "S"
+  },
+  {
+    "id": "rush-19",
+    "category": "Things in space",
+    "letter": "M"
+  },
+  {
+    "id": "rush-20",
+    "category": "Drinks",
+    "letter": "L"
+  },
+  {
+    "id": "rush-21",
+    "category": "Things at a zoo",
+    "letter": "E"
+  },
+  {
+    "id": "rush-22",
+    "category": "TV shows",
+    "letter": "F"
+  },
+  {
+    "id": "rush-23",
+    "category": "Things that are round",
+    "letter": "B"
+  },
+  {
+    "id": "rush-24",
+    "category": "Holidays",
+    "letter": "H"
+  },
+  {
+    "id": "rush-25",
+    "category": "Things in a car",
+    "letter": "S"
+  },
+  {
+    "id": "rush-26",
+    "category": "Video games",
+    "letter": "M"
+  },
+  {
+    "id": "rush-27",
+    "category": "Things you find in a desk",
+    "letter": "P"
+  },
+  {
+    "id": "rush-28",
+    "category": "Weather words",
+    "letter": "S"
+  },
+  {
+    "id": "rush-29",
+    "category": "Things at a party",
+    "letter": "C"
+  },
+  {
+    "id": "rush-30",
+    "category": "Superheroes",
+    "letter": "S"
+  },
+  {
+    "id": "rush-31",
+    "category": "Things in a backpack",
+    "letter": "B",
+    "difficulty": 1,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-32",
+    "category": "Things at a train station",
+    "letter": "P",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-33",
+    "category": "Vegetables",
+    "letter": "C",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-34",
+    "category": "Things that are sticky",
+    "letter": "G",
+    "difficulty": 1,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-35",
+    "category": "Animals with stripes",
+    "letter": "T",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-36",
+    "category": "Things in a toolbox",
+    "letter": "H",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-37",
+    "category": "Ice cream flavours",
+    "letter": "V",
+    "difficulty": 1,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-38",
+    "category": "Things at a birthday party",
+    "letter": "B",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-39",
+    "category": "Party games",
+    "letter": "P",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-40",
+    "category": "Things that are loud",
+    "letter": "S",
+    "difficulty": 1,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-41",
+    "category": "Countries in Asia",
+    "letter": "J",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-42",
+    "category": "Things in a hotel room",
+    "letter": "T",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-43",
+    "category": "Things at a picnic",
+    "letter": "P",
+    "difficulty": 1,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-44",
+    "category": "Sports with a ball",
+    "letter": "V",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-45",
+    "category": "Things in a supermarket",
+    "letter": "F",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-46",
+    "category": "Reptiles",
+    "letter": "S",
+    "difficulty": 1,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-47",
+    "category": "Things at a farm",
+    "letter": "T",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-48",
+    "category": "Crafts",
+    "letter": "C",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-49",
+    "category": "Things in a hospital",
+    "letter": "B",
+    "difficulty": 1,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-50",
+    "category": "Things that are green",
+    "letter": "L",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-51",
+    "category": "Pizza toppings",
+    "letter": "O",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-52",
+    "category": "Things in a school bag",
+    "letter": "E",
+    "difficulty": 1,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-53",
+    "category": "Sea creatures",
+    "letter": "S",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-54",
+    "category": "Things at a wedding",
+    "letter": "R",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-55",
+    "category": "Things in a wallet",
+    "letter": "C",
+    "difficulty": 1,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-56",
+    "category": "Things in a garage",
+    "letter": "W",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-57",
+    "category": "Cities in Europe",
+    "letter": "B",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-58",
+    "category": "Things you can recycle",
+    "letter": "P",
+    "difficulty": 1,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-59",
+    "category": "Things at the beach",
+    "letter": "T",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-60",
+    "category": "Breakfast foods",
+    "letter": "W",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-61",
+    "category": "Things that are soft",
+    "letter": "C",
+    "difficulty": 1,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-62",
+    "category": "Apps on a phone",
+    "letter": "S",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-63",
+    "category": "Things in a garden",
+    "letter": "F",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-64",
+    "category": "Animals in Africa",
+    "letter": "L",
+    "difficulty": 1,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-65",
+    "category": "Things at a theme park",
+    "letter": "R",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-66",
+    "category": "Clothing accessories",
+    "letter": "B",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-67",
+    "category": "Things in a cinema",
+    "letter": "P",
+    "difficulty": 1,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-68",
+    "category": "Things you can borrow",
+    "letter": "L",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-69",
+    "category": "Desserts",
+    "letter": "T",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-70",
+    "category": "Things in a living room",
+    "letter": "C",
+    "difficulty": 1,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-71",
+    "category": "Countries in South America",
+    "letter": "P",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-72",
+    "category": "Things at a gym",
+    "letter": "D",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-73",
+    "category": "Toys",
+    "letter": "B",
+    "difficulty": 1,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-74",
+    "category": "Things in a fridge",
+    "letter": "M",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-75",
+    "category": "Things in a laundry basket",
+    "letter": "S",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-76",
+    "category": "Words related to space",
+    "letter": "A",
+    "difficulty": 1,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-77",
+    "category": "Things at a campsite",
+    "letter": "T",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-78",
+    "category": "School subjects",
+    "letter": "P",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-79",
+    "category": "Things at a bus stop",
+    "letter": "B",
+    "difficulty": 1,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "rush-80",
+    "category": "Sports played indoors",
+    "letter": "B",
+    "difficulty": 2,
+    "tags": [
+      "category",
+      "quick"
+    ],
+    "rating": "all"
+  }
 ]
