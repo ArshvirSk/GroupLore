@@ -1,7 +1,7 @@
 [
   {
     "id": "imp-01",
-    "text": "Name a breakfast food that always disappoints",
+    "text": "What's breakfast food that always disappoints",
     "tags": [
       "deduction",
       "food",
@@ -11,7 +11,7 @@
   },
   {
     "id": "imp-02",
-    "text": "Name a movie everyone claims to have seen",
+    "text": "What's movie everyone claims to have seen",
     "tags": [
       "deduction",
       "film"
@@ -20,7 +20,7 @@
   },
   {
     "id": "imp-03",
-    "text": "Name a song that gets a party started",
+    "text": "Which song gets a party started?",
     "tags": [
       "deduction",
       "music",
@@ -30,7 +30,7 @@
   },
   {
     "id": "imp-04",
-    "text": "Name a snack that disappears at a party",
+    "text": "What's snack that disappears at a party",
     "tags": [
       "deduction",
       "food",
@@ -41,7 +41,7 @@
   },
   {
     "id": "imp-05",
-    "text": "Name a place that is always crowded",
+    "text": "Which place is always crowded?",
     "tags": [
       "deduction"
     ],
@@ -49,7 +49,7 @@
   },
   {
     "id": "imp-06",
-    "text": "Name a chore that takes longer than expected",
+    "text": "What's chore that takes longer than expected",
     "tags": [
       "deduction"
     ],
@@ -57,7 +57,7 @@
   },
   {
     "id": "imp-07",
-    "text": "Name a gift you pretend to like",
+    "text": "What's gift you pretend to like",
     "tags": [
       "deduction"
     ],
@@ -65,7 +65,7 @@
   },
   {
     "id": "imp-08",
-    "text": "Name an app you open without thinking",
+    "text": "What's app you open without thinking",
     "tags": [
       "deduction",
       "tech"
@@ -74,7 +74,7 @@
   },
   {
     "id": "imp-09",
-    "text": "Name a food that tastes better the next day",
+    "text": "Which food tastes better the next day?",
     "tags": [
       "deduction",
       "food"
@@ -83,7 +83,7 @@
   },
   {
     "id": "imp-10",
-    "text": "Name a drink that says summer",
+    "text": "Which drink says summer?",
     "tags": [
       "deduction"
     ],
@@ -91,7 +91,7 @@
   },
   {
     "id": "imp-11",
-    "text": "Name a holiday tradition that confuses outsiders",
+    "text": "What's holiday tradition that confuses outsiders",
     "tags": [
       "deduction",
       "travel"
@@ -100,7 +100,7 @@
   },
   {
     "id": "imp-12",
-    "text": "Name a fictional character who would hate this group",
+    "text": "What's fictional character who would hate this group",
     "tags": [
       "deduction",
       "social"
@@ -117,7 +117,7 @@
   },
   {
     "id": "imp-14",
-    "text": "Name a word that sounds fake",
+    "text": "What's word that sounds fake",
     "tags": [
       "deduction"
     ],
@@ -125,7 +125,7 @@
   },
   {
     "id": "imp-15",
-    "text": "Name a movie villain who has a point",
+    "text": "What's movie villain who has a point",
     "tags": [
       "deduction",
       "film"
@@ -134,7 +134,7 @@
   },
   {
     "id": "imp-16",
-    "text": "Name a place you would never take a first date",
+    "text": "What's place you would never take a first date",
     "tags": [
       "deduction"
     ],
@@ -142,7 +142,7 @@
   },
   {
     "id": "imp-17",
-    "text": "Name a food that is better without the topping",
+    "text": "Better without the topping: which food?",
     "tags": [
       "deduction",
       "food"
@@ -151,7 +151,7 @@
   },
   {
     "id": "imp-18",
-    "text": "Name something that is always in the group chat",
+    "text": "What is always in the group chat?",
     "tags": [
       "deduction",
       "social"
@@ -160,7 +160,7 @@
   },
   {
     "id": "imp-19",
-    "text": "Name a game that ruins friendships",
+    "text": "Which game ruins friendships?",
     "tags": [
       "deduction",
       "games",
@@ -170,7 +170,7 @@
   },
   {
     "id": "imp-20",
-    "text": "Name a smell that brings back memories",
+    "text": "What's smell that brings back memories",
     "tags": [
       "deduction"
     ],
@@ -178,7 +178,7 @@
   },
   {
     "id": "imp-21",
-    "text": "Name something that is overpriced at the airport",
+    "text": "What is overpriced at the airport?",
     "tags": [
       "deduction",
       "travel"
@@ -187,7 +187,7 @@
   },
   {
     "id": "imp-22",
-    "text": "Name a song that makes people emotional",
+    "text": "Which song makes people emotional?",
     "tags": [
       "deduction",
       "music"
@@ -204,7 +204,7 @@
   },
   {
     "id": "imp-24",
-    "text": "Name a fictional place you want to visit",
+    "text": "What's fictional place you want to visit",
     "tags": [
       "deduction"
     ],
@@ -212,7 +212,7 @@
   },
   {
     "id": "imp-25",
-    "text": "Name a food that is impossible to eat politely",
+    "text": "Which food is impossible to eat politely?",
     "tags": [
       "deduction",
       "food"
@@ -229,7 +229,7 @@
   },
   {
     "id": "imp-27",
-    "text": "Name a movie that is better than the book",
+    "text": "Which movie is better than the book?",
     "tags": [
       "deduction",
       "film"
@@ -238,7 +238,7 @@
   },
   {
     "id": "imp-28",
-    "text": "Name a childhood toy everyone had",
+    "text": "What's childhood toy everyone had",
     "tags": [
       "deduction"
     ],
@@ -254,7 +254,7 @@
   },
   {
     "id": "imp-30",
-    "text": "Name a place where you whisper",
+    "text": "What's place where you whisper",
     "tags": [
       "deduction"
     ],
@@ -262,7 +262,7 @@
   },
   {
     "id": "imp-31",
-    "text": "Name a food that is always at a birthday party",
+    "text": "Which food is always at a birthday party?",
     "tags": [
       "deduction",
       "food",
@@ -272,7 +272,7 @@
   },
   {
     "id": "imp-32",
-    "text": "Name something that makes a road trip worse",
+    "text": "What makes a road trip worse?",
     "tags": [
       "deduction",
       "travel"
@@ -281,7 +281,7 @@
   },
   {
     "id": "imp-33",
-    "text": "Name a fictional family you would join",
+    "text": "What's fictional family you would join",
     "tags": [
       "deduction",
       "social"
@@ -290,7 +290,7 @@
   },
   {
     "id": "imp-34",
-    "text": "Name something you would bring to a desert island",
+    "text": "What would you bring to a desert island?",
     "tags": [
       "deduction"
     ],
@@ -298,7 +298,7 @@
   },
   {
     "id": "imp-35",
-    "text": "Name a song everyone knows the chorus to",
+    "text": "What's song everyone knows the chorus to",
     "tags": [
       "deduction",
       "music"
@@ -315,7 +315,7 @@
   },
   {
     "id": "imp-37",
-    "text": "Name a food that is better fried",
+    "text": "Better fried: which food?",
     "tags": [
       "deduction",
       "food"
@@ -324,7 +324,7 @@
   },
   {
     "id": "imp-38",
-    "text": "Name something you can never find in a store",
+    "text": "What would you never find in a store?",
     "tags": [
       "deduction"
     ],
@@ -332,7 +332,7 @@
   },
   {
     "id": "imp-39",
-    "text": "Name a movie that always makes you cry",
+    "text": "Which movie always makes you cry?",
     "tags": [
       "deduction",
       "film"
@@ -341,7 +341,7 @@
   },
   {
     "id": "imp-40",
-    "text": "Name something that is weirdly expensive",
+    "text": "What is weirdly expensive?",
     "tags": [
       "deduction"
     ],
@@ -349,7 +349,7 @@
   },
   {
     "id": "imp-41",
-    "text": "Name a place that feels like a different world",
+    "text": "Which place feels like a different world?",
     "tags": [
       "deduction"
     ],
@@ -365,7 +365,7 @@
   },
   {
     "id": "imp-43",
-    "text": "Name a controversial pizza topping",
+    "text": "What's controversial pizza topping",
     "tags": [
       "deduction",
       "food"
@@ -374,7 +374,7 @@
   },
   {
     "id": "imp-44",
-    "text": "Name a fictional creature you would keep as a pet",
+    "text": "What's fictional creature you would keep as a pet",
     "tags": [
       "deduction",
       "food"
@@ -383,7 +383,7 @@
   },
   {
     "id": "imp-45",
-    "text": "Name something that is always sticky",
+    "text": "What is always sticky?",
     "tags": [
       "deduction"
     ],
@@ -391,7 +391,7 @@
   },
   {
     "id": "imp-46",
-    "text": "Name a song that is impossible to dance to",
+    "text": "Which song is impossible to dance to?",
     "tags": [
       "deduction",
       "music"
@@ -400,7 +400,7 @@
   },
   {
     "id": "imp-47",
-    "text": "Name something that makes a group chat go quiet",
+    "text": "What makes a group chat go quiet?",
     "tags": [
       "deduction",
       "social"
@@ -409,7 +409,7 @@
   },
   {
     "id": "imp-48",
-    "text": "Name a food that is better cold",
+    "text": "Better cold: which food?",
     "tags": [
       "deduction",
       "food"
@@ -418,7 +418,7 @@
   },
   {
     "id": "imp-49",
-    "text": "Name something you would never admit to Googling",
+    "text": "What would you never admit to Googling?",
     "tags": [
       "deduction"
     ],
@@ -426,7 +426,7 @@
   },
   {
     "id": "imp-50",
-    "text": "Name a movie everyone has a strong opinion about",
+    "text": "What's movie everyone has a strong opinion about",
     "tags": [
       "deduction",
       "film"
@@ -435,7 +435,7 @@
   },
   {
     "id": "imp-51",
-    "text": "Name a place you go when you need quiet",
+    "text": "What's place you go when you need quiet",
     "tags": [
       "deduction"
     ],
@@ -451,7 +451,7 @@
   },
   {
     "id": "imp-53",
-    "text": "Name a food that is too much work to eat",
+    "text": "Which food is too much work to eat?",
     "tags": [
       "deduction",
       "food",
@@ -471,7 +471,7 @@
   },
   {
     "id": "imp-55",
-    "text": "Name a fictional duo that would win a fight",
+    "text": "What's fictional duo that would win a fight",
     "tags": [
       "deduction"
     ],
@@ -487,7 +487,7 @@
   },
   {
     "id": "imp-57",
-    "text": "Name a song that is played at every wedding",
+    "text": "Which song is played at every wedding?",
     "tags": [
       "deduction",
       "music",
@@ -497,7 +497,7 @@
   },
   {
     "id": "imp-58",
-    "text": "Name something that is always lost in the laundry",
+    "text": "What is always lost in the laundry?",
     "tags": [
       "deduction"
     ],
@@ -505,7 +505,7 @@
   },
   {
     "id": "imp-59",
-    "text": "Name a food that tastes like childhood",
+    "text": "Which food tastes like childhood?",
     "tags": [
       "deduction",
       "food"
@@ -522,7 +522,7 @@
   },
   {
     "id": "imp-61",
-    "text": "Name a place that is better at night",
+    "text": "Which place is better at night?",
     "tags": [
       "deduction"
     ],
@@ -538,7 +538,7 @@
   },
   {
     "id": "imp-63",
-    "text": "Name a movie you would rewatch right now",
+    "text": "What's movie you would rewatch right now",
     "tags": [
       "deduction",
       "film"
@@ -547,7 +547,7 @@
   },
   {
     "id": "imp-64",
-    "text": "Name something that is impossible to recycle",
+    "text": "What is impossible to recycle?",
     "tags": [
       "deduction"
     ],
@@ -555,7 +555,7 @@
   },
   {
     "id": "imp-65",
-    "text": "Name a food that always comes in a weird shape",
+    "text": "Which food always comes in a weird shape?",
     "tags": [
       "deduction",
       "food"
@@ -564,7 +564,7 @@
   },
   {
     "id": "imp-66",
-    "text": "Name something that makes you instantly suspicious",
+    "text": "What makes you instantly suspicious?",
     "tags": [
       "deduction"
     ],
@@ -572,7 +572,7 @@
   },
   {
     "id": "imp-67",
-    "text": "Name a fictional school you would attend",
+    "text": "What's fictional school you would attend",
     "tags": [
       "deduction",
       "school"
@@ -589,7 +589,7 @@
   },
   {
     "id": "imp-69",
-    "text": "Name a song that makes you drive faster",
+    "text": "Which song makes you drive faster?",
     "tags": [
       "deduction",
       "music"
@@ -598,7 +598,7 @@
   },
   {
     "id": "imp-70",
-    "text": "Name something that is better with friends",
+    "text": "What is better with friends?",
     "tags": [
       "deduction",
       "social"
@@ -607,7 +607,7 @@
   },
   {
     "id": "imp-71",
-    "text": "Name a food that is better reheated",
+    "text": "Better reheated: which food?",
     "difficulty": 1,
     "tags": [
       "prompt"
@@ -616,7 +616,7 @@
   },
   {
     "id": "imp-72",
-    "text": "Name a place you only visit when it rains",
+    "text": "What's place you only visit when it rains",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -625,7 +625,7 @@
   },
   {
     "id": "imp-73",
-    "text": "Name a thing everyone owns but rarely uses",
+    "text": "What's thing everyone owns but rarely uses",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -634,7 +634,7 @@
   },
   {
     "id": "imp-74",
-    "text": "Name a chore that is secretly satisfying",
+    "text": "What's chore that is secretly satisfying",
     "difficulty": 1,
     "tags": [
       "prompt"
@@ -643,7 +643,7 @@
   },
   {
     "id": "imp-75",
-    "text": "Name an item that always goes missing",
+    "text": "What's item that always goes missing",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -652,7 +652,7 @@
   },
   {
     "id": "imp-76",
-    "text": "Name a snack you eat standing up",
+    "text": "What's snack you eat standing up",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -661,7 +661,7 @@
   },
   {
     "id": "imp-77",
-    "text": "Name a word that sounds made up",
+    "text": "What's word that sounds made up",
     "difficulty": 1,
     "tags": [
       "prompt"
@@ -670,7 +670,7 @@
   },
   {
     "id": "imp-78",
-    "text": "Name a film everyone quotes",
+    "text": "What's film everyone quotes",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -679,7 +679,7 @@
   },
   {
     "id": "imp-79",
-    "text": "Name a smell that reminds you of school",
+    "text": "What's smell that reminds you of school",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -688,7 +688,7 @@
   },
   {
     "id": "imp-80",
-    "text": "Name a thing you do when nervous",
+    "text": "What would you do when nervous?",
     "difficulty": 1,
     "tags": [
       "prompt"
@@ -697,7 +697,7 @@
   },
   {
     "id": "imp-81",
-    "text": "Name a song that makes you cry",
+    "text": "Which song makes you cry?",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -706,7 +706,7 @@
   },
   {
     "id": "imp-82",
-    "text": "Name a gift that is hard to wrap",
+    "text": "What's gift that is hard to wrap",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -715,7 +715,7 @@
   },
   {
     "id": "imp-83",
-    "text": "Name a thing in a kitchen drawer you never use",
+    "text": "What's thing in a kitchen drawer you never use",
     "difficulty": 1,
     "tags": [
       "prompt"
@@ -724,7 +724,7 @@
   },
   {
     "id": "imp-84",
-    "text": "Name a place where you always wait",
+    "text": "What's place where you always wait",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -733,7 +733,7 @@
   },
   {
     "id": "imp-85",
-    "text": "Name a thing you always forget on holiday",
+    "text": "What would you always forget on holiday?",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -742,7 +742,7 @@
   },
   {
     "id": "imp-86",
-    "text": "Name a food that is better burnt",
+    "text": "Better burnt: which food?",
     "difficulty": 1,
     "tags": [
       "prompt"
@@ -751,7 +751,7 @@
   },
   {
     "id": "imp-87",
-    "text": "Name a thing that is always in the wrong pocket",
+    "text": "Which thing is always in the wrong pocket?",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -760,7 +760,7 @@
   },
   {
     "id": "imp-88",
-    "text": "Name a household sound you can identify",
+    "text": "What's household sound you can identify",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -769,7 +769,7 @@
   },
   {
     "id": "imp-89",
-    "text": "Name a reason to leave a party early",
+    "text": "What's reason to leave a party early",
     "difficulty": 1,
     "tags": [
       "prompt"
@@ -778,7 +778,7 @@
   },
   {
     "id": "imp-90",
-    "text": "Name a thing you would never lend",
+    "text": "What would you would never lend?",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -787,7 +787,7 @@
   },
   {
     "id": "imp-91",
-    "text": "Name a thing that gets bigger in the wash",
+    "text": "Which thing gets bigger in the wash?",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -796,7 +796,7 @@
   },
   {
     "id": "imp-92",
-    "text": "Name a food with a misleading name",
+    "text": "What's food with a misleading name",
     "difficulty": 1,
     "tags": [
       "prompt"
@@ -805,7 +805,7 @@
   },
   {
     "id": "imp-93",
-    "text": "Name a thing you keep just in case",
+    "text": "What would you keep just in case?",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -814,7 +814,7 @@
   },
   {
     "id": "imp-94",
-    "text": "Name a place that feels like another country",
+    "text": "Which place feels like another country?",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -823,7 +823,7 @@
   },
   {
     "id": "imp-95",
-    "text": "Name a phrase adults say too often",
+    "text": "What's phrase adults say too often",
     "difficulty": 1,
     "tags": [
       "prompt"
@@ -832,7 +832,7 @@
   },
   {
     "id": "imp-96",
-    "text": "Name a thing that always falls off",
+    "text": "Which thing always falls off?",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -841,7 +841,7 @@
   },
   {
     "id": "imp-97",
-    "text": "Name a shop you can never leave quickly",
+    "text": "What's shop you can never leave quickly",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -850,7 +850,7 @@
   },
   {
     "id": "imp-98",
-    "text": "Name a thing that is better in winter",
+    "text": "Which thing is better in winter?",
     "difficulty": 1,
     "tags": [
       "prompt"
@@ -859,7 +859,7 @@
   },
   {
     "id": "imp-99",
-    "text": "Name a present you would regift",
+    "text": "What's present you would regift",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -868,7 +868,7 @@
   },
   {
     "id": "imp-100",
-    "text": "Name a film you would show an alien",
+    "text": "What's film you would show an alien",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -877,7 +877,7 @@
   },
   {
     "id": "imp-101",
-    "text": "Name a thing that is always sticky",
+    "text": "Which thing is always sticky?",
     "difficulty": 1,
     "tags": [
       "prompt"
@@ -886,7 +886,7 @@
   },
   {
     "id": "imp-102",
-    "text": "Name a food you eat with a spoon",
+    "text": "What's food you eat with a spoon",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -895,7 +895,7 @@
   },
   {
     "id": "imp-103",
-    "text": "Name a thing that is impossible to fold",
+    "text": "Which thing is impossible to fold?",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -904,7 +904,7 @@
   },
   {
     "id": "imp-104",
-    "text": "Name a sound that wakes you up",
+    "text": "What's sound that wakes you up",
     "difficulty": 1,
     "tags": [
       "prompt"
@@ -913,7 +913,7 @@
   },
   {
     "id": "imp-105",
-    "text": "Name a thing you do before a trip",
+    "text": "What would you do before a trip?",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -922,7 +922,7 @@
   },
   {
     "id": "imp-106",
-    "text": "Name a thing in a first-aid kit",
+    "text": "What's thing in a first-aid kit",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -931,7 +931,7 @@
   },
   {
     "id": "imp-107",
-    "text": "Name a place where you always get lost",
+    "text": "What's place where you always get lost",
     "difficulty": 1,
     "tags": [
       "prompt"
@@ -940,7 +940,7 @@
   },
   {
     "id": "imp-108",
-    "text": "Name a thing you buy but never finish",
+    "text": "What would you buy but never finish?",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -949,7 +949,7 @@
   },
   {
     "id": "imp-109",
-    "text": "Name a task that takes exactly five minutes",
+    "text": "What's task that takes exactly five minutes",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -958,7 +958,7 @@
   },
   {
     "id": "imp-110",
-    "text": "Name a thing that looks easier than it is",
+    "text": "Which thing looks easier than it is?",
     "difficulty": 1,
     "tags": [
       "prompt"
@@ -967,7 +967,7 @@
   },
   {
     "id": "imp-111",
-    "text": "Name a food that is better frozen",
+    "text": "Better frozen: which food?",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -976,7 +976,7 @@
   },
   {
     "id": "imp-112",
-    "text": "Name a thing that is always cold",
+    "text": "Which thing is always cold?",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -985,7 +985,7 @@
   },
   {
     "id": "imp-113",
-    "text": "Name a thing you check twice",
+    "text": "What would you check twice?",
     "difficulty": 1,
     "tags": [
       "prompt"
@@ -994,7 +994,7 @@
   },
   {
     "id": "imp-114",
-    "text": "Name a sound from your childhood",
+    "text": "What's sound from your childhood",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -1003,7 +1003,7 @@
   },
   {
     "id": "imp-115",
-    "text": "Name a thing everyone has an opinion about",
+    "text": "What's thing everyone has an opinion about",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -1012,7 +1012,7 @@
   },
   {
     "id": "imp-116",
-    "text": "Name a thing that is never where it belongs",
+    "text": "Which thing is never where it belongs?",
     "difficulty": 1,
     "tags": [
       "prompt"
@@ -1021,7 +1021,7 @@
   },
   {
     "id": "imp-117",
-    "text": "Name a thing you would take to a desert island",
+    "text": "What would you would take to a desert island?",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -1030,7 +1030,7 @@
   },
   {
     "id": "imp-118",
-    "text": "Name a shop that smells distinctive",
+    "text": "What's shop that smells distinctive",
     "difficulty": 2,
     "tags": [
       "prompt"
@@ -1039,7 +1039,7 @@
   },
   {
     "id": "imp-119",
-    "text": "Name a thing that makes a house feel like home",
+    "text": "Which thing makes a house feel like home?",
     "difficulty": 1,
     "tags": [
       "prompt"
@@ -1048,7 +1048,7 @@
   },
   {
     "id": "imp-120",
-    "text": "Name a thing you can never find when you need it",
+    "text": "What would you can never find when you need it?",
     "difficulty": 2,
     "tags": [
       "prompt"

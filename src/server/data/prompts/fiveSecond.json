@@ -1,7 +1,7 @@
 [
   {
     "id": "five-01",
-    "text": "Name a pizza topping",
+    "text": "What's pizza topping",
     "tags": [
       "quick",
       "food"
@@ -10,7 +10,7 @@
   },
   {
     "id": "five-02",
-    "text": "Name a color you never wear",
+    "text": "What's color you never wear",
     "tags": [
       "quick"
     ],
@@ -18,7 +18,7 @@
   },
   {
     "id": "five-03",
-    "text": "Name a breakfast food",
+    "text": "What's breakfast food",
     "tags": [
       "quick",
       "food"
@@ -27,7 +27,7 @@
   },
   {
     "id": "five-04",
-    "text": "Name a movie from the 2000s",
+    "text": "What's movie from the 2000s",
     "tags": [
       "quick",
       "film"
@@ -36,7 +36,7 @@
   },
   {
     "id": "five-05",
-    "text": "Name a song you know by heart",
+    "text": "What's song you know by heart",
     "tags": [
       "quick",
       "music"
@@ -45,7 +45,7 @@
   },
   {
     "id": "five-06",
-    "text": "Name a snack in a cinema",
+    "text": "What's snack in a cinema",
     "tags": [
       "quick",
       "food",
@@ -55,7 +55,7 @@
   },
   {
     "id": "five-07",
-    "text": "Name a country you want to visit",
+    "text": "What's country you want to visit",
     "tags": [
       "quick",
       "travel"
@@ -64,7 +64,7 @@
   },
   {
     "id": "five-08",
-    "text": "Name something in your bag",
+    "text": "In your bag, what's something?",
     "tags": [
       "quick"
     ],
@@ -72,7 +72,7 @@
   },
   {
     "id": "five-09",
-    "text": "Name a fruit that is annoying to peel",
+    "text": "What's fruit that is annoying to peel",
     "tags": [
       "quick",
       "food"
@@ -81,7 +81,7 @@
   },
   {
     "id": "five-10",
-    "text": "Name a cartoon character",
+    "text": "What's cartoon character",
     "tags": [
       "quick"
     ],
@@ -89,7 +89,7 @@
   },
   {
     "id": "five-11",
-    "text": "Name a board game",
+    "text": "What's board game",
     "tags": [
       "quick",
       "games"
@@ -98,7 +98,7 @@
   },
   {
     "id": "five-12",
-    "text": "Name a superhero",
+    "text": "What's superhero",
     "tags": [
       "quick"
     ],
@@ -106,7 +106,7 @@
   },
   {
     "id": "five-13",
-    "text": "Name a type of shoe",
+    "text": "Which type of shoe?",
     "tags": [
       "quick"
     ],
@@ -114,7 +114,7 @@
   },
   {
     "id": "five-14",
-    "text": "Name something in a hotel room",
+    "text": "In a hotel room, what's something?",
     "tags": [
       "quick",
       "travel"
@@ -123,7 +123,7 @@
   },
   {
     "id": "five-15",
-    "text": "Name a sport you would never play",
+    "text": "What's sport you would never play",
     "tags": [
       "quick",
       "sport"
@@ -132,7 +132,7 @@
   },
   {
     "id": "five-16",
-    "text": "Name something in a kitchen drawer",
+    "text": "In a kitchen drawer, what's something?",
     "tags": [
       "quick"
     ],
@@ -140,7 +140,7 @@
   },
   {
     "id": "five-17",
-    "text": "Name a word that starts with b",
+    "text": "Give me a b-word",
     "tags": [
       "quick"
     ],
@@ -148,7 +148,7 @@
   },
   {
     "id": "five-18",
-    "text": "Name something that is blue",
+    "text": "What is blue?",
     "tags": [
       "quick"
     ],
@@ -156,7 +156,7 @@
   },
   {
     "id": "five-19",
-    "text": "Name a famous singer",
+    "text": "What's famous singer",
     "tags": [
       "quick",
       "music"
@@ -173,7 +173,7 @@
   },
   {
     "id": "five-21",
-    "text": "Name a food that comes in a can",
+    "text": "Which food comes in a can?",
     "tags": [
       "quick",
       "food"
@@ -182,7 +182,7 @@
   },
   {
     "id": "five-22",
-    "text": "Name something at a beach",
+    "text": "In a beach, what's something?",
     "tags": [
       "quick",
       "travel"
@@ -191,7 +191,7 @@
   },
   {
     "id": "five-23",
-    "text": "Name a video game",
+    "text": "What's video game",
     "tags": [
       "quick",
       "games"
@@ -200,7 +200,7 @@
   },
   {
     "id": "five-24",
-    "text": "Name something that is round",
+    "text": "What is round?",
     "tags": [
       "quick"
     ],
@@ -208,7 +208,7 @@
   },
   {
     "id": "five-25",
-    "text": "Name a sandwich filling",
+    "text": "What's sandwich filling",
     "tags": [
       "quick"
     ],
@@ -216,7 +216,7 @@
   },
   {
     "id": "five-26",
-    "text": "Name something in a hospital",
+    "text": "In a hospital, what's something?",
     "tags": [
       "quick"
     ],
@@ -224,7 +224,7 @@
   },
   {
     "id": "five-27",
-    "text": "Name a song by a band",
+    "text": "What's song by a band",
     "tags": [
       "quick",
       "music"
@@ -241,7 +241,7 @@
   },
   {
     "id": "five-29",
-    "text": "Name a drink with caffeine",
+    "text": "What's drink with caffeine",
     "tags": [
       "quick"
     ],
@@ -249,7 +249,7 @@
   },
   {
     "id": "five-30",
-    "text": "Name a word that rhymes with cat",
+    "text": "What's word that rhymes with cat",
     "tags": [
       "quick"
     ],
@@ -257,7 +257,7 @@
   },
   {
     "id": "five-31",
-    "text": "Name something in a classroom",
+    "text": "In a classroom, what's something?",
     "tags": [
       "quick",
       "school"
@@ -266,7 +266,7 @@
   },
   {
     "id": "five-32",
-    "text": "Name a type of weather",
+    "text": "Which type of weather?",
     "tags": [
       "quick",
       "food"
@@ -275,7 +275,7 @@
   },
   {
     "id": "five-33",
-    "text": "Name something you can recycle",
+    "text": "What would you recycle?",
     "tags": [
       "quick"
     ],
@@ -283,7 +283,7 @@
   },
   {
     "id": "five-34",
-    "text": "Name a famous actor",
+    "text": "What's famous actor",
     "tags": [
       "quick"
     ],
@@ -291,7 +291,7 @@
   },
   {
     "id": "five-35",
-    "text": "Name something in a gym",
+    "text": "In a gym, what's something?",
     "tags": [
       "quick",
       "sport"
@@ -300,7 +300,7 @@
   },
   {
     "id": "five-36",
-    "text": "Name a breakfast drink",
+    "text": "What's breakfast drink",
     "tags": [
       "quick",
       "food"
@@ -309,7 +309,7 @@
   },
   {
     "id": "five-37",
-    "text": "Name something that is sticky",
+    "text": "What is sticky?",
     "tags": [
       "quick"
     ],
@@ -317,7 +317,7 @@
   },
   {
     "id": "five-38",
-    "text": "Name a place with a queue",
+    "text": "What's place with a queue",
     "tags": [
       "quick"
     ],
@@ -325,7 +325,7 @@
   },
   {
     "id": "five-39",
-    "text": "Name something you can fold",
+    "text": "What would you fold?",
     "tags": [
       "quick"
     ],
@@ -333,7 +333,7 @@
   },
   {
     "id": "five-40",
-    "text": "Name something in a toolbox",
+    "text": "In a toolbox, what's something?",
     "tags": [
       "quick"
     ],
@@ -341,7 +341,7 @@
   },
   {
     "id": "five-41",
-    "text": "Name a cereal",
+    "text": "What's cereal",
     "tags": [
       "quick"
     ],
@@ -349,7 +349,7 @@
   },
   {
     "id": "five-42",
-    "text": "Name something that is cold",
+    "text": "What is cold?",
     "tags": [
       "quick"
     ],
@@ -357,7 +357,7 @@
   },
   {
     "id": "five-43",
-    "text": "Name a holiday",
+    "text": "What's holiday",
     "tags": [
       "quick",
       "travel"
@@ -366,7 +366,7 @@
   },
   {
     "id": "five-44",
-    "text": "Name something you can borrow",
+    "text": "What would you borrow?",
     "tags": [
       "quick"
     ],
@@ -374,7 +374,7 @@
   },
   {
     "id": "five-45",
-    "text": "Name a type of hat",
+    "text": "Which type of hat?",
     "tags": [
       "quick"
     ],
@@ -382,7 +382,7 @@
   },
   {
     "id": "five-46",
-    "text": "Name something in a garden",
+    "text": "In a garden, what's something?",
     "tags": [
       "quick"
     ],
@@ -390,7 +390,7 @@
   },
   {
     "id": "five-47",
-    "text": "Name a song with a number in the title",
+    "text": "What's song with a number in the title",
     "tags": [
       "quick",
       "music"
@@ -407,7 +407,7 @@
   },
   {
     "id": "five-49",
-    "text": "Name a food that is spicy",
+    "text": "Which food is spicy?",
     "tags": [
       "quick",
       "food"
@@ -416,7 +416,7 @@
   },
   {
     "id": "five-50",
-    "text": "Name something in a wallet",
+    "text": "In a wallet, what's something?",
     "tags": [
       "quick"
     ],
@@ -424,7 +424,7 @@
   },
   {
     "id": "five-51",
-    "text": "Name a cartoon movie",
+    "text": "What's cartoon movie",
     "tags": [
       "quick",
       "film"
@@ -433,7 +433,7 @@
   },
   {
     "id": "five-52",
-    "text": "Name something you can paint",
+    "text": "What would you paint?",
     "tags": [
       "quick"
     ],
@@ -441,7 +441,7 @@
   },
   {
     "id": "five-53",
-    "text": "Name a fruit with a stone",
+    "text": "What's fruit with a stone",
     "tags": [
       "quick",
       "food"
@@ -450,7 +450,7 @@
   },
   {
     "id": "five-54",
-    "text": "Name something at a birthday party",
+    "text": "In a birthday party, what's something?",
     "tags": [
       "quick",
       "social"
@@ -459,7 +459,7 @@
   },
   {
     "id": "five-55",
-    "text": "Name something that is always late",
+    "text": "What is always late?",
     "tags": [
       "quick"
     ],
@@ -467,7 +467,7 @@
   },
   {
     "id": "five-56",
-    "text": "Name something in a library",
+    "text": "In a library, what's something?",
     "tags": [
       "quick",
       "school"
@@ -476,7 +476,7 @@
   },
   {
     "id": "five-57",
-    "text": "Name a type of cloud",
+    "text": "Which type of cloud?",
     "tags": [
       "quick"
     ],
@@ -484,7 +484,7 @@
   },
   {
     "id": "five-58",
-    "text": "Name something you can stack",
+    "text": "What would you stack?",
     "tags": [
       "quick"
     ],
@@ -492,7 +492,7 @@
   },
   {
     "id": "five-59",
-    "text": "Name a hot drink",
+    "text": "What's hot drink",
     "tags": [
       "quick"
     ],
@@ -508,7 +508,7 @@
   },
   {
     "id": "five-61",
-    "text": "Name something you can smell",
+    "text": "What would you smell?",
     "tags": [
       "quick"
     ],
@@ -516,7 +516,7 @@
   },
   {
     "id": "five-62",
-    "text": "Name something in a car",
+    "text": "In a car, what's something?",
     "tags": [
       "quick"
     ],
@@ -524,7 +524,7 @@
   },
   {
     "id": "five-63",
-    "text": "Name a word that starts with s",
+    "text": "Give me an s-word",
     "tags": [
       "quick"
     ],
@@ -532,7 +532,7 @@
   },
   {
     "id": "five-64",
-    "text": "Name something that is green",
+    "text": "What is green?",
     "tags": [
       "quick"
     ],
@@ -540,7 +540,7 @@
   },
   {
     "id": "five-65",
-    "text": "Name a type of pasta",
+    "text": "Which type of pasta?",
     "tags": [
       "quick"
     ],
@@ -548,7 +548,7 @@
   },
   {
     "id": "five-66",
-    "text": "Name something at a zoo",
+    "text": "In a zoo, what's something?",
     "tags": [
       "quick"
     ],
@@ -556,7 +556,7 @@
   },
   {
     "id": "five-67",
-    "text": "Name something you can write with",
+    "text": "What would you write with?",
     "tags": [
       "quick"
     ],
@@ -564,7 +564,7 @@
   },
   {
     "id": "five-68",
-    "text": "Name something that is loud",
+    "text": "What is loud?",
     "tags": [
       "quick"
     ],
@@ -572,7 +572,7 @@
   },
   {
     "id": "five-69",
-    "text": "Name a place you can swim",
+    "text": "What's place you can swim",
     "tags": [
       "quick"
     ],
@@ -580,7 +580,7 @@
   },
   {
     "id": "five-70",
-    "text": "Name something in a pocket",
+    "text": "In a pocket, what's something?",
     "tags": [
       "quick"
     ],
@@ -596,7 +596,7 @@
   },
   {
     "id": "five-72",
-    "text": "Name a food that is yellow",
+    "text": "Which food is yellow?",
     "tags": [
       "quick",
       "food"
@@ -605,7 +605,7 @@
   },
   {
     "id": "five-73",
-    "text": "Name something you can build",
+    "text": "What would you build?",
     "tags": [
       "quick"
     ],
@@ -613,7 +613,7 @@
   },
   {
     "id": "five-74",
-    "text": "Name something in a bathroom",
+    "text": "In a bathroom, what's something?",
     "tags": [
       "quick"
     ],
@@ -621,7 +621,7 @@
   },
   {
     "id": "five-75",
-    "text": "Name something you can throw",
+    "text": "What would you throw?",
     "tags": [
       "quick"
     ],
@@ -629,7 +629,7 @@
   },
   {
     "id": "five-76",
-    "text": "Name something that is soft",
+    "text": "What is soft?",
     "tags": [
       "quick"
     ],
@@ -637,7 +637,7 @@
   },
   {
     "id": "five-77",
-    "text": "Name something at a train station",
+    "text": "In a train station, what's something?",
     "tags": [
       "quick",
       "travel"
@@ -646,7 +646,7 @@
   },
   {
     "id": "five-78",
-    "text": "Name something you can freeze",
+    "text": "What would you freeze?",
     "tags": [
       "quick"
     ],
@@ -662,7 +662,7 @@
   },
   {
     "id": "five-80",
-    "text": "Name something that makes you laugh",
+    "text": "What makes you laugh?",
     "tags": [
       "quick"
     ],
@@ -670,7 +670,7 @@
   },
   {
     "id": "five-81",
-    "text": "Name a pizza topping you would remove",
+    "text": "What's pizza topping you would remove",
     "difficulty": 1,
     "tags": [
       "quick",
@@ -680,7 +680,7 @@
   },
   {
     "id": "five-82",
-    "text": "Name a colour that feels like summer",
+    "text": "What's colour that feels like summer",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -690,7 +690,7 @@
   },
   {
     "id": "five-83",
-    "text": "Name a food you eat with your hands",
+    "text": "What's food you eat with your hands",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -700,7 +700,7 @@
   },
   {
     "id": "five-84",
-    "text": "Name a film with a one-word title",
+    "text": "What's film with a one-word title",
     "difficulty": 1,
     "tags": [
       "quick",
@@ -710,7 +710,7 @@
   },
   {
     "id": "five-85",
-    "text": "Name a song that reminds you of school",
+    "text": "Which song reminds you of school?",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -720,7 +720,7 @@
   },
   {
     "id": "five-86",
-    "text": "Name a thing in a bathroom",
+    "text": "What's thing in a bathroom",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -730,7 +730,7 @@
   },
   {
     "id": "five-87",
-    "text": "Name a country starting with M",
+    "text": "What's country starting with M",
     "difficulty": 1,
     "tags": [
       "quick",
@@ -740,7 +740,7 @@
   },
   {
     "id": "five-88",
-    "text": "Name a job that starts early",
+    "text": "What's job that starts early",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -750,7 +750,7 @@
   },
   {
     "id": "five-89",
-    "text": "Name a thing you keep in a drawer",
+    "text": "What would you keep in a drawer?",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -760,7 +760,7 @@
   },
   {
     "id": "five-90",
-    "text": "Name a fruit with a rough skin",
+    "text": "What's fruit with a rough skin",
     "difficulty": 1,
     "tags": [
       "quick",
@@ -770,7 +770,7 @@
   },
   {
     "id": "five-91",
-    "text": "Name a sport played on grass",
+    "text": "What's sport played on grass",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -780,7 +780,7 @@
   },
   {
     "id": "five-92",
-    "text": "Name a thing that makes you sneeze",
+    "text": "Which thing makes you sneeze?",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -790,7 +790,7 @@
   },
   {
     "id": "five-93",
-    "text": "Name a word that sounds funny",
+    "text": "What's word that sounds funny",
     "difficulty": 1,
     "tags": [
       "quick",
@@ -800,7 +800,7 @@
   },
   {
     "id": "five-94",
-    "text": "Name a thing you would take camping",
+    "text": "What would you would take camping?",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -810,7 +810,7 @@
   },
   {
     "id": "five-95",
-    "text": "Name a cartoon animal",
+    "text": "What's cartoon animal",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -820,7 +820,7 @@
   },
   {
     "id": "five-96",
-    "text": "Name a drink served hot",
+    "text": "What's drink served hot",
     "difficulty": 1,
     "tags": [
       "quick",
@@ -830,7 +830,7 @@
   },
   {
     "id": "five-97",
-    "text": "Name a thing at a train station",
+    "text": "What's thing at a train station",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -840,7 +840,7 @@
   },
   {
     "id": "five-98",
-    "text": "Name a board game with dice",
+    "text": "What's board game with dice",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -850,7 +850,7 @@
   },
   {
     "id": "five-99",
-    "text": "Name a household appliance",
+    "text": "What's household appliance",
     "difficulty": 1,
     "tags": [
       "quick",
@@ -860,7 +860,7 @@
   },
   {
     "id": "five-100",
-    "text": "Name a thing that is always cold",
+    "text": "Which thing is always cold?",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -870,7 +870,7 @@
   },
   {
     "id": "five-101",
-    "text": "Name a film about space",
+    "text": "What's film about space",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -880,7 +880,7 @@
   },
   {
     "id": "five-102",
-    "text": "Name a food that comes in a tin",
+    "text": "Which food comes in a tin?",
     "difficulty": 1,
     "tags": [
       "quick",
@@ -890,7 +890,7 @@
   },
   {
     "id": "five-103",
-    "text": "Name a thing you do at a wedding",
+    "text": "What would you do at a wedding?",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -900,7 +900,7 @@
   },
   {
     "id": "five-104",
-    "text": "Name a place with sand",
+    "text": "What's place with sand",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -910,7 +910,7 @@
   },
   {
     "id": "five-105",
-    "text": "Name a thing that flies",
+    "text": "Which thing flies?",
     "difficulty": 1,
     "tags": [
       "quick",
@@ -920,7 +920,7 @@
   },
   {
     "id": "five-106",
-    "text": "Name a vegetable that is purple",
+    "text": "What's vegetable that is purple",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -930,7 +930,7 @@
   },
   {
     "id": "five-107",
-    "text": "Name a song with a colour in the title",
+    "text": "What's song with a colour in the title",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -940,7 +940,7 @@
   },
   {
     "id": "five-108",
-    "text": "Name a thing in a school bag",
+    "text": "What's thing in a school bag",
     "difficulty": 1,
     "tags": [
       "quick",
@@ -950,7 +950,7 @@
   },
   {
     "id": "five-109",
-    "text": "Name a job with a uniform",
+    "text": "What's job with a uniform",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -960,7 +960,7 @@
   },
   {
     "id": "five-110",
-    "text": "Name a thing that is sticky",
+    "text": "Which thing is sticky?",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -970,7 +970,7 @@
   },
   {
     "id": "five-111",
-    "text": "Name a city in Europe",
+    "text": "What's city in Europe",
     "difficulty": 1,
     "tags": [
       "quick",
@@ -980,7 +980,7 @@
   },
   {
     "id": "five-112",
-    "text": "Name a thing you can recycle",
+    "text": "What would you can recycle?",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -990,7 +990,7 @@
   },
   {
     "id": "five-113",
-    "text": "Name a food that is sour",
+    "text": "Which food is sour?",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -1000,7 +1000,7 @@
   },
   {
     "id": "five-114",
-    "text": "Name a thing in a garden",
+    "text": "What's thing in a garden",
     "difficulty": 1,
     "tags": [
       "quick",
@@ -1010,7 +1010,7 @@
   },
   {
     "id": "five-115",
-    "text": "Name a film with a happy ending",
+    "text": "What's film with a happy ending",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -1020,7 +1020,7 @@
   },
   {
     "id": "five-116",
-    "text": "Name a thing that makes a loud noise",
+    "text": "Which thing makes a loud noise?",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -1030,7 +1030,7 @@
   },
   {
     "id": "five-117",
-    "text": "Name a thing you would find in a hotel room",
+    "text": "What would you would find in a hotel room?",
     "difficulty": 1,
     "tags": [
       "quick",
@@ -1040,7 +1040,7 @@
   },
   {
     "id": "five-118",
-    "text": "Name a fruit that is yellow",
+    "text": "What's fruit that is yellow",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -1050,7 +1050,7 @@
   },
   {
     "id": "five-119",
-    "text": "Name a sport with a net",
+    "text": "What's sport with a net",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -1060,7 +1060,7 @@
   },
   {
     "id": "five-120",
-    "text": "Name a thing that comes in pairs",
+    "text": "Which thing comes in pairs?",
     "difficulty": 1,
     "tags": [
       "quick",
@@ -1070,7 +1070,7 @@
   },
   {
     "id": "five-121",
-    "text": "Name a word with three syllables",
+    "text": "What's word with three syllables",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -1080,7 +1080,7 @@
   },
   {
     "id": "five-122",
-    "text": "Name a thing you do on a rainy day",
+    "text": "What would you do on a rainy day?",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -1090,7 +1090,7 @@
   },
   {
     "id": "five-123",
-    "text": "Name a food that is round",
+    "text": "Which food is round?",
     "difficulty": 1,
     "tags": [
       "quick",
@@ -1100,7 +1100,7 @@
   },
   {
     "id": "five-124",
-    "text": "Name a place where people whisper",
+    "text": "What's place where people whisper",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -1110,7 +1110,7 @@
   },
   {
     "id": "five-125",
-    "text": "Name a thing you can borrow from a library",
+    "text": "What would you can borrow from a library?",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -1120,7 +1120,7 @@
   },
   {
     "id": "five-126",
-    "text": "Name a drink with bubbles",
+    "text": "What's drink with bubbles",
     "difficulty": 1,
     "tags": [
       "quick",
@@ -1130,7 +1130,7 @@
   },
   {
     "id": "five-127",
-    "text": "Name a job that uses a computer",
+    "text": "What's job that uses a computer",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -1140,7 +1140,7 @@
   },
   {
     "id": "five-128",
-    "text": "Name a thing that is soft",
+    "text": "Which thing is soft?",
     "difficulty": 2,
     "tags": [
       "quick",
@@ -1150,7 +1150,7 @@
   },
   {
     "id": "five-129",
-    "text": "Name a holiday tradition",
+    "text": "What's holiday tradition",
     "difficulty": 1,
     "tags": [
       "quick",
@@ -1160,7 +1160,7 @@
   },
   {
     "id": "five-130",
-    "text": "Name a thing you always forget",
+    "text": "What would you always forget?",
     "difficulty": 2,
     "tags": [
       "quick",

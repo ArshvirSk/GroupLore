@@ -1,7 +1,7 @@
 [
   {
     "id": "mlt-01",
-    "text": "Most likely to reply to a message three days later and act like nothing happened",
+    "text": "Who would reply to a message three days later and act like nothing happened?",
     "tags": [
       "social",
       "tech"
@@ -10,7 +10,7 @@
   },
   {
     "id": "mlt-02",
-    "text": "Most likely to become famous for something completely accidental",
+    "text": "Who would become famous for something completely accidental?",
     "tags": [
       "social"
     ],
@@ -18,7 +18,7 @@
   },
   {
     "id": "mlt-03",
-    "text": "Most likely to start a group chat and immediately mute it",
+    "text": "Who would start a group chat and immediately mute it?",
     "tags": [
       "social"
     ],
@@ -26,7 +26,7 @@
   },
   {
     "id": "mlt-04",
-    "text": "Most likely to order for the whole table without asking",
+    "text": "Who would order for the whole table without asking?",
     "tags": [
       "social"
     ],
@@ -34,7 +34,7 @@
   },
   {
     "id": "mlt-05",
-    "text": "Most likely to cry at a car commercial",
+    "text": "Who would cry at a car commercial?",
     "tags": [
       "social"
     ],
@@ -42,7 +42,7 @@
   },
   {
     "id": "mlt-06",
-    "text": "Most likely to survive a zombie apocalypse purely by luck",
+    "text": "Who would survive a zombie apocalypse purely by luck?",
     "tags": [
       "social"
     ],
@@ -50,7 +50,7 @@
   },
   {
     "id": "mlt-07",
-    "text": "Most likely to turn a five-minute errand into a three-hour adventure",
+    "text": "Turning a five-minute errand into a three-hour adventure: who would do that?",
     "tags": [
       "social"
     ],
@@ -58,7 +58,7 @@
   },
   {
     "id": "mlt-08",
-    "text": "Most likely to have a spreadsheet for their personal life",
+    "text": "A spreadsheet for their personal life: who would have it?",
     "tags": [
       "social"
     ],
@@ -66,7 +66,7 @@
   },
   {
     "id": "mlt-09",
-    "text": "Most likely to fall asleep during their own birthday party",
+    "text": "Who would fall asleep during their own birthday party?",
     "tags": [
       "social"
     ],
@@ -74,7 +74,7 @@
   },
   {
     "id": "mlt-10",
-    "text": "Most likely to become a millionaire and still split the bill exactly",
+    "text": "Who would become a millionaire and still split the bill exactly?",
     "tags": [
       "social"
     ],
@@ -82,7 +82,7 @@
   },
   {
     "id": "mlt-11",
-    "text": "Most likely to win an argument by inventing a statistic",
+    "text": "Who would win an argument by inventing a statistic?",
     "tags": [
       "social"
     ],
@@ -90,7 +90,7 @@
   },
   {
     "id": "mlt-12",
-    "text": "Most likely to show up wearing the wrong outfit on purpose",
+    "text": "Who would show up wearing the wrong outfit on purpose?",
     "tags": [
       "social",
       "film"
@@ -99,7 +99,7 @@
   },
   {
     "id": "mlt-13",
-    "text": "Most likely to befriend a stranger in a queue and leave with plans",
+    "text": "Who would befriend a stranger in a queue and leave with plans?",
     "tags": [
       "social"
     ],
@@ -107,7 +107,7 @@
   },
   {
     "id": "mlt-14",
-    "text": "Most likely to send a voice note that is longer than a podcast",
+    "text": "Who would send a voice note that is longer than a podcast?",
     "tags": [
       "social"
     ],
@@ -115,7 +115,7 @@
   },
   {
     "id": "mlt-15",
-    "text": "Most likely to book a trip because the flight was cheap",
+    "text": "Who would book a trip because the flight was cheap?",
     "tags": [
       "social",
       "travel"
@@ -124,7 +124,7 @@
   },
   {
     "id": "mlt-16",
-    "text": "Most likely to eat the last slice and blame the group chat",
+    "text": "Who would eat the last slice and blame the group chat?",
     "tags": [
       "social",
       "food"
@@ -133,7 +133,7 @@
   },
   {
     "id": "mlt-17",
-    "text": "Most likely to have a secret talent nobody believes",
+    "text": "A secret talent nobody believes: who would have it?",
     "tags": [
       "social"
     ],
@@ -141,7 +141,7 @@
   },
   {
     "id": "mlt-18",
-    "text": "Most likely to get lost using a map",
+    "text": "Who would get lost using a map?",
     "tags": [
       "social",
       "music"
@@ -150,7 +150,7 @@
   },
   {
     "id": "mlt-19",
-    "text": "Most likely to become the group's unofficial therapist",
+    "text": "Who would become the group's unofficial therapist?",
     "tags": [
       "social"
     ],
@@ -158,7 +158,7 @@
   },
   {
     "id": "mlt-20",
-    "text": "Most likely to laugh at the worst possible moment",
+    "text": "Who would laugh at the worst possible moment?",
     "tags": [
       "social"
     ],
@@ -166,7 +166,7 @@
   },
   {
     "id": "mlt-21",
-    "text": "Most likely to adopt an animal they definitely cannot look after",
+    "text": "Who would adopt an animal they definitely cannot look after?",
     "tags": [
       "social",
       "science"
@@ -175,7 +175,7 @@
   },
   {
     "id": "mlt-22",
-    "text": "Most likely to write a strongly worded review about a sandwich",
+    "text": "Who would write a strongly worded review about a sandwich?",
     "tags": [
       "social"
     ],
@@ -183,7 +183,7 @@
   },
   {
     "id": "mlt-23",
-    "text": "Most likely to go viral for a video they did not mean to post",
+    "text": "Who would go viral for a video they did not mean to post?",
     "tags": [
       "social"
     ],
@@ -191,7 +191,7 @@
   },
   {
     "id": "mlt-24",
-    "text": "Most likely to have a backup plan for their backup plan",
+    "text": "A backup plan for their backup plan: who would have it?",
     "tags": [
       "social"
     ],
@@ -199,7 +199,7 @@
   },
   {
     "id": "mlt-25",
-    "text": "Most likely to spend an entire day rearranging a playlist",
+    "text": "Who would spend an entire day rearranging a playlist?",
     "tags": [
       "social"
     ],
@@ -207,7 +207,7 @@
   },
   {
     "id": "mlt-26",
-    "text": "Most likely to be late to their own surprise party",
+    "text": "Who would be late to their own surprise party?",
     "tags": [
       "social"
     ],
@@ -215,7 +215,7 @@
   },
   {
     "id": "mlt-27",
-    "text": "Most likely to fall in love with a houseplant",
+    "text": "Who would fall in love with a houseplant?",
     "tags": [
       "social"
     ],
@@ -223,7 +223,7 @@
   },
   {
     "id": "mlt-28",
-    "text": "Most likely to quote a film nobody else has seen",
+    "text": "Who would quote a film nobody else has seen?",
     "tags": [
       "social",
       "film"
@@ -232,7 +232,7 @@
   },
   {
     "id": "mlt-29",
-    "text": "Most likely to turn a hobby into a small business by the weekend",
+    "text": "Turning a hobby into a small business by the weekend: who would do that?",
     "tags": [
       "social"
     ],
@@ -240,7 +240,7 @@
   },
   {
     "id": "mlt-30",
-    "text": "Most likely to give a toast with zero preparation and nail it",
+    "text": "Who would give a toast with zero preparation and nail it?",
     "tags": [
       "social"
     ],
@@ -248,7 +248,7 @@
   },
   {
     "id": "mlt-31",
-    "text": "Most likely to get into a debate with a stranger online",
+    "text": "Who would get into a debate with a stranger online?",
     "tags": [
       "social"
     ],
@@ -256,7 +256,7 @@
   },
   {
     "id": "mlt-32",
-    "text": "Most likely to own three identical hoodies",
+    "text": "Who would own three identical hoodies?",
     "tags": [
       "social"
     ],
@@ -264,7 +264,7 @@
   },
   {
     "id": "mlt-33",
-    "text": "Most likely to be trusted with a secret and forget it instantly",
+    "text": "Who would be trusted with a secret and forget it instantly?",
     "tags": [
       "social"
     ],
@@ -272,7 +272,7 @@
   },
   {
     "id": "mlt-34",
-    "text": "Most likely to win a pub quiz single-handedly",
+    "text": "Who would win a pub quiz single-handedly?",
     "tags": [
       "social",
       "music",
@@ -282,7 +282,7 @@
   },
   {
     "id": "mlt-35",
-    "text": "Most likely to move to another country on a whim",
+    "text": "Who would move to another country on a whim?",
     "tags": [
       "social",
       "travel"
@@ -291,7 +291,7 @@
   },
   {
     "id": "mlt-36",
-    "text": "Most likely to create chaos and then offer to make tea",
+    "text": "Who would create chaos and then offer to make tea?",
     "tags": [
       "social",
       "food"
@@ -300,7 +300,7 @@
   },
   {
     "id": "mlt-37",
-    "text": "Most likely to be the reason a restaurant runs out of dessert",
+    "text": "The reason a restaurant runs out of dessert: who would be that?",
     "tags": [
       "social"
     ],
@@ -308,7 +308,7 @@
   },
   {
     "id": "mlt-38",
-    "text": "Most likely to take a nap in a public place",
+    "text": "Who would take a nap in a public place?",
     "tags": [
       "social"
     ],
@@ -316,7 +316,7 @@
   },
   {
     "id": "mlt-39",
-    "text": "Most likely to remember a birthday nobody else remembered",
+    "text": "Who would remember a birthday nobody else remembered?",
     "tags": [
       "social"
     ],
@@ -324,7 +324,7 @@
   },
   {
     "id": "mlt-40",
-    "text": "Most likely to accidentally start a tradition",
+    "text": "Who would accidentally start a tradition?",
     "tags": [
       "social"
     ],
@@ -332,7 +332,7 @@
   },
   {
     "id": "mlt-41",
-    "text": "Most likely to negotiate a discount with total confidence",
+    "text": "Who would negotiate a discount with total confidence?",
     "tags": [
       "social"
     ],
@@ -340,7 +340,7 @@
   },
   {
     "id": "mlt-42",
-    "text": "Most likely to cry-laugh at their own joke first",
+    "text": "Who would cry-laugh at their own joke first?",
     "tags": [
       "social"
     ],
@@ -348,7 +348,7 @@
   },
   {
     "id": "mlt-43",
-    "text": "Most likely to spend the whole holiday taking photos of everyone else",
+    "text": "Who would spend the whole holiday taking photos of everyone else?",
     "tags": [
       "social",
       "travel"
@@ -357,7 +357,7 @@
   },
   {
     "id": "mlt-44",
-    "text": "Most likely to survive a week with no phone and love it",
+    "text": "Who would survive a week with no phone and love it?",
     "tags": [
       "social",
       "tech"
@@ -366,7 +366,7 @@
   },
   {
     "id": "mlt-45",
-    "text": "Most likely to be the last one standing at every party",
+    "text": "The last one standing at every party: who would be that?",
     "tags": [
       "social"
     ],
@@ -374,7 +374,7 @@
   },
   {
     "id": "mlt-46",
-    "text": "Most likely to bring snacks to a snack-only event",
+    "text": "Who would bring snacks to a snack-only event?",
     "tags": [
       "social",
       "food"
@@ -383,7 +383,7 @@
   },
   {
     "id": "mlt-47",
-    "text": "Most likely to have a strongly held opinion about fonts",
+    "text": "A strongly held opinion about fonts: who would have it?",
     "tags": [
       "social"
     ],
@@ -391,7 +391,7 @@
   },
   {
     "id": "mlt-48",
-    "text": "Most likely to get a tattoo on a dare",
+    "text": "Who would get a tattoo on a dare?",
     "tags": [
       "social"
     ],
@@ -399,7 +399,7 @@
   },
   {
     "id": "mlt-49",
-    "text": "Most likely to turn a minor inconvenience into a full saga",
+    "text": "Turning a minor inconvenience into a full saga: who would do that?",
     "tags": [
       "social"
     ],
@@ -407,7 +407,7 @@
   },
   {
     "id": "mlt-50",
-    "text": "Most likely to be missed the most when they leave the room",
+    "text": "Who would be missed the most when they leave the room?",
     "tags": [
       "social"
     ],
@@ -415,7 +415,7 @@
   },
   {
     "id": "mlt-51",
-    "text": "Most likely to become a professional organizer",
+    "text": "Who would become a professional organizer?",
     "difficulty": 1,
     "tags": [
       "social"
@@ -424,7 +424,7 @@
   },
   {
     "id": "mlt-52",
-    "text": "Most likely to eat the last slice before anyone notices",
+    "text": "Who would eat the last slice before anyone notices?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -433,7 +433,7 @@
   },
   {
     "id": "mlt-53",
-    "text": "Most likely to carry an emergency snack",
+    "text": "Who would carry an emergency snack?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -442,7 +442,7 @@
   },
   {
     "id": "mlt-54",
-    "text": "Most likely to cry at a dog video",
+    "text": "Who would cry at a dog video?",
     "difficulty": 1,
     "tags": [
       "social"
@@ -451,7 +451,7 @@
   },
   {
     "id": "mlt-55",
-    "text": "Most likely to befriend a cashier",
+    "text": "Who would befriend a cashier?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -460,7 +460,7 @@
   },
   {
     "id": "mlt-56",
-    "text": "Most likely to start a group chat and leave it",
+    "text": "Who would start a group chat and leave it?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -469,7 +469,7 @@
   },
   {
     "id": "mlt-57",
-    "text": "Most likely to plan a trip they never take",
+    "text": "Who would plan a trip they never take?",
     "difficulty": 1,
     "tags": [
       "social"
@@ -478,7 +478,7 @@
   },
   {
     "id": "mlt-58",
-    "text": "Most likely to bring a board game to a party",
+    "text": "Who would bring a board game to a party?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -487,7 +487,7 @@
   },
   {
     "id": "mlt-59",
-    "text": "Most likely to know a shortcut",
+    "text": "Who would know a shortcut?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -496,7 +496,7 @@
   },
   {
     "id": "mlt-60",
-    "text": "Most likely to lose their phone in the sofa",
+    "text": "Who would lose their phone in the sofa?",
     "difficulty": 1,
     "tags": [
       "social"
@@ -505,7 +505,7 @@
   },
   {
     "id": "mlt-61",
-    "text": "Most likely to send a text to the wrong person",
+    "text": "Who would send a text to the wrong person?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -514,7 +514,7 @@
   },
   {
     "id": "mlt-62",
-    "text": "Most likely to remember a random fact",
+    "text": "Who would remember a random fact?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -523,7 +523,7 @@
   },
   {
     "id": "mlt-63",
-    "text": "Most likely to turn a chore into a competition",
+    "text": "Turning a chore into a competition: who would do that?",
     "difficulty": 1,
     "tags": [
       "social"
@@ -532,7 +532,7 @@
   },
   {
     "id": "mlt-64",
-    "text": "Most likely to make friends in a queue",
+    "text": "Who would make friends in a queue?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -541,7 +541,7 @@
   },
   {
     "id": "mlt-65",
-    "text": "Most likely to have a detailed morning routine",
+    "text": "A detailed morning routine: who would have it?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -550,7 +550,7 @@
   },
   {
     "id": "mlt-66",
-    "text": "Most likely to sleep through a film",
+    "text": "Who would sleep through a film?",
     "difficulty": 1,
     "tags": [
       "social"
@@ -559,7 +559,7 @@
   },
   {
     "id": "mlt-67",
-    "text": "Most likely to own an unusual mug",
+    "text": "Who would own an unusual mug?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -568,7 +568,7 @@
   },
   {
     "id": "mlt-68",
-    "text": "Most likely to give a thoughtful gift",
+    "text": "Who would give a thoughtful gift?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -577,7 +577,7 @@
   },
   {
     "id": "mlt-69",
-    "text": "Most likely to overshare at dinner",
+    "text": "Who would overshare at dinner?",
     "difficulty": 1,
     "tags": [
       "social"
@@ -586,7 +586,7 @@
   },
   {
     "id": "mlt-70",
-    "text": "Most likely to make a playlist for everything",
+    "text": "Who would make a playlist for everything?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -595,7 +595,7 @@
   },
   {
     "id": "mlt-71",
-    "text": "Most likely to be late but bring snacks",
+    "text": "Who would be late but bring snacks?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -604,7 +604,7 @@
   },
   {
     "id": "mlt-72",
-    "text": "Most likely to win an argument with a diagram",
+    "text": "Who would win an argument with a diagram?",
     "difficulty": 1,
     "tags": [
       "social"
@@ -613,7 +613,7 @@
   },
   {
     "id": "mlt-73",
-    "text": "Most likely to keep a receipt for everything",
+    "text": "Who would keep a receipt for everything?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -622,7 +622,7 @@
   },
   {
     "id": "mlt-74",
-    "text": "Most likely to adopt a plant they cannot name",
+    "text": "Who would adopt a plant they cannot name?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -631,7 +631,7 @@
   },
   {
     "id": "mlt-75",
-    "text": "Most likely to have a favourite chair",
+    "text": "A favourite chair: who would have it?",
     "difficulty": 1,
     "tags": [
       "social"
@@ -640,7 +640,7 @@
   },
   {
     "id": "mlt-76",
-    "text": "Most likely to start a DIY project and abandon it",
+    "text": "Who would start a DIY project and abandon it?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -649,7 +649,7 @@
   },
   {
     "id": "mlt-77",
-    "text": "Most likely to know the best place to eat",
+    "text": "Who would know the best place to eat?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -658,7 +658,7 @@
   },
   {
     "id": "mlt-78",
-    "text": "Most likely to take a hundred photos of the same view",
+    "text": "Who would take a hundred photos of the same view?",
     "difficulty": 1,
     "tags": [
       "social"
@@ -667,7 +667,7 @@
   },
   {
     "id": "mlt-79",
-    "text": "Most likely to talk to a pet in a baby voice",
+    "text": "Who would talk to a pet in a baby voice?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -676,7 +676,7 @@
   },
   {
     "id": "mlt-80",
-    "text": "Most likely to carry an emergency charger",
+    "text": "Who would carry an emergency charger?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -685,7 +685,7 @@
   },
   {
     "id": "mlt-81",
-    "text": "Most likely to forget a password right after changing it",
+    "text": "Who would forget a password right after changing it?",
     "difficulty": 1,
     "tags": [
       "social"
@@ -694,7 +694,7 @@
   },
   {
     "id": "mlt-82",
-    "text": "Most likely to organize a surprise party",
+    "text": "Who would organize a surprise party?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -703,7 +703,7 @@
   },
   {
     "id": "mlt-83",
-    "text": "Most likely to be the first to leave a party",
+    "text": "The first to leave a party: who would be that?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -712,7 +712,7 @@
   },
   {
     "id": "mlt-84",
-    "text": "Most likely to be the last to leave a party",
+    "text": "The last to leave a party: who would be that?",
     "difficulty": 1,
     "tags": [
       "social"
@@ -721,7 +721,7 @@
   },
   {
     "id": "mlt-85",
-    "text": "Most likely to make a spreadsheet for a holiday",
+    "text": "Who would make a spreadsheet for a holiday?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -730,7 +730,7 @@
   },
   {
     "id": "mlt-86",
-    "text": "Most likely to ask a stranger for directions",
+    "text": "Who would ask a stranger for directions?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -739,7 +739,7 @@
   },
   {
     "id": "mlt-87",
-    "text": "Most likely to find money in an old coat",
+    "text": "Who would find money in an old coat?",
     "difficulty": 1,
     "tags": [
       "social"
@@ -748,7 +748,7 @@
   },
   {
     "id": "mlt-88",
-    "text": "Most likely to keep a childhood blanket",
+    "text": "Who would keep a childhood blanket?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -757,7 +757,7 @@
   },
   {
     "id": "mlt-89",
-    "text": "Most likely to learn a random skill from a video",
+    "text": "Who would learn a random skill from a video?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -766,7 +766,7 @@
   },
   {
     "id": "mlt-90",
-    "text": "Most likely to win a pub quiz alone",
+    "text": "Who would win a pub quiz alone?",
     "difficulty": 1,
     "tags": [
       "social"
@@ -775,7 +775,7 @@
   },
   {
     "id": "mlt-91",
-    "text": "Most likely to have a strong opinion about tea",
+    "text": "A strong opinion about tea: who would have it?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -784,7 +784,7 @@
   },
   {
     "id": "mlt-92",
-    "text": "Most likely to bring up the weather awkwardly",
+    "text": "Who would bring up the weather awkwardly?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -793,7 +793,7 @@
   },
   {
     "id": "mlt-93",
-    "text": "Most likely to remember an embarrassing moment forever",
+    "text": "Who would remember an embarrassing moment forever?",
     "difficulty": 1,
     "tags": [
       "social"
@@ -802,7 +802,7 @@
   },
   {
     "id": "mlt-94",
-    "text": "Most likely to have a signature dish",
+    "text": "A signature dish: who would have it?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -811,7 +811,7 @@
   },
   {
     "id": "mlt-95",
-    "text": "Most likely to own too many tote bags",
+    "text": "Who would own too many tote bags?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -820,7 +820,7 @@
   },
   {
     "id": "mlt-96",
-    "text": "Most likely to be the group's unofficial photographer",
+    "text": "The group's unofficial photographer: who would be that?",
     "difficulty": 1,
     "tags": [
       "social"
@@ -829,7 +829,7 @@
   },
   {
     "id": "mlt-97",
-    "text": "Most likely to fall asleep in a car",
+    "text": "Who would fall asleep in a car?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -838,7 +838,7 @@
   },
   {
     "id": "mlt-98",
-    "text": "Most likely to give directions using landmarks",
+    "text": "Who would give directions using landmarks?",
     "difficulty": 2,
     "tags": [
       "social"
@@ -847,7 +847,7 @@
   },
   {
     "id": "mlt-99",
-    "text": "Most likely to make a new friend on holiday",
+    "text": "Who would make a new friend on holiday?",
     "difficulty": 1,
     "tags": [
       "social"
@@ -856,7 +856,7 @@
   },
   {
     "id": "mlt-100",
-    "text": "Most likely to become a regular at a café",
+    "text": "Who would become a regular at a café?",
     "difficulty": 2,
     "tags": [
       "social"

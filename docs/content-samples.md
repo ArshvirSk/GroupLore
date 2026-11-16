@@ -33,9 +33,9 @@ Deterministic five-item sample per shipped bank. Factual banks are listed separa
 ## buzzer-trivia (factual)
 - Which sport is played at Wimbledon? → Tennis
 - Which sport uses a shuttlecock? → Badminton
-- What is the capital of France? → Paris
+- Which planet is known as the Red Planet? → Mars
 - What is the tallest mountain above sea level? → Mount Everest
-- What is the largest mammal? → Blue whale
+- Which rodent is the largest? → Capybara
 
 ## caption-this
 - A birthday candle that refuses to go out.
@@ -68,8 +68,8 @@ Deterministic five-item sample per shipped bank. Factual banks are listed separa
 ## fact-or-fiction (factual)
 - Australia is both a continent and a country.
 - The capital of Portugal is Porto.
-- The capital of France is Lyon.
-- The capital of Canada is Ottawa.
+- The Amazon is the longest river in Africa.
+- The Sahara is the largest hot desert.
 - The capital of Italy is Milan.
 
 ## Fill the Blank prompts
@@ -87,18 +87,18 @@ Deterministic five-item sample per shipped bank. Factual banks are listed separa
 - a deeply unqualified toaster
 
 ## five-second
-- Name a hot drink
-- Name a type of weather
-- Name a color you never wear
-- Name a country you want to visit
-- Name something in a hotel room
+- What's hot drink
+- Which type of weather?
+- What's color you never wear
+- What's country you want to visit
+- In a hotel room, what's something?
 
 ## guess-impostor
-- Name a food that tastes like childhood
-- Name something that makes a road trip worse
-- Name a movie everyone claims to have seen
-- Name a gift you pretend to like
-- Name a word that sounds fake
+- Which food tastes like childhood?
+- What makes a road trip worse?
+- What's movie everyone claims to have seen
+- What's gift you pretend to like
+- What's word that sounds fake
 
 ## higher-or-lower
 - hl-59
@@ -108,11 +108,11 @@ Deterministic five-item sample per shipped bank. Factual banks are listed separa
 - hl-14
 
 ## hive-mind
-- Name a holiday song
-- Name something in your bag
-- Name a breakfast food
-- Name a fruit
-- Name a board game
+- What's holiday song
+- In your bag, what's something?
+- What's breakfast food
+- What's fruit
+- What's board game
 
 ## hot-takes
 - The best restaurant is the one you can walk to.
@@ -129,11 +129,11 @@ Deterministic five-item sample per shipped bank. Factual banks are listed separa
 - ml-14
 
 ## most-likely-to
-- Most likely to know a shortcut
-- Most likely to own three identical hoodies
-- Most likely to become famous for something completely accidental
-- Most likely to turn a five-minute errand into a three-hour adventure
-- Most likely to send a voice note that is longer than a podcast
+- Who would know a shortcut?
+- Who would own three identical hoodies?
+- Who would become famous for something completely accidental?
+- Turning a five-minute errand into a three-hour adventure: who would do that?
+- Who would send a voice note that is longer than a podcast?
 
 ## overrated-underrated
 - Breakfast meetings
@@ -178,10 +178,10 @@ Deterministic five-item sample per shipped bank. Factual banks are listed separa
 - The old radio only played songs from the future.
 
 ## survey-says
-- Name something at a wedding
-- Name a vegetable
+- In a wedding, what's something?
+- What's vegetable
 - Name something you might forget on a trip
-- Name a reason people are late
+- What's reason people are late
 - Name something people take a photo of on holiday
 
 ## two-truths

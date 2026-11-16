@@ -1,9 +1,9 @@
 [
   {
     "id": "ff-001",
-    "text": "The capital of France is Paris.",
+    "text": "The Nile is the longest river in Africa.",
     "isTrue": true,
-    "explanation": "Paris is the capital of France.",
+    "explanation": "The Nile runs through northeastern Africa.",
     "tags": [
       "geography"
     ],
@@ -11,9 +11,9 @@
   },
   {
     "id": "ff-002",
-    "text": "The capital of France is Lyon.",
+    "text": "The Amazon is the longest river in Africa.",
     "isTrue": false,
-    "explanation": "Paris is the capital of France; Lyon is another French city.",
+    "explanation": "The Amazon is in South America.",
     "tags": [
       "geography"
     ],
@@ -21,9 +21,9 @@
   },
   {
     "id": "ff-003",
-    "text": "The capital of Japan is Tokyo.",
+    "text": "Mount Everest is the tallest mountain above sea level.",
     "isTrue": true,
-    "explanation": "Tokyo is the capital of Japan.",
+    "explanation": "Everest's summit is the highest above sea level.",
     "tags": [
       "geography"
     ],
@@ -31,9 +31,9 @@
   },
   {
     "id": "ff-004",
-    "text": "The capital of Japan is Osaka.",
+    "text": "K2 is the tallest mountain above sea level.",
     "isTrue": false,
-    "explanation": "Tokyo is the capital of Japan.",
+    "explanation": "K2 is the second-highest mountain above sea level.",
     "tags": [
       "geography"
     ],
@@ -41,9 +41,9 @@
   },
   {
     "id": "ff-005",
-    "text": "The capital of Australia is Canberra.",
+    "text": "The Pacific is the largest ocean.",
     "isTrue": true,
-    "explanation": "Canberra is Australia's capital, not Sydney.",
+    "explanation": "The Pacific covers more area than any other ocean.",
     "tags": [
       "geography"
     ],
@@ -51,9 +51,9 @@
   },
   {
     "id": "ff-006",
-    "text": "The capital of Australia is Sydney.",
+    "text": "The Atlantic is the largest ocean.",
     "isTrue": false,
-    "explanation": "Canberra is the capital of Australia.",
+    "explanation": "The Pacific is larger than the Atlantic.",
     "tags": [
       "geography"
     ],
@@ -61,9 +61,9 @@
   },
   {
     "id": "ff-007",
-    "text": "The capital of Canada is Ottawa.",
+    "text": "The Sahara is the largest hot desert.",
     "isTrue": true,
-    "explanation": "Ottawa is the capital of Canada.",
+    "explanation": "The Sahara is the largest hot desert.",
     "tags": [
       "geography"
     ],
@@ -71,9 +71,9 @@
   },
   {
     "id": "ff-008",
-    "text": "The capital of Canada is Toronto.",
+    "text": "The Gobi is the largest hot desert.",
     "isTrue": false,
-    "explanation": "Ottawa is the capital of Canada.",
+    "explanation": "The Sahara is larger; the Gobi is a cold desert.",
     "tags": [
       "geography"
     ],
@@ -81,9 +81,9 @@
   },
   {
     "id": "ff-009",
-    "text": "The capital of Brazil is Brasilia.",
+    "text": "Japan is an island nation.",
     "isTrue": true,
-    "explanation": "Brasilia is the capital of Brazil.",
+    "explanation": "Japan consists of thousands of islands.",
     "tags": [
       "geography"
     ],
@@ -91,9 +91,9 @@
   },
   {
     "id": "ff-010",
-    "text": "The capital of Brazil is Rio de Janeiro.",
+    "text": "Japan is landlocked.",
     "isTrue": false,
-    "explanation": "Brasilia is the capital; Rio was the capital until 1960.",
+    "explanation": "Japan is surrounded by the sea.",
     "tags": [
       "geography"
     ],
@@ -101,9 +101,9 @@
   },
   {
     "id": "ff-011",
-    "text": "The capital of Egypt is Cairo.",
+    "text": "Penguins live in the Southern Hemisphere.",
     "isTrue": true,
-    "explanation": "Cairo is the capital of Egypt.",
+    "explanation": "Wild penguins are found mainly in the Southern Hemisphere.",
     "tags": [
       "geography"
     ],
@@ -111,9 +111,9 @@
   },
   {
     "id": "ff-012",
-    "text": "The capital of Egypt is Alexandria.",
+    "text": "Penguins live around the North Pole.",
     "isTrue": false,
-    "explanation": "Cairo is the capital of Egypt.",
+    "explanation": "There are no wild penguins around the North Pole.",
     "tags": [
       "geography"
     ],
@@ -441,9 +441,9 @@
   },
   {
     "id": "ff-045",
-    "text": "The Pacific is the largest ocean.",
+    "text": "The Great Wall of China is in China.",
     "isTrue": true,
-    "explanation": "The Pacific Ocean is the largest and deepest ocean.",
+    "explanation": "The Great Wall is a series of fortifications in northern China.",
     "tags": [
       "geography"
     ],
@@ -451,9 +451,9 @@
   },
   {
     "id": "ff-046",
-    "text": "The Atlantic is the largest ocean.",
+    "text": "The Great Wall of China is in Japan.",
     "isTrue": false,
-    "explanation": "The Pacific is the largest ocean; the Atlantic is second.",
+    "explanation": "The Great Wall is in China, not Japan.",
     "tags": [
       "geography"
     ],

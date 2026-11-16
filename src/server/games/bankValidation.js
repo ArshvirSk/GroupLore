@@ -62,10 +62,6 @@ function templateFamily(text) {
   if (/\b(what|which|in which) year\b|\byear of\b|\bwhen (was|did)\b/.test(value)) {
     return "year";
   }
-  if (/\bhow many\b/.test(value)) return "count";
-  if (/\b(largest|smallest|longest|shortest|tallest|highest|lowest)\b/.test(value)) {
-    return "superlative";
-  }
   if (/\bcurrency\b/.test(value)) return "currency";
   if (/\bwhich planet\b|\bwhat planet\b/.test(value)) return "planet";
   if (/\bwhich country\b|\bwhat country\b/.test(value)) return "country";

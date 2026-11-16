@@ -1,7 +1,7 @@
 [
   {
     "id": "hl-01",
-    "category": "most likely to become famous",
+    "category": "Becoming famous: how likely?",
     "tags": [
       "rating"
     ],
@@ -99,7 +99,7 @@
   },
   {
     "id": "hl-13",
-    "category": "most likely to become a meme",
+    "category": "Becoming a meme: how likely?",
     "tags": [
       "rating"
     ],
@@ -191,7 +191,7 @@
   },
   {
     "id": "hl-24",
-    "category": "most likely to become a teacher",
+    "category": "Becoming a teacher: how likely?",
     "tags": [
       "rating",
       "food",
@@ -241,7 +241,7 @@
   },
   {
     "id": "hl-30",
-    "category": "most likely to become a millionaire",
+    "category": "Becoming a millionaire: how likely?",
     "tags": [
       "rating"
     ],
@@ -249,7 +249,7 @@
   },
   {
     "id": "hl-31",
-    "category": "most likely to become a chef",
+    "category": "Becoming a chef: how likely?",
     "difficulty": 1,
     "tags": [
       "rating",
@@ -439,7 +439,7 @@
   },
   {
     "id": "hl-50",
-    "category": "most likely to become a tour guide",
+    "category": "Becoming a tour guide: how likely?",
     "difficulty": 2,
     "tags": [
       "rating",
@@ -519,7 +519,7 @@
   },
   {
     "id": "hl-58",
-    "category": "most likely to become a manager",
+    "category": "Becoming a manager: how likely?",
     "difficulty": 1,
     "tags": [
       "rating",
@@ -729,7 +729,7 @@
   },
   {
     "id": "hl-79",
-    "category": "most likely to become a local celebrity",
+    "category": "Becoming a local celebrity: how likely?",
     "difficulty": 1,
     "tags": [
       "rating",

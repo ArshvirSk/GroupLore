@@ -10,7 +10,7 @@ Generated 2026-11-16 by `scripts/audit-banks.ts`.
 | bluff | bluff.json | 110 | 500 | 390 | 0 | 0 | 0 | 0 | untagged 60; 3 33; 2 17 | vocabulary 53; vocabulary, definition 50; vocabulary, food 4; vocabulary, travel 2 |
 | blur-guess | not implemented | 0 | 200 | 200 | 0 | 0 | 0 | 0 | — | — |
 | bomb-party | not implemented | 0 | 1 | 1 | 0 | 0 | 0 | 0 | — | — |
-| buzzer-trivia | buzzerTrivia.json | 300 | 2500 | 2200 | 0 | 0 | 0 | 0 | 2 104; 3 100; 1 96 | trivia 164; trivia, science 84; trivia, travel 14; trivia, sport 7 |
+| buzzer-trivia | buzzerTrivia.json | 350 | 2500 | 2150 | 0 | 0 | 0 | 0 | 2 154; 3 100; 1 96 | trivia 164; trivia, science 134; trivia, travel 14; trivia, sport 7 |
 | caption-this | captionThis.json | 75 | 300 | 225 | 75 | 0 | 0 | 0 | 2 33; untagged 25; 1 17 | caption, everyday 50; caption 14; caption, work 2; caption, food, social 1 |
 | category-rush | categoryRush.json | 80 | 400 | 320 | 0 | 0 | 0 | 0 | 2 33; untagged 30; 1 17 | category, quick 50; category 14; category, food 3; category, science 2 |
 | chameleon | not implemented | 0 | 120 | 120 | 0 | 0 | 0 | 0 | — | — |
@@ -18,7 +18,7 @@ Generated 2026-11-16 by `scripts/audit-banks.ts`.
 | codenames | codenames.json | 400 | 1200 | 800 | 0 | 0 | 0 | 0 | untagged 400 | wordplay 378; wordplay, food 5; wordplay, travel 3; wordplay, music 3 |
 | connections | connections.json | 100 | 300 | 200 | 100 | 0 | 0 | 0 | untagged 100 | puzzle 100 |
 | emoji-decode | not implemented | 0 | 600 | 600 | 0 | 0 | 0 | 0 | — | — |
-| fact-or-fiction | factOrFiction.json | 300 | 1500 | 1200 | 0 | 0 | 0 | 3 | untagged 300 | geography 96; science 78; animals 44; sports 28 |
+| fact-or-fiction | factOrFiction.json | 300 | 1500 | 1200 | 0 | 0 | 0 | 5 | untagged 300 | geography 96; science 78; animals 44; sports 28 |
 | fill-the-blank-answers | fillTheBlank.json | 500 | 1500 | 1000 | 0 | 0 | 0 | 0 | untagged 500 | answer 416; answer, social 44; answer, games 16; answer, tech 10 |
 | fill-the-blank-prompts | fillTheBlank.json | 120 | 300 | 180 | 0 | 0 | 0 | 0 | untagged 120 | prompt, social 78; prompt, tech, social 12; prompt, work, social 7; prompt, food, social 6 |
 | five-second | fiveSecond.json | 130 | 600 | 470 | 0 | 0 | 0 | 0 | untagged 80; 2 33; 1 17 | quick 52; quick, everyday 50; quick, food 9; quick, travel 5 |
@@ -47,6 +47,6 @@ Generated 2026-11-16 by `scripts/audit-banks.ts`.
 | wordle-race | not implemented | 0 | 2000 | 2000 | 0 | 0 | 0 | 0 | — | — |
 | would-you-rather | wouldYouRather.json | 80 | 800 | 720 | 80 | 0 | 0 | 0 | 2 33; untagged 30; 1 17 | choice, social 50; choice 13; choice, food 5; choice, music 3 |
 
-**Total items below target:** 19,096.
+**Total items below target:** 19,046.
 
 Games absent from `TARGETS` are included only when they have a shipped bank. Assets whose licensing is not verifiable are reported as absent rather than counted.

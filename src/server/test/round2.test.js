@@ -456,7 +456,7 @@ test("round-two banks have stable unique content and the blur license manifest i
   assert.equal(passwordBank.length, 300);
   assert.equal(codenameBank.length >= 400, true);
   assert.equal(sketchBank.length, 300);
-  assert.equal(triviaBank.length, 300);
+  assert.equal(triviaBank.length, 350);
   assert.equal(new Set(triviaBank.map((question) => question.text)).size, triviaBank.length);
   assert.equal(boggleWords.length >= 600, true);
   assert.equal(new Set(boggleWords).size, boggleWords.length);

@@ -17,12 +17,12 @@
   },
   {
     "id": "buzz-002",
-    "text": "What is the capital of France?",
-    "answer": "Paris",
+    "text": "Which planet is known as the Red Planet?",
+    "answer": "Mars",
     "aliases": [
-      "paris"
+      "mars"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -31,11 +31,10 @@
   },
   {
     "id": "buzz-003",
-    "text": "What is the chemical symbol for gold?",
-    "answer": "Au",
+    "text": "Which cell organelle is called the powerhouse?",
+    "answer": "Mitochondria",
     "aliases": [
-      "au",
-      "aurum"
+      "mitochondria"
     ],
     "category": "Science",
     "difficulty": 3,
@@ -62,13 +61,12 @@
   },
   {
     "id": "buzz-005",
-    "text": "How many sides does a hexagon have?",
-    "answer": "Six",
+    "text": "At what Celsius temperature does water freeze?",
+    "answer": "0",
     "aliases": [
-      "6",
-      "six"
+      "0"
     ],
-    "category": "Maths",
+    "category": "Science",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -122,13 +120,12 @@
   },
   {
     "id": "buzz-009",
-    "text": "How many continents are there?",
-    "answer": "Seven",
+    "text": "How many basketball players from one team start on court?",
+    "answer": "Five",
     "aliases": [
-      "7",
-      "seven"
+      "five"
     ],
-    "category": "Geography",
+    "category": "Sport",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -183,13 +180,12 @@
   },
   {
     "id": "buzz-013",
-    "text": "How many players are on a football team on the pitch?",
-    "answer": "Eleven",
+    "text": "What is the sum of a triangle's interior angles?",
+    "answer": "180 degrees",
     "aliases": [
-      "11",
-      "eleven"
+      "180 degrees"
     ],
-    "category": "Sport",
+    "category": "Maths",
     "difficulty": 1,
     "tags": [
       "trivia",
@@ -200,13 +196,12 @@
   },
   {
     "id": "buzz-014",
-    "text": "What is the largest mammal?",
-    "answer": "Blue whale",
+    "text": "Which rodent is the largest?",
+    "answer": "Capybara",
     "aliases": [
-      "blue whale",
-      "whale"
+      "capybara"
     ],
-    "category": "Nature",
+    "category": "Animals",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -447,12 +442,12 @@
   },
   {
     "id": "buzz-030",
-    "text": "What is the capital of Australia?",
-    "answer": "Canberra",
+    "text": "Which gas do plants absorb from the air for photosynthesis?",
+    "answer": "Carbon dioxide",
     "aliases": [
-      "canberra"
+      "carbon dioxide"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -537,14 +532,12 @@
   },
   {
     "id": "buzz-036",
-    "text": "What is the largest desert in the world?",
-    "answer": "Antarctic Desert",
+    "text": "Which dolphin species is the largest?",
+    "answer": "Orca",
     "aliases": [
-      "antarctic",
-      "antarctica",
-      "antarctic desert"
+      "orca"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -569,12 +562,12 @@
   },
   {
     "id": "buzz-038",
-    "text": "What is the capital of Canada?",
-    "answer": "Ottawa",
+    "text": "Which animal builds dams?",
+    "answer": "Beaver",
     "aliases": [
-      "ottawa"
+      "beaver"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -643,11 +636,10 @@
   },
   {
     "id": "buzz-043",
-    "text": "What is the chemical symbol for water?",
-    "answer": "H2O",
+    "text": "Which force keeps planets in orbit?",
+    "answer": "Gravity",
     "aliases": [
-      "h2o",
-      "water"
+      "gravity"
     ],
     "category": "Science",
     "difficulty": 1,
@@ -703,10 +695,10 @@
   },
   {
     "id": "buzz-047",
-    "text": "Which planet is known as the Red Planet?",
-    "answer": "Mars",
+    "text": "What pigment makes leaves green?",
+    "answer": "Chlorophyll",
     "aliases": [
-      "mars"
+      "chlorophyll"
     ],
     "category": "Science",
     "difficulty": 2,
@@ -719,12 +711,12 @@
   },
   {
     "id": "buzz-048",
-    "text": "What is the capital of Italy?",
-    "answer": "Rome",
+    "text": "Which natural substance is the hardest?",
+    "answer": "Diamond",
     "aliases": [
-      "rome"
+      "diamond"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -826,12 +818,12 @@
   },
   {
     "id": "buzz-055",
-    "text": "What is the capital of Spain?",
-    "answer": "Madrid",
+    "text": "Which land animal is the largest?",
+    "answer": "African elephant",
     "aliases": [
-      "madrid"
+      "african elephant"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -931,10 +923,10 @@
   },
   {
     "id": "buzz-062",
-    "text": "What is the capital of Alabama?",
-    "answer": "Montgomery",
+    "text": "How many continents are there?",
+    "answer": "Seven",
     "aliases": [
-      "montgomery"
+      "seven"
     ],
     "category": "Geography",
     "difficulty": 2,
@@ -945,12 +937,12 @@
   },
   {
     "id": "buzz-063",
-    "text": "What is the capital of Alaska?",
-    "answer": "Juneau",
+    "text": "Which planet has the most confirmed moons?",
+    "answer": "Saturn",
     "aliases": [
-      "juneau"
+      "saturn"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -959,12 +951,12 @@
   },
   {
     "id": "buzz-064",
-    "text": "What is the capital of Arizona?",
-    "answer": "Phoenix",
+    "text": "At sea level, what is water's boiling point in Celsius?",
+    "answer": "100",
     "aliases": [
-      "phoenix"
+      "100"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -973,12 +965,12 @@
   },
   {
     "id": "buzz-065",
-    "text": "What is the capital of Arkansas?",
-    "answer": "Little Rock",
+    "text": "Which organ pumps blood around the body?",
+    "answer": "Heart",
     "aliases": [
-      "little rock"
+      "heart"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -987,10 +979,10 @@
   },
   {
     "id": "buzz-066",
-    "text": "What is the capital of California?",
-    "answer": "Sacramento",
+    "text": "Which is the largest hot desert?",
+    "answer": "Sahara",
     "aliases": [
-      "sacramento"
+      "sahara"
     ],
     "category": "Geography",
     "difficulty": 3,
@@ -1001,10 +993,10 @@
   },
   {
     "id": "buzz-067",
-    "text": "What is the capital of Colorado?",
-    "answer": "Denver",
+    "text": "Which country is home to kangaroos?",
+    "answer": "Australia",
     "aliases": [
-      "denver"
+      "australia"
     ],
     "category": "Geography",
     "difficulty": 1,
@@ -1015,10 +1007,10 @@
   },
   {
     "id": "buzz-068",
-    "text": "What is the capital of Connecticut?",
-    "answer": "Hartford",
+    "text": "Which river runs through Egypt and Sudan?",
+    "answer": "Nile",
     "aliases": [
-      "hartford"
+      "nile"
     ],
     "category": "Geography",
     "difficulty": 2,
@@ -1029,12 +1021,12 @@
   },
   {
     "id": "buzz-069",
-    "text": "What is the capital of Delaware?",
-    "answer": "Dover",
+    "text": "Which planet rotates on its side?",
+    "answer": "Uranus",
     "aliases": [
-      "dover"
+      "uranus"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -1043,12 +1035,12 @@
   },
   {
     "id": "buzz-070",
-    "text": "What is the capital of Florida?",
-    "answer": "Tallahassee",
+    "text": "Which planet is smallest?",
+    "answer": "Mercury",
     "aliases": [
-      "tallahassee"
+      "mercury"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -1057,12 +1049,12 @@
   },
   {
     "id": "buzz-071",
-    "text": "What is the capital of Georgia?",
-    "answer": "Atlanta",
+    "text": "Which vitamin does sunlight help the skin produce?",
+    "answer": "Vitamin D",
     "aliases": [
-      "atlanta"
+      "vitamin d"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -1071,12 +1063,12 @@
   },
   {
     "id": "buzz-072",
-    "text": "What is the capital of Hawaii?",
-    "answer": "Honolulu",
+    "text": "Which bird is the largest?",
+    "answer": "Ostrich",
     "aliases": [
-      "honolulu"
+      "ostrich"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -1085,12 +1077,12 @@
   },
   {
     "id": "buzz-073",
-    "text": "What is the capital of Idaho?",
-    "answer": "Boise",
+    "text": "Which metal is liquid at room temperature?",
+    "answer": "Mercury",
     "aliases": [
-      "boise"
+      "mercury"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -1099,12 +1091,12 @@
   },
   {
     "id": "buzz-074",
-    "text": "What is the capital of Illinois?",
-    "answer": "Springfield",
+    "text": "How many sides does a hexagon have?",
+    "answer": "Six",
     "aliases": [
-      "springfield"
+      "six"
     ],
-    "category": "Geography",
+    "category": "Maths",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -1113,10 +1105,10 @@
   },
   {
     "id": "buzz-075",
-    "text": "What is the capital of Indiana?",
-    "answer": "Indianapolis",
+    "text": "What is Japan's currency?",
+    "answer": "Yen",
     "aliases": [
-      "indianapolis"
+      "yen"
     ],
     "category": "Geography",
     "difficulty": 3,
@@ -1128,12 +1120,12 @@
   },
   {
     "id": "buzz-076",
-    "text": "What is the capital of Iowa?",
-    "answer": "Des Moines",
+    "text": "Which country is credited with inventing paper?",
+    "answer": "China",
     "aliases": [
-      "des moines"
+      "china"
     ],
-    "category": "Geography",
+    "category": "History",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -1142,10 +1134,10 @@
   },
   {
     "id": "buzz-077",
-    "text": "What is the capital of Kansas?",
-    "answer": "Topeka",
+    "text": "Which waterfall is the tallest?",
+    "answer": "Angel Falls",
     "aliases": [
-      "topeka"
+      "angel falls"
     ],
     "category": "Geography",
     "difficulty": 2,
@@ -1156,12 +1148,12 @@
   },
   {
     "id": "buzz-078",
-    "text": "What is the capital of Kentucky?",
-    "answer": "Frankfort",
+    "text": "Which blood type is the universal donor?",
+    "answer": "O negative",
     "aliases": [
-      "frankfort"
+      "o negative"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -1170,12 +1162,12 @@
   },
   {
     "id": "buzz-079",
-    "text": "What is the capital of Louisiana?",
-    "answer": "Baton Rouge",
+    "text": "What is the chemical formula for table salt?",
+    "answer": "NaCl",
     "aliases": [
-      "baton rouge"
+      "nacl"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -1184,12 +1176,12 @@
   },
   {
     "id": "buzz-080",
-    "text": "What is the capital of Maine?",
-    "answer": "Augusta",
+    "text": "Which scientist developed general relativity?",
+    "answer": "Albert Einstein",
     "aliases": [
-      "augusta"
+      "albert einstein"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -1198,12 +1190,12 @@
   },
   {
     "id": "buzz-081",
-    "text": "What is the capital of Maryland?",
-    "answer": "Annapolis",
+    "text": "Which shark species is the largest?",
+    "answer": "Whale shark",
     "aliases": [
-      "annapolis"
+      "whale shark"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -1212,10 +1204,10 @@
   },
   {
     "id": "buzz-082",
-    "text": "What is the capital of Massachusetts?",
-    "answer": "Boston",
+    "text": "Which country contains the Eiffel Tower?",
+    "answer": "France",
     "aliases": [
-      "boston"
+      "france"
     ],
     "category": "Geography",
     "difficulty": 1,
@@ -1226,10 +1218,10 @@
   },
   {
     "id": "buzz-083",
-    "text": "What is the capital of Michigan?",
-    "answer": "Lansing",
+    "text": "Which body of water is famous for extreme salinity?",
+    "answer": "Dead Sea",
     "aliases": [
-      "lansing"
+      "dead sea"
     ],
     "category": "Geography",
     "difficulty": 2,
@@ -1241,12 +1233,12 @@
   },
   {
     "id": "buzz-084",
-    "text": "What is the capital of Minnesota?",
-    "answer": "Saint Paul",
+    "text": "How many soccer players from one team are on the field?",
+    "answer": "Eleven",
     "aliases": [
-      "saint paul"
+      "eleven"
     ],
-    "category": "Geography",
+    "category": "Sport",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -1255,12 +1247,12 @@
   },
   {
     "id": "buzz-085",
-    "text": "What is the capital of Mississippi?",
-    "answer": "Jackson",
+    "text": "Which gas do humans exhale?",
+    "answer": "Carbon dioxide",
     "aliases": [
-      "jackson"
+      "carbon dioxide"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -1269,10 +1261,10 @@
   },
   {
     "id": "buzz-086",
-    "text": "What is the capital of Missouri?",
-    "answer": "Jefferson City",
+    "text": "Which continent is the largest?",
+    "answer": "Asia",
     "aliases": [
-      "jefferson city"
+      "asia"
     ],
     "category": "Geography",
     "difficulty": 2,
@@ -1284,12 +1276,12 @@
   },
   {
     "id": "buzz-087",
-    "text": "What is the capital of Montana?",
-    "answer": "Helena",
+    "text": "Which animal is famous for changing colour?",
+    "answer": "Chameleon",
     "aliases": [
-      "helena"
+      "chameleon"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -1298,10 +1290,10 @@
   },
   {
     "id": "buzz-088",
-    "text": "What is the capital of Nebraska?",
-    "answer": "Lincoln",
+    "text": "Which sea separates Europe and Africa?",
+    "answer": "Mediterranean Sea",
     "aliases": [
-      "lincoln"
+      "mediterranean sea"
     ],
     "category": "Geography",
     "difficulty": 1,
@@ -1312,12 +1304,12 @@
   },
   {
     "id": "buzz-089",
-    "text": "What is the capital of Nevada?",
-    "answer": "Carson City",
+    "text": "Which gas makes up most of Earth's atmosphere?",
+    "answer": "Nitrogen",
     "aliases": [
-      "carson city"
+      "nitrogen"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 2,
     "tags": [
       "trivia",
@@ -1327,12 +1319,12 @@
   },
   {
     "id": "buzz-090",
-    "text": "What is the capital of New Hampshire?",
-    "answer": "Concord",
+    "text": "Which internal organ is the largest?",
+    "answer": "Liver",
     "aliases": [
-      "concord"
+      "liver"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -1341,10 +1333,10 @@
   },
   {
     "id": "buzz-091",
-    "text": "What is the capital of New Jersey?",
-    "answer": "Trenton",
+    "text": "Which country had the largest population in 2023?",
+    "answer": "India",
     "aliases": [
-      "trenton"
+      "india"
     ],
     "category": "Geography",
     "difficulty": 1,
@@ -1355,10 +1347,10 @@
   },
   {
     "id": "buzz-092",
-    "text": "What is the capital of New Mexico?",
-    "answer": "Santa Fe",
+    "text": "What is the United Kingdom's currency?",
+    "answer": "Pound sterling",
     "aliases": [
-      "santa fe"
+      "pound sterling"
     ],
     "category": "Geography",
     "difficulty": 2,
@@ -1369,12 +1361,12 @@
   },
   {
     "id": "buzz-093",
-    "text": "What is the capital of New York?",
-    "answer": "Albany",
+    "text": "Which planet is famous for its rings?",
+    "answer": "Saturn",
     "aliases": [
-      "albany"
+      "saturn"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -1383,12 +1375,12 @@
   },
   {
     "id": "buzz-094",
-    "text": "What is the capital of North Carolina?",
-    "answer": "Raleigh",
+    "text": "Which bone in the human body is smallest?",
+    "answer": "Stapes",
     "aliases": [
-      "raleigh"
+      "stapes"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -1397,12 +1389,12 @@
   },
   {
     "id": "buzz-095",
-    "text": "What is the capital of North Dakota?",
-    "answer": "Bismarck",
+    "text": "Which mammal can fly?",
+    "answer": "Bat",
     "aliases": [
-      "bismarck"
+      "bat"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -1411,10 +1403,10 @@
   },
   {
     "id": "buzz-096",
-    "text": "What is the capital of Ohio?",
-    "answer": "Columbus",
+    "text": "Which is the largest desert in Asia?",
+    "answer": "Gobi",
     "aliases": [
-      "columbus"
+      "gobi"
     ],
     "category": "Geography",
     "difficulty": 3,
@@ -1425,10 +1417,10 @@
   },
   {
     "id": "buzz-097",
-    "text": "What is the capital of Oklahoma?",
-    "answer": "Oklahoma City",
+    "text": "Which country contains the Great Barrier Reef?",
+    "answer": "Australia",
     "aliases": [
-      "oklahoma city"
+      "australia"
     ],
     "category": "Geography",
     "difficulty": 1,
@@ -1440,12 +1432,12 @@
   },
   {
     "id": "buzz-098",
-    "text": "What is the capital of Oregon?",
-    "answer": "Salem",
+    "text": "Which gas is the Sun mostly made of?",
+    "answer": "Hydrogen",
     "aliases": [
-      "salem"
+      "hydrogen"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -1454,12 +1446,12 @@
   },
   {
     "id": "buzz-099",
-    "text": "What is the capital of Pennsylvania?",
-    "answer": "Harrisburg",
+    "text": "Which country gave the United States the Statue of Liberty?",
+    "answer": "France",
     "aliases": [
-      "harrisburg"
+      "france"
     ],
-    "category": "Geography",
+    "category": "History",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -1468,12 +1460,12 @@
   },
   {
     "id": "buzz-100",
-    "text": "What is the capital of Rhode Island?",
-    "answer": "Providence",
+    "text": "Who composed the Ninth Symphony?",
+    "answer": "Beethoven",
     "aliases": [
-      "providence"
+      "beethoven"
     ],
-    "category": "Geography",
+    "category": "Music",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -1482,12 +1474,12 @@
   },
   {
     "id": "buzz-101",
-    "text": "What is the capital of South Carolina?",
-    "answer": "Columbia",
+    "text": "Which human bone is the longest?",
+    "answer": "Femur",
     "aliases": [
-      "columbia"
+      "femur"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -1496,12 +1488,12 @@
   },
   {
     "id": "buzz-102",
-    "text": "What is the capital of South Dakota?",
-    "answer": "Pierre",
+    "text": "Which element has atomic number 1?",
+    "answer": "Hydrogen",
     "aliases": [
-      "pierre"
+      "hydrogen"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -1510,12 +1502,12 @@
   },
   {
     "id": "buzz-103",
-    "text": "What is the capital of Tennessee?",
-    "answer": "Nashville",
+    "text": "What is hummus made from?",
+    "answer": "Chickpeas",
     "aliases": [
-      "nashville"
+      "chickpeas"
     ],
-    "category": "Geography",
+    "category": "Food",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -1524,12 +1516,12 @@
   },
   {
     "id": "buzz-104",
-    "text": "What is the capital of Texas?",
-    "answer": "Austin",
+    "text": "In which sport is a shuttlecock used?",
+    "answer": "Badminton",
     "aliases": [
-      "austin"
+      "badminton"
     ],
-    "category": "Geography",
+    "category": "Sport",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -1538,10 +1530,10 @@
   },
   {
     "id": "buzz-105",
-    "text": "What is the capital of Utah?",
-    "answer": "Salt Lake City",
+    "text": "Which island is the largest?",
+    "answer": "Greenland",
     "aliases": [
-      "salt lake city"
+      "greenland"
     ],
     "category": "Geography",
     "difficulty": 3,
@@ -1553,12 +1545,12 @@
   },
   {
     "id": "buzz-106",
-    "text": "What is the capital of Vermont?",
-    "answer": "Montpelier",
+    "text": "Which animal has the longest gestation?",
+    "answer": "Elephant",
     "aliases": [
-      "montpelier"
+      "elephant"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -1567,12 +1559,12 @@
   },
   {
     "id": "buzz-107",
-    "text": "What is the capital of Virginia?",
-    "answer": "Richmond",
+    "text": "Which land animal is fastest?",
+    "answer": "Cheetah",
     "aliases": [
-      "richmond"
+      "cheetah"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -1581,12 +1573,12 @@
   },
   {
     "id": "buzz-108",
-    "text": "What is the capital of Washington?",
-    "answer": "Olympia",
+    "text": "Which planet is called the Evening Star?",
+    "answer": "Venus",
     "aliases": [
-      "olympia"
+      "venus"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -1595,10 +1587,10 @@
   },
   {
     "id": "buzz-109",
-    "text": "What is the capital of Croatia?",
-    "answer": "Zagreb",
+    "text": "Which lake has the largest surface area?",
+    "answer": "Caspian Sea",
     "aliases": [
-      "zagreb"
+      "caspian sea"
     ],
     "category": "Geography",
     "difficulty": 2,
@@ -1609,12 +1601,12 @@
   },
   {
     "id": "buzz-110",
-    "text": "What is the capital of Wisconsin?",
-    "answer": "Madison",
+    "text": "Which season follows winter?",
+    "answer": "Spring",
     "aliases": [
-      "madison"
+      "spring"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -1623,12 +1615,12 @@
   },
   {
     "id": "buzz-111",
-    "text": "What is the capital of Wyoming?",
-    "answer": "Cheyenne",
+    "text": "Which penguin species is the largest?",
+    "answer": "Emperor penguin",
     "aliases": [
-      "cheyenne"
+      "emperor penguin"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -1637,10 +1629,10 @@
   },
   {
     "id": "buzz-112",
-    "text": "What is the chemical symbol for Hydrogen?",
-    "answer": "H",
+    "text": "What is the approximate speed of light?",
+    "answer": "300,000 km/s",
     "aliases": [
-      "h"
+      "300,000 km/s"
     ],
     "category": "Science",
     "difficulty": 1,
@@ -1652,10 +1644,10 @@
   },
   {
     "id": "buzz-113",
-    "text": "What is the chemical symbol for Helium?",
-    "answer": "He",
+    "text": "What is the centre of an atom called?",
+    "answer": "Nucleus",
     "aliases": [
-      "he"
+      "nucleus"
     ],
     "category": "Science",
     "difficulty": 2,
@@ -1667,10 +1659,10 @@
   },
   {
     "id": "buzz-114",
-    "text": "What is the chemical symbol for Lithium?",
-    "answer": "Li",
+    "text": "Which process do plants use to make food?",
+    "answer": "Photosynthesis",
     "aliases": [
-      "li"
+      "photosynthesis"
     ],
     "category": "Science",
     "difficulty": 3,
@@ -1682,10 +1674,10 @@
   },
   {
     "id": "buzz-115",
-    "text": "What is the chemical symbol for Beryllium?",
-    "answer": "Be",
+    "text": "Which state of matter is most common in the universe?",
+    "answer": "Plasma",
     "aliases": [
-      "be"
+      "plasma"
     ],
     "category": "Science",
     "difficulty": 1,
@@ -1697,10 +1689,10 @@
   },
   {
     "id": "buzz-116",
-    "text": "What is the chemical symbol for Boron?",
-    "answer": "B",
+    "text": "Which particle has a negative charge?",
+    "answer": "Electron",
     "aliases": [
-      "b"
+      "electron"
     ],
     "category": "Science",
     "difficulty": 2,
@@ -1712,10 +1704,10 @@
   },
   {
     "id": "buzz-117",
-    "text": "What is the chemical symbol for Carbon?",
-    "answer": "C",
+    "text": "What is the SI unit of force?",
+    "answer": "Newton",
     "aliases": [
-      "c"
+      "newton"
     ],
     "category": "Science",
     "difficulty": 3,
@@ -1727,10 +1719,10 @@
   },
   {
     "id": "buzz-118",
-    "text": "What is the chemical symbol for Nitrogen?",
-    "answer": "N",
+    "text": "What is the SI unit of energy?",
+    "answer": "Joule",
     "aliases": [
-      "n"
+      "joule"
     ],
     "category": "Science",
     "difficulty": 1,
@@ -1742,10 +1734,10 @@
   },
   {
     "id": "buzz-119",
-    "text": "What is the chemical symbol for Oxygen?",
-    "answer": "O",
+    "text": "What is the study of living things called?",
+    "answer": "Biology",
     "aliases": [
-      "o"
+      "biology"
     ],
     "category": "Science",
     "difficulty": 2,
@@ -1757,10 +1749,10 @@
   },
   {
     "id": "buzz-120",
-    "text": "What is the chemical symbol for Fluorine?",
-    "answer": "F",
+    "text": "Which organ is the human body's largest?",
+    "answer": "Skin",
     "aliases": [
-      "f"
+      "skin"
     ],
     "category": "Science",
     "difficulty": 3,
@@ -1772,10 +1764,10 @@
   },
   {
     "id": "buzz-121",
-    "text": "What is the chemical symbol for Neon?",
-    "answer": "Ne",
+    "text": "How many bones are in an adult human body?",
+    "answer": "206",
     "aliases": [
-      "ne"
+      "206"
     ],
     "category": "Science",
     "difficulty": 1,
@@ -1787,10 +1779,10 @@
   },
   {
     "id": "buzz-122",
-    "text": "What is the chemical symbol for Sodium?",
-    "answer": "Na",
+    "text": "What is normal human body temperature in Celsius?",
+    "answer": "37",
     "aliases": [
-      "na"
+      "37"
     ],
     "category": "Science",
     "difficulty": 2,
@@ -1802,10 +1794,10 @@
   },
   {
     "id": "buzz-123",
-    "text": "What is the chemical symbol for Magnesium?",
-    "answer": "Mg",
+    "text": "Which metal is widely used in electrical wiring?",
+    "answer": "Copper",
     "aliases": [
-      "mg"
+      "copper"
     ],
     "category": "Science",
     "difficulty": 3,
@@ -1817,11 +1809,10 @@
   },
   {
     "id": "buzz-124",
-    "text": "What is the chemical symbol for Aluminium?",
-    "answer": "Al",
+    "text": "What is a pattern of stars called?",
+    "answer": "Constellation",
     "aliases": [
-      "al",
-      "aluminum"
+      "constellation"
     ],
     "category": "Science",
     "difficulty": 1,
@@ -1833,10 +1824,10 @@
   },
   {
     "id": "buzz-125",
-    "text": "What is the chemical symbol for Silicon?",
-    "answer": "Si",
+    "text": "What is water turning into vapour called?",
+    "answer": "Evaporation",
     "aliases": [
-      "si"
+      "evaporation"
     ],
     "category": "Science",
     "difficulty": 2,
@@ -1848,10 +1839,10 @@
   },
   {
     "id": "buzz-126",
-    "text": "What is the chemical symbol for Phosphorus?",
-    "answer": "P",
+    "text": "Which star is closest to Earth?",
+    "answer": "Sun",
     "aliases": [
-      "p"
+      "sun"
     ],
     "category": "Science",
     "difficulty": 3,
@@ -1863,10 +1854,10 @@
   },
   {
     "id": "buzz-127",
-    "text": "What is the chemical symbol for Sulfur?",
-    "answer": "S",
+    "text": "What is our galaxy called?",
+    "answer": "Milky Way",
     "aliases": [
-      "s"
+      "milky way"
     ],
     "category": "Science",
     "difficulty": 1,
@@ -1878,10 +1869,10 @@
   },
   {
     "id": "buzz-128",
-    "text": "What is the chemical symbol for Chlorine?",
-    "answer": "Cl",
+    "text": "Which layer of Earth do we live on?",
+    "answer": "Crust",
     "aliases": [
-      "cl"
+      "crust"
     ],
     "category": "Science",
     "difficulty": 2,
@@ -1893,10 +1884,10 @@
   },
   {
     "id": "buzz-129",
-    "text": "What is the chemical symbol for Argon?",
-    "answer": "Ar",
+    "text": "What mainly causes ocean tides?",
+    "answer": "Moon's gravity",
     "aliases": [
-      "ar"
+      "moon's gravity"
     ],
     "category": "Science",
     "difficulty": 3,
@@ -1908,10 +1899,10 @@
   },
   {
     "id": "buzz-130",
-    "text": "What is the chemical symbol for Potassium?",
-    "answer": "K",
+    "text": "What is the smallest unit of an element?",
+    "answer": "Atom",
     "aliases": [
-      "k"
+      "atom"
     ],
     "category": "Science",
     "difficulty": 1,
@@ -1923,10 +1914,10 @@
   },
   {
     "id": "buzz-131",
-    "text": "What is the chemical symbol for Calcium?",
-    "answer": "Ca",
+    "text": "What is the chemical process that rusts iron?",
+    "answer": "Oxidation",
     "aliases": [
-      "ca"
+      "oxidation"
     ],
     "category": "Science",
     "difficulty": 2,
@@ -1938,10 +1929,10 @@
   },
   {
     "id": "buzz-132",
-    "text": "What is the chemical symbol for Titanium?",
-    "answer": "Ti",
+    "text": "What is the SI unit of electric current?",
+    "answer": "Ampere",
     "aliases": [
-      "ti"
+      "ampere"
     ],
     "category": "Science",
     "difficulty": 3,
@@ -1953,10 +1944,10 @@
   },
   {
     "id": "buzz-133",
-    "text": "What is the chemical symbol for Chromium?",
-    "answer": "Cr",
+    "text": "What is the study of weather called?",
+    "answer": "Meteorology",
     "aliases": [
-      "cr"
+      "meteorology"
     ],
     "category": "Science",
     "difficulty": 1,
@@ -1968,10 +1959,10 @@
   },
   {
     "id": "buzz-134",
-    "text": "What is the chemical symbol for Manganese?",
-    "answer": "Mn",
+    "text": "Which is Jupiter's largest moon?",
+    "answer": "Ganymede",
     "aliases": [
-      "mn"
+      "ganymede"
     ],
     "category": "Science",
     "difficulty": 2,
@@ -1983,10 +1974,10 @@
   },
   {
     "id": "buzz-135",
-    "text": "What is the chemical symbol for Iron?",
-    "answer": "Fe",
+    "text": "What is Earth's main source of energy?",
+    "answer": "Sun",
     "aliases": [
-      "fe"
+      "sun"
     ],
     "category": "Science",
     "difficulty": 3,
@@ -1998,10 +1989,10 @@
   },
   {
     "id": "buzz-136",
-    "text": "What is the chemical symbol for Cobalt?",
-    "answer": "Co",
+    "text": "What are plant-eating animals called?",
+    "answer": "Herbivores",
     "aliases": [
-      "co"
+      "herbivores"
     ],
     "category": "Science",
     "difficulty": 1,
@@ -2013,10 +2004,10 @@
   },
   {
     "id": "buzz-137",
-    "text": "What is the chemical symbol for Nickel?",
-    "answer": "Ni",
+    "text": "What is ordinary cell division called?",
+    "answer": "Mitosis",
     "aliases": [
-      "ni"
+      "mitosis"
     ],
     "category": "Science",
     "difficulty": 2,
@@ -2028,10 +2019,10 @@
   },
   {
     "id": "buzz-138",
-    "text": "What is the chemical symbol for Copper?",
-    "answer": "Cu",
+    "text": "What is the pH of pure water?",
+    "answer": "7",
     "aliases": [
-      "cu"
+      "7"
     ],
     "category": "Science",
     "difficulty": 3,
@@ -2043,10 +2034,10 @@
   },
   {
     "id": "buzz-139",
-    "text": "What is the chemical symbol for Zinc?",
-    "answer": "Zn",
+    "text": "Which planet is fourth from the Sun?",
+    "answer": "Mars",
     "aliases": [
-      "zn"
+      "mars"
     ],
     "category": "Science",
     "difficulty": 1,
@@ -2163,12 +2154,12 @@
   },
   {
     "id": "buzz-147",
-    "text": "What is the chemical symbol for Tin?",
-    "answer": "Sn",
+    "text": "Which animal produces honey?",
+    "answer": "Bee",
     "aliases": [
-      "sn"
+      "bee"
     ],
-    "category": "Science",
+    "category": "Animals",
     "difficulty": 3,
     "tags": [
       "trivia",
@@ -2178,12 +2169,12 @@
   },
   {
     "id": "buzz-148",
-    "text": "What is the chemical symbol for Iodine?",
-    "answer": "I",
+    "text": "What is a baby horse called?",
+    "answer": "Foal",
     "aliases": [
-      "i"
+      "foal"
     ],
-    "category": "Science",
+    "category": "Animals",
     "difficulty": 1,
     "tags": [
       "trivia",
@@ -2193,12 +2184,12 @@
   },
   {
     "id": "buzz-149",
-    "text": "What is the chemical symbol for Xenon?",
-    "answer": "Xe",
+    "text": "Which animal is known for a pouch?",
+    "answer": "Kangaroo",
     "aliases": [
-      "xe"
+      "kangaroo"
     ],
-    "category": "Science",
+    "category": "Animals",
     "difficulty": 2,
     "tags": [
       "trivia",
@@ -2208,11 +2199,10 @@
   },
   {
     "id": "buzz-150",
-    "text": "What is the chemical symbol for Caesium?",
-    "answer": "Cs",
+    "text": "Which planet has a moon called Titan?",
+    "answer": "Saturn",
     "aliases": [
-      "cs",
-      "cesium"
+      "saturn"
     ],
     "category": "Science",
     "difficulty": 3,
@@ -2224,12 +2214,12 @@
   },
   {
     "id": "buzz-151",
-    "text": "What is the chemical symbol for Barium?",
-    "answer": "Ba",
+    "text": "What is chocolate made from?",
+    "answer": "Cacao",
     "aliases": [
-      "ba"
+      "cacao"
     ],
-    "category": "Science",
+    "category": "Food",
     "difficulty": 1,
     "tags": [
       "trivia",
@@ -2239,12 +2229,12 @@
   },
   {
     "id": "buzz-152",
-    "text": "What is the chemical symbol for Platinum?",
-    "answer": "Pt",
+    "text": "Which country is famous for sushi?",
+    "answer": "Japan",
     "aliases": [
-      "pt"
+      "japan"
     ],
-    "category": "Science",
+    "category": "Food",
     "difficulty": 2,
     "tags": [
       "trivia",
@@ -2254,10 +2244,10 @@
   },
   {
     "id": "buzz-153",
-    "text": "What is the chemical symbol for antimony?",
-    "answer": "Sb",
+    "text": "Which organs filter blood?",
+    "answer": "Kidneys",
     "aliases": [
-      "sb"
+      "kidneys"
     ],
     "category": "Science",
     "difficulty": 3,
@@ -2269,12 +2259,12 @@
   },
   {
     "id": "buzz-154",
-    "text": "What is the chemical symbol for Mercury?",
-    "answer": "Hg",
+    "text": "What is a baby cat called?",
+    "answer": "Kitten",
     "aliases": [
-      "hg"
+      "kitten"
     ],
-    "category": "Science",
+    "category": "Animals",
     "difficulty": 1,
     "tags": [
       "trivia",
@@ -2284,12 +2274,12 @@
   },
   {
     "id": "buzz-155",
-    "text": "What is the chemical symbol for Lead?",
-    "answer": "Pb",
+    "text": "Which instrument is played with a bow?",
+    "answer": "Violin",
     "aliases": [
-      "pb"
+      "violin"
     ],
-    "category": "Science",
+    "category": "Music",
     "difficulty": 2,
     "tags": [
       "trivia",
@@ -2299,12 +2289,12 @@
   },
   {
     "id": "buzz-156",
-    "text": "What is the chemical symbol for Radon?",
-    "answer": "Rn",
+    "text": "What is India's currency?",
+    "answer": "Rupee",
     "aliases": [
-      "rn"
+      "rupee"
     ],
-    "category": "Science",
+    "category": "Geography",
     "difficulty": 3,
     "tags": [
       "trivia",
@@ -2314,12 +2304,12 @@
   },
   {
     "id": "buzz-157",
-    "text": "What is the chemical symbol for Radium?",
-    "answer": "Ra",
+    "text": "Which continent is Brazil in?",
+    "answer": "South America",
     "aliases": [
-      "ra"
+      "south america"
     ],
-    "category": "Science",
+    "category": "Geography",
     "difficulty": 1,
     "tags": [
       "trivia",
@@ -2329,10 +2319,10 @@
   },
   {
     "id": "buzz-158",
-    "text": "What is the chemical symbol for Uranium?",
-    "answer": "U",
+    "text": "Which gas makes a balloon float?",
+    "answer": "Helium",
     "aliases": [
-      "u"
+      "helium"
     ],
     "category": "Science",
     "difficulty": 2,
@@ -2344,12 +2334,12 @@
   },
   {
     "id": "buzz-159",
-    "text": "What is the chemical symbol for Tungsten?",
-    "answer": "W",
+    "text": "Which animal has a trunk?",
+    "answer": "Elephant",
     "aliases": [
-      "w"
+      "elephant"
     ],
-    "category": "Science",
+    "category": "Animals",
     "difficulty": 3,
     "tags": [
       "trivia",
@@ -2359,10 +2349,10 @@
   },
   {
     "id": "buzz-160",
-    "text": "What is the chemical symbol for Osmium?",
-    "answer": "Os",
+    "text": "What is the study of earthquakes called?",
+    "answer": "Seismology",
     "aliases": [
-      "os"
+      "seismology"
     ],
     "category": "Science",
     "difficulty": 1,
@@ -2374,10 +2364,10 @@
   },
   {
     "id": "buzz-161",
-    "text": "What is the chemical symbol for Iridium?",
-    "answer": "Ir",
+    "text": "Which vitamin is found in citrus fruit?",
+    "answer": "Vitamin C",
     "aliases": [
-      "ir"
+      "vitamin c"
     ],
     "category": "Science",
     "difficulty": 2,
@@ -2389,10 +2379,10 @@
   },
   {
     "id": "buzz-162",
-    "text": "What is the capital of Japan?",
-    "answer": "Tokyo",
+    "text": "Which country is famous for tulips and windmills?",
+    "answer": "Netherlands",
     "aliases": [
-      "tokyo"
+      "netherlands"
     ],
     "category": "Geography",
     "difficulty": 3,
@@ -2403,12 +2393,12 @@
   },
   {
     "id": "buzz-163",
-    "text": "What is the capital of United Kingdom?",
-    "answer": "London",
+    "text": "Which mineral is used in pencil leads?",
+    "answer": "Graphite",
     "aliases": [
-      "london"
+      "graphite"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -2417,12 +2407,12 @@
   },
   {
     "id": "buzz-164",
-    "text": "What is the capital of Germany?",
-    "answer": "Berlin",
+    "text": "Which planet is the largest?",
+    "answer": "Jupiter",
     "aliases": [
-      "berlin"
+      "jupiter"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -2431,13 +2421,12 @@
   },
   {
     "id": "buzz-165",
-    "text": "What is the capital of Brazil?",
-    "answer": "Brasília",
+    "text": "How many strings does a standard guitar have?",
+    "answer": "Six",
     "aliases": [
-      "brasília",
-      "brasilia"
+      "six"
     ],
-    "category": "Geography",
+    "category": "Music",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -2446,10 +2435,10 @@
   },
   {
     "id": "buzz-166",
-    "text": "What is the capital of Argentina?",
-    "answer": "Buenos Aires",
+    "text": "Which ocean lies between Africa and Australia?",
+    "answer": "Indian Ocean",
     "aliases": [
-      "buenos aires"
+      "indian ocean"
     ],
     "category": "Geography",
     "difficulty": 1,
@@ -2460,10 +2449,10 @@
   },
   {
     "id": "buzz-167",
-    "text": "What is the capital of Portugal?",
-    "answer": "Lisbon",
+    "text": "Which country is smallest by area?",
+    "answer": "Vatican City",
     "aliases": [
-      "lisbon"
+      "vatican city"
     ],
     "category": "Geography",
     "difficulty": 2,
@@ -2474,12 +2463,12 @@
   },
   {
     "id": "buzz-168",
-    "text": "What is the capital of Egypt?",
-    "answer": "Cairo",
+    "text": "What is a group of lions called?",
+    "answer": "Pride",
     "aliases": [
-      "cairo"
+      "pride"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -2488,12 +2477,12 @@
   },
   {
     "id": "buzz-169",
-    "text": "What is the capital of Kenya?",
-    "answer": "Nairobi",
+    "text": "Which flower is the largest?",
+    "answer": "Rafflesia",
     "aliases": [
-      "nairobi"
+      "rafflesia"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -2502,12 +2491,12 @@
   },
   {
     "id": "buzz-170",
-    "text": "What is the capital of Nigeria?",
-    "answer": "Abuja",
+    "text": "Which gas do humans need to breathe?",
+    "answer": "Oxygen",
     "aliases": [
-      "abuja"
+      "oxygen"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -2516,10 +2505,10 @@
   },
   {
     "id": "buzz-171",
-    "text": "What is the capital of India?",
-    "answer": "New Delhi",
+    "text": "Which continent contains the Sahara?",
+    "answer": "Africa",
     "aliases": [
-      "new delhi"
+      "africa"
     ],
     "category": "Geography",
     "difficulty": 3,
@@ -2531,12 +2520,12 @@
   },
   {
     "id": "buzz-172",
-    "text": "What is the capital of China?",
-    "answer": "Beijing",
+    "text": "Which mammal is the largest?",
+    "answer": "Blue whale",
     "aliases": [
-      "beijing"
+      "blue whale"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -2545,12 +2534,12 @@
   },
   {
     "id": "buzz-173",
-    "text": "What is the capital of Russia?",
-    "answer": "Moscow",
+    "text": "Which planet's day is longer than its year?",
+    "answer": "Venus",
     "aliases": [
-      "moscow"
+      "venus"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -2559,12 +2548,12 @@
   },
   {
     "id": "buzz-174",
-    "text": "What is the capital of Greece?",
-    "answer": "Athens",
+    "text": "Which metal is most abundant in Earth's crust?",
+    "answer": "Aluminium",
     "aliases": [
-      "athens"
+      "aluminium"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -2573,12 +2562,12 @@
   },
   {
     "id": "buzz-175",
-    "text": "What is the capital of Estonia?",
-    "answer": "Tallinn",
+    "text": "Which fish is the fastest?",
+    "answer": "Sailfish",
     "aliases": [
-      "tallinn"
+      "sailfish"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -2587,12 +2576,12 @@
   },
   {
     "id": "buzz-176",
-    "text": "What is the capital of Norway?",
-    "answer": "Oslo",
+    "text": "Which bear species is generally the largest?",
+    "answer": "Polar bear",
     "aliases": [
-      "oslo"
+      "polar bear"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -2601,12 +2590,12 @@
   },
   {
     "id": "buzz-177",
-    "text": "What is the capital of Sweden?",
-    "answer": "Stockholm",
+    "text": "Which country hosted the 2016 Summer Olympics?",
+    "answer": "Brazil",
     "aliases": [
-      "stockholm"
+      "brazil"
     ],
-    "category": "Geography",
+    "category": "Sport",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -2615,12 +2604,12 @@
   },
   {
     "id": "buzz-178",
-    "text": "What is the capital of Denmark?",
-    "answer": "Copenhagen",
+    "text": "What is guacamole's main ingredient?",
+    "answer": "Avocado",
     "aliases": [
-      "copenhagen"
+      "avocado"
     ],
-    "category": "Geography",
+    "category": "Food",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -2629,12 +2618,12 @@
   },
   {
     "id": "buzz-179",
-    "text": "What is the capital of Finland?",
-    "answer": "Helsinki",
+    "text": "Which planet is farthest from the Sun?",
+    "answer": "Neptune",
     "aliases": [
-      "helsinki"
+      "neptune"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -2643,12 +2632,12 @@
   },
   {
     "id": "buzz-180",
-    "text": "What is the capital of Poland?",
-    "answer": "Warsaw",
+    "text": "Which big cat species is the largest?",
+    "answer": "Tiger",
     "aliases": [
-      "warsaw"
+      "tiger"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -2783,10 +2772,10 @@
   },
   {
     "id": "buzz-190",
-    "text": "What is the capital of United Arab Emirates?",
-    "answer": "Abu Dhabi",
+    "text": "Which country contains Machu Picchu?",
+    "answer": "Peru",
     "aliases": [
-      "abu dhabi"
+      "peru"
     ],
     "category": "Geography",
     "difficulty": 1,
@@ -2797,12 +2786,12 @@
   },
   {
     "id": "buzz-191",
-    "text": "What is the capital of South Korea?",
-    "answer": "Seoul",
+    "text": "What is bread mainly made from?",
+    "answer": "Flour",
     "aliases": [
-      "seoul"
+      "flour"
     ],
-    "category": "Geography",
+    "category": "Food",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -2811,12 +2800,12 @@
   },
   {
     "id": "buzz-192",
-    "text": "What is the capital of Thailand?",
-    "answer": "Bangkok",
+    "text": "Which planet lies between Earth and Saturn?",
+    "answer": "Jupiter",
     "aliases": [
-      "bangkok"
+      "jupiter"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -2825,12 +2814,12 @@
   },
   {
     "id": "buzz-193",
-    "text": "What is the capital of Vietnam?",
-    "answer": "Hanoi",
+    "text": "What is a young dog called?",
+    "answer": "Puppy",
     "aliases": [
-      "hanoi"
+      "puppy"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -2839,10 +2828,10 @@
   },
   {
     "id": "buzz-194",
-    "text": "What is the capital of Indonesia?",
-    "answer": "Jakarta",
+    "text": "Which sea lies between Italy and the Balkans?",
+    "answer": "Adriatic Sea",
     "aliases": [
-      "jakarta"
+      "adriatic sea"
     ],
     "category": "Geography",
     "difficulty": 2,
@@ -2853,10 +2842,10 @@
   },
   {
     "id": "buzz-195",
-    "text": "What is the capital of Philippines?",
-    "answer": "Manila",
+    "text": "What is Canada's currency?",
+    "answer": "Canadian dollar",
     "aliases": [
-      "manila"
+      "canadian dollar"
     ],
     "category": "Geography",
     "difficulty": 3,
@@ -2867,12 +2856,12 @@
   },
   {
     "id": "buzz-196",
-    "text": "What is the capital of New Zealand?",
-    "answer": "Wellington",
+    "text": "Which animal is the symbol of the WWF?",
+    "answer": "Giant panda",
     "aliases": [
-      "wellington"
+      "giant panda"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -2881,12 +2870,12 @@
   },
   {
     "id": "buzz-197",
-    "text": "What is the capital of Chile?",
-    "answer": "Santiago",
+    "text": "What is a caterpillar's transformation into a butterfly called?",
+    "answer": "Metamorphosis",
     "aliases": [
-      "santiago"
+      "metamorphosis"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -2895,10 +2884,10 @@
   },
   {
     "id": "buzz-198",
-    "text": "What is the capital of Peru?",
-    "answer": "Lima",
+    "text": "Which country contains the Taj Mahal?",
+    "answer": "India",
     "aliases": [
-      "lima"
+      "india"
     ],
     "category": "Geography",
     "difficulty": 3,
@@ -2909,13 +2898,12 @@
   },
   {
     "id": "buzz-199",
-    "text": "What is the capital of Colombia?",
-    "answer": "Bogotá",
+    "text": "What is pesto mainly made from?",
+    "answer": "Basil",
     "aliases": [
-      "bogotá",
-      "bogota"
+      "basil"
     ],
-    "category": "Geography",
+    "category": "Food",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -2924,12 +2912,12 @@
   },
   {
     "id": "buzz-200",
-    "text": "What is the capital of Morocco?",
-    "answer": "Rabat",
+    "text": "Which gas is used in neon signs?",
+    "answer": "Neon",
     "aliases": [
-      "rabat"
+      "neon"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -2938,12 +2926,12 @@
   },
   {
     "id": "buzz-201",
-    "text": "What is the capital of Ethiopia?",
-    "answer": "Addis Ababa",
+    "text": "Which body system includes the heart?",
+    "answer": "Circulatory system",
     "aliases": [
-      "addis ababa"
+      "circulatory system"
     ],
-    "category": "Geography",
+    "category": "Science",
     "difficulty": 3,
     "tags": [
       "trivia"
@@ -3388,13 +3376,12 @@
   },
   {
     "id": "buzz-233",
-    "text": "What is the chemical formula for table salt?",
-    "answer": "NaCl",
+    "text": "Which country is famous for the tango?",
+    "answer": "Argentina",
     "aliases": [
-      "nacl",
-      "sodium chloride"
+      "argentina"
     ],
-    "category": "Science",
+    "category": "Music",
     "difficulty": 2,
     "tags": [
       "trivia",
@@ -3435,13 +3422,12 @@
   },
   {
     "id": "buzz-236",
-    "text": "How many bones are in an adult human body?",
-    "answer": "206",
+    "text": "Which animal is known for its laughing call?",
+    "answer": "Hyena",
     "aliases": [
-      "206",
-      "two hundred and six"
+      "hyena"
     ],
-    "category": "Science",
+    "category": "Animals",
     "difficulty": 2,
     "tags": [
       "trivia",
@@ -3451,13 +3437,12 @@
   },
   {
     "id": "buzz-237",
-    "text": "What is the approximate speed of light?",
-    "answer": "299,792 km/s",
+    "text": "Which fruit is long and yellow?",
+    "answer": "Banana",
     "aliases": [
-      "299,792 km/s",
-      "300,000 km/s"
+      "banana"
     ],
-    "category": "Science",
+    "category": "Food",
     "difficulty": 3,
     "tags": [
       "trivia",
@@ -3468,12 +3453,12 @@
   },
   {
     "id": "buzz-238",
-    "text": "Which planet is famous for its rings?",
-    "answer": "Saturn",
+    "text": "Which shape has eight sides?",
+    "answer": "Octagon",
     "aliases": [
-      "saturn"
+      "octagon"
     ],
-    "category": "Science",
+    "category": "Maths",
     "difficulty": 1,
     "tags": [
       "trivia",
@@ -3499,10 +3484,10 @@
   },
   {
     "id": "buzz-240",
-    "text": "What is the study of living things called?",
-    "answer": "Biology",
+    "text": "What is frozen water called?",
+    "answer": "Ice",
     "aliases": [
-      "biology"
+      "ice"
     ],
     "category": "Science",
     "difficulty": 3,
@@ -3514,10 +3499,10 @@
   },
   {
     "id": "buzz-241",
-    "text": "What is the centre of an atom called?",
-    "answer": "Nucleus",
+    "text": "Which organ produces insulin?",
+    "answer": "Pancreas",
     "aliases": [
-      "nucleus"
+      "pancreas"
     ],
     "category": "Science",
     "difficulty": 1,
@@ -3561,12 +3546,12 @@
   },
   {
     "id": "buzz-244",
-    "text": "Which organ pumps blood around the body?",
-    "answer": "Heart",
+    "text": "Which sport is played at Lord's?",
+    "answer": "Cricket",
     "aliases": [
-      "heart"
+      "cricket"
     ],
-    "category": "Science",
+    "category": "Sport",
     "difficulty": 1,
     "tags": [
       "trivia",
@@ -3608,10 +3593,10 @@
   },
   {
     "id": "buzz-247",
-    "text": "What is the capital of Lithuania?",
-    "answer": "Vilnius",
+    "text": "Which country is the home of the Maori?",
+    "answer": "New Zealand",
     "aliases": [
-      "vilnius"
+      "new zealand"
     ],
     "category": "Geography",
     "difficulty": 2,
@@ -3669,12 +3654,12 @@
   },
   {
     "id": "buzz-251",
-    "text": "What is the study of weather called?",
-    "answer": "Meteorology",
+    "text": "What is ketchup mainly made from?",
+    "answer": "Tomato",
     "aliases": [
-      "meteorology"
+      "tomato"
     ],
-    "category": "Science",
+    "category": "Food",
     "difficulty": 2,
     "tags": [
       "trivia",
@@ -3700,11 +3685,10 @@
   },
   {
     "id": "buzz-253",
-    "text": "What is the pH of pure water?",
-    "answer": "7",
+    "text": "Which star sign begins in late March?",
+    "answer": "Aries",
     "aliases": [
-      "7",
-      "seven"
+      "aries"
     ],
     "category": "Science",
     "difficulty": 1,
@@ -3747,12 +3731,12 @@
   },
   {
     "id": "buzz-256",
-    "text": "What is the chemical symbol for bismuth?",
-    "answer": "Bi",
+    "text": "Which country is the home of pasta?",
+    "answer": "Italy",
     "aliases": [
-      "bi"
+      "italy"
     ],
-    "category": "Science",
+    "category": "Food",
     "difficulty": 3,
     "tags": [
       "trivia",
@@ -3792,12 +3776,12 @@
   },
   {
     "id": "buzz-259",
-    "text": "What is the study of earthquakes called?",
-    "answer": "Seismology",
+    "text": "Which animal has black and white stripes?",
+    "answer": "Zebra",
     "aliases": [
-      "seismology"
+      "zebra"
     ],
-    "category": "Science",
+    "category": "Animals",
     "difficulty": 1,
     "tags": [
       "trivia",
@@ -3823,12 +3807,12 @@
   },
   {
     "id": "buzz-261",
-    "text": "What is the capital of Latvia?",
-    "answer": "Riga",
+    "text": "What is a group of fish called?",
+    "answer": "School",
     "aliases": [
-      "riga"
+      "school"
     ],
-    "category": "Geography",
+    "category": "Animals",
     "difficulty": 2,
     "tags": [
       "trivia",
@@ -4151,12 +4135,12 @@
   },
   {
     "id": "buzz-283",
-    "text": "Which country has the largest population?",
-    "answer": "India",
+    "text": "Which tool measures temperature?",
+    "answer": "Thermometer",
     "aliases": [
-      "india"
+      "thermometer"
     ],
-    "category": "General",
+    "category": "Science",
     "difficulty": 1,
     "tags": [
       "trivia",
@@ -4196,12 +4180,12 @@
   },
   {
     "id": "buzz-286",
-    "text": "Which ocean lies between Africa and Australia?",
-    "answer": "Indian Ocean",
+    "text": "Which metal is commonly used in drink cans?",
+    "answer": "Aluminium",
     "aliases": [
-      "indian ocean"
+      "aluminium"
     ],
-    "category": "General",
+    "category": "Science",
     "difficulty": 1,
     "tags": [
       "trivia",
@@ -4211,13 +4195,12 @@
   },
   {
     "id": "buzz-287",
-    "text": "What is the capital of the United States?",
-    "answer": "Washington, D.C.",
+    "text": "Which country is the home of the kilt?",
+    "answer": "Scotland",
     "aliases": [
-      "washington, d.c.",
-      "washington dc"
+      "scotland"
     ],
-    "category": "General",
+    "category": "Geography",
     "difficulty": 2,
     "tags": [
       "trivia"
@@ -4329,13 +4312,12 @@
   },
   {
     "id": "buzz-295",
-    "text": "How many strings does a standard guitar have?",
-    "answer": "Six",
+    "text": "Which fruit is used to make wine?",
+    "answer": "Grapes",
     "aliases": [
-      "six",
-      "6"
+      "grapes"
     ],
-    "category": "General",
+    "category": "Food",
     "difficulty": 1,
     "tags": [
       "trivia"
@@ -4417,6 +4399,756 @@
     "tags": [
       "trivia",
       "food"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-301",
+    "text": "Which planet has the shortest day?",
+    "answer": "Jupiter",
+    "aliases": [
+      "jupiter"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-302",
+    "text": "Which planet has the longest day?",
+    "answer": "Venus",
+    "aliases": [
+      "venus"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-303",
+    "text": "What is Earth's natural satellite called?",
+    "answer": "Moon",
+    "aliases": [
+      "moon"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-304",
+    "text": "What is the study of fossils called?",
+    "answer": "Palaeontology",
+    "aliases": [
+      "palaeontology"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-305",
+    "text": "Which gas dominates Venus's atmosphere?",
+    "answer": "Carbon dioxide",
+    "aliases": [
+      "carbon dioxide"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-306",
+    "text": "Which planet has the coldest average surface temperature?",
+    "answer": "Neptune",
+    "aliases": [
+      "neptune"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-307",
+    "text": "What is a group of wolves called?",
+    "answer": "Pack",
+    "aliases": [
+      "pack"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-308",
+    "text": "What is a group of crows called?",
+    "answer": "Murder",
+    "aliases": [
+      "murder"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-309",
+    "text": "What is a group of whales called?",
+    "answer": "Pod",
+    "aliases": [
+      "pod"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-310",
+    "text": "Which animal can regrow its tail?",
+    "answer": "Lizard",
+    "aliases": [
+      "lizard"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-311",
+    "text": "What is a snake shedding its skin called?",
+    "answer": "Moulting",
+    "aliases": [
+      "moulting"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-312",
+    "text": "Which bird cannot fly?",
+    "answer": "Penguin",
+    "aliases": [
+      "penguin"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-313",
+    "text": "Which mammal lays eggs?",
+    "answer": "Platypus",
+    "aliases": [
+      "platypus"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-314",
+    "text": "Which animal has the strongest bite?",
+    "answer": "Saltwater crocodile",
+    "aliases": [
+      "saltwater crocodile"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-315",
+    "text": "Which bird is fastest in a dive?",
+    "answer": "Peregrine falcon",
+    "aliases": [
+      "peregrine falcon"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-316",
+    "text": "Which insect produces silk?",
+    "answer": "Silkworm",
+    "aliases": [
+      "silkworm"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-317",
+    "text": "What is the study of insects called?",
+    "answer": "Entomology",
+    "aliases": [
+      "entomology"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-318",
+    "text": "Which galaxy is nearest to the Milky Way?",
+    "answer": "Andromeda",
+    "aliases": [
+      "andromeda"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-319",
+    "text": "What is a shooting star actually called?",
+    "answer": "Meteor",
+    "aliases": [
+      "meteor"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-320",
+    "text": "What is the boundary around a black hole called?",
+    "answer": "Event horizon",
+    "aliases": [
+      "event horizon"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-321",
+    "text": "What force resists sliding motion?",
+    "answer": "Friction",
+    "aliases": [
+      "friction"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-322",
+    "text": "What is the unit of frequency?",
+    "answer": "Hertz",
+    "aliases": [
+      "hertz"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-323",
+    "text": "What is the unit of power?",
+    "answer": "Watt",
+    "aliases": [
+      "watt"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-324",
+    "text": "What is the unit of pressure?",
+    "answer": "Pascal",
+    "aliases": [
+      "pascal"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-325",
+    "text": "Which process powers the Sun?",
+    "answer": "Nuclear fusion",
+    "aliases": [
+      "nuclear fusion"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-326",
+    "text": "What speeds up a chemical reaction without being consumed?",
+    "answer": "Catalyst",
+    "aliases": [
+      "catalyst"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-327",
+    "text": "What does the pH scale measure?",
+    "answer": "Acidity",
+    "aliases": [
+      "acidity"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-328",
+    "text": "Which blood vessels are the smallest?",
+    "answer": "Capillaries",
+    "aliases": [
+      "capillaries"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-329",
+    "text": "Which artery is the largest in the body?",
+    "answer": "Aorta",
+    "aliases": [
+      "aorta"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-330",
+    "text": "What is the windpipe called?",
+    "answer": "Trachea",
+    "aliases": [
+      "trachea"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-331",
+    "text": "Which organ produces bile?",
+    "answer": "Liver",
+    "aliases": [
+      "liver"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-332",
+    "text": "What is the voice box called?",
+    "answer": "Larynx",
+    "aliases": [
+      "larynx"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-333",
+    "text": "Which organ stores urine?",
+    "answer": "Bladder",
+    "aliases": [
+      "bladder"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-334",
+    "text": "Which protein carries oxygen in red blood cells?",
+    "answer": "Haemoglobin",
+    "aliases": [
+      "haemoglobin"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-335",
+    "text": "Which vitamin helps blood clot?",
+    "answer": "Vitamin K",
+    "aliases": [
+      "vitamin k"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-336",
+    "text": "Which mineral is important for strong bones?",
+    "answer": "Calcium",
+    "aliases": [
+      "calcium"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-337",
+    "text": "Which hormone triggers fight-or-flight?",
+    "answer": "Adrenaline",
+    "aliases": [
+      "adrenaline"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-338",
+    "text": "Which part of the brain is the largest?",
+    "answer": "Cerebrum",
+    "aliases": [
+      "cerebrum"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-339",
+    "text": "Which cells fight infection?",
+    "answer": "White blood cells",
+    "aliases": [
+      "white blood cells"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-340",
+    "text": "What is the clear liquid part of blood called?",
+    "answer": "Plasma",
+    "aliases": [
+      "plasma"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-341",
+    "text": "Which planet has Olympus Mons?",
+    "answer": "Mars",
+    "aliases": [
+      "mars"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-342",
+    "text": "Which object is the largest in the asteroid belt?",
+    "answer": "Ceres",
+    "aliases": [
+      "ceres"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-343",
+    "text": "Which planet has the Great Dark Spot?",
+    "answer": "Neptune",
+    "aliases": [
+      "neptune"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-344",
+    "text": "What is a boundary between tectonic plates called?",
+    "answer": "Fault",
+    "aliases": [
+      "fault"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-345",
+    "text": "What is molten rock below the surface called?",
+    "answer": "Magma",
+    "aliases": [
+      "magma"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-346",
+    "text": "What is molten rock above the surface called?",
+    "answer": "Lava",
+    "aliases": [
+      "lava"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-347",
+    "text": "What was the ancient supercontinent called?",
+    "answer": "Pangaea",
+    "aliases": [
+      "pangaea"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-348",
+    "text": "What is the study of rocks called?",
+    "answer": "Geology",
+    "aliases": [
+      "geology"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-349",
+    "text": "What scale measures mineral hardness?",
+    "answer": "Mohs scale",
+    "aliases": [
+      "mohs scale"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "buzz-350",
+    "text": "Which layer lies directly below Earth's crust?",
+    "answer": "Mantle",
+    "aliases": [
+      "mantle"
+    ],
+    "category": "Science",
+    "difficulty": 2,
+    "tags": [
+      "trivia",
+      "science"
     ],
     "rating": "all"
   }
