@@ -110,17 +110,13 @@ async function main() {
   for (const id of ids) {
     const file = FILES[id] || (id.startsWith("fill-the-blank") ? "fillTheBlank.json" : null);
     if (!file) {
-      results.push({
-        gameId: id,
-        count: 0,
-        target: checkTargets ? TARGETS[id] || 300 : 0,
-        errors: checksTargets()
-          ? [
-              `${id}: 0/${TARGETS[id] || 300} items (bank not implemented; bank below target)`,
-            ]
-          : [],
-        warnings: [],
-      });
+      const result = validateBank({ gameId: id, items: [], target: 0 });
+      if (checksTargets()) {
+        result.errors.push(
+          `${id}: 0/${TARGETS[id] || 300} items (bank not implemented; bank below target)`,
+        );
+      }
+      results.push(result);
       continue;
     }
     if (!loaded.has(file)) {
