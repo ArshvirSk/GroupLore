@@ -1,41 +1,51 @@
 "use client";
 
+import { Card, CardTable, Hand, OpponentSeat, PlayedCards } from "@/components/cards";
+import { Badge, Button } from "@/components/ui";
 import { Icon } from "@/components/ui/Icon";
-
-import PromptCard from "@/components/game/PromptCard";
 import type { RoomView } from "@/stores/roomStore";
-import { motion, useReducedMotion } from "framer-motion";
+import { useState } from "react";
 
 type LiarsReveal = {
-  truth: string;
-  lie: string;
-  statement: string;
+  callerId: string;
+  callerName: string;
+  playerId: string;
+  playerName: string;
+  claimed: string;
+  cards: { id: string; rank: string; suit?: string; faceUp?: boolean }[];
   wasLie: boolean;
-  groupCorrect: boolean;
-  truthVotes: number;
-  lieVotes: number;
-  liarId: string;
-  liarName: string;
-  voters: { playerId: string; name: string; value: "truth" | "lie" }[];
-  roundPoints: { playerId: string; name: string; points: number }[];
+  stamp: "Caught!" | "Honest!";
+  loserId: string;
+  loserName: string;
+  strikes: Record<string, number>;
+  eliminated: { playerId: string; name: string }[];
+  maxStrikes: number;
 };
 
 export type LiarsView = {
-  phase: "choose" | "vote" | "reveal";
+  phase: "turn" | "reveal";
   round: number;
-  rounds: number;
   mode: string;
-  isStoryteller: boolean;
-  prompt?: { truth: string; lie: string };
-  waiting?: boolean;
-  statement?: string;
-  submitted?: number;
-  total?: number;
-  myVote?: "truth" | "lie" | null;
+  tableRank: "K" | "Q" | "A" | string;
+  currentPlayerId: string | null;
+  currentPlayerName: string;
+  isYourTurn: boolean;
+  hand: { id: string; rank: string; suit?: string; joker?: boolean }[];
+  handCounts: Record<string, { count: number; backIds: string[] }>;
+  strikes: Record<string, number>;
+  maxStrikes: number;
+  eliminated: string[];
+  pileCount: number;
+  lastPlay: { playerId: string; name: string; count: number } | null;
+  mustCall: boolean;
+  canCall: boolean;
+  aliveCount: number;
+  turnMs: number;
   reveal?: LiarsReveal | null;
 };
 
 export default function LiarsBarGame({
+  room,
   view,
   send,
 }: {
@@ -43,202 +53,183 @@ export default function LiarsBarGame({
   view: LiarsView;
   send: (type: string, data?: Record<string, unknown>) => void;
 }) {
-  const reduced = useReducedMotion();
-
-  if (view.phase === "choose") {
-    if (!view.isStoryteller) {
-      return (
-        <div className="party-card p-8 text-center">
-          <Icon name="glass" className="mx-auto h-10 w-10" />
-          <p className="mt-3 font-display text-xl font-semibold text-ink">
-            The storyteller is choosing a statement…
-          </p>
-          <p className="mt-1 text-sm font-semibold text-ink-soft">
-            You will vote on whether the statement is truth or a lie.
-          </p>
-        </div>
-      );
-    }
-
-    const prompt = view.prompt;
-
-    return (
-      <div className="space-y-4">
-        <PromptCard kicker="You are the storyteller" icon="glass">
-          Pick one statement to present. The group votes on whether it is true.
-        </PromptCard>
-
-        <div className="grid gap-3 sm:grid-cols-2">
-          {prompt &&
-            (["truth", "lie"] as const).map((kind) => (
-              <button
-                key={kind}
-                type="button"
-                onClick={() => send("choose", { value: kind })}
-                className="party-card min-h-40 p-5 text-left transition hover:border-grape/40"
-              >
-                <span className="text-xs font-bold uppercase tracking-[0.16em] text-ink-soft">
-                  Option {kind === "truth" ? "A" : "B"}
-                </span>
-                <span className="mt-3 block font-display text-xl font-semibold leading-tight text-ink">
-                  {kind === "truth" ? prompt.truth : prompt.lie}
-                </span>
-                <span className="mt-4 block text-xs font-bold text-grape">
-                  Present this one →
-                </span>
-              </button>
-            ))}
-        </div>
-
-        <p className="text-center text-xs font-semibold text-ink-soft">
-          One of these is true. The longer they hesitate, the better.
-        </p>
-      </div>
-    );
-  }
-
-  if (view.phase === "vote") {
-    const isStoryteller = view.isStoryteller;
-    return (
-      <div className="space-y-4">
-        <PromptCard kicker="Truth or lie?" icon="brain" compact>
-          {view.statement}
-        </PromptCard>
-
-        {isStoryteller ? (
-          <div className="party-card p-6 text-center">
-            <Icon name="eye" className="mx-auto h-8 w-8" />
-            <p className="mt-2 font-display text-lg font-semibold text-ink">
-              Now let the group decide.
-            </p>
-            <p className="mt-1 text-sm font-semibold text-ink-soft">
-              {view.submitted}/{view.total} votes are in.
-            </p>
-          </div>
-        ) : (
-          <>
-            <div className="grid grid-cols-2 gap-3">
-              <button
-                type="button"
-                disabled={Boolean(view.myVote)}
-                onClick={() => send("vote", { value: "truth" })}
-                className={`min-h-28 rounded-3xl border-2 px-4 py-5 text-left shadow-soft transition ${
-                  view.myVote === "truth"
-                    ? "border-mint bg-mint/50"
-                    : "border-transparent bg-white enabled:hover:border-mint"
-                } disabled:cursor-default`}
-              >
-                <Icon name="check" className="mx-auto h-8 w-8" />
-                <span className="mt-2 block font-display text-xl font-semibold text-ink">
-                  Truth
-                </span>
-                <span className="mt-1 block text-xs font-semibold text-ink-soft">
-                  That actually happened
-                </span>
-              </button>
-              <button
-                type="button"
-                disabled={Boolean(view.myVote)}
-                onClick={() => send("vote", { value: "lie" })}
-                className={`min-h-28 rounded-3xl border-2 px-4 py-5 text-left shadow-soft transition ${
-                  view.myVote === "lie"
-                    ? "border-coral bg-blush/70"
-                    : "border-transparent bg-white enabled:hover:border-blush"
-                } disabled:cursor-default`}
-              >
-                <Icon name="mask" className="mx-auto h-8 w-8" />
-                <span className="mt-2 block font-display text-xl font-semibold text-ink">
-                  Lie
-                </span>
-                <span className="mt-1 block text-xs font-semibold text-ink-soft">
-                  Completely invented
-                </span>
-              </button>
-            </div>
-            <p className="text-center text-xs font-bold uppercase tracking-wide text-ink-soft">
-              {view.submitted}/{view.total} voted
-            </p>
-          </>
-        )}
-      </div>
-    );
-  }
-
+  const [selected, setSelected] = useState<string[]>([]);
+  const youId = room.you?.id || "";
+  const youAreOut = view.eliminated.includes(youId);
+  const others = room.players.filter((player) => player.id !== youId);
+  const seatStatus = (playerId: string) => {
+    if (view.eliminated.includes(playerId)) return "Spectating";
+    if (playerId === view.currentPlayerId) return "Choosing a play";
+    return `${view.handCounts[playerId]?.count ?? 0} cards`;
+  };
+  const lastCards = view.lastPlay
+    ? Array.from({ length: view.lastPlay.count }, (_, index) => ({
+        id: `hidden-${index}`,
+      }))
+    : [];
   const reveal = view.reveal;
-  if (!reveal) return null;
 
   return (
     <div className="space-y-4">
-      <motion.div
-        initial={reduced ? false : { opacity: 0, scale: 0.97 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className={`party-card p-6 text-center ${
-          reveal.groupCorrect ? "bg-mint/40" : "bg-blush/50"
-        }`}
-      >
-        <p className="text-4xl">{reveal.groupCorrect ? <Icon name="target" className="mx-auto h-10 w-10" /> : <Icon name="mask" className="mx-auto h-10 w-10" />}</p>
-        <p className="mt-2 text-xs font-bold uppercase tracking-[0.16em] text-ink-soft">
-          {reveal.groupCorrect ? "The group caught it" : "The group got fooled"}
-        </p>
-        <p className="mt-2 font-display text-2xl font-semibold text-ink">
-          {reveal.statement}
-        </p>
-        <p className="mt-2 text-sm font-bold text-ink-soft">
-          It was {reveal.wasLie ? "a lie" : "the truth"}. Storyteller:{" "}
-          {reveal.liarName}
-        </p>
-      </motion.div>
-
-      <div className="party-card grid grid-cols-2 gap-3 p-4">
-        <div className="rounded-2xl bg-mint/50 p-3 text-center">
-          <p className="font-display text-2xl font-semibold text-[#0F7F6C]">
-            {reveal.truthVotes}
-          </p>
-          <p className="text-[10px] font-bold uppercase tracking-wide text-[#0F7F6C]">
-            said truth
+      {youAreOut ? (
+        <div className="rounded-[16px] border border-border bg-surface-2 px-4 py-3 text-center">
+          <p className="font-display text-lg font-bold text-ink">You are spectating</p>
+          <p className="text-sm font-semibold text-muted">
+            Your strike limit was reached. The table keeps playing without you.
           </p>
         </div>
-        <div className="rounded-2xl bg-blush/60 p-3 text-center">
-          <p className="font-display text-2xl font-semibold text-[#B83232]">
-            {reveal.lieVotes}
-          </p>
-          <p className="text-[10px] font-bold uppercase tracking-wide text-[#B83232]">
-            said lie
-          </p>
-        </div>
-      </div>
+      ) : null}
 
-      <div className="party-card p-5">
-        <p className="text-xs font-bold uppercase tracking-wide text-ink-soft">
-          The two statements
-        </p>
-        <div className="mt-3 space-y-2 text-sm font-semibold text-ink">
-          <p className="rounded-xl bg-mint/25 px-3 py-2">
-            <Icon name="check" className="inline h-4 w-4" /> {reveal.truth}
-          </p>
-          <p className="rounded-xl bg-blush/35 px-3 py-2">
-            <Icon name="mask" className="inline h-4 w-4" /> {reveal.lie}
-          </p>
-        </div>
-      </div>
-
-      {reveal.roundPoints.length > 0 && (
-        <div className="party-card p-5">
-          <p className="text-xs font-bold uppercase tracking-wide text-ink-soft">
-            Points this round
-          </p>
-          <div className="mt-2 flex flex-wrap gap-2">
-            {reveal.roundPoints.map((entry) => (
-              <span
-                key={entry.playerId}
-                className="rounded-full bg-honey/50 px-3 py-1 text-sm font-bold text-[#8A5A00]"
-              >
-                {entry.name} +{entry.points}
-              </span>
-            ))}
+      <CardTable>
+        <div className="relative z-[1] grid gap-4 sm:grid-cols-[auto_1fr] sm:items-center">
+          <div className="flex items-center justify-center gap-3">
+            <Card
+              card={{ id: "table-rank", rank: view.tableRank, label: "Table rank" }}
+              size="lg"
+            />
+            <div>
+              <p className="font-mono text-[10px] font-bold uppercase tracking-[.14em] text-muted">
+                Table rank
+              </p>
+              <p className="font-display text-2xl font-extrabold text-ink">
+                {view.tableRank}s
+              </p>
+              <p className="mt-1 max-w-[18ch] text-xs font-semibold text-muted">
+                Play 1–3 cards face-down and claim they match.
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <PlayedCards
+              cards={reveal ? reveal.cards : lastCards}
+              revealed={Boolean(reveal)}
+              claimed={
+                view.lastPlay
+                  ? `${view.lastPlay.name} claimed ${view.lastPlay.count} × ${view.tableRank}`
+                  : "Waiting for the first play"
+              }
+            />
+            {view.lastPlay ? (
+              <Badge tone={view.isYourTurn && view.canCall ? "danger" : "neutral"}>
+                {view.pileCount} cards in the pile
+              </Badge>
+            ) : null}
           </div>
         </div>
-      )}
+      </CardTable>
+
+      <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        {others.map((player) => (
+          <OpponentSeat
+            key={player.id}
+            name={player.name}
+            avatarUrl={player.avatarUrl}
+            cardCount={view.handCounts[player.id]?.count ?? 0}
+            strikes={view.strikes[player.id] || 0}
+            maxStrikes={view.maxStrikes}
+            eliminated={view.eliminated.includes(player.id)}
+            isTurn={view.currentPlayerId === player.id}
+            status={seatStatus(player.id)}
+          />
+        ))}
+      </div>
+
+      {view.phase === "turn" && !youAreOut ? (
+        <div className="rounded-[18px] border border-border bg-surface p-3 shadow-soft">
+          <div className="mb-1 flex flex-wrap items-center justify-between gap-2 px-1">
+            <div>
+              <p className="font-mono text-[10px] font-bold uppercase tracking-[.12em] text-muted">
+                {view.isYourTurn ? "Your turn" : `${view.currentPlayerName} is playing`}
+              </p>
+              <p className="text-sm font-semibold text-ink">
+                {view.mustCall
+                  ? "Your hand is empty — call liar."
+                  : `Select 1–3 cards to play as ${view.tableRank}s.`}
+              </p>
+            </div>
+            <Badge tone="neutral">
+              {view.aliveCount} alive · {view.maxStrikes} strike
+              {view.maxStrikes === 1 ? "" : "s"}
+            </Badge>
+          </div>
+
+          <Hand
+            cards={view.hand}
+            selectedIds={selected}
+            onSelect={setSelected}
+            max={3}
+            disabled={!view.isYourTurn || Boolean(view.lastPlay && view.mustCall)}
+            label="Your hand"
+            emptyLabel="No cards left. Call liar."
+          />
+
+          {view.isYourTurn ? (
+            <div className="mt-1 grid gap-2 sm:grid-cols-[1fr_auto]">
+              <Button
+                disabled={selected.length < 1 || view.mustCall}
+                onClick={() => {
+                  send("play", { cardIds: selected });
+                  setSelected([]);
+                }}
+              >
+                <Icon name="play" className="h-4 w-4" />
+                Play {selected.length || ""} card{selected.length === 1 ? "" : "s"}
+              </Button>
+              <Button
+                variant="danger"
+                disabled={!view.canCall}
+                onClick={() => send("call")}
+              >
+                Call liar
+              </Button>
+            </div>
+          ) : (
+            <p className="mt-2 text-center text-xs font-semibold text-muted">
+              Cards stay face-down until a call.
+            </p>
+          )}
+        </div>
+      ) : null}
+
+      {view.phase === "reveal" && reveal ? (
+        <div
+          className={`rounded-[18px] border p-5 text-center shadow-soft ${
+            reveal.wasLie
+              ? "border-danger/40 bg-danger/10"
+              : "border-success/40 bg-success/10"
+          }`}
+          aria-live="polite"
+        >
+          <p className="font-display text-4xl font-black italic tracking-[-.06em] text-ink">
+            {reveal.stamp}
+          </p>
+          <p className="mt-1 text-sm font-semibold text-muted">
+            {reveal.wasLie
+              ? `${reveal.playerName} claimed ${reveal.claimed}s without matching cards.`
+              : `${reveal.callerName} called a truthful claim.`}
+          </p>
+          <p className="mt-3 rounded-full bg-surface px-4 py-2 font-display text-lg font-bold text-ink">
+            {reveal.loserName} takes a strike
+          </p>
+          <p className="mt-2 text-xs font-semibold text-muted">
+            Strikes:{" "}
+            {Object.entries(reveal.strikes)
+              .map(([id, strikes]) => `${room.players.find((p) => p.id === id)?.name || "Player"} ${strikes}/${reveal.maxStrikes}`)
+              .join(" · ")}
+          </p>
+          {reveal.eliminated.length ? (
+            <p className="mt-2 text-xs font-bold text-danger">
+              Out: {reveal.eliminated.map((entry) => entry.name).join(", ")}
+            </p>
+          ) : null}
+        </div>
+      ) : null}
+
+      {view.phase === "turn" && !view.isYourTurn ? (
+        <p className="text-center text-xs font-semibold text-muted" aria-live="polite">
+          Waiting for {view.currentPlayerName}. The turn timer will make the lowest play.
+        </p>
+      ) : null}
     </div>
   );
 }
