@@ -420,12 +420,12 @@ test("fact or fiction ends cleanly when players leave", () => {
   assert.equal(state.done, true);
 });
 
-test("fact or fiction bank has 300 balanced, unique statements", () => {
+test("fact or fiction bank has 350 balanced, unique statements", () => {
   const statements = require("../data/prompts/factOrFiction.json");
   assert.ok(statements.length >= 300);
   assert.equal(new Set(statements.map((item) => item.id)).size, statements.length);
   assert.equal(new Set(statements.map((item) => item.text.toLowerCase())).size, statements.length);
-  assert.equal(statements.filter((item) => item.isTrue).length, 150);
-  assert.equal(statements.filter((item) => !item.isTrue).length, 150);
+  assert.equal(statements.filter((item) => item.isTrue).length, 175);
+  assert.equal(statements.filter((item) => !item.isTrue).length, 175);
   assert.ok(statements.every((item) => item.explanation.trim().length > 0));
 });

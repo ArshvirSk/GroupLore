@@ -3298,5 +3298,605 @@
     ],
     "rating": "all",
     "confidence": "high"
+  },
+  {
+    "id": "ff-301",
+    "text": "Honey can stay edible for a very long time.",
+    "isTrue": true,
+    "explanation": "Sealed honey resists spoiling because of its low water content and acidity.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-302",
+    "text": "Honey spoils within a week.",
+    "isTrue": false,
+    "explanation": "Honey is famously long-lasting when stored sealed.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-303",
+    "text": "Octopuses have three hearts.",
+    "isTrue": true,
+    "explanation": "Two pump blood to the gills and one to the rest of the body.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-304",
+    "text": "Octopuses have one heart.",
+    "isTrue": false,
+    "explanation": "Octopuses have three hearts.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-305",
+    "text": "Bananas are botanically berries.",
+    "isTrue": true,
+    "explanation": "A banana develops from a flower with one ovary and has seeds.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-306",
+    "text": "Bananas are botanically nuts.",
+    "isTrue": false,
+    "explanation": "Bananas are berries, not nuts.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-307",
+    "text": "Sound travels faster in water than in air.",
+    "isTrue": true,
+    "explanation": "Water is denser and carries sound faster than air.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-308",
+    "text": "Sound travels slower in water than in air.",
+    "isTrue": false,
+    "explanation": "Sound travels faster through water.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-309",
+    "text": "A lightning bolt is hotter than the Sun's surface.",
+    "isTrue": true,
+    "explanation": "Lightning can briefly reach about 30,000 K.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-310",
+    "text": "A lightning bolt is cooler than the Sun's surface.",
+    "isTrue": false,
+    "explanation": "Lightning is much hotter than the Sun's visible surface.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-311",
+    "text": "Venus is hotter than Mercury.",
+    "isTrue": true,
+    "explanation": "Venus's thick greenhouse atmosphere makes it hotter.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-312",
+    "text": "Mercury is hotter than Venus.",
+    "isTrue": false,
+    "explanation": "Venus has the hotter surface.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-313",
+    "text": "Sharks have no bones.",
+    "isTrue": true,
+    "explanation": "Their skeletons are made of cartilage.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-314",
+    "text": "Sharks have bony skeletons.",
+    "isTrue": false,
+    "explanation": "Shark skeletons are cartilage.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-315",
+    "text": "The Moon has essentially no atmosphere.",
+    "isTrue": true,
+    "explanation": "The Moon has only an extremely thin exosphere.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-316",
+    "text": "The Moon has a thick atmosphere.",
+    "isTrue": false,
+    "explanation": "The Moon has essentially no atmosphere.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-317",
+    "text": "Mars has two moons.",
+    "isTrue": true,
+    "explanation": "Phobos and Deimos are Mars's two moons.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-318",
+    "text": "Mars has three moons.",
+    "isTrue": false,
+    "explanation": "Mars has two known moons.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-319",
+    "text": "Antarctica is a desert.",
+    "isTrue": true,
+    "explanation": "It receives very little precipitation.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-320",
+    "text": "Antarctica is a rainforest.",
+    "isTrue": false,
+    "explanation": "Antarctica is a cold desert.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-321",
+    "text": "Gold is denser than iron.",
+    "isTrue": true,
+    "explanation": "Gold has a much higher density than iron.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-322",
+    "text": "Iron is denser than gold.",
+    "isTrue": false,
+    "explanation": "Gold is denser than iron.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-323",
+    "text": "A day on Venus lasts longer than its year.",
+    "isTrue": true,
+    "explanation": "Venus rotates more slowly than it orbits the Sun.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-324",
+    "text": "A year on Venus lasts longer than its day.",
+    "isTrue": false,
+    "explanation": "Venus's day is longer than its year.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-325",
+    "text": "Earth's core is mostly iron.",
+    "isTrue": true,
+    "explanation": "The core is dominated by iron and nickel.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-326",
+    "text": "Earth's core is mostly oxygen.",
+    "isTrue": false,
+    "explanation": "The core is mostly iron and nickel.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-327",
+    "text": "An adult human usually has 206 bones.",
+    "isTrue": true,
+    "explanation": "The adult skeleton normally has 206 bones.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-328",
+    "text": "An adult human usually has 300 bones.",
+    "isTrue": false,
+    "explanation": "Babies have more bones, but adults usually have 206.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-329",
+    "text": "Glass is made mainly from silica.",
+    "isTrue": true,
+    "explanation": "Silica is the main ingredient in common glass.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-330",
+    "text": "Glass is made mainly from iron.",
+    "isTrue": false,
+    "explanation": "Common glass is made mainly from silica.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-331",
+    "text": "Mercury is the closest planet to the Sun.",
+    "isTrue": true,
+    "explanation": "Mercury has the innermost orbit.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-332",
+    "text": "Venus is the closest planet to the Sun.",
+    "isTrue": false,
+    "explanation": "Mercury is closer to the Sun.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-333",
+    "text": "Jupiter is larger than Saturn.",
+    "isTrue": true,
+    "explanation": "Jupiter has the greater diameter and mass.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-334",
+    "text": "Saturn is larger than Jupiter.",
+    "isTrue": false,
+    "explanation": "Jupiter is larger than Saturn.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-335",
+    "text": "A score is 20 years.",
+    "isTrue": true,
+    "explanation": "A score is a group of 20.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-336",
+    "text": "A score is 10 years.",
+    "isTrue": false,
+    "explanation": "A score is 20 years.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-337",
+    "text": "Coral is an animal.",
+    "isTrue": true,
+    "explanation": "Coral polyps are animals, not plants.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-338",
+    "text": "The Great Barrier Reef is off Brazil.",
+    "isTrue": false,
+    "explanation": "It is off Australia.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-339",
+    "text": "The Sahara is in Africa.",
+    "isTrue": true,
+    "explanation": "The Sahara spans northern Africa.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-340",
+    "text": "The Sahara is in Asia.",
+    "isTrue": false,
+    "explanation": "The Sahara is in Africa.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-341",
+    "text": "The Amazon rainforest is mostly in South America.",
+    "isTrue": true,
+    "explanation": "Most of it lies in Brazil and neighbouring countries.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-342",
+    "text": "The Amazon rainforest is mostly in Africa.",
+    "isTrue": false,
+    "explanation": "The Amazon is in South America.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-343",
+    "text": "Mount Everest is in the Himalayas.",
+    "isTrue": true,
+    "explanation": "Everest lies in the Himalayan range.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-344",
+    "text": "Mount Everest is in the Andes.",
+    "isTrue": false,
+    "explanation": "Everest is in the Himalayas.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-345",
+    "text": "The Dead Sea is extremely salty.",
+    "isTrue": true,
+    "explanation": "Its salinity is much higher than ordinary seawater.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-346",
+    "text": "The Dead Sea is a freshwater lake.",
+    "isTrue": false,
+    "explanation": "The Dead Sea is extremely salty.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-347",
+    "text": "A group of jellyfish is called a smack.",
+    "isTrue": true,
+    "explanation": "Smack is one collective noun for jellyfish.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-348",
+    "text": "A group of jellyfish is called a flock.",
+    "isTrue": false,
+    "explanation": "A group of jellyfish is commonly called a smack.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-349",
+    "text": "A group of owls is called a parliament.",
+    "isTrue": true,
+    "explanation": "Parliament is a collective noun for owls.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
+  },
+  {
+    "id": "ff-350",
+    "text": "A group of owls is called a school.",
+    "isTrue": false,
+    "explanation": "A group of owls is called a parliament.",
+    "tags": [
+      "science",
+      "nature"
+    ],
+    "rating": "all",
+    "confidence": "high"
   }
 ]

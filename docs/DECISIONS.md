@@ -149,3 +149,8 @@ Short records of choices made while rebuilding GroupLore. Each entry states the 
 - **Factual banks now require `confidence: "high"`.** `scripts/verify-factual.ts` checks answer presence and normalized answer integrity, true/false explanations, eight-answer survey boards, four-group Connections puzzles, ambiguity wording and time-sensitive wording. Failing items are removed to `docs/review-queue.md` rather than shipped.
 - **Independent semantic re-derivation is not automated.** The repository has no authoritative answer source or model-backed verifier, so the gate enforces structural and editorial invariants instead of pretending to re-solve each question. The current four factual banks pass with zero removals; new batches must run the script before validation.
 - **The empty-bank path is tested through a loaded-bank override.** The engine test selects a real game, replaces its bank with an empty array, and asserts start fails with `game_unavailable`.
+
+## Fact or Fiction nature batch
+
+- **Added 50 confidence-tagged statements (25 true/false pairs) on science and nature.** The batch uses stable, non-time-sensitive facts, includes explanations, and keeps the bank's true/false balance even. Duplicate statements found by the validator were replaced rather than shipped twice.
+- **Spot-check samples are seeded and stratified.** Factual banks show five seeded random items plus five hardest items (difficulty, then prompt length), while other banks keep five seeded random items.
