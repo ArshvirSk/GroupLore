@@ -1,62 +1,852 @@
 [
-  { "id": "bluff-01", "question": "What does petrichor mean?", "answer": "The smell of earth after rain" },
-  { "id": "bluff-02", "question": "What does defenestrate mean?", "answer": "To throw someone out of a window" },
-  { "id": "bluff-03", "question": "What does susurrus mean?", "answer": "A whispering or rustling sound" },
-  { "id": "bluff-04", "question": "What does borborygmus mean?", "answer": "The rumbling sound of a stomach" },
-  { "id": "bluff-05", "question": "What does apricity mean?", "answer": "The warmth of the sun in winter" },
-  { "id": "bluff-06", "question": "What does lumbago mean?", "answer": "Pain in the lower back" },
-  { "id": "bluff-07", "question": "What does ululate mean?", "answer": "To howl or wail loudly" },
-  { "id": "bluff-08", "question": "What does gamboge mean?", "answer": "A yellow-brown gum resin used as a pigment" },
-  { "id": "bluff-09", "question": "What does luculent mean?", "answer": "Clearly expressed or easy to understand" },
-  { "id": "bluff-10", "question": "What does nacreous mean?", "answer": "Resembling the iridescent inside of a shell" },
-  { "id": "bluff-11", "question": "What does obnubilate mean?", "answer": "To cloud over or obscure" },
-  { "id": "bluff-12", "question": "What does perambulate mean?", "answer": "To walk around a place" },
-  { "id": "bluff-13", "question": "What does quincunx mean?", "answer": "An arrangement of five things in a square" },
-  { "id": "bluff-14", "question": "What does rubiginous mean?", "answer": "Rust-colored" },
-  { "id": "bluff-15", "question": "What does sciamachy mean?", "answer": "Fighting with shadows or imaginary enemies" },
-  { "id": "bluff-16", "question": "What does titubate mean?", "answer": "To stagger or stumble" },
-  { "id": "bluff-17", "question": "What does velleity mean?", "answer": "A wish or inclination too weak to act on" },
-  { "id": "bluff-18", "question": "What does widdershins mean?", "answer": "In a counterclockwise direction" },
-  { "id": "bluff-19", "question": "What does xanthous mean?", "answer": "Yellow or yellow-haired" },
-  { "id": "bluff-20", "question": "What does ylem mean?", "answer": "The primordial matter of the universe" },
-  { "id": "bluff-21", "question": "What does zephyr mean?", "answer": "A gentle breeze" },
-  { "id": "bluff-22", "question": "What does abecedarian mean?", "answer": "Arranged alphabetically or relating to the alphabet" },
-  { "id": "bluff-23", "question": "What does cachinnate mean?", "answer": "To laugh loudly" },
-  { "id": "bluff-24", "question": "What does deipnosophist mean?", "answer": "A skilled dinner-table conversationalist" },
-  { "id": "bluff-25", "question": "What does ecdysis mean?", "answer": "The shedding of an outer skin or shell" },
-  { "id": "bluff-26", "question": "What does farrago mean?", "answer": "A confused mixture" },
-  { "id": "bluff-27", "question": "What does garrulous mean?", "answer": "Excessively talkative" },
-  { "id": "bluff-28", "question": "What does halcyon mean?", "answer": "Calm, peaceful, or idyllic" },
-  { "id": "bluff-29", "question": "What does imbricate mean?", "answer": "To overlap like roof tiles" },
-  { "id": "bluff-30", "question": "What does jejune mean?", "answer": "Dull, childish, or simplistic" },
-  { "id": "bluff-31", "question": "What does kenspeckle mean?", "answer": "Easily recognizable" },
-  { "id": "bluff-32", "question": "What does labile mean?", "answer": "Easily changed or unstable" },
-  { "id": "bluff-33", "question": "What does mawkish mean?", "answer": "Excessively sentimental" },
-  { "id": "bluff-34", "question": "What does nidificate mean?", "answer": "To build a nest" },
-  { "id": "bluff-35", "question": "What does obdurate mean?", "answer": "Stubbornly refusing to change" },
-  { "id": "bluff-36", "question": "What does pellucid mean?", "answer": "Transparently clear" },
-  { "id": "bluff-37", "question": "What does quotidian mean?", "answer": "Ordinary or occurring every day" },
-  { "id": "bluff-38", "question": "What does recalcitrant mean?", "answer": "Resistant to authority or control" },
-  { "id": "bluff-39", "question": "What does sanguine mean?", "answer": "Optimistic or cheerfully confident" },
-  { "id": "bluff-40", "question": "What does tatterdemalion mean?", "answer": "A person in ragged clothing" },
-  { "id": "bluff-41", "question": "What does umbrage mean?", "answer": "Offense or annoyance" },
-  { "id": "bluff-42", "question": "What does vaticinate mean?", "answer": "To prophesy or predict" },
-  { "id": "bluff-43", "question": "What does wamble mean?", "answer": "To feel nauseated or queasy" },
-  { "id": "bluff-44", "question": "What does xylograph mean?", "answer": "A wood engraving or print" },
-  { "id": "bluff-45", "question": "What does yawp mean?", "answer": "A harsh cry or loud complaint" },
-  { "id": "bluff-46", "question": "What does zeitgeist mean?", "answer": "The spirit or mood of a particular time" },
-  { "id": "bluff-47", "question": "What does abligurition mean?", "answer": "Excessive spending on food and drink" },
-  { "id": "bluff-48", "question": "What does boustrophedon mean?", "answer": "Writing in alternating directions" },
-  { "id": "bluff-49", "question": "What does circumlocution mean?", "answer": "Speaking indirectly or evasively" },
-  { "id": "bluff-50", "question": "What does dithyramb mean?", "answer": "A wild, passionate hymn or speech" },
-  { "id": "bluff-51", "question": "What does emollient mean?", "answer": "A substance that softens or soothes" },
-  { "id": "bluff-52", "question": "What does fuliginous mean?", "answer": "Sooty or dark-colored" },
-  { "id": "bluff-53", "question": "What does gossamer mean?", "answer": "A fine, delicate cobweb or fabric" },
-  { "id": "bluff-54", "question": "What does hircine mean?", "answer": "Goat-like or smelling of a goat" },
-  { "id": "bluff-55", "question": "What does ineffable mean?", "answer": "Too great or extreme to be put into words" },
-  { "id": "bluff-56", "question": "What does lambent mean?", "answer": "Softly glowing or flickering" },
-  { "id": "bluff-57", "question": "What does mellifluous mean?", "answer": "Sweet-sounding or pleasant to hear" },
-  { "id": "bluff-58", "question": "What does nubilous mean?", "answer": "Cloudy or misty" },
-  { "id": "bluff-59", "question": "What does obstreperous mean?", "answer": "Noisy and difficult to control" },
-  { "id": "bluff-60", "question": "What does peripatetic mean?", "answer": "Traveling from place to place" }
+  {
+    "id": "bluff-01",
+    "question": "What does petrichor mean?",
+    "answer": "The smell of earth after rain"
+  },
+  {
+    "id": "bluff-02",
+    "question": "What does defenestrate mean?",
+    "answer": "To throw someone out of a window"
+  },
+  {
+    "id": "bluff-03",
+    "question": "What does susurrus mean?",
+    "answer": "A whispering or rustling sound"
+  },
+  {
+    "id": "bluff-04",
+    "question": "What does borborygmus mean?",
+    "answer": "The rumbling sound of a stomach"
+  },
+  {
+    "id": "bluff-05",
+    "question": "What does apricity mean?",
+    "answer": "The warmth of the sun in winter"
+  },
+  {
+    "id": "bluff-06",
+    "question": "What does lumbago mean?",
+    "answer": "Pain in the lower back"
+  },
+  {
+    "id": "bluff-07",
+    "question": "What does ululate mean?",
+    "answer": "To howl or wail loudly"
+  },
+  {
+    "id": "bluff-08",
+    "question": "What does gamboge mean?",
+    "answer": "A yellow-brown gum resin used as a pigment"
+  },
+  {
+    "id": "bluff-09",
+    "question": "What does luculent mean?",
+    "answer": "Clearly expressed or easy to understand"
+  },
+  {
+    "id": "bluff-10",
+    "question": "What does nacreous mean?",
+    "answer": "Resembling the iridescent inside of a shell"
+  },
+  {
+    "id": "bluff-11",
+    "question": "What does obnubilate mean?",
+    "answer": "To cloud over or obscure"
+  },
+  {
+    "id": "bluff-12",
+    "question": "What does perambulate mean?",
+    "answer": "To walk around a place"
+  },
+  {
+    "id": "bluff-13",
+    "question": "What does quincunx mean?",
+    "answer": "An arrangement of five things in a square"
+  },
+  {
+    "id": "bluff-14",
+    "question": "What does rubiginous mean?",
+    "answer": "Rust-colored"
+  },
+  {
+    "id": "bluff-15",
+    "question": "What does sciamachy mean?",
+    "answer": "Fighting with shadows or imaginary enemies"
+  },
+  {
+    "id": "bluff-16",
+    "question": "What does titubate mean?",
+    "answer": "To stagger or stumble"
+  },
+  {
+    "id": "bluff-17",
+    "question": "What does velleity mean?",
+    "answer": "A wish or inclination too weak to act on"
+  },
+  {
+    "id": "bluff-18",
+    "question": "What does widdershins mean?",
+    "answer": "In a counterclockwise direction"
+  },
+  {
+    "id": "bluff-19",
+    "question": "What does xanthous mean?",
+    "answer": "Yellow or yellow-haired"
+  },
+  {
+    "id": "bluff-20",
+    "question": "What does ylem mean?",
+    "answer": "The primordial matter of the universe"
+  },
+  {
+    "id": "bluff-21",
+    "question": "What does zephyr mean?",
+    "answer": "A gentle breeze"
+  },
+  {
+    "id": "bluff-22",
+    "question": "What does abecedarian mean?",
+    "answer": "Arranged alphabetically or relating to the alphabet"
+  },
+  {
+    "id": "bluff-23",
+    "question": "What does cachinnate mean?",
+    "answer": "To laugh loudly"
+  },
+  {
+    "id": "bluff-24",
+    "question": "What does deipnosophist mean?",
+    "answer": "A skilled dinner-table conversationalist"
+  },
+  {
+    "id": "bluff-25",
+    "question": "What does ecdysis mean?",
+    "answer": "The shedding of an outer skin or shell"
+  },
+  {
+    "id": "bluff-26",
+    "question": "What does farrago mean?",
+    "answer": "A confused mixture"
+  },
+  {
+    "id": "bluff-27",
+    "question": "What does garrulous mean?",
+    "answer": "Excessively talkative"
+  },
+  {
+    "id": "bluff-28",
+    "question": "What does halcyon mean?",
+    "answer": "Calm, peaceful, or idyllic"
+  },
+  {
+    "id": "bluff-29",
+    "question": "What does imbricate mean?",
+    "answer": "To overlap like roof tiles"
+  },
+  {
+    "id": "bluff-30",
+    "question": "What does jejune mean?",
+    "answer": "Dull, childish, or simplistic"
+  },
+  {
+    "id": "bluff-31",
+    "question": "What does kenspeckle mean?",
+    "answer": "Easily recognizable"
+  },
+  {
+    "id": "bluff-32",
+    "question": "What does labile mean?",
+    "answer": "Easily changed or unstable"
+  },
+  {
+    "id": "bluff-33",
+    "question": "What does mawkish mean?",
+    "answer": "Excessively sentimental"
+  },
+  {
+    "id": "bluff-34",
+    "question": "What does nidificate mean?",
+    "answer": "To build a nest"
+  },
+  {
+    "id": "bluff-35",
+    "question": "What does obdurate mean?",
+    "answer": "Stubbornly refusing to change"
+  },
+  {
+    "id": "bluff-36",
+    "question": "What does pellucid mean?",
+    "answer": "Transparently clear"
+  },
+  {
+    "id": "bluff-37",
+    "question": "What does quotidian mean?",
+    "answer": "Ordinary or occurring every day"
+  },
+  {
+    "id": "bluff-38",
+    "question": "What does recalcitrant mean?",
+    "answer": "Resistant to authority or control"
+  },
+  {
+    "id": "bluff-39",
+    "question": "What does sanguine mean?",
+    "answer": "Optimistic or cheerfully confident"
+  },
+  {
+    "id": "bluff-40",
+    "question": "What does tatterdemalion mean?",
+    "answer": "A person in ragged clothing"
+  },
+  {
+    "id": "bluff-41",
+    "question": "What does umbrage mean?",
+    "answer": "Offense or annoyance"
+  },
+  {
+    "id": "bluff-42",
+    "question": "What does vaticinate mean?",
+    "answer": "To prophesy or predict"
+  },
+  {
+    "id": "bluff-43",
+    "question": "What does wamble mean?",
+    "answer": "To feel nauseated or queasy"
+  },
+  {
+    "id": "bluff-44",
+    "question": "What does xylograph mean?",
+    "answer": "A wood engraving or print"
+  },
+  {
+    "id": "bluff-45",
+    "question": "What does yawp mean?",
+    "answer": "A harsh cry or loud complaint"
+  },
+  {
+    "id": "bluff-46",
+    "question": "What does zeitgeist mean?",
+    "answer": "The spirit or mood of a particular time"
+  },
+  {
+    "id": "bluff-47",
+    "question": "What does abligurition mean?",
+    "answer": "Excessive spending on food and drink"
+  },
+  {
+    "id": "bluff-48",
+    "question": "What does boustrophedon mean?",
+    "answer": "Writing in alternating directions"
+  },
+  {
+    "id": "bluff-49",
+    "question": "What does circumlocution mean?",
+    "answer": "Speaking indirectly or evasively"
+  },
+  {
+    "id": "bluff-50",
+    "question": "What does dithyramb mean?",
+    "answer": "A wild, passionate hymn or speech"
+  },
+  {
+    "id": "bluff-51",
+    "question": "What does emollient mean?",
+    "answer": "A substance that softens or soothes"
+  },
+  {
+    "id": "bluff-52",
+    "question": "What does fuliginous mean?",
+    "answer": "Sooty or dark-colored"
+  },
+  {
+    "id": "bluff-53",
+    "question": "What does gossamer mean?",
+    "answer": "A fine, delicate cobweb or fabric"
+  },
+  {
+    "id": "bluff-54",
+    "question": "What does hircine mean?",
+    "answer": "Goat-like or smelling of a goat"
+  },
+  {
+    "id": "bluff-55",
+    "question": "What does ineffable mean?",
+    "answer": "Too great or extreme to be put into words"
+  },
+  {
+    "id": "bluff-56",
+    "question": "What does lambent mean?",
+    "answer": "Softly glowing or flickering"
+  },
+  {
+    "id": "bluff-57",
+    "question": "What does mellifluous mean?",
+    "answer": "Sweet-sounding or pleasant to hear"
+  },
+  {
+    "id": "bluff-58",
+    "question": "What does nubilous mean?",
+    "answer": "Cloudy or misty"
+  },
+  {
+    "id": "bluff-59",
+    "question": "What does obstreperous mean?",
+    "answer": "Noisy and difficult to control"
+  },
+  {
+    "id": "bluff-60",
+    "question": "What does peripatetic mean?",
+    "answer": "Traveling from place to place"
+  },
+  {
+    "id": "bluff-61",
+    "question": "What does tendentious mean?",
+    "answer": "Expressing a strong, often biased viewpoint",
+    "difficulty": 2,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-62",
+    "question": "What does laconic mean?",
+    "answer": "Using very few words",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-63",
+    "question": "What does ebullient mean?",
+    "answer": "Cheerful and full of energy",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-64",
+    "question": "What does soporific mean?",
+    "answer": "Tending to cause sleep",
+    "difficulty": 2,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-65",
+    "question": "What does ephemeral mean?",
+    "answer": "Lasting for a very short time",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-66",
+    "question": "What does obfuscate mean?",
+    "answer": "To make something unclear",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-67",
+    "question": "What does quintessential mean?",
+    "answer": "Representing the most perfect example",
+    "difficulty": 2,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-68",
+    "question": "What does serendipity mean?",
+    "answer": "A fortunate discovery made by accident",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-69",
+    "question": "What does ubiquitous mean?",
+    "answer": "Present or found everywhere",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-70",
+    "question": "What does vociferous mean?",
+    "answer": "Expressing opinions loudly and forcefully",
+    "difficulty": 2,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-71",
+    "question": "What does magnanimous mean?",
+    "answer": "Generous or forgiving",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-72",
+    "question": "What does pugnacious mean?",
+    "answer": "Eager to argue or fight",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-73",
+    "question": "What does intrepid mean?",
+    "answer": "Fearless and adventurous",
+    "difficulty": 2,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-74",
+    "question": "What does insidious mean?",
+    "answer": "Proceeding in a harmful but subtle way",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-75",
+    "question": "What does jubilant mean?",
+    "answer": "Feeling or expressing great joy",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-76",
+    "question": "What does penchant mean?",
+    "answer": "A strong liking for something",
+    "difficulty": 2,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-77",
+    "question": "What does dearth mean?",
+    "answer": "A scarcity or lack of something",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-78",
+    "question": "What does plethora mean?",
+    "answer": "An abundance of something",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-79",
+    "question": "What does candor mean?",
+    "answer": "Honest and direct speech",
+    "difficulty": 2,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-80",
+    "question": "What does alacrity mean?",
+    "answer": "Cheerful readiness or eagerness",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-81",
+    "question": "What does taciturn mean?",
+    "answer": "Reserved and saying very little",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-82",
+    "question": "What does gregarious mean?",
+    "answer": "Fond of company; sociable",
+    "difficulty": 2,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-83",
+    "question": "What does fastidious mean?",
+    "answer": "Very attentive to detail",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-84",
+    "question": "What does malleable mean?",
+    "answer": "Easily shaped or influenced",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-85",
+    "question": "What does transient mean?",
+    "answer": "Lasting only a short time",
+    "difficulty": 2,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-86",
+    "question": "What does austere mean?",
+    "answer": "Severe or plain in appearance",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-87",
+    "question": "What does opulent mean?",
+    "answer": "Luxurious and wealthy",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-88",
+    "question": "What does pristine mean?",
+    "answer": "In its original, clean condition",
+    "difficulty": 2,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-89",
+    "question": "What does rudimentary mean?",
+    "answer": "Basic or undeveloped",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-90",
+    "question": "What does meticulous mean?",
+    "answer": "Extremely careful about detail",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-91",
+    "question": "What does ambivalent mean?",
+    "answer": "Having mixed feelings about something",
+    "difficulty": 2,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-92",
+    "question": "What does apathetic mean?",
+    "answer": "Showing no interest or concern",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-93",
+    "question": "What does pragmatic mean?",
+    "answer": "Practical rather than idealistic",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-94",
+    "question": "What does whimsical mean?",
+    "answer": "Playfully fanciful",
+    "difficulty": 2,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-95",
+    "question": "What does somber mean?",
+    "answer": "Dark, dull or gloomy",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-96",
+    "question": "What does vibrant mean?",
+    "answer": "Full of energy and color",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-97",
+    "question": "What does resilient mean?",
+    "answer": "Able to recover quickly from difficulty",
+    "difficulty": 2,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-98",
+    "question": "What does frugal mean?",
+    "answer": "Economical and sparing with money",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-99",
+    "question": "What does lavish mean?",
+    "answer": "Sumptuous or extravagant",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-100",
+    "question": "What does nonchalant mean?",
+    "answer": "Casually calm and unconcerned",
+    "difficulty": 2,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-101",
+    "question": "What does zealous mean?",
+    "answer": "Enthusiastically devoted to a cause",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-102",
+    "question": "What does wary mean?",
+    "answer": "Cautious about danger or problems",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-103",
+    "question": "What does prudent mean?",
+    "answer": "Showing careful judgment",
+    "difficulty": 2,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-104",
+    "question": "What does frivolous mean?",
+    "answer": "Not serious or sensible",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-105",
+    "question": "What does tenacious mean?",
+    "answer": "Persistent and not easily discouraged",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-106",
+    "question": "What does audacious mean?",
+    "answer": "Bold and daring",
+    "difficulty": 2,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-107",
+    "question": "What does cordial mean?",
+    "answer": "Friendly and polite",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-108",
+    "question": "What does dismal mean?",
+    "answer": "Depressing or dreary",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-109",
+    "question": "What does verdant mean?",
+    "answer": "Green with growing vegetation",
+    "difficulty": 2,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "bluff-110",
+    "question": "What does sonorous mean?",
+    "answer": "Having a deep, full sound",
+    "difficulty": 3,
+    "tags": [
+      "vocabulary",
+      "definition"
+    ],
+    "rating": "all"
+  }
 ]

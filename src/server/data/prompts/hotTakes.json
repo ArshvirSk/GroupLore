@@ -1,82 +1,772 @@
 [
-  { "id": "hot-01", "text": "Cereal is soup." },
-  { "id": "hot-02", "text": "The airport is the best part of a holiday." },
-  { "id": "hot-03", "text": "Pineapple belongs on pizza." },
-  { "id": "hot-04", "text": "A hot dog is a sandwich." },
-  { "id": "hot-05", "text": "Brunch is just breakfast with better marketing." },
-  { "id": "hot-06", "text": "The book is usually better than the movie." },
-  { "id": "hot-07", "text": "Group photos are never worth the effort." },
-  { "id": "hot-08", "text": "Voice notes are better than texts." },
-  { "id": "hot-09", "text": "Summer is the most overrated season." },
-  { "id": "hot-10", "text": "Monday gets a bad reputation." },
-  { "id": "hot-11", "text": "Cold pizza is better than fresh pizza." },
-  { "id": "hot-12", "text": "The cinema is better than streaming." },
-  { "id": "hot-13", "text": "Karaoke should be mandatory at every party." },
-  { "id": "hot-14", "text": "Board games are better than video games." },
-  { "id": "hot-15", "text": "A quiet night in beats a big night out." },
-  { "id": "hot-16", "text": "The middle seat on a plane is not that bad." },
-  { "id": "hot-17", "text": "Hotel breakfast is better than room service." },
-  { "id": "hot-18", "text": "Eating at the airport is a luxury." },
-  { "id": "hot-19", "text": "A theme park is wasted on adults." },
-  { "id": "hot-20", "text": "The best part of a concert is the crowd." },
-  { "id": "hot-21", "text": "A city break needs at least four days." },
-  { "id": "hot-22", "text": "Camping is just being homeless with snacks." },
-  { "id": "hot-23", "text": "Glamping is not camping." },
-  { "id": "hot-24", "text": "Road trips are better than flights." },
-  { "id": "hot-25", "text": "The window seat is overrated." },
-  { "id": "hot-26", "text": "Public transport is underrated." },
-  { "id": "hot-27", "text": "A bicycle is the best way to see a city." },
-  { "id": "hot-28", "text": "Souvenirs are a waste of money." },
-  { "id": "hot-29", "text": "Postcards are better than texts." },
-  { "id": "hot-30", "text": "Handwritten notes are underrated." },
-  { "id": "hot-31", "text": "Voice notes should be illegal after 10pm." },
-  { "id": "hot-32", "text": "Read receipts cause more problems than they solve." },
-  { "id": "hot-33", "text": "Group chats are better with fewer people." },
-  { "id": "hot-34", "text": "Leaving a group chat is the ultimate power move." },
-  { "id": "hot-35", "text": "A phone call is faster than a text." },
-  { "id": "hot-36", "text": "Email is not dead." },
-  { "id": "hot-37", "text": "Meetings should be 15 minutes by default." },
-  { "id": "hot-38", "text": "The best ideas happen in the shower." },
-  { "id": "hot-39", "text": "A to-do list is better than a calendar." },
-  { "id": "hot-40", "text": "Productivity apps are procrastination in disguise." },
-  { "id": "hot-41", "text": "The five-minute rule actually works." },
-  { "id": "hot-42", "text": "Multitasking is a lie." },
-  { "id": "hot-43", "text": "A nap is a legitimate hobby." },
-  { "id": "hot-44", "text": "Sleep is the best skincare." },
-  { "id": "hot-45", "text": "Breakfast for dinner is superior." },
-  { "id": "hot-46", "text": "Dessert first is the correct order." },
-  { "id": "hot-47", "text": "The smell of coffee is better than the taste." },
-  { "id": "hot-48", "text": "Iced coffee is better than hot coffee." },
-  { "id": "hot-49", "text": "Tea is underrated." },
-  { "id": "hot-50", "text": "Sparkling water is a personality." },
-  { "id": "hot-51", "text": "A sandwich is better cut diagonally." },
-  { "id": "hot-52", "text": "Fries are better without sauce." },
-  { "id": "hot-53", "text": "Sauce is the best part of a meal." },
-  { "id": "hot-54", "text": "The crust is the best part of a pizza." },
-  { "id": "hot-55", "text": "The last slice is always the best." },
-  { "id": "hot-56", "text": "Sharing food is a love language." },
-  { "id": "hot-57", "text": "The appetizer menu is better than the main menu." },
-  { "id": "hot-58", "text": "A buffet is a personality test." },
-  { "id": "hot-59", "text": "The best restaurant is the one you can walk to." },
-  { "id": "hot-60", "text": "A home-cooked meal beats a fancy restaurant." },
-  { "id": "hot-61", "text": "The best seat in a restaurant is the corner booth." },
-  { "id": "hot-62", "text": "The music is always too loud in bars." },
-  { "id": "hot-63", "text": "A party needs a theme." },
-  { "id": "hot-64", "text": "The playlist makes or breaks a party." },
-  { "id": "hot-65", "text": "Dancing is better than talking." },
-  { "id": "hot-66", "text": "The best parties end before midnight." },
-  { "id": "hot-67", "text": "The host should never do dishes alone." },
-  { "id": "hot-68", "text": "BYO snacks is the best party rule." },
-  { "id": "hot-69", "text": "A good icebreaker is worth its weight in gold." },
-  { "id": "hot-70", "text": "The group photo should happen at the start." },
-  { "id": "hot-71", "text": "The best conversations happen in the kitchen." },
-  { "id": "hot-72", "text": "The after-party is better than the party." },
-  { "id": "hot-73", "text": "A wedding should be a weekend, not a day." },
-  { "id": "hot-74", "text": "The first dance is overrated." },
-  { "id": "hot-75", "text": "Speeches should be capped at three minutes." },
-  { "id": "hot-76", "text": "Birthdays should be a whole week." },
-  { "id": "hot-77", "text": "Gift cards are thoughtful." },
-  { "id": "hot-78", "text": "The best gift is an experience." },
-  { "id": "hot-79", "text": "Surprise parties are a bad idea." },
-  { "id": "hot-80", "text": "The birthday cake is the most important part." }
+  {
+    "id": "hot-01",
+    "text": "Cereal is soup."
+  },
+  {
+    "id": "hot-02",
+    "text": "The airport is the best part of a holiday."
+  },
+  {
+    "id": "hot-03",
+    "text": "Pineapple belongs on pizza."
+  },
+  {
+    "id": "hot-04",
+    "text": "A hot dog is a sandwich."
+  },
+  {
+    "id": "hot-05",
+    "text": "Brunch is just breakfast with better marketing."
+  },
+  {
+    "id": "hot-06",
+    "text": "The book is usually better than the movie."
+  },
+  {
+    "id": "hot-07",
+    "text": "Group photos are never worth the effort."
+  },
+  {
+    "id": "hot-08",
+    "text": "Voice notes are better than texts."
+  },
+  {
+    "id": "hot-09",
+    "text": "Summer is the most overrated season."
+  },
+  {
+    "id": "hot-10",
+    "text": "Monday gets a bad reputation."
+  },
+  {
+    "id": "hot-11",
+    "text": "Cold pizza is better than fresh pizza."
+  },
+  {
+    "id": "hot-12",
+    "text": "The cinema is better than streaming."
+  },
+  {
+    "id": "hot-13",
+    "text": "Karaoke should be mandatory at every party."
+  },
+  {
+    "id": "hot-14",
+    "text": "Board games are better than video games."
+  },
+  {
+    "id": "hot-15",
+    "text": "A quiet night in beats a big night out."
+  },
+  {
+    "id": "hot-16",
+    "text": "The middle seat on a plane is not that bad."
+  },
+  {
+    "id": "hot-17",
+    "text": "Hotel breakfast is better than room service."
+  },
+  {
+    "id": "hot-18",
+    "text": "Eating at the airport is a luxury."
+  },
+  {
+    "id": "hot-19",
+    "text": "A theme park is wasted on adults."
+  },
+  {
+    "id": "hot-20",
+    "text": "The best part of a concert is the crowd."
+  },
+  {
+    "id": "hot-21",
+    "text": "A city break needs at least four days."
+  },
+  {
+    "id": "hot-22",
+    "text": "Camping is just being homeless with snacks."
+  },
+  {
+    "id": "hot-23",
+    "text": "Glamping is not camping."
+  },
+  {
+    "id": "hot-24",
+    "text": "Road trips are better than flights."
+  },
+  {
+    "id": "hot-25",
+    "text": "The window seat is overrated."
+  },
+  {
+    "id": "hot-26",
+    "text": "Public transport is underrated."
+  },
+  {
+    "id": "hot-27",
+    "text": "A bicycle is the best way to see a city."
+  },
+  {
+    "id": "hot-28",
+    "text": "Souvenirs are a waste of money."
+  },
+  {
+    "id": "hot-29",
+    "text": "Postcards are better than texts."
+  },
+  {
+    "id": "hot-30",
+    "text": "Handwritten notes are underrated."
+  },
+  {
+    "id": "hot-31",
+    "text": "Voice notes should be illegal after 10pm."
+  },
+  {
+    "id": "hot-32",
+    "text": "Read receipts cause more problems than they solve."
+  },
+  {
+    "id": "hot-33",
+    "text": "Group chats are better with fewer people."
+  },
+  {
+    "id": "hot-34",
+    "text": "Leaving a group chat is the ultimate power move."
+  },
+  {
+    "id": "hot-35",
+    "text": "A phone call is faster than a text."
+  },
+  {
+    "id": "hot-36",
+    "text": "Email is not dead."
+  },
+  {
+    "id": "hot-37",
+    "text": "Meetings should be 15 minutes by default."
+  },
+  {
+    "id": "hot-38",
+    "text": "The best ideas happen in the shower."
+  },
+  {
+    "id": "hot-39",
+    "text": "A to-do list is better than a calendar."
+  },
+  {
+    "id": "hot-40",
+    "text": "Productivity apps are procrastination in disguise."
+  },
+  {
+    "id": "hot-41",
+    "text": "The five-minute rule actually works."
+  },
+  {
+    "id": "hot-42",
+    "text": "Multitasking is a lie."
+  },
+  {
+    "id": "hot-43",
+    "text": "A nap is a legitimate hobby."
+  },
+  {
+    "id": "hot-44",
+    "text": "Sleep is the best skincare."
+  },
+  {
+    "id": "hot-45",
+    "text": "Breakfast for dinner is superior."
+  },
+  {
+    "id": "hot-46",
+    "text": "Dessert first is the correct order."
+  },
+  {
+    "id": "hot-47",
+    "text": "The smell of coffee is better than the taste."
+  },
+  {
+    "id": "hot-48",
+    "text": "Iced coffee is better than hot coffee."
+  },
+  {
+    "id": "hot-49",
+    "text": "Tea is underrated."
+  },
+  {
+    "id": "hot-50",
+    "text": "Sparkling water is a personality."
+  },
+  {
+    "id": "hot-51",
+    "text": "A sandwich is better cut diagonally."
+  },
+  {
+    "id": "hot-52",
+    "text": "Fries are better without sauce."
+  },
+  {
+    "id": "hot-53",
+    "text": "Sauce is the best part of a meal."
+  },
+  {
+    "id": "hot-54",
+    "text": "The crust is the best part of a pizza."
+  },
+  {
+    "id": "hot-55",
+    "text": "The last slice is always the best."
+  },
+  {
+    "id": "hot-56",
+    "text": "Sharing food is a love language."
+  },
+  {
+    "id": "hot-57",
+    "text": "The appetizer menu is better than the main menu."
+  },
+  {
+    "id": "hot-58",
+    "text": "A buffet is a personality test."
+  },
+  {
+    "id": "hot-59",
+    "text": "The best restaurant is the one you can walk to."
+  },
+  {
+    "id": "hot-60",
+    "text": "A home-cooked meal beats a fancy restaurant."
+  },
+  {
+    "id": "hot-61",
+    "text": "The best seat in a restaurant is the corner booth."
+  },
+  {
+    "id": "hot-62",
+    "text": "The music is always too loud in bars."
+  },
+  {
+    "id": "hot-63",
+    "text": "A party needs a theme."
+  },
+  {
+    "id": "hot-64",
+    "text": "The playlist makes or breaks a party."
+  },
+  {
+    "id": "hot-65",
+    "text": "Dancing is better than talking."
+  },
+  {
+    "id": "hot-66",
+    "text": "The best parties end before midnight."
+  },
+  {
+    "id": "hot-67",
+    "text": "The host should never do dishes alone."
+  },
+  {
+    "id": "hot-68",
+    "text": "BYO snacks is the best party rule."
+  },
+  {
+    "id": "hot-69",
+    "text": "A good icebreaker is worth its weight in gold."
+  },
+  {
+    "id": "hot-70",
+    "text": "The group photo should happen at the start."
+  },
+  {
+    "id": "hot-71",
+    "text": "The best conversations happen in the kitchen."
+  },
+  {
+    "id": "hot-72",
+    "text": "The after-party is better than the party."
+  },
+  {
+    "id": "hot-73",
+    "text": "A wedding should be a weekend, not a day."
+  },
+  {
+    "id": "hot-74",
+    "text": "The first dance is overrated."
+  },
+  {
+    "id": "hot-75",
+    "text": "Speeches should be capped at three minutes."
+  },
+  {
+    "id": "hot-76",
+    "text": "Birthdays should be a whole week."
+  },
+  {
+    "id": "hot-77",
+    "text": "Gift cards are thoughtful."
+  },
+  {
+    "id": "hot-78",
+    "text": "The best gift is an experience."
+  },
+  {
+    "id": "hot-79",
+    "text": "Surprise parties are a bad idea."
+  },
+  {
+    "id": "hot-80",
+    "text": "The birthday cake is the most important part."
+  },
+  {
+    "id": "hot-81",
+    "text": "A sandwich tastes better cut diagonally.",
+    "difficulty": 1,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-82",
+    "text": "A cinema ticket is better value than a streaming subscription.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-83",
+    "text": "Dinner for breakfast is underrated.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-84",
+    "text": "Board games are better without a timer.",
+    "difficulty": 1,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-85",
+    "text": "A window seat is worth the extra cost.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-86",
+    "text": "Museums are better than theme parks.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-87",
+    "text": "Tea counts as dessert.",
+    "difficulty": 1,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-88",
+    "text": "The best part of a flight is the landing.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-89",
+    "text": "Cash is easier than cards.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-90",
+    "text": "A playlist should never shuffle.",
+    "difficulty": 1,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-91",
+    "text": "Hot chocolate is better than coffee.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-92",
+    "text": "A road trip needs a paper map.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-93",
+    "text": "Hotel breakfast is worth waking up for.",
+    "difficulty": 1,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-94",
+    "text": "A queue is better than a crowded shop.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-95",
+    "text": "Books should not have film covers.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-96",
+    "text": "A rainy day is a good day.",
+    "difficulty": 1,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-97",
+    "text": "Mondays are better than Sundays.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-98",
+    "text": "Leftovers taste better the next day.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-99",
+    "text": "A picnic beats a restaurant.",
+    "difficulty": 1,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-100",
+    "text": "The best souvenirs are photos.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-101",
+    "text": "A text is better than a phone call.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-102",
+    "text": "A handwritten note beats a message.",
+    "difficulty": 1,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-103",
+    "text": "A small concert beats a stadium show.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-104",
+    "text": "A city is best explored on foot.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-105",
+    "text": "A train journey counts as a holiday.",
+    "difficulty": 1,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-106",
+    "text": "A garden is better than a balcony.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-107",
+    "text": "A homemade gift is better than a bought one.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-108",
+    "text": "A film is better in a full cinema.",
+    "difficulty": 1,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-109",
+    "text": "A series should end before it gets stale.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-110",
+    "text": "A sequel is rarely better than the original.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-111",
+    "text": "A short book can be more powerful.",
+    "difficulty": 1,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-112",
+    "text": "A recipe should be followed exactly.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-113",
+    "text": "A pizza is better with fewer toppings.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-114",
+    "text": "A burger needs pickles.",
+    "difficulty": 1,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-115",
+    "text": "A salad is not a meal.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-116",
+    "text": "A soup is a meal.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-117",
+    "text": "A sandwich is better toasted.",
+    "difficulty": 1,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-118",
+    "text": "A cup of tea fixes most problems.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-119",
+    "text": "A Sunday nap is sacred.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-120",
+    "text": "A long walk is better than a gym session.",
+    "difficulty": 1,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-121",
+    "text": "A museum audio guide is worth it.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-122",
+    "text": "A map is better than a GPS.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-123",
+    "text": "A window seat on a train is the best seat.",
+    "difficulty": 1,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-124",
+    "text": "A queue reveals a lot about a place.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-125",
+    "text": "A local shop beats a chain.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-126",
+    "text": "A handwritten menu is a good sign.",
+    "difficulty": 1,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-127",
+    "text": "A tiny restaurant is better than a big one.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-128",
+    "text": "A cold drink is better from a glass bottle.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-129",
+    "text": "A picnic needs a proper blanket.",
+    "difficulty": 1,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "hot-130",
+    "text": "A holiday should include one lazy day.",
+    "difficulty": 2,
+    "tags": [
+      "opinion"
+    ],
+    "rating": "all"
+  }
 ]

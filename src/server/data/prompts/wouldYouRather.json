@@ -1,32 +1,702 @@
 [
-  { "id": "wyr-01", "a": "Always be 10 minutes early", "b": "Always be 10 minutes late" },
-  { "id": "wyr-02", "a": "Have unlimited free travel", "b": "Have unlimited free food" },
-  { "id": "wyr-03", "a": "Read every mind for one day", "b": "Be invisible for one day" },
-  { "id": "wyr-04", "a": "Only listen to one song forever", "b": "Never listen to music again" },
-  { "id": "wyr-05", "a": "Live in a city that never sleeps", "b": "Live in a quiet cabin forever" },
-  { "id": "wyr-06", "a": "Always know what people really think", "b": "Never know what people think" },
-  { "id": "wyr-07", "a": "Have a perfect memory", "b": "Be able to forget anything on command" },
-  { "id": "wyr-08", "a": "Win every argument", "b": "Always be at peace with losing" },
-  { "id": "wyr-09", "a": "Eat only sweet food", "b": "Eat only savory food" },
-  { "id": "wyr-10", "a": "Have a personal chef", "b": "Have a personal driver" },
-  { "id": "wyr-11", "a": "Be famous for something embarrassing", "b": "Be completely unknown forever" },
-  { "id": "wyr-12", "a": "Never have to sleep", "b": "Never have to eat" },
-  { "id": "wyr-13", "a": "Have a rewind button for one minute", "b": "Have a pause button for one minute" },
-  { "id": "wyr-14", "a": "Speak every language", "b": "Play every instrument" },
-  { "id": "wyr-15", "a": "Always have perfect weather", "b": "Always have perfect Wi-Fi" },
-  { "id": "wyr-16", "a": "Live without social media", "b": "Live without streaming TV" },
-  { "id": "wyr-17", "a": "Have unlimited vacation days", "b": "Have unlimited sick days" },
-  { "id": "wyr-18", "a": "Be the funniest person in the room", "b": "Be the smartest person in the room" },
-  { "id": "wyr-19", "a": "Never wait in another line", "b": "Never hit another traffic jam" },
-  { "id": "wyr-20", "a": "Have a house with a secret room", "b": "Have a car that can fly" },
-  { "id": "wyr-21", "a": "Always wake up fully rested", "b": "Never need coffee again" },
-  { "id": "wyr-22", "a": "Know how every movie ends", "b": "Know who wins every sports game" },
-  { "id": "wyr-23", "a": "Have a photographic memory of every happy moment", "b": "Be able to delete every bad memory" },
-  { "id": "wyr-24", "a": "Only communicate in song lyrics", "b": "Only communicate in movie quotes" },
-  { "id": "wyr-25", "a": "Have a pet dinosaur", "b": "Have a pet dragon" },
-  { "id": "wyr-26", "a": "Be able to teleport anywhere", "b": "Be able to time travel once" },
-  { "id": "wyr-27", "a": "Always get the last slice", "b": "Always get the first slice" },
-  { "id": "wyr-28", "a": "Have a lifetime supply of your favorite snack", "b": "Have a lifetime supply of your favorite drink" },
-  { "id": "wyr-29", "a": "Work four days a week for full pay", "b": "Work from anywhere for the same pay" },
-  { "id": "wyr-30", "a": "Be able to talk to animals", "b": "Be able to speak every human language" }
+  {
+    "id": "wyr-01",
+    "a": "Always be 10 minutes early",
+    "b": "Always be 10 minutes late"
+  },
+  {
+    "id": "wyr-02",
+    "a": "Have unlimited free travel",
+    "b": "Have unlimited free food"
+  },
+  {
+    "id": "wyr-03",
+    "a": "Read every mind for one day",
+    "b": "Be invisible for one day"
+  },
+  {
+    "id": "wyr-04",
+    "a": "Only listen to one song forever",
+    "b": "Never listen to music again"
+  },
+  {
+    "id": "wyr-05",
+    "a": "Live in a city that never sleeps",
+    "b": "Live in a quiet cabin forever"
+  },
+  {
+    "id": "wyr-06",
+    "a": "Always know what people really think",
+    "b": "Never know what people think"
+  },
+  {
+    "id": "wyr-07",
+    "a": "Have a perfect memory",
+    "b": "Be able to forget anything on command"
+  },
+  {
+    "id": "wyr-08",
+    "a": "Win every argument",
+    "b": "Always be at peace with losing"
+  },
+  {
+    "id": "wyr-09",
+    "a": "Eat only sweet food",
+    "b": "Eat only savory food"
+  },
+  {
+    "id": "wyr-10",
+    "a": "Have a personal chef",
+    "b": "Have a personal driver"
+  },
+  {
+    "id": "wyr-11",
+    "a": "Be famous for something embarrassing",
+    "b": "Be completely unknown forever"
+  },
+  {
+    "id": "wyr-12",
+    "a": "Never have to sleep",
+    "b": "Never have to eat"
+  },
+  {
+    "id": "wyr-13",
+    "a": "Have a rewind button for one minute",
+    "b": "Have a pause button for one minute"
+  },
+  {
+    "id": "wyr-14",
+    "a": "Speak every language",
+    "b": "Play every instrument"
+  },
+  {
+    "id": "wyr-15",
+    "a": "Always have perfect weather",
+    "b": "Always have perfect Wi-Fi"
+  },
+  {
+    "id": "wyr-16",
+    "a": "Live without social media",
+    "b": "Live without streaming TV"
+  },
+  {
+    "id": "wyr-17",
+    "a": "Have unlimited vacation days",
+    "b": "Have unlimited sick days"
+  },
+  {
+    "id": "wyr-18",
+    "a": "Be the funniest person in the room",
+    "b": "Be the smartest person in the room"
+  },
+  {
+    "id": "wyr-19",
+    "a": "Never wait in another line",
+    "b": "Never hit another traffic jam"
+  },
+  {
+    "id": "wyr-20",
+    "a": "Have a house with a secret room",
+    "b": "Have a car that can fly"
+  },
+  {
+    "id": "wyr-21",
+    "a": "Always wake up fully rested",
+    "b": "Never need coffee again"
+  },
+  {
+    "id": "wyr-22",
+    "a": "Know how every movie ends",
+    "b": "Know who wins every sports game"
+  },
+  {
+    "id": "wyr-23",
+    "a": "Have a photographic memory of every happy moment",
+    "b": "Be able to delete every bad memory"
+  },
+  {
+    "id": "wyr-24",
+    "a": "Only communicate in song lyrics",
+    "b": "Only communicate in movie quotes"
+  },
+  {
+    "id": "wyr-25",
+    "a": "Have a pet dinosaur",
+    "b": "Have a pet dragon"
+  },
+  {
+    "id": "wyr-26",
+    "a": "Be able to teleport anywhere",
+    "b": "Be able to time travel once"
+  },
+  {
+    "id": "wyr-27",
+    "a": "Always get the last slice",
+    "b": "Always get the first slice"
+  },
+  {
+    "id": "wyr-28",
+    "a": "Have a lifetime supply of your favorite snack",
+    "b": "Have a lifetime supply of your favorite drink"
+  },
+  {
+    "id": "wyr-29",
+    "a": "Work four days a week for full pay",
+    "b": "Work from anywhere for the same pay"
+  },
+  {
+    "id": "wyr-30",
+    "a": "Be able to talk to animals",
+    "b": "Be able to speak every human language"
+  },
+  {
+    "id": "wyr-31",
+    "a": "Always have a window seat",
+    "b": "Always have an aisle seat",
+    "difficulty": 1,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-32",
+    "a": "Live near a noisy train line",
+    "b": "Live near a loud neighbour",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-33",
+    "a": "Only eat restaurant food",
+    "b": "Only cook at home",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-34",
+    "a": "Have a job you love but low pay",
+    "b": "Have a job you hate but high pay",
+    "difficulty": 1,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-35",
+    "a": "Know every language",
+    "b": "Play every instrument",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-36",
+    "a": "Have a pet that can talk",
+    "b": "Have a car that drives itself",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-37",
+    "a": "Never lose your keys",
+    "b": "Never lose your phone",
+    "difficulty": 1,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-38",
+    "a": "Have unlimited data",
+    "b": "Have unlimited battery",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-39",
+    "a": "Live in a treehouse",
+    "b": "Live on a houseboat",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-40",
+    "a": "Only read fiction",
+    "b": "Only watch documentaries",
+    "difficulty": 1,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-41",
+    "a": "Have a perfect memory for names",
+    "b": "Have a perfect memory for faces",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-42",
+    "a": "Always win board games",
+    "b": "Always win arguments",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-43",
+    "a": "Work four long days",
+    "b": "Work five short days",
+    "difficulty": 1,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-44",
+    "a": "Have a free cleaner",
+    "b": "Have a free chef",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-45",
+    "a": "Travel by train",
+    "b": "Travel by boat",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-46",
+    "a": "Have a garden full of fruit",
+    "b": "Have a garden full of flowers",
+    "difficulty": 1,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-47",
+    "a": "Live without coffee",
+    "b": "Live without chocolate",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-48",
+    "a": "Always have exact change",
+    "b": "Always find parking",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-49",
+    "a": "Pause time for ten seconds",
+    "b": "Rewind time for ten seconds",
+    "difficulty": 1,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-50",
+    "a": "Have a secret passage at home",
+    "b": "Have a rooftop garden",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-51",
+    "a": "Only listen to albums",
+    "b": "Only listen to singles",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-52",
+    "a": "Have a lifetime cinema pass",
+    "b": "Have a lifetime concert pass",
+    "difficulty": 1,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-53",
+    "a": "Be famous for a funny video",
+    "b": "Be famous for a serious book",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-54",
+    "a": "Have a job with no meetings",
+    "b": "Have a job with no email",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-55",
+    "a": "Live in a city with perfect transport",
+    "b": "Live in a city with perfect weather",
+    "difficulty": 1,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-56",
+    "a": "Eat only spicy food",
+    "b": "Eat only sweet food",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-57",
+    "a": "Have a robot that cleans",
+    "b": "Have a robot that cooks",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-58",
+    "a": "Always know the time",
+    "b": "Always know the weather",
+    "difficulty": 1,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-59",
+    "a": "Own a tiny home",
+    "b": "Own a huge empty house",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-60",
+    "a": "Have a pet dragon",
+    "b": "Have a pet robot",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-61",
+    "a": "Never wait in a queue",
+    "b": "Never sit in traffic",
+    "difficulty": 1,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-62",
+    "a": "Have unlimited books",
+    "b": "Have unlimited films",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-63",
+    "a": "Be the funniest person in the room",
+    "b": "Be the kindest person in the room",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-64",
+    "a": "Have a house with a pool",
+    "b": "Have a home cinema",
+    "difficulty": 1,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-65",
+    "a": "Always have perfect hair",
+    "b": "Always have perfect sleep",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-66",
+    "a": "Take a year off to travel",
+    "b": "Take a year off to learn a skill",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-67",
+    "a": "Work from home forever",
+    "b": "Work in an office forever",
+    "difficulty": 1,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-68",
+    "a": "Have a personal trainer",
+    "b": "Have a personal assistant",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-69",
+    "a": "Live in the mountains",
+    "b": "Live by the sea",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-70",
+    "a": "Have a magic wallet",
+    "b": "Have a magic backpack",
+    "difficulty": 1,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-71",
+    "a": "Always be cold",
+    "b": "Always be too warm",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-72",
+    "a": "Have a great memory",
+    "b": "Have a great imagination",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-73",
+    "a": "Win a small prize every week",
+    "b": "Win a huge prize once",
+    "difficulty": 1,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-74",
+    "a": "Have a garden that grows food",
+    "b": "Have a fridge that never empties",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-75",
+    "a": "Fly slowly whenever you want",
+    "b": "Teleport once a day",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-76",
+    "a": "Have a quiet neighbour",
+    "b": "Have a friendly neighbour",
+    "difficulty": 1,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-77",
+    "a": "Own every book you want",
+    "b": "Own every gadget you want",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-78",
+    "a": "Have a job that helps people",
+    "b": "Have a job that pays very well",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-79",
+    "a": "Always get the last word",
+    "b": "Always get the last slice",
+    "difficulty": 1,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "wyr-80",
+    "a": "Only use cash",
+    "b": "Only use cards",
+    "difficulty": 2,
+    "tags": [
+      "choice",
+      "social"
+    ],
+    "rating": "all"
+  }
 ]
