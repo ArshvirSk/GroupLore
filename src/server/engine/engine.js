@@ -1,6 +1,8 @@
 import { getGame, listGames } from "../games/index.js";
+import { isGamePlayable } from "../games/bankStatus.js";
 import { contentAllowed, contentForGame } from "../games/content.js";
 import { findProfanity } from "../lib/contentFilter.js";
+import { dailyKey } from "../lib/daily.js";
 import { buildRecap } from "../lib/recap.js";
 import { socketRateLimit } from "../lib/rateLimit.js";
 import { signReconnectToken, verifySignedToken } from "./auth.js";
@@ -292,6 +294,7 @@ export class GameEngine {
       spectators: new Set(),
       hostId: null,
       phase: "lobby",
+      dailyDate: null,
       gameId: allowedSessionGame?.id || null,
       mode: allowedSessionGame
         ? allowedSessionGame.modes.classic
@@ -365,6 +368,7 @@ export class GameEngine {
     room.phase = "playing";
     room.gameId = game.id;
     room.mode = snapshot.mode;
+    room.dailyDate = snapshot.dailyDate || null;
     room.module = game;
     room.state = JSON.parse(JSON.stringify(snapshot.state));
     room.scores = { ...(snapshot.scores || {}) };
@@ -477,6 +481,7 @@ export class GameEngine {
       phase: room.phase,
       gameId: room.gameId,
       mode: room.mode,
+      dailyDate: room.dailyDate || null,
       hostId: room.hostId,
       players: [...room.players.values()].map((player) => ({
         id: player.id,
@@ -883,6 +888,9 @@ export class GameEngine {
         if (!contentAllowed(contentForGame(game.id))) {
           throw failure("content_blocked", "That game is not available");
         }
+        if (!isGamePlayable(game.id)) {
+          throw failure("game_unavailable", "That game is coming soon");
+        }
         const mode = String(data.mode || "classic");
         if (!game.modes[mode]) {
           throw failure("unknown_mode", "That mode does not exist");
@@ -1087,6 +1095,9 @@ export class GameEngine {
     if (!contentAllowed(contentForGame(game.id))) {
       throw failure("content_blocked", "That game is not available");
     }
+    if (!isGamePlayable(game.id)) {
+      throw failure("game_unavailable", "That game is coming soon");
+    }
     const mode = room.mode || "classic";
     if (!game.modes[mode]) {
       throw failure("unknown_mode", "That mode does not exist");
@@ -1131,6 +1142,7 @@ export class GameEngine {
     room.phase = "playing";
     room.module = game;
     room.mode = mode;
+    room.dailyDate = mode === "daily" ? dailyKey() : null;
     room.scores = Object.fromEntries(players.map((player) => [player.id, 0]));
     room.result = null;
     room.endPersisted = false;
@@ -1254,6 +1266,8 @@ export class GameEngine {
           groupId: room.groupId,
           gameId: room.gameId,
           mode: room.mode,
+          dailyDate:
+            room.dailyDate || (room.mode === "daily" ? dailyKey() : null),
           ranking,
           scores: Object.fromEntries(
             ranking.map((entry) => [entry.name, entry.score]),
@@ -1276,6 +1290,7 @@ export class GameEngine {
     room.phase = "lobby";
     room.state = null;
     room.module = null;
+    room.dailyDate = null;
     room.scores = {};
     room.result = null;
     room.endPersisted = false;

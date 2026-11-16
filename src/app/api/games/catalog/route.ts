@@ -2,6 +2,10 @@ import type { NextRequest } from "next/server";
 import { requireUser } from "@/server/api/auth";
 import { apiJson, handleApi } from "@/server/api/http";
 import { listGames } from "@/server/games/index.js";
+import {
+  bankStatus,
+  unavailableReason,
+} from "@/server/games/bankStatus.js";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -25,6 +29,8 @@ export async function GET(request: NextRequest) {
         id: game.id,
         name: game.name,
         description: game.description,
+        available: bankStatus(game.id).playable,
+        unavailableReason: unavailableReason(game.id),
         emoji: game.emoji || "🎮",
         accent: game.accent || "grape",
         minPlayers: game.minPlayers,

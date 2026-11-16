@@ -31,6 +31,8 @@ type CatalogGame = {
   nsfw?: boolean;
   minPlayers: number;
   maxPlayers: number;
+  available?: boolean;
+  unavailableReason?: string;
   modes: CatalogMode[];
 };
 
@@ -64,8 +66,10 @@ function modeFeatures(mode: CatalogMode): { icon: IconName; label: string; value
     : /quick|speed|blitz|lightning|rapid|sudden/.test(text)
       ? "Fast"
       : "Standard";
-  const twist = /anonymous|hidden/.test(text)
-    ? "Anonymous votes"
+  const twist = /daily/.test(text)
+    ? "Same puzzle daily"
+    : /anonymous|hidden/.test(text)
+      ? "Anonymous votes"
     : /minority/.test(text)
       ? "Minority scores"
       : /double-agent|two impostors/.test(text)
@@ -183,11 +187,17 @@ export default function LobbyPage() {
     if (!isLoaded || !user) return;
     api.getCatalog().then((games: CatalogGame[]) => {
       setCatalog(games);
-      const requestedId = new URLSearchParams(window.location.search).get("game");
+      const params = new URLSearchParams(window.location.search);
+      const requestedId = params.get("game");
+      const requestedMode = params.get("mode");
       const requested = games.find((game) => game.id === requestedId);
-      if (requested) {
+      if (requested && requested.available !== false) {
         setSelectedGameId(requested.id);
-        setSelectedModeId(requested.modes[0]?.id || "classic");
+        setSelectedModeId(
+          requested.modes.some((mode) => mode.id === requestedMode)
+            ? requestedMode || "classic"
+            : requested.modes[0]?.id || "classic",
+        );
       }
     }).catch(() => {});
   }, [isLoaded, user]);
@@ -204,8 +214,9 @@ export default function LobbyPage() {
 
   useEffect(() => {
     if (!selectedGame && catalog.length > 0) {
-      setSelectedGameId(catalog[0].id);
-      setSelectedModeId(catalog[0].modes[0]?.id || "classic");
+      const first = catalog.find((game) => game.available !== false) || catalog[0];
+      setSelectedGameId(first.id);
+      setSelectedModeId(first.modes[0]?.id || "classic");
     }
   }, [catalog, selectedGame]);
 
@@ -216,6 +227,7 @@ export default function LobbyPage() {
   const exitPath = groupId ? `/group/${groupId}` : "/dashboard";
 
   const selectGame = (game: CatalogGame) => {
+    if (game.available === false) return;
     setSelectedGameId(game.id);
     setSelectedModeId(game.modes[0]?.id || "classic");
     if (window.matchMedia("(max-width: 1023px)").matches) {
@@ -314,6 +326,7 @@ export default function LobbyPage() {
   const connected = players.filter((player) => player.connected).length;
   let disabledReason = "";
   if (!selectedGame) disabledReason = "Pick a game first";
+  else if (selectedGame.available === false) disabledReason = selectedGame.unavailableReason || "Coming soon";
   else if (connected < selectedGame.minPlayers) disabledReason = `Need ${selectedGame.minPlayers - connected} more player${selectedGame.minPlayers - connected === 1 ? "" : "s"}`;
   else if (connected > selectedGame.maxPlayers) disabledReason = `This game allows ${selectedGame.maxPlayers} players`;
   else if (starting) disabledReason = "Starting…";
@@ -469,17 +482,20 @@ export default function LobbyPage() {
             {filteredGames.map((game) => {
               const meta = gameMeta(game.id);
               const selected = game.id === selectedGameId;
+              const available = game.available !== false;
               return (
                 <button
                   key={game.id}
                   type="button"
                   aria-pressed={selected}
+                  disabled={!available}
                   onClick={() => selectGame(game)}
-                  className={`game-library-card ${["purple", "lime", "pink", "cyan"][filteredGames.indexOf(game) % 4]} ${selected ? "selected" : ""}`}
+                  className={`game-library-card ${["purple", "lime", "pink", "cyan"][filteredGames.indexOf(game) % 4]} ${selected ? "selected" : ""} ${available ? "" : "cursor-not-allowed opacity-60 grayscale"}`}
                 >
                   <span className="flex items-start justify-between gap-2">
                     <span className="library-mark" aria-hidden><Icon name={meta.icon} /></span>
                     <span className="flex flex-wrap items-center justify-end gap-1">
+                      {!available ? <span className="rounded-full border border-ink/15 bg-surface/60 px-2 py-1 text-[10px] font-bold">Coming soon</span> : null}
                       <span className="rounded-full border border-ink/15 bg-surface/60 px-2 py-1 text-[10px] font-bold">{ratingLabel(game.rating)}</span>
                       <span className="rounded-full border border-ink/15 bg-surface/60 px-2 py-1 text-[10px] font-bold">{meta.category}</span>
                     </span>
@@ -490,7 +506,7 @@ export default function LobbyPage() {
                   </span>
                   <span className="library-foot">
                     <small>{game.minPlayers}–{game.maxPlayers} players</small>
-                    <span className="inline-flex items-center gap-1.5 text-[11px] font-bold">{selected ? "Selected" : "Pick"} <span className="library-arrow"><Icon name={selected ? "check" : "arrow-right"} /></span></span>
+                    <span className="inline-flex items-center gap-1.5 text-[11px] font-bold">{!available ? "Coming soon" : selected ? "Selected" : "Pick"} <span className="library-arrow"><Icon name={selected ? "check" : "arrow-right"} /></span></span>
                   </span>
                 </button>
               );

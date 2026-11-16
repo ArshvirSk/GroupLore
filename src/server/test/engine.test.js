@@ -3,6 +3,7 @@ import { randomUUID } from "node:crypto";
 import { after, test } from "node:test";
 import { GameEngine } from "../engine/engine.js";
 import { createIdentityResolver } from "../engine/auth.js";
+import { setBankOverrideForTests } from "../games/bankStatus.js";
 
 const sessions = new Map();
 const tokenUsers = new Map();
@@ -1201,6 +1202,30 @@ test("a block survives a snapshot restore", async () => {
 
   restoredEngine.close();
   for (const client of clients) client.socket.disconnect();
+});
+
+test("a game with an empty loaded bank cannot be started", async () => {
+  const sessionId = makeSession();
+  const clients = [await makeClient("A"), await makeClient("B"), await makeClient("C")];
+  for (const client of clients) await join(client, sessionId);
+  const [host, ...rest] = clients;
+  await readyAll(...rest);
+  await act(host, "selectGame", { gameId: "buzzer-trivia", mode: "classic" });
+
+  setBankOverrideForTests("buzzer-trivia", []);
+  try {
+    const error = await expectError(host, () => {
+      host.socket.emit("room:action", {
+        action: "start",
+        data: {},
+        eventId: randomUUID(),
+      });
+    });
+    assert.equal(error.code, "game_unavailable");
+  } finally {
+    setBankOverrideForTests("buzzer-trivia", null);
+    for (const client of clients) client.socket.disconnect();
+  }
 });
 
 test("game events reject profanity in user-authored answers", async () => {

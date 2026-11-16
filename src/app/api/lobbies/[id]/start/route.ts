@@ -2,6 +2,7 @@ import type { NextRequest } from "next/server";
 import { requireHost, requireUser } from "@/server/api/auth";
 import { ApiFailure, apiJson, handleApi, readJson } from "@/server/api/http";
 import { getGame } from "@/server/games/index.js";
+import { isGamePlayable } from "@/server/games/bankStatus.js";
 import { setLobbyStatus } from "@/server/lib/lobby.js";
 import { loadLobby } from "@/server/lib/membership.js";
 import { supabase } from "@/server/lib/supabase.js";
@@ -30,6 +31,9 @@ export async function POST(
     const game = getGame(String(body?.gameId || ""));
     if (!game) {
       throw new ApiFailure(404, "not_found", "That game does not exist");
+    }
+    if (!isGamePlayable(game.id)) {
+      throw new ApiFailure(409, "game_unavailable", "That game is coming soon");
     }
 
     const mode = String(body?.mode || "classic");
