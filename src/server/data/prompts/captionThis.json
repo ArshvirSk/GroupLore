@@ -1,27 +1,602 @@
 [
-  { "id": "caption-01", "scenario": "A pigeon confidently walks into a business meeting." },
-  { "id": "caption-02", "scenario": "Your group chat trying to decide where to eat." },
-  { "id": "caption-03", "scenario": "The last slice of pizza watching everyone argue." },
-  { "id": "caption-04", "scenario": "A cat knocking a glass off a table while making eye contact." },
-  { "id": "caption-05", "scenario": "Someone saying “I’ll be there in five minutes” from their bed." },
-  { "id": "caption-06", "scenario": "A motivational poster in a completely empty gym." },
-  { "id": "caption-07", "scenario": "Your phone at 1% battery while the GPS says “rerouting”." },
-  { "id": "caption-08", "scenario": "A dog wearing a tiny suit at a job interview." },
-  { "id": "caption-09", "scenario": "The group project when one person finally opens the document." },
-  { "id": "caption-10", "scenario": "A shopping cart with one wobbly wheel on a peaceful Sunday." },
-  { "id": "caption-11", "scenario": "Your alarm clock five minutes after you snoozed it." },
-  { "id": "caption-12", "scenario": "A houseplant watching you forget to water it again." },
-  { "id": "caption-13", "scenario": "Two people who only know each other from one group chat meeting in public." },
-  { "id": "caption-14", "scenario": "A toddler explaining why the wall needed crayons." },
-  { "id": "caption-15", "scenario": "The vibe when the Wi-Fi goes out mid-conversation." },
-  { "id": "caption-16", "scenario": "A chef proudly presenting a plate with one single fry." },
-  { "id": "caption-17", "scenario": "A cat sitting on the one chair you actually needed." },
-  { "id": "caption-18", "scenario": "Your suitcase after you insisted you packed light." },
-  { "id": "caption-19", "scenario": "A Monday morning that already knows what it did." },
-  { "id": "caption-20", "scenario": "A group photo where one person blinked in every single take." },
-  { "id": "caption-21", "scenario": "A vending machine accepting exact change except when you have it." },
-  { "id": "caption-22", "scenario": "The look you give when someone says “we need to talk”." },
-  { "id": "caption-23", "scenario": "A tiny dog trying to intimidate a delivery truck." },
-  { "id": "caption-24", "scenario": "An umbrella flipping inside out at the first sign of wind." },
-  { "id": "caption-25", "scenario": "Your headphones dying right before the best part of the song." }
+  {
+    "id": "caption-01",
+    "scenario": "A pigeon confidently walks into a business meeting."
+  },
+  {
+    "id": "caption-02",
+    "scenario": "Your group chat trying to decide where to eat."
+  },
+  {
+    "id": "caption-03",
+    "scenario": "The last slice of pizza watching everyone argue."
+  },
+  {
+    "id": "caption-04",
+    "scenario": "A cat knocking a glass off a table while making eye contact."
+  },
+  {
+    "id": "caption-05",
+    "scenario": "Someone saying “I’ll be there in five minutes” from their bed."
+  },
+  {
+    "id": "caption-06",
+    "scenario": "A motivational poster in a completely empty gym."
+  },
+  {
+    "id": "caption-07",
+    "scenario": "Your phone at 1% battery while the GPS says “rerouting”."
+  },
+  {
+    "id": "caption-08",
+    "scenario": "A dog wearing a tiny suit at a job interview."
+  },
+  {
+    "id": "caption-09",
+    "scenario": "The group project when one person finally opens the document."
+  },
+  {
+    "id": "caption-10",
+    "scenario": "A shopping cart with one wobbly wheel on a peaceful Sunday."
+  },
+  {
+    "id": "caption-11",
+    "scenario": "Your alarm clock five minutes after you snoozed it."
+  },
+  {
+    "id": "caption-12",
+    "scenario": "A houseplant watching you forget to water it again."
+  },
+  {
+    "id": "caption-13",
+    "scenario": "Two people who only know each other from one group chat meeting in public."
+  },
+  {
+    "id": "caption-14",
+    "scenario": "A toddler explaining why the wall needed crayons."
+  },
+  {
+    "id": "caption-15",
+    "scenario": "The vibe when the Wi-Fi goes out mid-conversation."
+  },
+  {
+    "id": "caption-16",
+    "scenario": "A chef proudly presenting a plate with one single fry."
+  },
+  {
+    "id": "caption-17",
+    "scenario": "A cat sitting on the one chair you actually needed."
+  },
+  {
+    "id": "caption-18",
+    "scenario": "Your suitcase after you insisted you packed light."
+  },
+  {
+    "id": "caption-19",
+    "scenario": "A Monday morning that already knows what it did."
+  },
+  {
+    "id": "caption-20",
+    "scenario": "A group photo where one person blinked in every single take."
+  },
+  {
+    "id": "caption-21",
+    "scenario": "A vending machine accepting exact change except when you have it."
+  },
+  {
+    "id": "caption-22",
+    "scenario": "The look you give when someone says “we need to talk”."
+  },
+  {
+    "id": "caption-23",
+    "scenario": "A tiny dog trying to intimidate a delivery truck."
+  },
+  {
+    "id": "caption-24",
+    "scenario": "An umbrella flipping inside out at the first sign of wind."
+  },
+  {
+    "id": "caption-25",
+    "scenario": "Your headphones dying right before the best part of the song."
+  },
+  {
+    "id": "caption-26",
+    "scenario": "A robot trying to fold a fitted sheet.",
+    "difficulty": 1,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-27",
+    "scenario": "A penguin at a formal dinner ordering for the table.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-28",
+    "scenario": "The office coffee machine displaying a cryptic error.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-29",
+    "scenario": "A cat watching its owner pack a suitcase.",
+    "difficulty": 1,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-30",
+    "scenario": "A houseplant receiving a compliment.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-31",
+    "scenario": "A group chat after someone suggests a 6am run.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-32",
+    "scenario": "A suitcase that has clearly been to twelve countries.",
+    "difficulty": 1,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-33",
+    "scenario": "A vending machine refusing to accept the last coin.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-34",
+    "scenario": "A dog pretending it did not eat the homework.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-35",
+    "scenario": "A toddler conducting a very serious meeting.",
+    "difficulty": 1,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-36",
+    "scenario": "A phone at 2% during a job interview call.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-37",
+    "scenario": "A shopping trolley with a mind of its own.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-38",
+    "scenario": "A pizza box closing itself.",
+    "difficulty": 1,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-39",
+    "scenario": "A bus that arrives exactly when you stop running.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-40",
+    "scenario": "A calendar with every weekend crossed out.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-41",
+    "scenario": "A mirror refusing to cooperate.",
+    "difficulty": 1,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-42",
+    "scenario": "A kettle taking a dramatic pause.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-43",
+    "scenario": "A fridge hiding the last slice of cake.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-44",
+    "scenario": "A neighbour's hedge growing into a dinosaur shape.",
+    "difficulty": 1,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-45",
+    "scenario": "A laptop fan sounding like a small aircraft.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-46",
+    "scenario": "A pigeon waiting for the pedestrian light.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-47",
+    "scenario": "A homework assignment with a coffee stain shaped like a question mark.",
+    "difficulty": 1,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-48",
+    "scenario": "A gym membership card gathering dust.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-49",
+    "scenario": "A group project presentation with one slide.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-50",
+    "scenario": "A cat sitting on a keyboard during a video call.",
+    "difficulty": 1,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-51",
+    "scenario": "A restaurant menu with one item and a lot of confidence.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-52",
+    "scenario": "A pair of headphones tangled beyond reason.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-53",
+    "scenario": "A plant leaning toward the Wi-Fi router.",
+    "difficulty": 1,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-54",
+    "scenario": "A pair of socks escaping the laundry basket.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-55",
+    "scenario": "A parking space appearing after you give up.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-56",
+    "scenario": "A sandwich with a suspiciously perfect bite.",
+    "difficulty": 1,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-57",
+    "scenario": "A traffic cone in the middle of nowhere.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-58",
+    "scenario": "A suitcase wheel making its feelings known.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-59",
+    "scenario": "A birthday candle that refuses to go out.",
+    "difficulty": 1,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-60",
+    "scenario": "A dog waiting by the door for a delivery.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-61",
+    "scenario": "A printer choosing violence at the worst moment.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-62",
+    "scenario": "A cereal box promising a prize it does not contain.",
+    "difficulty": 1,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-63",
+    "scenario": "A shopping list written in a language of pure optimism.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-64",
+    "scenario": "A bus stop timetable with one mysterious symbol.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-65",
+    "scenario": "A hoodie in July.",
+    "difficulty": 1,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-66",
+    "scenario": "A garden gnome moved overnight.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-67",
+    "scenario": "A phone gallery full of accidental ceiling photos.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-68",
+    "scenario": "A fridge door open while someone thinks.",
+    "difficulty": 1,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-69",
+    "scenario": "A queue that moves the moment you leave.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-70",
+    "scenario": "A school clock that has stopped at 3pm forever.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-71",
+    "scenario": "A suitcase being sat on to close.",
+    "difficulty": 1,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-72",
+    "scenario": "A laptop at 1% during a software update.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-73",
+    "scenario": "A neighbour's leaf blower at 8am on Sunday.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-74",
+    "scenario": "A cat judging your choice of lunch.",
+    "difficulty": 1,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "caption-75",
+    "scenario": "A group photo where everyone blinks except one person.",
+    "difficulty": 2,
+    "tags": [
+      "caption",
+      "everyday"
+    ],
+    "rating": "all"
+  }
 ]

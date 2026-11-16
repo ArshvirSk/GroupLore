@@ -238,5 +238,505 @@
   {
     "id": "story-060",
     "text": "The museum's dinosaur skeleton was missing one very important bone."
+  },
+  {
+    "id": "story-061",
+    "text": "The parcel locker opened to reveal a birthday cake.",
+    "difficulty": 1,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-062",
+    "text": "The office lift stopped on a floor nobody recognized.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-063",
+    "text": "Every streetlight turned green at once.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-064",
+    "text": "The hotel TV only showed the corridor outside.",
+    "difficulty": 1,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-065",
+    "text": "A receipt in the laundry listed something nobody bought.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-066",
+    "text": "The bus driver asked the passengers to vote on the route.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-067",
+    "text": "The neighbour's parrot repeated a number nobody had said.",
+    "difficulty": 1,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-068",
+    "text": "The new sofa arrived with a note sewn into the cushion.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-069",
+    "text": "The museum's audio guide started giving personal advice.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-070",
+    "text": "The bakery ran out of bread but not stories.",
+    "difficulty": 1,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-071",
+    "text": "The school bell rang during the summer holidays.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-072",
+    "text": "The train announcement named a station that did not exist.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-073",
+    "text": "The garden hose began writing on the pavement.",
+    "difficulty": 1,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-074",
+    "text": "The cinema usher knew everyone's name before they arrived.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-075",
+    "text": "A message in a bottle arrived by courier.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-076",
+    "text": "The office whiteboard had a drawing nobody remembered making.",
+    "difficulty": 1,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-077",
+    "text": "The restaurant's special changed every time someone looked away.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-078",
+    "text": "The cat left a trail of tiny wet footprints on the ceiling.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-079",
+    "text": "The library's silence had a sound.",
+    "difficulty": 1,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-080",
+    "text": "The football went out of the stadium and came back with a hat.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-081",
+    "text": "The apartment key opened every door except the right one.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-082",
+    "text": "The photo on the wall had gained one extra person overnight.",
+    "difficulty": 1,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-083",
+    "text": "The café menu offered a dish called \"the usual\".",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-084",
+    "text": "The laptop started typing a story by itself.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-085",
+    "text": "The vending machine gave change in foreign coins.",
+    "difficulty": 1,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-086",
+    "text": "The park bench had a plaque with tomorrow's date.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-087",
+    "text": "The wedding band played a song nobody had written yet.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-088",
+    "text": "The fridge light stayed on after the door closed.",
+    "difficulty": 1,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-089",
+    "text": "The ferry arrived with a passenger nobody had seen board.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-090",
+    "text": "The school's lost property box contained a live crab.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-091",
+    "text": "The street map had a new road drawn in pencil.",
+    "difficulty": 1,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-092",
+    "text": "The neighbours' washing line was full of identical red scarves.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-093",
+    "text": "The hotel phone rang and the caller asked for a room number.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-094",
+    "text": "The office plants had been rearranged into an arrow.",
+    "difficulty": 1,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-095",
+    "text": "The cinema screen showed the audience instead of the film.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-096",
+    "text": "The bakery's clock ran five minutes fast only on Mondays.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-097",
+    "text": "The bus shelter had a button labelled \"do not press\".",
+    "difficulty": 1,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-098",
+    "text": "The garden shed was bigger on the inside.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-099",
+    "text": "The pizza box contained a map instead of a pizza.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-100",
+    "text": "The train carriage was full of unclaimed umbrellas.",
+    "difficulty": 1,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-101",
+    "text": "The corner shop began selling memories by the jar.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-102",
+    "text": "The office printer produced a page from next week.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-103",
+    "text": "The playground swing kept moving after everyone left.",
+    "difficulty": 1,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-104",
+    "text": "The postbox had a slot for letters to the past.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-105",
+    "text": "The café's tip jar began returning coins with messages.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-106",
+    "text": "The museum skeleton was wearing a new hat.",
+    "difficulty": 1,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-107",
+    "text": "The kitchen radio interrupted the news to give a recipe.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-108",
+    "text": "The apartment above played the same song every night at 3am.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-109",
+    "text": "The beach had a second tide nobody had noticed.",
+    "difficulty": 1,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "story-110",
+    "text": "The last bus of the night arrived with the lights off.",
+    "difficulty": 2,
+    "tags": [
+      "starter",
+      "story"
+    ],
+    "rating": "all"
   }
 ]
