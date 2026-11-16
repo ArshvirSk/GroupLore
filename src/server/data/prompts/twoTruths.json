@@ -658,5 +658,105 @@
       "personal"
     ],
     "rating": "all"
+  },
+  {
+    "id": "tt-91",
+    "text": "The best thing you have ever borrowed",
+    "difficulty": 1,
+    "tags": [
+      "story",
+      "personal"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "tt-92",
+    "text": "A place you would take a visitor to your town",
+    "difficulty": 2,
+    "tags": [
+      "story",
+      "personal"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "tt-93",
+    "text": "A food you only eat at a certain time",
+    "difficulty": 2,
+    "tags": [
+      "story",
+      "personal"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "tt-94",
+    "text": "The most useful thing you learned from a stranger",
+    "difficulty": 1,
+    "tags": [
+      "story",
+      "personal"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "tt-95",
+    "text": "A sound you associate with a family member",
+    "difficulty": 2,
+    "tags": [
+      "story",
+      "personal"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "tt-96",
+    "text": "The strangest shop you have visited",
+    "difficulty": 2,
+    "tags": [
+      "story",
+      "personal"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "tt-97",
+    "text": "A time you were pleasantly surprised by public transport",
+    "difficulty": 1,
+    "tags": [
+      "story",
+      "personal"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "tt-98",
+    "text": "The best thing you have ever won",
+    "difficulty": 2,
+    "tags": [
+      "story",
+      "personal"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "tt-99",
+    "text": "A phrase you have accidentally adopted from someone else",
+    "difficulty": 2,
+    "tags": [
+      "story",
+      "personal"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "tt-100",
+    "text": "The most memorable meal you have had with friends",
+    "difficulty": 1,
+    "tags": [
+      "story",
+      "personal"
+    ],
+    "rating": "all"
   }
 ]

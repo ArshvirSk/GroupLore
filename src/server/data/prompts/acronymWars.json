@@ -738,5 +738,405 @@
       "wordplay"
     ],
     "rating": "all"
+  },
+  {
+    "id": "aw-111",
+    "text": "A bad name for a bicycle shop",
+    "difficulty": 1,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-112",
+    "text": "A strange thing to name a library",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-113",
+    "text": "A terrible slogan for a bakery",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-114",
+    "text": "A new rule for hotel breakfasts",
+    "difficulty": 1,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-115",
+    "text": "A bad name for a pet store",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-116",
+    "text": "A strange thing to put on a postcard",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-117",
+    "text": "A terrible name for a water bottle",
+    "difficulty": 1,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-118",
+    "text": "A new law for coffee shops",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-119",
+    "text": "A bad name for a garden centre",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-120",
+    "text": "A strange thing to name a boat",
+    "difficulty": 1,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-121",
+    "text": "A terrible name for a bookshop",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-122",
+    "text": "A new rule for picnics",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-123",
+    "text": "A bad name for a laundry service",
+    "difficulty": 1,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-124",
+    "text": "A strange thing to advertise on a bus",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-125",
+    "text": "A terrible name for a running club",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-126",
+    "text": "A new rule for museums",
+    "difficulty": 1,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-127",
+    "text": "A bad name for a phone charger",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-128",
+    "text": "A strange thing to name a sandwich",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-129",
+    "text": "A terrible name for a holiday company",
+    "difficulty": 1,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-130",
+    "text": "A new rule for book clubs",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-131",
+    "text": "A bad name for a plant shop",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-132",
+    "text": "A strange thing to put on a mug",
+    "difficulty": 1,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-133",
+    "text": "A terrible name for a chess club",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-134",
+    "text": "A new rule for train travel",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-135",
+    "text": "A bad name for a bakery van",
+    "difficulty": 1,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-136",
+    "text": "A strange thing to name a fountain",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-137",
+    "text": "A terrible name for a cinema",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-138",
+    "text": "A new rule for board game night",
+    "difficulty": 1,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-139",
+    "text": "A bad name for a sock company",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-140",
+    "text": "A strange thing to name a bridge",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-141",
+    "text": "A terrible name for a gym class",
+    "difficulty": 1,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-142",
+    "text": "A new rule for garden parties",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-143",
+    "text": "A bad name for a bicycle helmet",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-144",
+    "text": "A strange thing to print on a hoodie",
+    "difficulty": 1,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-145",
+    "text": "A terrible name for a tea shop",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-146",
+    "text": "A new rule for libraries",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-147",
+    "text": "A bad name for a suitcase",
+    "difficulty": 1,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-148",
+    "text": "A strange thing to name a park bench",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-149",
+    "text": "A terrible name for a photo album",
+    "difficulty": 2,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
+  },
+  {
+    "id": "aw-150",
+    "text": "A new rule for breakfast",
+    "difficulty": 1,
+    "tags": [
+      "acronym",
+      "wordplay"
+    ],
+    "rating": "all"
   }
 ]
