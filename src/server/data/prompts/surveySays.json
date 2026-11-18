@@ -136,7 +136,7 @@
   },
   {
     "id": "survey-005",
-    "text": "What's place where people whisper",
+    "text": "Name a place where people whisper",
     "answers": [
       {
         "text": "library",
@@ -270,7 +270,7 @@
   },
   {
     "id": "survey-013",
-    "text": "What's topping people put on pizza",
+    "text": "Name a topping people put on pizza",
     "answers": [
       {
         "text": "cheese",
@@ -473,7 +473,7 @@
   },
   {
     "id": "survey-021",
-    "text": "Which type of weather people complain about?",
+    "text": "Which type of weather do people complain about?",
     "answers": [
       {
         "text": "rain",
@@ -608,7 +608,7 @@
   },
   {
     "id": "survey-023",
-    "text": "What's place where you have to queue",
+    "text": "Name a place where you have to queue",
     "answers": [
       {
         "text": "supermarket",
@@ -675,7 +675,7 @@
   },
   {
     "id": "survey-025",
-    "text": "What would you might buy at a pharmacy?",
+    "text": "What might you buy at a pharmacy?",
     "answers": [
       {
         "text": "painkillers",
@@ -811,7 +811,7 @@
   },
   {
     "id": "survey-028",
-    "text": "What's food people eat with their hands",
+    "text": "Name a food people eat with their hands",
     "answers": [
       {
         "text": "pizza",
@@ -946,7 +946,7 @@
   },
   {
     "id": "survey-030",
-    "text": "What's thing people do at the gym",
+    "text": "Name something people do at the gym",
     "answers": [
       {
         "text": "run",
@@ -1014,7 +1014,7 @@
   },
   {
     "id": "survey-031",
-    "text": "What's fruit",
+    "text": "Name a fruit",
     "answers": [
       {
         "text": "apple",
@@ -1082,7 +1082,7 @@
   },
   {
     "id": "survey-032",
-    "text": "What's vegetable",
+    "text": "Name a vegetable",
     "answers": [
       {
         "text": "carrot",
@@ -1150,7 +1150,7 @@
   },
   {
     "id": "survey-033",
-    "text": "What's color",
+    "text": "Name a color",
     "answers": [
       {
         "text": "red",
@@ -1217,7 +1217,7 @@
   },
   {
     "id": "survey-034",
-    "text": "What's animal",
+    "text": "Name an animal",
     "answers": [
       {
         "text": "dog",
@@ -1285,7 +1285,7 @@
   },
   {
     "id": "survey-035",
-    "text": "What's pizza topping",
+    "text": "Name a pizza topping",
     "answers": [
       {
         "text": "cheese",
@@ -1353,7 +1353,7 @@
   },
   {
     "id": "survey-036",
-    "text": "What's ice cream flavor",
+    "text": "Name an ice cream flavor",
     "answers": [
       {
         "text": "vanilla",
@@ -1420,7 +1420,7 @@
   },
   {
     "id": "survey-037",
-    "text": "What's school subject",
+    "text": "Name a school subject",
     "answers": [
       {
         "text": "maths",
@@ -1488,7 +1488,7 @@
   },
   {
     "id": "survey-038",
-    "text": "What's car brand",
+    "text": "Name a car brand",
     "answers": [
       {
         "text": "Toyota",
@@ -1555,7 +1555,7 @@
   },
   {
     "id": "survey-040",
-    "text": "What's breakfast food",
+    "text": "Name a breakfast food",
     "answers": [
       {
         "text": "toast",
@@ -1623,7 +1623,7 @@
   },
   {
     "id": "survey-041",
-    "text": "What's sport",
+    "text": "Name a sport",
     "answers": [
       {
         "text": "football",
@@ -1691,7 +1691,7 @@
   },
   {
     "id": "survey-042",
-    "text": "What's musical instrument",
+    "text": "Name a musical instrument",
     "answers": [
       {
         "text": "guitar",
@@ -1759,7 +1759,7 @@
   },
   {
     "id": "survey-043",
-    "text": "What's European country",
+    "text": "Name a European country",
     "answers": [
       {
         "text": "France",
@@ -1827,7 +1827,7 @@
   },
   {
     "id": "survey-044",
-    "text": "What's Asian country",
+    "text": "Name an Asian country",
     "answers": [
       {
         "text": "Japan",
@@ -1895,7 +1895,7 @@
   },
   {
     "id": "survey-045",
-    "text": "What's African country",
+    "text": "Name an African country",
     "answers": [
       {
         "text": "Egypt",
@@ -1963,7 +1963,7 @@
   },
   {
     "id": "survey-046",
-    "text": "What's US state",
+    "text": "Name a US state",
     "answers": [
       {
         "text": "California",
@@ -2030,7 +2030,7 @@
   },
   {
     "id": "survey-047",
-    "text": "What's city",
+    "text": "Name a city",
     "answers": [
       {
         "text": "London",
@@ -2098,7 +2098,7 @@
   },
   {
     "id": "survey-048",
-    "text": "What's board game",
+    "text": "Name a board game",
     "answers": [
       {
         "text": "Monopoly",
@@ -2166,7 +2166,7 @@
   },
   {
     "id": "survey-049",
-    "text": "What's card game",
+    "text": "Name a card game",
     "answers": [
       {
         "text": "Poker",
@@ -2234,7 +2234,7 @@
   },
   {
     "id": "survey-050",
-    "text": "What's movie genre",
+    "text": "Name a movie genre",
     "answers": [
       {
         "text": "comedy",
@@ -2302,7 +2302,7 @@
   },
   {
     "id": "survey-053",
-    "text": "What's kitchen appliance",
+    "text": "Name a kitchen appliance",
     "answers": [
       {
         "text": "kettle",
@@ -2370,7 +2370,7 @@
   },
   {
     "id": "survey-054",
-    "text": "What's tool",
+    "text": "Name a tool",
     "answers": [
       {
         "text": "hammer",
@@ -2437,7 +2437,7 @@
   },
   {
     "id": "survey-055",
-    "text": "In a bathroom, what's something?",
+    "text": "Name something a bathroom always has",
     "answers": [
       {
         "text": "toothbrush",
@@ -2504,7 +2504,7 @@
   },
   {
     "id": "survey-059",
-    "text": "In a wedding, what's something?",
+    "text": "Name something you see at a wedding",
     "answers": [
       {
         "text": "cake",
@@ -2572,7 +2572,7 @@
   },
   {
     "id": "survey-060",
-    "text": "In a birthday party, what's something?",
+    "text": "Name something you see at a birthday party",
     "answers": [
       {
         "text": "cake",
@@ -2640,7 +2640,7 @@
   },
   {
     "id": "survey-061",
-    "text": "What's animal at the zoo",
+    "text": "Name an animal you see at the zoo",
     "answers": [
       {
         "text": "lion",
@@ -2708,7 +2708,7 @@
   },
   {
     "id": "survey-063",
-    "text": "In an airport, what's something?",
+    "text": "What do you always see at an airport?",
     "answers": [
       {
         "text": "plane",
@@ -2776,7 +2776,7 @@
   },
   {
     "id": "survey-065",
-    "text": "In an office, what's something?",
+    "text": "Name something every office has",
     "answers": [
       {
         "text": "desk",
@@ -2844,7 +2844,7 @@
   },
   {
     "id": "survey-067",
-    "text": "In a bedroom, what's something?",
+    "text": "What is usually in a bedroom?",
     "answers": [
       {
         "text": "bed",
@@ -2911,7 +2911,7 @@
   },
   {
     "id": "survey-068",
-    "text": "In a fridge, what's something?",
+    "text": "Name something you keep in a fridge",
     "answers": [
       {
         "text": "milk",
@@ -2978,7 +2978,7 @@
   },
   {
     "id": "survey-072",
-    "text": "In a concert, what's something?",
+    "text": "Name something you see at a concert",
     "answers": [
       {
         "text": "stage",
@@ -3046,7 +3046,7 @@
   },
   {
     "id": "survey-075",
-    "text": "In a wallet, what's something?",
+    "text": "What do you keep in a wallet?",
     "answers": [
       {
         "text": "cards",
@@ -3783,7 +3783,7 @@
   },
   {
     "id": "survey-090",
-    "text": "What's animal with stripes",
+    "text": "Name an animal with stripes",
     "answers": [
       {
         "text": "zebra",
@@ -3852,7 +3852,7 @@
   },
   {
     "id": "survey-091",
-    "text": "What's sea animal",
+    "text": "Name a sea animal",
     "answers": [
       {
         "text": "dolphin",
@@ -3920,7 +3920,7 @@
   },
   {
     "id": "survey-092",
-    "text": "What's bird",
+    "text": "Name a bird",
     "answers": [
       {
         "text": "robin",
@@ -3987,7 +3987,7 @@
   },
   {
     "id": "survey-093",
-    "text": "What's insect",
+    "text": "Name an insect",
     "answers": [
       {
         "text": "ant",
@@ -4054,7 +4054,7 @@
   },
   {
     "id": "survey-094",
-    "text": "What's pet",
+    "text": "Name a pet",
     "answers": [
       {
         "text": "dog",
@@ -4121,7 +4121,7 @@
   },
   {
     "id": "survey-095",
-    "text": "What's baby animal",
+    "text": "Name a baby animal",
     "answers": [
       {
         "text": "puppy",
@@ -4189,7 +4189,7 @@
   },
   {
     "id": "survey-096",
-    "text": "What's superhero",
+    "text": "Name a superhero",
     "answers": [
       {
         "text": "Superman",
@@ -4256,7 +4256,7 @@
   },
   {
     "id": "survey-097",
-    "text": "What's cartoon character",
+    "text": "Name a cartoon character",
     "answers": [
       {
         "text": "Mickey Mouse",
@@ -4323,7 +4323,7 @@
   },
   {
     "id": "survey-098",
-    "text": "What's Disney movie",
+    "text": "Name a Disney movie",
     "answers": [
       {
         "text": "The Lion King",
@@ -4391,7 +4391,7 @@
   },
   {
     "id": "survey-099",
-    "text": "What's Pixar movie",
+    "text": "Name a Pixar movie",
     "answers": [
       {
         "text": "Toy Story",
@@ -4459,7 +4459,7 @@
   },
   {
     "id": "survey-100",
-    "text": "What's book genre",
+    "text": "Name a book genre",
     "answers": [
       {
         "text": "mystery",
@@ -4526,7 +4526,7 @@
   },
   {
     "id": "survey-101",
-    "text": "What's musical artist",
+    "text": "Name a musical artist",
     "answers": [
       {
         "text": "Taylor Swift",
@@ -4594,7 +4594,7 @@
   },
   {
     "id": "survey-102",
-    "text": "What's dance style",
+    "text": "Name a dance style",
     "answers": [
       {
         "text": "ballet",
@@ -4661,7 +4661,7 @@
   },
   {
     "id": "survey-103",
-    "text": "What's hobby",
+    "text": "Name a hobby",
     "answers": [
       {
         "text": "reading",
@@ -4728,7 +4728,7 @@
   },
   {
     "id": "survey-104",
-    "text": "What's job",
+    "text": "Name a job",
     "answers": [
       {
         "text": "teacher",
@@ -4796,7 +4796,7 @@
   },
   {
     "id": "survey-105",
-    "text": "What's office supply",
+    "text": "Name an office supply",
     "answers": [
       {
         "text": "pen",
@@ -4864,7 +4864,7 @@
   },
   {
     "id": "survey-106",
-    "text": "What's party supply",
+    "text": "Name a party supply",
     "answers": [
       {
         "text": "balloons",
@@ -4932,7 +4932,7 @@
   },
   {
     "id": "survey-107",
-    "text": "What's piece of camping gear",
+    "text": "Name a piece of camping gear",
     "answers": [
       {
         "text": "tent",
@@ -4999,7 +4999,7 @@
   },
   {
     "id": "survey-108",
-    "text": "What's beach item",
+    "text": "Name a beach item",
     "answers": [
       {
         "text": "towel",
@@ -5067,7 +5067,7 @@
   },
   {
     "id": "survey-109",
-    "text": "What's winter clothing item",
+    "text": "Name a winter clothing item",
     "answers": [
       {
         "text": "coat",
@@ -5134,7 +5134,7 @@
   },
   {
     "id": "survey-110",
-    "text": "What's summer clothing item",
+    "text": "Name a summer clothing item",
     "answers": [
       {
         "text": "shorts",
@@ -5201,7 +5201,7 @@
   },
   {
     "id": "survey-112",
-    "text": "What's accessory",
+    "text": "Name an accessory",
     "answers": [
       {
         "text": "watch",
@@ -5268,7 +5268,7 @@
   },
   {
     "id": "survey-115",
-    "text": "What's reason to celebrate",
+    "text": "Name a reason to celebrate",
     "answers": [
       {
         "text": "birthday",
@@ -5335,7 +5335,7 @@
   },
   {
     "id": "survey-118",
-    "text": "What's holiday destination",
+    "text": "Name a holiday destination",
     "answers": [
       {
         "text": "beach",
@@ -5403,7 +5403,7 @@
   },
   {
     "id": "survey-119",
-    "text": "What's mode of transport",
+    "text": "Name a mode of transport",
     "answers": [
       {
         "text": "bus",
@@ -5672,7 +5672,7 @@
   },
   {
     "id": "survey-123",
-    "text": "What makes noise?",
+    "text": "What makes a lot of noise?",
     "answers": [
       {
         "text": "siren",
@@ -5739,7 +5739,7 @@
   },
   {
     "id": "survey-126",
-    "text": "What's school supply",
+    "text": "Name a school supply",
     "answers": [
       {
         "text": "pencil",
@@ -5807,7 +5807,7 @@
   },
   {
     "id": "survey-127",
-    "text": "What's piece of furniture",
+    "text": "Name a piece of furniture",
     "answers": [
       {
         "text": "sofa",
@@ -5941,7 +5941,7 @@
   },
   {
     "id": "survey-130",
-    "text": "What's social media platform",
+    "text": "Name a social media platform",
     "answers": [
       {
         "text": "Facebook",
@@ -6008,7 +6008,7 @@
   },
   {
     "id": "survey-131",
-    "text": "What's website",
+    "text": "Name a website",
     "answers": [
       {
         "text": "Google",
@@ -6075,7 +6075,7 @@
   },
   {
     "id": "survey-132",
-    "text": "What's board game piece",
+    "text": "Name a board game piece",
     "answers": [
       {
         "text": "dice",
@@ -6143,7 +6143,7 @@
   },
   {
     "id": "survey-133",
-    "text": "What's pizza chain",
+    "text": "Name a pizza chain",
     "answers": [
       {
         "text": "Domino's",
@@ -6211,7 +6211,7 @@
   },
   {
     "id": "survey-134",
-    "text": "What's fast food restaurant",
+    "text": "Name a fast food restaurant",
     "answers": [
       {
         "text": "McDonald's",
@@ -6279,7 +6279,7 @@
   },
   {
     "id": "survey-135",
-    "text": "What's candy bar",
+    "text": "Name a candy bar",
     "answers": [
       {
         "text": "Snickers",
@@ -6346,7 +6346,7 @@
   },
   {
     "id": "survey-136",
-    "text": "What's cereal",
+    "text": "Name a cereal",
     "answers": [
       {
         "text": "cornflakes",
@@ -6413,7 +6413,7 @@
   },
   {
     "id": "survey-137",
-    "text": "What's sandwich",
+    "text": "Name a sandwich",
     "answers": [
       {
         "text": "ham",
@@ -6480,7 +6480,7 @@
   },
   {
     "id": "survey-138",
-    "text": "What's soup",
+    "text": "Name a soup",
     "answers": [
       {
         "text": "tomato",
@@ -6547,7 +6547,7 @@
   },
   {
     "id": "survey-139",
-    "text": "What's dessert",
+    "text": "Name a dessert",
     "answers": [
       {
         "text": "cake",
@@ -6614,7 +6614,7 @@
   },
   {
     "id": "survey-140",
-    "text": "What's spice",
+    "text": "Name a spice",
     "answers": [
       {
         "text": "pepper",
@@ -6681,7 +6681,7 @@
   },
   {
     "id": "survey-141",
-    "text": "What's herb",
+    "text": "Name a herb",
     "answers": [
       {
         "text": "basil",
@@ -6748,7 +6748,7 @@
   },
   {
     "id": "survey-142",
-    "text": "What's cheese",
+    "text": "Name a cheese",
     "answers": [
       {
         "text": "cheddar",
@@ -6815,7 +6815,7 @@
   },
   {
     "id": "survey-143",
-    "text": "Which type of bread?",
+    "text": "Which type of bread do you buy most often?",
     "answers": [
       {
         "text": "white",
@@ -6883,7 +6883,7 @@
   },
   {
     "id": "survey-144",
-    "text": "What's pasta shape",
+    "text": "Name a pasta shape",
     "answers": [
       {
         "text": "spaghetti",
@@ -6950,7 +6950,7 @@
   },
   {
     "id": "survey-145",
-    "text": "What's cocktail",
+    "text": "Name a cocktail",
     "answers": [
       {
         "text": "margarita",
@@ -7017,7 +7017,7 @@
   },
   {
     "id": "survey-146",
-    "text": "What's hot drink",
+    "text": "Name a hot drink",
     "answers": [
       {
         "text": "tea",
@@ -7084,7 +7084,7 @@
   },
   {
     "id": "survey-147",
-    "text": "What's cold drink",
+    "text": "Name a cold drink",
     "answers": [
       {
         "text": "water",
@@ -7151,7 +7151,7 @@
   },
   {
     "id": "survey-148",
-    "text": "What's snack",
+    "text": "Name a snack",
     "answers": [
       {
         "text": "crisps",
@@ -7219,7 +7219,7 @@
   },
   {
     "id": "survey-149",
-    "text": "What's street food",
+    "text": "Name a street food",
     "answers": [
       {
         "text": "hot dog",

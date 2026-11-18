@@ -1,6 +1,7 @@
 import { createRequire } from "node:module";
 import { activePlayers, configFor, failure } from "./shared.js";
 import { answersMatch } from "../engine/primitives/normalize.js";
+import { dailyKey, seededShuffle } from "../lib/daily.js";
 
 const require = createRequire(import.meta.url);
 const IMAGES = require("../data/assets/blur/manifest.json");
@@ -20,7 +21,18 @@ const MODES = {
     stageMs: 2_600,
     resultMs: 5_000,
   },
+  daily: {
+    label: "Daily",
+    description: "Five rounds with the same images for every group today",
+    rounds: 5,
+    stageMs: 3_300,
+    resultMs: 6_000,
+  },
 };
+
+export function dailyBlurImages(key = dailyKey()) {
+  return seededShuffle(IMAGES, key).slice(0, MODES.daily.rounds);
+}
 
 function beginRound(room, state) {
   const config = configFor(MODES, room.mode);
@@ -64,7 +76,10 @@ const blurGuess = {
 
   init(room, mode) {
     room.mode = mode in MODES ? mode : "classic";
-    const shuffledImages = [...IMAGES].sort(() => Math.random() - 0.5);
+    const shuffledImages =
+      room.mode === "daily"
+        ? dailyBlurImages()
+        : [...IMAGES].sort(() => Math.random() - 0.5);
     const state = {
       phase: "stage",
       round: 0,

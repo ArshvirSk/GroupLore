@@ -2,6 +2,7 @@
 
 import AppShell from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
+import GroupDailyChallenge from "@/components/group/GroupDailyChallenge";
 import GroupTimeline from "@/components/group/GroupTimeline";
 import LoreStudio from "@/components/group/LoreStudio";
 import ProgressionPanel from "@/components/group/ProgressionPanel";
@@ -68,6 +69,7 @@ export default function GroupDashboard() {
   const [inviteCopied, setInviteCopied] = useState(false);
   const [loading, setLoading] = useState(true);
   const [launching, setLaunching] = useState(false);
+  const [dailyStarting, setDailyStarting] = useState<string | null>(null);
   const [launchError, setLaunchError] = useState("");
   const [activeLobby, setActiveLobby] = useState<{ id: string; code: string } | null>(null);
   const [form, setForm] = useState(EMPTY_FORM);
@@ -207,6 +209,23 @@ export default function GroupDashboard() {
     }
   };
 
+  const playDaily = async (gameId: string) => {
+    if (dailyStarting) return;
+    setDailyStarting(gameId);
+    setLaunchError("");
+    try {
+      const lobby = await ensureLobby(id);
+      router.push(
+        `${lobbyPath(lobby)}?game=${encodeURIComponent(gameId)}&mode=daily`,
+      );
+    } catch (err) {
+      setLaunchError(
+        err instanceof Error ? err.message : "Could not open the daily lobby",
+      );
+      setDailyStarting(null);
+    }
+  };
+
   const groupAccents = ["purple", "lime", "pink", "cyan"];
 
   if (loading) {
@@ -259,6 +278,13 @@ export default function GroupDashboard() {
             <div><p className="text-xs font-bold uppercase tracking-wide">Lobby status</p><p className="text-sm font-semibold">{activeLobby ? "Ready for the group" : "Start a room to play"}</p></div>
           </div>
         </div>
+
+        <GroupDailyChallenge
+          groupId={id}
+          starting={dailyStarting}
+          onPlay={(gameId) => void playDaily(gameId)}
+          className="mt-8"
+        />
 
         <section className="mt-8" aria-labelledby="members-title">
           <div className="flex items-center justify-between gap-3">

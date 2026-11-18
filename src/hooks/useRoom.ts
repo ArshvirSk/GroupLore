@@ -106,12 +106,22 @@ export function useRoom(sessionId: string) {
       joinedSocketId = socket.id || null;
       setRoom(view);
       setStatus("ready");
+      // A room view proves the seat exists, so a rejection from before the join
+      // was registered is stale and should not stay on screen.
+      if (useRoomStore.getState().error?.code === "not_in_room") setError(null);
     };
 
     const onError = (payload: { code: string; message: string }) => {
       if (!active) return;
       if (payload.code === "session_replaced") setKicked(true);
       setError(payload);
+      // A rejection while still taking a seat means the join itself failed
+      // (for example the game started without us). Without this the page
+      // stays on the joining spinner forever once the error auto-clears.
+      const current = useRoomStore.getState().status;
+      if (current === "joining" || current === "connecting") {
+        setStatus("error");
+      }
     };
 
     const onKicked = (payload: { message?: string }) => {

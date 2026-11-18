@@ -1,9 +1,10 @@
 {
   "acronymWars": { "gameIds": ["acronym-wars"], "rating": "family", "nsfw": false },
   "avoidTheAnswer": { "gameIds": ["avoid-the-answer"], "rating": "family", "nsfw": false },
-  "blindSketch": { "gameIds": ["blind-sketch"], "rating": "family", "nsfw": false },
+  "badArtist": { "gameIds": ["bad-artist"], "rating": "family", "nsfw": false },
+  "blindSketch": { "gameIds": ["blind-sketch", "draw-guess", "draw-telephone"], "rating": "family", "nsfw": false },
   "bluff": { "gameIds": ["bluff"], "rating": "family", "nsfw": false },
-  "buzzerTrivia": { "gameIds": ["buzzer-trivia"], "rating": "family", "nsfw": false },
+  "buzzerTrivia": { "gameIds": ["buzzer-trivia", "speed-trivia"], "rating": "family", "nsfw": false },
   "captionThis": { "gameIds": ["caption-this"], "rating": "family", "nsfw": false },
   "categoryRush": { "gameIds": ["category-rush"], "rating": "family", "nsfw": false },
   "codenames": { "gameIds": ["codenames"], "rating": "family", "nsfw": false },
@@ -17,6 +18,7 @@
   "impostor": { "gameIds": ["guess-impostor"], "rating": "family", "nsfw": false },
   "liarsBar": { "gameIds": ["liars-bar"], "rating": "teen", "nsfw": false },
   "madLibs": { "gameIds": ["mad-libs"], "rating": "family", "nsfw": false },
+  "modesContent": { "gameIds": ["chameleon", "spyfall", "closest-wins", "timeline", "rank-it", "flag-rush", "emoji-decode", "just-one", "auction-bluff"], "rating": "family", "nsfw": false },
   "mostLikelyTo": { "gameIds": ["most-likely-to"], "rating": "teen", "nsfw": false },
   "overrated": { "gameIds": ["overrated-underrated"], "rating": "family", "nsfw": false },
   "password": { "gameIds": ["password"], "rating": "family", "nsfw": false },
@@ -26,6 +28,7 @@
   "storyChain": { "gameIds": ["story-chain"], "rating": "family", "nsfw": false },
   "surveySays": { "gameIds": ["survey-says"], "rating": "family", "nsfw": false },
   "twoTruths": { "gameIds": ["two-truths"], "rating": "family", "nsfw": false },
+  "typing": { "gameIds": ["type-race"], "rating": "family", "nsfw": false },
   "wavelength": { "gameIds": ["wavelength"], "rating": "family", "nsfw": false },
   "wouldYouRather": { "gameIds": ["would-you-rather"], "rating": "family", "nsfw": false }
 }

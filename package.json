@@ -19,6 +19,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.98.0",
     "@uploadthing/react": "^7.3.3",
+    "flag-icons": "^7.6.0",
     "framer-motion": "^12.34.3",
     "next": "16.1.6",
     "qrcode": "^1.5.4",

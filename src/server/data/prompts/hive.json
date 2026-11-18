@@ -1,8 +1,8 @@
 [
   {
     "id": "hive-001",
-    "text": "What's pizza topping",
-    "odd": "What's burger topping",
+    "text": "Name a pizza topping",
+    "odd": "Name a burger topping",
     "tags": [
       "social",
       "food"
@@ -11,8 +11,8 @@
   },
   {
     "id": "hive-002",
-    "text": "What's breakfast food",
-    "odd": "What's late-night snack",
+    "text": "Name a breakfast food",
+    "odd": "Name a late-night snack",
     "tags": [
       "social",
       "food"
@@ -21,8 +21,8 @@
   },
   {
     "id": "hive-003",
-    "text": "What's ice cream flavor",
-    "odd": "What's milkshake flavor",
+    "text": "Name an ice cream flavor",
+    "odd": "Name a milkshake flavor",
     "tags": [
       "social"
     ],
@@ -30,8 +30,8 @@
   },
   {
     "id": "hive-004",
-    "text": "What's sandwich filling",
-    "odd": "What's wrap filling",
+    "text": "Name a sandwich filling",
+    "odd": "Name a wrap filling",
     "tags": [
       "social"
     ],
@@ -39,8 +39,8 @@
   },
   {
     "id": "hive-005",
-    "text": "What's pizza chain",
-    "odd": "What's coffee chain",
+    "text": "Name a pizza chain",
+    "odd": "Name a coffee chain",
     "tags": [
       "social",
       "food"
@@ -49,8 +49,8 @@
   },
   {
     "id": "hive-006",
-    "text": "What's cereal brand",
-    "odd": "What's biscuit brand",
+    "text": "Name a cereal brand",
+    "odd": "Name a biscuit brand",
     "tags": [
       "social"
     ],
@@ -58,8 +58,8 @@
   },
   {
     "id": "hive-007",
-    "text": "What's fruit",
-    "odd": "What's vegetable",
+    "text": "Name a fruit",
+    "odd": "Name a vegetable",
     "tags": [
       "social",
       "food"
@@ -68,8 +68,8 @@
   },
   {
     "id": "hive-008",
-    "text": "What's spicy food",
-    "odd": "What's sweet food",
+    "text": "Name a spicy food",
+    "odd": "Name a sweet food",
     "tags": [
       "social",
       "food"
@@ -78,8 +78,8 @@
   },
   {
     "id": "hive-009",
-    "text": "Which food comes in a can?",
-    "odd": "Which food comes in a jar?",
+    "text": "Name a food that comes in a can",
+    "odd": "Name a food that comes in a jar",
     "tags": [
       "social",
       "food"
@@ -88,8 +88,8 @@
   },
   {
     "id": "hive-010",
-    "text": "What's food you eat with your hands",
-    "odd": "What's food you eat with a spoon",
+    "text": "Name a food you eat with your hands",
+    "odd": "Name a food you eat with a spoon",
     "tags": [
       "social",
       "food"
@@ -98,8 +98,8 @@
   },
   {
     "id": "hive-011",
-    "text": "What's movie everyone has seen",
-    "odd": "What's TV show everyone has seen",
+    "text": "Name a movie everyone has seen",
+    "odd": "Name a TV show everyone has seen",
     "tags": [
       "social",
       "film"
@@ -108,8 +108,8 @@
   },
   {
     "id": "hive-012",
-    "text": "Which song starts a party?",
-    "odd": "Which song ends a party?",
+    "text": "Name a song that starts a party",
+    "odd": "Name a song that ends a party",
     "tags": [
       "social",
       "music"
@@ -118,8 +118,8 @@
   },
   {
     "id": "hive-013",
-    "text": "What's cartoon character",
-    "odd": "What's superhero",
+    "text": "Name a cartoon character",
+    "odd": "Name a superhero",
     "tags": [
       "social"
     ],
@@ -127,8 +127,8 @@
   },
   {
     "id": "hive-014",
-    "text": "What's board game",
-    "odd": "What's card game",
+    "text": "Name a board game",
+    "odd": "Name a card game",
     "tags": [
       "social",
       "games"
@@ -137,8 +137,8 @@
   },
   {
     "id": "hive-015",
-    "text": "What's video game",
-    "odd": "What's mobile game",
+    "text": "Name a video game",
+    "odd": "Name a mobile game",
     "tags": [
       "social",
       "games"
@@ -147,8 +147,8 @@
   },
   {
     "id": "hive-016",
-    "text": "What's movie villain",
-    "odd": "What's movie sidekick",
+    "text": "Name a movie villain",
+    "odd": "Name a movie sidekick",
     "tags": [
       "social",
       "film"
@@ -157,8 +157,8 @@
   },
   {
     "id": "hive-017",
-    "text": "What's actor",
-    "odd": "What's singer",
+    "text": "Name an actor",
+    "odd": "Name a singer",
     "tags": [
       "social",
       "music"
@@ -167,8 +167,8 @@
   },
   {
     "id": "hive-018",
-    "text": "What's book everyone pretends to have read",
-    "odd": "What's movie everyone pretends to have seen",
+    "text": "Name a book everyone pretends to have read",
+    "odd": "Name a movie everyone pretends to have seen",
     "tags": [
       "social",
       "film"
@@ -177,8 +177,8 @@
   },
   {
     "id": "hive-019",
-    "text": "What's podcast topic",
-    "odd": "What's documentary topic",
+    "text": "Name a podcast topic",
+    "odd": "Name a documentary topic",
     "tags": [
       "social"
     ],
@@ -186,8 +186,8 @@
   },
   {
     "id": "hive-020",
-    "text": "What's TV show you would binge",
-    "odd": "What's movie you would rewatch",
+    "text": "Name a TV show you would binge",
+    "odd": "Name a movie you would rewatch",
     "tags": [
       "social",
       "film"
@@ -196,8 +196,8 @@
   },
   {
     "id": "hive-021",
-    "text": "What's city you want to visit",
-    "odd": "What's country you want to visit",
+    "text": "Name a city you want to visit",
+    "odd": "Name a country you want to visit",
     "tags": [
       "social",
       "travel"
@@ -206,8 +206,8 @@
   },
   {
     "id": "hive-022",
-    "text": "What's place to get coffee",
-    "odd": "What's place to get dessert",
+    "text": "Name a place to get coffee",
+    "odd": "Name a place to get dessert",
     "tags": [
       "social",
       "food"
@@ -216,8 +216,8 @@
   },
   {
     "id": "hive-023",
-    "text": "Which place is always crowded?",
-    "odd": "Which place is always quiet?",
+    "text": "Name a place that's always crowded",
+    "odd": "Name a place that's always quiet",
     "tags": [
       "social"
     ],
@@ -225,8 +225,8 @@
   },
   {
     "id": "hive-024",
-    "text": "What's place you go on a first date",
-    "odd": "What's place you go with your family",
+    "text": "Name a place you go on a first date",
+    "odd": "Name a place you go with your family",
     "tags": [
       "social"
     ],
@@ -234,8 +234,8 @@
   },
   {
     "id": "hive-025",
-    "text": "What's shop in an airport",
-    "odd": "What's shop in a train station",
+    "text": "Name a shop in an airport",
+    "odd": "Name a shop in a train station",
     "tags": [
       "social",
       "travel"
@@ -244,8 +244,8 @@
   },
   {
     "id": "hive-026",
-    "text": "What's hotel amenity",
-    "odd": "What's apartment amenity",
+    "text": "Name a hotel amenity",
+    "odd": "Name an apartment amenity",
     "tags": [
       "social",
       "travel"
@@ -254,8 +254,8 @@
   },
   {
     "id": "hive-027",
-    "text": "What's museum",
-    "odd": "What's theme park",
+    "text": "Name a museum",
+    "odd": "Name a theme park",
     "tags": [
       "social"
     ],
@@ -263,8 +263,8 @@
   },
   {
     "id": "hive-028",
-    "text": "What's beach activity",
-    "odd": "What's camping activity",
+    "text": "Name a beach activity",
+    "odd": "Name a camping activity",
     "tags": [
       "social",
       "travel"
@@ -273,8 +273,8 @@
   },
   {
     "id": "hive-029",
-    "text": "What's place to see live music",
-    "odd": "What's place to see a play",
+    "text": "Name a place to see live music",
+    "odd": "Name a place to see a play",
     "tags": [
       "social",
       "music"
@@ -283,8 +283,8 @@
   },
   {
     "id": "hive-030",
-    "text": "What's place you would take a tourist",
-    "odd": "What's place you would avoid as a tourist",
+    "text": "Name a place you would take a tourist",
+    "odd": "Name a place you would avoid as a tourist",
     "tags": [
       "social"
     ],
@@ -292,8 +292,8 @@
   },
   {
     "id": "hive-031",
-    "text": "What's app you open daily",
-    "odd": "What's website you open daily",
+    "text": "Name an app you open daily",
+    "odd": "Name a website you open daily",
     "tags": [
       "social",
       "tech"
@@ -302,8 +302,8 @@
   },
   {
     "id": "hive-032",
-    "text": "In your bag, what's something?",
-    "odd": "In your pocket, what's something?",
+    "text": "Name something in your bag",
+    "odd": "Name something in your pocket",
     "tags": [
       "social"
     ],
@@ -311,8 +311,8 @@
   },
   {
     "id": "hive-033",
-    "text": "In your desk, what's something?",
-    "odd": "In your kitchen drawer, what's something?",
+    "text": "Name something in your desk",
+    "odd": "Name something in your kitchen drawer",
     "tags": [
       "social"
     ],
@@ -320,8 +320,8 @@
   },
   {
     "id": "hive-034",
-    "text": "What's chore you avoid",
-    "odd": "What's errand you avoid",
+    "text": "Name a chore you avoid",
+    "odd": "Name an errand you avoid",
     "tags": [
       "social"
     ],
@@ -384,8 +384,8 @@
   },
   {
     "id": "hive-041",
-    "text": "What's group chat topic",
-    "odd": "What's first-date topic",
+    "text": "Name a group chat topic",
+    "odd": "Name a first-date topic",
     "tags": [
       "social"
     ],
@@ -393,8 +393,8 @@
   },
   {
     "id": "hive-042",
-    "text": "What's reason to cancel plans",
-    "odd": "What's reason to leave a party early",
+    "text": "Name a reason to cancel plans",
+    "odd": "Name a reason to leave a party early",
     "tags": [
       "social"
     ],
@@ -411,8 +411,8 @@
   },
   {
     "id": "hive-044",
-    "text": "What's inside joke",
-    "odd": "What's catchphrase",
+    "text": "Name an inside joke",
+    "odd": "Name a catchphrase",
     "tags": [
       "social"
     ],
@@ -429,8 +429,8 @@
   },
   {
     "id": "hive-046",
-    "text": "What's gift you pretend to like",
-    "odd": "What's gift you actually want",
+    "text": "Name a gift you pretend to like",
+    "odd": "Name a gift you actually want",
     "tags": [
       "social"
     ],
@@ -438,8 +438,8 @@
   },
   {
     "id": "hive-047",
-    "text": "What's compliment you remember",
-    "odd": "What's insult you remember",
+    "text": "Name a compliment you remember",
+    "odd": "Name an insult you remember",
     "tags": [
       "social"
     ],
@@ -456,8 +456,8 @@
   },
   {
     "id": "hive-049",
-    "text": "What's party game",
-    "odd": "What's road trip game",
+    "text": "Name a party game",
+    "odd": "Name a road trip game",
     "tags": [
       "social",
       "travel",
@@ -476,8 +476,8 @@
   },
   {
     "id": "hive-051",
-    "text": "What's holiday tradition",
-    "odd": "What's birthday tradition",
+    "text": "Name a holiday tradition",
+    "odd": "Name a birthday tradition",
     "tags": [
       "social",
       "travel"
@@ -486,8 +486,8 @@
   },
   {
     "id": "hive-052",
-    "text": "What's holiday food",
-    "odd": "What's birthday food",
+    "text": "Name a holiday food",
+    "odd": "Name a birthday food",
     "tags": [
       "social",
       "food",
@@ -497,8 +497,8 @@
   },
   {
     "id": "hive-053",
-    "text": "What's holiday movie",
-    "odd": "What's birthday song",
+    "text": "Name a holiday movie",
+    "odd": "Name a birthday song",
     "tags": [
       "social",
       "travel",
@@ -519,8 +519,8 @@
   },
   {
     "id": "hive-055",
-    "text": "What's holiday decoration",
-    "odd": "What's birthday decoration",
+    "text": "Name a holiday decoration",
+    "odd": "Name a birthday decoration",
     "tags": [
       "social",
       "travel"
@@ -539,8 +539,8 @@
   },
   {
     "id": "hive-057",
-    "text": "What's place to spend New Year",
-    "odd": "What's place to spend summer",
+    "text": "Name a place to spend New Year",
+    "odd": "Name a place to spend summer",
     "tags": [
       "social"
     ],
@@ -548,8 +548,8 @@
   },
   {
     "id": "hive-058",
-    "text": "What's gift for a coworker",
-    "odd": "What's gift for a sibling",
+    "text": "Name a gift for a coworker",
+    "odd": "Name a gift for a sibling",
     "tags": [
       "social",
       "work"
@@ -558,8 +558,8 @@
   },
   {
     "id": "hive-059",
-    "text": "What's holiday song",
-    "odd": "What's wedding song",
+    "text": "Name a holiday song",
+    "odd": "Name a wedding song",
     "tags": [
       "social",
       "travel",
@@ -578,8 +578,8 @@
   },
   {
     "id": "hive-061",
-    "text": "What's animal you would keep as a pet",
-    "odd": "What's animal you would never keep",
+    "text": "Name an animal you would keep as a pet",
+    "odd": "Name an animal you would never keep",
     "tags": [
       "social",
       "science"
@@ -598,8 +598,8 @@
   },
   {
     "id": "hive-063",
-    "text": "Which type of weather?",
-    "odd": "Which type of cloud?",
+    "text": "Name a type of weather",
+    "odd": "Name a type of cloud",
     "tags": [
       "social",
       "food"
@@ -608,8 +608,8 @@
   },
   {
     "id": "hive-064",
-    "text": "What's flower",
-    "odd": "What's tree",
+    "text": "Name a flower",
+    "odd": "Name a tree",
     "tags": [
       "social"
     ],
@@ -626,8 +626,8 @@
   },
   {
     "id": "hive-066",
-    "text": "What's outdoor smell",
-    "odd": "What's indoor smell",
+    "text": "Name an outdoor smell",
+    "odd": "Name an indoor smell",
     "tags": [
       "social"
     ],
@@ -644,8 +644,8 @@
   },
   {
     "id": "hive-068",
-    "text": "What's overrated animal",
-    "odd": "What's underrated animal",
+    "text": "Name an overrated animal",
+    "odd": "Name an underrated animal",
     "tags": [
       "social",
       "science"
@@ -654,8 +654,8 @@
   },
   {
     "id": "hive-069",
-    "text": "What's place to watch the sunset",
-    "odd": "What's place to watch the sunrise",
+    "text": "Name a place to watch the sunset",
+    "odd": "Name a place to watch the sunrise",
     "tags": [
       "social"
     ],
@@ -681,8 +681,8 @@
   },
   {
     "id": "hive-072",
-    "text": "What's airport annoyance",
-    "odd": "What's hotel annoyance",
+    "text": "Name an airport annoyance",
+    "odd": "Name a hotel annoyance",
     "tags": [
       "social",
       "travel"
@@ -691,8 +691,8 @@
   },
   {
     "id": "hive-073",
-    "text": "What's travel snack",
-    "odd": "What's travel drink",
+    "text": "Name a travel snack",
+    "odd": "Name a travel drink",
     "tags": [
       "social",
       "food",
@@ -702,8 +702,8 @@
   },
   {
     "id": "hive-074",
-    "text": "What's souvenir",
-    "odd": "What's postcard",
+    "text": "Name a souvenir",
+    "odd": "Name a postcard",
     "tags": [
       "social",
       "games"
@@ -722,8 +722,8 @@
   },
   {
     "id": "hive-076",
-    "text": "What's country with great food",
-    "odd": "What's country with great music",
+    "text": "Name a country with great food",
+    "odd": "Name a country with great music",
     "tags": [
       "social",
       "food",
@@ -734,8 +734,8 @@
   },
   {
     "id": "hive-077",
-    "text": "What's city with good public transport",
-    "odd": "What's city with good nightlife",
+    "text": "Name a city with good public transport",
+    "odd": "Name a city with good nightlife",
     "tags": [
       "social",
       "travel",
@@ -745,8 +745,8 @@
   },
   {
     "id": "hive-078",
-    "text": "What's travel photo",
-    "odd": "What's travel memory",
+    "text": "Name a travel photo",
+    "odd": "Name a travel memory",
     "tags": [
       "social",
       "travel"
@@ -765,8 +765,8 @@
   },
   {
     "id": "hive-080",
-    "text": "What's reason to travel",
-    "odd": "What's reason to stay home",
+    "text": "Name a reason to travel",
+    "odd": "Name a reason to stay home",
     "tags": [
       "social",
       "travel"
@@ -775,8 +775,8 @@
   },
   {
     "id": "hive-081",
-    "text": "What's school subject",
-    "odd": "What's school club",
+    "text": "Name a school subject",
+    "odd": "Name a school club",
     "tags": [
       "social",
       "school"
@@ -785,8 +785,8 @@
   },
   {
     "id": "hive-082",
-    "text": "What's excuse for being late",
-    "odd": "What's excuse for missing homework",
+    "text": "Name an excuse for being late",
+    "odd": "Name an excuse for missing homework",
     "tags": [
       "social",
       "school",
@@ -797,8 +797,8 @@
   },
   {
     "id": "hive-083",
-    "text": "In a classroom, what's something?",
-    "odd": "In an office, what's something?",
+    "text": "Name something in a classroom",
+    "odd": "Name something in an office",
     "tags": [
       "social",
       "school",
@@ -808,8 +808,8 @@
   },
   {
     "id": "hive-084",
-    "text": "What's teacher stereotype",
-    "odd": "What's boss stereotype",
+    "text": "Name a teacher stereotype",
+    "odd": "Name a boss stereotype",
     "tags": [
       "social",
       "food",
@@ -831,8 +831,8 @@
   },
   {
     "id": "hive-086",
-    "text": "What's school lunch",
-    "odd": "What's office snack",
+    "text": "Name a school lunch",
+    "odd": "Name an office snack",
     "tags": [
       "social",
       "food",
@@ -854,8 +854,8 @@
   },
   {
     "id": "hive-088",
-    "text": "What's after-school activity",
-    "odd": "What's weekend hobby",
+    "text": "Name an after-school activity",
+    "odd": "Name a weekend hobby",
     "tags": [
       "social",
       "school"
@@ -882,8 +882,8 @@
   },
   {
     "id": "hive-091",
-    "text": "What's superpower",
-    "odd": "What's useless superpower",
+    "text": "Name a superpower",
+    "odd": "Name an useless superpower",
     "tags": [
       "social"
     ],
@@ -900,8 +900,8 @@
   },
   {
     "id": "hive-093",
-    "text": "What's fictional place",
-    "odd": "What's fictional school",
+    "text": "Name a fictional place",
+    "odd": "Name a fictional school",
     "tags": [
       "social",
       "school"
@@ -910,8 +910,8 @@
   },
   {
     "id": "hive-094",
-    "text": "What's fictional family",
-    "odd": "What's fictional friend group",
+    "text": "Name a fictional family",
+    "odd": "Name a fictional friend group",
     "tags": [
       "social"
     ],
@@ -919,8 +919,8 @@
   },
   {
     "id": "hive-095",
-    "text": "What's way the world could end",
-    "odd": "What's way to save the world",
+    "text": "Name a way the world could end",
+    "odd": "Name a way to save the world",
     "tags": [
       "social"
     ],
@@ -937,8 +937,8 @@
   },
   {
     "id": "hive-097",
-    "text": "What's animal you would ride",
-    "odd": "What's animal you would talk to",
+    "text": "Name an animal you would ride",
+    "odd": "Name an animal you would talk to",
     "tags": [
       "social",
       "science"
@@ -947,8 +947,8 @@
   },
   {
     "id": "hive-098",
-    "text": "What's historical era",
-    "odd": "What's future era",
+    "text": "Name a historical era",
+    "odd": "Name a future era",
     "tags": [
       "social"
     ],
@@ -975,8 +975,8 @@
   },
   {
     "id": "hive-101",
-    "text": "What's sound you love",
-    "odd": "What's sound you hate",
+    "text": "Name a sound you love",
+    "odd": "Name a sound you hate",
     "tags": [
       "social"
     ],
@@ -984,8 +984,8 @@
   },
   {
     "id": "hive-102",
-    "text": "What's smell that brings back memories",
-    "odd": "What's taste that brings back memories",
+    "text": "Name a smell that brings back memories",
+    "odd": "Name a taste that brings back memories",
     "tags": [
       "social"
     ],
@@ -993,8 +993,8 @@
   },
   {
     "id": "hive-103",
-    "text": "What's texture you like",
-    "odd": "What's texture you hate",
+    "text": "Name a texture you like",
+    "odd": "Name a texture you hate",
     "tags": [
       "social"
     ],
@@ -1011,8 +1011,8 @@
   },
   {
     "id": "hive-105",
-    "text": "What's color you wear most",
-    "odd": "What's color you never wear",
+    "text": "Name a color you wear most",
+    "odd": "Name a color you never wear",
     "tags": [
       "social"
     ],
@@ -1156,8 +1156,8 @@
   },
   {
     "id": "hive-121",
-    "text": "What's overrated food",
-    "odd": "What's underrated food",
+    "text": "Name an overrated food",
+    "odd": "Name an underrated food",
     "tags": [
       "social",
       "food"
@@ -1166,8 +1166,8 @@
   },
   {
     "id": "hive-122",
-    "text": "What's overrated app",
-    "odd": "What's underrated app",
+    "text": "Name an overrated app",
+    "odd": "Name an underrated app",
     "tags": [
       "social",
       "tech"
@@ -1176,8 +1176,8 @@
   },
   {
     "id": "hive-123",
-    "text": "What's overrated holiday",
-    "odd": "What's underrated holiday",
+    "text": "Name an overrated holiday",
+    "odd": "Name an underrated holiday",
     "tags": [
       "social",
       "travel"
@@ -1186,8 +1186,8 @@
   },
   {
     "id": "hive-124",
-    "text": "What's overrated movie",
-    "odd": "What's underrated movie",
+    "text": "Name an overrated movie",
+    "odd": "Name an underrated movie",
     "tags": [
       "social",
       "film"
@@ -1196,8 +1196,8 @@
   },
   {
     "id": "hive-125",
-    "text": "What's overrated city",
-    "odd": "What's underrated city",
+    "text": "Name an overrated city",
+    "odd": "Name an underrated city",
     "tags": [
       "social",
       "travel"
@@ -1206,8 +1206,8 @@
   },
   {
     "id": "hive-126",
-    "text": "What's overrated hobby",
-    "odd": "What's underrated hobby",
+    "text": "Name an overrated hobby",
+    "odd": "Name an underrated hobby",
     "tags": [
       "social"
     ],
@@ -1215,8 +1215,8 @@
   },
   {
     "id": "hive-127",
-    "text": "What's overrated fashion trend",
-    "odd": "What's underrated fashion trend",
+    "text": "Name an overrated fashion trend",
+    "odd": "Name an underrated fashion trend",
     "tags": [
       "social"
     ],
@@ -1224,8 +1224,8 @@
   },
   {
     "id": "hive-128",
-    "text": "What's overrated breakfast",
-    "odd": "What's underrated breakfast",
+    "text": "Name an overrated breakfast",
+    "odd": "Name an underrated breakfast",
     "tags": [
       "social",
       "food"
@@ -1234,8 +1234,8 @@
   },
   {
     "id": "hive-129",
-    "text": "What's overrated party",
-    "odd": "What's underrated party",
+    "text": "Name an overrated party",
+    "odd": "Name an underrated party",
     "tags": [
       "social"
     ],
@@ -1243,8 +1243,8 @@
   },
   {
     "id": "hive-130",
-    "text": "What's overrated season",
-    "odd": "What's underrated season",
+    "text": "Name an overrated season",
+    "odd": "Name an underrated season",
     "tags": [
       "social"
     ],
@@ -1261,8 +1261,8 @@
   },
   {
     "id": "hive-132",
-    "text": "What's role in a friend group",
-    "odd": "What's role in a family",
+    "text": "Name a role in a friend group",
+    "odd": "Name a role in a family",
     "tags": [
       "social"
     ],
@@ -1270,8 +1270,8 @@
   },
   {
     "id": "hive-133",
-    "text": "What's group trip destination",
-    "odd": "What's group trip disaster",
+    "text": "Name a group trip destination",
+    "odd": "Name a group trip disaster",
     "tags": [
       "social",
       "travel"
@@ -1298,8 +1298,8 @@
   },
   {
     "id": "hive-136",
-    "text": "What's group costume idea",
-    "odd": "What's group photo pose",
+    "text": "Name a group costume idea",
+    "odd": "Name a group photo pose",
     "tags": [
       "social"
     ],
@@ -1308,7 +1308,7 @@
   {
     "id": "hive-137",
     "text": "What would you order for the table?",
-    "odd": "What would you order for the table?",
+    "odd": "What would you order just for yourself?",
     "tags": [
       "social"
     ],
@@ -1316,8 +1316,8 @@
   },
   {
     "id": "hive-138",
-    "text": "What's karaoke song for the group",
-    "odd": "What's song nobody should sing",
+    "text": "Name a karaoke song for the group",
+    "odd": "Name a song nobody should sing",
     "tags": [
       "social",
       "music"

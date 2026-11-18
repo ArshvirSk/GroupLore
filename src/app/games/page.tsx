@@ -2,6 +2,7 @@
 
 import AppShell from "@/components/AppShell";
 import { useAuth } from "@/components/AuthProvider";
+import DailyChallenge from "@/components/DailyChallenge";
 import { Badge, Button, Card, Chip, EmptyState, Input, Skeleton } from "@/components/ui";
 import { Icon } from "@/components/ui/Icon";
 import { api } from "@/lib/api";
@@ -31,6 +32,8 @@ function GamesView({ initialQuery }: { initialQuery: string }) {
   const [query, setQuery] = useState(initialQuery);
   const [category, setCategory] = useState<"All" | GameCategory>("All");
   const [starting, setStarting] = useState<string | null>(null);
+  const [dailyStarting, setDailyStarting] = useState<string | null>(null);
+  const [dailyError, setDailyError] = useState("");
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -56,6 +59,23 @@ function GamesView({ initialQuery }: { initialQuery: string }) {
     });
   }, [catalog, category, query]);
 
+  const dailyGames = useMemo(
+    () =>
+      catalog
+        .filter((game) => game.modes.some((mode) => mode.id === "daily"))
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((game) => ({
+          id: game.id,
+          name: game.name,
+          description:
+            game.id === "blur-guess"
+              ? "Five shared images"
+              : "One shared board",
+          icon: gameMeta(game.id).icon,
+        })),
+    [catalog],
+  );
+
   const playGame = async (gameId: string) => {
     if (starting) return;
     setStarting(gameId);
@@ -69,6 +89,23 @@ function GamesView({ initialQuery }: { initialQuery: string }) {
     }
   };
 
+  const playDaily = async (gameId: string) => {
+    if (dailyStarting || isGuest) return;
+    setDailyStarting(gameId);
+    setDailyError("");
+    try {
+      const lobby = await api.createQuickLobby();
+      router.push(
+        `${lobbyPath(lobby)}?game=${encodeURIComponent(gameId)}&mode=daily`,
+      );
+    } catch (err) {
+      setDailyError(
+        err instanceof Error ? err.message : "Could not open the daily room",
+      );
+      setDailyStarting(null);
+    }
+  };
+
   return (
     <AppShell active="games" search>
       <section className="page-hero mb-6">
@@ -79,12 +116,25 @@ function GamesView({ initialQuery }: { initialQuery: string }) {
             Social, writing, trivia and real-time games for every kind of group. Pick one and we&apos;ll open a room.
           </p>
           <div className="mt-5 flex flex-wrap gap-2">
-            <Badge tone="primary">{catalog.length || "21"} games</Badge>
+            <Badge tone="primary">{catalog.length ? `${catalog.length} games` : "Loading library"}</Badge>
             <Badge tone="accent">3–12 players</Badge>
             <Badge tone="success">Instant rooms</Badge>
           </div>
         </div>
       </section>
+
+      <DailyChallenge
+        games={dailyGames}
+        starting={dailyStarting}
+        disabled={isGuest}
+        onPlay={(gameId) => void playDaily(gameId)}
+        className="mb-6"
+      />
+      {dailyError ? (
+        <p role="alert" className="mb-4 rounded-xl bg-danger/10 px-4 py-3 text-sm font-semibold text-danger">
+          {dailyError}
+        </p>
+      ) : null}
 
       <Card className="mb-6 p-4">
         <div className="grid gap-4 lg:grid-cols-[minmax(0,340px)_1fr] lg:items-end">

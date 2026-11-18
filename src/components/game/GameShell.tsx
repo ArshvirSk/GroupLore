@@ -18,6 +18,7 @@ export default function GameShell({
   status,
   onExit,
   exitLabel = "Leave",
+  rail,
   children,
 }: {
   title: string;
@@ -30,13 +31,21 @@ export default function GameShell({
   status?: RoomStatus;
   onExit?: () => void;
   exitLabel?: string;
+  rail?: ReactNode;
   children: ReactNode;
 }) {
   const reduced = useReducedMotion();
 
   return (
     <AppShell active="games" contentClassName="game-route">
-      <div className="mx-auto flex min-h-[calc(100vh-140px)] max-w-5xl flex-col pb-4">
+      <div
+        className={`mx-auto w-full pb-4 ${
+          rail
+            ? "max-w-6xl lg:grid lg:grid-cols-[minmax(0,1fr)_264px] lg:items-start lg:gap-5"
+            : "max-w-5xl"
+        }`}
+      >
+        <div className="flex min-h-[calc(100vh-140px)] flex-col">
         <header className="rounded-[18px] border border-border bg-surface px-3 py-3 shadow-soft sm:px-4">
           <div className="flex items-center justify-between gap-3">
             <div className="flex min-w-0 items-center gap-3">
@@ -85,6 +94,8 @@ export default function GameShell({
             {children}
           </motion.div>
         )}
+        </div>
+        {rail ? <div className="mt-4 lg:mt-0">{rail}</div> : null}
       </div>
     </AppShell>
   );

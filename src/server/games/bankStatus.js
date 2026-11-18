@@ -33,6 +33,23 @@ const BANKS = {
   wavelength: () => require("../data/prompts/wavelength.json"),
   "would-you-rather": () => require("../data/prompts/wouldYouRather.json"),
   "blur-guess": () => require("../data/assets/blur/manifest.json"),
+  chameleon: () => require("../data/prompts/modesContent.json").chameleon,
+  spyfall: () => require("../data/prompts/modesContent.json").spyfall,
+  "closest-wins": () => require("../data/prompts/modesContent.json").closestWins,
+  timeline: () => require("../data/prompts/modesContent.json").timeline,
+  "rank-it": () => require("../data/prompts/modesContent.json").rankIt,
+  "speed-trivia": () => require("../data/prompts/buzzerTrivia.json"),
+  "flag-rush": () => require("../data/prompts/modesContent.json").flag,
+  "emoji-decode": () => require("../data/prompts/modesContent.json").emoji,
+  "just-one": () => require("../data/prompts/modesContent.json").justOne,
+  "auction-bluff": () => require("../data/prompts/modesContent.json").auction,
+  "word-chain": () => require("../data/boggleWords.json"),
+  "bomb-party": () => require("../data/boggleWords.json"),
+  "wordle-race": () => require("../data/boggleWords.json"),
+  "type-race": () => require("../data/prompts/typing.json"),
+  "draw-guess": () => require("../data/prompts/blindSketch.json"),
+  "draw-telephone": () => require("../data/prompts/blindSketch.json"),
+  "bad-artist": () => require("../data/prompts/badArtist.json"),
 };
 
 // A bank is playable when it can fill one round without repeating an item.

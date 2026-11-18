@@ -34,6 +34,10 @@ export class RealtimeSocket {
   private reconnectTimer: ReturnType<typeof setTimeout> | null = null;
   private reconnectAttempts = 0;
   private opening = false;
+  // Actions are delivered over HTTP, so they must be sent one at a time or a
+  // later action can reach the server before `room:join` and be rejected with
+  // "not_in_room".
+  private postChain: Promise<unknown> = Promise.resolve();
 
   on<T>(event: string, listener: (payload: T) => void) {
     const set = this.listeners.get(event) || new Set<Listener>();
@@ -72,13 +76,21 @@ export class RealtimeSocket {
 
   async connect(): Promise<this> {
     this.manualClose = false;
-    if (this.connected || this.opening) return this;
+    if (this.connected) return this;
+    if (this.opening) {
+      await this.waitForReady();
+      return this;
+    }
     this.opening = true;
     try {
       const auth = authFactory ? await refreshRoomAuth() : this.auth;
       if (!auth?.token) throw new Error("Sign in to join this room");
       this.auth = auth;
       await this.openStream(auth.token);
+      // `openStream` resolves when the response body is available, before the
+      // server's first SSE frame. Wait for `realtime:ready` so callers never
+      // treat a half-open connection as joined and skip `room:join`.
+      await this.waitForReady();
       return this;
     } catch (error) {
       this.opening = false;
@@ -89,6 +101,35 @@ export class RealtimeSocket {
       this.dispatch("connect_error", Object.assign(error as Error, { data }));
       throw error;
     }
+  }
+
+  private waitForReady(timeoutMs = 10_000): Promise<void> {
+    if (this.connectionId) return Promise.resolve();
+    return new Promise((resolve, reject) => {
+      const cleanup = () => {
+        clearTimeout(timer);
+        this.off("connect", onReady);
+        this.off("connect_error", onError);
+      };
+      const onReady = () => {
+        cleanup();
+        resolve();
+      };
+      const onError = (error: unknown) => {
+        cleanup();
+        reject(
+          error instanceof Error
+            ? error
+            : new Error("Could not connect to the game server"),
+        );
+      };
+      const timer = setTimeout(() => {
+        cleanup();
+        reject(new Error("Timed out connecting to the game server"));
+      }, timeoutMs);
+      this.on("connect", onReady);
+      this.on("connect_error", onError);
+    });
   }
 
   private async openStream(token: string) {
@@ -214,7 +255,14 @@ export class RealtimeSocket {
   private async flushPending() {
     const pending = this.pending;
     this.pending = [];
-    for (const item of pending) await this.post(item.event, item.payload);
+    for (const item of pending) this.enqueue(item.event, item.payload);
+    await this.postChain;
+  }
+
+  private enqueue(event: string, payload: unknown) {
+    this.postChain = this.postChain
+      .then(() => this.post(event, payload))
+      .catch(() => undefined);
   }
 
   emit(event: string, payload: unknown = {}) {
@@ -226,7 +274,7 @@ export class RealtimeSocket {
       this.pending.push({ event, payload });
       return this;
     }
-    void this.post(event, payload);
+    this.enqueue(event, payload);
     return this;
   }
 

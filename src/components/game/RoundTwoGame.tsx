@@ -898,7 +898,14 @@ function DuelBracket({ view, send }: { view: Obj; send: Sender }) {
       ) : null}
       {type === "tic-tac-toe" ? (
         <div className="mx-auto grid max-w-xs grid-cols-3 gap-1.5">
-          {asStrings(duel.board).map((cell, index) => <button key={index} type="button" disabled={!view.isPlayer || Boolean(cell)} onClick={() => send("move", { move: { index } })} className="aspect-square rounded-xl border border-border bg-white text-xl font-bold">{cell === "a" ? "X" : cell === "b" ? "O" : cell}</button>)}
+          {(Array.isArray(duel.board) ? duel.board : []).map((raw, index) => {
+            const cell = raw === null || raw === undefined ? "" : String(raw);
+            return (
+              <button key={index} type="button" disabled={!view.isPlayer || Boolean(cell)} onClick={() => send("move", { move: { index } })} className="aspect-square rounded-xl border border-border bg-white text-xl font-bold">
+                {cell === "a" ? "X" : cell === "b" ? "O" : ""}
+              </button>
+            );
+          })}
         </div>
       ) : null}
       {type === "connect-four" ? (

@@ -6,6 +6,7 @@ import {
   failure,
 } from "./shared.js";
 import { shuffle } from "../utils/helpers.js";
+import { dailyIndex, dailyKey } from "../lib/daily.js";
 
 const require = createRequire(import.meta.url);
 const PUZZLES = require("../data/prompts/connections.json");
@@ -25,7 +26,18 @@ const MODES = {
     revealMs: 10_000,
     coOp: true,
   },
+  daily: {
+    label: "Daily",
+    description: "Today's shared puzzle, raced on individual boards",
+    durationMs: 120_000,
+    revealMs: 10_000,
+    coOp: false,
+  },
 };
+
+export function dailyConnectionsPuzzle(key = dailyKey()) {
+  return PUZZLES[dailyIndex(PUZZLES.length, key)];
+}
 
 function pickPuzzle(state) {
   if (state.usedPuzzleIds.length >= PUZZLES.length) state.usedPuzzleIds = [];
@@ -141,7 +153,8 @@ const connections = {
       done: false,
       endsAt: null,
     };
-    state.puzzle = pickPuzzle(state);
+    state.puzzle =
+      room.mode === "daily" ? dailyConnectionsPuzzle() : pickPuzzle(state);
     if (state.config.coOp) {
       state.shared = makeBoard(state.puzzle);
       state.shared.words = shuffle(wordsFor(state.puzzle));

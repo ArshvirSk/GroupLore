@@ -118,7 +118,7 @@ export function createSupabasePersistence({
       });
     },
 
-    async onEnd({ room, sessionId, groupId, gameId, mode, ranking, scores, reason, recap }) {
+    async onEnd({ room, sessionId, groupId, gameId, mode, dailyDate, ranking, scores, reason, recap }) {
       await writeWithRetry(
         "game_sessions",
         sessionId,
@@ -169,6 +169,7 @@ export function createSupabasePersistence({
           payload: {
             gameType: gameId,
             gameMode: mode,
+            dailyDate: dailyDate || null,
             scores,
             winner: winners[0]?.name || null,
             winners: winners.map((entry) => entry.name),

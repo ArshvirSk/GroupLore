@@ -1,6 +1,7 @@
 "use client";
 
 import { useAuth } from "@/components/AuthProvider";
+import DailyChallenge from "@/components/DailyChallenge";
 import AppHeader from "@/components/ui/AppHeader";
 import {
   Badge,
@@ -34,6 +35,11 @@ const STEPS = [
   { title: "Leave with the lore", body: "Every round adds another story your group will bring up later." },
 ];
 
+const DAILY_GAMES = [
+  { id: "blur-guess", name: "Blur Guess", description: "Five shared images", icon: "image" as const },
+  { id: "connections", name: "Connections", description: "One shared board", icon: "puzzle" as const },
+];
+
 const SAFETY: { icon: IconName; title: string; body: string }[] = [
   { icon: "shield", title: "Invite-only rooms", body: "Every room is reached through its code. There is no public lobby to stumble into." },
   { icon: "ban", title: "Host moderation", body: "Mute, kick or block a player. Reports are saved server-side, not just hidden on screen." },
@@ -49,11 +55,13 @@ const START_ACTIONS: { key: "create" | "join" | "guest"; icon: IconName; title: 
 
 export default function LandingPage() {
   const router = useRouter();
-  const { isSignedIn } = useAuth();
+  const { isSignedIn, isGuest } = useAuth();
   const [mode, setMode] = useState<"home" | "create" | "join">("home");
   const [groupName, setGroupName] = useState("");
   const [joinCode, setJoinCode] = useState("");
   const [error, setError] = useState("");
+  const [dailyError, setDailyError] = useState("");
+  const [dailyStarting, setDailyStarting] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   const handleCreate = async () => {
@@ -102,6 +110,27 @@ export default function LandingPage() {
     }
     setError("");
     setMode(next);
+  };
+
+  const startDaily = async (gameId: string) => {
+    if (!isSignedIn || isGuest) {
+      router.push("/sign-up");
+      return;
+    }
+    if (dailyStarting) return;
+    setDailyStarting(gameId);
+    setDailyError("");
+    try {
+      const lobby = await api.createQuickLobby();
+      router.push(
+        `${lobbyPath(lobby)}?game=${encodeURIComponent(gameId)}&mode=daily`,
+      );
+    } catch (err) {
+      setDailyError(
+        err instanceof Error ? err.message : "Could not open the daily room",
+      );
+      setDailyStarting(null);
+    }
   };
 
   return (
@@ -222,6 +251,17 @@ export default function LandingPage() {
       </section>
 
       <div className="home-lower">
+        <DailyChallenge
+          games={DAILY_GAMES}
+          starting={dailyStarting}
+          disabled={isGuest}
+          onPlay={(gameId) => void startDaily(gameId)}
+        />
+        {dailyError ? (
+          <p role="alert" className="rounded-xl bg-danger/10 px-4 py-3 text-sm font-semibold text-danger">
+            {dailyError}
+          </p>
+        ) : null}
         <section className="home-sheet" aria-labelledby="home-games-title">
           <div className="home-sheet-inner">
             <div className="home-section-head">

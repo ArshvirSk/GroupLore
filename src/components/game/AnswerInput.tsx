@@ -37,7 +37,7 @@ export default function AnswerInput({
         disabled={disabled}
         placeholder={placeholder}
         autoFocus={autoFocus}
-        className="min-h-12 min-w-0 flex-1 rounded-2xl border-2 border-transparent bg-white px-4 text-base font-semibold text-ink shadow-soft outline-none transition placeholder:text-ink-soft/60 focus:border-grape disabled:opacity-60"
+        className="min-h-12 min-w-0 flex-1 rounded-2xl border-2 border-border bg-surface px-4 text-base font-semibold text-ink shadow-soft outline-none transition placeholder:text-ink-soft/60 focus:border-grape disabled:opacity-60"
       />
       <button
         type="submit"

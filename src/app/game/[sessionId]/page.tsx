@@ -36,6 +36,7 @@ import { useAuth } from "@/components/AuthProvider";
 import HigherLowerGame, {
   type HigherLowerView,
 } from "@/components/game/HigherLowerGame";
+import ModesGame, { MODES_GAME_IDS } from "@/components/game/ModesGame";
 import HiveMindGame, {
   type HiveMindView,
 } from "@/components/game/HiveMindGame";
@@ -46,6 +47,7 @@ import ImpostorGame, {
   type ImpostorView,
 } from "@/components/game/ImpostorGame";
 import Leaderboard from "@/components/game/Leaderboard";
+import { ScoreRail, type HudPlayer } from "@/components/game/GameHud";
 import ReportPlayer from "@/components/game/ReportPlayer";
 import LiarsBarGame, {
   type LiarsView,
@@ -129,9 +131,11 @@ export default function GamePage() {
 
   useEffect(() => {
     if (!error) return;
+    // Keep a failed join on screen: it is the page's only explanation.
+    if (status === "error" && !room) return;
     const timer = setTimeout(clearError, 4000);
     return () => clearTimeout(timer);
-  }, [error, clearError]);
+  }, [error, clearError, status, room]);
 
   const exit = () => {
     if (
@@ -196,6 +200,34 @@ export default function GamePage() {
   const activeView = room.phase === "playing" ? gameView : null;
   const results = room.phase === "results";
   const teamGame = room.catalog.find((entry) => entry.id === room.gameId)?.teams;
+  const hudPlayers: HudPlayer[] = room.players.map((player) => {
+    const team = room.teams?.find((entry) => entry.playerIds.includes(player.id));
+    return {
+      id: player.id,
+      name: player.name,
+      score: player.score,
+      avatarUrl: player.avatarUrl,
+      connected: player.connected,
+      teamColor: team?.color || null,
+      teamName: team?.name || null,
+    };
+  });
+  const turnId = (() => {
+    const source = (gameView || {}) as Record<string, unknown>;
+    const direct = source.currentPlayerId ?? source.holderId ?? source.leaderId;
+    if (typeof direct === "string" && direct) return direct;
+    const named =
+      source.currentName ??
+      source.holderName ??
+      source.leaderName ??
+      source.guesserName ??
+      source.artistName ??
+      source.drawerName;
+    if (typeof named === "string" && named) {
+      return room.players.find((player) => player.name === named)?.id || null;
+    }
+    return null;
+  })();
 
   return (
     <GameShell
@@ -209,6 +241,11 @@ export default function GamePage() {
       status={status}
       onExit={exit}
       exitLabel="Quit"
+      rail={
+        room.phase === "playing" && hudPlayers.length > 1 ? (
+          <ScoreRail players={hudPlayers} youId={room.you?.id} turnId={turnId} />
+        ) : undefined
+      }
     >
       <AnimatePresence>
         {error && (
@@ -290,6 +327,14 @@ export default function GamePage() {
       {room.phase === "lobby" && teamGame ? (
         <TeamAssignment room={room} act={act} />
       ) : null}
+
+      {activeView && MODES_GAME_IDS.includes(room.gameId || "") && (
+        <ModesGame
+          room={room}
+          view={room.game as unknown as Record<string, unknown>}
+          send={send}
+        />
+      )}
 
       {activeView &&
         [
@@ -549,6 +594,28 @@ export default function GamePage() {
           "codenames",
           "blind-sketch",
           "duel-bracket",
+          "chameleon",
+          "spyfall",
+          "closest-wins",
+          "timeline",
+          "rank-it",
+          "speed-trivia",
+          "flag-rush",
+          "emoji-decode",
+          "just-one",
+          "split-or-steal",
+          "auction-bluff",
+          "bomb-party",
+          "word-chain",
+          "type-race",
+          "wordle-race",
+          "hot-potato",
+          "the-mind",
+          "draw-guess",
+          "draw-telephone",
+          "bad-artist",
+          "werewolf",
+          "resistance",
         ].includes(room.gameId || "") && (
           <div className="party-card p-8 text-center">
             <Icon name="settings" className="mx-auto h-8 w-8" />

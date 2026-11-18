@@ -27,7 +27,7 @@ function makeRoom(count, mode) {
 
 test("every public game module initializes and renders a player view", () => {
   const games = listGames();
-  assert.equal(games.length, 39);
+  assert.equal(games.length, 61);
 
   for (const game of games) {
     const mode = game.modes.classic
