@@ -83,8 +83,9 @@ been exercised.
 ## Checks run
 
 - `npx tsc --noEmit` — pass.
-- `npm run test:server` — **115/115 passing**, including multiple recaps in one
-  session and a block surviving a snapshot restore.
+- `npm run test:server` — **122/122 passing**, including multiple recaps in one
+  session, a block surviving a snapshot restore, deterministic daily modes, and
+  per-group daily streak/deduplication rules.
 - `npm run lint` — 0 errors; one pre-existing `fiveSecond.js` warning.
 - `npm run build` — pass, including `/recap/[shareId]`, lore, progression and
   recap APIs.

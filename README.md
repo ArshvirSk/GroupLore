@@ -33,7 +33,7 @@ GroupLore/
 
 ## Games
 
-All **39 games** below are playable through the server-authoritative engine. Player counts range from 2 to 12; see the table for each game's requirement. Games use their static prompt banks by default. When a group opts in and its owner approves a generated lore pack, lore-enabled deployments can use those approved prompts for **Most Likely To**, with the static bank as a fallback.
+All **61 games** below are playable through the server-authoritative engine. Player counts range from 2 to 12; see the table for each game's requirement. Games use their static prompt banks by default. When a group opts in and its owner approves a generated lore pack, lore-enabled deployments can use those approved prompts for **Most Likely To**, with the static bank as a fallback.
 
 There is **no single-player or bot mode** yet. **Solo** below means individual scoring, not one human: every game currently needs at least two real players.
 
@@ -43,11 +43,12 @@ There is **no single-player or bot mode** yet. **Solo** below means individual s
 | --- | --- | --- |
 | **Solo FFA** | Everyone competes for themselves on one shared scoreboard. | Most games in the table below. |
 | **Team vs team** | Two fixed teams, minimum two players each; the lobby auto-balances teams. | Password, Codenames, Blind Sketch |
-| **Co-op** | Everyone shares one board and one failure state. | Connections (Co-op mode) |
+| **Co-op** | Everyone shares one board and one failure state. | Connections (Co-op mode), Just One, The Mind |
+| **Solo race** | Everyone plays the same timed round independently and scores themselves. | Type Race, Wordle Race, Boggle Rush, Category Rush, Scattergories |
 | **Head-to-head** | Players are paired into 1v1 matches while the rest spectate. | Duel Bracket |
-| **Social deduction** | Hidden roles, hidden answers, or an uninformed majority. | Guess the Impostor, Odd One Out, Two Truths One Lie, Liars Bar, Bluff |
-| **Elimination** | Players drop out as the game progresses. | Fact or Fiction (Sudden Death), Pattern Memory, Liar's Dice |
-| **Rotating role** | One player leads a round, then the role passes on. | Fill the Blank (judge), Wavelength (clue giver) |
+| **Social deduction** | Hidden roles, hidden answers, or an uninformed majority. | Guess the Impostor, Odd One Out, Two Truths One Lie, Liars Bar, Bluff, Chameleon, Spyfall, Werewolf, Resistance |
+| **Elimination** | Players drop out as the game progresses. | Fact or Fiction (Sudden Death), Pattern Memory, Liar's Dice, Bomb Party, Word Chain, Hot Potato |
+| **Rotating role** | One player leads a round, then the role passes on. | Fill the Blank (judge), Wavelength (clue giver), Auction Bluff (appraiser), Password (clue giver per team turn) |
 | **Card table** | Hidden hands, face-down plays, and a shared pile. | Liars Bar, Cheat, Higher / Lower (Deck), Fill the Blank |
 
 ### Game and mode catalogue
@@ -93,6 +94,28 @@ There is **no single-player or bot mode** yet. **Solo** below means individual s
 | 🕵️ **Codenames** | 4–12 | Team vs team | **Classic** — two teams, one spymaster each; **Speed** — a shorter turn clock |
 | 🙈 **Blind Sketch** | 4–12 | Team vs team | **Classic** — three turns per team with hidden strokes; **Custom Word** — the opposing team writes the word; **Hard** — a shorter timer |
 | 🥊 **Duel Bracket** | 4–8 | Head-to-head | **Classic** — a single-elimination bracket of random mini-duels; **Round Robin** — every pairing plays once and standings rank the room |
+| 🦎 **Chameleon** | 4–12 | Social deduction | **Classic** — Three rounds of clues and one hidden chameleon; **Quick** — Two fast rounds |
+| 🕵️ **Spyfall** | 4–12 | Social deduction | **Classic** — Question, accuse, survive: three locations; **Blitz** — Shorter rounds and faster accusations |
+| 🎯 **Closest Wins** | 2–12 | Solo FFA | **Classic** — Eight estimation questions, closest wins; **Bet** — Wager points on your own estimate |
+| 🕰️ **Timeline** | 2–12 | Solo FFA | **Classic** — Six sets of five events; **Micro** — Three quick three-item sets |
+| 📊 **Rank It** | 2–12 | Solo FFA | **Classic** — Six ranks, four items each; **Speed** — Fifteen seconds to rank each set |
+| ⚡ **Speed Trivia** | 2–12 | Solo FFA | **Classic** — Twelve questions, ten seconds each; **Marathon** — Twenty-five questions on a six-second clock |
+| 🏁 **Flag Rush** | 2–12 | Solo FFA | **Classic** — Fifteen flags with eight seconds each; **Sprint** — Twenty flags, five seconds each |
+| 🧩 **Emoji Decode** | 2–12 | Solo FFA | **Classic** — Twelve emoji puzzles, twenty seconds each; **Speed** — Ten seconds, twelve puzzles |
+| 1️⃣ **Just One** | 3–12 | Co-op | **Classic** — Thirteen words, one guesser each round; **Quick** — Eight words with faster clues |
+| 🤝 **Split or Steal** | 3–12 | Solo FFA | **Classic** — Three rounds of secret split-or-steal choices; **Sudden Death** — One round. Choose carefully. |
+| 🔨 **Auction Bluff** | 2–12 | Solo FFA | **Classic** — Eight lots, sealed bids, bluffs allowed; **Short** — Five lots with faster bidding |
+| 💣 **Bomb Party** | 3–12 | Elimination | **Classic** — Three lives, fifteen seconds a turn; **Quick** — Two lives and eight seconds |
+| 🔗 **Word Chain** | 2–12 | Elimination | **Classic** — Three trips around the table, twenty seconds each; **Sprint** — Two fast trips with ten-second turns |
+| ⌨️ **Type Race** | 2–12 | Solo race | **Classic** — Three passages, two minutes each; **Quick** — Two shorter races |
+| 🟩 **Wordle Race** | 2–12 | Solo race | **Classic** — Three words, six guesses, four minutes; **Blitz** — Two words and four minutes |
+| 🥔 **Hot Potato** | 3–12 | Elimination | **Classic** — Three lives and a 15–35 second fuse; **Quick** — Two lives on a 10–20 second fuse |
+| 🧠 **The Mind** | 2–8 | Co-op | **Classic** — Five levels, three shared lives; **Short** — Three levels with two lives |
+| 🎨 **Draw & Guess** | 3–12 | Solo FFA | **Classic** — Three rounds with ninety seconds to draw; **Quick** — Two rounds and sixty seconds |
+| 📞 **Draw Telephone** | 3–10 | Solo FFA | **Classic** — Three rounds of drawing and misinterpreting; **Quick** — Two rounds with less time |
+| 🖍️ **Bad Artist** | 3–12 | Solo FFA | **Classic** — Three terrible masterpieces; **Quick** — Two quick disasters |
+| 🐺 **Werewolf** | 5–12 | Social deduction | **Classic** — Night actions, a day of debate, and a vote; **Quick** — Faster nights and shorter debates |
+| 🕶️ **Resistance** | 5–10 | Social deduction | **Classic** — Five missions, hidden spies, tense votes; **Quick** — Faster phases for a quicker coup |
 
 ### Card table structure
 

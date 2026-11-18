@@ -1,6 +1,6 @@
 # MODES_2.md — GroupLore game set, round 2
 
-The 28 games from MODES.md are built. This doc specs **15 more**, plus the one shared primitive several of them need (**teams**). The final section is a paste-ready agent prompt.
+The 28 games from MODES.md are built, on top of the 18 that shipped before them (four Phase 2, four Phase 3, seven Phase 4 and three card-table games), so the library stands at **46** when this round starts. This doc specs **15 more**, bringing it to **61 playable games**, plus the one shared primitive several of them need (**teams**). The final section is a paste-ready agent prompt.
 
 All rules from MODES.md still apply: server-authoritative, hidden info only through `viewFor`, phases with early-end, `onPlayerLeave` never deadlocks, modes are config, standard `roundScores`, stable `playerId`s, full snapshot on reconnect, banks with unique stable ids and tests.
 
@@ -188,7 +188,7 @@ Format: **players** · **modes** · **flow** · **scoring** · **notes** · **ba
 ```text
 You are extending GroupLore, a real-time multiplayer party-game app
 (Next.js client, Express + Socket.io server, Supabase). The first set of
-28 games from MODES.md is already built, along with the shared helpers
+46 games (18 earlier + the 28 from MODES.md) are already built, along with the shared helpers
 and the new UI theme. Read README.md, MODES.md and MODES_2.md fully
 before writing code. MODES_2.md is the spec for this round; if it
 conflicts with the existing code's actual conventions, follow the code
@@ -268,7 +268,7 @@ migrations to run in order.
 2. **Teams are a room primitive.** `room.teams` is created by `autoBalance`, validated before the engine may enter `playing`, and kept in sync on join/leave. The host can auto-balance, shuffle, move and lock teams. Odd counts are allowed with sizes differing by one. If a team drops below `minPerTeam`, Password pauses for 20 seconds and resumes when the team is restored; if the pause expires, the game ends gracefully instead of deadlocking.
 3. **Latency.** The server sends `latency:ping` with an opaque id and consumes the matching `latencyPong`; `latencyOf` uses a smoothed half-RTT capped at 125 ms. Client timestamps are never used for scoring.
 4. **Blur assets.** The shipped set is 150 self-made SVG subjects with six pre-blurred stages each. Every file and stage is generated locally by `scripts/build-blur-assets.mjs` from `scripts/blur-extra-subjects.mjs` and recorded in `src/server/data/assets/blur/manifest.json` and `public/blur/LICENSE.md`. Sharp images and future stages are never included in a stage view; only the current stage URL and, at result time, the sharp URL are sent.
-5. **Banks.** The generated banks are real, varied content with stable ids. Shipped counts: Fill the Blank 120 prompts/500 answers, Connections 100 puzzles, Survey Says 150 questions, Scattergories 80 category sets, Story Chain 60 starters, Password 300 words, Codenames 400 words, Blind Sketch 300 words, Buzzer Trivia 300 questions, Blur Guess 150 images, Boggle dictionary 610 words.
+5. **Banks.** The generated banks are real, varied content with stable ids. Shipped counts: Fill the Blank 120 prompts/500 answers, Connections 100 puzzles, Survey Says 108 questions, Scattergories 80 category sets, Story Chain 110 starters, Password 300 words, Codenames 400 words, Blind Sketch 300 words, Buzzer Trivia 350 questions, Blur Guess 150 images, Boggle dictionary 610 words.
 6. **Client composition.** All fifteen games use one routed screen component with per-game subviews. Blind Sketch uses a local SVG stroke surface and sends normalized strokes through the existing action stream; the drawer's view intentionally hides all strokes, including their own. At reveal, the client replays the recorded strokes progressively at 3× before showing the word.
 7. **Bracket and challenge flows.** Duel Bracket's `Round Robin` mode builds an all-pairs schedule, plays every pairing once, and ranks the room by match wins. Scattergories runs a 10-second challenge phase: any player can challenge another player's answer, everyone except the answerer votes, and an accepted challenge invalidates the answer before shared/unique scoring. Password's dropout pause uses the engine's `onPlayerJoin` hook to resume immediately when the team is restored.
 

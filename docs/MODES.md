@@ -1,6 +1,6 @@
 # MODES.md — Extending the GroupLore game set
 
-Spec for adding **28 new, non-group-specific games** to the existing 15. None read `member_profiles`; each uses only its own prompt bank. Group-lore personalization is deferred.
+Spec for adding **28 new, non-group-specific games** to the 18 that had already shipped (four Phase 2, four Phase 3, seven Phase 4 and three card-table games). That batch took the library to **46**; `MODES_2.md` adds 15 more for **61 playable games** in total. None of these 28 read `member_profiles`; each uses only its own prompt bank. Group-lore personalization is deferred.
 
 The final section is a ready-to-paste **agent prompt**.
 
@@ -296,5 +296,5 @@ Observed from the current engine, modules, migrations, tests and client screens 
 - **Tier migrations:** one migration file per tier (`supabase/migrations/supabase-migration-tier1-games.sql`) follows the existing phase-migration pattern; ids are added to it as each game lands rather than creating one migration per game.
 - **Pitch Perfect final round:** the final-round multiplier applies to both vote points and the unanimous bonus, so every scoring event in that round is doubled.
 - **Fact or Fiction sudden death:** a wrong answer eliminates the player, but scoring continues per correct answer. The mode is capped at 30 questions so an all-correct room cannot run forever.
-- **Delivery status:** Tier 1 is complete and tested. Tiers 2–5 were not started in this pass; the remaining 22 games need new shared systems (canvas/stroke sync, high-frequency real-time input, hidden-role state machines) and additional banks. Nothing from those tiers was stubbed or partially wired.
+- **Delivery status:** All 28 specified games are implemented and routed: Tier 1 (6), Tier 2 (11), Tier 3 (6), Tier 4 (3) and Tier 5 (2), on top of the 18 earlier games for **46 playable** at the end of this batch (61 once `MODES_2.md` lands). The 22 new modules use server-authoritative engines, starter banks, secret-safe public views, a shared `ModesGame` client and a mechanics suite covering every engine. Starter banks are intentionally compact; expanding them toward the long-term targets remains content work, not missing mechanics.
 
