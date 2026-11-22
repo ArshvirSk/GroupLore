@@ -522,7 +522,10 @@ test(
         token: host.token,
         status: 200,
       });
-      assert.equal(catalog.data.length, 21);
+      // Compare against the registry instead of a literal count: a hardcoded
+      // number silently went stale every time the library grew.
+      const { listGames } = await import("../src/server/games/index.js");
+      assert.equal(catalog.data.length, listGames().length);
 
       const groups = await call("/api/groups", {
         token: host.token,

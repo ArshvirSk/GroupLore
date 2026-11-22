@@ -1,6 +1,11 @@
 import "server-only";
 import { SseConnection } from "@/server/realtime/connection.js";
 import { getEngine } from "@/server/realtime/engine.js";
+import {
+  SERVERLESS_HOST_CODE,
+  SERVERLESS_HOST_MESSAGE,
+  serverlessHostDetected,
+} from "@/server/realtime/host.js";
 import { apiError } from "@/server/api/http";
 
 export const runtime = "nodejs";
@@ -17,6 +22,10 @@ function encodeFrame(event: string, payload: unknown) {
 }
 
 export async function GET(request: Request) {
+  if (serverlessHostDetected()) {
+    return apiError(503, SERVERLESS_HOST_CODE, SERVERLESS_HOST_MESSAGE);
+  }
+
   const token = bearerToken(request);
   if (!token) {
     return apiError(401, "unauthorized", "Sign in to play");

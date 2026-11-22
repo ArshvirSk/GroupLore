@@ -1,5 +1,10 @@
 import "server-only";
 import { getEngine } from "@/server/realtime/engine.js";
+import {
+  SERVERLESS_HOST_CODE,
+  SERVERLESS_HOST_MESSAGE,
+  serverlessHostDetected,
+} from "@/server/realtime/host.js";
 import { apiError, handleApi, readJson } from "@/server/api/http";
 
 export const runtime = "nodejs";
@@ -22,6 +27,10 @@ function bearerToken(request: Request) {
 
 export async function POST(request: Request) {
   return handleApi(async () => {
+    if (serverlessHostDetected()) {
+      return apiError(503, SERVERLESS_HOST_CODE, SERVERLESS_HOST_MESSAGE);
+    }
+
     const token = bearerToken(request);
     if (!token) return apiError(401, "unauthorized", "Sign in to play");
 

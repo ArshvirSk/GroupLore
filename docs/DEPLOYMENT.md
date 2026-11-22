@@ -9,6 +9,22 @@ This design requires a persistent Node process. It cannot run as serverless
 functions, and live rooms, timers, nudge queues, and join limits are
 process-local. Run exactly one application instance.
 
+## Do not deploy to Vercel or another serverless platform
+
+`mygrouplore.vercel.app` was deployed this way and live games break: Vercel
+caps how long a response may stream, and a later action POST is not routed to
+the instance holding the SSE connection. `/api/realtime/action` then answers
+`409 connection_not_found`, the client aborts the stream, and players see
+"Connection lost — reconnecting" over and over while their seat expires.
+
+Any host that keeps one Node process alive works. Vercel's preview/production
+functions do not, and neither does any autoscaled multi-instance setup.
+
+On a serverless host the realtime routes now answer `503` with
+`realtime_requires_persistent_host` and that message instead of looping. The
+check keys off `VERCEL`; set `GROUPLORE_ALLOW_SERVERLESS=true` only if you move
+room state out of process and know what you are doing.
+
 ## Requirements
 
 - Node.js 22 or newer
@@ -48,6 +64,35 @@ npm run check:api
 
 `test:api` starts its own `next start` server on `127.0.0.1:3199` and uses real
 Supabase test accounts, cleaning them up afterward.
+
+## Hosts that run one Node process
+
+A platform whose normal Node runtime stays alive is enough; nothing extra is
+needed beyond the build and start commands above. Render, Railway and Fly.io
+all run this repo directly with `npm ci && npm run build` and `npm start`, and
+a plain VPS uses the systemd unit below.
+
+Requirements for the host, whichever it is:
+
+- One instance. Never scale to two replicas; rooms would split across
+  processes, which is the same failure as the serverless case above.
+- No request timeout shorter than a game session, and no proxy buffering on
+  `/api/realtime/stream`.
+- `PORT` respected, health check on `/api/health`.
+- The build must have `NEXT_PUBLIC_SUPABASE_URL` and
+  `NEXT_PUBLIC_SUPABASE_ANON_KEY` available, because they are inlined into the
+  browser bundle. Everything else, including
+  `SUPABASE_SERVICE_ROLE_KEY`, is runtime-only.
+
+Verify live play after the first deploy, not the HTML:
+
+```bash
+curl --fail https://your-host/api/health
+```
+
+Then open a lobby in two browsers, start a game, and confirm
+`/api/realtime/stream` stays an open `text/event-stream` response for the whole
+match.
 
 ## systemd
 

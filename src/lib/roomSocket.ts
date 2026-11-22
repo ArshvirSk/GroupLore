@@ -34,6 +34,9 @@ export class RealtimeSocket {
   private reconnectTimer: ReturnType<typeof setTimeout> | null = null;
   private reconnectAttempts = 0;
   private opening = false;
+  // Set when the deployment itself cannot host rooms. Retrying would only loop
+  // the "reconnecting" banner, so the failure is surfaced once instead.
+  private fatal = false;
   // Actions are delivered over HTTP, so they must be sent one at a time or a
   // later action can reach the server before `room:join` and be rejected with
   // "not_in_room".
@@ -96,8 +99,11 @@ export class RealtimeSocket {
       this.opening = false;
       const data =
         error && typeof error === "object" && "data" in error
-          ? (error as { data?: unknown }).data
+          ? (error as { data?: { code?: string; message?: string } }).data
           : undefined;
+      if (data?.code === "realtime_requires_persistent_host") {
+        this.fatal = true;
+      }
       this.dispatch("connect_error", Object.assign(error as Error, { data }));
       throw error;
     }
@@ -243,7 +249,7 @@ export class RealtimeSocket {
   }
 
   private scheduleReconnect() {
-    if (this.reconnectTimer || this.manualClose) return;
+    if (this.fatal || this.reconnectTimer || this.manualClose) return;
     const delay = Math.min(4000, 500 * 2 ** this.reconnectAttempts);
     this.reconnectAttempts += 1;
     this.reconnectTimer = setTimeout(() => {
