@@ -18,7 +18,8 @@ GroupLore/
 ├── src/server/            # Engine, games, data, and server libraries
 ├── docs/                  # Design, deployment, and development docs
 ├── supabase/              # Schema + ordered migrations
-└── deploy/                # systemd and nginx templates
+├── deploy/                # systemd and nginx templates
+└── render.yaml            # Render Blueprint for a single-process host
 ```
 
 ## Tech Stack
@@ -257,7 +258,9 @@ npm start
 ```
 
 See `docs/DEPLOYMENT.md` for the systemd unit, nginx SSE proxy, health
-checks, and rollback runbook.
+checks, and rollback runbook. For the simplest managed host, `render.yaml`
+deploys the app to Render as one always-on instance; see `docs/DEPLOY_RENDER.md`
+for the setup steps and environment-variable checklist.
 
 ### 4. Tests
 

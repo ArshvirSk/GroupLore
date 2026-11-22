@@ -1,0 +1,73 @@
+# Render Blueprint for GroupLore.
+#
+# Live rooms, game timers and the realtime event stream all live inside this
+# Node process, so the service has to stay awake and has to be exactly one
+# instance. That rules out the `free` plan (it spins down after 15 minutes
+# without inbound traffic, which kills every room and stream) and any
+# autoscaling configuration.
+#
+# Setup steps and the full environment-variable checklist: docs/DEPLOY_RENDER.md
+
+previews:
+  # Disable preview environments: each one is a second deployment with its own
+  # in-memory rooms, and there should only ever be one live service.
+  generation: off
+
+services:
+  - type: web
+    name: grouplore
+    runtime: node
+    # Closest region to the players; change it if your group is elsewhere.
+    region: singapore
+    # Never `free`: a spin-down takes the rooms with it.
+    plan: 0.5c-512mb
+    # Rooms are process-local. Autoscaling would split players across
+    # processes and recreate the `connection_not_found` reconnect loop.
+    numInstances: 1
+    branch: main
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 22.11.0
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      # HMAC key for reconnect seat tokens. Generated once by Render; do not
+      # replace it with a short development value.
+      - key: SESSION_SECRET
+        generateValue: true
+
+      # Browser configuration: these are inlined into the client bundle during
+      # the build, so changing them requires a redeploy, not just a restart.
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        sync: false
+
+      # Server-only configuration. Never expose the service role key to the
+      # browser or to a NEXT_PUBLIC_* variable.
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      # Only needed for lore image uploads; the rest of the app runs without it.
+      - key: UPLOADTHING_TOKEN
+        sync: false
+
+      # Content and access policy.
+      - key: ALLOW_GUESTS
+        value: "true"
+      - key: LORE_MODE
+        value: "false"
+      - key: MAX_CONTENT_RATING
+        value: teen
+      - key: ALLOW_NSFW_CONTENT
+        value: "false"
+
+      # Do not set PORT (Render injects it and `next start` reads it) and do
+      # not set VERCEL or GROUPLORE_ALLOW_SERVERLESS: those are the guards for
+      # hosts that cannot run live rooms.

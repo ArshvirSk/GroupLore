@@ -84,6 +84,11 @@ Requirements for the host, whichever it is:
   browser bundle. Everything else, including
   `SUPABASE_SERVICE_ROLE_KEY`, is runtime-only.
 
+For Render specifically, `render.yaml` at the repo root already describes the
+service: one instance, `npm ci && npm run build`, `npm start`, health check on
+`/api/health`, and no preview environments. Step-by-step setup and the full
+environment-variable checklist are in [DEPLOY_RENDER.md](./DEPLOY_RENDER.md).
+
 Verify live play after the first deploy, not the HTML:
 
 ```bash
