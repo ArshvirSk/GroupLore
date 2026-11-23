@@ -17,7 +17,7 @@ for why that produces the "Connection lost — reconnecting" loop.
 | Build | `npm ci && npm run build` | Reproducible install from the lockfile |
 | Start | `npm start` | `next start`, serving pages, REST and SSE together |
 | Instances | `1` | Rooms, timers and streams are process-local |
-| Plan | `0.5c-512mb` | Paid plan: always on, never spun down |
+| Plan | `free` | No cost. Sleeps after 15 idle minutes, so pair it with the keep-awake ping below; `0.5c-512mb` (paid, ~$7/mo) never sleeps |
 | Health check | `/api/health` | Render restarts the service if it fails |
 | Region | `singapore` | Change it if your group is elsewhere |
 | Preview environments | off | A preview would be a second copy with its own rooms |
@@ -81,8 +81,48 @@ because those are baked into the browser bundle at build time).
 - Every deploy restarts the process and drops in-memory rooms. Deploy when
   nobody is playing, or set **Auto-Deploy** to *Off* in the dashboard and ship
   deliberately.
-- `free` is not usable for live play: Render spins it down after 15 minutes
-  without inbound traffic and takes about a minute to wake, losing all rooms.
+- The `free` plan spins the service down after 15 minutes without inbound
+  traffic. Keep it warm with the ping in the next section, or upgrade the
+  service's compute plan to `0.5c-512mb` to remove the sleeping entirely.
+
+## Free plan: keeping the service awake
+
+`render.yaml` asks for `plan: free`. Nothing in the app breaks on free; the only
+problem is that Render spins a free web service down after 15 minutes without
+inbound traffic, and waking it takes about a minute. A friend opening a shared
+link in that state sees Render's loading page, not the game. An outside request
+every few minutes keeps it from ever getting there.
+
+- **Free instance hours:** 750 per workspace per calendar month. A 31-day month
+  is 744 hours, so one service kept awake around the clock uses essentially the
+  whole allowance. Don't add a second always-awake free service, and if the
+  hours run out Render suspends every free service in the workspace until the
+  1st of the next month.
+- **Size:** 0.1 CPU and 512 MB. Fine for a few friends; not for a big room.
+- **Restarts:** Render may restart a free instance at any time, and every
+  restart drops the in-memory rooms. Players reopen the game and rejoin with the
+  same lobby code; nothing is lost from the database.
+
+### The keep-alive ping (cron-job.org)
+
+Nothing here runs on GitHub and nothing is added to this repo — GitHub is only
+where Render reads the source from. cron-job.org is a website that sends one HTTP
+request on a schedule, from its own servers, to whatever URL you give it.
+
+1. Sign up at [cron-job.org](https://cron-job.org) and choose **Create cronjob**.
+2. Title `GroupLore keep-alive`; URL `https://<name>.onrender.com/api/health`.
+3. Method **GET**. Schedule **every 10 minutes** — anything under 15 works.
+4. Leave the timeout at the default 30 seconds. Enable failure email
+   notifications if you want to hear about an outage.
+5. Save, then use **Test run**: expect `200` and
+   `{"status":"ok","timestamp":"...","engine":{"rooms":0},"guests":true}`.
+
+Expect the first ping after a sleep to report a timeout at 30 seconds, because
+the service takes about a minute to wake — the wake still happened. Repeated
+failures mean the service is not starting at all: read **Logs** in Render.
+
+Point the job at `/api/health`, not `/api/realtime/stream`: the stream requires
+a signed-in session and holds the connection open until the timeout.
 
 ## Verify live play after the deploy
 

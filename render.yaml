@@ -1,10 +1,11 @@
 # Render Blueprint for GroupLore.
 #
 # Live rooms, game timers and the realtime event stream all live inside this
-# Node process, so the service has to stay awake and has to be exactly one
-# instance. That rules out the `free` plan (it spins down after 15 minutes
-# without inbound traffic, which kills every room and stream) and any
-# autoscaling configuration.
+# Node process, so the service has to be exactly one instance, and it must not
+# sleep mid-game. This file uses the `free` plan: it spins down after 15 minutes
+# without inbound traffic and takes about a minute to wake, so it is kept warm
+# from outside — see "Free plan: keeping the service awake" in
+# docs/DEPLOY_RENDER.md. Autoscaling is never allowed here.
 #
 # Setup steps and the full environment-variable checklist: docs/DEPLOY_RENDER.md
 
@@ -19,8 +20,10 @@ services:
     runtime: node
     # Closest region to the players; change it if your group is elsewhere.
     region: singapore
-    # Never `free`: a spin-down takes the rooms with it.
-    plan: 0.5c-512mb
+    # Free sleeps after 15 idle minutes and may be restarted at any time. Pair
+    # it with the keep-alive ping in docs/DEPLOY_RENDER.md, or switch this to
+    # `starter` ($7/mo) to remove both behaviours.
+    plan: free
     # Rooms are process-local. Autoscaling would split players across
     # processes and recreate the `connection_not_found` reconnect loop.
     numInstances: 1
