@@ -69,7 +69,7 @@ export default function GameLibrary({ games }: { games: LibraryGame[] }) {
         </p>
         <div className="mt-5 flex flex-wrap gap-2">
           <Badge tone="primary">{games.length} games</Badge>
-          <Badge tone="accent">3–12 players</Badge>
+          <Badge tone="accent">2–12 players</Badge>
           <Badge tone="success">Instant rooms</Badge>
         </div>
       </div>

@@ -184,7 +184,7 @@ const impostor = {
   description: "Everyone gets a secret prompt except one player. Blend in, then find the fake.",
   emoji: "🕵️",
   accent: "teal",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

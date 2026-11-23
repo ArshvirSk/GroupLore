@@ -123,7 +123,7 @@ const factOrFiction = {
   emoji: "✅",
   accent: "teal",
   tag: "Trivia",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

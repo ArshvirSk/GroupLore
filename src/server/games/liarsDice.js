@@ -124,7 +124,7 @@ const liarsDice = {
   emoji: "🎲",
   accent: "teal",
   tag: "Strategy",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 8,
   modes: MODES,
 

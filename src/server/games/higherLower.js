@@ -205,7 +205,7 @@ const higherLower = {
   description: "Rate the room, then guess whether the next player scores higher or lower.",
   emoji: "📈",
   accent: "teal",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

@@ -72,7 +72,7 @@ const bombParty = {
   id: "bomb-party",
   name: "Bomb Party", description: "Say a word containing the letters before the bomb goes off.",
   emoji: "💣", accent: "coral", tag: "Real-time",
-  minPlayers: 3, maxPlayers: 12, modes: MODES,
+  minPlayers: 2, maxPlayers: 12, modes: MODES,
 
   init(room, mode) {
     room.mode = mode in MODES ? mode : "classic";

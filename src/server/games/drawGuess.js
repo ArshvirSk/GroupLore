@@ -80,7 +80,7 @@ const drawGuess = {
   id: "draw-guess",
   name: "Draw & Guess", description: "One artist, one secret word, everyone else guessing.",
   emoji: "🎨", accent: "blue", tag: "Draw",
-  minPlayers: 3, maxPlayers: 12, modes: MODES,
+  minPlayers: 2, maxPlayers: 12, modes: MODES,
 
   init(room, mode) {
     room.mode = mode in MODES ? mode : "classic";

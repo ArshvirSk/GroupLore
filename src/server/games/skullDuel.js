@@ -160,7 +160,7 @@ const skullDuel = {
   emoji: "💀",
   accent: "plum",
   tag: "Strategy",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 6,
   modes: MODES,
 

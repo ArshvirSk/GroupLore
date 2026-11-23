@@ -114,7 +114,7 @@ const twoTruths = {
   emoji: "🤥",
   accent: "teal",
   tag: "Bluffing",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

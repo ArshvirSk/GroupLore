@@ -104,7 +104,7 @@ const categoryRush = {
   description: "One category, one letter, one answer. Unique answers score more.",
   emoji: "💡",
   accent: "honey",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

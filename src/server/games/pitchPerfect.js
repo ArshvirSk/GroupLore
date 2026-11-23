@@ -108,7 +108,7 @@ const pitchPerfect = {
   emoji: "🦈",
   accent: "honey",
   tag: "Pitch battle",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

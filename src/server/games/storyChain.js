@@ -117,7 +117,7 @@ const storyChain = {
   emoji: "📖",
   accent: "lavender",
   tag: "Write",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

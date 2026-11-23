@@ -98,7 +98,7 @@ const hiveMind = {
   description: "Everyone answers the same prompt. Match the group, not your own brain.",
   emoji: "🐝",
   accent: "honey",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

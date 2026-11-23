@@ -127,7 +127,7 @@ const wouldYouRather = {
   description: "Two impossible choices. Pick a side and see how the group splits.",
   emoji: "🔀",
   accent: "honey",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

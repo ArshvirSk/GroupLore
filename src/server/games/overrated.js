@@ -105,7 +105,7 @@ const overrated = {
   description: "Pick a side on everyday opinions. The majority takes the point.",
   emoji: "⚖️",
   accent: "pink",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

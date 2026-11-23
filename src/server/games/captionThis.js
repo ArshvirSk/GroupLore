@@ -130,7 +130,7 @@ const captionThis = {
   description: "Write the funniest caption for a ridiculous scenario, then vote for the best.",
   emoji: "📸",
   accent: "grape",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

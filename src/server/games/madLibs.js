@@ -160,7 +160,7 @@ const madLibs = {
   emoji: "📝",
   accent: "honey",
   tag: "Story builder",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 9,
   modes: MODES,
 

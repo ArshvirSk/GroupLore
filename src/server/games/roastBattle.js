@@ -179,7 +179,7 @@ const roastBattle = {
   emoji: "🔥",
   accent: "pink",
   tag: "Head to head",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

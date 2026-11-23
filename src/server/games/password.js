@@ -188,8 +188,8 @@ const password = {
   emoji: "🔤",
   accent: "blue",
   tag: "Social",
-  teams: { count: 2, minPerTeam: 2 },
-  minPlayers: 4,
+  teams: { count: 2, minPerTeam: 1 },
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

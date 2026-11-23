@@ -132,7 +132,7 @@ const wavelength = {
   description: "Give a clue that lands the group on the secret point of the spectrum.",
   emoji: "🌊",
   accent: "teal",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

@@ -176,7 +176,7 @@ const bluff = {
   description: "Everyone writes a fake answer. Can the group spot the real one?",
   emoji: "🎩",
   accent: "grape",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

@@ -149,7 +149,7 @@ const fiveSecond = {
   description: "One player, one prompt, five seconds. Then the group decides if it counts.",
   emoji: "⚡",
   accent: "honey",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

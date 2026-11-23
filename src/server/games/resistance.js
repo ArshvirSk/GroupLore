@@ -128,7 +128,7 @@ const resistance = {
   id: "resistance",
   name: "Resistance", description: "Complete missions while spies hidden in the group sabotage them.",
   emoji: "🕶️", accent: "blue", tag: "Social",
-  minPlayers: 5, maxPlayers: 10, modes: MODES,
+  minPlayers: 2, maxPlayers: 10, modes: MODES,
 
   init(room, mode) {
     room.mode = mode in MODES ? mode : "classic";

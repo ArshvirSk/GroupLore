@@ -118,7 +118,7 @@ const werewolf = {
   id: "werewolf",
   name: "Werewolf", description: "The village sleeps, the wolves hunt, and nobody trusts the morning.",
   emoji: "🐺", accent: "grape", tag: "Social",
-  minPlayers: 5, maxPlayers: 12, modes: MODES,
+  minPlayers: 2, maxPlayers: 12, modes: MODES,
 
   init(room, mode) {
     room.mode = mode in MODES ? mode : "classic";

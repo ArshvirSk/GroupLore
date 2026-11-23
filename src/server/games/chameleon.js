@@ -70,7 +70,7 @@ const chameleon = {
   emoji: "🦎",
   accent: "teal",
   tag: "Social",
-  minPlayers: 4,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

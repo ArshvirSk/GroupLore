@@ -158,7 +158,7 @@ const oddOneOut = {
   description: "Everyone gets a prompt, but one player gets a different one. Blend in.",
   emoji: "🎭",
   accent: "teal",
-  minPlayers: 4,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

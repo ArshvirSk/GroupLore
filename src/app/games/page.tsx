@@ -117,7 +117,7 @@ function GamesView({ initialQuery }: { initialQuery: string }) {
           </p>
           <div className="mt-5 flex flex-wrap gap-2">
             <Badge tone="primary">{catalog.length ? `${catalog.length} games` : "Loading library"}</Badge>
-            <Badge tone="accent">3–12 players</Badge>
+            <Badge tone="accent">2–12 players</Badge>
             <Badge tone="success">Instant rooms</Badge>
           </div>
         </div>

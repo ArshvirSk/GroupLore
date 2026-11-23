@@ -128,7 +128,7 @@ const hotTakes = {
   description: "Agree or disagree. The minority gets the hottest take points.",
   emoji: "🌶️",
   accent: "pink",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

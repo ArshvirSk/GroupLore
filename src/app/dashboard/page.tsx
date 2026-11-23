@@ -362,7 +362,7 @@ export default function DashboardPage() {
                     <span className="library-desc line-clamp-2 block">{live?.description || meta.description}</span>
                   </span>
                   <span className="library-foot">
-                    <small>{live ? `${live.minPlayers}–${live.maxPlayers} players` : "3–12 players"}{modes ? ` · ${modes} mode${modes === 1 ? "" : "s"}` : ""}</small>
+                    <small>{live ? `${live.minPlayers}–${live.maxPlayers} players` : "2–12 players"}{modes ? ` · ${modes} mode${modes === 1 ? "" : "s"}` : ""}</small>
                     <span className="library-arrow"><Icon name="arrow-right" /></span>
                   </span>
                 </button>

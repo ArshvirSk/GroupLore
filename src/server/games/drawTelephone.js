@@ -88,7 +88,7 @@ const drawTelephone = {
   id: "draw-telephone",
   name: "Draw Telephone", description: "A drawing becomes a guess, then a drawing, then chaos.",
   emoji: "📞", accent: "honey", tag: "Draw",
-  minPlayers: 3, maxPlayers: 10, modes: MODES,
+  minPlayers: 2, maxPlayers: 10, modes: MODES,
 
   init(room, mode) {
     room.mode = mode in MODES ? mode : "classic";

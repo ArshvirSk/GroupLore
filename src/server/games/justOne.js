@@ -77,7 +77,7 @@ const justOne = {
   id: "just-one",
   name: "Just One", description: "Co-op word guessing where matching clues cancel out.",
   emoji: "1️⃣", accent: "green", tag: "Write",
-  minPlayers: 3, maxPlayers: 12, modes: MODES,
+  minPlayers: 2, maxPlayers: 12, modes: MODES,
 
   init(room, mode) {
     room.mode = mode in MODES ? mode : "classic";

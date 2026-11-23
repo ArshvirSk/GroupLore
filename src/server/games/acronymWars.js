@@ -151,7 +151,7 @@ const acronymWars = {
   emoji: "🔤",
   accent: "teal",
   tag: "Word game",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

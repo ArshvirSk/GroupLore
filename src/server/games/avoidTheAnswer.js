@@ -109,7 +109,7 @@ const avoidTheAnswer = {
   description: "Describe the secret word without saying any of its banned words.",
   emoji: "🚫",
   accent: "pink",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

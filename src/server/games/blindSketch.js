@@ -160,8 +160,8 @@ const blindSketch = {
   emoji: "🙈",
   accent: "blue",
   tag: "Draw",
-  teams: { count: 2, minPerTeam: 2 },
-  minPlayers: 4,
+  teams: { count: 2, minPerTeam: 1 },
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

@@ -73,7 +73,7 @@ const mostLikelyTo = {
   description: "Vote for the friend who fits the prompt best.",
   emoji: "👑",
   accent: "grape",
-  minPlayers: 3,
+  minPlayers: 2,
   maxPlayers: 12,
   modes: MODES,
 

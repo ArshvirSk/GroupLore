@@ -64,7 +64,7 @@ const badArtist = {
   id: "bad-artist",
   name: "Bad Artist", description: "Describe an absurd scene with the worst drawing possible.",
   emoji: "🖍️", accent: "coral", tag: "Draw",
-  minPlayers: 3, maxPlayers: 12, modes: MODES,
+  minPlayers: 2, maxPlayers: 12, modes: MODES,
 
   init(room, mode) {
     room.mode = mode in MODES ? mode : "classic";

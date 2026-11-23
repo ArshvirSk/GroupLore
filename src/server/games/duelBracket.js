@@ -146,7 +146,7 @@ const duelBracket = {
   emoji: "🥊",
   accent: "coral",
   tag: "Strategy",
-  minPlayers: 4,
+  minPlayers: 2,
   maxPlayers: 8,
   modes: MODES,
 

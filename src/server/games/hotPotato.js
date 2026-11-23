@@ -25,7 +25,7 @@ const hotPotato = {
   id: "hot-potato",
   name: "Hot Potato", description: "Pass the ticking potato. Do not be holding it when it pops.",
   emoji: "🥔", accent: "honey", tag: "Real-time",
-  minPlayers: 3, maxPlayers: 12, modes: MODES,
+  minPlayers: 2, maxPlayers: 12, modes: MODES,
 
   init(room, mode) {
     room.mode = mode in MODES ? mode : "classic";

@@ -73,7 +73,7 @@ const splitOrSteal = {
   id: "split-or-steal",
   name: "Split or Steal", description: "Secretly split the pot with a partner, or take it all.",
   emoji: "🤝", accent: "coral", tag: "Social",
-  minPlayers: 3, maxPlayers: 12, modes: MODES,
+  minPlayers: 2, maxPlayers: 12, modes: MODES,
 
   init(room, mode) {
     room.mode = mode in MODES ? mode : "classic";

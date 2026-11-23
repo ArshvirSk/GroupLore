@@ -99,7 +99,7 @@ const spyfall = {
   name: "Spyfall",
   description: "Everyone shares a location and role except the spy. Ask questions and unmask them.",
   emoji: "🕵️", accent: "grape", tag: "Social",
-  minPlayers: 4, maxPlayers: 12, modes: MODES,
+  minPlayers: 2, maxPlayers: 12, modes: MODES,
 
   init(room, mode) {
     room.mode = mode in MODES ? mode : "classic";
