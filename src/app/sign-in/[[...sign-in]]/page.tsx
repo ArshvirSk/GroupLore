@@ -5,6 +5,7 @@ import { useAuth } from "@/components/AuthProvider";
 import { Button, Input } from "@/components/ui";
 import { safeNextPath, withNext } from "@/lib/authRedirect";
 import { supabase } from "@/lib/supabase";
+import GoogleSignInButton from "@/components/GoogleSignInButton";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -13,7 +14,7 @@ export default function SignInPage() {
   const searchParams = useSearchParams();
   const nextPath = safeNextPath(searchParams.get("next"));
   const guestPath = nextPath.startsWith("/join/") ? nextPath : "/guest";
-  const { isLoaded, isSignedIn, isGuest } = useAuth();
+  const { isLoaded, isSignedIn, isGuest, googleEnabled } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -59,6 +60,16 @@ export default function SignInPage() {
         </>
       }
     >
+      {googleEnabled ? (
+        <>
+          <GoogleSignInButton nextPath={nextPath} onError={setError} />
+          <div className="my-5 flex items-center gap-3">
+            <span className="h-px flex-1 bg-border" />
+            <span className="text-xs text-muted">or use your email</span>
+            <span className="h-px flex-1 bg-border" />
+          </div>
+        </>
+      ) : null}
       <form onSubmit={handleSubmit} className="space-y-4">
         <Input label="Email" type="email" required autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="you@example.com" />
         <Input label="Password" type="password" required autoComplete="current-password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Your password" />

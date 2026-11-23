@@ -24,6 +24,7 @@ type AuthContextValue = {
   displayName: string;
   avatarUrl: string | null;
   guestsEnabled: boolean;
+  googleEnabled: boolean;
   getAccessToken: () => Promise<string | null>;
   signOut: () => Promise<void>;
 };
@@ -72,6 +73,8 @@ export default function AuthProvider({
   const setSession = useAuthStore((state) => state.setSession);
   const setProfile = useAuthStore((state) => state.setProfile);
   const setGuestsEnabled = useAuthStore((state) => state.setGuestsEnabled);
+  const googleEnabled = useAuthStore((state) => state.googleEnabled);
+  const setGoogleEnabled = useAuthStore((state) => state.setGoogleEnabled);
   const clear = useAuthStore((state) => state.clear);
   const router = useRouter();
   const pathname = usePathname();
@@ -102,11 +105,14 @@ export default function AuthProvider({
   useEffect(() => {
     api
       .getAuthConfig()
-      .then((config) => setGuestsEnabled(Boolean(config.guestsEnabled)))
+      .then((config: { guestsEnabled?: boolean; googleEnabled?: boolean }) => {
+        setGuestsEnabled(Boolean(config.guestsEnabled));
+        setGoogleEnabled(Boolean(config.googleEnabled));
+      })
       .catch(() => {
         // Keep the local default; the server still enforces the policy.
       });
-  }, [setGuestsEnabled]);
+  }, [setGoogleEnabled, setGuestsEnabled]);
 
   useEffect(() => {
     let active = true;
@@ -181,6 +187,7 @@ export default function AuthProvider({
       displayName,
       avatarUrl,
       guestsEnabled,
+      googleEnabled,
       getAccessToken,
       signOut,
     }),
@@ -192,6 +199,7 @@ export default function AuthProvider({
       displayName,
       avatarUrl,
       guestsEnabled,
+      googleEnabled,
       getAccessToken,
       signOut,
     ],

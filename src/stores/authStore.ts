@@ -20,9 +20,11 @@ interface AuthState {
   isGuest: boolean;
   status: AuthStatus;
   guestsEnabled: boolean;
+  googleEnabled: boolean;
   setSession: (session: Session | null) => void;
   setProfile: (profile: Profile | null) => void;
   setGuestsEnabled: (enabled: boolean) => void;
+  setGoogleEnabled: (enabled: boolean) => void;
   clear: () => void;
 }
 
@@ -38,6 +40,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   isGuest: false,
   status: "loading",
   guestsEnabled: true,
+  googleEnabled: false,
   setSession: (session) =>
     set({
       session,
@@ -48,6 +51,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     }),
   setProfile: (profile) => set({ profile }),
   setGuestsEnabled: (guestsEnabled) => set({ guestsEnabled }),
+  setGoogleEnabled: (googleEnabled) => set({ googleEnabled }),
   clear: () =>
     set({
       session: null,
